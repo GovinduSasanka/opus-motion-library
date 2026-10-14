@@ -12,7 +12,7 @@ and rebuilt as a Remotion component you can call by name with your own text, col
 - **Deterministic** — seeded randomness; the same props always give the same frames.
 - **Narrated videos from a storyboard** — local Qwen3-TTS voice, captions, ducked music, loudness mastering. No cloud services.
 
-The demo film (`out/demo.mp4`, attached to the GitHub release) walks through every motion as one connected story — a single
+The demo film — **[download demo.mp4 (8 min, 1080p) from the v1.0.0 release](https://github.com/GovinduSasanka/opus-motion-library/releases/tag/v1.0.0)** — walks through every motion as one connected story — a single
 dot that learns to move, makes things, flies as a paper crane, dives into the deep, meets characters, becomes pictures,
 data and words — and ends with a full mix of everything.
 

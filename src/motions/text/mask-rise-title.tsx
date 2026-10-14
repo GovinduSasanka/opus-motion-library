@@ -3,7 +3,7 @@ import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {clamp} from '../../core/ease';
 import {fonts} from '../../core/fonts';
 import {useStage} from '../../core/stage';
-import {Backdrop, BackdropKind, BlockCursor, CropMarks, cursorOn, eic, eioc, eoc, estWidth, tfonts, typed} from '../../core/text-kit';
+import {Backdrop, BackdropKind, BlockCursor, CropMarks, cursorOn, eic, eioc, eoc, estWidth, fitSize, tfonts, typed} from '../../core/text-kit';
 import {defineMotion} from '../../core/types';
 
 /**
@@ -103,8 +103,9 @@ const RollNumeral: React.FC<{from: string; to: string; at: number; dur: number; 
 
 const ChapterCard: React.FC<{c: Chapter; p: Props; inStart: number; outStart: number | null; compressAt: number | null; s: number}> = ({c, p, inStart, outStart, compressAt, s}) => {
   const frame = useCurrentFrame();
-  const {u} = useStage();
-  const titleSize = 66 * u * s;
+  const {u, w} = useStage();
+  // shrink long titles to fit beside the numeral instead of wrapping mid-word
+  const titleSize = fitSize(c.title, 66 * u * s, w * 0.66, 'display', 0.01);
   const per = p.letterStagger;
   const landed = inStart + per * c.title.length + p.letterFrames;
   const typeStart = landed + 3;
@@ -116,7 +117,7 @@ const ChapterCard: React.FC<{c: Chapter; p: Props; inStart: number; outStart: nu
   if (outP >= 1) return null;
   return (
     <div style={{transformOrigin: 'top left', transform: `scaleY(${1 - comp}) translateY(${-comp * 30 * u}px)`, opacity: 1 - comp * 0.6}}>
-      <div style={{height: titleSize * 1.06, display: 'flex', alignItems: 'flex-end'}}>
+      <div style={{height: titleSize * 1.06, display: 'flex', alignItems: 'flex-end', whiteSpace: 'nowrap'}}>
         <RiseWord text={c.title} start={inStart} per={per} dur={p.letterFrames} font={fonts.display} size={titleSize} color={p.ink} exitP={outP} tracking={0.01} />
       </div>
       <div style={{display: 'flex', alignItems: 'baseline', gap: 16 * u * s, marginTop: 6 * u * s, opacity: 1 - outP}}>

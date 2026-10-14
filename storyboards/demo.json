@@ -16,7 +16,7 @@
  "captions": true,
  "captionStyle": {
   "position": "bottom",
-  "size": 36,
+  "size": 48,
   "highlightColor": "#3383CB"
  },
  "scenes": [
@@ -100,7 +100,8 @@
    "min": 95,
    "transition": {
     "type": "bands"
-   }
+   },
+   "caption": false
   },
   {
    "motion": "bouncing-ball",
@@ -188,7 +189,8 @@
    "min": 110,
    "transition": {
     "type": "wipe"
-   }
+   },
+   "caption": false
   },
   {
    "motion": "line-draw-on",
@@ -298,7 +300,8 @@
    "min": 95,
    "transition": {
     "type": "push-blur"
-   }
+   },
+   "caption": false
   },
   {
    "motion": "parallax-landscape",
@@ -476,7 +479,8 @@
    "min": 95,
    "transition": {
     "type": "wave"
-   }
+   },
+   "caption": false
   },
   {
    "motion": "caustics-godrays",
@@ -556,7 +560,8 @@
    "min": 95,
    "transition": {
     "type": "strip"
-   }
+   },
+   "caption": false
   },
   {
    "motion": "box-bot",
@@ -724,7 +729,8 @@
    "min": 95,
    "transition": {
     "type": "bar"
-   }
+   },
+   "caption": false
   },
   {
    "motion": "ken-burns",
@@ -858,7 +864,8 @@
    "transition": {
     "type": "slide",
     "direction": "from-right"
-   }
+   },
+   "caption": false
   },
   {
    "motion": "number-counter",
@@ -1104,7 +1111,8 @@
    "min": 90,
    "transition": {
     "type": "bands"
-   }
+   },
+   "caption": false
   },
   {
    "motion": "kinetic-captions",

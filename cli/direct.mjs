@@ -12,7 +12,7 @@
  *   "captions": true, "captionStyle": {"position": "bottom", "size": 40},
  *   "scenes": [
  *     {"motion": "sonar-ping", "props": {}, "say": "Every motion starts with a dot.",
- *      "min": 90, "lead": 8, "pad": 18, "transition": {"type": "iris", "frames": 12},
+ *      "min": 90, "lead": 8, "pad": 18, "caption": true, "transition": {"type": "iris", "frames": 12},
  *      "overlays": [{"motion": "confetti-burst", "at": 30, "duration": 60, "props": {}}],
  *      "sfx": [{"file": "sfx/pop.mp3", "at": 10, "volume": 0.5}]}
  *   ]
@@ -67,6 +67,7 @@ const dur = (f) => Number(execFileSync('ffprobe', ['-v', 'error', '-show_entries
 const scenes = [];
 const musicCues = [];
 const captions = [];
+const duckOnly = [];
 const sfx = [];
 const overlays = [];
 let t = 0;
@@ -93,7 +94,7 @@ sb.scenes.forEach((s, i) => {
     let c0 = start + lead;
     for (const c of chunks) {
       const len = Math.round((speech * c.replace(/\*/g, '').length) / total);
-      captions.push({text: c, from: c0, to: c0 + len});
+      (s.caption === false ? duckOnly : captions).push({text: c, from: c0, to: c0 + len});
       c0 += len;
     }
   }
@@ -126,7 +127,8 @@ const spec = {
   },
 };
 // voice lines are in sfx; ducking keys off caption cues even when captions are hidden
-if (sb.captions === false) spec.duckCues = captions;
+// voice cues that are not shown as captions still duck the music
+spec.duckCues = sb.captions === false ? [...captions, ...duckOnly] : duckOnly;
 const specDir = path.join(root, 'specs', 'built');
 fs.mkdirSync(specDir, {recursive: true});
 const specPath = path.join(specDir, `${name}.json`);
