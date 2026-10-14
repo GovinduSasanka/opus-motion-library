@@ -27,7 +27,8 @@ export const clamp = (v: number, a = 0, b = 1) => Math.min(b, Math.max(a, v));
 
 /** progress 0..1 between two frames with an easing */
 export const prog = (frame: number, start: number, end: number, e: (t: number) => number = ease.out) =>
-  interpolate(frame, [start, end], [0, 1], {easing: e, extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  // a scene cut shorter than its motion can make end <= start: degrade to a step instead of throwing
+  end <= start ? (frame >= start ? 1 : 0) : interpolate(frame, [start, end], [0, 1], {easing: e, extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
 
 /** map frame range -> value range, clamped */
 export const tween = (
@@ -35,7 +36,7 @@ export const tween = (
   [f0, f1]: [number, number],
   [v0, v1]: [number, number],
   e: (t: number) => number = ease.out,
-) => interpolate(frame, [f0, f1], [v0, v1], {easing: e, extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+) => (f1 <= f0 ? (frame >= f0 ? v1 : v0) : interpolate(frame, [f0, f1], [v0, v1], {easing: e, extrapolateLeft: 'clamp', extrapolateRight: 'clamp'}));
 
 export const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 

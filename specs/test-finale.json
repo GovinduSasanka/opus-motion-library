@@ -1,0 +1,230 @@
+{
+ "width": 1920,
+ "height": 1080,
+ "fps": 30,
+ "scenes": [
+  {
+   "motion": "beat-montage",
+   "duration": 120,
+   "props": {},
+   "transition": {
+    "type": "cut"
+   }
+  },
+  {
+   "motion": "bouncing-ball",
+   "duration": 12,
+   "props": {},
+   "offset": 30,
+   "transition": {
+    "type": "cut"
+   }
+  },
+  {
+   "motion": "origami-fold",
+   "duration": 12,
+   "props": {},
+   "offset": 150,
+   "transition": {
+    "type": "cut"
+   }
+  },
+  {
+   "motion": "topdown-terrain",
+   "duration": 12,
+   "props": {},
+   "offset": 60,
+   "transition": {
+    "type": "cut"
+   }
+  },
+  {
+   "motion": "flock",
+   "duration": 12,
+   "props": {},
+   "offset": 120,
+   "transition": {
+    "type": "cut"
+   }
+  },
+  {
+   "motion": "fireworks",
+   "duration": 12,
+   "props": {},
+   "offset": 70,
+   "transition": {
+    "type": "cut"
+   }
+  },
+  {
+   "motion": "depth-descent",
+   "duration": 12,
+   "props": {},
+   "offset": 200,
+   "transition": {
+    "type": "cut"
+   }
+  },
+  {
+   "motion": "giant-eye-reveal",
+   "duration": 10,
+   "props": {},
+   "offset": 70,
+   "transition": {
+    "type": "cut"
+   }
+  },
+  {
+   "motion": "box-bot",
+   "duration": 10,
+   "props": {},
+   "offset": 120,
+   "transition": {
+    "type": "cut"
+   }
+  },
+  {
+   "motion": "comic-burst",
+   "duration": 10,
+   "props": {},
+   "offset": 24,
+   "transition": {
+    "type": "cut"
+   }
+  },
+  {
+   "motion": "walker-world-scroll",
+   "duration": 10,
+   "props": {},
+   "offset": 300,
+   "transition": {
+    "type": "cut"
+   }
+  },
+  {
+   "motion": "dot-matrix",
+   "duration": 8,
+   "props": {
+    "src": "demo/owl.jpg"
+   },
+   "offset": 60,
+   "transition": {
+    "type": "cut"
+   }
+  },
+  {
+   "motion": "pixel-dither",
+   "duration": 8,
+   "props": {
+    "src": "demo/lantern.jpg"
+   },
+   "offset": 60,
+   "transition": {
+    "type": "cut"
+   }
+  },
+  {
+   "motion": "terrain-build-3d",
+   "duration": 8,
+   "props": {
+    "stageFrames": 26,
+    "flybyFrames": 90
+   },
+   "offset": 280,
+   "transition": {
+    "type": "cut"
+   }
+  },
+  {
+   "motion": "iso-bar-chart",
+   "duration": 8,
+   "props": {},
+   "offset": 120,
+   "transition": {
+    "type": "cut"
+   }
+  },
+  {
+   "motion": "hex-comb-build",
+   "duration": 8,
+   "props": {},
+   "offset": 110,
+   "transition": {
+    "type": "cut"
+   }
+  },
+  {
+   "motion": "aurora",
+   "duration": 8,
+   "props": {},
+   "offset": 60,
+   "transition": {
+    "type": "cut"
+   }
+  },
+  {
+   "motion": "neon-sign",
+   "duration": 6,
+   "props": {},
+   "offset": 90,
+   "transition": {
+    "type": "cut"
+   }
+  },
+  {
+   "motion": "pair-field",
+   "duration": 6,
+   "props": {},
+   "offset": 60,
+   "transition": {
+    "type": "cut"
+   }
+  },
+  {
+   "motion": "zoom-tunnel",
+   "duration": 6,
+   "props": {},
+   "offset": 80,
+   "transition": {
+    "type": "cut"
+   }
+  },
+  {
+   "motion": "petal-bloom",
+   "duration": 6,
+   "props": {},
+   "offset": 80,
+   "transition": {
+    "type": "cut"
+   }
+  },
+  {
+   "motion": "city-skyline",
+   "duration": 6,
+   "props": {},
+   "offset": 150,
+   "transition": {
+    "type": "cut"
+   }
+  },
+  {
+   "motion": "glitch-image",
+   "duration": 6,
+   "props": {
+    "src": "demo/desert.jpg"
+   },
+   "offset": 40,
+   "transition": {
+    "type": "cut"
+   }
+  },
+  {
+   "motion": "thumbnail-mosaic",
+   "duration": 180,
+   "props": {},
+   "transition": {
+    "type": "whiteout"
+   }
+  }
+ ]
+}

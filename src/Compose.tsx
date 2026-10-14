@@ -69,7 +69,8 @@ export const Compose: React.FC<{spec: ComposeSpec}> = ({spec}) => {
     items.push(
       <TransitionSeries.Sequence key={`s${i}`} durationInFrames={d}>
         {C ? (
-          <Sequence from={-(s.offset ?? 0)} layout="absolute-fill">
+          // the motion always sees at least its natural length, so short cuts / offsets just crop it
+          <Sequence from={-(s.offset ?? 0)} durationInFrames={Math.max(def.durationInFrames, d + (s.offset ?? 0))} layout="absolute-fill">
             <C {...def.defaultProps} {...(s.props ?? {})} />
           </Sequence>
         ) : (

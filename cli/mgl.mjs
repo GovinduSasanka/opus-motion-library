@@ -178,7 +178,7 @@ const main = async () => {
 };
 
 main().catch(async (e) => {
-  console.error(e.message ?? e);
+  console.error(e?.stack ?? e?.message ?? e);
   if (browser) await browser.close({silent: true}).catch(() => {});
   process.exit(1);
 });
