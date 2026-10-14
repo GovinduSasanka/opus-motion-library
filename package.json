@@ -1,0 +1,35 @@
+{
+  "name": "opus-motion-library",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Reusable, parameterized motion-graphics library reverse-engineered from 23 Opus 5.5 videos. Remotion + React + SVG + three.js.",
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "list": "node cli/mgl.mjs list",
+    "render": "node cli/mgl.mjs render",
+    "compose": "node cli/mgl.mjs compose",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@react-three/fiber": "9.1.2",
+    "@remotion/bundler": "4.0.532",
+    "@remotion/cli": "4.0.532",
+    "@remotion/google-fonts": "4.0.532",
+    "@remotion/layout-utils": "4.0.532",
+    "@remotion/noise": "4.0.532",
+    "@remotion/paths": "4.0.532",
+    "@remotion/renderer": "4.0.532",
+    "@remotion/three": "4.0.532",
+    "@remotion/transitions": "4.0.532",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "remotion": "4.0.532",
+    "three": "0.169.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.0",
+    "@types/three": "0.169.0",
+    "typescript": "^5.6.0"
+  }
+}

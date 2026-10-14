@@ -1,0 +1,58 @@
+[
+ {
+  "id": "underwater",
+  "file": "underwater.mp3",
+  "title": "Underwater",
+  "artist": "Gh0stly",
+  "mood": "future bass, bright",
+  "start": 20,
+  "source": "https://pixabay.com/music/future-bass-underwater-245900/",
+  "licence": "Pixabay Content License",
+  "youtubeContentId": false,
+  "added": "2026-10-05",
+  "role": "release",
+  "energy": "bright"
+ },
+ {
+  "id": "tension-documentary",
+  "file": "tension-documentary.mp3",
+  "title": "Tension Documentary",
+  "artist": "AtlasAudio",
+  "mood": "tense",
+  "start": 2,
+  "source": "https://pixabay.com/music/ambient-tension-documentary-519912/",
+  "licence": "Pixabay Content License",
+  "youtubeContentId": false,
+  "added": "2026-10-14",
+  "role": "tension",
+  "energy": "tense"
+ },
+ {
+  "id": "cinematic-promo",
+  "file": "cinematic-promo.mp3",
+  "title": "Cinematic Promo",
+  "artist": "Kulakovka",
+  "mood": "epic, build",
+  "start": 19,
+  "source": "https://pixabay.com/music/build-up-scenes-cinematic-promo-571169/",
+  "licence": "Pixabay Content License",
+  "youtubeContentId": false,
+  "added": "2026-10-14",
+  "role": "release",
+  "energy": "epic"
+ },
+ {
+  "id": "inspiring",
+  "file": "inspiring.mp3",
+  "title": "Inspiring",
+  "artist": "prettyjohn1",
+  "mood": "hopeful",
+  "start": 0,
+  "source": "https://pixabay.com/music/modern-classical-inspiring-604469/",
+  "licence": "Pixabay Content License",
+  "youtubeContentId": false,
+  "added": "2026-10-14",
+  "role": "release",
+  "energy": "hopeful"
+ }
+]

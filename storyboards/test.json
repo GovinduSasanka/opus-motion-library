@@ -1,0 +1,6 @@
+{"name":"test","voice":{"speaker":"Ryan","style":"Warm, curious documentary narrator, natural and human."},
+ "music":{"file":"music/inspiring.mp3","volume":0.25},
+ "scenes":[
+  {"motion":"sonar-ping","say":"Every motion in this library starts with a single dot.","min":90,"transition":{"type":"iris","frames":12},"sfx":[{"file":"sfx/bloop.mp3","at":6,"volume":0.4}]},
+  {"motion":"handwrite-on","props":{"lines":[{"text":"opus motion","color":"#2B74C5"}]},"say":"And a pen that writes its name.","min":90}
+ ]}

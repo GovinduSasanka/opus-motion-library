@@ -1,0 +1,15 @@
+Use your image generation tool to create 8 images, and save each into the current directory with the exact filename given.
+
+Shared style for every image: stylised soft 3D illustration like a Pixar short film still, flat-shaded low-poly forms, gentle gradients, atmospheric haze, cinematic lighting, rich but harmonious colour. Landscape 1536x1024 PNG.
+Rules for every image: No text, letters, numbers, logos or watermarks anywhere. No people. Nothing violent or frightening.
+
+1. koi.png: top-down view of a koi pond at dusk, orange and white koi, lily pads, soft ripples.
+2. jellyfish.png: glowing pink jellyfish drifting in deep blue water with light rays from above.
+3. lighthouse.png: a lighthouse on a rocky cliff at blue hour, beam sweeping over a calm sea, first stars.
+4. owl.png: a small owl on a mossy branch in a moonlit forest, fireflies, big moon behind.
+5. city.png: a cosy hillside town at golden hour, colourful houses, warm windows, distant sea.
+6. desert.png: wind-carved desert dunes at sunrise with long shadows and a tiny oasis.
+7. lantern.png: an old brass oil lantern glowing on a wooden table in a dark snowy cabin, frost on the window.
+8. whale.png: a humpback whale gliding through sunlit turquoise water with a school of small fish.
+
+Generate each image with the image generation tool (do not draw them with code). When finished, list the files you saved.

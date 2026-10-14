@@ -1,0 +1,16 @@
+{
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "scenes": [
+    {"motion": "sonar-ping", "duration": 75, "transition": {"type": "xray", "frames": 10, "x": 0.5, "y": 0.5}},
+    {"motion": "grass-field", "duration": 75, "transition": {"type": "tear", "frames": 12, "direction": "from-left"}},
+    {"motion": "bouncing-ball", "duration": 75, "transition": {"type": "ripple", "frames": 12, "x": 0.5, "y": 0.55}},
+    {"motion": "ribbon-trail", "duration": 75, "transition": {"type": "page-turn", "frames": 22}},
+    {"motion": "rain", "duration": 75, "transition": {"type": "push-blur", "frames": 12, "direction": "from-right"}},
+    {"motion": "hex-comb-build", "duration": 75, "transition": {"type": "whiteout", "frames": 42}},
+    {"motion": "sun-rise-set", "duration": 75, "transition": {"type": "glitch", "frames": 15}},
+    {"motion": "radial-blueprint", "duration": 75, "transition": {"type": "storm", "frames": 20}},
+    {"motion": "mask-rise-title", "duration": 75}
+  ]
+}
