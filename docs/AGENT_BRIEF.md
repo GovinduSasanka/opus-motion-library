@@ -20,7 +20,7 @@ Project root: `C:\Users\govin\Music\motion_graphics_library` (Windows; in Bash u
 - Shared helpers just for your family: a NEW file `src/core/<family>-kit.tsx` (or similar). Do **not** edit existing
   `src/core/*` files, `src/Compose.tsx`, `src/Root.tsx`, `cli/*`, or other agents' families — other agents work in parallel.
   If you think a core change is needed, mention it in your final reply.
-- Test images you may use as `src` while checking: `public/test/plate1.jpg … plate10.jpg` (use as `demo/owl.jpg`).
+- Test images you may use as `src` while checking: `public/demo/*.jpg` (pass as `demo/owl.jpg`).
   Defaults must NOT reference them — defaults must look finished with procedural content.
 
 ## Parallel-safety
