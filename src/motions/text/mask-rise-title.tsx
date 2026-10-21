@@ -140,7 +140,7 @@ const MaskRiseTitle: React.FC<Props> = (p) => {
   if (p.variant === 'stack') {
     const lines = p.lines;
     const side = p.sideCopy.length + p.sideMono.length > 0;
-    const availW = portrait ? w - margin * 2 : w * 0.9 - margin;
+    const availW = portrait ? w - margin * 2 : side ? w * 0.64 - margin * 2 : w * 0.9 - margin;
     const est = Math.max(...lines.map((l) => estWidth(l.word, 1, 'display', 0.01) + (l.numeral ? estWidth(l.numeral, 1.35, 'instrument') + 0.15 : 0)));
     const fs = Math.min(200 * u, availW / est);
     const sideStart = p.startFrame + lines.length * p.lineStagger + 6;

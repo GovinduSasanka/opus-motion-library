@@ -65,6 +65,7 @@ import {kenBurns} from './motions/image/ken-burns';
 import {lightSweep} from './motions/image/light-sweep';
 import {pixelDither} from './motions/image/pixel-dither';
 import {xrayScan} from './motions/image/xray-scan';
+import {mix} from './motions/mix/mix';
 import {bouncingBall} from './motions/shape/bouncing-ball';
 import {branchGrow} from './motions/shape/branch-grow';
 import {callResponse} from './motions/shape/call-response';
@@ -105,6 +106,7 @@ import {transitionReel} from './motions/transition/transition-reel';
 import {browserMockup} from './motions/ui/browser-mockup';
 import {cardFan} from './motions/ui/card-fan';
 import {chatBubbles} from './motions/ui/chat-bubbles';
+import {smsThread} from './motions/ui/sms-thread';
 import {splitCompare} from './motions/ui/split-compare';
 
 export const motions: MotionDef<any>[] = [
@@ -173,6 +175,7 @@ export const motions: MotionDef<any>[] = [
   lightSweep,
   pixelDither,
   xrayScan,
+  mix,
   bouncingBall,
   branchGrow,
   callResponse,
@@ -213,6 +216,7 @@ export const motions: MotionDef<any>[] = [
   browserMockup,
   cardFan,
   chatBubbles,
+  smsThread,
   splitCompare,
 ];
 

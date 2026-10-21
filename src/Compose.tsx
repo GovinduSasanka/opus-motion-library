@@ -4,10 +4,13 @@ import {TransitionSeries, linearTiming, springTiming} from '@remotion/transition
 import {registry} from './registry';
 import {presentationFor, transitionFrames, TransitionSpec} from './transitions';
 import {CaptionTrack, CaptionCue} from './motions/text/kinetic-captions';
+import {Layers, LayerSpec, MotionById} from './Layers';
 
 export interface SceneSpec {
-  /** motion id from the registry */
-  motion: string;
+  /** motion id from the registry (or omit and give `layers` to mix several motions) */
+  motion?: string;
+  /** mix: several motions stacked in this scene, bottom to top */
+  layers?: LayerSpec[];
   /** frames; defaults to the motion's own durationInFrames */
   duration?: number;
   props?: Record<string, unknown>;
@@ -24,7 +27,7 @@ export interface ComposeSpec {
   background?: string;
   scenes: SceneSpec[];
   /** overlay layers that run across scene boundaries, in absolute frames */
-  overlays?: {motion: string; from: number; duration: number; props?: Record<string, unknown>}[];
+  overlays?: {motion: string; from: number; duration: number; props?: Record<string, unknown>; offset?: number; opacity?: number; blend?: React.CSSProperties['mixBlendMode']}[];
   captions?: CaptionCue[];
   /** cues used only for music ducking (when captions are hidden) */
   duckCues?: CaptionCue[];
@@ -42,39 +45,36 @@ export interface ComposeSpec {
   };
 }
 
+/** a scene's length: explicit duration, else its motion's natural length (or the longest layer) */
+export const sceneLength = (s: SceneSpec) =>
+  s.duration ??
+  (s.motion ? registry[s.motion]?.durationInFrames : undefined) ??
+  Math.max(90, ...(s.layers ?? []).map((l) => (l.from ?? 0) + (l.duration ?? registry[l.motion]?.durationInFrames ?? 90)));
+
 /** total length of a spec after transitions overlap scenes */
 export const specDuration = (spec: ComposeSpec) => {
   let total = 0;
   spec.scenes.forEach((s, i) => {
-    const d = s.duration ?? registry[s.motion]?.durationInFrames ?? 90;
+    const d = sceneLength(s);
     total += d;
     if (i < spec.scenes.length - 1 && s.transition && s.transition.type !== 'cut') total -= transitionFrames(s.transition);
   });
   return total;
 };
 
-const Missing: React.FC<{id: string}> = ({id}) => (
-  <AbsoluteFill style={{background: '#300', color: '#fff', justifyContent: 'center', alignItems: 'center', fontSize: 48}}>
-    unknown motion: {id}
-  </AbsoluteFill>
-);
-
 export const Compose: React.FC<{spec: ComposeSpec}> = ({spec}) => {
   const {fps, width, height} = useVideoConfig();
   const items: React.ReactNode[] = [];
   spec.scenes.forEach((s, i) => {
-    const def = registry[s.motion];
-    const d = s.duration ?? def?.durationInFrames ?? 90;
-    const C = def?.component;
+    const d = sceneLength(s);
     items.push(
       <TransitionSeries.Sequence key={`s${i}`} durationInFrames={d}>
-        {C ? (
-          // the motion always sees at least its natural length, so short cuts / offsets just crop it
-          <Sequence from={-(s.offset ?? 0)} durationInFrames={Math.max(def.durationInFrames, d + (s.offset ?? 0))} layout="absolute-fill">
-            <C {...def.defaultProps} {...(s.props ?? {})} />
+        {s.layers ? (
+          <Sequence from={-(s.offset ?? 0)} durationInFrames={d + (s.offset ?? 0)} layout="absolute-fill">
+            <Layers layers={s.layers} length={d + (s.offset ?? 0)} />
           </Sequence>
         ) : (
-          <Missing id={s.motion} />
+          <MotionById motion={s.motion ?? ''} props={s.props} offset={s.offset} length={d} />
         )}
       </TransitionSeries.Sequence>,
     );
@@ -106,12 +106,12 @@ export const Compose: React.FC<{spec: ComposeSpec}> = ({spec}) => {
     <AbsoluteFill style={{background: spec.background ?? '#000'}}>
       <TransitionSeries>{items}</TransitionSeries>
       {(spec.overlays ?? []).map((o, i) => {
-        const def = registry[o.motion];
-        if (!def) return null;
-        const C = def.component;
+        if (!registry[o.motion]) return null;
         return (
           <Sequence key={`o${i}`} from={o.from} durationInFrames={o.duration} layout="absolute-fill">
-            <C {...def.defaultProps} {...(o.props ?? {})} />
+            <AbsoluteFill style={{opacity: o.opacity ?? 1, mixBlendMode: o.blend}}>
+              <MotionById motion={o.motion} props={o.props} offset={o.offset} length={o.duration} />
+            </AbsoluteFill>
           </Sequence>
         );
       })}

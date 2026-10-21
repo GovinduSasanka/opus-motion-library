@@ -442,7 +442,7 @@
   "props": {
    "src": {
     "default": "",
-    "doc": "optional image in public/ (e.g. test/plate3.jpg); empty = procedural figure"
+    "doc": "optional image in public/ (e.g. demo/owl.jpg); empty = procedural figure"
    },
    "background": {
     "default": "#050407",
@@ -5656,7 +5656,7 @@
   "props": {
    "src": {
     "default": "",
-    "doc": "public/ image path (e.g. \"test/plate3.jpg\"); empty = procedural dusk plate"
+    "doc": "public/ image path (e.g. \"demo/owl.jpg\"); empty = procedural dusk plate"
    },
    "images": {
     "default": [],
@@ -5988,6 +5988,59 @@
    "push": {
     "default": 1.2,
     "doc": "slow push-in in %/s"
+   }
+  }
+ },
+ {
+  "id": "mix",
+  "title": "Mix (layer motions together)",
+  "category": "fx",
+  "description": "Stacks any motions in one frame: backdrop + subject + text + accent, each with its own timing, opacity and blend mode.",
+  "useFor": "Building a richer shot out of several motions at once (e.g. aurora sky + neon sign + embers, or a photo look + callouts + captions).",
+  "source": [
+   "library"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "mix",
+   "layers",
+   "combine",
+   "composite"
+  ],
+  "props": {
+   "background": {
+    "default": "#05070d",
+    "doc": "colour under all layers"
+   },
+   "layers": {
+    "default": [
+     {
+      "motion": "aurora",
+      "props": {
+       "pixelSize": 0
+      }
+     },
+     {
+      "motion": "blur-in-title",
+      "from": 24,
+      "props": {
+       "title": "NORTHERN LIGHTS",
+       "subtitle": "a mix of three motions",
+       "swapTo": null,
+       "backdrop": "none",
+       "background": "transparent"
+      }
+     },
+     {
+      "motion": "embers",
+      "props": {
+       "mode": "motes",
+       "background": "transparent"
+      },
+      "blend": "screen"
+     }
+    ],
+    "doc": "[{motion, props?, from?, duration?, offset?, opacity?, blend?, scale?, x?, y?}] bottom to top"
    }
   }
  },
@@ -8601,6 +8654,10 @@
     "default": 300,
     "doc": "number size in px at 1080p (auto-shrinks to fit)"
    },
+   "labelSize": {
+    "default": 28,
+    "doc": "label size in px at 1080p (centre layout)"
+   },
    "labelColor": {
     "default": "#6c95ac",
     "doc": ""
@@ -9408,6 +9465,130 @@
    "background": {
     "default": "#12031f",
     "doc": ""
+   }
+  }
+ },
+ {
+  "id": "sms-thread",
+  "title": "SMS thread on a phone",
+  "category": "ui",
+  "description": "A phone rises in beside a headline; a missed-call alert, typing dots and SMS bubbles pop in one by one and the thread scrolls like a real chat, with day notes and a verdict badge springing in under the headline.",
+  "useFor": "Product explainers that show an automated text conversation, follow-up sequences (\"Day 2 / Day 5\"), booking confirmations.",
+  "source": [
+   "original (Leadlatch explainer); bubble pop timing after video12 chat-bubble-pop"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "sms",
+   "chat",
+   "phone",
+   "messages",
+   "ui",
+   "product",
+   "explainer"
+  ],
+  "props": {
+   "messages": {
+    "default": [
+     {
+      "text": "Missed call · 2:14 pm",
+      "from": "alert"
+     },
+     {
+      "text": "Sorry we missed you! What do you need help with?",
+      "from": "us",
+      "tag": "Sent automatically"
+     },
+     {
+      "text": "Boiler's leaking, can you come Thursday?",
+      "from": "them"
+     },
+     {
+      "text": "Booked: Thu 9am. See you then!",
+      "from": "us"
+     }
+    ],
+    "doc": "[{text, from, at?, tag?}] from = us (right, ink bubble) | them (left, white bubble) | note (small centred \"DAY 2\" divider) | alert (orange missed-call pill); tag = small mint line under a bubble"
+   },
+   "start": {
+    "default": 14,
+    "doc": "frame of the first message"
+   },
+   "stagger": {
+    "default": 34,
+    "doc": "frames between messages when `at` is not given"
+   },
+   "typing": {
+    "default": 14,
+    "doc": "frames of typing dots before each us/them bubble (0 = none)"
+   },
+   "contact": {
+    "default": "New enquiry",
+    "doc": "name in the thread header (its first letter fills the avatar)"
+   },
+   "contactSub": {
+    "default": "Mobile · just now",
+    "doc": "small line under the contact name"
+   },
+   "kicker": {
+    "default": "MISSED CALL TEXT-BACK",
+    "doc": "small tracked mono line above the headline (\"\" = none)"
+   },
+   "title": {
+    "default": "Texts back\nin seconds",
+    "doc": "headline beside / above the phone; \\n splits lines"
+   },
+   "subtitle": {
+    "default": "",
+    "doc": "body line under the headline (\"\" = none)"
+   },
+   "badge": {
+    "default": "Booked: Thu 9am",
+    "doc": "mint verdict pill that springs in under the headline (\"\" = none)"
+   },
+   "badgeAt": {
+    "default": -1,
+    "doc": "frame of the badge (-1 = 24 frames after the last message)"
+   },
+   "background": {
+    "default": "#0E2621",
+    "doc": "scene colour"
+   },
+   "paper": {
+    "default": "#F5F1E8",
+    "doc": "headline colour and text colour in \"us\" bubbles"
+   },
+   "screen": {
+    "default": "#F5F1E8",
+    "doc": "phone screen colour"
+   },
+   "ink": {
+    "default": "#0E2621",
+    "doc": "\"us\" bubble colour and dark text"
+   },
+   "accent": {
+    "default": "#FF5A1F",
+    "doc": "kicker, avatar and alert colour"
+   },
+   "mint": {
+    "default": "#22B573",
+    "doc": "badge and tag colour"
+   },
+   "src": {
+    "default": "",
+    "doc": "optional public/ image shown blurred and dimmed behind"
+   },
+   "dim": {
+    "default": 0.78,
+    "doc": "how strongly the background colour covers `src` (0..1)"
+   },
+   "phoneHeight": {
+    "default": 0.72,
+    "doc": "landscape phone height as a fraction of frame height"
+   },
+   "grain": {
+    "default": 0.05,
+    "doc": "film grain opacity"
    }
   }
  },
