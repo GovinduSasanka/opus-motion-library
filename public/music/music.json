@@ -54,5 +54,33 @@
   "added": "2026-10-14",
   "role": "release",
   "energy": "hopeful"
+ },
+ {
+  "id": "epic-cinematic-intense",
+  "file": "epic-cinematic-intense.mp3",
+  "title": "Epic Cinematic Intense Background Music",
+  "artist": "CyrelJayVillaro",
+  "mood": "epic",
+  "start": 0,
+  "source": "https://pixabay.com/music/main-title-epic-cinematic-intense-background-music-301216/",
+  "licence": "Pixabay Content License",
+  "youtubeContentId": false,
+  "added": "2026-10-14",
+  "role": "release",
+  "energy": "epic"
+ },
+ {
+  "id": "epic-action",
+  "file": "epic-action.mp3",
+  "title": "Epic Action",
+  "artist": "BombinSound",
+  "mood": "epic",
+  "start": 0,
+  "source": "https://pixabay.com/music/orchestral-epic-action-512484/",
+  "licence": "Pixabay Content License",
+  "youtubeContentId": false,
+  "added": "2026-10-14",
+  "role": "release",
+  "energy": "epic"
  }
 ]

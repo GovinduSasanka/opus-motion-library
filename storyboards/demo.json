@@ -7,868 +7,1293 @@
  "voice": {
   "speaker": "Ryan",
   "seed": 7,
-  "style": "Warm, curious documentary narrator telling a gentle story to a friend. Natural, human, unhurried, with a smile in the voice. Never robotic."
+  "style": "Deep, calm, premium brand-film narrator. Unhurried, warm and confident, with a quiet sense of wonder. Natural and human, never robotic."
  },
  "music": {
-  "volume": 0.2,
-  "duck": 0.42
+  "volume": 0.22,
+  "duck": 0.4,
+  "snap": true
  },
  "captions": true,
  "captionStyle": {
-  "position": "bottom",
-  "size": 48,
-  "highlightColor": "#3383CB"
+  "variant": "premium",
+  "size": 40,
+  "accent": "#E9C27A"
  },
+ "tags": {
+  "total": 106,
+  "accent": "#E9C27A"
+ },
+ "overlays": [
+  {
+   "motion": "film-look",
+   "props": {
+    "overlay": true,
+    "grain": 0.045,
+    "vignette": 0.16,
+    "flare": false,
+    "letterbox": "off",
+    "weave": 0,
+    "push": 0,
+    "fringe": 0,
+    "bloom": 0
+   }
+  }
+ ],
  "scenes": [
   {
-   "motion": "sonar-ping",
+   "motion": "terrain-build-3d",
+   "min": 150,
+   "props": {
+    "showCode": false,
+    "showTitle": false,
+    "stageFrames": 26,
+    "flybyFrames": 160
+   },
+   "offset": 262,
+   "transition": {
+    "type": "fade"
+   },
+   "say": "Every story you have ever loved is made of *motion.*",
+   "music": {
+    "file": "music/cinematic-promo.mp3",
+    "volume": 0.26,
+    "start": 0
+   },
+   "snap": false
+  },
+  {
+   "motion": "aurora",
+   "min": 58,
+   "props": {
+    "pixelSize": 0
+   },
+   "offset": 40,
+   "transition": {
+    "type": "cut"
+   },
+   "say": "Light.",
+   "pad": 8
+  },
+  {
+   "motion": "depth-descent",
+   "min": 58,
+   "props": {
+    "hud": false,
+    "ruler": false
+   },
+   "offset": 250,
+   "transition": {
+    "type": "cut"
+   },
+   "say": "Depth.",
+   "pad": 8
+  },
+  {
+   "motion": "flock",
+   "min": 58,
+   "props": {},
+   "offset": 70,
+   "transition": {
+    "type": "cut"
+   },
+   "say": "Life.",
+   "pad": 8
+  },
+  {
+   "motion": "box-bot",
+   "min": 64,
+   "props": {
+    "style": "clean"
+   },
+   "offset": 66,
+   "transition": {
+    "type": "cut"
+   },
+   "say": "And *character.*",
+   "pad": 10
+  },
+  {
+   "motion": "giant-eye-reveal",
+   "min": 9,
+   "props": {},
+   "offset": 52,
+   "transition": {
+    "type": "cut"
+   },
+   "snap": false,
+   "sfx": [
+    {
+     "file": "sfx/riserbig.mp3",
+     "at": 0,
+     "volume": 0.28
+    }
+   ]
+  },
+  {
+   "motion": "wireframe-build",
+   "min": 9,
+   "props": {},
+   "offset": 200,
+   "transition": {
+    "type": "cut"
+   },
+   "snap": false,
+   "sfx": []
+  },
+  {
+   "motion": "fireworks",
+   "min": 9,
+   "props": {},
+   "offset": 66,
+   "transition": {
+    "type": "cut"
+   },
+   "snap": false,
+   "sfx": []
+  },
+  {
+   "motion": "comic-burst",
+   "min": 9,
+   "props": {},
+   "offset": 18,
+   "transition": {
+    "type": "cut"
+   },
+   "snap": false,
+   "sfx": []
+  },
+  {
+   "motion": "dot-matrix",
+   "min": 9,
+   "props": {
+    "src": "demo/owl.jpg"
+   },
+   "offset": 60,
+   "transition": {
+    "type": "cut"
+   },
+   "snap": false,
+   "sfx": []
+  },
+  {
+   "motion": "neon-sign",
+   "min": 9,
+   "props": {},
+   "offset": 80,
+   "transition": {
+    "type": "cut"
+   },
+   "snap": false,
+   "sfx": []
+  },
+  {
+   "motion": "origami-fold",
+   "min": 9,
+   "props": {},
+   "offset": 200,
+   "transition": {
+    "type": "cut"
+   },
+   "snap": false,
+   "sfx": []
+  },
+  {
+   "motion": "petal-bloom",
+   "min": 9,
+   "props": {
+    "style": "radial"
+   },
+   "offset": 70,
+   "transition": {
+    "type": "cut"
+   },
+   "snap": false,
+   "sfx": []
+  },
+  {
+   "motion": "city-skyline",
+   "min": 9,
+   "props": {},
+   "offset": 160,
+   "transition": {
+    "type": "cut"
+   },
+   "snap": false,
+   "sfx": []
+  },
+  {
+   "motion": "walker-world-scroll",
+   "min": 9,
+   "props": {},
+   "offset": 180,
+   "transition": {
+    "type": "cut"
+   },
+   "snap": false,
+   "sfx": []
+  },
+  {
+   "motion": "iso-blocks-3d",
+   "min": 9,
+   "props": {},
+   "offset": 100,
+   "transition": {
+    "type": "cut"
+   },
+   "snap": false,
+   "sfx": []
+  },
+  {
+   "motion": "zoom-tunnel",
+   "min": 9,
+   "props": {
+    "word": "MOTION",
+    "subtitle": ""
+   },
+   "offset": 100,
+   "transition": {
+    "type": "cut"
+   },
+   "snap": false,
+   "sfx": []
+  },
+  {
+   "layers": [
+    {
+     "motion": "starfield-night",
+     "props": {
+      "grass": false,
+      "shootingStar": false,
+      "moon": false
+     }
+    },
+    {
+     "motion": "blur-in-title",
+     "from": 4,
+     "props": {
+      "title": "OPUS MOTION",
+      "subtitle": "a library of motion graphics",
+      "swapTo": null,
+      "backdrop": "none",
+      "background": "transparent",
+      "size": 110,
+      "tracking": 0.5,
+      "subtitleColor": "#B8B2A6"
+     }
+    },
+    {
+     "motion": "embers",
+     "props": {
+      "mode": "motes",
+      "background": "transparent",
+      "count": 22
+     },
+     "blend": "screen",
+     "opacity": 0.8
+    }
+   ],
+   "min": 150,
+   "say": "This is Opus Motion. Over a hundred motions, ready for anything you make.",
+   "transition": {
+    "type": "whiteout",
+    "variant": "burnout"
+   },
+   "sfx": [
+    {
+     "file": "sfx/finalhit.mp3",
+     "at": 0,
+     "volume": 0.4
+    }
+   ],
+   "captionPosition": "bottom"
+  },
+  {
+   "motion": "mask-rise-title",
+   "min": 84,
+   "props": {
+    "variant": "chapter",
+    "chapter": {
+     "number": "01",
+     "title": "MOTION",
+     "subtitle": "— how things fall, ease and follow through."
+    },
+    "fromChapter": null,
+    "background": "#0A0B0E",
+    "ink": "#F2EEE6",
+    "accent": "#E9C27A",
+    "muted": "#8A8F98",
+    "cropMarks": false,
+    "progressRule": false,
+    "startFrame": 4
+   },
+   "say": "Chapter one. Motion.",
+   "caption": false,
+   "lead": 10,
+   "pad": 10,
+   "transition": {
+    "type": "bands"
+   },
    "music": {
     "file": "music/inspiring.mp3",
-    "volume": 0.22
+    "volume": 0.22,
+    "start": 0
+   }
+  },
+  {
+   "motion": "bouncing-ball",
+   "min": 110,
+   "props": {
+    "hud": false
    },
+   "transition": {
+    "type": "cut"
+   },
+   "tag": true
+  },
+  {
+   "motion": "easing-graph",
+   "min": 110,
+   "props": {
+    "hud": false
+   },
+   "offset": 20,
+   "transition": {
+    "type": "cut"
+   },
+   "tag": true
+  },
+  {
+   "motion": "onion-skin-arc",
+   "min": 110,
+   "props": {
+    "hud": false
+   },
+   "offset": 30,
+   "transition": {
+    "type": "push-blur"
+   },
+   "tag": true
+  },
+  {
+   "motion": "ribbon-trail",
+   "min": 120,
+   "props": {
+    "hud": false
+   },
+   "offset": 10,
+   "transition": {
+    "type": "cut"
+   },
+   "tag": true
+  },
+  {
+   "motion": "rose-curve-trace",
+   "min": 110,
+   "props": {
+    "number": "",
+    "title": ""
+   },
+   "offset": 34,
+   "transition": {
+    "type": "ripple"
+   },
+   "tag": true
+  },
+  {
+   "motion": "flat-to-3d-sphere",
+   "min": 120,
+   "props": {
+    "hud": false
+   },
+   "offset": 40,
+   "transition": {
+    "type": "cut"
+   },
+   "tag": true
+  },
+  {
+   "motion": "speed-lines",
+   "min": 80,
+   "props": {},
+   "transition": {
+    "type": "iris"
+   },
+   "tag": true
+  },
+  {
+   "motion": "eyes-blink",
+   "min": 100,
+   "props": {},
+   "transition": {
+    "type": "cut"
+   },
+   "say": "Until something opens its *eyes.*",
+   "tag": true
+  },
+  {
+   "motion": "blob-mascot",
+   "min": 130,
+   "props": {},
+   "offset": 20,
+   "transition": {
+    "type": "bands",
+    "variant": "center"
+   },
+   "tag": true
+  },
+  {
+   "motion": "mask-rise-title",
+   "min": 84,
+   "props": {
+    "variant": "chapter",
+    "chapter": {
+     "number": "02",
+     "title": "FORM",
+     "subtitle": "— lines become geometry, geometry starts to grow."
+    },
+    "fromChapter": null,
+    "background": "#0A0B0E",
+    "ink": "#F2EEE6",
+    "accent": "#E9C27A",
+    "muted": "#8A8F98",
+    "cropMarks": false,
+    "progressRule": false,
+    "startFrame": 4
+   },
+   "say": "Chapter two. Form.",
+   "caption": false,
+   "lead": 10,
+   "pad": 10,
+   "transition": {
+    "type": "wipe"
+   }
+  },
+  {
+   "motion": "line-draw-on",
+   "min": 120,
+   "props": {
+    "caption": ""
+   },
+   "offset": 30,
+   "transition": {
+    "type": "cut"
+   },
+   "tag": true
+  },
+  {
+   "motion": "compass-construct",
+   "min": 120,
+   "props": {},
+   "offset": 20,
+   "transition": {
+    "type": "fade"
+   },
+   "tag": true
+  },
+  {
+   "motion": "hex-comb-build",
+   "min": 120,
+   "props": {},
+   "offset": 50,
+   "transition": {
+    "type": "spiral"
+   },
+   "tag": true
+  },
+  {
+   "motion": "gears",
+   "min": 100,
+   "props": {},
+   "offset": 10,
+   "transition": {
+    "type": "cut"
+   },
+   "tag": true
+  },
+  {
+   "motion": "cell-division",
+   "min": 100,
+   "props": {
+    "showCount": false
+   },
+   "offset": 10,
+   "transition": {
+    "type": "cut"
+   },
+   "tag": true
+  },
+  {
+   "motion": "branch-grow",
+   "min": 110,
+   "props": {
+    "label": "one idea",
+    "sublabel": "a thousand connections"
+   },
+   "offset": 20,
+   "transition": {
+    "type": "xray"
+   },
+   "tag": true
+  },
+  {
+   "motion": "metaball-heatmap",
+   "min": 100,
+   "props": {},
+   "offset": 10,
+   "transition": {
+    "type": "blob"
+   },
+   "tag": true
+  },
+  {
+   "motion": "petal-bloom",
+   "min": 100,
+   "props": {},
+   "transition": {
+    "type": "cut"
+   },
+   "tag": true
+  },
+  {
+   "motion": "sprout-grow",
+   "min": 110,
+   "props": {},
+   "offset": 20,
+   "transition": {
+    "type": "cut"
+   },
+   "tag": true
+  },
+  {
+   "motion": "heart-draw-fill",
+   "min": 100,
+   "props": {},
+   "transition": {
+    "type": "tear"
+   },
+   "tag": true
+  },
+  {
+   "motion": "origami-fold",
+   "min": 170,
+   "props": {},
+   "offset": 60,
+   "transition": {
+    "type": "cut"
+   },
+   "say": "And a flat sheet becomes a *crane.*",
+   "tag": true
+  },
+  {
+   "motion": "sonar-ping",
+   "min": 120,
    "props": {
     "windowImages": [
      "demo/koi.jpg",
      "demo/owl.jpg",
      "demo/jellyfish.jpg"
     ],
-    "pings": 3,
-    "pingEvery": 52
+    "pingEvery": 40
    },
-   "say": "Every motion starts with a single dot. It sends out a signal, and listens.",
-   "min": 160,
    "transition": {
-    "type": "iris"
+    "type": "cut"
    },
-   "sfx": [
-    {
-     "file": "sfx/bloop.mp3",
-     "at": 6,
-     "volume": 0.35
-    }
-   ]
+   "tag": true
   },
   {
    "motion": "call-response",
-   "say": "Then, something answers.",
    "min": 150,
+   "props": {},
+   "offset": 40,
    "transition": {
     "type": "zoom"
-   }
+   },
+   "tag": true
   },
   {
    "motion": "pair-field",
-   "say": "And one conversation becomes millions.",
-   "min": 110,
+   "min": 100,
+   "props": {},
    "transition": {
-    "type": "flash",
-    "variant": "plain"
-   }
-  },
-  {
-   "motion": "handwrite-on",
-   "props": {
-    "lines": [
-     {
-      "text": "opus motion",
-      "color": "#2B74C5"
-     },
-     {
-      "text": "library",
-      "color": "#E546AA"
-     }
-    ],
-    "framesPerGlyph": 3
+    "type": "cut"
    },
-   "say": "This is the Opus Motion Library. Every motion in this film was taken apart from twenty three sample videos, and rebuilt as code you can reuse.",
-   "min": 150,
-   "transition": {
-    "type": "page-turn"
-   }
+   "tag": true
   },
   {
-   "motion": "mask-rise-title",
-   "props": {
-    "chapter": {
-     "number": "01",
-     "title": "LEARNING TO MOVE",
-     "subtitle": "— a dot discovers physics."
-    },
-    "fromChapter": null
-   },
-   "say": "Chapter one. Learning to move.",
-   "min": 95,
-   "transition": {
-    "type": "bands"
-   },
-   "caption": false
-  },
-  {
-   "motion": "bouncing-ball",
-   "say": "First, the dot learns to fall. It squashes when it lands, and stretches when it flies.",
-   "min": 150,
-   "transition": {
-    "type": "wipe",
-    "direction": "from-right"
-   }
-  },
-  {
-   "motion": "easing-graph",
-   "say": "It learns that nothing in nature moves in a straight line. Things ease in, and ease out.",
-   "min": 150,
-   "transition": {
-    "type": "slide",
-    "direction": "from-bottom"
-   }
-  },
-  {
-   "motion": "onion-skin-arc",
-   "say": "Frame by frame, or pose to pose.",
+   "motion": "swimmers-converge",
    "min": 120,
+   "props": {
+    "label": "many paths",
+    "finalLabel": "one destination"
+   },
+   "offset": 10,
    "transition": {
-    "type": "push-blur"
-   }
-  },
-  {
-   "motion": "ribbon-trail",
-   "say": "It learns follow through. Everything keeps moving after you stop.",
-   "min": 130,
-   "transition": {
-    "type": "ripple"
-   }
-  },
-  {
-   "motion": "rose-curve-trace",
-   "say": "Arcs turn motion into shapes.",
-   "min": 150,
-   "transition": {
-    "type": "fade"
-   }
-  },
-  {
-   "motion": "flat-to-3d-sphere",
-   "say": "Light and shadow give it volume.",
-   "min": 150,
-   "transition": {
-    "type": "diagonal"
-   }
-  },
-  {
-   "motion": "eyes-blink",
-   "say": "And then, it opens its eyes.",
-   "min": 110,
-   "transition": {
-    "type": "iris"
-   }
-  },
-  {
-   "motion": "blob-mascot",
-   "say": "A character is born. It hops, it paints, it rolls.",
-   "min": 150,
-   "transition": {
-    "type": "bands",
-    "direction": "from-center"
-   }
+    "type": "flash"
+   },
+   "tag": true
   },
   {
    "motion": "mask-rise-title",
+   "min": 84,
    "props": {
-    "chapter": {
-     "number": "02",
-     "title": "MAKING THINGS",
-     "subtitle": "— lines become worlds."
-    },
-    "fromChapter": {
-     "number": "01",
-     "title": "LEARNING TO MOVE",
-     "subtitle": "— a dot discovers physics."
-    },
-    "swapAt": 30
-   },
-   "say": "Chapter two. Making things.",
-   "min": 110,
-   "transition": {
-    "type": "wipe"
-   },
-   "caption": false
-  },
-  {
-   "motion": "line-draw-on",
-   "say": "With eyes come ideas. Lines become plans.",
-   "min": 140,
-   "transition": {
-    "type": "fade"
-   }
-  },
-  {
-   "motion": "compass-construct",
-   "say": "Circles become geometry.",
-   "min": 150,
-   "transition": {
-    "type": "zoom"
-   }
-  },
-  {
-   "motion": "hex-comb-build",
-   "say": "Geometry becomes structure.",
-   "min": 150,
-   "transition": {
-    "type": "spiral"
-   }
-  },
-  {
-   "motion": "gears",
-   "say": "And structure starts to turn.",
-   "min": 110,
-   "transition": {
-    "type": "clock"
-   }
-  },
-  {
-   "motion": "cell-division",
-   "say": "Life doubles itself, again and again.",
-   "min": 140,
-   "transition": {
-    "type": "xray"
-   }
-  },
-  {
-   "motion": "branch-grow",
-   "say": "It branches out.",
-   "min": 120,
-   "transition": {
-    "type": "fade"
-   }
-  },
-  {
-   "motion": "metaball-heatmap",
-   "say": "Ideas spread like heat.",
-   "min": 110,
-   "transition": {
-    "type": "blob"
-   }
-  },
-  {
-   "motion": "petal-bloom",
-   "say": "They bloom.",
-   "min": 110,
-   "transition": {
-    "type": "fade"
-   }
-  },
-  {
-   "motion": "sprout-grow",
-   "say": "They grow.",
-   "min": 110,
-   "transition": {
-    "type": "tear"
-   }
-  },
-  {
-   "motion": "heart-draw-fill",
-   "say": "Some of them, you fall in love with.",
-   "min": 110,
-   "transition": {
-    "type": "page-turn"
-   }
-  },
-  {
-   "motion": "origami-fold",
-   "say": "And one plain sheet of paper becomes a crane.",
-   "min": 210,
-   "transition": {
-    "type": "whiteout",
-    "variant": "burnout"
-   }
-  },
-  {
-   "motion": "mask-rise-title",
-   "music": {
-    "file": "music/underwater.mp3",
-    "volume": 0.18,
-    "start": 4
-   },
-   "props": {
+    "variant": "chapter",
     "chapter": {
      "number": "03",
-     "title": "THE JOURNEY",
-     "subtitle": "— the crane takes flight."
+     "title": "WORLDS",
+     "subtitle": "— weather, light and time."
     },
-    "fromChapter": null
+    "fromChapter": null,
+    "background": "#0A0B0E",
+    "ink": "#F2EEE6",
+    "accent": "#E9C27A",
+    "muted": "#8A8F98",
+    "cropMarks": false,
+    "progressRule": false,
+    "startFrame": 4
    },
-   "say": "Chapter three. The journey.",
-   "min": 95,
+   "say": "Chapter three. Worlds.",
+   "caption": false,
+   "lead": 10,
+   "pad": 10,
    "transition": {
     "type": "push-blur"
    },
-   "caption": false
+   "music": {
+    "file": "music/underwater.mp3",
+    "volume": 0.2,
+    "start": 4
+   }
   },
   {
    "motion": "parallax-landscape",
-   "say": "The crane takes flight over the valley.",
-   "min": 130,
+   "min": 100,
+   "props": {},
    "transition": {
-    "type": "fade"
-   }
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "flock",
-   "say": "It finds a flock, and takes the last place in line.",
-   "min": 160,
+   "min": 110,
+   "props": {},
+   "offset": 40,
    "transition": {
-    "type": "storm",
-    "variant": "watercolor"
-   }
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "topdown-terrain",
-   "say": "Over fields and oceans, deserts, mountains and cities.",
-   "min": 180,
-   "transition": {
-    "type": "slide",
-    "direction": "from-right"
-   }
-  },
-  {
-   "motion": "flow-lines",
-   "say": "Riding the wind.",
-   "min": 100,
+   "min": 140,
+   "props": {},
    "transition": {
     "type": "wave",
     "variant": "lines"
-   }
+   },
+   "tag": true
+  },
+  {
+   "motion": "flow-lines",
+   "min": 90,
+   "props": {},
+   "offset": 10,
+   "transition": {
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "insect-flight",
-   "say": "Down by the pond, dragonflies dart and hover.",
-   "min": 120,
+   "min": 100,
+   "props": {},
+   "offset": 10,
    "transition": {
-    "type": "wave"
-   }
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "falling-petals",
-   "say": "Spring drifts by.",
-   "min": 100,
+   "min": 90,
+   "props": {},
    "transition": {
     "type": "fade"
-   }
-  },
-  {
-   "motion": "curl-flow",
-   "say": "Look closer, and everything swirls.",
-   "min": 110,
-   "transition": {
-    "type": "iris"
-   }
-  },
-  {
-   "motion": "time-of-day-grade",
-   "say": "Days slowly turn into nights.",
-   "min": 160,
-   "transition": {
-    "type": "fade"
-   }
+   },
+   "tag": true
   },
   {
    "motion": "grass-field",
-   "say": "On the savanna, the grass sways in the dark.",
-   "min": 110,
+   "min": 100,
+   "props": {},
    "transition": {
-    "type": "fade"
-   }
-  },
-  {
-   "motion": "starfield-night",
-   "say": "The stars come out.",
-   "min": 110,
-   "transition": {
-    "type": "fade"
-   }
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "sun-rise-set",
-   "say": "And the sun rises again.",
-   "min": 130,
+   "min": 120,
+   "props": {},
+   "transition": {
+    "type": "fade"
+   },
+   "tag": true
+  },
+  {
+   "motion": "time-of-day-grade",
+   "min": 150,
+   "props": {},
+   "offset": 20,
    "transition": {
     "type": "storm"
-   }
+   },
+   "tag": true
   },
   {
    "motion": "rain",
-   "say": "Then the weather turns.",
-   "min": 110,
+   "min": 90,
+   "props": {},
    "transition": {
-    "type": "fade"
-   }
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "lightning-flash",
-   "say": "Storms roll in.",
-   "min": 130,
+   "min": 110,
+   "props": {},
+   "offset": 15,
    "transition": {
     "type": "whiteout",
     "variant": "blizzard"
-   }
+   },
+   "tag": true
   },
   {
    "motion": "snowfall",
-   "say": "Winter comes.",
-   "min": 100,
+   "min": 90,
+   "props": {},
    "transition": {
     "type": "fade"
-   }
+   },
+   "tag": true
+  },
+  {
+   "motion": "starfield-night",
+   "min": 90,
+   "props": {},
+   "offset": 20,
+   "transition": {
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "aurora",
-   "say": "And the northern sky lights up.",
-   "min": 120,
+   "min": 100,
+   "props": {
+    "pixelSize": 0
+   },
+   "offset": 30,
    "transition": {
     "type": "fade"
-   }
+   },
+   "tag": true
   },
   {
    "motion": "embers",
-   "say": "We gather around the fire.",
-   "min": 100,
+   "min": 90,
+   "props": {},
    "transition": {
-    "type": "zoom"
-   }
+    "type": "cut"
+   },
+   "tag": true
+  },
+  {
+   "motion": "curl-flow",
+   "min": 90,
+   "props": {},
+   "offset": 10,
+   "transition": {
+    "type": "storm",
+    "variant": "watercolor"
+   },
+   "tag": true
   },
   {
    "motion": "city-skyline",
-   "say": "Until the lights of the city appear.",
-   "min": 160,
+   "min": 150,
+   "props": {},
+   "offset": 30,
    "transition": {
-    "type": "fade"
-   }
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "fireworks",
-   "say": "And the whole city celebrates.",
-   "min": 150,
+   "min": 130,
+   "props": {},
    "transition": {
     "type": "dots",
     "variant": "bokeh"
    },
+   "say": "And the whole city *celebrates.*",
+   "tag": true,
    "sfx": [
     {
      "file": "sfx/boom.mp3",
      "at": 20,
-     "volume": 0.25
+     "volume": 0.22
     }
    ]
   },
   {
    "motion": "mask-rise-title",
-   "music": {
-    "file": "music/tension-documentary.mp3",
-    "volume": 0.2
-   },
+   "min": 84,
    "props": {
+    "variant": "chapter",
     "chapter": {
      "number": "04",
-     "title": "INTO THE DEEP",
+     "title": "THE DEEP",
      "subtitle": "— below the surface."
     },
     "fromChapter": null,
-    "background": "#0B1B2B",
-    "ink": "#E6F1F7"
+    "background": "#0A0B0E",
+    "ink": "#F2EEE6",
+    "accent": "#E9C27A",
+    "muted": "#8A8F98",
+    "cropMarks": false,
+    "progressRule": false,
+    "startFrame": 4
    },
-   "say": "Chapter four. Into the deep.",
-   "min": 95,
+   "say": "Chapter four. The deep.",
+   "caption": false,
+   "lead": 10,
+   "pad": 10,
    "transition": {
     "type": "wave"
    },
-   "caption": false
+   "music": {
+    "file": "music/tension-documentary.mp3",
+    "volume": 0.2,
+    "start": 0
+   }
   },
   {
    "motion": "caustics-godrays",
-   "say": "Below the surface, light dances.",
-   "min": 120,
-   "transition": {
-    "type": "fade"
-   }
-  },
-  {
-   "motion": "bubbles",
-   "props": {
-    "mode": "rising"
-   },
-   "say": "We dive.",
-   "min": 90,
-   "transition": {
-    "type": "fade"
-   }
-  },
-  {
-   "motion": "fish-school",
-   "say": "Schools of fish sweep past.",
-   "min": 130,
-   "transition": {
-    "type": "fade"
-   }
-  },
-  {
-   "motion": "depth-descent",
-   "say": "Deeper. Past the height of the Statue of Liberty. Past the Eiffel Tower. Down to where the light gives up.",
-   "min": 300,
-   "transition": {
-    "type": "fade"
-   }
-  },
-  {
-   "motion": "swimmers-converge",
-   "say": "Tiny swimmers race toward a single point.",
-   "min": 140,
-   "transition": {
-    "type": "flash",
-    "variant": "plain"
-   }
-  },
-  {
-   "motion": "giant-eye-reveal",
-   "say": "And something down here is watching.",
-   "min": 128,
+   "min": 100,
+   "props": {},
    "transition": {
     "type": "cut"
    },
+   "tag": true
+  },
+  {
+   "motion": "bubbles",
+   "min": 90,
+   "props": {
+    "mode": "rising"
+   },
+   "transition": {
+    "type": "cut"
+   },
+   "tag": true
+  },
+  {
+   "motion": "fish-school",
+   "min": 130,
+   "props": {},
+   "transition": {
+    "type": "fade"
+   },
+   "tag": true
+  },
+  {
+   "motion": "depth-descent",
+   "min": 220,
+   "props": {},
+   "offset": 40,
+   "transition": {
+    "type": "fade"
+   },
+   "say": "Past the reach of sunlight, something is *watching.*",
+   "tag": true
+  },
+  {
+   "motion": "giant-eye-reveal",
+   "min": 128,
+   "props": {},
+   "transition": {
+    "type": "cut"
+   },
+   "tag": true,
    "sfx": [
     {
      "file": "sfx/braam.mp3",
      "at": 10,
-     "volume": 0.3
+     "volume": 0.28
     }
    ]
   },
   {
    "motion": "mask-rise-title",
-   "music": {
-    "file": "music/underwater.mp3",
-    "volume": 0.18,
-    "start": 40
-   },
+   "min": 84,
    "props": {
+    "variant": "chapter",
     "chapter": {
      "number": "05",
      "title": "CHARACTERS",
-     "subtitle": "— every story needs a hero."
+     "subtitle": "— they react, break things, and fix them."
     },
-    "fromChapter": null
+    "fromChapter": null,
+    "background": "#0A0B0E",
+    "ink": "#F2EEE6",
+    "accent": "#E9C27A",
+    "muted": "#8A8F98",
+    "cropMarks": false,
+    "progressRule": false,
+    "startFrame": 4
    },
    "say": "Chapter five. Characters.",
-   "min": 95,
+   "caption": false,
+   "lead": 10,
+   "pad": 10,
    "transition": {
     "type": "strip"
    },
-   "caption": false
+   "music": {
+    "file": "music/epic-action.mp3",
+    "volume": 0.2,
+    "start": 0
+   }
   },
   {
    "motion": "box-bot",
-   "say": "Meet Box Bot. It walks, it looks around, it wonders.",
-   "min": 240,
+   "min": 180,
+   "props": {},
    "transition": {
-    "type": "push-blur"
-   }
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "emote-pop",
-   "say": "It gets surprised. It gets ideas.",
    "min": 120,
+   "props": {},
    "transition": {
-    "type": "fade"
-   }
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "scribble-ball",
-   "say": "It gets frustrated.",
-   "min": 90,
+   "min": 85,
+   "props": {},
    "transition": {
-    "type": "fade"
-   }
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "smoke-puffs",
-   "say": "Things break.",
    "min": 100,
+   "props": {},
    "transition": {
-    "type": "fade"
-   }
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "sparkle-burst",
-   "say": "And it fixes them.",
-   "min": 90,
+   "min": 64,
+   "props": {},
    "transition": {
-    "type": "fade"
+    "type": "cut"
    },
+   "tag": true,
    "sfx": [
     {
      "file": "sfx/sparkle.mp3",
      "at": 34,
-     "volume": 0.35
+     "volume": 0.3
     }
    ]
   },
   {
    "motion": "electric-arcs",
-   "say": "Sometimes with a little too much power.",
-   "min": 100,
+   "min": 85,
+   "props": {},
    "transition": {
     "type": "glitch"
    },
-   "sfx": [
-    {
-     "file": "sfx/static.mp3",
-     "at": 4,
-     "volume": 0.2
-    }
-   ]
+   "tag": true
   },
   {
    "motion": "comic-burst",
-   "say": "Bonk. Pop.",
-   "min": 140,
-   "transition": {
-    "type": "fade"
-   },
-   "sfx": [
-    {
-     "file": "sfx/impact.mp3",
-     "at": 18,
-     "volume": 0.35
-    },
-    {
-     "file": "sfx/pop.mp3",
-     "at": 78,
-     "volume": 0.4
-    }
-   ]
-  },
-  {
-   "motion": "speed-lines",
-   "say": "Things get dramatic.",
-   "min": 90,
+   "min": 130,
+   "props": {},
    "transition": {
     "type": "bar",
     "variant": "black"
-   }
-  },
-  {
-   "motion": "star-glint",
-   "say": "A hero raises a sword.",
-   "min": 90,
-   "transition": {
-    "type": "fade"
    },
+   "tag": true,
    "sfx": [
     {
-     "file": "sfx/ding.mp3",
-     "at": 14,
+     "file": "sfx/impact.mp3",
+     "at": 12,
      "volume": 0.3
     }
    ]
   },
   {
-   "motion": "crowd-bob",
-   "props": {
-    "character": "soldier"
+   "motion": "star-glint",
+   "min": 85,
+   "props": {},
+   "transition": {
+    "type": "cut"
    },
-   "say": "And an army follows.",
-   "min": 150,
-   "transition": {
-    "type": "tear"
-   }
-  },
-  {
-   "motion": "walker-world-scroll",
-   "say": "A little explorer walks through the whole history of art, from cave walls to pixels.",
-   "min": 420,
-   "transition": {
-    "type": "fade"
-   }
-  },
-  {
-   "motion": "sign-drop",
-   "props": {
-    "text": "Now Open",
-    "subtext": "motions inside"
-   },
-   "say": "The shop is open.",
-   "min": 110,
-   "transition": {
-    "type": "fade"
-   }
-  },
-  {
-   "motion": "confetti-burst",
-   "say": "Celebrate every win.",
-   "min": 100,
-   "transition": {
-    "type": "spiral"
-   },
+   "tag": true,
    "sfx": [
     {
-     "file": "sfx/pop.mp3",
-     "at": 18,
-     "volume": 0.4
+     "file": "sfx/ding.mp3",
+     "at": 14,
+     "volume": 0.25
     }
    ]
   },
   {
-   "motion": "mask-rise-title",
+   "motion": "confetti-burst",
+   "min": 95,
+   "props": {},
+   "transition": {
+    "type": "cut"
+   },
+   "tag": true,
+   "sfx": [
+    {
+     "file": "sfx/pop.mp3",
+     "at": 18,
+     "volume": 0.35
+    }
+   ]
+  },
+  {
+   "motion": "crowd-bob",
+   "min": 150,
+   "props": {},
+   "transition": {
+    "type": "tear"
+   },
+   "tag": true
+  },
+  {
+   "motion": "walker-world-scroll",
+   "min": 330,
    "props": {
+    "speed": 0.62,
+    "stopFrames": 18
+   },
+   "transition": {
+    "type": "cut"
+   },
+   "say": "Walk through the whole *history* of art.",
+   "tag": true
+  },
+  {
+   "motion": "sign-drop",
+   "min": 110,
+   "props": {
+    "text": "Now Showing",
+    "subtext": "every motion"
+   },
+   "transition": {
+    "type": "page-turn"
+   },
+   "tag": true
+  },
+  {
+   "motion": "mask-rise-title",
+   "min": 84,
+   "props": {
+    "variant": "chapter",
     "chapter": {
      "number": "06",
-     "title": "PICTURES",
-     "subtitle": "— any image, many looks."
+     "title": "IMAGES",
+     "subtitle": "— any picture, in any look."
     },
-    "fromChapter": null
+    "fromChapter": null,
+    "background": "#0A0B0E",
+    "ink": "#F2EEE6",
+    "accent": "#E9C27A",
+    "muted": "#8A8F98",
+    "cropMarks": false,
+    "progressRule": false,
+    "startFrame": 4
    },
-   "say": "Chapter six. Pictures.",
-   "min": 95,
+   "say": "Chapter six. Images.",
+   "caption": false,
+   "lead": 10,
+   "pad": 10,
    "transition": {
     "type": "bar"
-   },
-   "caption": false
+   }
   },
   {
    "motion": "ken-burns",
+   "min": 110,
    "props": {
     "src": "demo/lighthouse.jpg",
     "punchAt": -1,
     "focus": [
      0.3,
-     0.3
-    ]
+     0.32
+    ],
+    "rate": 3
    },
-   "say": "A still picture can breathe.",
-   "min": 110,
    "transition": {
-    "type": "fade"
-   }
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "duotone",
-   "props": {
-    "src": "demo/whale.jpg",
-    "at": 20
-   },
-   "say": "It can be recoloured.",
    "min": 100,
+   "props": {
+    "src": "demo/koi.jpg",
+    "at": 18
+   },
+   "offset": 8,
    "transition": {
-    "type": "fade"
-   }
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "dot-matrix",
+   "min": 110,
    "props": {
     "src": "demo/owl.jpg"
    },
-   "say": "Rebuilt from glowing dots.",
-   "min": 120,
    "transition": {
     "type": "dots"
-   }
+   },
+   "tag": true
   },
   {
    "motion": "pixel-dither",
+   "min": 100,
    "props": {
     "src": "demo/lantern.jpg"
    },
-   "say": "Turned into pixel art.",
-   "min": 110,
    "transition": {
-    "type": "fade"
-   }
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "comic-halftone",
+   "min": 100,
    "props": {
     "src": "demo/city.jpg"
    },
-   "say": "Printed like a comic book.",
-   "min": 100,
    "transition": {
-    "type": "fade"
-   }
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "glass-pane-grid",
-   "props": {
-    "src": "demo/koi.jpg"
-   },
-   "say": "Seen through stained glass.",
    "min": 110,
-   "transition": {
-    "type": "fade"
-   }
-  },
-  {
-   "motion": "xray-scan",
    "props": {
     "src": "demo/jellyfish.jpg"
    },
-   "say": "X-rayed.",
-   "min": 100,
    "transition": {
-    "type": "fade"
-   }
+    "type": "cut"
+   },
+   "tag": true
+  },
+  {
+   "motion": "xray-scan",
+   "min": 110,
+   "props": {
+    "src": "demo/whale.jpg"
+   },
+   "transition": {
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "glitch-image",
+   "min": 100,
    "props": {
     "src": "demo/desert.jpg"
    },
-   "say": "Glitched.",
-   "min": 100,
    "transition": {
-    "type": "glitch"
-   }
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "film-look",
-   "props": {
-    "src": "demo/lighthouse.jpg"
-   },
-   "say": "Or finished like a film.",
    "min": 100,
+   "props": {
+    "src": "demo/lighthouse.jpg",
+    "flareX": 0.27,
+    "flareY": 0.2
+   },
    "transition": {
     "type": "fade"
-   }
+   },
+   "tag": true
   },
   {
    "motion": "light-sweep",
-   "say": "Light itself can tell the story.",
    "min": 120,
+   "props": {},
    "transition": {
     "type": "whiteout"
-   }
+   },
+   "tag": true
   },
   {
    "motion": "mask-rise-title",
-   "music": {
-    "file": "music/cinematic-promo.mp3",
-    "volume": 0.2
-   },
+   "min": 84,
    "props": {
+    "variant": "chapter",
     "chapter": {
      "number": "07",
      "title": "DATA & INTERFACES",
-     "subtitle": "— information in motion."
+     "subtitle": "— numbers, maps and screens that explain themselves."
     },
-    "fromChapter": null
+    "fromChapter": null,
+    "background": "#0A0B0E",
+    "ink": "#F2EEE6",
+    "accent": "#E9C27A",
+    "muted": "#8A8F98",
+    "cropMarks": false,
+    "progressRule": false,
+    "startFrame": 4
    },
    "say": "Chapter seven. Data and interfaces.",
-   "min": 100,
+   "caption": false,
+   "lead": 10,
+   "pad": 10,
    "transition": {
-    "type": "slide",
-    "direction": "from-right"
+    "type": "slide"
    },
-   "caption": false
+   "music": {
+    "file": "music/cinematic-promo.mp3",
+    "volume": 0.2,
+    "start": 30
+   }
   },
   {
    "motion": "number-counter",
+   "min": 110,
    "props": {
     "keyframes": [
      [
@@ -876,20 +1301,20 @@
       0
      ],
      [
-      12,
+      10,
       0
      ],
      [
       70,
-      92
-     ],
-     [
-      100,
       96
      ],
      [
-      130,
-      100
+      96,
+      104
+     ],
+     [
+      110,
+      104
      ]
     ],
     "label": "MOTIONS",
@@ -897,292 +1322,491 @@
     "readouts": [],
     "size": 320
    },
-   "say": "Numbers count up.",
-   "min": 130,
    "transition": {
-    "type": "fade"
-   }
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "iso-bar-chart",
-   "say": "Charts come alive.",
    "min": 150,
+   "props": {},
    "transition": {
-    "type": "fade"
-   }
-  },
-  {
-   "motion": "iso-blocks-3d",
-   "say": "In real 3D, too.",
-   "min": 150,
-   "transition": {
-    "type": "fade"
-   }
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "live-chart",
-   "say": "Signals pulse.",
    "min": 120,
+   "props": {
+    "title": "growth",
+    "xLabel": "wk",
+    "yLabel": "k",
+    "readout": "wk 1 → wk 12 · 3.4k users"
+   },
    "transition": {
-    "type": "fade"
-   }
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "map-route",
-   "say": "Maps trace a journey.",
    "min": 150,
+   "props": {},
    "transition": {
     "type": "page-turn",
     "variant": "roll"
-   }
+   },
+   "tag": true
   },
   {
    "motion": "science-reticle",
-   "say": "Instruments measure.",
    "min": 130,
+   "props": {
+    "labels": [
+     "sample · 0.4 mm",
+     "outer membrane"
+    ],
+    "scaleLabel": "100 µm"
+   },
    "transition": {
-    "type": "fade"
-   }
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "callout-labels",
-   "say": "Labels explain what you are looking at.",
    "min": 120,
+   "props": {},
    "transition": {
-    "type": "fade"
-   }
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "chat-bubbles",
-   "say": "Messages pop in.",
-   "min": 130,
+   "min": 180,
+   "props": {},
    "transition": {
-    "type": "slide",
-    "direction": "from-left"
-   }
+    "type": "slide"
+   },
+   "tag": true
+  },
+  {
+   "motion": "sms-thread",
+   "min": 150,
+   "props": {
+    "kicker": "INSTANT REPLY",
+    "title": "Answers\nin seconds",
+    "contact": "New message",
+    "contactSub": "Mobile · just now",
+    "messages": [
+     {
+      "text": "Missed call · 2:14 pm",
+      "from": "alert"
+     },
+     {
+      "text": "Sorry we missed you! How can we help?",
+      "from": "us",
+      "tag": "Sent automatically"
+     },
+     {
+      "text": "Can you film our launch on Friday?",
+      "from": "them"
+     },
+     {
+      "text": "Yes! Booking you in for 10am.",
+      "from": "us"
+     }
+    ],
+    "badge": "Booked: Fri 10am"
+   },
+   "transition": {
+    "type": "flip"
+   },
+   "tag": true
   },
   {
    "motion": "card-fan",
-   "say": "Cards are dealt and played.",
-   "min": 140,
+   "min": 150,
+   "props": {},
    "transition": {
-    "type": "flip"
-   }
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "browser-mockup",
-   "say": "Websites come to life.",
-   "min": 130,
+   "min": 150,
+   "props": {},
    "transition": {
-    "type": "fade"
-   }
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "split-compare",
-   "say": "Side by side, the difference is clear.",
-   "min": 130,
+   "min": 150,
+   "props": {
+    "headline": "Same scene, two looks",
+    "subheadline": "Line art on the left, full colour on the right.",
+    "footnote": ""
+   },
    "transition": {
-    "type": "fade"
-   }
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "panel-triptych",
-   "say": "Three ideas collide.",
-   "min": 150,
+   "min": 160,
+   "props": {
+    "title": "Three moments, one story"
+   },
    "transition": {
-    "type": "tear"
-   }
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "perspective-grid",
-   "say": "A game board draws itself.",
    "min": 150,
+   "props": {},
    "transition": {
-    "type": "fade"
-   }
-  },
-  {
-   "motion": "typewriter-code",
-   "say": "Code writes itself.",
-   "min": 130,
-   "transition": {
-    "type": "fade"
+    "type": "diagonal"
    },
-   "sfx": [
-    {
-     "file": "sfx/typing.mp3",
-     "at": 10,
-     "volume": 0.18
-    }
-   ]
+   "tag": true
   },
   {
-   "motion": "terrain-build-3d",
+   "motion": "mask-rise-title",
+   "min": 84,
    "props": {
-    "stageFrames": 26,
-    "flybyFrames": 90
+    "variant": "chapter",
+    "chapter": {
+     "number": "08",
+     "title": "SYSTEMS",
+     "subtitle": "— drawn as blueprints."
+    },
+    "fromChapter": null,
+    "background": "#0A0B0E",
+    "ink": "#F2EEE6",
+    "accent": "#E9C27A",
+    "muted": "#8A8F98",
+    "cropMarks": false,
+    "progressRule": false,
+    "startFrame": 4
    },
-   "say": "And code builds whole worlds, from a flat plane to a mountain at sunrise.",
-   "min": 330,
-   "transition": {
-    "type": "fade"
-   }
-  },
-  {
-   "motion": "wireframe-build",
-   "say": "Wireframes rise out of blueprints.",
-   "min": 150,
-   "transition": {
-    "type": "fade"
-   }
-  },
-  {
-   "motion": "plan-tilt",
-   "say": "Floor plans stand up.",
-   "min": 150,
-   "transition": {
-    "type": "fade"
-   }
-  },
-  {
-   "motion": "pointcloud-orbit",
-   "say": "Pictures become clouds of light.",
-   "min": 150,
-   "transition": {
-    "type": "dots"
-   }
-  },
-  {
-   "motion": "hud-chrome",
-   "say": "Any frame can wear a heads up display.",
-   "min": 120,
-   "transition": {
-    "type": "fade"
-   }
-  },
-  {
-   "motion": "era-dial",
-   "say": "Time turns.",
-   "min": 120,
+   "say": "Chapter eight. Systems.",
+   "caption": false,
+   "lead": 10,
+   "pad": 10,
    "transition": {
     "type": "clock"
    }
   },
   {
-   "motion": "radial-blueprint",
-   "say": "Knowledge spreads outward.",
-   "min": 140,
+   "motion": "hud-chrome",
+   "min": 130,
+   "props": {
+    "title": "OPUS MOTION",
+    "subtitle": "LIBRARY",
+    "headerRight": "LIVE",
+    "counterLabel": "SCENE",
+    "counter": "08"
+   },
    "transition": {
-    "type": "fade"
-   }
+    "type": "cut"
+   },
+   "tag": true
+  },
+  {
+   "motion": "era-dial",
+   "min": 140,
+   "props": {},
+   "transition": {
+    "type": "cut"
+   },
+   "tag": true
+  },
+  {
+   "motion": "radial-blueprint",
+   "min": 150,
+   "props": {
+    "categories": [
+     "MOTION",
+     "FORM",
+     "WORLDS",
+     "TYPE",
+     "DATA"
+    ],
+    "centerLabel": "OPUS"
+   },
+   "transition": {
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "powers-of-ten",
-   "say": "Zoom out.",
-   "min": 120,
+   "min": 130,
+   "props": {},
    "transition": {
-    "type": "zoom"
-   }
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "zoom-tunnel",
+   "min": 140,
    "props": {
-    "word": "WORDS",
-    "subtitle": "AND FINALLY"
+    "word": "DIMENSION",
+    "subtitle": "AND NOW"
    },
-   "say": "Or dive right in.",
-   "min": 130,
    "transition": {
     "type": "flash",
     "variant": "plain"
-   }
+   },
+   "tag": true
   },
   {
    "motion": "mask-rise-title",
+   "min": 84,
    "props": {
+    "variant": "chapter",
     "chapter": {
-     "number": "08",
-     "title": "WORDS",
-     "subtitle": "— type that moves."
+     "number": "09",
+     "title": "DIMENSION",
+     "subtitle": "— real 3D, rendered live."
     },
-    "fromChapter": null
+    "fromChapter": null,
+    "background": "#0A0B0E",
+    "ink": "#F2EEE6",
+    "accent": "#E9C27A",
+    "muted": "#8A8F98",
+    "cropMarks": false,
+    "progressRule": false,
+    "startFrame": 4
    },
-   "say": "Chapter eight. Words that move.",
-   "min": 90,
+   "say": "Chapter nine. A third dimension.",
+   "caption": false,
+   "lead": 10,
+   "pad": 10,
+   "transition": {
+    "type": "zoom"
+   },
+   "music": {
+    "file": "music/epic-cinematic-intense.mp3",
+    "volume": 0.2,
+    "start": 0
+   }
+  },
+  {
+   "motion": "terrain-build-3d",
+   "min": 200,
+   "props": {
+    "showCode": false,
+    "showTitle": false,
+    "stageFrames": 24,
+    "flyby": false
+   },
+   "offset": 20,
+   "transition": {
+    "type": "cut"
+   },
+   "tag": true
+  },
+  {
+   "motion": "wireframe-build",
+   "min": 180,
+   "props": {},
+   "offset": 40,
+   "transition": {
+    "type": "cut"
+   },
+   "tag": true
+  },
+  {
+   "motion": "plan-tilt",
+   "min": 200,
+   "props": {},
+   "offset": 30,
+   "transition": {
+    "type": "cut"
+   },
+   "tag": true
+  },
+  {
+   "motion": "pointcloud-orbit",
+   "min": 170,
+   "props": {},
+   "transition": {
+    "type": "cut"
+   },
+   "tag": true
+  },
+  {
+   "motion": "iso-blocks-3d",
+   "min": 160,
+   "props": {},
+   "transition": {
+    "type": "fade"
+   },
+   "tag": true
+  },
+  {
+   "motion": "mask-rise-title",
+   "min": 84,
+   "props": {
+    "variant": "chapter",
+    "chapter": {
+     "number": "10",
+     "title": "TYPE",
+     "subtitle": "— words that move like everything else."
+    },
+    "fromChapter": null,
+    "background": "#0A0B0E",
+    "ink": "#F2EEE6",
+    "accent": "#E9C27A",
+    "muted": "#8A8F98",
+    "cropMarks": false,
+    "progressRule": false,
+    "startFrame": 4
+   },
+   "say": "Chapter ten. Type.",
+   "caption": false,
+   "lead": 10,
+   "pad": 10,
    "transition": {
     "type": "bands"
-   },
-   "caption": false
+   }
   },
   {
    "motion": "kinetic-captions",
+   "min": 95,
    "props": {
     "lines": [
      "Words *punch*",
-     "on the *beat.*"
+     "right on the *beat.*"
     ],
-    "framesPerLine": 45,
-    "highlightColor": "#3383CB"
+    "framesPerLine": 46,
+    "highlightColor": "#C9A253",
+    "background": "#0A0B0E"
    },
-   "min": 95,
    "transition": {
-    "type": "fade"
-   }
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "blur-in-title",
+   "min": 120,
    "props": {
     "title": "IN FOCUS",
-    "subtitle": "titles that sharpen out of a blur",
-    "swapTo": null
+    "subtitle": "titles that sharpen out of the dark",
+    "swapTo": null,
+    "backdrop": "ink"
    },
-   "say": "Titles blur into focus.",
-   "min": 110,
    "transition": {
-    "type": "fade"
-   }
+    "type": "cut"
+   },
+   "tag": true
+  },
+  {
+   "motion": "mask-rise-title",
+   "min": 150,
+   "props": {
+    "variant": "stack",
+    "lines": [
+     {
+      "numeral": "108",
+      "word": "MOTIONS."
+     },
+     {
+      "numeral": "33",
+      "word": "TRANSITIONS."
+     },
+     {
+      "numeral": "1",
+      "word": "LIBRARY."
+     }
+    ],
+    "sideCopy": [
+     "Every frame in this film",
+     "is a motion you can reuse."
+    ],
+    "sideMono": [
+     "16:9 · 1:1 · 9:16",
+     "VIDEO · WEB · APPS"
+    ],
+    "background": "#F2EEE6"
+   },
+   "transition": {
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "stamp-slam",
+   "min": 130,
    "props": {
     "lines": [
      "OPUS",
-     "5.5"
+     "MOTION"
     ],
-    "preTitle": "Approved",
-    "keyword": "STAMPED"
+    "preTitle": "Approved for",
+    "keyword": "LAUNCH"
    },
-   "say": "Stamps slam down.",
-   "min": 130,
    "transition": {
-    "type": "fade"
+    "type": "cut"
    },
+   "tag": true,
    "sfx": [
     {
      "file": "sfx/impact.mp3",
      "at": 36,
-     "volume": 0.3
+     "volume": 0.28
     }
    ]
   },
   {
    "motion": "chapter-header",
-   "say": "Chapters announce themselves.",
    "min": 130,
+   "props": {
+    "stages": [
+     {
+      "title": "INTRO",
+      "subtitle": "set the scene"
+     },
+     {
+      "title": "BUILD",
+      "subtitle": "tell the story"
+     },
+     {
+      "title": "REVEAL",
+      "subtitle": "land the idea"
+     }
+    ],
+    "stageFrames": 42,
+    "total": 3
+   },
    "transition": {
-    "type": "fade"
-   }
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "story-caption-box",
-   "say": "Stories get told.",
    "min": 140,
+   "props": {},
    "transition": {
-    "type": "fade"
-   }
+    "type": "cut"
+   },
+   "tag": true
   },
   {
    "motion": "neon-sign",
+   "min": 130,
    "props": {
     "lines": [
      {
@@ -1198,60 +1822,265 @@
      }
     ]
    },
-   "say": "Signs flicker on.",
-   "min": 130,
    "transition": {
-    "type": "fade"
+    "type": "cut"
    },
+   "tag": true,
    "sfx": [
     {
      "file": "sfx/hum.mp3",
      "at": 16,
-     "volume": 0.2
+     "volume": 0.18
     }
    ]
   },
   {
-   "motion": "glyph-orbit-logo",
+   "motion": "handwrite-on",
+   "min": 110,
    "props": {
-    "logo": "Opus in Motion",
-    "tagline": [
-     "EVERY MOTION IS",
-     "JUST CODE."
-    ],
-    "pill": "BUILT WITH CLAUDE."
+    "lines": [
+     {
+      "text": "opus motion",
+      "color": "#2B74C5"
+     },
+     {
+      "text": "library",
+      "color": "#C8363A"
+     }
+    ]
    },
-   "say": "And logos assemble themselves.",
-   "min": 200,
    "transition": {
-    "type": "fade"
+    "type": "cut"
+   },
+   "tag": true
+  },
+  {
+   "motion": "typewriter-code",
+   "min": 130,
+   "props": {
+    "title": "motion.ts",
+    "lines": [
+     "// every motion is a function of time",
+     "const t = frame / fps;",
+     "const y = ease.out(t) * height;",
+     "render(<Motion y={y} />);"
+    ]
+   },
+   "transition": {
+    "type": "cut"
+   },
+   "tag": true,
+   "sfx": [
+    {
+     "file": "sfx/typing.mp3",
+     "at": 10,
+     "volume": 0.15
+    }
+   ]
+  },
+  {
+   "motion": "mask-rise-title",
+   "min": 84,
+   "props": {
+    "variant": "chapter",
+    "chapter": {
+     "number": "11",
+     "title": "MIX",
+     "subtitle": "— layer them, and every frame becomes new."
+    },
+    "fromChapter": null,
+    "background": "#0A0B0E",
+    "ink": "#F2EEE6",
+    "accent": "#E9C27A",
+    "muted": "#8A8F98",
+    "cropMarks": false,
+    "progressRule": false,
+    "startFrame": 4
+   },
+   "say": "And when you mix them, every frame becomes something new.",
+   "caption": false,
+   "lead": 10,
+   "pad": 10,
+   "transition": {
+    "type": "iris"
    }
   },
   {
-   "motion": "typewriter-signature",
-   "props": {
-    "text": "opus 5.5",
-    "position": "center",
-    "size": 90
-   },
-   "say": "Signed.",
-   "min": 80,
+   "layers": [
+    {
+     "motion": "city-skyline",
+     "props": {
+      "pullback": false
+     }
+    },
+    {
+     "motion": "rain",
+     "props": {
+      "background": "transparent",
+      "lamp": false,
+      "density": 0.8
+     }
+    },
+    {
+     "motion": "blur-in-title",
+     "from": 12,
+     "props": {
+      "title": "AFTER HOURS",
+      "subtitle": "city-skyline · rain · blur-in-title",
+      "swapTo": null,
+      "backdrop": "none",
+      "background": "transparent",
+      "layout": "upper"
+     }
+    }
+   ],
+   "min": 150,
    "transition": {
     "type": "cut"
+   },
+   "tag": {
+    "name": "Mix · After Hours",
+    "family": "mix"
+   }
+  },
+  {
+   "layers": [
+    {
+     "motion": "ken-burns",
+     "props": {
+      "src": "demo/lantern.jpg",
+      "punchAt": -1,
+      "rate": 2
+     }
+    },
+    {
+     "motion": "snowfall",
+     "props": {
+      "background": "transparent",
+      "density": 0.7
+     }
+    },
+    {
+     "motion": "film-look",
+     "props": {
+      "overlay": true,
+      "flare": false,
+      "letterbox": "on"
+     }
+    },
+    {
+     "motion": "typewriter-signature",
+     "props": {
+      "text": "a long winter",
+      "background": "transparent",
+      "position": "bottom-left",
+      "startFrame": 20
+     }
+    }
+   ],
+   "min": 150,
+   "transition": {
+    "type": "cut"
+   },
+   "tag": {
+    "name": "Mix · Winter Light",
+    "family": "mix"
+   }
+  },
+  {
+   "layers": [
+    {
+     "motion": "sun-rise-set",
+     "props": {
+      "mode": "set"
+     }
+    },
+    {
+     "motion": "falling-petals",
+     "props": {
+      "background": "transparent",
+      "branch": false
+     }
+    },
+    {
+     "motion": "handwrite-on",
+     "from": 16,
+     "props": {
+      "lines": [
+       {
+        "text": "golden hour",
+        "color": "#FFF4E2"
+       }
+      ],
+      "background": "transparent",
+      "paper": false,
+      "size": 130
+     }
+    }
+   ],
+   "min": 150,
+   "transition": {
+    "type": "cut"
+   },
+   "tag": {
+    "name": "Mix · Golden Hour",
+    "family": "mix"
+   }
+  },
+  {
+   "layers": [
+    {
+     "motion": "aurora",
+     "props": {
+      "pixelSize": 0
+     }
+    },
+    {
+     "motion": "hud-chrome",
+     "props": {
+      "backdrop": "transparent",
+      "previewSubject": false,
+      "title": "NORTH",
+      "subtitle": "69.6° N",
+      "headerRight": "LIVE",
+      "counterLabel": "SKY",
+      "counter": "01",
+      "showRuler": false
+     }
+    },
+    {
+     "motion": "embers",
+     "props": {
+      "mode": "motes",
+      "background": "transparent",
+      "count": 18
+     },
+     "blend": "screen"
+    }
+   ],
+   "min": 150,
+   "transition": {
+    "type": "whiteout"
+   },
+   "tag": {
+    "name": "Mix · Northern Signal",
+    "family": "mix"
    }
   },
   {
    "motion": "beat-montage",
+   "min": 120,
+   "props": {},
+   "transition": {
+    "type": "cut"
+   },
+   "say": "Now, everything at once.",
    "music": {
     "file": "music/cinematic-promo.mp3",
     "volume": 0.3,
     "start": 92
    },
-   "say": "Now, everything at once.",
-   "min": 120,
-   "transition": {
-    "type": "cut"
-   },
+   "snap": false,
    "sfx": [
     {
      "file": "sfx/riserbig.mp3",
@@ -1262,229 +2091,261 @@
   },
   {
    "motion": "bouncing-ball",
+   "min": 8,
+   "props": {
+    "hud": false
+   },
    "offset": 30,
-   "min": 12,
    "transition": {
     "type": "cut"
-   }
+   },
+   "snap": false
   },
   {
    "motion": "origami-fold",
+   "min": 8,
+   "props": {},
    "offset": 150,
-   "min": 12,
    "transition": {
     "type": "cut"
-   }
+   },
+   "snap": false
   },
   {
    "motion": "topdown-terrain",
+   "min": 8,
+   "props": {},
    "offset": 60,
-   "min": 12,
    "transition": {
     "type": "cut"
-   }
+   },
+   "snap": false
   },
   {
    "motion": "flock",
+   "min": 8,
+   "props": {},
    "offset": 120,
-   "min": 12,
    "transition": {
     "type": "cut"
-   }
+   },
+   "snap": false
   },
   {
    "motion": "fireworks",
+   "min": 8,
+   "props": {},
    "offset": 70,
-   "min": 12,
    "transition": {
     "type": "cut"
-   }
+   },
+   "snap": false
   },
   {
    "motion": "depth-descent",
-   "offset": 200,
-   "min": 12,
+   "min": 8,
+   "props": {},
+   "offset": 220,
    "transition": {
     "type": "cut"
-   }
+   },
+   "snap": false
   },
   {
    "motion": "giant-eye-reveal",
+   "min": 8,
+   "props": {},
    "offset": 70,
-   "min": 10,
    "transition": {
     "type": "cut"
-   }
+   },
+   "snap": false
   },
   {
    "motion": "box-bot",
+   "min": 8,
+   "props": {},
    "offset": 120,
-   "min": 10,
    "transition": {
     "type": "cut"
-   }
+   },
+   "snap": false
   },
   {
    "motion": "comic-burst",
+   "min": 8,
+   "props": {},
    "offset": 24,
-   "min": 10,
    "transition": {
     "type": "cut"
-   }
+   },
+   "snap": false
   },
   {
    "motion": "walker-world-scroll",
-   "offset": 300,
-   "min": 10,
-   "transition": {
-    "type": "cut"
-   }
-  },
-  {
-   "motion": "dot-matrix",
-   "offset": 60,
-   "props": {
-    "src": "demo/owl.jpg"
-   },
    "min": 8,
+   "props": {},
+   "offset": 300,
    "transition": {
     "type": "cut"
-   }
+   },
+   "snap": false
   },
   {
    "motion": "pixel-dither",
-   "offset": 60,
+   "min": 8,
    "props": {
     "src": "demo/lantern.jpg"
    },
-   "min": 8,
+   "offset": 60,
    "transition": {
     "type": "cut"
-   }
+   },
+   "snap": false
   },
   {
    "motion": "terrain-build-3d",
-   "offset": 280,
-   "props": {
-    "stageFrames": 26,
-    "flybyFrames": 90
-   },
    "min": 8,
+   "props": {
+    "showCode": false,
+    "showTitle": false,
+    "stageFrames": 26,
+    "flybyFrames": 160
+   },
+   "offset": 300,
    "transition": {
     "type": "cut"
-   }
+   },
+   "snap": false
   },
   {
    "motion": "iso-bar-chart",
-   "offset": 120,
    "min": 8,
+   "props": {},
+   "offset": 120,
    "transition": {
     "type": "cut"
-   }
+   },
+   "snap": false
   },
   {
    "motion": "hex-comb-build",
-   "offset": 110,
    "min": 8,
+   "props": {},
+   "offset": 110,
    "transition": {
     "type": "cut"
-   }
+   },
+   "snap": false
   },
   {
    "motion": "aurora",
-   "offset": 60,
    "min": 8,
+   "props": {
+    "pixelSize": 0
+   },
+   "offset": 60,
    "transition": {
     "type": "cut"
-   }
+   },
+   "snap": false
   },
   {
    "motion": "neon-sign",
+   "min": 8,
+   "props": {},
    "offset": 90,
-   "min": 6,
    "transition": {
     "type": "cut"
-   }
+   },
+   "snap": false
   },
   {
    "motion": "pair-field",
+   "min": 8,
+   "props": {},
    "offset": 60,
-   "min": 6,
    "transition": {
     "type": "cut"
-   }
-  },
-  {
-   "motion": "zoom-tunnel",
-   "offset": 80,
-   "min": 6,
-   "transition": {
-    "type": "cut"
-   }
+   },
+   "snap": false
   },
   {
    "motion": "petal-bloom",
+   "min": 8,
+   "props": {},
    "offset": 80,
-   "min": 6,
    "transition": {
     "type": "cut"
-   }
+   },
+   "snap": false
   },
   {
    "motion": "city-skyline",
+   "min": 8,
+   "props": {},
    "offset": 150,
-   "min": 6,
    "transition": {
     "type": "cut"
-   }
+   },
+   "snap": false
   },
   {
    "motion": "glitch-image",
-   "offset": 40,
+   "min": 8,
    "props": {
     "src": "demo/desert.jpg"
    },
-   "min": 6,
+   "offset": 40,
    "transition": {
     "type": "cut"
-   }
+   },
+   "snap": false
   },
   {
    "motion": "thumbnail-mosaic",
-   "say": "Every motion. Every world. One library.",
    "min": 150,
+   "props": {},
    "transition": {
     "type": "whiteout"
-   }
+   },
+   "say": "Every motion. Every world.",
+   "tag": true
+  },
+  {
+   "motion": "glyph-orbit-logo",
+   "min": 200,
+   "props": {
+    "logo": "Opus Motion",
+    "tagline": [
+     "EVERY MOTION IS",
+     "YOURS TO USE."
+    ],
+    "pill": "VIDEO · WEB · APPS"
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "say": "Opus Motion.",
+   "lead": 60
   },
   {
    "motion": "end-card-credits",
+   "min": 200,
    "props": {
-    "headline": "every motion you just saw is code.",
+    "headline": "every frame you just saw is a motion you can use.",
     "lines": [
-     "rebuilt from 23 sample films · 33 transitions · local voice",
-     "remotion · react · svg · three.js — reusable, parameterised, yours"
+     "108 motions · 33 transitions · landscape, square and vertical",
+     "for videos, websites and apps"
     ],
-    "credit": "Opus Motion Library — built by Claude Opus 5.5",
-    "fadeToBlack": false
+    "credit": "Opus Motion Library",
+    "fadeToBlack": true
    },
-   "say": "Every motion you just saw is code. And it all starts with a dot.",
-   "min": 210,
    "transition": {
-    "type": "fade"
-   }
-  },
-  {
-   "motion": "sonar-ping",
-   "props": {
-    "pings": 1,
-    "pingEvery": 60,
-    "windowImages": [],
-    "windowColors": [
-     "#3383CB"
-    ]
+    "type": "cut"
    },
-   "min": 90
+   "say": "In a video, a website, or an app.",
+   "lead": 30
   }
  ]
 }
