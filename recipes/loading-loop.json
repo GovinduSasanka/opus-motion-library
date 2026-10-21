@@ -1,0 +1,34 @@
+{
+  "id": "loading-loop",
+  "title": "Loading loop",
+  "useFor": "Seamless loading / waiting / processing loop for splash screens, empty states and \"generating…\" moments.",
+  "format": "square",
+  "duration": 144,
+  "background": "#ECE4D7",
+  "tags": [
+    "loading",
+    "loop",
+    "spinner",
+    "wait",
+    "processing",
+    "splash",
+    "seamless",
+    "pulse"
+  ],
+  "web": {
+    "loop": "restart"
+  },
+  "layers": [
+    {
+      "motion": "sonar-ping",
+      "role": "subject",
+      "props": {
+        "pings": 3,
+        "pingEvery": 48,
+        "windowSize": 0,
+        "echoAngles": []
+      }
+    }
+  ],
+  "notes": "A 144-frame (3 × 48) sonar loop with no picture windows. Recolour with color and background. For dark UIs: background \"#0E1116\", color \"#7AA2FF\", paper false."
+}

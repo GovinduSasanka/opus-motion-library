@@ -1,0 +1,53 @@
+{
+  "id": "error-glitch",
+  "title": "Error / 404 glitch",
+  "useFor": "Error, 404, outage and \"something broke\" states — a glitching night plate with a stamped code.",
+  "format": "landscape",
+  "duration": 150,
+  "background": "#000",
+  "tags": [
+    "error",
+    "404",
+    "glitch",
+    "broken",
+    "fail",
+    "outage",
+    "state",
+    "dark"
+  ],
+  "web": {
+    "loop": "restart"
+  },
+  "layers": [
+    {
+      "motion": "glitch-image",
+      "role": "backdrop",
+      "props": {
+        "palette": "night",
+        "intensity": 0.9
+      }
+    },
+    {
+      "motion": "stamp-slam",
+      "role": "type",
+      "props": {
+        "lines": [
+          "ERROR",
+          "404"
+        ],
+        "preTitle": "",
+        "keyword": "page not found",
+        "keywordStyle": "box",
+        "keywordFont": "sans",
+        "slamAt": 18,
+        "keywordAt": 54,
+        "y": 0.36,
+        "keywordY": 0.66,
+        "backdrop": "none",
+        "push": 0,
+        "color": "#c14d3c"
+      }
+    }
+  ],
+  "notes": "Change stamp-slam.lines / keyword. Use glitch-image.src for a screenshot of your own UI breaking."
+}

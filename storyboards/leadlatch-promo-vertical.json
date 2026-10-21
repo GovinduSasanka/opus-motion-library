@@ -1,0 +1,307 @@
+{
+ "name": "leadlatch-promo",
+ "width": 1080,
+ "height": 1920,
+ "fps": 30,
+ "background": "#0E2621",
+ "voice": {
+  "speaker": "Ryan",
+  "seed": 7,
+  "style": "Friendly, confident narrator for a small-business software ad. Warm, clear and conversational, like a helpful tradesperson explaining something to a friend. Upbeat but never salesy or robotic."
+ },
+ "music": {
+  "volume": 0.2,
+  "duck": 0.4
+ },
+ "captions": true,
+ "captionStyle": {
+  "position": "bottom",
+  "size": 58,
+  "highlightColor": "#FF5A1F"
+ },
+ "scenes": [
+  {
+   "motion": "ken-burns",
+   "music": {
+    "file": "music/tension-documentary.mp3",
+    "volume": 0.22,
+    "start": 2
+   },
+   "props": {
+    "src": "leadlatch/hero-roof-v.jpg",
+    "mode": "push",
+    "rate": 1.5,
+    "focus": [
+     0.45,
+     0.3
+    ],
+    "easing": "sine",
+    "handheld": 1.2,
+    "punchAt": -1,
+    "punchScale": 1.35,
+    "punchFocus": [
+     0.42,
+     0.78
+    ],
+    "grain": 0.03,
+    "paper": 0,
+    "vignette": 0.35,
+    "fadeIn": 12
+   },
+   "say": "You're up on a roof when the phone rings. And there's no way you can answer it.",
+   "min": 150,
+   "transition": {
+    "type": "fade"
+   }
+  },
+  {
+   "motion": "stamp-slam",
+   "props": {
+    "src": "leadlatch/attic-v-dim.jpg",
+    "lines": [
+     "MISSED CALL"
+    ],
+    "preTitle": "They call someone else…",
+    "keyword": "JOB LOST",
+    "font": "display",
+    "size": 84,
+    "y": 0.3,
+    "keywordY": 0.52,
+    "slamAt": 96,
+    "keywordAt": 132,
+    "color": "#FF5A1F",
+    "keywordColor": "#F5F1E8",
+    "textColor": "#F5F1E8",
+    "push": 0.05
+   },
+   "say": "So they hang up, and call the next name on the list. Every missed call is a lost job.",
+   "min": 170,
+   "sfx": [
+    {
+     "file": "sfx/impact.mp3",
+     "at": 96,
+     "volume": 0.5
+    }
+   ],
+   "transition": {
+    "type": "push-blur"
+   }
+  },
+  {
+   "motion": "sms-thread",
+   "music": {
+    "file": "music/inspiring.mp3",
+    "volume": 0.2,
+    "start": 0
+   },
+   "props": {
+    "kicker": "MISSED-CALL TEXT-BACK",
+    "title": "Texts back\nin seconds",
+    "contact": "New enquiry",
+    "contactSub": "Mobile · just now",
+    "start": 12,
+    "stagger": 34,
+    "typing": 14,
+    "messages": [
+     {
+      "text": "Missed call · 2:14 pm",
+      "from": "alert"
+     },
+     {
+      "text": "Sorry we missed you! What do you need help with?",
+      "from": "us",
+      "tag": "Sent automatically"
+     },
+     {
+      "text": "Boiler's leaking, can you come Thursday?",
+      "from": "them"
+     },
+     {
+      "text": "Booked: Thu 9am. See you then!",
+      "from": "us"
+     }
+    ],
+    "badge": "Booked: Thu 9am"
+   },
+   "say": "Leadlatch texts them back within seconds, so the conversation, and the job, stays with you.",
+   "min": 215,
+   "sfx": [
+    {
+     "file": "sfx/pop.mp3",
+     "at": 46,
+     "volume": 0.3
+    },
+    {
+     "file": "sfx/pop.mp3",
+     "at": 80,
+     "volume": 0.3
+    },
+    {
+     "file": "sfx/pop.mp3",
+     "at": 114,
+     "volume": 0.3
+    },
+    {
+     "file": "sfx/ding.mp3",
+     "at": 138,
+     "volume": 0.3
+    }
+   ],
+   "transition": {
+    "type": "slide",
+    "direction": "from-right"
+   }
+  },
+  {
+   "motion": "sms-thread",
+   "props": {
+    "kicker": "AUTOMATIC QUOTE FOLLOW-UP",
+    "title": "Chases your\nquotes for you",
+    "contact": "Sam · kitchen quote",
+    "contactSub": "Quote sent Monday",
+    "start": 10,
+    "stagger": 24,
+    "typing": 10,
+    "messages": [
+     {
+      "text": "Quote sent",
+      "from": "note"
+     },
+     {
+      "text": "Day 2",
+      "from": "note"
+     },
+     {
+      "text": "Hi Sam, just checking the quote came through OK?",
+      "from": "us",
+      "tag": "Auto follow-up"
+     },
+     {
+      "text": "Day 5",
+      "from": "note"
+     },
+     {
+      "text": "Any questions about the quote? Happy to help.",
+      "from": "us",
+      "tag": "Auto follow-up"
+     },
+     {
+      "text": "Day 10",
+      "from": "note"
+     },
+     {
+      "text": "Last nudge from us: shall we pencil you in?",
+      "from": "us",
+      "tag": "Auto follow-up"
+     },
+     {
+      "text": "Yes please, let's go ahead!",
+      "from": "them"
+     }
+    ],
+    "badge": "Quote accepted"
+   },
+   "say": "Sent a quote and heard nothing? It follows up on day two, day five and day ten, so you never have to chase.",
+   "min": 240,
+   "sfx": [
+    {
+     "file": "sfx/ding.mp3",
+     "at": 202,
+     "volume": 0.3
+    }
+   ],
+   "transition": {
+    "type": "fade"
+   }
+  },
+  {
+   "motion": "number-counter",
+   "props": {
+    "src": "leadlatch/ink-bg.jpg",
+    "label": "EXAMPLE · RECOVERED THIS MONTH",
+    "prefix": "$",
+    "unit": "",
+    "separator": ",",
+    "readouts": [],
+    "numberColor": "#F5F1E8",
+    "labelColor": "#FF5A1F",
+    "accent": "#22B573",
+    "size": 260,
+    "keyframes": [
+     [
+      0,
+      0
+     ],
+     [
+      12,
+      0
+     ],
+     [
+      90,
+      4620
+     ],
+     [
+      120,
+      4860
+     ],
+     [
+      400,
+      4860
+     ]
+    ],
+    "labelSize": 30
+   },
+   "say": "And it shows which enquiries turned into paid jobs, so you can see what it won back.",
+   "min": 160,
+   "sfx": [
+    {
+     "file": "sfx/cash.mp3",
+     "at": 118,
+     "volume": 0.35
+    }
+   ],
+   "transition": {
+    "type": "wipe"
+   }
+  },
+  {
+   "motion": "mask-rise-title",
+   "props": {
+    "variant": "stack",
+    "lines": [
+     {
+      "word": "LEADLATCH."
+     },
+     {
+      "word": "NEVER LOSE"
+     },
+     {
+      "word": "ANOTHER"
+     },
+     {
+      "word": "ENQUIRY."
+     }
+    ],
+    "sideCopy": [
+     "Missed-call text-back, quote",
+     "follow-ups and revenue tracking",
+     "for small service businesses."
+    ],
+    "sideMono": [
+     "FROM $29/MONTH",
+     "FREE FOR 14 DAYS · NO CARD"
+    ],
+    "background": "#F5F1E8",
+    "ink": "#0E2621",
+    "accent": "#FF5A1F",
+    "muted": "#5d6b66",
+    "progressRule": false,
+    "exit": false
+   },
+   "say": "Leadlatch. Never lose another enquiry. Try it free for fourteen days, no card needed.",
+   "caption": false,
+   "min": 190,
+   "pad": 40
+  }
+ ]
+}

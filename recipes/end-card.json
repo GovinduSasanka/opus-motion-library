@@ -1,0 +1,52 @@
+{
+  "id": "end-card",
+  "title": "End card with call to action",
+  "useFor": "The last shot of a video or the footer of a landing page: headline, short stat lines and a credit / CTA over a drifting sunrise.",
+  "format": "landscape",
+  "duration": 165,
+  "background": "#000",
+  "tags": [
+    "end",
+    "outro",
+    "endcard",
+    "credits",
+    "cta",
+    "footer",
+    "logo",
+    "closing"
+  ],
+  "web": {
+    "loop": "once"
+  },
+  "layers": [
+    {
+      "motion": "end-card-credits",
+      "role": "type",
+      "props": {
+        "title": "LUMEN",
+        "headline": "Start free today.",
+        "lines": [
+          "lumen.app",
+          "no card · cancel anytime"
+        ],
+        "credit": "Made for people who build",
+        "fadeToBlack": false
+      }
+    },
+    {
+      "motion": "embers",
+      "role": "accent",
+      "props": {
+        "mode": "motes",
+        "background": "transparent",
+        "backdrop": false,
+        "count": 14,
+        "color": "#FFE2A8",
+        "speed": 0.4
+      },
+      "blend": "screen",
+      "opacity": 0.55
+    }
+  ],
+  "notes": "Replace title / headline / lines / credit. Set fadeToBlack true when it is the very last shot of a video."
+}

@@ -65,6 +65,7 @@ import {kenBurns} from './motions/image/ken-burns';
 import {lightSweep} from './motions/image/light-sweep';
 import {pixelDither} from './motions/image/pixel-dither';
 import {xrayScan} from './motions/image/xray-scan';
+import {mix} from './motions/mix/mix';
 import {bouncingBall} from './motions/shape/bouncing-ball';
 import {branchGrow} from './motions/shape/branch-grow';
 import {callResponse} from './motions/shape/call-response';
@@ -97,6 +98,7 @@ import {kineticCaptions} from './motions/text/kinetic-captions';
 import {maskRiseTitle} from './motions/text/mask-rise-title';
 import {neonSign} from './motions/text/neon-sign';
 import {numberCounter} from './motions/text/number-counter';
+import {sceneTag} from './motions/text/scene-tag';
 import {stampSlam} from './motions/text/stamp-slam';
 import {storyCaptionBox} from './motions/text/story-caption-box';
 import {typewriterCode} from './motions/text/typewriter-code';
@@ -105,6 +107,7 @@ import {transitionReel} from './motions/transition/transition-reel';
 import {browserMockup} from './motions/ui/browser-mockup';
 import {cardFan} from './motions/ui/card-fan';
 import {chatBubbles} from './motions/ui/chat-bubbles';
+import {smsThread} from './motions/ui/sms-thread';
 import {splitCompare} from './motions/ui/split-compare';
 
 export const motions: MotionDef<any>[] = [
@@ -173,6 +176,7 @@ export const motions: MotionDef<any>[] = [
   lightSweep,
   pixelDither,
   xrayScan,
+  mix,
   bouncingBall,
   branchGrow,
   callResponse,
@@ -205,6 +209,7 @@ export const motions: MotionDef<any>[] = [
   maskRiseTitle,
   neonSign,
   numberCounter,
+  sceneTag,
   stampSlam,
   storyCaptionBox,
   typewriterCode,
@@ -213,6 +218,7 @@ export const motions: MotionDef<any>[] = [
   browserMockup,
   cardFan,
   chatBubbles,
+  smsThread,
   splitCompare,
 ];
 

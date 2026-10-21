@@ -28,6 +28,7 @@ type Props = {
   layout: 'center' | 'hud';
   gauge: boolean;
   size: number;
+  labelSize: number;
   labelColor: string;
   numberColor: string;
   accent: string;
@@ -115,7 +116,7 @@ const NumberCounter: React.FC<Props> = (p) => {
   const fs = Math.min(fsBase, (w * (hud ? 0.5 : 0.82)) / (0.6 * maxStr.length + (p.unit ? 0.6 : 0)));
   const depth = p.linkBackdrop ? Math.pow(clamp(Math.log10(1 + Math.max(0, v)) / 4.1), 1.8) : 0.4;
   const statFs = (hud ? 26 : 34) * u;
-  const labFs = (hud ? 22 : 28) * u;
+  const labFs = (hud ? 22 : p.labelSize) * u;
   const number = p.mode === 'roll' && p.decimals <= 0 ? <RollDigits v={v} speed={Math.abs(rate)} places={places} sep={p.separator} fs={fs} color={p.numberColor} /> : fmt(v, p.decimals, p.separator);
   const gaugeR = fs * 1.6;
   const gp = clamp(v / Math.max(1e-9, max));
@@ -191,6 +192,7 @@ export const numberCounter = defineMotion<Props>({
     layout: 'center',
     gauge: false,
     size: 300,
+    labelSize: 28,
     labelColor: '#6c95ac',
     numberColor: '#a9d8ee',
     accent: '#ED3821',
@@ -211,6 +213,7 @@ export const numberCounter = defineMotion<Props>({
     layout: 'center (big, standalone) | hud (top-left overlay block like video23)',
     gauge: 'semicircle gauge above the number (video17 anticipation meter); centre layout only',
     size: 'number size in px at 1080p (auto-shrinks to fit)',
+    labelSize: 'label size in px at 1080p (centre layout)',
     backdrop: 'ocean | ink | dunes | … scene behind',
     linkBackdrop: 'ocean backdrop darkens with the value (log scale) like a dive',
     src: 'optional public/ image behind',

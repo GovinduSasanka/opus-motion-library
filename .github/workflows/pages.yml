@@ -1,0 +1,72 @@
+# Builds the showcase site (site/) and deploys it to GitHub Pages:
+#   https://govindusasanka.github.io/opus-motion-library/
+# Enable once in Settings → Pages → Source: "GitHub Actions".
+name: Deploy site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  # nothing in the build renders video: never download browsers
+  PUPPETEER_SKIP_DOWNLOAD: 'true'
+  PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
+  REMOTION_SKIP_BROWSER_DOWNLOAD: 'true'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            site/package-lock.json
+
+      - name: Install library
+        run: npm ci --no-audit --no-fund
+
+      - name: Build library (dist/)
+        run: npm run build:lib
+
+      - name: Install site
+        working-directory: site
+        # the site links the library with file:.. — if the library's package.json changed since site/package-lock.json
+        # was written, fall back to a normal install instead of failing
+        run: npm ci --no-audit --no-fund || npm install --no-audit --no-fund
+
+      - name: Build site
+        working-directory: site
+        env:
+          SITE_BASE: /opus-motion-library/
+        run: npm run build
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

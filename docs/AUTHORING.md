@@ -83,7 +83,7 @@ node cli/mgl.mjs render <id> --out out/check/<id>.mp4   # then tile frames with 
 ```
 
 Look at the stills (Read tool) and compare with the source frames in `analysis/frames/videoN/` or the sheets in
-`analysis/sheets/videoN/`. Fix until it reads as the same motion.
+`analysis/sheets/videoN/` (local only — the sample videos and their frames are not in the repo). Fix until it reads as the same motion.
 
 ## Pitfalls learned while building the library
 - **SVG filter alpha:** `feComposite operator="arithmetic"` with `k1` multiplies the alpha channels too, so a

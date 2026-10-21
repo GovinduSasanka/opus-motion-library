@@ -1,42 +1,53 @@
 ---
 name: opus-motion
-description: Make videos with the Opus Motion Library — ~100 reverse-engineered, parameterised motion graphics (titles, transitions, shapes, weather, characters, data/HUD, image looks, 3D) rendered with Remotion. Use when the user asks for a specific motion ("do the sonar ping", "a stamp slam that says X", "an underwater descent"), wants several motions stitched into a video, or wants a narrated explainer built from motions. Works in C:\Users\govin\Music\motion_graphics_library.
+description: Choose, mix and integrate motion graphics from the Opus Motion Library — ~109 parameterised Remotion motions (titles, backdrops, weather, particles, characters, data/HUD, UI mockups, image looks, 3D), 33 transitions and 19 ready-made recipes. Use when the user wants a specific motion ("do the sonar ping", "a stamp slam that says X"), several motions mixed into a shot or video, a narrated explainer, OR animated backgrounds / heroes / stats / loaders / celebration states in a website, web app (React, Next.js, Vite, plain HTML, WordPress), native app (exported mp4/webm-alpha/ProRes) or slides — including when the library has been copied or linked into another project.
 ---
 
 # Opus Motion Library
 
-Root: `C:\Users\govin\Music\motion_graphics_library` (Bash: `/c/Users/govin/Music/motion_graphics_library`).
+Root: the folder this repo is cloned into, or the
+copy inside the current host project. **Read `AGENTS.md` there first** — decision procedure, layering rules,
+web performance rules and anti-patterns. Then `docs/CHOOSING.md` (intent → motions) and `docs/INTEGRATION.md` (per stack).
 
-## 1. Find the motion
-- `node cli/mgl.mjs list` (optionally `--category text|transition|shape|fx|environment|character|data|ui|hud|camera|texture|3d`)
-- `node cli/mgl.mjs info <id>` — every prop with default and notes. Full reference: `docs/CATALOG.md`.
-- Transitions: `docs/TRANSITIONS.md` (types: fade slide wipe iris blob tear zoom flash glitch clock flip ripple spiral wave
-  bands diagonal push-blur page-turn storm whiteout bar strip dots xray, several with `variant`s).
-- Unsure which motion matches a described effect? grep `docs/TECHNIQUES.md` (source technique → motion) and the
-  descriptions in `catalog.json`.
+## 1. Choose (never guess from memory)
+- `node cli/mgl.mjs suggest "<the brief in the user's words>"` — ranks ★ recipes and motions, says why, prints a
+  props snippet. Filters `--overlay --image --text --loop --light --category <c> --json`.
+- `node cli/mgl.mjs recipes` — ready mixes (previews `recipes/previews/<id>.jpg`): hero-aurora-night, hero-paper-sketch,
+  hero-blueprint-logo, product-launch, stats-reveal, testimonial-chat, testimonial-quote, loading-loop, section-divider,
+  success-celebration, error-glitch, onboarding-steps, event-countdown, music-neon-promo, ocean-explainer,
+  history-timeline, app-store-preview (9:16), social-short-captions (9:16), end-card.
+- `node cli/mgl.mjs info <id>` — props + `roles`, `overlay`/`overlayProps`, `loopable`, `mood`, `weight`, `pairsWith`, `textProps`.
+- Mix = backdrop + subject + type + subtle accent; one hero per shot; dim supporting layers; replace ALL sample text;
+  pass the brand colours.
 
-## 2. One motion → video
+## 2. Video (Remotion)
 ```bash
 node cli/mgl.mjs render <id> --props '{"key":"value"}' [--format landscape|square|portrait] [--frames N] --out out/<name>.mp4
-node cli/mgl.mjs still <id> --at 10,60,120 --out out/<name>-sheet.jpg     # preview frames first, Read the sheet
+node cli/mgl.mjs recipe <id> --overrides '{"<motion-id>":{…}}' [--format …] --out out/<name>.mp4
+node cli/mgl.mjs still <id> --at 10,60,120 --out out/<name>-sheet.jpg     # preview first, Read the sheet
+node cli/mgl.mjs compose specs/<name>.json --out out/<name>.mp4             # scenes[] (motion or layers[]), transitions, overlays, audio
+node cli/direct.mjs storyboards/<name>.json                                 # narrated: local Qwen3-TTS -> captions -> render -> master
 ```
-Images: put files in `public/` and pass the public-relative path (`"src": "demo/owl.jpg"`).
+Images: public/ paths (`"demo/owl.jpg"`) or https URLs. Never use cloud voice/music services; music/sfx from `public/music`, `public/sfx`.
+Inside another Remotion project: `node cli/mgl.mjs add <motions|recipes> --to <host>/src` (copies only needed source + local registry; prints the npm install line).
 
-## 3. Several motions → one video (no narration)
-Write `specs/<name>.json` (`scenes[]` with `motion`, `props`, `duration`, `offset`, `transition`; optional `overlays[]`,
-`captions[]`, `audio{music, musicCues, sfx}`), then `node cli/mgl.mjs compose specs/<name>.json --out out/<name>.mp4`.
+## 3. Website / web app
+- `npm run build:lib` in the library, then `import {MotionBackground, MotionPlayer, MotionMix} from 'opus-motion-library/web'`
+  (Vite: `resolve.dedupe` react/remotion/@remotion/*/three), or `mgl add … --player --to <app>/src` (Next.js: use from a `'use client'` file).
+- Plain HTML / WordPress / Vue / Svelte: `<script src="opus-motion.element.js">` + `<opus-motion recipe="…" background>` /
+  `<opus-motion motion="…" props='{…}'>`.
+- Words in HTML over `MotionBackground` (it drops `type` layers); `overlay` motions float over the page; `playOnView`,
+  reduced-motion still frame, lazy mount, ≤ 2 live players per viewport; heavy 3D → exported video on mobile.
+- Serve the library `public/` files used (or `assetBase` / absolute URLs).
 
-## 4. Narrated story → video
-Write `storyboards/<name>.json` (see `storyboards/demo.json`): each scene has `motion`, `props`, `say` (narration line),
-`min` frames, `transition`, optional `music` (switches the bed), `sfx`, `overlays`, `offset`.
-```bash
-node cli/direct.mjs storyboards/<name>.json            # Qwen3-TTS voice (local) -> timing -> captions -> render -> -16 LUFS master
-C:/Users/govin/.flick-venv/Scripts/python.exe cli/voice-check.py public/voice/<name>   # Whisper check; reword any BAD line and rerun
-```
-Never use cloud voice/music services for this library; music and sfx come from `public/music` and `public/sfx` (Pixabay).
+## 4. Native apps, slides, editors
+`node cli/mgl.mjs export <motion|recipe> --as mp4|webm|webm-alpha|prores-alpha|gif|png|poster [--format …] [--props …]`
+(alpha exports apply `overlayProps`; check with `ffprobe -c:v libvpx-vp9 … pix_fmt` → `yuva420p`).
 
 ## 5. Check before handing over
-Tile the render (`ffmpeg -i out/x.mp4 -vf "fps=1,scale=480:-2,tile=6x5" -frames:v 1 out/x-sheet.jpg`), Read it, fix props.
+Tile the render (`ffmpeg -i out/x.mp4 -vf "fps=1,scale=480:-2,tile=6x5" -frames:v 1 out/x-sheet.jpg`) or screenshot the page
+(`node examples/screenshot.mjs <url> <dir> --targets "top,#section"` — two shots 1 s apart, reports % changed), Read it, fix.
 
-## Adding a motion
-Follow `docs/AUTHORING.md`, put it in `src/motions/<family>/<id>.tsx`, run `node cli/gen-registry.mjs && npx tsc --noEmit && node cli/gen-docs.mjs`.
+## Adding a motion to the library
+Follow `docs/AUTHORING.md`, put it in `src/motions/<family>/<id>.tsx`, run `node cli/gen-registry.mjs && npx tsc --noEmit && node cli/gen-docs.mjs`;
+optionally `node cli/probe-meta.mjs --only <id>` (measures loop / overlay / luma) and add overrides in `docs/motion-meta.json`.

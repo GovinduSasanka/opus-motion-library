@@ -1,5 +1,6 @@
 import React from 'react';
-import {AbsoluteFill, Img, staticFile, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Img, useCurrentFrame} from 'remotion';
+import {resolveSrc} from './asset';
 import {loadFont as loadInstrument} from '@remotion/google-fonts/InstrumentSerif';
 import {loadFont as loadQuicksand} from '@remotion/google-fonts/Quicksand';
 import {loadFont as loadTiltNeon} from '@remotion/google-fonts/TiltNeon';
@@ -617,12 +618,13 @@ export const Backdrop: React.FC<{kind: BackdropKind; src?: string; drift?: numbe
     const s = 1 + push * (frame / Math.max(1, durationInFrames));
     return (
       <AbsoluteFill style={{background: color ?? '#000', overflow: 'hidden'}}>
-        <Img src={staticFile(src)} style={{width: '100%', height: '100%', objectFit: 'cover', transform: `scale(${s})`}} />
+        <Img src={resolveSrc(src)} style={{width: '100%', height: '100%', objectFit: 'cover', transform: `scale(${s})`}} />
       </AbsoluteFill>
     );
   }
+  // 'none' with no colour = transparent, so text motions can sit on top of other layers / host content
   return (
-    <AbsoluteFill style={{background: color ?? '#000'}}>
+    <AbsoluteFill style={{background: color ?? (kind === 'none' ? 'transparent' : '#000')}}>
       {kind === 'dunes' && <Dunes drift={drift} />}
       {kind === 'peaks' && <Peaks drift={drift} />}
       {kind === 'dusk' && <Dusk drift={drift} />}

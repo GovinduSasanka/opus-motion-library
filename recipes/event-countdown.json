@@ -1,0 +1,78 @@
+{
+  "id": "event-countdown",
+  "title": "Event countdown",
+  "useFor": "Countdown to a launch, live stream or event: a night city with a big counter ticking down and fireworks at zero.",
+  "format": "landscape",
+  "duration": 330,
+  "background": "#060a14",
+  "tags": [
+    "countdown",
+    "event",
+    "timer",
+    "launch",
+    "night",
+    "city",
+    "fireworks",
+    "live"
+  ],
+  "web": {
+    "loop": "once"
+  },
+  "layers": [
+    {
+      "motion": "city-skyline",
+      "role": "backdrop",
+      "props": {
+        "pullback": false
+      },
+      "opacity": 0.45
+    },
+    {
+      "motion": "number-counter",
+      "role": "type",
+      "props": {
+        "keyframes": [
+          [
+            0,
+            10
+          ],
+          [
+            30,
+            10
+          ],
+          [
+            270,
+            0
+          ],
+          [
+            330,
+            0
+          ]
+        ],
+        "mode": "tick",
+        "label": "GOING LIVE IN",
+        "unit": "",
+        "readouts": [],
+        "backdrop": "none",
+        "layout": "center",
+        "size": 280,
+        "numberColor": "#FFF4DA",
+        "labelColor": "#F2C46B"
+      },
+      "y": -0.08
+    },
+    {
+      "motion": "fireworks",
+      "role": "accent",
+      "from": 264,
+      "props": {
+        "scene": false,
+        "count": 3,
+        "every": 12,
+        "firstAt": 2
+      },
+      "blend": "screen"
+    }
+  ],
+  "notes": "number-counter.keyframes counts 10 → 0 over 8 s; change the values / frames for your countdown and label. For a real-time web countdown render the number in HTML and use only city-skyline + fireworks."
+}

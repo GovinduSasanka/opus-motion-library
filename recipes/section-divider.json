@@ -1,0 +1,57 @@
+{
+  "id": "section-divider",
+  "title": "Section divider wipe",
+  "useFor": "A soft, full-width animated band between website sections, or a quick chapter break in a video (pencil wave rows sweep across).",
+  "format": "landscape",
+  "duration": 150,
+  "background": "#F3EEE4",
+  "tags": [
+    "section",
+    "divider",
+    "transition",
+    "wipe",
+    "band",
+    "chapter",
+    "paper",
+    "light"
+  ],
+  "web": {
+    "loop": "crossfade"
+  },
+  "layers": [
+    {
+      "motion": "flow-lines",
+      "role": "backdrop",
+      "props": {
+        "mode": "waves",
+        "background": "#F3EEE4",
+        "backdrop": true,
+        "color": "#2B2622",
+        "fade": false,
+        "count": 9,
+        "weight": 0.8
+      },
+      "opacity": 0.8
+    },
+    {
+      "motion": "chapter-header",
+      "role": "type",
+      "props": {
+        "variant": "stage",
+        "backdrop": "none",
+        "stages": [
+          {
+            "title": "HOW IT WORKS",
+            "subtitle": "three steps, five minutes"
+          }
+        ],
+        "total": 3,
+        "startIndex": 1,
+        "stageFrames": 150,
+        "color": "#2B2622",
+        "scale": 1.1
+      }
+    }
+  ],
+  "notes": "On the web, give MotionBackground a short height (e.g. 160–240 px) with fit cover — the waves read as a divider band; drop the type layer (default) and put your section title in HTML."
+}

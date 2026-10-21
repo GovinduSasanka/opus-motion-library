@@ -1,5 +1,6 @@
 import React, {useMemo} from 'react';
-import {AbsoluteFill, Img, staticFile, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Img, useCurrentFrame} from 'remotion';
+import {resolveSrc} from '../../core/asset';
 import {clamp, ease, onTwos} from '../../core/ease';
 import {rng, range, pick} from '../../core/random';
 import {FilmGrain, Svg, Vignette, useStage} from '../../core/stage';
@@ -431,7 +432,7 @@ const TopdownTerrain: React.FC<Props> = ({biomes, montage, speed, speedRamp, ang
       </Svg>
       {heroSrc && hero !== 'none' && (
         <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center'}}>
-          <Img src={staticFile(heroSrc)} style={{width: size * 2, height: size * 2, objectFit: 'contain', transform: `translate(${hx - cx}px,${hy - cy}px) rotate(${angle}deg)`, filter: `drop-shadow(${shOff.x}px ${shOff.y}px 0 rgba(20,18,25,0.35))`}} />
+          <Img src={resolveSrc(heroSrc)} style={{width: size * 2, height: size * 2, objectFit: 'contain', transform: `translate(${hx - cx}px,${hy - cy}px) rotate(${angle}deg)`, filter: `drop-shadow(${shOff.x}px ${shOff.y}px 0 rgba(20,18,25,0.35))`}} />
         </AbsoluteFill>
       )}
       {grain > 0 && <FilmGrain opacity={grain} />}

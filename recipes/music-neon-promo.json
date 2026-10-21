@@ -1,0 +1,71 @@
+{
+  "id": "music-neon-promo",
+  "title": "Neon music promo",
+  "useFor": "Gig, club night, album drop or late-night food promo: a neon sign strikes on over a brick wall with drifting embers and film grain.",
+  "format": "landscape",
+  "duration": 210,
+  "background": "#140c12",
+  "tags": [
+    "music",
+    "neon",
+    "concert",
+    "night",
+    "club",
+    "promo",
+    "event",
+    "glow",
+    "retro"
+  ],
+  "web": {
+    "loop": "crossfade"
+  },
+  "layers": [
+    {
+      "motion": "neon-sign",
+      "role": "type",
+      "props": {
+        "lines": [
+          {
+            "text": "NIGHTSHIFT",
+            "color": "#7FE7FF",
+            "glow": "#2B8FB5"
+          },
+          {
+            "text": "live · friday 10pm",
+            "color": "#FF7AC8",
+            "glow": "#B53C83",
+            "size": 0.5
+          }
+        ]
+      }
+    },
+    {
+      "motion": "embers",
+      "role": "accent",
+      "props": {
+        "mode": "motes",
+        "background": "transparent",
+        "backdrop": false,
+        "count": 22,
+        "color": "#FF9ED8",
+        "speed": 0.6
+      },
+      "blend": "screen",
+      "opacity": 0.6
+    },
+    {
+      "motion": "film-look",
+      "role": "frame",
+      "props": {
+        "overlay": true,
+        "grain": 0.08,
+        "vignette": 0.3,
+        "flare": false,
+        "letterbox": "off",
+        "bloom": 0,
+        "fringe": 0.8
+      }
+    }
+  ],
+  "notes": "Replace neon-sign.lines (text, color, glow, size). Keep to two lines; one line in a second colour."
+}

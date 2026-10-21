@@ -5,3 +5,12 @@ analysis/frames/
 sample/
 *.log
 specs/built/
+dist/
+examples/**/node_modules/
+examples/**/dist/
+examples/**/screenshots/
+
+# not redistributable / not ours: fetch with cli/fetch-audio.mjs; sample-video frames stay local
+public/music/*.mp3
+public/sfx/*.mp3
+analysis/sheets/

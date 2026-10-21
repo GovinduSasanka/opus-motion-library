@@ -1,0 +1,63 @@
+{
+  "id": "hero-paper-sketch",
+  "title": "Paper sketch hero",
+  "useFor": "Warm, human, hand-made hero for craft / education / indie brands: a headline handwritten on paper with soft pencil wind lines.",
+  "format": "landscape",
+  "duration": 240,
+  "background": "#EFE9DC",
+  "tags": [
+    "hero",
+    "paper",
+    "sketch",
+    "handwriting",
+    "light",
+    "warm",
+    "craft",
+    "education",
+    "landing"
+  ],
+  "web": {
+    "loop": "once"
+  },
+  "layers": [
+    {
+      "motion": "handwrite-on",
+      "role": "type",
+      "props": {
+        "lines": [
+          {
+            "text": "make it by hand",
+            "color": "#2B2622"
+          },
+          {
+            "text": "notes · sketches · ideas",
+            "color": "#C8363A",
+            "size": 64
+          }
+        ],
+        "background": "#EFE9DC",
+        "size": 150,
+        "framesPerGlyph": 3,
+        "paper": true
+      }
+    },
+    {
+      "motion": "flow-lines",
+      "role": "accent",
+      "from": 40,
+      "props": {
+        "mode": "wind",
+        "background": "transparent",
+        "backdrop": false,
+        "color": "#8E8577",
+        "count": 5,
+        "weight": 1,
+        "speed": 0.6,
+        "curlProbability": 0.6
+      },
+      "opacity": 0.75,
+      "blend": "multiply"
+    }
+  ],
+  "notes": "Replace handwrite-on.lines. Plays once and holds (writing should not loop). For a looping web background drop the type layer and keep the paper + wind lines."
+}

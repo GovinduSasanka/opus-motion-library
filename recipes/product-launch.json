@@ -1,0 +1,111 @@
+{
+  "id": "product-launch",
+  "title": "Product launch intro",
+  "useFor": "A 12-second launch / announcement video: teaser title over night sky, the product (website mockup), then \"now available\" with fireworks.",
+  "format": "landscape",
+  "tags": [
+    "launch",
+    "product",
+    "announce",
+    "intro",
+    "saas",
+    "website",
+    "celebrate",
+    "promo"
+  ],
+  "background": "#05070d",
+  "scenes": [
+    {
+      "duration": 120,
+      "transition": {
+        "type": "iris"
+      },
+      "layers": [
+        {
+          "motion": "starfield-night",
+          "props": {
+            "grass": false,
+            "moon": false,
+            "shootingAt": 0.35,
+            "starCount": 120
+          }
+        },
+        {
+          "motion": "blur-in-title",
+          "from": 6,
+          "props": {
+            "title": "INTRODUCING",
+            "subtitle": "a calmer way to ship",
+            "swapTo": null,
+            "backdrop": "none",
+            "background": "transparent",
+            "fadeOut": false,
+            "size": 80
+          }
+        }
+      ]
+    },
+    {
+      "motion": "browser-mockup",
+      "duration": 180,
+      "transition": {
+        "type": "wipe"
+      },
+      "props": {
+        "brand": "Lumen",
+        "url": "lumen.app",
+        "headline": [
+          "Ship calmer.",
+          "Sleep better."
+        ],
+        "subtitle": "Deploys, reviews and rollbacks in one quiet place.",
+        "ctas": [
+          "Start free",
+          "See a demo"
+        ]
+      }
+    },
+    {
+      "duration": 150,
+      "layers": [
+        {
+          "motion": "fireworks",
+          "props": {
+            "count": 4,
+            "every": 26,
+            "firstAt": 30
+          }
+        },
+        {
+          "motion": "mask-rise-title",
+          "from": 4,
+          "props": {
+            "variant": "stack",
+            "lines": [
+              {
+                "word": "NOW"
+              },
+              {
+                "word": "AVAILABLE."
+              }
+            ],
+            "sideCopy": [
+              "lumen.app",
+              "free for small teams"
+            ],
+            "sideMono": [
+              "V1.0 · TODAY"
+            ],
+            "backdrop": "none",
+            "background": "transparent",
+            "ink": "#F4F1EA",
+            "muted": "#9AA0AE",
+            "cropMarks": false,
+            "exit": false
+          }
+        }
+      ]
+    }
+  ],
+  "notes": "Replace the texts in all three scenes. browser-mockup.heroSrc can show your real screenshot. Swap the fireworks scene for confetti-burst for a lighter, daytime brand."
+}

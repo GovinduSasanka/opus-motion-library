@@ -11,6 +11,12 @@ export interface CaptionCue {
   to: number;
   /** words to highlight; wrap in *asterisks* inside text works too */
   highlight?: string[];
+  /** per-word timing in absolute frames (from speech alignment); words light up as they are spoken */
+  words?: {text: string; from: number; to: number}[];
+  /** per-cue placement, chosen to avoid the scene's own text */
+  position?: 'bottom' | 'center' | 'top';
+  /** per-cue contrast: 'light' text for dark scenes, 'dark' text for bright scenes */
+  tone?: 'light' | 'dark';
 }
 
 type Style = {
@@ -22,19 +28,95 @@ type Style = {
   font?: keyof typeof fonts;
   /** reveal words one at a time across the cue (video10) */
   wordByWord?: boolean;
+  /** 'kinetic' = word pop with highlight boxes (video10); 'premium' = calm line, words brighten as spoken */
+  variant?: 'kinetic' | 'premium';
+  /** premium: accent colour for *starred* words */
+  accent?: string;
+};
+
+/**
+ * Premium caption: the line fades up out of a slight blur, unspoken words wait at low opacity and
+ * brighten exactly when they are spoken (word timings from speech alignment), on a soft local scrim
+ * that keeps it legible on any scene without a hard box.
+ */
+const PremiumLine: React.FC<{cue: CaptionCue} & Style> = ({cue, position = 'bottom', size = 42, font = 'sans', accent = '#E9C27A'}) => {
+  const frame = useCurrentFrame();
+  const {u, h, w, portrait} = useStage();
+  const pos = cue.position ?? position;
+  const dark = (cue.tone ?? 'light') === 'dark';
+  const ink = dark ? '#121418' : '#F5F2EC';
+  const enter = prog(frame, cue.from, cue.from + 7, ease.out);
+  const exit = prog(frame, cue.to - 6, cue.to, ease.in);
+  const vis = enter * (1 - exit);
+  const tokens = cue.text.split(/\s+/).filter(Boolean);
+  // map each display token to a timed word (same order); fall back to an even spread
+  const timed = tokens.map((t, i) => {
+    const wd = cue.words?.[i];
+    if (wd) return wd.from;
+    return cue.from + ((cue.to - cue.from) * 0.85 * i) / Math.max(1, tokens.length);
+  });
+  const fs = size * u * (portrait ? 1.05 : 1);
+  const band = pos === 'top' ? {top: h * 0.075} : pos === 'center' ? {top: h * 0.44} : {bottom: h * 0.075};
+  return (
+    <div
+      style={{
+        position: 'absolute',
+        left: '50%',
+        ...band,
+        transform: `translate(-50%, ${(1 - enter) * 10 * u}px)`,
+        width: portrait ? w * 0.86 : w * 0.62,
+        textAlign: 'center',
+        opacity: vis,
+        filter: enter < 1 ? `blur(${(1 - enter) * 6 * u}px)` : undefined,
+      }}
+    >
+      <div
+        style={{
+          position: 'absolute',
+          inset: `${-fs * 0.9}px ${-fs * 1.6}px`,
+          background: dark
+            ? 'radial-gradient(ellipse at center, rgba(255,255,255,0.62) 0%, rgba(255,255,255,0.28) 45%, rgba(255,255,255,0) 72%)'
+            : 'radial-gradient(ellipse at center, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.26) 45%, rgba(0,0,0,0) 72%)',
+          filter: `blur(${fs * 0.35}px)`,
+        }}
+      />
+      <div style={{position: 'relative', fontFamily: fonts[font], fontWeight: 600, fontSize: fs, lineHeight: 1.28, letterSpacing: '-0.005em', color: ink}}>
+        {tokens.map((raw, i) => {
+          const starred = /^\*.*\*[.,!?;:]*$/.test(raw);
+          const word = raw.replace(/\*/g, '');
+          const lit = prog(frame, timed[i] - 1, timed[i] + 4, ease.out);
+          return (
+            <React.Fragment key={i}>
+              <span
+                style={{
+                  opacity: 0.38 + 0.62 * lit,
+                  color: starred ? accent : ink,
+                  textShadow: dark ? 'none' : `0 ${1.5 * u}px ${6 * u}px rgba(0,0,0,0.55)`,
+                }}
+              >
+                {word}
+              </span>
+              {i < tokens.length - 1 ? ' ' : ''}
+            </React.Fragment>
+          );
+        })}
+      </div>
+    </div>
+  );
 };
 
 /**
  * Word-pop captions with highlight boxes (video10 "People *bent* double").
  * Each word pops with a 0.18 s back-ease scale from 0.82; highlighted words sit on a solid box.
  */
-const CaptionLine: React.FC<{cue: CaptionCue} & Style> = ({cue, position = 'bottom', color = '#ffffff', highlightColor = '#d23a2c', highlightText = '#ffffff', size = 46, font = 'sans', wordByWord = true}) => {
+const CaptionLine: React.FC<{cue: CaptionCue} & Style> = ({cue, position: basePosition = 'bottom', color = '#ffffff', highlightColor = '#d23a2c', highlightText = '#ffffff', size = 46, font = 'sans', wordByWord = true}) => {
   const frame = useCurrentFrame();
   const {u, fps, h} = useStage();
   const words = cue.text.split(/\s+/).filter(Boolean);
   const dur = cue.to - cue.from;
   const per = Math.max(3, Math.min(9, (dur * 0.6) / words.length));
   const exit = prog(frame, cue.to - 5, cue.to, ease.in);
+  const position = cue.position ?? basePosition;
   const top = position === 'bottom' ? h * 0.78 : position === 'top' ? h * 0.1 : h * 0.47;
   return (
     <div
@@ -85,10 +167,12 @@ const CaptionLine: React.FC<{cue: CaptionCue} & Style> = ({cue, position = 'bott
 export const CaptionTrack: React.FC<{cues: CaptionCue[]} & Style> = ({cues, ...style}) => {
   const frame = useCurrentFrame();
   const cue = cues.find((c) => frame >= c.from && frame < c.to);
-  return <AbsoluteFill style={{pointerEvents: 'none'}}>{cue && <CaptionLine cue={cue} {...style} />}</AbsoluteFill>;
+  const Line = style.variant === 'premium' ? PremiumLine : CaptionLine;
+  return <AbsoluteFill style={{pointerEvents: 'none'}}>{cue && <Line cue={cue} {...style} />}</AbsoluteFill>;
 };
 
 const Demo: React.FC<{lines: string[]; framesPerLine: number; background: string} & Style> = ({lines, framesPerLine, background, ...style}) => {
+  // a cue's start/end are absolute frames; demo spreads lines evenly
   const cues = lines.map((text, i) => ({text, from: i * framesPerLine, to: (i + 1) * framesPerLine}));
   return (
     <AbsoluteFill style={{background}}>
@@ -112,12 +196,17 @@ export const kineticCaptions = defineMotion({
     position: 'center' as const,
     highlightColor: '#d23a2c',
     size: 64,
+    variant: 'kinetic' as const,
+    accent: '#E9C27A',
   },
   propDocs: {
     lines: 'caption lines; wrap a word in *stars* to highlight it',
     framesPerLine: 'frames each line stays on screen',
+    background: 'scene colour; "transparent" = caption overlay on top of other motions',
     position: 'bottom | center | top',
     highlightColor: 'box colour behind highlighted words',
+    variant: "kinetic (word pop + highlight boxes) | premium (calm line, words brighten as spoken, soft scrim)",
+    accent: 'premium: colour of *starred* words',
   },
   component: Demo,
 });

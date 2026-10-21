@@ -1,0 +1,51 @@
+{
+  "id": "hero-blueprint-logo",
+  "title": "Blueprint logo reveal",
+  "useFor": "Developer-tool / AI / engineering brand intro: a rotating blueprint plan as texture and a typed monospace logotype on top.",
+  "format": "landscape",
+  "duration": 240,
+  "background": "#090A0F",
+  "tags": [
+    "hero",
+    "logo",
+    "brand",
+    "blueprint",
+    "tech",
+    "ai",
+    "developer",
+    "dark",
+    "intro"
+  ],
+  "web": {
+    "loop": "once"
+  },
+  "layers": [
+    {
+      "motion": "radial-blueprint",
+      "role": "backdrop",
+      "props": {
+        "categories": [],
+        "centerLabel": "",
+        "rotateSpeed": 2,
+        "pullFrom": 2.2,
+        "scanlines": true
+      },
+      "opacity": 0.38,
+      "scale": 1.25
+    },
+    {
+      "motion": "glyph-orbit-logo",
+      "role": "type",
+      "props": {
+        "logo": "Lumen Labs",
+        "tagline": [
+          "TOOLS FOR",
+          "PEOPLE WHO BUILD."
+        ],
+        "pill": "NOW IN BETA",
+        "backdrop": "none"
+      }
+    }
+  ],
+  "notes": "Change glyph-orbit-logo.logo / tagline / pill and accent (dot colour). The blueprint is dimmed to 38 % so it reads as texture, not a second subject."
+}

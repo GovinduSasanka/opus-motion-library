@@ -124,7 +124,7 @@ const StoryCaptionBox: React.FC<Props> = (p) => {
   const bar = p.variant === 'box' && p.letterbox ? h * (portrait ? 0.06 : 0.12) : 0;
   const cutKick = local < 1 && idx > 0 ? 1.01 : 1;
   return (
-    <AbsoluteFill style={{background: '#000', overflow: 'hidden'}}>
+    <AbsoluteFill style={{background: backdrop === 'none' && !p.src ? 'transparent' : '#000', overflow: 'hidden'}}>
       <AbsoluteFill style={{transform: `scale(${(1.02 + frame * 0.0002) * cutKick}) translateX(${-frame * 0.1 * u}px)`}}>
         <Backdrop kind={backdrop} src={p.src || undefined} drift={p.variant === 'box' ? 1 : 0.4} />
       </AbsoluteFill>

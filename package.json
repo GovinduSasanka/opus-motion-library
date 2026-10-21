@@ -1,17 +1,69 @@
 {
   "name": "opus-motion-library",
-  "private": true,
-  "version": "1.0.0",
-  "description": "Reusable, parameterized motion-graphics library reverse-engineered from 23 Opus 5.5 videos. Remotion + React + SVG + three.js.",
+  "version": "1.1.0",
+  "description": "109 parameterised motion graphics for videos, websites and apps — titles, transitions, weather, characters, data, HUDs, image looks and 3D. Remotion + React + SVG + three.js. AI-agent ready.",
   "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/types/lib.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/lib.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./web": {
+      "types": "./dist/types/lib-web.d.ts",
+      "import": "./dist/web.js",
+      "default": "./dist/web.js"
+    },
+    "./element": "./dist/opus-motion.element.js",
+    "./catalog.json": "./catalog.json",
+    "./recipes/*": "./recipes/*",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": [
+    "./dist/opus-motion.element.js"
+  ],
+  "files": [
+    "dist",
+    "catalog.json",
+    "transitions.json",
+    "recipes/*.json",
+    "docs/CHOOSING.md",
+    "docs/INTEGRATION.md",
+    "docs/CATALOG.md",
+    "AGENTS.md",
+    "public/demo",
+    "src",
+    "cli",
+    "tsconfig.json"
+  ],
   "scripts": {
     "studio": "remotion studio src/index.ts",
     "list": "node cli/mgl.mjs list",
     "render": "node cli/mgl.mjs render",
     "compose": "node cli/mgl.mjs compose",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "build:lib": "node cli/build-lib.mjs",
+    "gen": "node cli/gen-registry.mjs && node cli/gen-docs.mjs",
+    "suggest": "node cli/mgl.mjs suggest"
   },
-  "dependencies": {
+  "peerDependencies": {
+    "@react-three/fiber": "^9.0.0",
+    "@remotion/google-fonts": "^4.0.532",
+    "@remotion/layout-utils": "^4.0.532",
+    "@remotion/noise": "^4.0.532",
+    "@remotion/paths": "^4.0.532",
+    "@remotion/player": "^4.0.532",
+    "@remotion/three": "^4.0.532",
+    "@remotion/transitions": "^4.0.532",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "remotion": "^4.0.532",
+    "three": ">=0.160.0"
+  },
+  "devDependencies": {
     "@react-three/fiber": "9.1.2",
     "@remotion/bundler": "4.0.532",
     "@remotion/cli": "4.0.532",
@@ -19,17 +71,51 @@
     "@remotion/layout-utils": "4.0.532",
     "@remotion/noise": "4.0.532",
     "@remotion/paths": "4.0.532",
+    "@remotion/player": "4.0.532",
     "@remotion/renderer": "4.0.532",
     "@remotion/three": "4.0.532",
     "@remotion/transitions": "4.0.532",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "19.1.6",
+    "@types/three": "0.169.0",
+    "esbuild": "0.28.1",
+    "puppeteer-core": "25.15.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "remotion": "4.0.532",
-    "three": "0.169.0"
-  },
-  "devDependencies": {
-    "@types/react": "^19.1.0",
-    "@types/three": "0.169.0",
+    "three": "0.169.0",
     "typescript": "^5.6.0"
+  },
+  "keywords": [
+    "remotion",
+    "motion-graphics",
+    "animation",
+    "react",
+    "video",
+    "svg",
+    "threejs",
+    "motion-design",
+    "transitions",
+    "after-effects",
+    "kinetic-typography",
+    "web-animation",
+    "ai-agents",
+    "claude",
+    "generative",
+    "video-generation",
+    "typescript"
+  ],
+  "author": "Govindu Sasanka (https://github.com/GovinduSasanka)",
+  "license": "MIT",
+  "homepage": "https://govindusasanka.github.io/opus-motion-library/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GovinduSasanka/opus-motion-library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GovinduSasanka/opus-motion-library/issues"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }

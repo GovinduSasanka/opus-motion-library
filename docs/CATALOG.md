@@ -1,20 +1,209 @@
 # Motion catalog
 
-106 motions. Generated from `catalog.json` by `cli/gen-docs.mjs` — do not edit by hand.
+109 motions. Generated from `catalog.json` by `cli/gen-docs.mjs` — do not edit by hand.
 
 Render any of them: `node cli/mgl.mjs render <id> [--props '{...}'] [--format landscape|square|portrait]`. Previews live in `gallery/`.
 
-- [text](#text) (14)
+Choosing: `node cli/mgl.mjs suggest "<what you need>"` and [CHOOSING.md](CHOOSING.md). Using them in a website / app / other project: [INTEGRATION.md](INTEGRATION.md).
+
+- [text](#text) (15)
 - [transition](#transition) (1)
 - [shape](#shape) (22)
-- [fx](#fx) (9)
+- [fx](#fx) (10)
 - [environment](#environment) (22)
 - [character](#character) (5)
 - [data](#data) (8)
-- [ui](#ui) (4)
+- [ui](#ui) (5)
 - [hud](#hud) (6)
 - [3d](#3d) (5)
 - [image](#image) (10)
+- [recipes](#recipes) (ready-made mixes)
+
+## Capability index
+
+| capability | motions |
+|---|---|
+| overlay (transparent background — put it on top of other motions or your page) | `aurora`, `bubbles`, `caustics-godrays`, `curl-flow`, `embers`, `falling-petals`, `fireworks`, `flow-lines`, `insect-flight`, `lightning-flash`, `rain`, `snowfall`, `starfield-night`, `confetti-burst`, `electric-arcs`, `emote-pop`, `eyes-blink`, `giant-eye-reveal`, `scribble-ball`, `smoke-puffs`, `sparkle-burst`, `star-glint`, `hud-chrome`, `film-look`, `blur-in-title`, `chapter-header`, `comic-burst`, `end-card-credits`, `glyph-orbit-logo`, `kinetic-captions`, `mask-rise-title`, `number-counter`, `scene-tag`, `stamp-slam`, `story-caption-box`, `typewriter-code`, `typewriter-signature` |
+| seamless loop | `iso-bar-chart`, `embers`, `sonar-ping` |
+| takes your image (`src` / `images` / `heroSrc`) | `pointcloud-orbit`, `beat-montage`, `thumbnail-mosaic`, `depth-descent`, `topdown-terrain`, `giant-eye-reveal`, `callout-labels`, `comic-halftone`, `dot-matrix`, `duotone`, `film-look`, `glass-pane-grid`, `glitch-image`, `ken-burns`, `light-sweep`, `pixel-dither`, `xray-scan`, `sonar-ping`, `blur-in-title`, `chapter-header`, `comic-burst`, `end-card-credits`, `glyph-orbit-logo`, `mask-rise-title`, `number-counter`, `stamp-slam`, `story-caption-box`, `typewriter-code`, `browser-mockup`, `sms-thread`, `split-compare` |
+| heavy (three.js / WebGL — prefer an exported video on mobile web) | `iso-blocks-3d`, `plan-tilt`, `pointcloud-orbit`, `terrain-build-3d`, `wireframe-build` |
+
+## recipes
+
+Ready-made mixes in `recipes/` — render with `node cli/mgl.mjs recipe <id>`, play on the web with `<MotionBackground recipe="<id>">` / `<MotionMix recipe="<id>">` / `<opus-motion recipe="<id>">`.
+
+### `app-store-preview` — App store preview (portrait) (portrait)
+
+![app-store-preview](../recipes/previews/app-store-preview.jpg)
+
+A vertical 9:16 app preview / store video / story ad: hook title, the app conversation in a phone, then the rating.
+
+**Mix:** `aurora` + `blur-in-title` → `sms-thread` → `number-counter` + `sparkle-burst`  
+**Customise:** All three scenes are resolution independent; render with --format portrait (default for this recipe). Replace the hook title, sms-thread texts and the rating.
+
+### `end-card` — End card with call to action (landscape)
+
+![end-card](../recipes/previews/end-card.jpg)
+
+The last shot of a video or the footer of a landing page: headline, short stat lines and a credit / CTA over a drifting sunrise.
+
+**Mix:** `end-card-credits` (type) + `embers` (accent)  
+**Customise:** Replace title / headline / lines / credit. Set fadeToBlack true when it is the very last shot of a video.
+
+### `error-glitch` — Error / 404 glitch (landscape)
+
+![error-glitch](../recipes/previews/error-glitch.jpg)
+
+Error, 404, outage and "something broke" states — a glitching night plate with a stamped code.
+
+**Mix:** `glitch-image` (backdrop) + `stamp-slam` (type)  
+**Customise:** Change stamp-slam.lines / keyword. Use glitch-image.src for a screenshot of your own UI breaking.
+
+### `event-countdown` — Event countdown (landscape)
+
+![event-countdown](../recipes/previews/event-countdown.jpg)
+
+Countdown to a launch, live stream or event: a night city with a big counter ticking down and fireworks at zero.
+
+**Mix:** `city-skyline` (backdrop) + `number-counter` (type) + `fireworks` (accent)  
+**Customise:** number-counter.keyframes counts 10 → 0 over 8 s; change the values / frames for your countdown and label. For a real-time web countdown render the number in HTML and use only city-skyline + fireworks.
+
+### `hero-aurora-night` — Aurora night hero (landscape)
+
+![hero-aurora-night](../recipes/previews/hero-aurora-night.jpg)
+
+Dark website hero background or video title card: calm, premium, "wonder" mood. Put your headline in HTML on top (web) or in the title layer (video).
+
+**Mix:** `aurora` (backdrop) + `embers` (accent) + `blur-in-title` (type)  
+**Customise:** Change blur-in-title.title/subtitle (video) — on the web MotionBackground drops the type layer so your HTML headline sits there. Tint aurora.colors to the brand (e.g. ["#7AA2FF","#3B4FC4","#1B2466"]).
+
+### `hero-blueprint-logo` — Blueprint logo reveal (landscape)
+
+![hero-blueprint-logo](../recipes/previews/hero-blueprint-logo.jpg)
+
+Developer-tool / AI / engineering brand intro: a rotating blueprint plan as texture and a typed monospace logotype on top.
+
+**Mix:** `radial-blueprint` (backdrop) + `glyph-orbit-logo` (type)  
+**Customise:** Change glyph-orbit-logo.logo / tagline / pill and accent (dot colour). The blueprint is dimmed to 38 % so it reads as texture, not a second subject.
+
+### `hero-paper-sketch` — Paper sketch hero (landscape)
+
+![hero-paper-sketch](../recipes/previews/hero-paper-sketch.jpg)
+
+Warm, human, hand-made hero for craft / education / indie brands: a headline handwritten on paper with soft pencil wind lines.
+
+**Mix:** `handwrite-on` (type) + `flow-lines` (accent)  
+**Customise:** Replace handwrite-on.lines. Plays once and holds (writing should not loop). For a looping web background drop the type layer and keep the paper + wind lines.
+
+### `history-timeline` — History timeline dial (landscape)
+
+![history-timeline](../recipes/previews/history-timeline.jpg)
+
+A company history, product versions or "how we got here" timeline: a blueprint dial turns one notch per era while the year rolls.
+
+**Mix:** `era-dial` (subject) + `film-look` (frame)  
+**Customise:** Replace era-dial.eras (label, year, icon: plan | press | book | computer | monitor | network). stepFrames × eras ≈ duration.
+
+### `loading-loop` — Loading loop (square)
+
+![loading-loop](../recipes/previews/loading-loop.jpg)
+
+Seamless loading / waiting / processing loop for splash screens, empty states and "generating…" moments.
+
+**Mix:** `sonar-ping` (subject)  
+**Customise:** A 144-frame (3 × 48) sonar loop with no picture windows. Recolour with color and background. For dark UIs: background "#0E1116", color "#7AA2FF", paper false.
+
+### `music-neon-promo` — Neon music promo (landscape)
+
+![music-neon-promo](../recipes/previews/music-neon-promo.jpg)
+
+Gig, club night, album drop or late-night food promo: a neon sign strikes on over a brick wall with drifting embers and film grain.
+
+**Mix:** `neon-sign` (type) + `embers` (accent) + `film-look` (frame)  
+**Customise:** Replace neon-sign.lines (text, color, glow, size). Keep to two lines; one line in a second colour.
+
+### `ocean-explainer` — Ocean / science explainer (landscape)
+
+![ocean-explainer](../recipes/previews/ocean-explainer.jpg)
+
+Open a science or nature explainer: a serif title over the ocean, then a depth-gauge descent past landmarks with light rays.
+
+**Mix:** `blur-in-title` → `depth-descent` + `caustics-godrays`  
+**Customise:** Change blur-in-title.title / subtitle and depth-descent.landmarks ([{depth, label, …}]). The god-rays fade out as the descent gets dark (layer duration 140).
+
+### `onboarding-steps` — Onboarding steps (landscape)
+
+![onboarding-steps](../recipes/previews/onboarding-steps.jpg)
+
+Explain a 3-step process or onboarding flow: a blueprint drawing builds while numbered step titles advance with a progress bar.
+
+**Mix:** `line-draw-on` (subject) + `chapter-header` (type)  
+**Customise:** Replace chapter-header.stages (one per step) and stageFrames (= duration / steps). line-draw-on.paths can draw your own SVG icon / product outline.
+
+### `product-launch` — Product launch intro (landscape)
+
+![product-launch](../recipes/previews/product-launch.jpg)
+
+A 12-second launch / announcement video: teaser title over night sky, the product (website mockup), then "now available" with fireworks.
+
+**Mix:** `starfield-night` + `blur-in-title` → `browser-mockup` → `fireworks` + `mask-rise-title`  
+**Customise:** Replace the texts in all three scenes. browser-mockup.heroSrc can show your real screenshot. Swap the fireworks scene for confetti-burst for a lighter, daytime brand.
+
+### `section-divider` — Section divider wipe (landscape)
+
+![section-divider](../recipes/previews/section-divider.jpg)
+
+A soft, full-width animated band between website sections, or a quick chapter break in a video (pencil wave rows sweep across).
+
+**Mix:** `flow-lines` (backdrop) + `chapter-header` (type)  
+**Customise:** On the web, give MotionBackground a short height (e.g. 160–240 px) with fit cover — the waves read as a divider band; drop the type layer (default) and put your section title in HTML.
+
+### `social-short-captions` — Social short with captions (portrait) (portrait)
+
+![social-short-captions](../recipes/previews/social-short-captions.jpg)
+
+A vertical short / reel / TikTok: photo plates with a slow push, word-by-word kinetic captions with highlighted keywords, and a soft grade.
+
+**Mix:** `ken-burns` + `kinetic-captions` → `ken-burns` + `kinetic-captions`  
+**Customise:** Swap ken-burns.src for your photos and the caption lines (*word* = highlighted). Captions sit at the bottom third, clear of the platform UI; nothing else in the frame carries text.
+
+### `stats-reveal` — Stats reveal (landscape)
+
+![stats-reveal](../recipes/previews/stats-reveal.jpg)
+
+One big number with context — users, revenue, growth — for an "in numbers" website section or a data beat in a video.
+
+**Mix:** `number-counter` (type) + `flow-lines` (accent) + `star-glint` (accent)  
+**Customise:** Set number-counter.keyframes ([[frame, value], …]; two close keys = dwell), label, prefix ("$") and unit ("%"). Web: plays once on view and holds the final number.
+
+### `success-celebration` — Success celebration (square)
+
+![success-celebration](../recipes/previews/success-celebration.jpg)
+
+The "done!" moment: order placed, payment received, level complete, onboarding finished — a drawn check with a confetti burst.
+
+**Mix:** `heart-draw-fill` (subject) + `confetti-burst` (accent)  
+**Customise:** For an in-app overlay use just the confetti layer: <MotionPlayer motion="confetti-burst" overlay loop={false}/> over your UI. icon can be check | heart | star | bolt.
+
+### `testimonial-chat` — Customer message testimonial (landscape)
+
+![testimonial-chat](../recipes/previews/testimonial-chat.jpg)
+
+Social proof as a real-feeling text thread: a customer message, your reply, the outcome badge — for testimonial sections, case-study videos and ads.
+
+**Mix:** `sms-thread` (subject) + `film-look` (frame)  
+**Customise:** Replace kicker / title / subtitle / contact / messages / badge with a real customer quote. Colours: background, ink, accent, mint. A quieter alternative: story-caption-box over ken-burns of the customer photo.
+
+### `testimonial-quote` — Photo testimonial quote (landscape)
+
+![testimonial-quote](../recipes/previews/testimonial-quote.jpg)
+
+A customer quote typed in a cinematic caption box over a slowly pushed-in photo of the person or their work.
+
+**Mix:** `ken-burns` (backdrop) + `film-look` (frame) + `story-caption-box` (type)  
+**Customise:** Set ken-burns.src to your photo (public/ path or https URL) and the story-caption-box.items to the quote and name.
+
+## motions by category
 
 ## text
 
@@ -27,6 +216,11 @@ Wide-tracked title whose letters sharpen out of a blur with a random stagger, ta
 **Use for:** Documentary title cards, chapter/zone names, place names and calm caption swaps.  
 **Rebuilt from:** video23 1:31-1:33, video23 0:07.6-0:09.1, video8 0:00-0:40, video10 0:02-0:40, video21 0:12  
 **Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** dark, cinematic, editorial  
+**Capabilities:** overlay (`{"backdrop":"none","background":"transparent"}`) · text: `title`, `subtitle`, `swapTo` · image: `src` · weight: light  
+**Pairs well with:** `aurora`, `starfield-night`, `caustics-godrays`, `embers`, `ken-burns`  
+**Avoid:** Change title and subtitle (defaults ABYSSES / THE MIDNIGHT ZONE are sample text); set swapTo null for a single card.  
 
 | prop | default | notes |
 |---|---|---|
@@ -65,6 +259,10 @@ Numbered chapter/stage header that steps through titles: tracked title + segment
 **Rebuilt from:** video8 0:00-0:36, video17 0:00-0:39, video14 0:00-2:06, video10 0:14.5-0:16.4  
 **Default length:** 180 frames (6.0 s @ 30 fps)
 
+**Roles:** type · **Mood:** light, editorial  
+**Capabilities:** overlay (`{"backdrop":"none"}`) · text: `stages` · image: `src` · weight: light  
+**Pairs well with:** `line-draw-on`, `flow-lines`, `ken-burns`, `map-route`  
+
 | prop | default | notes |
 |---|---|---|
 | `variant` | `"stage"` | stage (video8 top-left block) \| era (video14 top-right year card) \| location (video10 vertical tag) |
@@ -89,6 +287,10 @@ Comic onomatopoeia (BONK! POP!) in a jagged halftone starburst that springs in a
 **Rebuilt from:** video12 0:07-0:66, video14 1:46-1:58, video17 0:28.15-0:28.20  
 **Default length:** 150 frames (5.0 s @ 30 fps)
 
+**Roles:** type · **Mood:** mid, comic  
+**Capabilities:** overlay (`{"backdrop":"none"}`) · text: `bursts` · image: `src` · weight: light  
+**Pairs well with:** `speed-lines`, `comic-halftone`, `confetti-burst`  
+
 | prop | default | notes |
 |---|---|---|
 | `bursts` | `[{"text":"BONK!","at":10,"x":0.66,"y":0.34,"palette":"pin…` | [{text, at, x, y, palette?, rotate?, size?, impact?, life?}] — palette pink \| yellow \| white \| cyan \| green; impact = 3-frame yellow smash frame before it; life = frames until it pops away |
@@ -110,6 +312,10 @@ Bottom scrim fades in over a drifting landscape; headline, mono stat lines and a
 **Use for:** Closing cards, "how it was made" stats, credits and calls to action over the last shot.  
 **Rebuilt from:** video8 0:38.5-0:43, video17 0:38.7-0:42.8, video23 1:31  
 **Default length:** 165 frames (5.5 s @ 30 fps)
+
+**Roles:** type · **Mood:** mid, cinematic, editorial, nature  
+**Capabilities:** overlay (`{"backdrop":"none"}`) · text: `title`, `headline`, `lines`, `credit` · image: `src` · weight: light  
+**Pairs well with:** `embers`, `starfield-night`, `thumbnail-mosaic`  
 
 | prop | default | notes |
 |---|---|---|
@@ -134,6 +340,11 @@ Glyphs fly in and orbit a ring, then resolve into a typed mono logotype (scrambl
 **Use for:** Logo reveals, brand end cards, product names and title lock-ups.  
 **Rebuilt from:** video19 0:15.4-0:20.0  
 **Default length:** 220 frames (7.3 s @ 30 fps)
+
+**Roles:** type · **Mood:** dark, blueprint  
+**Capabilities:** overlay (`{"backdrop":"none"}`) · text: `logo`, `tagline`, `pill` · image: `src` · weight: light  
+**Pairs well with:** `radial-blueprint`, `star-glint`, `aurora`  
+**Avoid:** Change logo / tagline / pill (defaults are sample text).  
 
 | prop | default | notes |
 |---|---|---|
@@ -161,6 +372,10 @@ Text written glyph by glyph with a pen: outline strokes on, ink fill follows; op
 **Rebuilt from:** video4 0:26-0:28, video22 0:05-0:07, video22 0:14-0:16  
 **Default length:** 120 frames (4.0 s @ 30 fps)
 
+**Roles:** type · **Mood:** light, paper  
+**Capabilities:** paints its own background · text: `lines` · weight: light  
+**Pairs well with:** `flow-lines`, `falling-petals`, `heart-draw-fill`, `sprout-grow`  
+
 | prop | default | notes |
 |---|---|---|
 | `lines` | `[{"text":"ballpoint","color":"#C8363A"},{"text":"gambit",…` | array of {text, color?, size?, delay?} — each line written after the previous |
@@ -184,14 +399,21 @@ Word-by-word pop-in captions; *starred* words sit on a solid highlight box.
 **Rebuilt from:** video10 0:04-0:42  
 **Default length:** 150 frames (5.0 s @ 30 fps)
 
+**Roles:** type, frame · **Mood:** dark, editorial  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `lines` · weight: light  
+**Pairs well with:** `ken-burns`, `film-look`, `beat-montage`  
+**Avoid:** Do not put captions over a motion that already shows its own words (titles, signs, counters).  
+
 | prop | default | notes |
 |---|---|---|
 | `lines` | `["People *bent* double","on the *sidewalk.*","It *isn't* …` | caption lines; wrap a word in *stars* to highlight it |
 | `framesPerLine` | `50` | frames each line stays on screen |
-| `background` | `"#1c2433"` |  |
+| `background` | `"#1c2433"` | scene colour; "transparent" = caption overlay on top of other motions |
 | `position` | `"center"` | bottom \| center \| top |
 | `highlightColor` | `"#d23a2c"` | box colour behind highlighted words |
 | `size` | `64` |  |
+| `variant` | `"kinetic"` | kinetic (word pop + highlight boxes) \| premium (calm line, words brighten as spoken, soft scrim) |
+| `accent` | `"#E9C27A"` | premium: colour of *starred* words |
 
 ### `mask-rise-title` — Mask-rise title
 
@@ -202,6 +424,11 @@ Editorial title whose letters rise out of baseline masks with motion blur; chapt
 **Use for:** Chapter titles, principle/step headers, end-card headlines and list reveals.  
 **Rebuilt from:** video17 0:06.0-0:06.6, video17 0:38.7-0:42.8, video3 0:16.6-0:17.4  
 **Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** light, editorial  
+**Capabilities:** overlay (`{"backdrop":"none","background":"transparent"}`) · text: `chapter`, `fromChapter`, `lines`, `sideCopy`, `sideMono` · image: `src` · weight: light  
+**Pairs well with:** `fireworks`, `glass-pane-grid`, `duotone`, `confetti-burst`  
+**Avoid:** Change chapter / lines / sideCopy / sideMono (defaults like STAGING, 12 PRINCIPLES are sample text).  
 
 | prop | default | notes |
 |---|---|---|
@@ -237,6 +464,11 @@ Dark plum plate on a brick wall; rounded neon lettering strikes on letter by let
 **Rebuilt from:** video20 1:30.7-1:32.5  
 **Default length:** 150 frames (5.0 s @ 30 fps)
 
+**Roles:** type · **Mood:** dark, neon, night  
+**Capabilities:** paints its own background · text: `lines` · weight: light  
+**Pairs well with:** `embers`, `film-look`, `rain`, `crowd-bob`  
+**Avoid:** Change lines (default NOODLES / open late is sample text).  
+
 | prop | default | notes |
 |---|---|---|
 | `lines` | `[{"text":"NOODLES","color":"#f59ac4","glow":"#be5b80"},{"…` | [{text, color?, glow?, font?, size?}] neon lines stacked on the plate (size is relative to the first line) |
@@ -262,6 +494,11 @@ Huge thin-mono counter that ticks or odometer-rolls through dwell keyframes, wit
 **Rebuilt from:** video23 0:03-1:20, video19 0:13.6-0:14.3, video17 0:03.0-0:04.4  
 **Default length:** 180 frames (6.0 s @ 30 fps)
 
+**Roles:** type · **Mood:** dark, hud  
+**Capabilities:** overlay (`{"backdrop":"none"}`) · text: `keyframes`, `label`, `unit`, `prefix`, `readoutLabels` · image: `src` · weight: light  
+**Pairs well with:** `star-glint`, `flow-lines`, `confetti-burst`, `iso-bar-chart`  
+**Avoid:** Set label, unit ('' to hide 'm'), readouts [] and keyframes — defaults are the DEPTH dive sample.  
+
 | prop | default | notes |
 |---|---|---|
 | `keyframes` | `[[0,0],[14,0],[62,760],[96,868],[168,10935],[180,10935]]` | [[frame, value], …] monotone-cubic; put two close keys to dwell (slow down) near a landmark |
@@ -276,12 +513,40 @@ Huge thin-mono counter that ticks or odometer-rolls through dwell keyframes, wit
 | `layout` | `"center"` | center (big, standalone) \| hud (top-left overlay block like video23) |
 | `gauge` | `false` | semicircle gauge above the number (video17 anticipation meter); centre layout only |
 | `size` | `300` | number size in px at 1080p (auto-shrinks to fit) |
+| `labelSize` | `28` | label size in px at 1080p (centre layout) |
 | `labelColor` | `"#6c95ac"` |  |
 | `numberColor` | `"#a9d8ee"` |  |
 | `accent` | `"#ED3821"` |  |
 | `backdrop` | `"ocean"` | ocean \| ink \| dunes \| … scene behind |
 | `linkBackdrop` | `true` | ocean backdrop darkens with the value (log scale) like a dive |
 | `src` | `""` | optional public/ image behind |
+
+### `scene-tag` — Scene index tag
+
+![scene-tag](../gallery/scene-tag.jpg)
+
+Small glass pill in a corner with an index number, a hairline and a name; slides in, holds, fades. Transparent overlay.
+
+**Use for:** Labelling items in showreels, galleries, portfolios, product feature tours and step-by-step videos.  
+**Rebuilt from:** library  
+**Default length:** 120 frames (4.0 s @ 30 fps)
+
+**Roles:** type, accent · **Mood:** dark  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `index`, `name`, `family` · weight: light  
+**Pairs well with:** `hud-chrome`, `film-look`  
+
+| prop | default | notes |
+|---|---|---|
+| `index` | `"042"` | index text, e.g. "042 / 108" |
+| `name` | `"Depth Descent"` | item name (shown in tracked caps) |
+| `family` | `"environment"` | small second line ("" to hide) |
+| `corner` | `"top-left"` | top-left \| top-right \| bottom-left \| bottom-right |
+| `tone` | `"light"` | light (for dark scenes) \| dark (for bright scenes) |
+| `accent` | `"#E9C27A"` |  |
+| `accentDark` | `"#8A5A12"` |  |
+| `inAt` | `6` |  |
+| `outBefore` | `4` |  |
+| `background` | `"#1a2230"` | "transparent" to overlay (default shows a preview colour) |
 
 ### `stamp-slam` — Stamp slam + keyword pop
 
@@ -292,6 +557,11 @@ A rotated vermilion label slams down from 1.3x like a rubber stamp over the scen
 **Use for:** Hard facts, place/date stamps, verdicts and single-word emphasis beats.  
 **Rebuilt from:** video10 0:34.7-0:34.9, video10 0:17.0-0:17.2, video19 0:10-0:12, video21 0:26.7  
 **Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** mid, editorial  
+**Capabilities:** overlay (`{"backdrop":"none"}`) · text: `lines`, `preTitle`, `keyword` · image: `src` · weight: light  
+**Pairs well with:** `glitch-image`, `duotone`, `lightning-flash`  
+**Avoid:** Change lines / preTitle / keyword (defaults LONDON 1736 / GIN are sample text). Not a default choice for every title.  
 
 | prop | default | notes |
 |---|---|---|
@@ -326,6 +596,10 @@ Double-ruled black narrative caption box under a letterboxed scene (RPG-style ty
 **Rebuilt from:** video21 0:17.2-0:18.2, video12 0:02-1:30  
 **Default length:** 210 frames (7.0 s @ 30 fps)
 
+**Roles:** type · **Mood:** dark, comic, cinematic, editorial  
+**Capabilities:** overlay (`{"backdrop":"none"}`) · text: `items` · image: `src` · weight: light  
+**Pairs well with:** `ken-burns`, `film-look`, `light-sweep`, `pixel-dither`  
+
 | prop | default | notes |
 |---|---|---|
 | `variant` | `"box"` | box (video21 narrative box) \| plate (video12 time-stamp plate) |
@@ -354,6 +628,10 @@ macOS-style code editor or terminal window that types syntax-coloured code with 
 **Rebuilt from:** video8 0:05-0:30, video17 0:00-0:43 footer, video13 0:00-0:20  
 **Default length:** 180 frames (6.0 s @ 30 fps)
 
+**Roles:** type · **Mood:** mid, hud  
+**Capabilities:** overlay (`{"backdrop":"none"}`) · text: `lines`, `title` · image: `src` · weight: light  
+**Pairs well with:** `glitch-image`, `hud-chrome`, `radial-blueprint`  
+
 | prop | default | notes |
 |---|---|---|
 | `lines` | `["// fractal brownian motion","float fbm(vec2 p) {","  fl…` | code lines (strings, or {text, color}); in terminal mode "$ " lines type, other lines are output |
@@ -381,6 +659,10 @@ Small lowercase credit typed into a corner two frames per character, no cursor; 
 **Use for:** Sign-offs, maker credits, version tags and quiet end stamps.  
 **Rebuilt from:** video1 1:06.2-1:06.5, video6 0:52.3-0:53.2  
 **Default length:** 90 frames (3.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** dark, editorial  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `text` · weight: light  
+**Pairs well with:** `compass-construct`, `end-card-credits`, `starfield-night`  
 
 | prop | default | notes |
 |---|---|---|
@@ -413,6 +695,9 @@ Every scene transition in the library, one after another, between contrasting la
 **Rebuilt from:** video1, video4, video6, video8, video9, video10, video11, video14, video16, video17, video18, video19, video20, video21  
 **Default length:** 1858 frames (61.9 s @ 30 fps)
 
+**Roles:** transition · **Mood:** —  
+**Capabilities:** paints its own background · text: `title` · weight: light  
+
 | prop | default | notes |
 |---|---|---|
 | `types` | `["fade","slide","wipe","clock","flip","iris","blob","tear…` | transition entries to show in order, "type" or "type:variant" (e.g. "page-turn:roll") |
@@ -431,6 +716,10 @@ A red ball over a dark dev-HUD: gravity bounces with velocity stretch and 1-fram
 **Use for:** Explaining physics / animation principles, playful logo or mascot drops, "charging then launch" beats, heavy-impact emphasis.  
 **Rebuilt from:** video17 0:00-0:05 squash-stretch-bounce + anticipation-charge-launch, video17 0:21-0:24 note-per-bounce, video17 0:27-0:30 impact-frame + ground-crack-debris  
 **Default length:** 120 frames (4.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** dark, hud, playful, night  
+**Capabilities:** paints its own background · text: `title`, `subtitle` · weight: light  
+**Pairs well with:** `hud-chrome`, `easing-graph`, `onion-skin-arc`  
 
 | prop | default | notes |
 |---|---|---|
@@ -461,6 +750,10 @@ A glowing recursive branching structure draws itself level by level from the tru
 **Rebuilt from:** video11 0:16.1-0:17.0 branching-growth-stroke, video11 0:03.5-0:05.2 branching-tree-diagram  
 **Default length:** 150 frames (5.0 s @ 30 fps)
 
+**Roles:** subject · **Mood:** dark, hud  
+**Capabilities:** paints its own background · text: `label`, `sublabel` · weight: light  
+**Pairs well with:** `radial-blueprint`, `pair-field`, `callout-labels`  
+
 | prop | default | notes |
 |---|---|---|
 | `layout` | `"neuron"` | 'neuron' (dendrites up, roots down, inside a reticle) \| 'tree' (one tree from the bottom) \| 'radial' (network from the centre) |
@@ -488,6 +781,10 @@ Blue and pink glossy spheres take turns pinging rings, flash a colour-swap halo,
 **Rebuilt from:** video4 0:17.75-0:22.95  
 **Default length:** 210 frames (7.0 s @ 30 fps)
 
+**Roles:** subject · **Mood:** light, paper  
+**Capabilities:** paints its own background · weight: light  
+**Pairs well with:** `chat-bubbles`, `handwrite-on`, `sparkle-burst`  
+
 | prop | default | notes |
 |---|---|---|
 | `background` | `"#ECE4D7"` |  |
@@ -513,6 +810,10 @@ Glossy gold nuclei bud and split inside an egg outline, doubling every few frame
 **Rebuilt from:** video6 0:03.15-0:04.6  
 **Default length:** 120 frames (4.0 s @ 30 fps)
 
+**Roles:** subject · **Mood:** dark  
+**Capabilities:** paints its own background · weight: light  
+**Pairs well with:** `number-counter`, `science-reticle`, `swimmers-converge`  
+
 | prop | default | notes |
 |---|---|---|
 | `background` | `"#180F0B"` |  |
@@ -537,6 +838,10 @@ A drafting compass sweeps a circle and the six Seed-of-Life petals, a ruler draw
 **Rebuilt from:** video6 0:02.00-0:03.15, video6 0:51.3-0:53.2  
 **Default length:** 150 frames (5.0 s @ 30 fps)
 
+**Roles:** subject · **Mood:** dark, blueprint  
+**Capabilities:** paints its own background · weight: light  
+**Pairs well with:** `glyph-orbit-logo`, `hex-comb-build`, `typewriter-signature`  
+
 | prop | default | notes |
 |---|---|---|
 | `background` | `"#180F0B"` |  |
@@ -560,6 +865,10 @@ A linear black ball and an eased red ball race along two tracks with per-frame s
 **Use for:** Explaining easing / timing, UI motion specs, "slow in, slow out" lessons, any linear-vs-curved comparison.  
 **Rebuilt from:** video17 0:14.75-0:17.75 ease-compare-tracks + graph-editor-curve  
 **Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** light, editorial  
+**Capabilities:** paints its own background · text: `title`, `subtitle` · weight: light  
+**Pairs well with:** `bouncing-ball`, `hud-chrome`, `onion-skin-arc`  
 
 | prop | default | notes |
 |---|---|---|
@@ -588,6 +897,10 @@ A flat red disc gains a wireframe, a perspective floor grid and gradient 3D shad
 **Rebuilt from:** video17 0:30-0:34.5 flat-to-3d-sphere + callout-leader-labels, video17 0:38.3-0:38.7 render-flatten  
 **Default length:** 180 frames (6.0 s @ 30 fps)
 
+**Roles:** subject · **Mood:** light, 3d, editorial  
+**Capabilities:** paints its own background · text: `title`, `subtitle` · weight: light  
+**Pairs well with:** `callout-labels`, `hud-chrome`, `easing-graph`  
+
 | prop | default | notes |
 |---|---|---|
 | `background` | `"#EEEBDE"` | flat background (also the HUD colour reference) |
@@ -613,6 +926,10 @@ Procedural hatched cog wheels pop in and mesh, counter-rotating at the correct t
 **Rebuilt from:** video20 3:03.7-3:09, video19 0:13.35-0:14.4 (background gears)  
 **Default length:** 150 frames (5.0 s @ 30 fps)
 
+**Roles:** subject · **Mood:** light, paper, blueprint  
+**Capabilities:** paints its own background · weight: light  
+**Pairs well with:** `smoke-puffs`, `line-draw-on`, `chapter-header`  
+
 | prop | default | notes |
 |---|---|---|
 | `style` | `"filled"` | "filled" (video20 coloured pencil on paper) or "line" (video19 white line art on black) |
@@ -634,6 +951,10 @@ On warm sketch paper a pencil draws a red heart outline (or star / check / bolt)
 **Use for:** Love / thanks / success end beats, like-subscribe moments, a finished checkmark or a power-up icon.  
 **Rebuilt from:** video20 3:29.5-3:33 heart-draw-fill-glow, video20 3:36.5 fade-to-paper heart  
 **Default length:** 120 frames (4.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** light, paper  
+**Capabilities:** paints its own background · text: `icon` · weight: light  
+**Pairs well with:** `confetti-burst`, `sparkle-burst`, `handwrite-on`  
 
 | prop | default | notes |
 |---|---|---|
@@ -659,6 +980,10 @@ Cream wax hexagon edges grow segment by segment with node balls and compass-circ
 **Use for:** Building a system cell by cell, modular growth, teamwork / hive, filling a grid of slots.  
 **Rebuilt from:** video6 0:14.67-0:16.6, video6 0:09.25-0:09.92 (spiral cap), video6 0:02.6-0:03.1 (prism extrude)  
 **Default length:** 200 frames (6.7 s @ 30 fps)
+
+**Roles:** subject · **Mood:** dark, nature  
+**Capabilities:** paints its own background · weight: light  
+**Pairs well with:** `compass-construct`, `number-counter`, `glyph-orbit-logo`  
 
 | prop | default | notes |
 |---|---|---|
@@ -686,6 +1011,10 @@ Line art constructs itself stroke by stroke with a pen nib riding each tip, then
 **Use for:** Build any diagram, blueprint, wireframe, icon or logo line by line; highlight the part you are talking about.  
 **Rebuilt from:** video20 2:52.5-2:55 (blueprint), video1 1:03.1-1:04.6 (crease recolour), video10 0:23.0-0:23.65, video19 engrave-stroke-draw  
 **Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** mid, blueprint  
+**Capabilities:** paints its own background · text: `caption` · weight: light  
+**Pairs well with:** `chapter-header`, `callout-labels`, `gears`  
 
 | prop | default | notes |
 |---|---|---|
@@ -716,6 +1045,10 @@ A liquid splat spreads and oozes, rendered as heat-map contour bands (maroon cor
 **Rebuilt from:** video2 0:13.08-0:14.17 (heatmap), video18 0:06.55-0:06.65 (goo)  
 **Default length:** 150 frames (5.0 s @ 30 fps)
 
+**Roles:** subject · **Mood:** dark, night  
+**Capabilities:** paints its own background · weight: light  
+**Pairs well with:** `live-chart`, `number-counter`, `curl-flow`  
+
 | prop | default | notes |
 |---|---|---|
 | `style` | `"heatmap"` | "heatmap" (iso-contour bands) or "goo" (gooey blobs with RGB-split rim) |
@@ -737,6 +1070,10 @@ Two panels compare animation methods: ghost circles drawn frame by frame along a
 **Use for:** Explaining process vs planning, keyframes and in-betweens, timing and weight, any "same task, different approach" comparison.  
 **Rebuilt from:** video17 0:09-0:11.6 onion-skin-trail, video17 0:24-0:27 split-compare-drop  
 **Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** mid  
+**Capabilities:** paints its own background · text: `dropLabels`, `title`, `subtitle` · weight: light  
+**Pairs well with:** `easing-graph`, `bouncing-ball`, `hud-chrome`  
 
 | prop | default | notes |
 |---|---|---|
@@ -761,6 +1098,10 @@ A paper sheet in front of a sunny window: crease lines draw on, the sheet folds 
 **Use for:** Making / transformation / "step by step" stories, craft or paper themes, turning a plain idea into something that flies.  
 **Rebuilt from:** video1 0:03.3-0:11.25 origami-fold-sequence, crease-line-draw, paper-scrap-fall, paper-crane-flap, video1 1:58-1:02.6 reverse unfold + crease highlight  
 **Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** light, paper, nature  
+**Capabilities:** paints its own background · weight: light  
+**Pairs well with:** `flock`, `handwrite-on`, `falling-petals`  
 
 | prop | default | notes |
 |---|---|---|
@@ -789,6 +1130,10 @@ Dark violet field of hundreds of cyan+pink dot pairs pinging small rings; the ca
 **Rebuilt from:** video4 0:24.0-0:26.0  
 **Default length:** 120 frames (4.0 s @ 30 fps)
 
+**Roles:** subject · **Mood:** dark, night  
+**Capabilities:** paints its own background · weight: light  
+**Pairs well with:** `number-counter`, `branch-grow`, `blur-in-title`  
+
 | prop | default | notes |
 |---|---|---|
 | `count` | `360` | number of dot pairs in the field |
@@ -813,6 +1158,10 @@ Layered petals unfold radially with spring overshoot into a lotus, or dense ring
 **Rebuilt from:** video4 0:22.10-0:22.45 (lotus), video15 0:02.35-0:04.6 (radial)  
 **Default length:** 120 frames (4.0 s @ 30 fps)
 
+**Roles:** subject · **Mood:** light, nature  
+**Capabilities:** paints its own background · weight: light  
+**Pairs well with:** `falling-petals`, `handwrite-on`, `sparkle-burst`  
+
 | prop | default | notes |
 |---|---|---|
 | `style` | `"lotus"` | "lotus" (spring-unfolding layered petals) or "radial" (spike rings sweeping round a seed disk) |
@@ -834,6 +1183,10 @@ A red ball swoops across a blue field trailing five lagging pastel ribbons; when
 **Use for:** Follow-through / overlapping-action explainers, energetic logo or cursor trails, dance / orbit paths, "two things meet" moments.  
 **Rebuilt from:** video17 0:11-0:15 ribbon-follow-through, video11 0:20-0:22 motion-trail-ribbons  
 **Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** dark, neon, night  
+**Capabilities:** paints its own background · text: `label`, `title`, `subtitle` · weight: light  
+**Pairs well with:** `neon-sign`, `hud-chrome`, `easing-graph`  
 
 | prop | default | notes |
 |---|---|---|
@@ -865,6 +1218,10 @@ A red ball swings on a dotted pendulum string tracing petal loops; the outlines 
 **Rebuilt from:** video17 0:17.9-0:20.8  
 **Default length:** 150 frames (5.0 s @ 30 fps)
 
+**Roles:** subject · **Mood:** light, nature  
+**Capabilities:** paints its own background · text: `title` · weight: light  
+**Pairs well with:** `easing-graph`, `bouncing-ball`, `mask-rise-title`  
+
 | prop | default | notes |
 |---|---|---|
 | `background` | `"#F5CA1E"` |  |
@@ -887,7 +1244,12 @@ Glossy dot on paper emits sonar rings; echo arcs return and pop open a circular 
 
 **Use for:** Listening / broadcasting / searching beats; reveal examples one by one from an anchor point.  
 **Rebuilt from:** video4 0:00-4:46  
-**Default length:** 150 frames (5.0 s @ 30 fps)
+**Default length:** 150 frames (5.0 s @ 30 fps) · best 144
+
+**Roles:** subject · **Mood:** light, paper  
+**Capabilities:** paints its own background · seamless loop · image: `windowImages` · weight: light  
+**Pairs well with:** `starfield-night`, `chat-bubbles`, `embers`  
+**Note:** windowSize 0 + echoAngles [] + pings/pingEvery multiple of the length = a clean loading loop.  
 
 | prop | default | notes |
 |---|---|---|
@@ -913,6 +1275,10 @@ Manga focus lines converge on a subject over a halftone comic backdrop, re-rando
 **Use for:** Hits, reveals, sudden realisations, "ATTENTION" moments, comic or anime-styled emphasis on any subject.  
 **Rebuilt from:** video12 0:07.87-0:08.27 impact-frame (BONK) + radial-speed-lines, video12 1:03.1 CRASH, video17 0:28.15 impact-frame  
 **Default length:** 90 frames (3.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** mid, comic  
+**Capabilities:** paints its own background · text: `label` · weight: light  
+**Pairs well with:** `comic-burst`, `stamp-slam`, `comic-halftone`  
 
 | prop | default | notes |
 |---|---|---|
@@ -943,6 +1309,10 @@ Pencil-sketch planters on a park lawn: stems rise one after another, leaf pairs 
 **Rebuilt from:** video20 2:09-2:16 sprout-grow-row  
 **Default length:** 150 frames (5.0 s @ 30 fps)
 
+**Roles:** subject · **Mood:** light, paper, nature  
+**Capabilities:** paints its own background · weight: light  
+**Pairs well with:** `handwrite-on`, `sun-rise-set`, `number-counter`  
+
 | prop | default | notes |
 |---|---|---|
 | `background` | `"#DFD6C5"` | paper colour (sky) |
@@ -968,6 +1338,10 @@ Small glowing agents with wavy sine tails swim in along dotted S-curves and stop
 **Use for:** Competition / "one wins" moments, many inputs converging on a goal, biology or origin stories, two things combining into one.  
 **Rebuilt from:** video11 0:02.1-0:03.55 wavy-swimmers-converge + pulse-shockwave-ring + twin-dot-fusion  
 **Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** dark, hud  
+**Capabilities:** paints its own background · text: `label`, `finalLabel` · weight: light  
+**Pairs well with:** `cell-division`, `science-reticle`, `blur-in-title`  
 
 | prop | default | notes |
 |---|---|---|
@@ -997,6 +1371,11 @@ Flat circles, rings, squares and capsules explode radially from a point with dra
 **Use for:** Celebrations, completions, level-ups, "chaos" beats; small counts make an impact puff on a landing or tap.  
 **Rebuilt from:** video17 6.40-7.50 confetti-burst-fill, video7 impact-confetti, video14 style-swap-confetti-burst  
 **Default length:** 100 frames (3.3 s @ 30 fps)
+
+**Roles:** accent · **Mood:** light, playful  
+**Capabilities:** overlay (`{"background":"transparent","showSubject":false}`) · weight: light  
+**Pairs well with:** `heart-draw-fill`, `number-counter`, `mask-rise-title`, `browser-mockup`  
+**Note:** As a web overlay: <MotionPlayer motion="confetti-burst" overlay loop="once"/> over your success screen.  
 
 | prop | default | notes |
 |---|---|---|
@@ -1031,6 +1410,10 @@ Jagged white-core lightning arcs with violet glow, re-randomised every 1-2 frame
 **Use for:** Energy, power, surges, sci-fi, "electrifying" ideas; around mode electrifies a logo or product.  
 **Rebuilt from:** video2 electric-arc-flicker  
 **Default length:** 90 frames (3.0 s @ 30 fps)
+
+**Roles:** accent · **Mood:** dark, night  
+**Capabilities:** overlay (`{"background":"transparent","showSubject":false}`) · weight: light  
+**Pairs well with:** `stamp-slam`, `glitch-image`, `zoom-tunnel`  
 
 | prop | default | notes |
 |---|---|---|
@@ -1067,6 +1450,10 @@ Doodle reaction icons (! ? lightbulb hearts sweat-drop music notes) pop in over 
 **Rebuilt from:** video20 emote-icon-pop, video22 cheer-bounce-emotes floating notes  
 **Default length:** 150 frames (5.0 s @ 30 fps)
 
+**Roles:** accent · **Mood:** light, paper, playful  
+**Capabilities:** overlay (`{"background":"transparent","showSubject":false}`) · weight: light  
+**Pairs well with:** `box-bot`, `chat-bubbles`, `perspective-grid`  
+
 | prop | default | notes |
 |---|---|---|
 | `background` | `"#E1D7C5"` | scene paper colour; 'transparent' = overlay (no bot, no paper) |
@@ -1093,6 +1480,10 @@ A pair of cartoon eyes on a red ball blinks, darts between look targets and swit
 **Use for:** Give any shape, logo or object a personality; suspense / "being watched" beats in dark scenes.  
 **Rebuilt from:** video17 34.5-38.7 character-eyes, video2 eye-look-blink, video21 watching-eyes-in-dark  
 **Default length:** 120 frames (4.0 s @ 30 fps)
+
+**Roles:** accent · **Mood:** light, playful, comic  
+**Capabilities:** overlay (`{"background":"transparent","showSubject":false}`) · weight: light  
+**Pairs well with:** `starfield-night`, `giant-eye-reveal`, `story-caption-box`  
 
 | prop | default | notes |
 |---|---|---|
@@ -1130,6 +1521,10 @@ In darkness a huge reptilian eye opens from a cyan slit through an almond lid ma
 **Rebuilt from:** video23 87.1-90.5 giant-eye-reveal, video15 24.6-25.55 eye-zoom-match-cut, video17 eyelid-iris-close  
 **Default length:** 128 frames (4.3 s @ 30 fps)
 
+**Roles:** accent · **Mood:** dark, night  
+**Capabilities:** overlay (`{"background":"transparent"}`) · image: `src` · weight: light  
+**Pairs well with:** `lightning-flash`, `glitch-image`, `blur-in-title`  
+
 | prop | default | notes |
 |---|---|---|
 | `background` | `"#020406"` | scene colour (near-black); 'transparent' = overlay |
@@ -1161,6 +1556,10 @@ A boiling tangle of open ink loops, regenerated every 2 frames, floats over an u
 **Rebuilt from:** video20 scribble-frustration-ball, video2 line-boil  
 **Default length:** 90 frames (3.0 s @ 30 fps)
 
+**Roles:** accent · **Mood:** light, paper, playful  
+**Capabilities:** overlay (`{"background":"transparent","showSubject":false}`) · weight: light  
+**Pairs well with:** `box-bot`, `error-glitch`, `chat-bubbles`  
+
 | prop | default | notes |
 |---|---|---|
 | `background` | `"#E1D7C5"` | scene paper colour; 'transparent' = overlay (no bot, no paper) |
@@ -1189,6 +1588,10 @@ Clusters of open doodle ink circles (or soft blurred circles) rise from a vent, 
 **Use for:** Broken machines, steam, thinking, engines; with flash: cannon / gun / launch / explosion beats.  
 **Rebuilt from:** video20 27-33 s smoke-puff-circles, video3 cannon-flash-smoke  
 **Default length:** 120 frames (4.0 s @ 30 fps)
+
+**Roles:** accent · **Mood:** light, paper  
+**Capabilities:** overlay (`{"background":"transparent","showSubject":false}`) · weight: light  
+**Pairs well with:** `gears`, `box-bot`, `stamp-slam`  
 
 | prop | default | notes |
 |---|---|---|
@@ -1224,6 +1627,10 @@ Four-point doodle sparkles burst from a contact point and twinkle out (tool-tap 
 **Rebuilt from:** video20 tool-tap-repair + sparkle-burst, video22 capture-scuffle-sparkles, video22 cheer-bounce-emotes  
 **Default length:** 64 frames (2.1 s @ 30 fps)
 
+**Roles:** accent · **Mood:** light, paper, playful  
+**Capabilities:** overlay (`{"background":"transparent","showSubject":false}`) · weight: light  
+**Pairs well with:** `heart-draw-fill`, `number-counter`, `box-bot`  
+
 | prop | default | notes |
 |---|---|---|
 | `background` | `"#E1D7C5"` | scene paper colour; 'transparent' = overlay (no subject, no paper) |
@@ -1255,6 +1662,11 @@ A six-spike specular "ting" with soft bloom flashes on a blade tip, shimmers thr
 **Rebuilt from:** video5 0.60-2.90 star-glint-flare, video2 zipper-slide-glint  
 **Default length:** 90 frames (3.0 s @ 30 fps)
 
+**Roles:** accent · **Mood:** light  
+**Capabilities:** overlay (`{"background":"transparent","showSubject":false}`) · weight: light  
+**Pairs well with:** `glyph-orbit-logo`, `number-counter`, `browser-mockup`, `neon-sign`  
+**Note:** The 'shiny / premium' accent on a logo, badge or number.  
+
 | prop | default | notes |
 |---|---|---|
 | `background` | `"#BBC2D9"` | scene colour (lavender sky); 'transparent' = overlay (no blade scene) |
@@ -1277,6 +1689,24 @@ A six-spike specular "ting" with soft bloom flashes on a blade tip, shimmers thr
 | `ink` | `"#2D3A6F"` | etching ink colour for the scene |
 | `seed` | `1` | random seed |
 
+### `mix` — Mix (layer motions together)
+
+![mix](../gallery/mix.jpg)
+
+Stacks any motions in one frame: backdrop + subject + text + accent, each with its own timing, opacity and blend mode.
+
+**Use for:** Building a richer shot out of several motions at once (e.g. aurora sky + neon sign + embers, or a photo look + callouts + captions).  
+**Rebuilt from:** library  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** mix · **Mood:** dark  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `background` | `"#05070d"` | colour under all layers |
+| `layers` | `[{"motion":"aurora","props":{"pixelSize":0}},{"motion":"b…` | [{motion, props?, from?, duration?, offset?, opacity?, blend?, scale?, x?, y?}] bottom to top |
+
 ## environment
 
 ### `aurora` — Aurora curtain
@@ -1288,6 +1718,11 @@ Undulating teal-green aurora curtains shimmer over a navy starry sky, snowy moun
 **Use for:** Polar / night / wonder / title-card backdrops; transparent overlay for any night sky.  
 **Rebuilt from:** video21 15.5-16.6, 24.0-27.5  
 **Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** backdrop, accent · **Mood:** dark, pixel, nature, night  
+**Capabilities:** overlay (`{"background":"transparent","backdrop":false}`) · weight: light  
+**Pairs well with:** `blur-in-title`, `embers`, `starfield-night`, `glyph-orbit-logo`, `neon-sign`  
+**Note:** pixelSize 0 = smooth (premium web look); 6 = pixel-art.  
 
 | prop | default | notes |
 |---|---|---|
@@ -1314,6 +1749,10 @@ A packed foam of soap bubbles on a steel sink: rotating rainbow thin-film rims, 
 **Rebuilt from:** video2 1.08-2.21, video23 bathysphere-idle-bob bubbles  
 **Default length:** 150 frames (5.0 s @ 30 fps)
 
+**Roles:** backdrop, accent · **Mood:** light, cinematic, nature  
+**Capabilities:** overlay (`{"background":"transparent","backdrop":false}`) · weight: light  
+**Pairs well with:** `caustics-godrays`, `fish-school`, `blur-in-title`  
+
 | prop | default | notes |
 |---|---|---|
 | `mode` | `"cluster"` | "cluster" (packed foam with pops) or "rising" (bubbles rising through water) |
@@ -1336,6 +1775,11 @@ Underwater: a rippling caustic web at the surface, swaying light shafts and drif
 **Use for:** Ocean / underwater openers, pool or summer textures, quiet interiors with a single light shaft; layer over footage as light.  
 **Rebuilt from:** video23 0.0-14.0, video2 14.17-15.25, video14 era ambience (light-shaft-dust)  
 **Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** backdrop, accent · **Mood:** mid, cinematic, nature  
+**Capabilities:** overlay (`{"background":"transparent","backdrop":false}`) · weight: light  
+**Pairs well with:** `fish-school`, `depth-descent`, `blur-in-title`, `bubbles`  
+**Note:** Excellent calm web hero background for water / health / science brands.  
 
 | prop | default | notes |
 |---|---|---|
@@ -1362,6 +1806,10 @@ Seeded procedural city: three depth rows of buildings with setbacks, water tanks
 **Rebuilt from:** video20 3:16-3:36 procedural-sketch-city + crane-pullback-reveal, video2 window-grid-flicker  
 **Default length:** 210 frames (7.0 s @ 30 fps)
 
+**Roles:** backdrop · **Mood:** dark, night, cinematic  
+**Capabilities:** paints its own background · weight: medium  
+**Pairs well with:** `number-counter`, `fireworks`, `rain`, `neon-sign`  
+
 | prop | default | notes |
 |---|---|---|
 | `style` | `"flat"` | "flat" dusk/night silhouettes or "sketch" hatched pencil-on-paper (video20) |
@@ -1384,6 +1832,10 @@ Hundreds of coloured ribbons stream through a turbulent curl-noise vortex around
 **Use for:** Inspection / insight / chaos-under-the-lens beats, psychedelic or hypnotic transitions, "looking closer" moments.  
 **Rebuilt from:** video2 18.54-20.71  
 **Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** backdrop, accent · **Mood:** light, paper  
+**Capabilities:** overlay (`{"background":"transparent","backdrop":false}`) · weight: light  
+**Pairs well with:** `blur-in-title`, `science-reticle`, `glitch-image`  
 
 | prop | default | notes |
 |---|---|---|
@@ -1409,6 +1861,10 @@ Underwater descent infographic: a bobbing brass bathysphere hangs on its cable w
 **Use for:** Scale explainers ("how deep / how far / how big"), descending through levels or eras, any ranked list read as depth.  
 **Rebuilt from:** video23 0:00-1:30 depth-descent-scroll, depth-counter-hud, log-depth-ruler, bathysphere-idle-bob, headlamp-beam, marine-snow-particles, zone-title-blur-swap  
 **Default length:** 480 frames (16.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** dark, nature, hud, night  
+**Capabilities:** paints its own background · text: `landmarks`, `surfaceTitle`, `surfaceNote`, `unit`, `labels` · image: `heroSrc` · weight: light  
+**Pairs well with:** `caustics-godrays`, `blur-in-title`, `fish-school`  
 
 | prop | default | notes |
 |---|---|---|
@@ -1437,6 +1893,11 @@ Golden additive sparks rising and twinkling over a fire glow; "motes" = slow sof
 **Rebuilt from:** video3 2.40-4.40, video14 era ambience (ember-motes, gold-fleck-float)  
 **Default length:** 180 frames (6.0 s @ 30 fps)
 
+**Roles:** backdrop, accent · **Mood:** dark, night, cinematic  
+**Capabilities:** overlay (`{"background":"transparent","backdrop":false}`) · seamless loop · weight: light  
+**Pairs well with:** `aurora`, `neon-sign`, `end-card-credits`, `blur-in-title`, `light-sweep`  
+**Note:** mode motes + low count is the classic subtle accent over any dark scene (blend screen).  
+
 | prop | default | notes |
 |---|---|---|
 | `mode` | `"sparks"` | "sparks" (fast golden sparks), "motes" (slow glowing dots), "gold" (spinning gold flecks) |
@@ -1461,6 +1922,10 @@ Petals (or autumn leaves, or paper sheets) sway, spin and flip in 3D as they fal
 **Rebuilt from:** video6 21.33-39.30, video14 era ambience (falling-papers)  
 **Default length:** 180 frames (6.0 s @ 30 fps)
 
+**Roles:** backdrop, accent · **Mood:** light, nature  
+**Capabilities:** overlay (`{"background":"transparent","backdrop":false}`) · weight: light  
+**Pairs well with:** `handwrite-on`, `petal-bloom`, `blur-in-title`  
+
 | prop | default | notes |
 |---|---|---|
 | `mode` | `"petals"` | "petals", "leaves" or "papers" |
@@ -1484,6 +1949,11 @@ Staggered fireworks over a night city: a faint launch streak climbs, a white fla
 **Use for:** Celebrations, launches, milestones, "it worked!" beats, festive end cards.  
 **Rebuilt from:** video13 1:02-1:04 firework-burst, video13 1:05 scene-light-flash  
 **Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** dark, playful, night  
+**Capabilities:** overlay (`{"scene":false}`) · weight: light  
+**Pairs well with:** `city-skyline`, `number-counter`, `mask-rise-title`, `neon-sign`  
+**Note:** scene:false = transparent bursts over your own scene (use blend screen).  
 
 | prop | default | notes |
 |---|---|---|
@@ -1512,6 +1982,10 @@ Underwater scene: a loose school of fish sweeps across the frame along an eased 
 **Rebuilt from:** video23 0:03-0:40 sprite-swim-cycle (fish school, jellyfish)  
 **Default length:** 210 frames (7.0 s @ 30 fps)
 
+**Roles:** backdrop · **Mood:** mid, nature  
+**Capabilities:** paints its own background · weight: light  
+**Pairs well with:** `caustics-godrays`, `bubbles`, `blur-in-title`  
+
 | prop | default | notes |
 |---|---|---|
 | `count` | `42` | number of fish in the school |
@@ -1536,6 +2010,10 @@ A V-formation of red-crowned cranes flies right-to-left over snowy peaks: birds 
 **Use for:** Migration / journey / teamwork beats, "joining the group" metaphors, sky interludes.  
 **Rebuilt from:** video1 0:28-0:35 v-formation-flock, video1 0:30-0:32 bird-flap-cycle  
 **Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** light, paper, nature  
+**Capabilities:** paints its own background · weight: light  
+**Pairs well with:** `blur-in-title`, `sun-rise-set`, `handwrite-on`  
 
 | prop | default | notes |
 |---|---|---|
@@ -1564,6 +2042,11 @@ Wavy streamlines: wind lines with end curls across a sky, rising heat wiggles ov
 **Rebuilt from:** video1 15.0-18.33, video6 heat-wiggle-lines, video16 65.8-74.2, video20 182.5-183.7  
 **Default length:** 180 frames (6.0 s @ 30 fps)
 
+**Roles:** backdrop, accent · **Mood:** light, paper, nature  
+**Capabilities:** overlay (`{"background":"transparent","backdrop":false}`) · weight: light  
+**Pairs well with:** `handwrite-on`, `number-counter`, `chapter-header`  
+**Note:** mode waves on paper makes a good section divider band.  
+
 | prop | default | notes |
 |---|---|---|
 | `mode` | `"wind"` | "wind", "heat", "steam" or "waves" |
@@ -1588,6 +2071,10 @@ Procedural tapered teal grass blades grow up from the bottom edge in a staggered
 **Use for:** A living foreground for night/sunrise scenes, an opening or end-card ground plane, a calm nature beat.  
 **Rebuilt from:** video15 0:00-0:03 grass-blade-field, video15 0:26-0:27 grass-grow-up  
 **Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** dark, nature, night  
+**Capabilities:** paints its own background · weight: light  
+**Pairs well with:** `starfield-night`, `insect-flight`, `blur-in-title`  
 
 | prop | default | notes |
 |---|---|---|
@@ -1619,6 +2106,10 @@ Red dragonflies zig-zag over a sunny lotus pond in fast expo-eased darts separat
 **Rebuilt from:** video1 0:42-0:46 insect-dart-land (dragonfly), video2 insect-zigzag-flight  
 **Default length:** 180 frames (6.0 s @ 30 fps)
 
+**Roles:** backdrop, accent · **Mood:** mid, nature, night  
+**Capabilities:** overlay (`{"scene":false}`) · weight: light  
+**Pairs well with:** `grass-field`, `starfield-night`, `handwrite-on`  
+
 | prop | default | notes |
 |---|---|---|
 | `kind` | `"dragonfly"` | "dragonfly" (sunny pond) or "firefly" (night meadow) |
@@ -1641,6 +2132,10 @@ A rainy night house scene is relit by lightning: a forked bolt draws on, the fra
 **Use for:** Drama, shock, revelation or horror punctuation; a storm establishing shot; overlay the flash + bolt on any night footage.  
 **Rebuilt from:** video16 52.72-53.20, 80.72-81.10  
 **Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** backdrop, accent · **Mood:** dark, nature, night  
+**Capabilities:** overlay (`{"background":"transparent","backdrop":false}`) · weight: light  
+**Pairs well with:** `rain`, `stamp-slam`, `glitch-image`  
 
 | prop | default | notes |
 |---|---|---|
@@ -1668,6 +2163,10 @@ Layered flat-vector landscape (sky and clouds, two mountain ranges, distant fiel
 **Rebuilt from:** video1 0:15-0:18 parallax-landscape-truck, video15 0:13-0:20 parallax-speed-run  
 **Default length:** 180 frames (6.0 s @ 30 fps)
 
+**Roles:** backdrop · **Mood:** mid, paper, nature  
+**Capabilities:** paints its own background · weight: light  
+**Pairs well with:** `map-route`, `chapter-header`, `kinetic-captions`  
+
 | prop | default | notes |
 |---|---|---|
 | `mode` | `"truck"` | "truck" (slow camera truck) or "speedrun" (ramp up to a rush, blur streaks, ramp down) |
@@ -1691,6 +2190,10 @@ Night street in the rain: 3 parallax layers of slanted streaks, lamp-lit cone, g
 **Use for:** Moody/rainy ambience under any scene; set background "transparent" to lay rain over footage, glass: true for a window POV.  
 **Rebuilt from:** video1 34.9-41.7, video14 109.75-115.2, video16 46.0-52.2, 75.9-80.1  
 **Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** backdrop, accent · **Mood:** dark, nature, night  
+**Capabilities:** overlay (`{"background":"transparent","backdrop":false}`) · weight: light  
+**Pairs well with:** `light-sweep`, `city-skyline`, `lightning-flash`, `story-caption-box`  
 
 | prop | default | notes |
 |---|---|---|
@@ -1719,6 +2222,10 @@ Layered snow drifting diagonally over a dusk snowy landscape; blizzard mode stre
 **Rebuilt from:** video2 12.00-13.08, 27.25-28.92, video21 7.20-8.35, 21.9-23.3  
 **Default length:** 180 frames (6.0 s @ 30 fps)
 
+**Roles:** backdrop, accent · **Mood:** light, pixel, nature  
+**Capabilities:** overlay (`{"background":"transparent","backdrop":false}`) · weight: light  
+**Pairs well with:** `starfield-night`, `blur-in-title`, `handwrite-on`  
+
 | prop | default | notes |
 |---|---|---|
 | `mode` | `"drift"` | "drift" (soft layered snow) or "blizzard" (horizontal pixel snow + white-out) |
@@ -1742,6 +2249,10 @@ Dark teal night sky with twinkling cream stars, a grainy crescent moon that fade
 **Use for:** Calm night / sleep / dream / wish beats, end cards and quiet intros; transparent overlay for stars over any sky.  
 **Rebuilt from:** video15 0.0-0.35, 25.55-26.1  
 **Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** backdrop, accent · **Mood:** dark, nature, night  
+**Capabilities:** overlay (`{"background":"transparent","backdrop":false}`) · weight: light  
+**Pairs well with:** `aurora`, `blur-in-title`, `grass-field`, `end-card-credits`  
 
 | prop | default | notes |
 |---|---|---|
@@ -1768,6 +2279,10 @@ Sunrise: a huge orange gradient disc rises from behind teal grass with an ease-o
 **Use for:** Openers, "a new day" beats, endings and time-passing; a giant backlight disc behind a hero.  
 **Rebuilt from:** video15 0:00-0:03 sunrise-disc-rise, video1 0:52-0:58 sun-set-descent  
 **Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** mid, nature, night  
+**Capabilities:** paints its own background · weight: light  
+**Pairs well with:** `flock`, `blur-in-title`, `handwrite-on`  
 
 | prop | default | notes |
 |---|---|---|
@@ -1800,6 +2315,10 @@ A simple procedural hillside village whose sky gradient and colour grade keyfram
 **Rebuilt from:** video13 time-of-day-grade, video16 0:44-0:46 grade-to-night, video20 scene-grade-shift  
 **Default length:** 240 frames (8.0 s @ 30 fps)
 
+**Roles:** backdrop · **Mood:** mid, nature, night  
+**Capabilities:** paints its own background · weight: light  
+**Pairs well with:** `chapter-header`, `number-counter`, `kinetic-captions`  
+
 | prop | default | notes |
 |---|---|---|
 | `stops` | `[{"t":0,"skyTop":"#7fa6d6","skyBottom":"#cfe0ec","sun":"#…` | grade keyframes [{t 0..1, skyTop, skyBottom, sun, grade}] (grade = multiply wash colour) |
@@ -1822,6 +2341,10 @@ Bird’s-eye view: a fixed paper crane (with hatched cast shadow and streaming d
 **Use for:** Journeys and "around the world" montages, travel/progress beats, map-like transitions under a hero.  
 **Rebuilt from:** video1 0:18-0:28 topdown-terrain-scroll, video1 0:18-0:28 biome-hardcut-montage  
 **Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** mid, paper, nature  
+**Capabilities:** paints its own background · image: `heroSrc` · weight: light  
+**Pairs well with:** `map-route`, `chapter-header`, `number-counter`  
 
 | prop | default | notes |
 |---|---|---|
@@ -1851,6 +2374,10 @@ White eyed sphere hops down an isometric bar staircase with squash/stretch, pain
 **Rebuilt from:** video7 0:00-0:16 squash-stretch-blob, roll-with-trail, hop-and-paint, floor-tile-ripple, impact-confetti, follow-cam-diagonal  
 **Default length:** 240 frames (8.0 s @ 30 fps)
 
+**Roles:** subject · **Mood:** light, 3d, playful  
+**Capabilities:** paints its own background · weight: light  
+**Pairs well with:** `confetti-burst`, `emote-pop`, `number-counter`  
+
 | prop | default | notes |
 |---|---|---|
 | `background` | `"#EFE8DE"` |  |
@@ -1875,6 +2402,10 @@ Orange cube mascot with dark rectangular eyes, little arms and four stubby legs 
 **Use for:** A friendly guide/mascot that walks in, reacts (? ! idea, hearts) and leaves; explainer beats that need a character.  
 **Rebuilt from:** video20 box-bot-character + emote-icon-pop, video13 cube-mascot-rig, eye-expression-swap, hop-cycle, video12 character-hop-squash  
 **Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** light, paper, playful  
+**Capabilities:** paints its own background · weight: light  
+**Pairs well with:** `emote-pop`, `scribble-ball`, `sparkle-burst`, `chat-bubbles`  
 
 | prop | default | notes |
 |---|---|---|
@@ -1901,6 +2432,10 @@ A massed perspective crowd of box-bots, ink-etched soldiers or paper dolls; the 
 **Use for:** Scale beats (“thousands of users / sessions / agents”), community and celebration moments, armies of AI.  
 **Rebuilt from:** video5 crowd-stomp-hop (0:02.6-0:10), video20 crowd-cheer-bob (3:22-3:25), video12 clone-army-crane-reveal (0:36.5-0:38.6)  
 **Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** mid, paper, playful  
+**Capabilities:** paints its own background · weight: light  
+**Pairs well with:** `neon-sign`, `confetti-burst`, `fireworks`  
 
 | prop | default | notes |
 |---|---|---|
@@ -1930,6 +2465,10 @@ A neon, comic banner or wooden sign drops in on ropes with a springy bounce, swi
 **Rebuilt from:** video12 43:17 sign-drop-swing (ATTENTION banner), 60:67 LIMIT REACHED neon, video13 pendulum-sway  
 **Default length:** 120 frames (4.0 s @ 30 fps)
 
+**Roles:** subject · **Mood:** dark, neon, playful  
+**Capabilities:** paints its own background · text: `text`, `subtext` · weight: light  
+**Pairs well with:** `embers`, `film-look`, `confetti-burst`  
+
 | prop | default | notes |
 |---|---|---|
 | `text` | `"Now Open"` | main sign text |
@@ -1953,6 +2492,10 @@ A chibi explorer in a bucket hat walks in place at 37.5 % W while procedural era
 **Use for:** History / timeline / evolution stories, “through the ages” montages, product version timelines, chapter travel.  
 **Rebuilt from:** video14 pinned-walker-world-scroll, torn-seam-era-wipe, seam-split-character-restyle, style-swap-confetti-burst, era-badge-crossfade, chibi-hero-rig, gag-beat  
 **Default length:** 570 frames (19.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** mid, paper, playful  
+**Capabilities:** paints its own background · text: `eras` · weight: light  
+**Pairs well with:** `chapter-header`, `era-dial`, `film-look`  
 
 | prop | default | notes |
 |---|---|---|
@@ -1979,6 +2522,10 @@ Hard-cut image montage whose cuts accelerate 12 f -> 6 f -> 3 f, a persistent ce
 **Rebuilt from:** video4 4:50-16:00 accelerating-montage + sonar-ring-overlay, video2 beat-hardcut-montage, video18 beat-style-shuffler  
 **Default length:** 240 frames (8.0 s @ 30 fps)
 
+**Roles:** subject · **Mood:** mid, photo, hud  
+**Capabilities:** paints its own background · image: `images` · weight: light  
+**Pairs well with:** `neon-sign`, `kinetic-captions`, `film-look`  
+
 | prop | default | notes |
 |---|---|---|
 | `images` | `["demo/koi.jpg","demo/jellyfish.jpg","demo/lighthouse.jpg…` | public/ image paths cycled through the shots (empty = procedural scenes) |
@@ -2003,6 +2550,11 @@ Data-driven clay-isometric bar chart on a tiled floor; a white eyed blob hops do
 **Use for:** Metric stories (declines, rankings, progress through steps) as a friendly looping hero animation.  
 **Rebuilt from:** video7 0:00-16:04 (iso-bar-staircase, hop-and-paint, squash-stretch-blob, impact-confetti, paint-cascade, floor-tile-ripple, roll-with-trail, pillar-rise-sink, follow-cam-diagonal)  
 **Default length:** 480 frames (16.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** light, 3d, playful  
+**Capabilities:** paints its own background · seamless loop · weight: light  
+**Pairs well with:** `number-counter`, `chapter-header`, `confetti-burst`  
+**Note:** loop: true (default) is a seamless loop; great as a friendly looping stats hero.  
 
 | prop | default | notes |
 |---|---|---|
@@ -2030,6 +2582,10 @@ Line charts that draw live with a glowing head dot: growth curve + synapse curve
 **Use for:** Growth / vital-sign / metric beats, "in sync" relationship moments, "it got worse" data moments.  
 **Rebuilt from:** video11 8:00-9:42 live-chart-trace, video11 20:00-21:96 dual-heartbeat-sync, video12 52:83-57:60 data-decline-chart  
 **Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** dark, hud  
+**Capabilities:** paints its own background · text: `title`, `xLabel`, `yLabel`, `label`, `gaugeLabels` · weight: light  
+**Pairs well with:** `number-counter`, `hud-chrome`, `callout-labels`  
 
 | prop | default | notes |
 |---|---|---|
@@ -2062,6 +2618,10 @@ Top-down illustrated paper map (fields, river, trees, blossoms) with a marker fl
 **Rebuilt from:** video6 32-40 s (map-flight-path, waggle-dance-diagram), video22 (hop-move-dotted-trail)  
 **Default length:** 270 frames (9.0 s @ 30 fps)
 
+**Roles:** subject · **Mood:** light, paper, nature  
+**Capabilities:** paints its own background · text: `waypoints` · weight: light  
+**Pairs well with:** `chapter-header`, `number-counter`, `story-caption-box`  
+
 | prop | default | notes |
 |---|---|---|
 | `waypoints` | `[{"x":-0.62,"y":0.55,"label":"Hive"},{"x":-0.18,"y":0.12,…` | route stops {x, y, label} in map space -1..1 (first = start, last = bearing target) |
@@ -2088,6 +2648,10 @@ Navy grid backdrop; three coloured panel outlines draw on clockwise, pictures sl
 **Rebuilt from:** video10 23:00-37:80 navy-grid-backdrop, stroke-draw-frames, mask-slide-image-fill, panel-collide, prison-bars-drop  
 **Default length:** 210 frames (7.0 s @ 30 fps)
 
+**Roles:** subject · **Mood:** dark, photo, editorial  
+**Capabilities:** paints its own background · text: `title`, `panels`, `caption` · weight: light  
+**Pairs well with:** `stamp-slam`, `film-look`, `kinetic-captions`  
+
 | prop | default | notes |
 |---|---|---|
 | `title` | `"Every time, three things collided"` | serif title above the panels |
@@ -2110,6 +2674,10 @@ Pen strokes draw a perspective trapezoid board, coloured-pencil hatch fills squa
 **Use for:** Game boards, calendars / schedules drawn by hand, planning grids, playful "your move" decision beats.  
 **Rebuilt from:** video22 7:60-10:50 perspective-grid-draw-on, pencil-hatch-squares, doodle-piece-pop-in, move-hint-rings, board-pullback-reveal  
 **Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** light, paper  
+**Capabilities:** paints its own background · text: `caption` · weight: light  
+**Pairs well with:** `handwrite-on`, `sparkle-burst`, `emote-pop`  
 
 | prop | default | notes |
 |---|---|---|
@@ -2139,6 +2707,10 @@ Instrument overlay (rings, spokes, tick ring, axis, scale bar) builds around a p
 **Rebuilt from:** video11 1:79-5:20 scientific-hud-reticle, ring-sweep-build, typewriter-mono-label, outline-comet-trace  
 **Default length:** 210 frames (7.0 s @ 30 fps)
 
+**Roles:** subject · **Mood:** dark, hud  
+**Capabilities:** paints its own background · text: `labels`, `scaleLabel` · weight: light  
+**Pairs well with:** `callout-labels`, `number-counter`, `caustics-godrays`  
+
 | prop | default | notes |
 |---|---|---|
 | `subject` | `"cell"` | 'cell' (egg with corona cells, honeycomb and pronuclei) or 'planet' (banded planet with a ring) |
@@ -2160,6 +2732,10 @@ Dozens of thumbnails as a tilted glowing disc of rings, a gapless wall you zoom 
 **Use for:** "…and hundreds more" endings, recaps of everything shown, portfolio walls, collapsing many items into one idea.  
 **Rebuilt from:** video4 16:00-17:75 thumbnail-disc-collapse + staggered-pop-out, video2 mosaic-grid-finale, video14 121-127 monitor-push-thumbnail-recap  
 **Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** light, photo, playful  
+**Capabilities:** paints its own background · image: `images` · weight: light  
+**Pairs well with:** `end-card-credits`, `mask-rise-title`, `confetti-burst`  
 
 | prop | default | notes |
 |---|---|---|
@@ -2187,6 +2763,11 @@ Rounded, shadowed browser window on a blue-grey backdrop showing a landing page 
 **Use for:** Product / website showcases, "here is the site" beats, SaaS launch videos, portfolio pieces.  
 **Rebuilt from:** video9 browser-frame-mockup, video5 cinemagraph-hero-loop, video5 gradient-headline  
 **Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** light, ui  
+**Capabilities:** paints its own background · text: `brand`, `url`, `nav`, `headline`, `subtitle`, `ctas`, `logos`, `features` · image: `heroSrc` · weight: light  
+**Pairs well with:** `star-glint`, `confetti-burst`, `mask-rise-title`  
+**Note:** heroSrc = your real screenshot or hero art.  
 
 | prop | default | notes |
 |---|---|---|
@@ -2220,6 +2801,10 @@ Cards deal from a pile into a fanned hand, one is hovered, played to centre and 
 **Rebuilt from:** video21 7:20-15:10 card-hand-deal-and-play, hit-flash-damage-pop, video19 9:00-10:30 card-fan-connect  
 **Default length:** 210 frames (7.0 s @ 30 fps)
 
+**Roles:** subject · **Mood:** dark, ui, playful  
+**Capabilities:** paints its own background · text: `cards`, `labels` · weight: light  
+**Pairs well with:** `sparkle-burst`, `number-counter`, `comic-burst`  
+
 | prop | default | notes |
 |---|---|---|
 | `mode` | `"hand"` | 'hand' (deal, hover, play, hit) or 'connect' (three glass cards linked then merged) |
@@ -2245,6 +2830,10 @@ Chat bubbles and comment / prompt chips pop in one by one around a box-bot, a sp
 **Rebuilt from:** video12 25:90-36:03 chat-bubble-pop, speech-balloon-pop, video12 55:03-57:60 comment-chip-stagger, video12 83:80-86:60 thought-bubble-sequence  
 **Default length:** 240 frames (8.0 s @ 30 fps)
 
+**Roles:** subject · **Mood:** dark, playful, ui  
+**Capabilities:** paints its own background · text: `messages`, `thoughtCaption`, `verdict` · weight: light  
+**Pairs well with:** `emote-pop`, `starfield-night`, `box-bot`  
+
 | prop | default | notes |
 |---|---|---|
 | `messages` | `[{"text":"hi Claude!","kind":"user"},{"text":"Hi! How can…` | [{text, kind, at?}] kind = user (dark bubble) \| reply (orange, flies from the bot) \| chip (orange prompt chip) \| comment (white ink chip) \| speech (comic balloon); at = start frame |
@@ -2256,6 +2845,44 @@ Chat bubbles and comment / prompt chips pop in one by one around a box-bot, a sp
 | `showBot` | `true` | draw the orange box-bot speaker |
 | `background` | `"#12031f"` |  |
 
+### `sms-thread` — SMS thread on a phone
+
+![sms-thread](../gallery/sms-thread.jpg)
+
+A phone rises in beside a headline; a missed-call alert, typing dots and SMS bubbles pop in one by one and the thread scrolls like a real chat, with day notes and a verdict badge springing in under the headline.
+
+**Use for:** Product explainers that show an automated text conversation, follow-up sequences ("Day 2 / Day 5"), booking confirmations.  
+**Rebuilt from:** original (Leadlatch explainer); bubble pop timing after video12 chat-bubble-pop  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** dark, ui  
+**Capabilities:** paints its own background · text: `messages`, `contact`, `contactSub`, `kicker`, `title`, `subtitle`, `badge` · image: `src` · weight: light  
+**Pairs well with:** `film-look`, `number-counter`, `confetti-burst`  
+
+| prop | default | notes |
+|---|---|---|
+| `messages` | `[{"text":"Missed call · 2:14 pm","from":"alert"},{"text":…` | [{text, from, at?, tag?}] from = us (right, ink bubble) \| them (left, white bubble) \| note (small centred "DAY 2" divider) \| alert (orange missed-call pill); tag = small mint line under a bubble |
+| `start` | `14` | frame of the first message |
+| `stagger` | `34` | frames between messages when `at` is not given |
+| `typing` | `14` | frames of typing dots before each us/them bubble (0 = none) |
+| `contact` | `"New enquiry"` | name in the thread header (its first letter fills the avatar) |
+| `contactSub` | `"Mobile · just now"` | small line under the contact name |
+| `kicker` | `"MISSED CALL TEXT-BACK"` | small tracked mono line above the headline ("" = none) |
+| `title` | `"Texts back\nin seconds"` | headline beside / above the phone; \n splits lines |
+| `subtitle` | `""` | body line under the headline ("" = none) |
+| `badge` | `"Booked: Thu 9am"` | mint verdict pill that springs in under the headline ("" = none) |
+| `badgeAt` | `-1` | frame of the badge (-1 = 24 frames after the last message) |
+| `background` | `"#0E2621"` | scene colour |
+| `paper` | `"#F5F1E8"` | headline colour and text colour in "us" bubbles |
+| `screen` | `"#F5F1E8"` | phone screen colour |
+| `ink` | `"#0E2621"` | "us" bubble colour and dark text |
+| `accent` | `"#FF5A1F"` | kicker, avatar and alert colour |
+| `mint` | `"#22B573"` | badge and tag colour |
+| `src` | `""` | optional public/ image shown blurred and dimmed behind |
+| `dim` | `0.78` | how strongly the background colour covers `src` (0..1) |
+| `phoneHeight` | `0.72` | landscape phone height as a fraction of frame height |
+| `grain` | `0.05` | film grain opacity |
+
 ### `split-compare` — Split-screen compare
 
 ![split-compare](../gallery/split-compare.jpg)
@@ -2265,6 +2892,10 @@ Presentation layout: headline, two perfectly synced panels (line-art vs colour b
 **Use for:** Before/after, A vs B, two tools / two styles / two renderers of the same thing.  
 **Rebuilt from:** video3 0:00-0:23 split-screen-compare  
 **Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** dark, photo, editorial  
+**Capabilities:** paints its own background · text: `headline`, `subheadline`, `footnote`, `left`, `right` · image: `image` · weight: light  
+**Pairs well with:** `mask-rise-title`, `film-look`, `callout-labels`  
 
 | prop | default | notes |
 |---|---|---|
@@ -2297,6 +2928,10 @@ Staggered annotation callouts — dot, leader line and typed mono label — over
 **Rebuilt from:** video17 31.5-34.3 (callout-leader-labels), video9 17.9-18.6 (room-label-callout), video23 (object-callout-tag), video19 11.75-13.35 (medallion-pop), video6 24.0-31.0 (callout-inset-lens)  
 **Default length:** 150 frames (5.0 s @ 30 fps)
 
+**Roles:** subject, frame · **Mood:** light, blueprint, hud  
+**Capabilities:** paints its own background · text: `items` · image: `src` · weight: light  
+**Pairs well with:** `flat-to-3d-sphere`, `science-reticle`, `ken-burns`  
+
 | prop | default | notes |
 |---|---|---|
 | `variant` | `"leader"` | leader \| room \| tag \| medallion |
@@ -2316,6 +2951,10 @@ Gear-ringed blueprint dial that turns a notch per era while the date plate rolls
 **Use for:** History / timeline beats: step through years or versions with a mechanical, technical feel.  
 **Rebuilt from:** video19 13.35-14.40 (era-dial-counter)  
 **Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** dark, blueprint  
+**Capabilities:** paints its own background · text: `eras` · weight: light  
+**Pairs well with:** `film-look`, `chapter-header`, `walker-world-scroll`  
 
 | prop | default | notes |
 |---|---|---|
@@ -2337,6 +2976,10 @@ Overlay HUD: corner crop marks, header with red counter, live timecode, typed co
 **Use for:** Technical / "made with code" framing over any scene; chaptered explainers. Set backdrop to "transparent" to overlay.  
 **Rebuilt from:** video17 0:00-43:56 (hud-chrome-overlay, typewriter-code), video9 (scroll-progress-hud)  
 **Default length:** 360 frames (12.0 s @ 30 fps)
+
+**Roles:** accent, subject, frame · **Mood:** dark, hud, editorial  
+**Capabilities:** overlay (`{"backdrop":"transparent","previewSubject":false}`) · text: `title`, `subtitle`, `headerRight`, `counterLabel`, `chapters` · weight: light  
+**Pairs well with:** `bouncing-ball`, `live-chart`, `typewriter-code`  
 
 | prop | default | notes |
 |---|---|---|
@@ -2366,6 +3009,10 @@ Continuous exponential pull-back (or push-in) through nested blueprint drawings 
 **Rebuilt from:** video19 11.05-11.75 (powers-of-ten-pullback), video19 0.5-0.9, 2.3-2.7, 17.6-18.0 (snap-zoom-reveal)  
 **Default length:** 240 frames (8.0 s @ 30 fps)
 
+**Roles:** subject · **Mood:** dark, blueprint, hud  
+**Capabilities:** paints its own background · text: `levels` · weight: light  
+**Pairs well with:** `zoom-tunnel`, `radial-blueprint`, `number-counter`  
+
 | prop | default | notes |
 |---|---|---|
 | `background` | `"#090A0F"` |  |
@@ -2386,6 +3033,11 @@ Dark blueprint: a blue dot pings, the camera snaps back to a seeded circular lib
 **Use for:** Hero background for systems / knowledge / network stories; reveal 3-8 categories around a hub.  
 **Rebuilt from:** video19 11.05-15.40 (radial-plan-blueprint, radar-spoke-draw, radial-network-reveal, blue-dot-motif)  
 **Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** dark, blueprint, hud, night  
+**Capabilities:** paints its own background · text: `categories`, `centerLabel` · weight: light  
+**Pairs well with:** `glyph-orbit-logo`, `zoom-tunnel`, `typewriter-code`  
+**Note:** At 30-40 % opacity with categories [] it is a premium tech texture behind a logo.  
 
 | prop | default | notes |
 |---|---|---|
@@ -2414,6 +3066,10 @@ Blueprint radar target opens into a tunnel of outlined capsule rings; the camera
 **Rebuilt from:** video19 7.30-8.90 (zoom-through-tunnel, arc-text-type, hero-word-punch)  
 **Default length:** 150 frames (5.0 s @ 30 fps)
 
+**Roles:** subject · **Mood:** dark, blueprint, hud  
+**Capabilities:** paints its own background · text: `word`, `subtitle` · weight: light  
+**Pairs well with:** `radial-blueprint`, `glyph-orbit-logo`, `electric-arcs`  
+
 | prop | default | notes |
 |---|---|---|
 | `background` | `"#090A0F"` |  |
@@ -2440,6 +3096,10 @@ Soft clay isometric 3D bar chart: a white ball with eyes hops down the bars pain
 **Rebuilt from:** video7 0:00-0:16  
 **Default length:** 390 frames (13.0 s @ 30 fps)
 
+**Roles:** subject · **Mood:** mid, 3d, playful  
+**Capabilities:** paints its own background · weight: heavy  
+**Pairs well with:** `number-counter`, `confetti-burst`, `chapter-header`  
+
 | prop | default | notes |
 |---|---|---|
 | `values` | `[16,15,14,13,12,11,10,9,8,7,6,5]` | bar heights in slabs (any series; the ball hops left to right) |
@@ -2464,6 +3124,10 @@ An ink floor plan draws on top-down, then the camera tilts to eye level as the w
 **Use for:** Architecture, product or system explainers: show that the diagram and the 3D thing are the same; walk into a space.  
 **Rebuilt from:** video9 0:01-0:17, video4 paper-plane-tilt-camera  
 **Default length:** 300 frames (10.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** light, blueprint, 3d  
+**Capabilities:** paints its own background · text: `title`, `kicker` · weight: heavy  
+**Pairs well with:** `callout-labels`, `film-look`, `mask-rise-title`  
 
 | prop | default | notes |
 |---|---|---|
@@ -2493,9 +3157,14 @@ An image (default: a procedural swordswoman) becomes a 3D cloud of coloured bead
 **Rebuilt from:** video18 0:09-0:12  
 **Default length:** 240 frames (8.0 s @ 30 fps)
 
+**Roles:** subject · **Mood:** dark, photo, 3d  
+**Capabilities:** paints its own background · image: `src` · weight: heavy  
+**Pairs well with:** `blur-in-title`, `film-look`, `embers`  
+**Note:** Pass src for your own subject (a cut-out PNG works best).  
+
 | prop | default | notes |
 |---|---|---|
-| `src` | `""` | optional image in public/ (e.g. test/plate3.jpg); empty = procedural figure |
+| `src` | `""` | optional image in public/ (e.g. demo/owl.jpg); empty = procedural figure |
 | `background` | `"#050407"` | backdrop colour |
 | `density` | `1` | grid density multiplier (1 ≈ 150 rows) |
 | `depthScale` | `2.4` | how far brightness pushes beads toward the camera |
@@ -2518,6 +3187,10 @@ A procedural mountain heightmap rebuilds itself in labelled stages — flat, noi
 **Use for:** "How it is made" / generative-art explainers: show a world being built step by step, then reward with a hero fly-through.  
 **Rebuilt from:** video8 0:04-0:38  
 **Default length:** 650 frames (21.7 s @ 30 fps)
+
+**Roles:** subject · **Mood:** mid, 3d, cinematic, nature  
+**Capabilities:** paints its own background · text: `stages` · weight: heavy  
+**Pairs well with:** `end-card-credits`, `typewriter-code`, `film-look`  
 
 | prop | default | notes |
 |---|---|---|
@@ -2543,6 +3216,10 @@ A glowing amber wireframe galleon lifts out of a parchment blueprint part by par
 **Use for:** "From plan to product" reveals, build/compile metaphors, engineering and making-of sequences.  
 **Rebuilt from:** video3 0:00-0:12, video9 sketch-to-render-reveal  
 **Default length:** 300 frames (10.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** dark, blueprint, 3d  
+**Capabilities:** paints its own background · weight: heavy  
+**Pairs well with:** `callout-labels`, `mask-rise-title`, `glyph-orbit-logo`  
 
 | prop | default | notes |
 |---|---|---|
@@ -2570,6 +3247,10 @@ Print-comic finish over an image: posterised toon colour, 45° halftone ink dots
 **Use for:** Comic / pop-art stylisation of any still or render, playful explainers, a stylised hold before comic SFX overlays.  
 **Rebuilt from:** video12 0:00-1:10 comic-halftone-postfx, video12 render-on-twos  
 **Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** dark, photo, comic  
+**Capabilities:** paints its own background · image: `src` · weight: medium  
+**Pairs well with:** `comic-burst`, `speed-lines`, `story-caption-box`  
 
 | prop | default | notes |
 |---|---|---|
@@ -2599,6 +3280,10 @@ Image resampled to a grid of dots — LED billboard, print halftone duotone, glo
 **Use for:** Music-video stylisation, beat-synced reveals of a picture, retro LED signage, print/poster looks.  
 **Rebuilt from:** video18 0:00-0:20 led-dot-matrix, resolution-ramp, halftone-duotone, luma-particle-glow, video14 pointillism-fill / halftone-bg  
 **Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** dark, photo, comic  
+**Capabilities:** paints its own background · image: `src` · weight: medium  
+**Pairs well with:** `neon-sign`, `beat-montage`, `kinetic-captions`  
 
 | prop | default | notes |
 |---|---|---|
@@ -2633,6 +3318,10 @@ A full-colour image cross-fades into a 2–3 colour brand ramp (blue, pink-viole
 **Rebuilt from:** video4 0:17 duotone-recolor, video5 ink-etching-tint, video21 0:15.9 madness-flash-tint, video16 0:44.6-0:46 grade-to-night  
 **Default length:** 120 frames (4.0 s @ 30 fps)
 
+**Roles:** backdrop · **Mood:** mid, photo, night  
+**Capabilities:** paints its own background · text: `word` · image: `src` · weight: medium  
+**Pairs well with:** `mask-rise-title`, `stamp-slam`, `film-look`  
+
 | prop | default | notes |
 |---|---|---|
 | `src` | `""` | public/ image path; empty = procedural plate |
@@ -2657,6 +3346,11 @@ Cinematic finish over an image: bloom on highlights, radial chromatic fringe, gr
 **Use for:** Making any still or scene feel shot on film; a final pass over composites; a flare accent on a light source.  
 **Rebuilt from:** video8 film-post-stack, video16 0:30.8-0:31.9 anamorphic-flare, video21 cinemascope-letterbox  
 **Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** backdrop, accent, frame · **Mood:** dark, photo, cinematic  
+**Capabilities:** overlay (`{"overlay":true}`) · image: `src` · weight: medium  
+**Pairs well with:** `ken-burns`, `light-sweep`, `story-caption-box`, `neon-sign`  
+**Note:** overlay:true (+ flare:false, letterbox:'off') is the finishing frame layer on top of any mix.  
 
 | prop | default | notes |
 |---|---|---|
@@ -2689,6 +3383,10 @@ A black-leaded Mondrian grid draws on over an image; each glass pane offsets, sc
 **Rebuilt from:** video2 0:16-0:18 refraction-pane-grid  
 **Default length:** 150 frames (5.0 s @ 30 fps)
 
+**Roles:** backdrop · **Mood:** mid, photo  
+**Capabilities:** paints its own background · image: `src` · weight: medium  
+**Pairs well with:** `mask-rise-title`, `blur-in-title`, `film-look`  
+
 | prop | default | notes |
 |---|---|---|
 | `src` | `""` | public/ image path; empty = procedural plate |
@@ -2714,6 +3412,10 @@ An image hit by timed digital-glitch bursts: RGB-split band displacement, datamo
 **Use for:** Beat hits, "system error" / hacked moments, energetic transitions between stills, music-video accents.  
 **Rebuilt from:** video2 glitch-band-displace + datamosh-column-smear, video8 0:00 glitch-layer-rewind, video12 0:43 glitch-slice, video18 rgb-split-flash + chroma-echo-trail  
 **Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** mid, photo, hud  
+**Capabilities:** paints its own background · text: `bursts` · image: `src` · weight: medium  
+**Pairs well with:** `stamp-slam`, `typewriter-code`, `electric-arcs`  
 
 | prop | default | notes |
 |---|---|---|
@@ -2741,9 +3443,14 @@ Slow push, pull, pan or tall tilt-up across a still plate with handheld noise, a
 **Rebuilt from:** video10 0:00-0:42 woodblock-ken-burns + punch-in-cut, video16 slow-push-ken-burns, video22 shot-push-in, video21 0:01-0:07 tall-tilt-reveal, video11 ken-burns-push  
 **Default length:** 180 frames (6.0 s @ 30 fps)
 
+**Roles:** backdrop · **Mood:** mid, photo, nature  
+**Capabilities:** paints its own background · image: `src`, `images` · weight: medium  
+**Pairs well with:** `film-look`, `story-caption-box`, `kinetic-captions`, `blur-in-title`  
+**Avoid:** Do not use ken-burns as the only motion of a piece: add type + an accent, or pick a richer image look (film-look, light-sweep, duotone).  
+
 | prop | default | notes |
 |---|---|---|
-| `src` | `""` | public/ image path (e.g. "test/plate3.jpg"); empty = procedural dusk plate |
+| `src` | `""` | public/ image path (e.g. "demo/owl.jpg"); empty = procedural dusk plate |
 | `images` | `[]` | several public/ images: the duration is split into hard-cut shots alternating push / pull |
 | `seed` | `1` | procedural plate seed |
 | `palette` | `"dusk"` | procedural plate palette: dusk \| night \| dawn |
@@ -2774,6 +3481,10 @@ Cinematic night lighting: headlights sweep across a rain-streaked window, sodium
 **Rebuilt from:** video16 0:56.5-0:57.6 headlight-sweep, video16 light-cone-volumetric + rain-overlay, video16 door-light-flood  
 **Default length:** 150 frames (5.0 s @ 30 fps)
 
+**Roles:** backdrop · **Mood:** dark, photo, cinematic, nature, night  
+**Capabilities:** paints its own background · image: `src` · weight: medium  
+**Pairs well with:** `rain`, `film-look`, `story-caption-box`  
+
 | prop | default | notes |
 |---|---|---|
 | `src` | `""` | public/ image for the outside view (window / street / doorway); empty = procedural night (dawn for door) |
@@ -2798,6 +3509,10 @@ Image rendered as chunky 6 px pixel art with 2x2 Bayer ordered dither, a 5–8 c
 **Use for:** Retro game / pixel-art cinematics, moody cold opens, unifying mixed stills into one pixel style.  
 **Rebuilt from:** video21 0:00-0:20 pixelate-dither-look, video21 cinemascope-letterbox  
 **Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** dark, photo, pixel, cinematic, nature  
+**Capabilities:** paints its own background · image: `src` · weight: medium  
+**Pairs well with:** `snowfall`, `aurora`, `story-caption-box`  
 
 | prop | default | notes |
 |---|---|---|
@@ -2825,6 +3540,10 @@ A glowing vertical scan beam (or an inky organic blob / hatched hole) sweeps acr
 **Use for:** Showing what is inside / how it works, scanning or analysing beats, tech and science explainers.  
 **Rebuilt from:** video2 0:00 xray-scan-sweep, video11 0:01.3 organic-blob-reveal + blueprint-xray-style, video6 0:01.4 xray-hatch-hole  
 **Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** dark, blueprint, photo, hud  
+**Capabilities:** paints its own background · image: `src` · weight: medium  
+**Pairs well with:** `callout-labels`, `science-reticle`, `typewriter-code`  
 
 | prop | default | notes |
 |---|---|---|

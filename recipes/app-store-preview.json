@@ -1,0 +1,119 @@
+{
+  "id": "app-store-preview",
+  "title": "App store preview (portrait)",
+  "useFor": "A vertical 9:16 app preview / store video / story ad: hook title, the app conversation in a phone, then the rating.",
+  "format": "portrait",
+  "tags": [
+    "app",
+    "store",
+    "preview",
+    "portrait",
+    "vertical",
+    "mobile",
+    "product",
+    "ad",
+    "phone"
+  ],
+  "background": "#0E2621",
+  "scenes": [
+    {
+      "duration": 96,
+      "transition": {
+        "type": "slide"
+      },
+      "layers": [
+        {
+          "motion": "aurora",
+          "props": {
+            "pixelSize": 0,
+            "colors": [
+              "#5EF0B5",
+              "#1F8A6A",
+              "#0E3B33"
+            ],
+            "height": 0.4
+          }
+        },
+        {
+          "motion": "blur-in-title",
+          "from": 4,
+          "props": {
+            "title": "NEVER MISS",
+            "subtitle": "a customer again",
+            "swapTo": null,
+            "backdrop": "none",
+            "background": "transparent",
+            "size": 100,
+            "tracking": 0.4,
+            "font": "grotesk",
+            "subtitleFont": "sans",
+            "subtitleItalic": false,
+            "fadeOut": false,
+            "subtitleColor": "#E6F5EE"
+          }
+        }
+      ]
+    },
+    {
+      "motion": "sms-thread",
+      "duration": 210,
+      "transition": {
+        "type": "slide"
+      },
+      "props": {
+        "kicker": "LUMEN TEXT-BACK",
+        "title": "Texts back\nin seconds",
+        "badge": "Booked: Thu 9am"
+      }
+    },
+    {
+      "duration": 120,
+      "layers": [
+        {
+          "motion": "number-counter",
+          "props": {
+            "keyframes": [
+              [
+                0,
+                0
+              ],
+              [
+                8,
+                0
+              ],
+              [
+                60,
+                4.9
+              ],
+              [
+                120,
+                4.9
+              ]
+            ],
+            "mode": "tick",
+            "decimals": 1,
+            "label": "APP STORE RATING",
+            "unit": "★",
+            "readouts": [],
+            "backdrop": "ink",
+            "size": 260,
+            "numberColor": "#F5F1E8",
+            "labelColor": "#22B573"
+          }
+        },
+        {
+          "motion": "sparkle-burst",
+          "from": 56,
+          "props": {
+            "background": "transparent",
+            "showSubject": false,
+            "variant": "cheer",
+            "y": 0.46,
+            "count": 6
+          }
+        }
+      ]
+    }
+  ],
+  "notes": "All three scenes are resolution independent; render with --format portrait (default for this recipe). Replace the hook title, sms-thread texts and the rating."
+}

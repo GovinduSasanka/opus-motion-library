@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Questions & show-and-tell
+    url: https://github.com/GovinduSasanka/opus-motion-library/discussions
+    about: Ask how to do something, or share what you made with the library

@@ -48,7 +48,7 @@ const EndCardCredits: React.FC<Props> = (p) => {
   const titleFs = fitSize(p.title, 110 * u, maxW, 'serif', 0.5);
   const headFs = portrait ? 62 * u : 58 * u;
   return (
-    <AbsoluteFill style={{background: '#000', overflow: 'hidden'}}>
+    <AbsoluteFill style={{background: p.backdrop === 'none' && !p.src ? 'transparent' : '#000', overflow: 'hidden'}}>
       <AbsoluteFill style={{transform: `scale(${1.04 + frame * 0.0003}) translateX(${-frame * 0.15 * u}px)`}}>
         <Backdrop kind={p.backdrop} src={p.src || undefined} drift={1.2} />
       </AbsoluteFill>
