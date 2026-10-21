@@ -3,7 +3,7 @@
 You are building part of the **Opus Motion Library**: a Remotion 4 (React 19, TypeScript, SVG, three.js) library
 of reusable, parameterised motion graphics reverse-engineered from 23 sample videos.
 
-Project root: `C:\Users\govin\Music\motion_graphics_library` (Windows; in Bash use `/c/Users/govin/Music/motion_graphics_library`).
+Project root: the repository root.
 
 ## Read first
 1. `docs/AUTHORING.md` — the rules and the template. Follow them exactly.

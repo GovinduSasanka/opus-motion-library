@@ -53,8 +53,9 @@ const fps = sb.fps ?? 30;
 const W = sb.width ?? 1920;
 const H = sb.height ?? 1080;
 const name = sb.name ?? path.basename(sbPath, '.json');
-const PY = process.env.QWEN_PYTHON ?? 'C:/Users/govin/.qwen-venv/Scripts/python.exe';
-const WPY = process.env.WHISPER_PYTHON ?? 'C:/Users/govin/.flick-venv/Scripts/python.exe';
+// Python envs: QWEN_PYTHON (PyTorch + qwen-tts + librosa) and WHISPER_PYTHON (openai-whisper); default `python`
+const PY = process.env.QWEN_PYTHON ?? 'python';
+const WPY = process.env.WHISPER_PYTHON ?? PY;
 const sid = (i) => `s${String(i + 1).padStart(3, '0')}`;
 
 // 1. narration --------------------------------------------------------------------------------

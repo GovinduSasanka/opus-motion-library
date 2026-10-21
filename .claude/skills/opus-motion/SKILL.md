@@ -1,11 +1,11 @@
 ---
 name: opus-motion
-description: Choose, mix and integrate motion graphics from the Opus Motion Library — ~109 parameterised Remotion motions (titles, backdrops, weather, particles, characters, data/HUD, UI mockups, image looks, 3D), 33 transitions and 19 ready-made recipes. Use when the user wants a specific motion ("do the sonar ping", "a stamp slam that says X"), several motions mixed into a shot or video, a narrated explainer, OR animated backgrounds / heroes / stats / loaders / celebration states in a website, web app (React, Next.js, Vite, plain HTML, WordPress), native app (exported mp4/webm-alpha/ProRes) or slides — including when the library has been copied or linked into another project. Library root: C:\Users\govin\Music\motion_graphics_library.
+description: Choose, mix and integrate motion graphics from the Opus Motion Library — ~109 parameterised Remotion motions (titles, backdrops, weather, particles, characters, data/HUD, UI mockups, image looks, 3D), 33 transitions and 19 ready-made recipes. Use when the user wants a specific motion ("do the sonar ping", "a stamp slam that says X"), several motions mixed into a shot or video, a narrated explainer, OR animated backgrounds / heroes / stats / loaders / celebration states in a website, web app (React, Next.js, Vite, plain HTML, WordPress), native app (exported mp4/webm-alpha/ProRes) or slides — including when the library has been copied or linked into another project.
 ---
 
 # Opus Motion Library
 
-Root: `C:\Users\govin\Music\motion_graphics_library` (Bash: `/c/Users/govin/Music/motion_graphics_library`), or the
+Root: the folder this repo is cloned into, or the
 copy inside the current host project. **Read `AGENTS.md` there first** — decision procedure, layering rules,
 web performance rules and anti-patterns. Then `docs/CHOOSING.md` (intent → motions) and `docs/INTEGRATION.md` (per stack).
 

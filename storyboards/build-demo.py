@@ -190,7 +190,7 @@ S("perspective-grid", 150, 0, {}, tr="diagonal")
 
 # ---------------------------------------------------------------- 08 systems
 CH("08", "SYSTEMS", "— drawn as blueprints.", "Chapter eight. Systems.", "clock")
-S("hud-chrome", 130, 0, {"title": "", "subtitle": "", "headerRight": "LIVE", "counterLabel": "SCENE", "counter": "08"}, tr="cut")
+S("hud-chrome", 130, 0, {"title": "", "subtitle": "", "headerRight": "LIVE", "counterLabel": "SCENE", "counter": "08", "chapters": [{"label": "Motion", "code": "ease = cubic-bezier(0.16, 1, 0.3, 1)"}, {"label": "Form", "code": "path.draw(t)"}, {"label": "Worlds", "code": "sky.grade(t)"}, {"label": "Type", "code": "words.rise(t)"}]}, tr="cut", tagCorner="top-left")
 S("era-dial", 140, 0, {}, tr="cut")
 S("radial-blueprint", 150, 0, {"categories": ["MOTION", "FORM", "WORLDS", "TYPE", "DATA"], "centerLabel": "OPUS"}, tr="cut")
 S("powers-of-ten", 130, 0, {}, tr="cut")
@@ -229,7 +229,7 @@ LAYERS([
     {"motion": "ken-burns", "props": {"src": "demo/lantern.jpg", "punchAt": -1, "rate": 2}},
     {"motion": "snowfall", "props": {"background": "transparent", "density": 0.7}},
     {"motion": "film-look", "props": {"overlay": True, "flare": False, "letterbox": "on"}},
-    {"motion": "typewriter-signature", "props": {"text": "a long winter", "background": "transparent", "position": "bottom-left", "startFrame": 20}},
+    {"motion": "typewriter-signature", "props": {"text": "a long winter", "background": "transparent", "position": "bottom-left", "startFrame": 20, "decor": False}},
 ], 150, tag={"name": "Mix · Winter Light", "family": "mix"}, tr="cut")
 LAYERS([
     {"motion": "sun-rise-set", "props": {"mode": "set"}},

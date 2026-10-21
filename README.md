@@ -131,7 +131,7 @@ gallery/           preview frame of every motion
 ## Requirements
 
 - Node.js 20+, FFmpeg on PATH. Rendering uses headless Chrome (downloaded by Remotion) with ANGLE for WebGL.
-- Narration (optional): a Python env with PyTorch + `qwen-tts` (set `QWEN_PYTHON`, default `C:/Users/govin/.qwen-venv`),
+- Narration (optional): a Python env with PyTorch + `qwen-tts` (point `QWEN_PYTHON` at it; `librosa` in the same env gives beat-snapped cuts),
   an NVIDIA GPU with ~4 GB free. Speech check: a Python env with `openai-whisper`.
 
 ## Credits & licences

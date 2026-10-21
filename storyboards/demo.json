@@ -1587,12 +1587,31 @@
     "subtitle": "",
     "headerRight": "LIVE",
     "counterLabel": "SCENE",
-    "counter": "08"
+    "counter": "08",
+    "chapters": [
+     {
+      "label": "Motion",
+      "code": "ease = cubic-bezier(0.16, 1, 0.3, 1)"
+     },
+     {
+      "label": "Form",
+      "code": "path.draw(t)"
+     },
+     {
+      "label": "Worlds",
+      "code": "sky.grade(t)"
+     },
+     {
+      "label": "Type",
+      "code": "words.rise(t)"
+     }
+    ]
    },
    "transition": {
     "type": "cut"
    },
-   "tag": true
+   "tag": true,
+   "tagCorner": "top-left"
   },
   {
    "motion": "era-dial",
@@ -2048,7 +2067,8 @@
       "text": "a long winter",
       "background": "transparent",
       "position": "bottom-left",
-      "startFrame": 20
+      "startFrame": 20,
+      "decor": false
      }
     }
    ],

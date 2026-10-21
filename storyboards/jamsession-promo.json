@@ -1,0 +1,275 @@
+{
+ "name": "jamsession-promo",
+ "width": 1920,
+ "height": 1080,
+ "fps": 30,
+ "background": "#0B1410",
+ "voice": {
+  "speaker": "Ryan",
+  "seed": 11,
+  "style": "Warm, upbeat narrator for a friendly learning app ad. Clear and conversational, a little playful, like a friend sharing a clever idea. Never salesy."
+ },
+ "music": {
+  "volume": 0.2,
+  "duck": 0.4
+ },
+ "captions": true,
+ "captionStyle": {
+  "position": "bottom",
+  "size": 46,
+  "highlightColor": "#2EE59D"
+ },
+ "scenes": [
+  {
+   "motion": "ken-burns",
+   "music": {
+    "file": "music/inspiring.mp3",
+    "volume": 0.2,
+    "start": 0
+   },
+   "props": {
+    "src": "jamsession/onboard-jam.png",
+    "mode": "push",
+    "rate": 3,
+    "focus": [
+     0.5,
+     0.6
+    ],
+    "easing": "sine",
+    "handheld": 1,
+    "punchAt": -1,
+    "grain": 0.03,
+    "paper": 0,
+    "vignette": 0.35,
+    "fadeIn": 12
+   },
+   "say": "Every morning, an hour in traffic. Every evening, another one.",
+   "min": 150,
+   "transition": {
+    "type": "fade"
+   }
+  },
+  {
+   "motion": "number-counter",
+   "props": {
+    "label": "HOURS A YEAR, STUCK IN TRAFFIC",
+    "prefix": "",
+    "unit": "",
+    "separator": ",",
+    "readouts": [],
+    "numberColor": "#F3F1EA",
+    "labelColor": "#FF6A5C",
+    "accent": "#2EE59D",
+    "size": 280,
+    "labelSize": 36,
+    "keyframes": [
+     [
+      0,
+      0
+     ],
+     [
+      12,
+      0
+     ],
+     [
+      80,
+      480
+     ],
+     [
+      104,
+      500
+     ],
+     [
+      400,
+      500
+     ]
+    ],
+    "linkBackdrop": false
+   },
+   "say": "That's about five hundred hours a year, just sitting there.",
+   "min": 150,
+   "sfx": [
+    {
+     "file": "sfx/impact.mp3",
+     "at": 100,
+     "volume": 0.4
+    }
+   ],
+   "transition": {
+    "type": "push-blur"
+   }
+  },
+  {
+   "motion": "sms-thread",
+   "props": {
+    "kicker": "VOICE-ONLY LESSONS",
+    "title": "Learn something\nnew every jam",
+    "subtitle": "AI, money, English, robotics and more",
+    "contact": "Tuki · JamSession",
+    "contactSub": "Lesson 3 · Compounding",
+    "start": 12,
+    "stagger": 30,
+    "typing": 12,
+    "messages": [
+     {
+      "text": "Quick quiz! Money doubling at 8% a year takes about… A: 3 years, B: 9 years, C: 20 years?",
+      "from": "them"
+     },
+     {
+      "text": "B!",
+      "from": "us",
+      "tag": "Said out loud"
+     },
+     {
+      "text": "Correct! The rule of 72: 72 ÷ 8 = 9. +10 XP",
+      "from": "them"
+     }
+    ],
+    "badge": "+10 XP · no hands",
+    "background": "#0B1410",
+    "paper": "#F3F1EA",
+    "screen": "#FFF8EC",
+    "ink": "#12321F",
+    "accent": "#2EE59D",
+    "mint": "#2EE59D"
+   },
+   "say": "JamSession teaches you something new every day, out loud. You answer with your voice, so you never touch the phone.",
+   "min": 230,
+   "sfx": [
+    {
+     "file": "sfx/pop.mp3",
+     "at": 54,
+     "volume": 0.3
+    },
+    {
+     "file": "sfx/ding.mp3",
+     "at": 110,
+     "volume": 0.35
+    }
+   ],
+   "transition": {
+    "type": "slide",
+    "direction": "from-right"
+   }
+  },
+  {
+   "motion": "stamp-slam",
+   "props": {
+    "src": "jamsession/tuki-sleeping.png",
+    "lines": [
+     "ABOVE 30 KM/H"
+    ],
+    "preTitle": "Traffic starts moving…",
+    "keyword": "IT PAUSES",
+    "font": "display",
+    "size": 96,
+    "y": 0.24,
+    "keywordY": 0.6,
+    "slamAt": 70,
+    "keywordAt": 108,
+    "color": "#FF6A5C",
+    "keywordColor": "#F3F1EA",
+    "textColor": "#F3F1EA",
+    "push": 0.04
+   },
+   "say": "And it's built for the jam. When traffic moves above thirty, Tuki goes quiet, and picks up again when it slows.",
+   "min": 200,
+   "sfx": [
+    {
+     "file": "sfx/impact.mp3",
+     "at": 70,
+     "volume": 0.45
+    }
+   ],
+   "transition": {
+    "type": "wipe"
+   }
+  },
+  {
+   "motion": "number-counter",
+   "props": {
+    "label": "DAY STREAK",
+    "prefix": "",
+    "unit": " days",
+    "separator": ",",
+    "readouts": [],
+    "numberColor": "#FFC23D",
+    "labelColor": "#F3F1EA",
+    "accent": "#2EE59D",
+    "size": 260,
+    "labelSize": 36,
+    "keyframes": [
+     [
+      0,
+      0
+     ],
+     [
+      12,
+      0
+     ],
+     [
+      90,
+      30
+     ],
+     [
+      400,
+      30
+     ]
+    ],
+    "backdrop": "ink",
+    "linkBackdrop": false
+   },
+   "say": "Keep your streak alive, earn X P, and climb the weekly league.",
+   "min": 150,
+   "sfx": [
+    {
+     "file": "sfx/ding.mp3",
+     "at": 92,
+     "volume": 0.3
+    }
+   ],
+   "transition": {
+    "type": "fade"
+   }
+  },
+  {
+   "motion": "mask-rise-title",
+   "props": {
+    "variant": "stack",
+    "lines": [
+     {
+      "word": "JAMSESSION."
+     },
+     {
+      "word": "TURN TRAFFIC"
+     },
+     {
+      "word": "INTO"
+     },
+     {
+      "word": "LEARNING."
+     }
+    ],
+    "sideCopy": [
+     "Voice-only daily lessons",
+     "that play only when the",
+     "traffic is crawling."
+    ],
+    "sideMono": [
+     "ANDROID · FREE TO START",
+     "YOUR COMMUTE, RECLAIMED"
+    ],
+    "background": "#FFF8EC",
+    "ink": "#12321F",
+    "accent": "#16A34A",
+    "muted": "#5d6b66",
+    "progressRule": false,
+    "exit": false
+   },
+   "say": "JamSession. Turn traffic into learning.",
+   "caption": false,
+   "min": 160,
+   "pad": 40
+  }
+ ]
+}
