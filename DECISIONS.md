@@ -22,8 +22,40 @@ library for web: `npm run build:lib`; AI agents start at `AGENTS.md`.
 **Verified**: final demo rendered and reviewed scene by scene (one frame per scene, 158 scenes), loudness −16.8 LUFS,
 no unintended black frames; examples (React/Vite, HTML, Remotion `mgl add`) built and screenshotted by the integration work.
 
-**Needs you**: review PR; decide whether to commit `dist/` for HTML-only hosts; Remotion company licence if used by a
-company above the free tier; the repo is private — make it public if you want to share the demo link.
+**Needs you**: see "Public launch → Needs you" below.
+
+## Public launch (2026-10-22)
+
+**Done**: the repo is public at https://github.com/GovinduSasanka/opus-motion-library with a live site
+(https://govindusasanka.github.io/opus-motion-library/, deployed by `.github/workflows/pages.yml`), CI (`ci.yml`),
+release v1.1.0 (8:21 showreel + 74 s highlight), 20 topics, Discussions on, issue/PR templates, CONTRIBUTING,
+CODE_OF_CONDUCT, SECURITY, CHANGELOG, six starter issues (#1–#6), and a README built to convert visitors
+(preview GIF, badges, 60-second quickstart, AI-agent section, generated visual catalogue, star-history chart).
+
+Decisions:
+- **Fresh public repo instead of flipping the old one.** The old history contained frames of the 23 sample videos
+  (`analysis/sheets/`, some with other companies' logos) and Pixabay mp3s, which must not be redistributed; GitHub also
+  keeps PR #1's commits reachable forever. So PR #1 was merged in the old repo, which was renamed
+  **`opus-motion-library-archive` (still private, everything kept)**, and the history was rewritten without those files
+  (`git filter-branch`, all 19 commits kept) and pushed to a new public `opus-motion-library`. Local clone: `origin` =
+  public repo, `archive` = old repo. Full backup of every old ref: `../opus-motion-library-backup.bundle`.
+- **Audio is local only now** (`public/music/*.mp3`, `public/sfx/*.mp3` are git-ignored; your copies are still on disk).
+  Others run `node cli/fetch-audio.mjs`; `cli/direct.mjs` renders without any audio file that is missing.
+- **Sample-video contact sheets stay local** (`analysis/sheets/` git-ignored, still on your disk). The text analysis
+  (`analysis/videoN.md`) is public — it is our own write-up.
+- **Not affiliated with Anthropic** disclaimer added (name uses "Opus"/"Claude").
+- **Package metadata** (`package.json` 1.1.0, no longer `private`) is ready for npm, but nothing was published.
+
+### Needs you
+1. **Social preview image**: GitHub → Settings → General → Social preview → upload `docs/media/social-preview.png`
+   (GitHub has no API for this). Makes every shared link show the collage.
+2. **Pin the repo** on your profile (Profile → Customize your pins) so it is your headline project.
+3. **Post the launch** — ready-to-paste Show HN, X thread, Reddit and dev.to drafts in `docs/launch/POSTS.md`
+   (posting on your behalf isn't something I do). Best first: Show HN on a weekday morning US time, with the GIF.
+4. **npm** (optional, extra reach): `npm login`, then `npm run build:lib && npm publish` — the name `opus-motion-library` is free.
+5. **Archive repo**: keep `opus-motion-library-archive` private as the record, or delete it when you are sure.
+6. Delete `../opus-motion-library-backup.bundle` once you are happy (97 MB).
+7. Remotion licence: free for individuals/small teams; companies above that need a Remotion company licence.
 
 ## Demo decisions (2026-10-21)
 - **Narration only at key beats** (cold open, title, chapter cards, ~8 highlights) instead of a line per motion — a
