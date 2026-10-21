@@ -1,0 +1,93 @@
+{
+  "id": "stats-reveal",
+  "title": "Stats reveal",
+  "useFor": "One big number with context — users, revenue, growth — for an \"in numbers\" website section or a data beat in a video.",
+  "format": "landscape",
+  "duration": 210,
+  "background": "#07090f",
+  "tags": [
+    "stats",
+    "numbers",
+    "data",
+    "kpi",
+    "metric",
+    "counter",
+    "growth",
+    "section"
+  ],
+  "web": {
+    "loop": "once"
+  },
+  "layers": [
+    {
+      "motion": "number-counter",
+      "role": "type",
+      "props": {
+        "keyframes": [
+          [
+            0,
+            0
+          ],
+          [
+            10,
+            0
+          ],
+          [
+            120,
+            48000
+          ],
+          [
+            150,
+            48210
+          ],
+          [
+            210,
+            48210
+          ]
+        ],
+        "mode": "roll",
+        "label": "TEAMS SHIPPING WITH LUMEN",
+        "unit": "",
+        "separator": ",",
+        "readouts": [],
+        "backdrop": "ink",
+        "numberColor": "#F2F4FA",
+        "labelColor": "#8FA6E8",
+        "size": 260,
+        "labelSize": 30
+      }
+    },
+    {
+      "motion": "flow-lines",
+      "role": "accent",
+      "props": {
+        "mode": "wind",
+        "background": "transparent",
+        "backdrop": false,
+        "color": "#3E5BA8",
+        "count": 5,
+        "speed": 0.5,
+        "weight": 0.8,
+        "curlProbability": 0.3
+      },
+      "opacity": 0.45,
+      "blend": "screen"
+    },
+    {
+      "motion": "star-glint",
+      "role": "accent",
+      "from": 120,
+      "props": {
+        "background": "transparent",
+        "showSubject": false,
+        "x": 0.69,
+        "y": 0.4,
+        "delay": 4,
+        "size": 0.9,
+        "hold": 30
+      },
+      "blend": "screen"
+    }
+  ],
+  "notes": "Set number-counter.keyframes ([[frame, value], …]; two close keys = dwell), label, prefix (\"$\") and unit (\"%\"). Web: plays once on view and holds the final number."
+}

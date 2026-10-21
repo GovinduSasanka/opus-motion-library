@@ -1,0 +1,97 @@
+{
+  "id": "social-short-captions",
+  "title": "Social short with captions (portrait)",
+  "useFor": "A vertical short / reel / TikTok: photo plates with a slow push, word-by-word kinetic captions with highlighted keywords, and a soft grade.",
+  "format": "portrait",
+  "tags": [
+    "social",
+    "short",
+    "reel",
+    "tiktok",
+    "portrait",
+    "vertical",
+    "captions",
+    "story",
+    "photo"
+  ],
+  "background": "#000",
+  "scenes": [
+    {
+      "duration": 150,
+      "transition": {
+        "type": "flash",
+        "variant": "plain"
+      },
+      "layers": [
+        {
+          "motion": "ken-burns",
+          "props": {
+            "src": "demo/city.jpg",
+            "mode": "push",
+            "rate": 2,
+            "punchAt": -1,
+            "grain": 0.05
+          }
+        },
+        {
+          "motion": "kinetic-captions",
+          "props": {
+            "lines": [
+              "Every *city* has",
+              "a *second* shift."
+            ],
+            "framesPerLine": 70,
+            "background": "transparent",
+            "position": "bottom",
+            "size": 78
+          }
+        }
+      ]
+    },
+    {
+      "duration": 150,
+      "layers": [
+        {
+          "motion": "ken-burns",
+          "props": {
+            "src": "demo/lantern.jpg",
+            "mode": "push",
+            "rate": 2,
+            "punchAt": -1,
+            "grain": 0.05
+          }
+        },
+        {
+          "motion": "kinetic-captions",
+          "props": {
+            "lines": [
+              "Here is who",
+              "keeps it *running.*"
+            ],
+            "framesPerLine": 70,
+            "background": "transparent",
+            "position": "bottom",
+            "size": 78
+          }
+        }
+      ]
+    }
+  ],
+  "overlays": [
+    {
+      "motion": "film-look",
+      "from": 0,
+      "duration": 290,
+      "props": {
+        "overlay": true,
+        "grain": 0.06,
+        "vignette": 0.3,
+        "flare": false,
+        "letterbox": "off",
+        "bloom": 0,
+        "fringe": 0
+      }
+    }
+  ],
+  "notes": "Swap ken-burns.src for your photos and the caption lines (*word* = highlighted). Captions sit at the bottom third, clear of the platform UI; nothing else in the frame carries text."
+}

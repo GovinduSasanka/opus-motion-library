@@ -1,0 +1,983 @@
+{
+ "_doc": "Hand overrides for catalog.json metadata (cli/gen-registry.mjs). Any field here wins over heuristics (cli/meta.mjs) and measurements (docs/motion-probe.json, written by cli/probe-meta.mjs). Fields: overlay, overlayProps, loopable, loopProps, bestLength, mood, roles, weight, textProps, imageProps, colorProps, pairsWith, notes, avoid. loopable overrides: bursts / reveals whose first and last frames merely look alike are set false; sonar-ping is a verified seamless loop at 144 frames with loopProps.",
+ "motions": {
+  "iso-blocks-3d": {
+   "pairsWith": [
+    "number-counter",
+    "confetti-burst",
+    "chapter-header"
+   ],
+   "mood": [
+    "mid",
+    "3d",
+    "playful"
+   ]
+  },
+  "plan-tilt": {
+   "pairsWith": [
+    "callout-labels",
+    "film-look",
+    "mask-rise-title"
+   ]
+  },
+  "pointcloud-orbit": {
+   "pairsWith": [
+    "blur-in-title",
+    "film-look",
+    "embers"
+   ],
+   "notes": "Pass src for your own subject (a cut-out PNG works best).",
+   "loopable": false
+  },
+  "terrain-build-3d": {
+   "pairsWith": [
+    "end-card-credits",
+    "typewriter-code",
+    "film-look"
+   ]
+  },
+  "wireframe-build": {
+   "pairsWith": [
+    "callout-labels",
+    "mask-rise-title",
+    "glyph-orbit-logo"
+   ],
+   "mood": [
+    "dark",
+    "blueprint",
+    "3d"
+   ]
+  },
+  "blob-mascot": {
+   "pairsWith": [
+    "confetti-burst",
+    "emote-pop",
+    "number-counter"
+   ]
+  },
+  "box-bot": {
+   "mood": [
+    "light",
+    "paper",
+    "playful"
+   ],
+   "pairsWith": [
+    "emote-pop",
+    "scribble-ball",
+    "sparkle-burst",
+    "chat-bubbles"
+   ]
+  },
+  "crowd-bob": {
+   "pairsWith": [
+    "neon-sign",
+    "confetti-burst",
+    "fireworks"
+   ]
+  },
+  "sign-drop": {
+   "mood": [
+    "dark",
+    "neon",
+    "playful"
+   ],
+   "pairsWith": [
+    "embers",
+    "film-look",
+    "confetti-burst"
+   ]
+  },
+  "walker-world-scroll": {
+   "pairsWith": [
+    "chapter-header",
+    "era-dial",
+    "film-look"
+   ],
+   "mood": [
+    "mid",
+    "paper",
+    "playful"
+   ]
+  },
+  "beat-montage": {
+   "pairsWith": [
+    "neon-sign",
+    "kinetic-captions",
+    "film-look"
+   ]
+  },
+  "iso-bar-chart": {
+   "loopable": true,
+   "pairsWith": [
+    "number-counter",
+    "chapter-header",
+    "confetti-burst"
+   ],
+   "notes": "loop: true (default) is a seamless loop; great as a friendly looping stats hero.",
+   "mood": [
+    "light",
+    "3d",
+    "playful"
+   ]
+  },
+  "live-chart": {
+   "pairsWith": [
+    "number-counter",
+    "hud-chrome",
+    "callout-labels"
+   ]
+  },
+  "map-route": {
+   "pairsWith": [
+    "chapter-header",
+    "number-counter",
+    "story-caption-box"
+   ]
+  },
+  "panel-triptych": {
+   "pairsWith": [
+    "stamp-slam",
+    "film-look",
+    "kinetic-captions"
+   ],
+   "mood": [
+    "dark",
+    "photo",
+    "editorial"
+   ]
+  },
+  "perspective-grid": {
+   "pairsWith": [
+    "handwrite-on",
+    "sparkle-burst",
+    "emote-pop"
+   ]
+  },
+  "science-reticle": {
+   "pairsWith": [
+    "callout-labels",
+    "number-counter",
+    "caustics-godrays"
+   ]
+  },
+  "thumbnail-mosaic": {
+   "pairsWith": [
+    "end-card-credits",
+    "mask-rise-title",
+    "confetti-burst"
+   ],
+   "mood": [
+    "light",
+    "photo",
+    "playful"
+   ]
+  },
+  "aurora": {
+   "pairsWith": [
+    "blur-in-title",
+    "embers",
+    "starfield-night",
+    "glyph-orbit-logo",
+    "neon-sign"
+   ],
+   "notes": "pixelSize 0 = smooth (premium web look); 6 = pixel-art."
+  },
+  "bubbles": {
+   "pairsWith": [
+    "caustics-godrays",
+    "fish-school",
+    "blur-in-title"
+   ]
+  },
+  "caustics-godrays": {
+   "pairsWith": [
+    "fish-school",
+    "depth-descent",
+    "blur-in-title",
+    "bubbles"
+   ],
+   "notes": "Excellent calm web hero background for water / health / science brands."
+  },
+  "city-skyline": {
+   "weight": "medium",
+   "pairsWith": [
+    "number-counter",
+    "fireworks",
+    "rain",
+    "neon-sign"
+   ],
+   "mood": [
+    "dark",
+    "night",
+    "cinematic"
+   ]
+  },
+  "curl-flow": {
+   "pairsWith": [
+    "blur-in-title",
+    "science-reticle",
+    "glitch-image"
+   ],
+   "mood": [
+    "light",
+    "paper"
+   ]
+  },
+  "depth-descent": {
+   "pairsWith": [
+    "caustics-godrays",
+    "blur-in-title",
+    "fish-school"
+   ]
+  },
+  "embers": {
+   "pairsWith": [
+    "aurora",
+    "neon-sign",
+    "end-card-credits",
+    "blur-in-title",
+    "light-sweep"
+   ],
+   "notes": "mode motes + low count is the classic subtle accent over any dark scene (blend screen).",
+   "mood": [
+    "dark",
+    "night",
+    "cinematic"
+   ]
+  },
+  "falling-petals": {
+   "pairsWith": [
+    "handwrite-on",
+    "petal-bloom",
+    "blur-in-title"
+   ],
+   "mood": [
+    "light",
+    "nature"
+   ]
+  },
+  "fireworks": {
+   "pairsWith": [
+    "city-skyline",
+    "number-counter",
+    "mask-rise-title",
+    "neon-sign"
+   ],
+   "notes": "scene:false = transparent bursts over your own scene (use blend screen)."
+  },
+  "fish-school": {
+   "pairsWith": [
+    "caustics-godrays",
+    "bubbles",
+    "blur-in-title"
+   ]
+  },
+  "flock": {
+   "pairsWith": [
+    "blur-in-title",
+    "sun-rise-set",
+    "handwrite-on"
+   ]
+  },
+  "flow-lines": {
+   "pairsWith": [
+    "handwrite-on",
+    "number-counter",
+    "chapter-header"
+   ],
+   "notes": "mode waves on paper makes a good section divider band."
+  },
+  "grass-field": {
+   "pairsWith": [
+    "starfield-night",
+    "insect-flight",
+    "blur-in-title"
+   ],
+   "mood": [
+    "dark",
+    "nature",
+    "night"
+   ]
+  },
+  "insect-flight": {
+   "pairsWith": [
+    "grass-field",
+    "starfield-night",
+    "handwrite-on"
+   ]
+  },
+  "lightning-flash": {
+   "pairsWith": [
+    "rain",
+    "stamp-slam",
+    "glitch-image"
+   ]
+  },
+  "parallax-landscape": {
+   "pairsWith": [
+    "map-route",
+    "chapter-header",
+    "kinetic-captions"
+   ]
+  },
+  "rain": {
+   "pairsWith": [
+    "light-sweep",
+    "city-skyline",
+    "lightning-flash",
+    "story-caption-box"
+   ]
+  },
+  "snowfall": {
+   "pairsWith": [
+    "starfield-night",
+    "blur-in-title",
+    "handwrite-on"
+   ]
+  },
+  "starfield-night": {
+   "pairsWith": [
+    "aurora",
+    "blur-in-title",
+    "grass-field",
+    "end-card-credits"
+   ]
+  },
+  "sun-rise-set": {
+   "pairsWith": [
+    "flock",
+    "blur-in-title",
+    "handwrite-on"
+   ]
+  },
+  "time-of-day-grade": {
+   "pairsWith": [
+    "chapter-header",
+    "number-counter",
+    "kinetic-captions"
+   ]
+  },
+  "topdown-terrain": {
+   "pairsWith": [
+    "map-route",
+    "chapter-header",
+    "number-counter"
+   ],
+   "mood": [
+    "mid",
+    "paper",
+    "nature"
+   ]
+  },
+  "confetti-burst": {
+   "pairsWith": [
+    "heart-draw-fill",
+    "number-counter",
+    "mask-rise-title",
+    "browser-mockup"
+   ],
+   "notes": "As a web overlay: <MotionPlayer motion=\"confetti-burst\" overlay loop=\"once\"/> over your success screen.",
+   "loopable": false,
+   "mood": [
+    "light",
+    "playful"
+   ]
+  },
+  "electric-arcs": {
+   "pairsWith": [
+    "stamp-slam",
+    "glitch-image",
+    "zoom-tunnel"
+   ],
+   "loopable": false,
+   "mood": [
+    "dark",
+    "night"
+   ]
+  },
+  "emote-pop": {
+   "pairsWith": [
+    "box-bot",
+    "chat-bubbles",
+    "perspective-grid"
+   ]
+  },
+  "eyes-blink": {
+   "pairsWith": [
+    "starfield-night",
+    "giant-eye-reveal",
+    "story-caption-box"
+   ],
+   "mood": [
+    "light",
+    "playful",
+    "comic"
+   ]
+  },
+  "giant-eye-reveal": {
+   "pairsWith": [
+    "lightning-flash",
+    "glitch-image",
+    "blur-in-title"
+   ]
+  },
+  "scribble-ball": {
+   "pairsWith": [
+    "box-bot",
+    "error-glitch",
+    "chat-bubbles"
+   ],
+   "loopable": false,
+   "mood": [
+    "light",
+    "paper",
+    "playful"
+   ]
+  },
+  "smoke-puffs": {
+   "pairsWith": [
+    "gears",
+    "box-bot",
+    "stamp-slam"
+   ]
+  },
+  "sparkle-burst": {
+   "pairsWith": [
+    "heart-draw-fill",
+    "number-counter",
+    "box-bot"
+   ],
+   "mood": [
+    "light",
+    "paper",
+    "playful"
+   ]
+  },
+  "star-glint": {
+   "pairsWith": [
+    "glyph-orbit-logo",
+    "number-counter",
+    "browser-mockup",
+    "neon-sign"
+   ],
+   "notes": "The 'shiny / premium' accent on a logo, badge or number.",
+   "mood": [
+    "light"
+   ]
+  },
+  "callout-labels": {
+   "pairsWith": [
+    "flat-to-3d-sphere",
+    "science-reticle",
+    "ken-burns"
+   ]
+  },
+  "era-dial": {
+   "pairsWith": [
+    "film-look",
+    "chapter-header",
+    "walker-world-scroll"
+   ]
+  },
+  "hud-chrome": {
+   "pairsWith": [
+    "bouncing-ball",
+    "live-chart",
+    "typewriter-code"
+   ]
+  },
+  "powers-of-ten": {
+   "pairsWith": [
+    "zoom-tunnel",
+    "radial-blueprint",
+    "number-counter"
+   ]
+  },
+  "radial-blueprint": {
+   "pairsWith": [
+    "glyph-orbit-logo",
+    "zoom-tunnel",
+    "typewriter-code"
+   ],
+   "notes": "At 30-40 % opacity with categories [] it is a premium tech texture behind a logo."
+  },
+  "zoom-tunnel": {
+   "pairsWith": [
+    "radial-blueprint",
+    "glyph-orbit-logo",
+    "electric-arcs"
+   ],
+   "loopable": false
+  },
+  "comic-halftone": {
+   "pairsWith": [
+    "comic-burst",
+    "speed-lines",
+    "story-caption-box"
+   ]
+  },
+  "dot-matrix": {
+   "pairsWith": [
+    "neon-sign",
+    "beat-montage",
+    "kinetic-captions"
+   ]
+  },
+  "duotone": {
+   "pairsWith": [
+    "mask-rise-title",
+    "stamp-slam",
+    "film-look"
+   ]
+  },
+  "film-look": {
+   "pairsWith": [
+    "ken-burns",
+    "light-sweep",
+    "story-caption-box",
+    "neon-sign"
+   ],
+   "notes": "overlay:true (+ flare:false, letterbox:'off') is the finishing frame layer on top of any mix.",
+   "mood": [
+    "dark",
+    "photo",
+    "cinematic"
+   ]
+  },
+  "glass-pane-grid": {
+   "pairsWith": [
+    "mask-rise-title",
+    "blur-in-title",
+    "film-look"
+   ]
+  },
+  "glitch-image": {
+   "pairsWith": [
+    "stamp-slam",
+    "typewriter-code",
+    "electric-arcs"
+   ],
+   "mood": [
+    "mid",
+    "photo",
+    "hud"
+   ]
+  },
+  "ken-burns": {
+   "pairsWith": [
+    "film-look",
+    "story-caption-box",
+    "kinetic-captions",
+    "blur-in-title"
+   ],
+   "avoid": "Do not use ken-burns as the only motion of a piece: add type + an accent, or pick a richer image look (film-look, light-sweep, duotone)."
+  },
+  "light-sweep": {
+   "pairsWith": [
+    "rain",
+    "film-look",
+    "story-caption-box"
+   ]
+  },
+  "pixel-dither": {
+   "pairsWith": [
+    "snowfall",
+    "aurora",
+    "story-caption-box"
+   ]
+  },
+  "xray-scan": {
+   "pairsWith": [
+    "callout-labels",
+    "science-reticle",
+    "typewriter-code"
+   ]
+  },
+  "mix": {
+   "pairsWith": []
+  },
+  "bouncing-ball": {
+   "pairsWith": [
+    "hud-chrome",
+    "easing-graph",
+    "onion-skin-arc"
+   ]
+  },
+  "branch-grow": {
+   "pairsWith": [
+    "radial-blueprint",
+    "pair-field",
+    "callout-labels"
+   ]
+  },
+  "call-response": {
+   "pairsWith": [
+    "chat-bubbles",
+    "handwrite-on",
+    "sparkle-burst"
+   ],
+   "loopable": false,
+   "mood": [
+    "light",
+    "paper"
+   ]
+  },
+  "cell-division": {
+   "pairsWith": [
+    "number-counter",
+    "science-reticle",
+    "swimmers-converge"
+   ]
+  },
+  "compass-construct": {
+   "pairsWith": [
+    "glyph-orbit-logo",
+    "hex-comb-build",
+    "typewriter-signature"
+   ],
+   "mood": [
+    "dark",
+    "blueprint"
+   ]
+  },
+  "easing-graph": {
+   "pairsWith": [
+    "bouncing-ball",
+    "hud-chrome",
+    "onion-skin-arc"
+   ],
+   "mood": [
+    "light",
+    "editorial"
+   ]
+  },
+  "flat-to-3d-sphere": {
+   "pairsWith": [
+    "callout-labels",
+    "hud-chrome",
+    "easing-graph"
+   ],
+   "mood": [
+    "light",
+    "3d",
+    "editorial"
+   ]
+  },
+  "gears": {
+   "pairsWith": [
+    "smoke-puffs",
+    "line-draw-on",
+    "chapter-header"
+   ]
+  },
+  "heart-draw-fill": {
+   "pairsWith": [
+    "confetti-burst",
+    "sparkle-burst",
+    "handwrite-on"
+   ]
+  },
+  "hex-comb-build": {
+   "pairsWith": [
+    "compass-construct",
+    "number-counter",
+    "glyph-orbit-logo"
+   ],
+   "mood": [
+    "dark",
+    "nature"
+   ]
+  },
+  "line-draw-on": {
+   "pairsWith": [
+    "chapter-header",
+    "callout-labels",
+    "gears"
+   ]
+  },
+  "metaball-heatmap": {
+   "pairsWith": [
+    "live-chart",
+    "number-counter",
+    "curl-flow"
+   ]
+  },
+  "onion-skin-arc": {
+   "pairsWith": [
+    "easing-graph",
+    "bouncing-ball",
+    "hud-chrome"
+   ]
+  },
+  "origami-fold": {
+   "pairsWith": [
+    "flock",
+    "handwrite-on",
+    "falling-petals"
+   ]
+  },
+  "pair-field": {
+   "pairsWith": [
+    "number-counter",
+    "branch-grow",
+    "blur-in-title"
+   ]
+  },
+  "petal-bloom": {
+   "pairsWith": [
+    "falling-petals",
+    "handwrite-on",
+    "sparkle-burst"
+   ]
+  },
+  "ribbon-trail": {
+   "pairsWith": [
+    "neon-sign",
+    "hud-chrome",
+    "easing-graph"
+   ]
+  },
+  "rose-curve-trace": {
+   "pairsWith": [
+    "easing-graph",
+    "bouncing-ball",
+    "mask-rise-title"
+   ]
+  },
+  "sonar-ping": {
+   "pairsWith": [
+    "starfield-night",
+    "chat-bubbles",
+    "embers"
+   ],
+   "notes": "windowSize 0 + echoAngles [] + pings/pingEvery multiple of the length = a clean loading loop.",
+   "loopable": true,
+   "loopProps": {
+    "pings": 3,
+    "pingEvery": 48
+   },
+   "bestLength": 144,
+   "mood": [
+    "light",
+    "paper"
+   ]
+  },
+  "speed-lines": {
+   "pairsWith": [
+    "comic-burst",
+    "stamp-slam",
+    "comic-halftone"
+   ]
+  },
+  "sprout-grow": {
+   "pairsWith": [
+    "handwrite-on",
+    "sun-rise-set",
+    "number-counter"
+   ]
+  },
+  "swimmers-converge": {
+   "pairsWith": [
+    "cell-division",
+    "science-reticle",
+    "blur-in-title"
+   ]
+  },
+  "blur-in-title": {
+   "pairsWith": [
+    "aurora",
+    "starfield-night",
+    "caustics-godrays",
+    "embers",
+    "ken-burns"
+   ],
+   "avoid": "Change title and subtitle (defaults ABYSSES / THE MIDNIGHT ZONE are sample text); set swapTo null for a single card."
+  },
+  "chapter-header": {
+   "pairsWith": [
+    "line-draw-on",
+    "flow-lines",
+    "ken-burns",
+    "map-route"
+   ]
+  },
+  "comic-burst": {
+   "pairsWith": [
+    "speed-lines",
+    "comic-halftone",
+    "confetti-burst"
+   ]
+  },
+  "end-card-credits": {
+   "pairsWith": [
+    "embers",
+    "starfield-night",
+    "thumbnail-mosaic"
+   ],
+   "mood": [
+    "mid",
+    "cinematic",
+    "editorial",
+    "nature"
+   ]
+  },
+  "glyph-orbit-logo": {
+   "pairsWith": [
+    "radial-blueprint",
+    "star-glint",
+    "aurora"
+   ],
+   "avoid": "Change logo / tagline / pill (defaults are sample text)."
+  },
+  "handwrite-on": {
+   "pairsWith": [
+    "flow-lines",
+    "falling-petals",
+    "heart-draw-fill",
+    "sprout-grow"
+   ]
+  },
+  "kinetic-captions": {
+   "overlayProps": {
+    "background": "transparent"
+   },
+   "overlay": true,
+   "roles": [
+    "type",
+    "frame"
+   ],
+   "pairsWith": [
+    "ken-burns",
+    "film-look",
+    "beat-montage"
+   ],
+   "avoid": "Do not put captions over a motion that already shows its own words (titles, signs, counters)."
+  },
+  "mask-rise-title": {
+   "pairsWith": [
+    "fireworks",
+    "glass-pane-grid",
+    "duotone",
+    "confetti-burst"
+   ],
+   "avoid": "Change chapter / lines / sideCopy / sideMono (defaults like STAGING, 12 PRINCIPLES are sample text)."
+  },
+  "neon-sign": {
+   "pairsWith": [
+    "embers",
+    "film-look",
+    "rain",
+    "crowd-bob"
+   ],
+   "avoid": "Change lines (default NOODLES / open late is sample text)."
+  },
+  "number-counter": {
+   "pairsWith": [
+    "star-glint",
+    "flow-lines",
+    "confetti-burst",
+    "iso-bar-chart"
+   ],
+   "avoid": "Set label, unit ('' to hide 'm'), readouts [] and keyframes — defaults are the DEPTH dive sample."
+  },
+  "scene-tag": {
+   "textProps": [
+    "index",
+    "name",
+    "family"
+   ],
+   "pairsWith": [
+    "hud-chrome",
+    "film-look"
+   ]
+  },
+  "stamp-slam": {
+   "pairsWith": [
+    "glitch-image",
+    "duotone",
+    "lightning-flash"
+   ],
+   "avoid": "Change lines / preTitle / keyword (defaults LONDON 1736 / GIN are sample text). Not a default choice for every title."
+  },
+  "story-caption-box": {
+   "pairsWith": [
+    "ken-burns",
+    "film-look",
+    "light-sweep",
+    "pixel-dither"
+   ]
+  },
+  "typewriter-code": {
+   "pairsWith": [
+    "glitch-image",
+    "hud-chrome",
+    "radial-blueprint"
+   ]
+  },
+  "typewriter-signature": {
+   "pairsWith": [
+    "compass-construct",
+    "end-card-credits",
+    "starfield-night"
+   ],
+   "mood": [
+    "dark",
+    "editorial"
+   ]
+  },
+  "transition-reel": {
+   "pairsWith": []
+  },
+  "browser-mockup": {
+   "pairsWith": [
+    "star-glint",
+    "confetti-burst",
+    "mask-rise-title"
+   ],
+   "notes": "heroSrc = your real screenshot or hero art."
+  },
+  "card-fan": {
+   "pairsWith": [
+    "sparkle-burst",
+    "number-counter",
+    "comic-burst"
+   ],
+   "mood": [
+    "dark",
+    "ui",
+    "playful"
+   ]
+  },
+  "chat-bubbles": {
+   "pairsWith": [
+    "emote-pop",
+    "starfield-night",
+    "box-bot"
+   ],
+   "mood": [
+    "dark",
+    "playful",
+    "ui"
+   ]
+  },
+  "sms-thread": {
+   "pairsWith": [
+    "film-look",
+    "number-counter",
+    "confetti-burst"
+   ]
+  },
+  "split-compare": {
+   "pairsWith": [
+    "mask-rise-title",
+    "film-look",
+    "callout-labels"
+   ],
+   "mood": [
+    "dark",
+    "photo",
+    "editorial"
+   ]
+  }
+ }
+}

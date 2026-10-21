@@ -1,0 +1,64 @@
+{
+  "id": "testimonial-chat",
+  "title": "Customer message testimonial",
+  "useFor": "Social proof as a real-feeling text thread: a customer message, your reply, the outcome badge — for testimonial sections, case-study videos and ads.",
+  "format": "landscape",
+  "duration": 240,
+  "background": "#0E2621",
+  "tags": [
+    "testimonial",
+    "review",
+    "chat",
+    "sms",
+    "message",
+    "social-proof",
+    "customer",
+    "app"
+  ],
+  "web": {
+    "loop": "once"
+  },
+  "layers": [
+    {
+      "motion": "sms-thread",
+      "role": "subject",
+      "props": {
+        "kicker": "WHAT CUSTOMERS SAY",
+        "title": "Answered before\nthey hung up",
+        "subtitle": "Priya runs a three-van plumbing team in Leeds.",
+        "contact": "Priya · Rapid Plumbing",
+        "contactSub": "Customer since 2024",
+        "messages": [
+          {
+            "text": "Honestly the auto text-back paid for itself in week one",
+            "from": "them"
+          },
+          {
+            "text": "That is great to hear! What changed most?",
+            "from": "us"
+          },
+          {
+            "text": "We stopped losing evening calls. 11 extra jobs last month.",
+            "from": "them"
+          }
+        ],
+        "badge": "+11 jobs / month"
+      }
+    },
+    {
+      "motion": "film-look",
+      "role": "frame",
+      "props": {
+        "overlay": true,
+        "grain": 0.05,
+        "vignette": 0.22,
+        "flare": false,
+        "letterbox": "off",
+        "bloom": 0,
+        "fringe": 0,
+        "weave": 0
+      }
+    }
+  ],
+  "notes": "Replace kicker / title / subtitle / contact / messages / badge with a real customer quote. Colours: background, ink, accent, mint. A quieter alternative: story-caption-box over ken-burns of the customer photo."
+}

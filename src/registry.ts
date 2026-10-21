@@ -98,6 +98,7 @@ import {kineticCaptions} from './motions/text/kinetic-captions';
 import {maskRiseTitle} from './motions/text/mask-rise-title';
 import {neonSign} from './motions/text/neon-sign';
 import {numberCounter} from './motions/text/number-counter';
+import {sceneTag} from './motions/text/scene-tag';
 import {stampSlam} from './motions/text/stamp-slam';
 import {storyCaptionBox} from './motions/text/story-caption-box';
 import {typewriterCode} from './motions/text/typewriter-code';
@@ -208,6 +209,7 @@ export const motions: MotionDef<any>[] = [
   maskRiseTitle,
   neonSign,
   numberCounter,
+  sceneTag,
   stampSlam,
   storyCaptionBox,
   typewriterCode,

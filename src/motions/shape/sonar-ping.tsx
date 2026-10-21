@@ -1,5 +1,6 @@
 import React from 'react';
-import {AbsoluteFill, Img, staticFile, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Img, useCurrentFrame} from 'remotion';
+import {resolveSrc} from '../../core/asset';
 import {clamp, ease, prog} from '../../core/ease';
 import {rng} from '../../core/random';
 import {GlossySphere} from '../../core/shapes';
@@ -104,7 +105,7 @@ const SonarPing: React.FC<Props> = ({background, color, pings, pingEvery, ringCo
                   <g clipPath={`url(#win${k})`}>
                     {img ? (
                       <foreignObject x={wx - D * 0.6} y={wy - D * 0.6} width={D * 1.2} height={D * 1.2}>
-                        <Img src={staticFile(img)} style={{width: '100%', height: '100%', objectFit: 'cover', transform: `scale(${1.15 - 0.05 * s})`}} />
+                        <Img src={resolveSrc(img)} style={{width: '100%', height: '100%', objectFit: 'cover', transform: `scale(${1.15 - 0.05 * s})`}} />
                       </foreignObject>
                     ) : (
                       <rect x={wx - D} y={wy - D} width={D * 2} height={D * 2} fill={`url(#wg${k})`} />

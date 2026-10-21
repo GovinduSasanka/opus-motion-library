@@ -1,5 +1,6 @@
 import React from 'react';
-import {AbsoluteFill, Img, staticFile, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Img, useCurrentFrame} from 'remotion';
+import {resolveSrc} from '../../core/asset';
 import {clamp, ease, lerp, prog} from '../../core/ease';
 import {fonts} from '../../core/fonts';
 import {rng} from '../../core/random';
@@ -214,7 +215,7 @@ const CalloutLabels: React.FC<Props> = ({variant, items, src, stagger, medallion
     const per = (D - 20) / list.length;
     return (
       <AbsoluteFill style={{background: '#ECE9E0'}}>
-        {src ? <Img src={staticFile(src)} style={{width: '100%', height: '100%', objectFit: 'cover'}} /> : null}
+        {src ? <Img src={resolveSrc(src)} style={{width: '100%', height: '100%', objectFit: 'cover'}} /> : null}
         <Svg>
           {!src && <RoomSubject w={w} h={h} u={u} frame={frame} accent={accent} ink={ink} />}
           {list.map((it, i) => {
@@ -300,7 +301,7 @@ const CalloutLabels: React.FC<Props> = ({variant, items, src, stagger, medallion
     const tint = clamp(scroll / (h * 2.2));
     return (
       <AbsoluteFill style={{background: `linear-gradient(180deg, ${lerpHex('#3E9DB3', '#03405E', tint)} 0%, ${lerpHex('#066F8F', '#011C33', tint)} 100%)`}}>
-        {src ? <Img src={staticFile(src)} style={{width: '100%', height: '100%', objectFit: 'cover', opacity: 0.9}} /> : null}
+        {src ? <Img src={resolveSrc(src)} style={{width: '100%', height: '100%', objectFit: 'cover', opacity: 0.9}} /> : null}
         <Svg>
           {!src &&
             Array.from({length: 6}, (_, i) => {
@@ -418,7 +419,7 @@ const CalloutLabels: React.FC<Props> = ({variant, items, src, stagger, medallion
     const exitS = 1 - prog(frame, D - 8, D - 4, ease.in);
     return (
       <AbsoluteFill style={{background: BP.bg}}>
-        {src ? <Img src={staticFile(src)} style={{width: '100%', height: '100%', objectFit: 'cover', opacity: 0.85}} /> : <ScanlineBg />}
+        {src ? <Img src={resolveSrc(src)} style={{width: '100%', height: '100%', objectFit: 'cover', opacity: 0.85}} /> : <ScanlineBg />}
         <Svg>
           {!src && <RadialPlan id="cl-plan" cx={cx} cy={cy} r={R * prog(frame, 0, 14, ease.expoOut) + 1} rotate={rot} flow={frame} u={u} reveal={prog(frame, 0, 20)} />}
           {!src && <GlowDot id="cl-dot" x={cx} y={cy} r={6 * u} />}
@@ -530,7 +531,7 @@ const CalloutLabels: React.FC<Props> = ({variant, items, src, stagger, medallion
   const grey = '#6E6B63';
   return (
     <AbsoluteFill style={{background: '#EEEBDE'}}>
-      {src ? <Img src={staticFile(src)} style={{width: '100%', height: '100%', objectFit: 'cover'}} /> : null}
+      {src ? <Img src={resolveSrc(src)} style={{width: '100%', height: '100%', objectFit: 'cover'}} /> : null}
       <Svg>
         {!src && <SphereSubject cx={scx} cy={scy} R={R} u={u} w={w} h={h} />}
         {list.map((it, i) => {

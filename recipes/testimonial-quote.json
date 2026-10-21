@@ -1,0 +1,69 @@
+{
+  "id": "testimonial-quote",
+  "title": "Photo testimonial quote",
+  "useFor": "A customer quote typed in a cinematic caption box over a slowly pushed-in photo of the person or their work.",
+  "format": "landscape",
+  "duration": 240,
+  "background": "#000",
+  "tags": [
+    "testimonial",
+    "quote",
+    "review",
+    "photo",
+    "cinematic",
+    "story",
+    "caption"
+  ],
+  "web": {
+    "loop": "once"
+  },
+  "layers": [
+    {
+      "motion": "ken-burns",
+      "role": "backdrop",
+      "props": {
+        "src": "demo/lighthouse.jpg",
+        "mode": "push",
+        "rate": 1.2,
+        "punchAt": -1,
+        "handheld": 0.6,
+        "vignette": 0.4
+      }
+    },
+    {
+      "motion": "film-look",
+      "role": "frame",
+      "props": {
+        "overlay": true,
+        "grain": 0.06,
+        "vignette": 0.25,
+        "flare": false,
+        "letterbox": "on",
+        "bloom": 0,
+        "fringe": 0.6,
+        "weave": 0.3
+      }
+    },
+    {
+      "motion": "story-caption-box",
+      "role": "type",
+      "from": 20,
+      "props": {
+        "variant": "box",
+        "backdrop": "none",
+        "letterbox": false,
+        "size": 36,
+        "framesPerItem": 110,
+        "items": [
+          {
+            "text": "\"We stopped guessing and started shipping every week.\""
+          },
+          {
+            "text": "— Maya Chen, Head of Product at Northwind"
+          }
+        ]
+      }
+    }
+  ],
+  "notes": "Set ken-burns.src to your photo (public/ path or https URL) and the story-caption-box.items to the quote and name."
+}

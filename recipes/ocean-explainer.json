@@ -1,0 +1,54 @@
+{
+  "id": "ocean-explainer",
+  "title": "Ocean / science explainer",
+  "useFor": "Open a science or nature explainer: a serif title over the ocean, then a depth-gauge descent past landmarks with light rays.",
+  "format": "landscape",
+  "tags": [
+    "ocean",
+    "science",
+    "explainer",
+    "underwater",
+    "documentary",
+    "nature",
+    "depth",
+    "education"
+  ],
+  "background": "#020406",
+  "scenes": [
+    {
+      "motion": "blur-in-title",
+      "duration": 150,
+      "transition": {
+        "type": "wave"
+      },
+      "props": {
+        "title": "THE DEEP",
+        "subtitle": "where sunlight never reaches",
+        "swapTo": null,
+        "backdrop": "ocean",
+        "size": 110
+      }
+    },
+    {
+      "duration": 300,
+      "layers": [
+        {
+          "motion": "depth-descent"
+        },
+        {
+          "motion": "caustics-godrays",
+          "props": {
+            "background": "transparent",
+            "backdrop": false,
+            "rayCount": 6,
+            "motes": true
+          },
+          "blend": "screen",
+          "opacity": 0.45,
+          "duration": 140
+        }
+      ]
+    }
+  ],
+  "notes": "Change blur-in-title.title / subtitle and depth-descent.landmarks ([{depth, label, …}]). The god-rays fade out as the descent gets dark (layer duration 140)."
+}

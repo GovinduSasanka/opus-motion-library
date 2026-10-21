@@ -1,5 +1,6 @@
 import React, {useEffect, useMemo, useState} from 'react';
-import {Img, cancelRender, continueRender, delayRender, staticFile} from 'remotion';
+import {Img, cancelRender, continueRender, delayRender} from 'remotion';
+import {resolveSrc} from './asset';
 import {fbm, rng} from './random';
 import {useStage} from './stage';
 
@@ -31,8 +32,8 @@ export const mixHex = (a: string, b: string, t: number) => rgbStr(mixRgb(hexRgb(
 /** Rec.709 luma 0..1 from 0..255 rgb */
 export const luma = (c: RGB | Float32Array, i = 0) => (0.2126 * c[i] + 0.7152 * c[i + 1] + 0.0722 * c[i + 2]) / 255;
 
-/** public/ path, absolute URL or data: URL -> loadable URL */
-export const resolveSrc = (src: string) => (/^(https?:|data:|blob:)/.test(src) ? src : staticFile(src.replace(/^\/+/, '')));
+/** public/ path, absolute URL or data: URL -> loadable URL (see ./asset) */
+export {resolveSrc};
 
 // ---------------------------------------------------------------------------------------------------------
 // Procedural plate

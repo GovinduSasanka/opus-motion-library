@@ -1,0 +1,58 @@
+{
+  "id": "onboarding-steps",
+  "title": "Onboarding steps",
+  "useFor": "Explain a 3-step process or onboarding flow: a blueprint drawing builds while numbered step titles advance with a progress bar.",
+  "format": "landscape",
+  "duration": 240,
+  "background": "#1E3F66",
+  "tags": [
+    "onboarding",
+    "steps",
+    "process",
+    "tutorial",
+    "explain",
+    "how-it-works",
+    "blueprint"
+  ],
+  "web": {
+    "loop": "once"
+  },
+  "layers": [
+    {
+      "motion": "line-draw-on",
+      "role": "subject",
+      "props": {
+        "background": "#1E3F66",
+        "caption": "",
+        "margin": 0.2
+      },
+      "opacity": 0.9
+    },
+    {
+      "motion": "chapter-header",
+      "role": "type",
+      "props": {
+        "variant": "stage",
+        "backdrop": "none",
+        "total": 3,
+        "startIndex": 1,
+        "stageFrames": 74,
+        "stages": [
+          {
+            "title": "CONNECT",
+            "subtitle": "link your workspace"
+          },
+          {
+            "title": "DESIGN",
+            "subtitle": "draw the plan together"
+          },
+          {
+            "title": "LAUNCH",
+            "subtitle": "ship it in one click"
+          }
+        ]
+      }
+    }
+  ],
+  "notes": "Replace chapter-header.stages (one per step) and stageFrames (= duration / steps). line-draw-on.paths can draw your own SVG icon / product outline."
+}

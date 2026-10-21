@@ -1,5 +1,6 @@
 import React from 'react';
-import {Easing, Img, staticFile} from 'remotion';
+import {Easing, Img} from 'remotion';
+import {resolveSrc} from '../../core/asset';
 import {clamp, ease, prog} from '../../core/ease';
 import {FxRoot, isClear, useFx} from '../../core/fx-kit';
 import {n2, rng, range} from '../../core/random';
@@ -185,7 +186,7 @@ const GiantEyeReveal: React.FC<Props> = (p) => {
               <rect x={px - a} y={py - EH / 2} width={EW} height={EH} fill={`url(#${id}-scl)`} />
               {src ? (
                 <foreignObject x={px - a} y={py - EH / 2} width={EW} height={EH}>
-                  <Img src={staticFile(src)} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+                  <Img src={resolveSrc(src)} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
                 </foreignObject>
               ) : (
                 <g transform={`translate(${px + irisX} ${py + irisY})`}>

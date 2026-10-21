@@ -1,5 +1,6 @@
 import React, {useMemo} from 'react';
-import {AbsoluteFill, Img, staticFile, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Img, useCurrentFrame} from 'remotion';
+import {resolveSrc} from '../../core/asset';
 import {clamp, ease, lerp, prog} from '../../core/ease';
 import {fonts} from '../../core/fonts';
 import {rng, range} from '../../core/random';
@@ -370,7 +371,7 @@ const DepthDescent: React.FC<Props> = ({landmarks, maxDepth, surfaceTitle, surfa
           )}
           <rect x={0} y={0} width={w} height={h} fill={`url(#${id}-vig)`} />
         </Svg>
-        {heroSrc && <Img src={staticFile(heroSrc)} style={{position: 'absolute', left: hx - R * 1.3, top: hy - R * 1.3, width: R * 2.6, height: R * 2.6, objectFit: 'contain'}} />}
+        {heroSrc && <Img src={resolveSrc(heroSrc)} style={{position: 'absolute', left: hx - R * 1.3, top: hy - R * 1.3, width: R * 2.6, height: R * 2.6, objectFit: 'contain'}} />}
       </AbsoluteFill>
 
       {/* ---- HUD: depth counter top-left */}

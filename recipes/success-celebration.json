@@ -1,0 +1,56 @@
+{
+  "id": "success-celebration",
+  "title": "Success celebration",
+  "useFor": "The \"done!\" moment: order placed, payment received, level complete, onboarding finished — a drawn check with a confetti burst.",
+  "format": "square",
+  "duration": 150,
+  "background": "#E9D3B6",
+  "tags": [
+    "success",
+    "celebrate",
+    "done",
+    "check",
+    "confetti",
+    "complete",
+    "party",
+    "state"
+  ],
+  "web": {
+    "loop": "once"
+  },
+  "layers": [
+    {
+      "motion": "heart-draw-fill",
+      "role": "subject",
+      "props": {
+        "icon": "check",
+        "color": "#7CC79A",
+        "outlineColor": "#2F7D52",
+        "glowColor": "#BFF0C8",
+        "size": 0.42,
+        "sparkleCount": 0
+      }
+    },
+    {
+      "motion": "confetti-burst",
+      "role": "accent",
+      "from": 46,
+      "props": {
+        "background": "transparent",
+        "showSubject": false,
+        "count": 70,
+        "power": 0.8,
+        "y": 0.5,
+        "delay": 0,
+        "palette": [
+          "#2F7D52",
+          "#7CC79A",
+          "#F5CA1E",
+          "#ED3821",
+          "#2536F4"
+        ]
+      }
+    }
+  ],
+  "notes": "For an in-app overlay use just the confetti layer: <MotionPlayer motion=\"confetti-burst\" overlay loop={false}/> over your UI. icon can be check | heart | star | bolt."
+}

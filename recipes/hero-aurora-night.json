@@ -1,0 +1,70 @@
+{
+  "id": "hero-aurora-night",
+  "title": "Aurora night hero",
+  "useFor": "Dark website hero background or video title card: calm, premium, \"wonder\" mood. Put your headline in HTML on top (web) or in the title layer (video).",
+  "format": "landscape",
+  "duration": 300,
+  "background": "#03081C",
+  "tags": [
+    "hero",
+    "background",
+    "dark",
+    "night",
+    "aurora",
+    "title",
+    "calm",
+    "premium",
+    "landing"
+  ],
+  "web": {
+    "loop": "crossfade",
+    "textInHtml": true
+  },
+  "layers": [
+    {
+      "motion": "aurora",
+      "role": "backdrop",
+      "props": {
+        "pixelSize": 0,
+        "intensity": 0.95,
+        "speed": 0.8,
+        "curtains": 3
+      }
+    },
+    {
+      "motion": "embers",
+      "role": "accent",
+      "props": {
+        "mode": "motes",
+        "background": "transparent",
+        "backdrop": false,
+        "count": 18,
+        "speed": 0.5,
+        "color": "#bff5df"
+      },
+      "blend": "screen",
+      "opacity": 0.7
+    },
+    {
+      "motion": "blur-in-title",
+      "role": "type",
+      "from": 18,
+      "props": {
+        "title": "LUMEN",
+        "subtitle": "light for the long night",
+        "swapTo": null,
+        "backdrop": "none",
+        "background": "transparent",
+        "layout": "upper",
+        "size": 120,
+        "tracking": 0.9,
+        "fadeOut": false,
+        "glow": 0.45,
+        "subtitleColor": "#c3d2e4",
+        "subtitleFont": "sans",
+        "subtitleItalic": false
+      }
+    }
+  ],
+  "notes": "Change blur-in-title.title/subtitle (video) — on the web MotionBackground drops the type layer so your HTML headline sits there. Tint aurora.colors to the brand (e.g. [\"#7AA2FF\",\"#3B4FC4\",\"#1B2466\"])."
+}

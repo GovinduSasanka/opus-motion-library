@@ -18,6 +18,44 @@
    "character",
    "three"
   ],
+  "file": "src/motions/3d/iso-blocks-3d.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "barColor",
+   "floorColor",
+   "grooveColor",
+   "accent",
+   "ghost",
+   "pillar",
+   "ballColor"
+  ],
+  "loopable": false,
+  "bestLength": 390,
+  "mood": [
+   "mid",
+   "3d",
+   "playful"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "heavy",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "number-counter",
+   "confetti-burst",
+   "chapter-header"
+  ],
   "props": {
    "values": {
     "default": [
@@ -100,6 +138,43 @@
    "camera",
    "line-art",
    "three"
+  ],
+  "file": "src/motions/3d/plan-tilt.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "kicker"
+  ],
+  "colorProps": [
+   "paper",
+   "ink",
+   "poche",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 300,
+  "mood": [
+   "light",
+   "blueprint",
+   "3d"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "heavy",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "callout-labels",
+   "film-look",
+   "mask-rise-title"
   ],
   "props": {
    "walls": {
@@ -439,6 +514,40 @@
    "disintegrate",
    "three"
   ],
+  "file": "src/motions/3d/pointcloud-orbit.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "dark",
+   "photo",
+   "3d"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "heavy",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "blur-in-title",
+   "film-look",
+   "embers"
+  ],
+  "notes": "Pass src for your own subject (a cut-out PNG works best).",
   "props": {
    "src": {
     "default": "",
@@ -511,6 +620,38 @@
    "code",
    "flyby",
    "three"
+  ],
+  "file": "src/motions/3d/terrain-build-3d.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "stages"
+  ],
+  "colorProps": [],
+  "loopable": false,
+  "bestLength": 650,
+  "mood": [
+   "mid",
+   "3d",
+   "cinematic",
+   "nature"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "heavy",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "end-card-credits",
+   "typewriter-code",
+   "film-look"
   ],
   "props": {
    "stages": {
@@ -649,6 +790,45 @@
    "sparks",
    "three"
   ],
+  "file": "src/motions/3d/wireframe-build.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "paper",
+   "ink",
+   "wire",
+   "hot",
+   "wood",
+   "stripe",
+   "sail",
+   "spark"
+  ],
+  "loopable": false,
+  "bestLength": 300,
+  "mood": [
+   "dark",
+   "blueprint",
+   "3d"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "heavy",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "callout-labels",
+   "mask-rise-title",
+   "glyph-orbit-logo"
+  ],
   "props": {
    "background": {
     "default": "#0b0907",
@@ -717,6 +897,42 @@
    "isometric",
    "roll",
    "bounce"
+  ],
+  "file": "src/motions/character/blob-mascot.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "floorColor",
+   "barColor",
+   "accent",
+   "trailColor",
+   "bodyColor"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "light",
+   "3d",
+   "playful"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "confetti-burst",
+   "emote-pop",
+   "number-counter"
   ],
   "props": {
    "background": {
@@ -788,6 +1004,36 @@
    "hop",
    "emote",
    "cute"
+  ],
+  "file": "src/motions/character/box-bot.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "light",
+   "paper",
+   "playful"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "emote-pop",
+   "scribble-ball",
+   "sparkle-burst",
+   "chat-bubbles"
   ],
   "props": {
    "style": {
@@ -903,6 +1149,35 @@
    "stomp",
    "crane"
   ],
+  "file": "src/motions/character/crowd-bob.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "mid",
+   "paper",
+   "playful"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "neon-sign",
+   "confetti-burst",
+   "fireworks"
+  ],
   "props": {
    "character": {
     "default": "boxbot",
@@ -985,6 +1260,38 @@
    "swing",
    "title"
   ],
+  "file": "src/motions/character/sign-drop.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "text",
+   "subtext"
+  ],
+  "colorProps": [],
+  "loopable": false,
+  "bestLength": 120,
+  "mood": [
+   "dark",
+   "neon",
+   "playful"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "embers",
+   "film-look",
+   "confetti-burst"
+  ],
   "props": {
    "text": {
     "default": "Now Open",
@@ -1049,6 +1356,37 @@
    "history",
    "wipe",
    "character"
+  ],
+  "file": "src/motions/character/walker-world-scroll.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "eras"
+  ],
+  "colorProps": [],
+  "loopable": false,
+  "bestLength": 570,
+  "mood": [
+   "mid",
+   "paper",
+   "playful"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "chapter-header",
+   "era-dial",
+   "film-look"
   ],
   "props": {
    "eras": {
@@ -1144,6 +1482,41 @@
    "showreel",
    "rhythm"
   ],
+  "file": "src/motions/data/beat-montage.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": true,
+  "imageProps": [
+   "images"
+  ],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "dotColor",
+   "paper",
+   "ringColor"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "mid",
+   "photo",
+   "hud"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "neon-sign",
+   "kinetic-captions",
+   "film-look"
+  ],
   "props": {
    "images": {
     "default": [
@@ -1234,6 +1607,43 @@
    "character",
    "data"
   ],
+  "file": "src/motions/data/iso-bar-chart.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "accent",
+   "ghost",
+   "barColor",
+   "floorColor",
+   "background",
+   "pillarColor"
+  ],
+  "loopable": true,
+  "bestLength": 480,
+  "mood": [
+   "light",
+   "3d",
+   "playful"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "number-counter",
+   "chapter-header",
+   "confetti-burst"
+  ],
+  "notes": "loop: true (default) is a seamless loop; great as a friendly looping stats hero.",
   "props": {
    "values": {
     "default": [
@@ -1330,6 +1740,47 @@
    "data",
    "gauge",
    "hud"
+  ],
+  "file": "src/motions/data/live-chart.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "xLabel",
+   "yLabel",
+   "label",
+   "gaugeLabels"
+  ],
+  "colorProps": [
+   "color",
+   "ecgColor",
+   "syncColors",
+   "colorFrom",
+   "colorTo",
+   "background"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "dark",
+   "hud"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "number-counter",
+   "hud-chrome",
+   "callout-labels"
   ],
   "props": {
    "mode": {
@@ -1453,6 +1904,42 @@
    "distance",
    "travel"
   ],
+  "file": "src/motions/data/map-route.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "waypoints"
+  ],
+  "colorProps": [
+   "paper",
+   "trailColor",
+   "vectorColor",
+   "sunColor"
+  ],
+  "loopable": false,
+  "bestLength": 270,
+  "mood": [
+   "light",
+   "paper",
+   "nature"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "chapter-header",
+   "number-counter",
+   "story-caption-box"
+  ],
   "props": {
    "waypoints": {
     "default": [
@@ -1552,6 +2039,41 @@
    "collide",
    "bars"
   ],
+  "file": "src/motions/data/panel-triptych.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "panels",
+   "caption"
+  ],
+  "colorProps": [
+   "background"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "dark",
+   "photo",
+   "editorial"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "stamp-slam",
+   "film-look",
+   "kinetic-captions"
+  ],
   "props": {
    "title": {
     "default": "Every time, three things collided",
@@ -1629,6 +2151,44 @@
    "calendar",
    "doodle",
    "pencil"
+  ],
+  "file": "src/motions/data/perspective-grid.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "caption"
+  ],
+  "colorProps": [
+   "strokeColor",
+   "hatchColor",
+   "labelColors",
+   "lightColors",
+   "darkColors",
+   "ringColor",
+   "paper"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "light",
+   "paper"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "handwrite-on",
+   "sparkle-burst",
+   "emote-pop"
   ],
   "props": {
    "cols": {
@@ -1723,6 +2283,41 @@
    "planet",
    "labels"
   ],
+  "file": "src/motions/data/science-reticle.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "labels",
+   "scaleLabel"
+  ],
+  "colorProps": [
+   "color",
+   "accent",
+   "background"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "dark",
+   "hud"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "callout-labels",
+   "number-counter",
+   "caustics-godrays"
+  ],
   "props": {
    "subject": {
     "default": "cell",
@@ -1784,6 +2379,43 @@
    "recap",
    "collage",
    "pop-out"
+  ],
+  "file": "src/motions/data/thumbnail-mosaic.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": true,
+  "imageProps": [
+   "images"
+  ],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "plateColor",
+   "accent",
+   "dotColor",
+   "duotone"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "light",
+   "photo",
+   "playful"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "end-card-credits",
+   "mask-rise-title",
+   "confetti-burst"
   ],
   "props": {
    "layout": {
@@ -1873,6 +2505,47 @@
    "overlay",
    "ambience"
   ],
+  "file": "src/motions/environment/aurora.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent",
+   "backdrop": false
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "colors",
+   "topColor"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "dark",
+   "pixel",
+   "nature",
+   "night"
+  ],
+  "roles": [
+   "backdrop",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "blur-in-title",
+   "embers",
+   "starfield-night",
+   "glyph-orbit-logo",
+   "neon-sign"
+  ],
+  "notes": "pixelSize 0 = smooth (premium web look); 6 = pixel-art.",
   "props": {
    "background": {
     "default": "#03081C",
@@ -1948,6 +2621,41 @@
    "overlay",
    "particles"
   ],
+  "file": "src/motions/environment/bubbles.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent",
+   "backdrop": false
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "light",
+   "cinematic",
+   "nature"
+  ],
+  "roles": [
+   "backdrop",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "caustics-godrays",
+   "fish-school",
+   "blur-in-title"
+  ],
   "props": {
    "mode": {
     "default": "cluster",
@@ -2016,6 +2724,44 @@
    "ambience",
    "texture"
   ],
+  "file": "src/motions/environment/caustics-godrays.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent",
+   "backdrop": false
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "lineColor"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "mid",
+   "cinematic",
+   "nature"
+  ],
+  "roles": [
+   "backdrop",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "fish-school",
+   "depth-descent",
+   "blur-in-title",
+   "bubbles"
+  ],
+  "notes": "Excellent calm web hero background for water / health / science brands.",
   "props": {
    "mode": {
     "default": "underwater",
@@ -2086,6 +2832,38 @@
    "urban",
    "pullback"
   ],
+  "file": "src/motions/environment/city-skyline.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "windowColor"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "dark",
+   "night",
+   "cinematic"
+  ],
+  "roles": [
+   "backdrop"
+  ],
+  "weight": "medium",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "number-counter",
+   "fireworks",
+   "rain",
+   "neon-sign"
+  ],
   "props": {
    "style": {
     "default": "flat",
@@ -2147,6 +2925,42 @@
    "lens",
    "particles",
    "overlay"
+  ],
+  "file": "src/motions/environment/curl-flow.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent",
+   "backdrop": false
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "lensColor",
+   "palette"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "light",
+   "paper"
+  ],
+  "roles": [
+   "backdrop",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "blur-in-title",
+   "science-reticle",
+   "glitch-image"
   ],
   "props": {
    "background": {
@@ -2226,6 +3040,44 @@
    "hud",
    "scale",
    "descent"
+  ],
+  "file": "src/motions/environment/depth-descent.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": true,
+  "imageProps": [
+   "heroSrc"
+  ],
+  "takesText": true,
+  "textProps": [
+   "landmarks",
+   "surfaceTitle",
+   "surfaceNote",
+   "unit",
+   "labels"
+  ],
+  "colorProps": [],
+  "loopable": false,
+  "bestLength": 480,
+  "mood": [
+   "dark",
+   "nature",
+   "hud",
+   "night"
+  ],
+  "roles": [
+   "backdrop"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "caustics-godrays",
+   "blur-in-title",
+   "fish-school"
   ],
   "props": {
    "landmarks": {
@@ -2356,6 +3208,44 @@
    "overlay",
    "ambience"
   ],
+  "file": "src/motions/environment/embers.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent",
+   "backdrop": false
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background"
+  ],
+  "loopable": true,
+  "bestLength": 180,
+  "mood": [
+   "dark",
+   "night",
+   "cinematic"
+  ],
+  "roles": [
+   "backdrop",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "aurora",
+   "neon-sign",
+   "end-card-credits",
+   "blur-in-title",
+   "light-sweep"
+  ],
+  "notes": "mode motes + low count is the classic subtle accent over any dark scene (blend screen).",
   "props": {
    "mode": {
     "default": "sparks",
@@ -2424,6 +3314,40 @@
    "overlay",
    "ambience"
   ],
+  "file": "src/motions/environment/falling-petals.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent",
+   "backdrop": false
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "light",
+   "nature"
+  ],
+  "roles": [
+   "backdrop",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "handwrite-on",
+   "petal-bloom",
+   "blur-in-title"
+  ],
   "props": {
    "mode": {
     "default": "petals",
@@ -2490,6 +3414,42 @@
    "party",
    "flash"
   ],
+  "file": "src/motions/environment/fireworks.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "scene": false
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "colors",
+   "tint"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "dark",
+   "playful",
+   "night"
+  ],
+  "roles": [
+   "backdrop"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "city-skyline",
+   "number-counter",
+   "mask-rise-title",
+   "neon-sign"
+  ],
+  "notes": "scene:false = transparent bursts over your own scene (use blend screen).",
   "props": {
    "count": {
     "default": 6,
@@ -2573,6 +3533,39 @@
    "school",
    "jellyfish",
    "nature"
+  ],
+  "file": "src/motions/environment/fish-school.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "fishColor",
+   "bellyColor",
+   "waterTop",
+   "waterBottom"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "mid",
+   "nature"
+  ],
+  "roles": [
+   "backdrop"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "caustics-godrays",
+   "bubbles",
+   "blur-in-title"
   ],
   "props": {
    "count": {
@@ -2661,6 +3654,38 @@
    "migration",
    "formation"
   ],
+  "file": "src/motions/environment/flock.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "sky",
+   "horizon"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "light",
+   "paper",
+   "nature"
+  ],
+  "roles": [
+   "backdrop"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "blur-in-title",
+   "sun-rise-set",
+   "handwrite-on"
+  ],
   "props": {
    "count": {
     "default": 9,
@@ -2743,6 +3768,42 @@
    "overlay",
    "ambience"
   ],
+  "file": "src/motions/environment/flow-lines.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent",
+   "backdrop": false
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "light",
+   "paper",
+   "nature"
+  ],
+  "roles": [
+   "backdrop",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "handwrite-on",
+   "number-counter",
+   "chapter-header"
+  ],
+  "notes": "mode waves on paper makes a good section divider band.",
   "props": {
    "mode": {
     "default": "wind",
@@ -2812,6 +3873,40 @@
    "night",
    "foreground",
    "grow"
+  ],
+  "file": "src/motions/environment/grass-field.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "horizon",
+   "bladeBase",
+   "bladeTip"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "dark",
+   "nature",
+   "night"
+  ],
+  "roles": [
+   "backdrop"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "starfield-night",
+   "insect-flight",
+   "blur-in-title"
   ],
   "props": {
    "background": {
@@ -2903,6 +3998,41 @@
    "pond",
    "night"
   ],
+  "file": "src/motions/environment/insect-flight.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "scene": false
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "color",
+   "glowColor"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "mid",
+   "nature",
+   "night"
+  ],
+  "roles": [
+   "backdrop",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "grass-field",
+   "starfield-night",
+   "handwrite-on"
+  ],
   "props": {
    "kind": {
     "default": "dragonfly",
@@ -2964,6 +4094,44 @@
    "flash",
    "drama",
    "overlay"
+  ],
+  "file": "src/motions/environment/lightning-flash.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent",
+   "backdrop": false
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "boltColor",
+   "glowColor",
+   "flashColor"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "dark",
+   "nature",
+   "night"
+  ],
+  "roles": [
+   "backdrop",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "rain",
+   "stamp-slam",
+   "glitch-image"
   ],
   "props": {
    "background": {
@@ -3044,6 +4212,35 @@
    "camera",
    "truck"
   ],
+  "file": "src/motions/environment/parallax-landscape.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "mid",
+   "paper",
+   "nature"
+  ],
+  "roles": [
+   "backdrop"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "map-route",
+   "chapter-header",
+   "kinetic-captions"
+  ],
   "props": {
    "mode": {
     "default": "truck",
@@ -3110,6 +4307,44 @@
    "overlay",
    "ambience",
    "particles"
+  ],
+  "file": "src/motions/environment/rain.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent",
+   "backdrop": false
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "color",
+   "lampColor"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "dark",
+   "nature",
+   "night"
+  ],
+  "roles": [
+   "backdrop",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "light-sweep",
+   "city-skyline",
+   "lightning-flash",
+   "story-caption-box"
   ],
   "props": {
    "background": {
@@ -3190,6 +4425,42 @@
    "particles",
    "pixel"
   ],
+  "file": "src/motions/environment/snowfall.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent",
+   "backdrop": false
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "color"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "light",
+   "pixel",
+   "nature"
+  ],
+  "roles": [
+   "backdrop",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "starfield-night",
+   "blur-in-title",
+   "handwrite-on"
+  ],
   "props": {
    "mode": {
     "default": "drift",
@@ -3255,6 +4526,43 @@
    "calm",
    "overlay",
    "ambience"
+  ],
+  "file": "src/motions/environment/starfield-night.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent",
+   "backdrop": false
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "starColor"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "dark",
+   "nature",
+   "night"
+  ],
+  "roles": [
+   "backdrop",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "aurora",
+   "blur-in-title",
+   "grass-field",
+   "end-card-credits"
   ],
   "props": {
    "background": {
@@ -3332,6 +4640,43 @@
    "sky",
    "dusk",
    "rays"
+  ],
+  "file": "src/motions/environment/sun-rise-set.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "sunCore",
+   "sunRim",
+   "rayColor",
+   "bands",
+   "duskBands",
+   "land"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "mid",
+   "nature",
+   "night"
+  ],
+  "roles": [
+   "backdrop"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "flock",
+   "blur-in-title",
+   "handwrite-on"
   ],
   "props": {
    "mode": {
@@ -3447,6 +4792,37 @@
    "mood",
    "village"
   ],
+  "file": "src/motions/environment/time-of-day-grade.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "hills"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "mid",
+   "nature",
+   "night"
+  ],
+  "roles": [
+   "backdrop"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "chapter-header",
+   "number-counter",
+   "kinetic-captions"
+  ],
   "props": {
    "stops": {
     "default": [
@@ -3557,6 +4933,39 @@
    "terrain",
    "crane"
   ],
+  "file": "src/motions/environment/topdown-terrain.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": true,
+  "imageProps": [
+   "heroSrc"
+  ],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "trailColor"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "mid",
+   "paper",
+   "nature"
+  ],
+  "roles": [
+   "backdrop"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "map-route",
+   "chapter-header",
+   "number-counter"
+  ],
   "props": {
    "biomes": {
     "default": [
@@ -3639,6 +5048,43 @@
    "overlay",
    "fx"
   ],
+  "file": "src/motions/fx/confetti-burst.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent",
+   "showSubject": false
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "palette",
+   "subjectColor"
+  ],
+  "loopable": false,
+  "bestLength": 100,
+  "mood": [
+   "light",
+   "playful"
+  ],
+  "roles": [
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "heart-draw-fill",
+   "number-counter",
+   "mask-rise-title",
+   "browser-mockup"
+  ],
+  "notes": "As a web overlay: <MotionPlayer motion=\"confetti-burst\" overlay loop=\"once\"/> over your success screen.",
   "props": {
    "background": {
     "default": "#EEEBDE",
@@ -3765,6 +5211,41 @@
    "overlay",
    "fx"
   ],
+  "file": "src/motions/fx/electric-arcs.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent",
+   "showSubject": false
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "color",
+   "glowColor"
+  ],
+  "loopable": false,
+  "bestLength": 90,
+  "mood": [
+   "dark",
+   "night"
+  ],
+  "roles": [
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "stamp-slam",
+   "glitch-image",
+   "zoom-tunnel"
+  ],
   "props": {
    "background": {
     "default": "#0d1018",
@@ -3876,6 +5357,45 @@
    "overlay",
    "fx"
   ],
+  "file": "src/motions/fx/emote-pop.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent",
+   "showSubject": false
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "ink",
+   "red",
+   "bulb",
+   "heart",
+   "sweat"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "light",
+   "paper",
+   "playful"
+  ],
+  "roles": [
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "box-bot",
+   "chat-bubbles",
+   "perspective-grid"
+  ],
   "props": {
    "background": {
     "default": "#E1D7C5",
@@ -3962,6 +5482,43 @@
    "watching",
    "overlay",
    "fx"
+  ],
+  "file": "src/motions/fx/eyes-blink.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent",
+   "showSubject": false
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "color",
+   "subjectColor",
+   "glowColor",
+   "coreColor"
+  ],
+  "loopable": false,
+  "bestLength": 120,
+  "mood": [
+   "light",
+   "playful",
+   "comic"
+  ],
+  "roles": [
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "starfield-night",
+   "giant-eye-reveal",
+   "story-caption-box"
   ],
   "props": {
    "background": {
@@ -4111,6 +5668,43 @@
    "overlay",
    "fx"
   ],
+  "file": "src/motions/fx/giant-eye-reveal.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "irisColor",
+   "glowColor",
+   "endColor"
+  ],
+  "loopable": false,
+  "bestLength": 128,
+  "mood": [
+   "dark",
+   "night"
+  ],
+  "roles": [
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "lightning-flash",
+   "glitch-image",
+   "blur-in-title"
+  ],
   "props": {
    "background": {
     "default": "#020406",
@@ -4207,6 +5801,44 @@
    "overlay",
    "fx"
   ],
+  "file": "src/motions/fx/scribble-ball.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent",
+   "showSubject": false
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "color",
+   "steamColor",
+   "cloudColor",
+   "boltColor"
+  ],
+  "loopable": false,
+  "bestLength": 90,
+  "mood": [
+   "light",
+   "paper",
+   "playful"
+  ],
+  "roles": [
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "box-bot",
+   "error-glitch",
+   "chat-bubbles"
+  ],
   "props": {
    "background": {
     "default": "#E1D7C5",
@@ -4294,6 +5926,41 @@
    "doodle",
    "overlay",
    "fx"
+  ],
+  "file": "src/motions/fx/smoke-puffs.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent",
+   "showSubject": false
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "color",
+   "smokeColor",
+   "flashColor"
+  ],
+  "loopable": false,
+  "bestLength": 120,
+  "mood": [
+   "light",
+   "paper"
+  ],
+  "roles": [
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "gears",
+   "box-bot",
+   "stamp-slam"
   ],
   "props": {
    "background": {
@@ -4404,6 +6071,43 @@
    "overlay",
    "fx"
   ],
+  "file": "src/motions/fx/sparkle-burst.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent",
+   "showSubject": false
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "colors",
+   "starColor",
+   "ink"
+  ],
+  "loopable": false,
+  "bestLength": 64,
+  "mood": [
+   "light",
+   "paper",
+   "playful"
+  ],
+  "roles": [
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "heart-draw-fill",
+   "number-counter",
+   "box-bot"
+  ],
   "props": {
    "background": {
     "default": "#E1D7C5",
@@ -4504,6 +6208,43 @@
    "overlay",
    "fx"
   ],
+  "file": "src/motions/fx/star-glint.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent",
+   "showSubject": false
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "color",
+   "bloomColor",
+   "ink"
+  ],
+  "loopable": false,
+  "bestLength": 90,
+  "mood": [
+   "light"
+  ],
+  "roles": [
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "glyph-orbit-logo",
+   "number-counter",
+   "browser-mockup",
+   "neon-sign"
+  ],
+  "notes": "The 'shiny / premium' accent on a logo, badge or number.",
   "props": {
    "background": {
     "default": "#BBC2D9",
@@ -4612,6 +6353,43 @@
    "hud",
    "tag"
   ],
+  "file": "src/motions/hud/callout-labels.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": true,
+  "textProps": [
+   "items"
+  ],
+  "colorProps": [
+   "accent",
+   "ink"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "light",
+   "blueprint",
+   "hud"
+  ],
+  "roles": [
+   "subject",
+   "frame"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "flat-to-3d-sphere",
+   "science-reticle",
+   "ken-burns"
+  ],
   "props": {
    "variant": {
     "default": "leader",
@@ -4660,6 +6438,40 @@
    "counter",
    "blueprint",
    "years"
+  ],
+  "file": "src/motions/hud/era-dial.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "eras"
+  ],
+  "colorProps": [
+   "background",
+   "accent",
+   "line"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "dark",
+   "blueprint"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "film-look",
+   "chapter-header",
+   "walker-world-scroll"
   ],
   "props": {
    "background": {
@@ -4739,6 +6551,50 @@
    "progress",
    "code",
    "broadcast"
+  ],
+  "file": "src/motions/hud/hud-chrome.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "backdrop": "transparent",
+   "previewSubject": false
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle",
+   "headerRight",
+   "counterLabel",
+   "chapters"
+  ],
+  "colorProps": [
+   "backdrop",
+   "accent",
+   "rulerAccent"
+  ],
+  "loopable": false,
+  "bestLength": 360,
+  "mood": [
+   "dark",
+   "hud",
+   "editorial"
+  ],
+  "roles": [
+   "accent",
+   "subject",
+   "frame"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "bouncing-ball",
+   "live-chart",
+   "typewriter-code"
   ],
   "props": {
    "backdrop": {
@@ -4851,6 +6707,41 @@
    "blueprint",
    "camera"
   ],
+  "file": "src/motions/hud/powers-of-ten.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "levels"
+  ],
+  "colorProps": [
+   "background",
+   "accent",
+   "line"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "dark",
+   "blueprint",
+   "hud"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "zoom-tunnel",
+   "radial-blueprint",
+   "number-counter"
+  ],
   "props": {
    "background": {
     "default": "#090A0F",
@@ -4923,6 +6814,45 @@
    "categories",
    "zoom-out"
   ],
+  "file": "src/motions/hud/radial-blueprint.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "categories",
+   "centerLabel"
+  ],
+  "colorProps": [
+   "background",
+   "accent",
+   "line",
+   "labelColor"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "dark",
+   "blueprint",
+   "hud",
+   "night"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "glyph-orbit-logo",
+   "zoom-tunnel",
+   "typewriter-code"
+  ],
+  "notes": "At 30-40 % opacity with categories [] it is a premium tech texture behind a logo.",
   "props": {
    "background": {
     "default": "#090A0F",
@@ -5005,6 +6935,42 @@
    "hero word",
    "blueprint"
   ],
+  "file": "src/motions/hud/zoom-tunnel.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "word",
+   "subtitle"
+  ],
+  "colorProps": [
+   "background",
+   "accent",
+   "line"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "dark",
+   "blueprint",
+   "hud"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "radial-blueprint",
+   "glyph-orbit-logo",
+   "electric-arcs"
+  ],
   "props": {
    "background": {
     "default": "#090A0F",
@@ -5072,6 +7038,37 @@
    "outline",
    "on-twos",
    "post"
+  ],
+  "file": "src/motions/image/comic-halftone.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "dark",
+   "photo",
+   "comic"
+  ],
+  "roles": [
+   "backdrop"
+  ],
+  "weight": "medium",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "comic-burst",
+   "speed-lines",
+   "story-caption-box"
   ],
   "props": {
    "src": {
@@ -5163,6 +7160,43 @@
    "pointillism",
    "resolution-ramp",
    "music-video"
+  ],
+  "file": "src/motions/image/dot-matrix.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "panel",
+   "bgDot",
+   "paper",
+   "ink",
+   "body"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "dark",
+   "photo",
+   "comic"
+  ],
+  "roles": [
+   "backdrop"
+  ],
+  "weight": "medium",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "neon-sign",
+   "beat-montage",
+   "kinetic-captions"
   ],
   "props": {
    "src": {
@@ -5274,6 +7308,41 @@
    "day-to-night",
    "flash"
   ],
+  "file": "src/motions/image/duotone.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": true,
+  "textProps": [
+   "word"
+  ],
+  "colorProps": [
+   "wordColor"
+  ],
+  "loopable": false,
+  "bestLength": 120,
+  "mood": [
+   "mid",
+   "photo",
+   "night"
+  ],
+  "roles": [
+   "backdrop"
+  ],
+  "weight": "medium",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "mask-rise-title",
+   "stamp-slam",
+   "film-look"
+  ],
   "props": {
    "src": {
     "default": "",
@@ -5349,6 +7418,45 @@
    "overlay",
    "post"
   ],
+  "file": "src/motions/image/film-look.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "overlay": true
+  },
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "flareColor"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "dark",
+   "photo",
+   "cinematic"
+  ],
+  "roles": [
+   "backdrop",
+   "accent",
+   "frame"
+  ],
+  "weight": "medium",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "ken-burns",
+   "light-sweep",
+   "story-caption-box",
+   "neon-sign"
+  ],
+  "notes": "overlay:true (+ flare:false, letterbox:'off') is the finishing frame layer on top of any mix.",
   "props": {
    "src": {
     "default": "",
@@ -5443,6 +7551,38 @@
    "grid",
    "fracture"
   ],
+  "file": "src/motions/image/glass-pane-grid.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "barColor"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "mid",
+   "photo"
+  ],
+  "roles": [
+   "backdrop"
+  ],
+  "weight": "medium",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "mask-rise-title",
+   "blur-in-title",
+   "film-look"
+  ],
   "props": {
    "src": {
     "default": "",
@@ -5528,6 +7668,41 @@
    "echo",
    "flash",
    "transition"
+  ],
+  "file": "src/motions/image/glitch-image.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": true,
+  "textProps": [
+   "bursts"
+  ],
+  "colorProps": [
+   "tint"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "mid",
+   "photo",
+   "hud"
+  ],
+  "roles": [
+   "backdrop"
+  ],
+  "weight": "medium",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "stamp-slam",
+   "typewriter-code",
+   "electric-arcs"
   ],
   "props": {
    "src": {
@@ -5653,6 +7828,40 @@
    "rain",
    "grain"
   ],
+  "file": "src/motions/image/ken-burns.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": true,
+  "imageProps": [
+   "src",
+   "images"
+  ],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "mid",
+   "photo",
+   "nature"
+  ],
+  "roles": [
+   "backdrop"
+  ],
+  "weight": "medium",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "film-look",
+   "story-caption-box",
+   "kinetic-captions",
+   "blur-in-title"
+  ],
+  "avoid": "Do not use ken-burns as the only motion of a piece: add type + an accent, or pick a richer image look (film-look, light-sweep, duotone).",
   "props": {
    "src": {
     "default": "",
@@ -5769,6 +7978,43 @@
    "shadow",
    "cinematic"
   ],
+  "file": "src/motions/image/light-sweep.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "color",
+   "lampColor",
+   "lightColor"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "dark",
+   "photo",
+   "cinematic",
+   "nature",
+   "night"
+  ],
+  "roles": [
+   "backdrop"
+  ],
+  "weight": "medium",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "rain",
+   "film-look",
+   "story-caption-box"
+  ],
   "props": {
    "src": {
     "default": "",
@@ -5838,6 +8084,41 @@
    "retro",
    "letterbox",
    "grade"
+  ],
+  "file": "src/motions/image/pixel-dither.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "colors"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "dark",
+   "photo",
+   "pixel",
+   "cinematic",
+   "nature"
+  ],
+  "roles": [
+   "backdrop"
+  ],
+  "weight": "medium",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "snowfall",
+   "aurora",
+   "story-caption-box"
   ],
   "props": {
    "src": {
@@ -5928,6 +8209,42 @@
    "beam",
    "wipe"
   ],
+  "file": "src/motions/image/xray-scan.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "beamColor",
+   "glowColor",
+   "bristleColor"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "dark",
+   "blueprint",
+   "photo",
+   "hud"
+  ],
+  "roles": [
+   "backdrop"
+  ],
+  "weight": "medium",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "callout-labels",
+   "science-reticle",
+   "typewriter-code"
+  ],
   "props": {
    "src": {
     "default": "",
@@ -6007,6 +8324,31 @@
    "combine",
    "composite"
   ],
+  "file": "src/motions/mix/mix.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "dark"
+  ],
+  "roles": [
+   "mix"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
   "props": {
    "background": {
     "default": "#05070d",
@@ -6028,7 +8370,8 @@
        "subtitle": "a mix of three motions",
        "swapTo": null,
        "backdrop": "none",
-       "background": "transparent"
+       "background": "transparent",
+       "layout": "upper"
       }
      },
      {
@@ -6065,6 +8408,41 @@
    "hud",
    "impact",
    "music"
+  ],
+  "file": "src/motions/shape/bouncing-ball.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "color"
+  ],
+  "loopable": false,
+  "bestLength": 120,
+  "mood": [
+   "dark",
+   "hud",
+   "playful",
+   "night"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "hud-chrome",
+   "easing-graph",
+   "onion-skin-arc"
   ],
   "props": {
    "mode": {
@@ -6163,6 +8541,41 @@
    "hud",
    "science"
   ],
+  "file": "src/motions/shape/branch-grow.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "label",
+   "sublabel"
+  ],
+  "colorProps": [
+   "color",
+   "tipColor",
+   "pulseColor"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "dark",
+   "hud"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "radial-blueprint",
+   "pair-field",
+   "callout-labels"
+  ],
   "props": {
    "layout": {
     "default": "neuron",
@@ -6239,6 +8652,40 @@
    "sync",
    "perspective",
    "bloom"
+  ],
+  "file": "src/motions/shape/call-response.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "colors",
+   "ringColors",
+   "lotusColors",
+   "sparkleColor"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "light",
+   "paper"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "chat-bubbles",
+   "handwrite-on",
+   "sparkle-burst"
   ],
   "props": {
    "background": {
@@ -6318,6 +8765,39 @@
    "biology",
    "tree"
   ],
+  "file": "src/motions/shape/cell-division.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "outlineColor",
+   "nucleusColors",
+   "lineColor",
+   "dotColor"
+  ],
+  "loopable": false,
+  "bestLength": 120,
+  "mood": [
+   "dark"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "number-counter",
+   "science-reticle",
+   "swimmers-converge"
+  ],
   "props": {
    "background": {
     "default": "#180F0B",
@@ -6388,6 +8868,40 @@
    "sacred",
    "outro"
   ],
+  "file": "src/motions/shape/compass-construct.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "lineColor",
+   "hexColor",
+   "nodeColor",
+   "compassColor"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "dark",
+   "blueprint"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "glyph-orbit-logo",
+   "hex-comb-build",
+   "typewriter-signature"
+  ],
   "props": {
    "background": {
     "default": "#180F0B",
@@ -6452,6 +8966,41 @@
    "timing",
    "explainer",
    "ball"
+  ],
+  "file": "src/motions/shape/easing-graph.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "background",
+   "colorA",
+   "colorB"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "light",
+   "editorial"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "bouncing-ball",
+   "hud-chrome",
+   "onion-skin-arc"
   ],
   "props": {
    "background": {
@@ -6540,6 +9089,44 @@
    "wireframe",
    "explainer",
    "ball"
+  ],
+  "file": "src/motions/shape/flat-to-3d-sphere.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "background",
+   "studio",
+   "color",
+   "highlight",
+   "shadowCore"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "light",
+   "3d",
+   "editorial"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "callout-labels",
+   "hud-chrome",
+   "easing-graph"
   ],
   "props": {
    "background": {
@@ -6659,6 +9246,35 @@
    "machine",
    "hatch"
   ],
+  "file": "src/motions/shape/gears.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "light",
+   "paper",
+   "blueprint"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "smoke-puffs",
+   "line-draw-on",
+   "chapter-header"
+  ],
   "props": {
    "style": {
     "default": "filled",
@@ -6719,6 +9335,41 @@
    "sketch",
    "love",
    "check"
+  ],
+  "file": "src/motions/shape/heart-draw-fill.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "icon"
+  ],
+  "colorProps": [
+   "background",
+   "color",
+   "outlineColor",
+   "glowColor"
+  ],
+  "loopable": false,
+  "bestLength": 120,
+  "mood": [
+   "light",
+   "paper"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "confetti-burst",
+   "sparkle-burst",
+   "handwrite-on"
   ],
   "props": {
    "icon": {
@@ -6790,6 +9441,40 @@
    "grid",
    "growth",
    "bee"
+  ],
+  "file": "src/motions/shape/hex-comb-build.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "waxColor",
+   "guideColor",
+   "ghostColor",
+   "cellColors"
+  ],
+  "loopable": false,
+  "bestLength": 200,
+  "mood": [
+   "dark",
+   "nature"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "compass-construct",
+   "number-counter",
+   "glyph-orbit-logo"
   ],
   "props": {
    "background": {
@@ -6882,6 +9567,40 @@
    "diagram",
    "construct"
   ],
+  "file": "src/motions/shape/line-draw-on.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "caption"
+  ],
+  "colorProps": [
+   "background",
+   "strokeColor",
+   "highlightColor"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "mid",
+   "blueprint"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "chapter-header",
+   "callout-labels",
+   "gears"
+  ],
   "props": {
    "paths": {
     "default": [],
@@ -6970,6 +9689,34 @@
    "organic",
    "goo"
   ],
+  "file": "src/motions/shape/metaball-heatmap.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "dark",
+   "night"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "live-chart",
+   "number-counter",
+   "curl-flow"
+  ],
   "props": {
    "style": {
     "default": "heatmap",
@@ -7028,6 +9775,40 @@
    "explainer",
    "ball",
    "compare"
+  ],
+  "file": "src/motions/shape/onion-skin-arc.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "dropLabels",
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "background",
+   "color"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "mid"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "easing-graph",
+   "bouncing-ball",
+   "hud-chrome"
   ],
   "props": {
    "mode": {
@@ -7103,6 +9884,43 @@
    "craft",
    "step-by-step",
    "transform"
+  ],
+  "file": "src/motions/shape/origami-fold.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "paperColor",
+   "backColor",
+   "creaseColor",
+   "highlightColor",
+   "inkColor",
+   "wall",
+   "sky"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "light",
+   "paper",
+   "nature"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "flock",
+   "handwrite-on",
+   "falling-petals"
   ],
   "props": {
    "direction": {
@@ -7180,6 +9998,37 @@
    "pulse",
    "scale"
   ],
+  "file": "src/motions/shape/pair-field.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "colors",
+   "background"
+  ],
+  "loopable": false,
+  "bestLength": 120,
+  "mood": [
+   "dark",
+   "night"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "number-counter",
+   "branch-grow",
+   "blur-in-title"
+  ],
   "props": {
    "count": {
     "default": 360,
@@ -7252,6 +10101,34 @@
    "radial",
    "lotus"
   ],
+  "file": "src/motions/shape/petal-bloom.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [],
+  "loopable": false,
+  "bestLength": 120,
+  "mood": [
+   "light",
+   "nature"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "falling-petals",
+   "handwrite-on",
+   "sparkle-burst"
+  ],
   "props": {
    "style": {
     "default": "lotus",
@@ -7309,6 +10186,43 @@
    "physics",
    "ball",
    "neon"
+  ],
+  "file": "src/motions/shape/ribbon-trail.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "label",
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "ballColor",
+   "colors",
+   "neonColors"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "dark",
+   "neon",
+   "night"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "neon-sign",
+   "hud-chrome",
+   "easing-graph"
   ],
   "props": {
    "style": {
@@ -7433,6 +10347,42 @@
    "transition",
    "principles"
   ],
+  "file": "src/motions/shape/rose-curve-trace.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title"
+  ],
+  "colorProps": [
+   "background",
+   "ballColor",
+   "lineColor",
+   "fillColor",
+   "echoColor"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "light",
+   "nature"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "easing-graph",
+   "bouncing-ball",
+   "mask-rise-title"
+  ],
   "props": {
    "background": {
     "default": "#F5CA1E",
@@ -7496,6 +10446,45 @@
    "signal",
    "reveal"
   ],
+  "file": "src/motions/shape/sonar-ping.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": true,
+  "imageProps": [
+   "windowImages"
+  ],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "color",
+   "windowColors"
+  ],
+  "loopable": true,
+  "loopProps": {
+   "pings": 3,
+   "pingEvery": 48
+  },
+  "bestLength": 144,
+  "mood": [
+   "light",
+   "paper"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "starfield-night",
+   "chat-bubbles",
+   "embers"
+  ],
+  "notes": "windowSize 0 + echoAngles [] + pings/pingEvery multiple of the length = a clean loading loop.",
   "props": {
    "background": {
     "default": "#ECE4D7",
@@ -7575,6 +10564,43 @@
    "emphasis",
    "anime",
    "on-twos"
+  ],
+  "file": "src/motions/shape/speed-lines.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "label"
+  ],
+  "colorProps": [
+   "background",
+   "backgroundEdge",
+   "color",
+   "afterColor",
+   "impactColors",
+   "subjectColor"
+  ],
+  "loopable": false,
+  "bestLength": 90,
+  "mood": [
+   "mid",
+   "comic"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "comic-burst",
+   "stamp-slam",
+   "comic-halftone"
   ],
   "props": {
    "background": {
@@ -7671,6 +10697,41 @@
    "stagger",
    "nature"
   ],
+  "file": "src/motions/shape/sprout-grow.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "ground",
+   "headColors",
+   "stemColor",
+   "leafColor"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "light",
+   "paper",
+   "nature"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "handwrite-on",
+   "sun-rise-set",
+   "number-counter"
+  ],
   "props": {
    "background": {
     "default": "#DFD6C5",
@@ -7750,6 +10811,42 @@
    "fusion",
    "hud",
    "science"
+  ],
+  "file": "src/motions/shape/swimmers-converge.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "label",
+   "finalLabel"
+  ],
+  "colorProps": [
+   "color",
+   "membrane",
+   "hitColor",
+   "dotColors"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "dark",
+   "hud"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "cell-division",
+   "science-reticle",
+   "blur-in-title"
   ],
   "props": {
    "count": {
@@ -7834,6 +10931,51 @@
    "card",
    "documentary"
   ],
+  "file": "src/motions/text/blur-in-title.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "backdrop": "none",
+   "background": "transparent"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle",
+   "swapTo"
+  ],
+  "colorProps": [
+   "color",
+   "subtitleColor",
+   "background"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "dark",
+   "cinematic",
+   "editorial"
+  ],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "aurora",
+   "starfield-night",
+   "caustics-godrays",
+   "embers",
+   "ken-burns"
+  ],
+  "avoid": "Change title and subtitle (defaults ABYSSES / THE MIDNIGHT ZONE are sample text); set swapTo null for a single card.",
   "props": {
    "title": {
     "default": "ABYSSES",
@@ -7957,6 +11099,44 @@
    "label",
    "timeline"
   ],
+  "file": "src/motions/text/chapter-header.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "backdrop": "none"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": true,
+  "textProps": [
+   "stages"
+  ],
+  "colorProps": [
+   "color",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "light",
+   "editorial"
+  ],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "line-draw-on",
+   "flow-lines",
+   "ken-burns",
+   "map-route"
+  ],
   "props": {
    "variant": {
     "default": "stage",
@@ -8022,6 +11202,42 @@
    "burst",
    "impact",
    "pop-art"
+  ],
+  "file": "src/motions/text/comic-burst.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "backdrop": "none"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": true,
+  "textProps": [
+   "bursts"
+  ],
+  "colorProps": [
+   "outline"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "mid",
+   "comic"
+  ],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "speed-lines",
+   "comic-halftone",
+   "confetti-burst"
   ],
   "props": {
    "bursts": {
@@ -8100,6 +11316,45 @@
    "stats",
    "outro"
   ],
+  "file": "src/motions/text/end-card-credits.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "backdrop": "none"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "headline",
+   "lines",
+   "credit"
+  ],
+  "colorProps": [],
+  "loopable": false,
+  "bestLength": 165,
+  "mood": [
+   "mid",
+   "cinematic",
+   "editorial",
+   "nature"
+  ],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "embers",
+   "starfield-night",
+   "thumbnail-mosaic"
+  ],
   "props": {
    "title": {
     "default": "",
@@ -8172,6 +11427,47 @@
    "endcard",
    "blueprint"
   ],
+  "file": "src/motions/text/glyph-orbit-logo.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "backdrop": "none"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": true,
+  "textProps": [
+   "logo",
+   "tagline",
+   "pill"
+  ],
+  "colorProps": [
+   "color",
+   "dim",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 220,
+  "mood": [
+   "dark",
+   "blueprint"
+  ],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "radial-blueprint",
+   "star-glint",
+   "aurora"
+  ],
+  "avoid": "Change logo / tagline / pill (defaults are sample text).",
   "props": {
    "logo": {
     "default": "Ideas in Motion",
@@ -8248,6 +11544,40 @@
    "pen",
    "endcard"
   ],
+  "file": "src/motions/text/handwrite-on.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "lines"
+  ],
+  "colorProps": [
+   "background",
+   "color"
+  ],
+  "loopable": false,
+  "bestLength": 120,
+  "mood": [
+   "light",
+   "paper"
+  ],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "flow-lines",
+   "falling-petals",
+   "heart-draw-fill",
+   "sprout-grow"
+  ],
   "props": {
    "lines": {
     "default": [
@@ -8311,6 +11641,44 @@
   ],
   "durationInFrames": 150,
   "tags": [],
+  "file": "src/motions/text/kinetic-captions.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "lines"
+  ],
+  "colorProps": [
+   "background",
+   "highlightColor",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "dark",
+   "editorial"
+  ],
+  "roles": [
+   "type",
+   "frame"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "ken-burns",
+   "film-look",
+   "beat-montage"
+  ],
+  "avoid": "Do not put captions over a motion that already shows its own words (titles, signs, counters).",
   "props": {
    "lines": {
     "default": [
@@ -8339,6 +11707,14 @@
    "size": {
     "default": 64,
     "doc": ""
+   },
+   "variant": {
+    "default": "kinetic",
+    "doc": "kinetic (word pop + highlight boxes) | premium (calm line, words brighten as spoken, soft scrim)"
+   },
+   "accent": {
+    "default": "#E9C27A",
+    "doc": "premium: colour of *starred* words"
    }
   }
  },
@@ -8362,6 +11738,52 @@
    "editorial",
    "endcard"
   ],
+  "file": "src/motions/text/mask-rise-title.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "backdrop": "none",
+   "background": "transparent"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": true,
+  "textProps": [
+   "chapter",
+   "fromChapter",
+   "lines",
+   "sideCopy",
+   "sideMono"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "muted"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "light",
+   "editorial"
+  ],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "fireworks",
+   "glass-pane-grid",
+   "duotone",
+   "confetti-burst"
+  ],
+  "avoid": "Change chapter / lines / sideCopy / sideMono (defaults like STAGING, 12 PRINCIPLES are sample text).",
   "props": {
    "variant": {
     "default": "chapter",
@@ -8493,6 +11915,44 @@
    "flicker",
    "title"
   ],
+  "file": "src/motions/text/neon-sign.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "lines"
+  ],
+  "colorProps": [
+   "plateColor",
+   "wallColor",
+   "color",
+   "glow"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "dark",
+   "neon",
+   "night"
+  ],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "embers",
+   "film-look",
+   "rain",
+   "crowd-bob"
+  ],
+  "avoid": "Change lines (default NOODLES / open late is sample text).",
   "props": {
    "lines": {
     "default": [
@@ -8576,6 +12036,50 @@
    "odometer",
    "stats"
   ],
+  "file": "src/motions/text/number-counter.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "backdrop": "none"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": true,
+  "textProps": [
+   "keyframes",
+   "label",
+   "unit",
+   "prefix",
+   "readoutLabels"
+  ],
+  "colorProps": [
+   "labelColor",
+   "numberColor",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "dark",
+   "hud"
+  ],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "star-glint",
+   "flow-lines",
+   "confetti-burst",
+   "iso-bar-chart"
+  ],
+  "avoid": "Set label, unit ('' to hide 'm'), readouts [] and keyframes — defaults are the DEPTH dive sample.",
   "props": {
    "keyframes": {
     "default": [
@@ -8685,6 +12189,103 @@
   }
  },
  {
+  "id": "scene-tag",
+  "title": "Scene index tag",
+  "category": "text",
+  "description": "Small glass pill in a corner with an index number, a hairline and a name; slides in, holds, fades. Transparent overlay.",
+  "useFor": "Labelling items in showreels, galleries, portfolios, product feature tours and step-by-step videos.",
+  "source": [
+   "library"
+  ],
+  "durationInFrames": 120,
+  "tags": [
+   "label",
+   "index",
+   "lower third",
+   "overlay",
+   "showreel"
+  ],
+  "file": "src/motions/text/scene-tag.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "index",
+   "name",
+   "family"
+  ],
+  "colorProps": [
+   "accent",
+   "accentDark",
+   "background"
+  ],
+  "loopable": false,
+  "bestLength": 120,
+  "mood": [
+   "dark"
+  ],
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "hud-chrome",
+   "film-look"
+  ],
+  "props": {
+   "index": {
+    "default": "042",
+    "doc": "index text, e.g. \"042 / 108\""
+   },
+   "name": {
+    "default": "Depth Descent",
+    "doc": "item name (shown in tracked caps)"
+   },
+   "family": {
+    "default": "environment",
+    "doc": "small second line (\"\" to hide)"
+   },
+   "corner": {
+    "default": "top-left",
+    "doc": "top-left | top-right | bottom-left | bottom-right"
+   },
+   "tone": {
+    "default": "light",
+    "doc": "light (for dark scenes) | dark (for bright scenes)"
+   },
+   "accent": {
+    "default": "#E9C27A",
+    "doc": ""
+   },
+   "accentDark": {
+    "default": "#8A5A12",
+    "doc": ""
+   },
+   "inAt": {
+    "default": 6,
+    "doc": ""
+   },
+   "outBefore": {
+    "default": 4,
+    "doc": ""
+   },
+   "background": {
+    "default": "#1a2230",
+    "doc": "\"transparent\" to overlay (default shows a preview colour)"
+   }
+  }
+ },
+ {
   "id": "stamp-slam",
   "title": "Stamp slam + keyword pop",
   "category": "text",
@@ -8704,6 +12305,47 @@
    "keyword",
    "emphasis"
   ],
+  "file": "src/motions/text/stamp-slam.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "backdrop": "none"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": true,
+  "textProps": [
+   "lines",
+   "preTitle",
+   "keyword"
+  ],
+  "colorProps": [
+   "color",
+   "textColor",
+   "keywordColor"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "mid",
+   "editorial"
+  ],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "glitch-image",
+   "duotone",
+   "lightning-flash"
+  ],
+  "avoid": "Change lines / preTitle / keyword (defaults LONDON 1736 / GIN are sample text). Not a default choice for every title.",
   "props": {
    "lines": {
     "default": [
@@ -8809,6 +12451,49 @@
    "timestamp",
    "comic"
   ],
+  "file": "src/motions/text/story-caption-box.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "backdrop": "none"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": true,
+  "textProps": [
+   "items"
+  ],
+  "colorProps": [
+   "textColor",
+   "boxColor",
+   "borderColor",
+   "plateColor",
+   "inkColor"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "dark",
+   "comic",
+   "cinematic",
+   "editorial"
+  ],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "ken-burns",
+   "film-look",
+   "light-sweep",
+   "pixel-dither"
+  ],
   "props": {
    "variant": {
     "default": "box",
@@ -8890,6 +12575,43 @@
    "terminal",
    "ide",
    "hud"
+  ],
+  "file": "src/motions/text/typewriter-code.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "backdrop": "none"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": true,
+  "textProps": [
+   "lines",
+   "title"
+  ],
+  "colorProps": [
+   "cursorColor"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "mid",
+   "hud"
+  ],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "glitch-image",
+   "hud-chrome",
+   "radial-blueprint"
   ],
   "props": {
    "lines": {
@@ -8981,6 +12703,42 @@
    "signature",
    "typewriter",
    "endcard"
+  ],
+  "file": "src/motions/text/typewriter-signature.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "text"
+  ],
+  "colorProps": [
+   "color",
+   "background",
+   "decorColor"
+  ],
+  "loopable": false,
+  "bestLength": 90,
+  "mood": [
+   "dark",
+   "editorial"
+  ],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "compass-construct",
+   "end-card-credits",
+   "starfield-night"
   ],
   "props": {
    "text": {
@@ -9078,6 +12836,29 @@
    "reel",
    "wipe"
   ],
+  "file": "src/motions/transition/transition-reel.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title"
+  ],
+  "colorProps": [],
+  "loopable": false,
+  "bestLength": 1858,
+  "mood": [],
+  "roles": [
+   "transition"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
   "props": {
    "types": {
     "default": [
@@ -9151,6 +12932,52 @@
    "cinemagraph",
    "ui"
   ],
+  "file": "src/motions/ui/browser-mockup.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": true,
+  "imageProps": [
+   "heroSrc"
+  ],
+  "takesText": true,
+  "textProps": [
+   "brand",
+   "url",
+   "nav",
+   "headline",
+   "subtitle",
+   "ctas",
+   "logos",
+   "features"
+  ],
+  "colorProps": [
+   "ink",
+   "paper",
+   "gradFrom",
+   "gradTo",
+   "backdrop"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "light",
+   "ui"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "star-glint",
+   "confetti-burst",
+   "mask-rise-title"
+  ],
+  "notes": "heroSrc = your real screenshot or hero art.",
   "props": {
    "brand": {
     "default": "Lumen",
@@ -9279,6 +13106,41 @@
    "hit",
    "connect"
   ],
+  "file": "src/motions/ui/card-fan.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "cards",
+   "labels"
+  ],
+  "colorProps": [
+   "background",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "dark",
+   "ui",
+   "playful"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "sparkle-burst",
+   "number-counter",
+   "comic-burst"
+  ],
   "props": {
    "mode": {
     "default": "hand",
@@ -9393,6 +13255,42 @@
    "ui",
    "conversation"
   ],
+  "file": "src/motions/ui/chat-bubbles.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "messages",
+   "thoughtCaption",
+   "verdict"
+  ],
+  "colorProps": [
+   "verdictColor",
+   "background"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "dark",
+   "playful",
+   "ui"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "emote-pop",
+   "starfield-night",
+   "box-bot"
+  ],
   "props": {
    "messages": {
     "default": [
@@ -9486,6 +13384,51 @@
    "ui",
    "product",
    "explainer"
+  ],
+  "file": "src/motions/ui/sms-thread.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": true,
+  "textProps": [
+   "messages",
+   "contact",
+   "contactSub",
+   "kicker",
+   "title",
+   "subtitle",
+   "badge"
+  ],
+  "colorProps": [
+   "background",
+   "paper",
+   "screen",
+   "ink",
+   "accent",
+   "mint"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "dark",
+   "ui"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "film-look",
+   "number-counter",
+   "confetti-burst"
   ],
   "props": {
    "messages": {
@@ -9608,6 +13551,48 @@
    "before-after",
    "layout",
    "presentation"
+  ],
+  "file": "src/motions/ui/split-compare.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": true,
+  "imageProps": [
+   "image"
+  ],
+  "takesText": true,
+  "textProps": [
+   "headline",
+   "subheadline",
+   "footnote",
+   "left",
+   "right"
+  ],
+  "colorProps": [
+   "background",
+   "headlineColor",
+   "textColor",
+   "dividerColor"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "dark",
+   "photo",
+   "editorial"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "mask-rise-title",
+   "film-look",
+   "callout-labels"
   ],
   "props": {
    "background": {

@@ -5,3 +5,7 @@ analysis/frames/
 sample/
 *.log
 specs/built/
+dist/
+examples/**/node_modules/
+examples/**/dist/
+examples/**/screenshots/

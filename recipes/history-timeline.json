@@ -1,0 +1,66 @@
+{
+  "id": "history-timeline",
+  "title": "History timeline dial",
+  "useFor": "A company history, product versions or \"how we got here\" timeline: a blueprint dial turns one notch per era while the year rolls.",
+  "format": "landscape",
+  "duration": 240,
+  "background": "#090A0F",
+  "tags": [
+    "history",
+    "timeline",
+    "era",
+    "years",
+    "roadmap",
+    "company",
+    "blueprint",
+    "dark"
+  ],
+  "web": {
+    "loop": "once"
+  },
+  "layers": [
+    {
+      "motion": "era-dial",
+      "role": "subject",
+      "props": {
+        "eras": [
+          {
+            "label": "First prototype",
+            "year": "2019",
+            "icon": "plan"
+          },
+          {
+            "label": "Public beta",
+            "year": "2021",
+            "icon": "computer"
+          },
+          {
+            "label": "1.0 launch",
+            "year": "2023",
+            "icon": "monitor"
+          },
+          {
+            "label": "Worldwide",
+            "year": "2026",
+            "icon": "network"
+          }
+        ],
+        "stepFrames": 50
+      }
+    },
+    {
+      "motion": "film-look",
+      "role": "frame",
+      "props": {
+        "overlay": true,
+        "grain": 0.06,
+        "vignette": 0.3,
+        "flare": false,
+        "letterbox": "off",
+        "bloom": 0,
+        "fringe": 0
+      }
+    }
+  ],
+  "notes": "Replace era-dial.eras (label, year, icon: plan | press | book | computer | monitor | network). stepFrames × eras ≈ duration."
+}

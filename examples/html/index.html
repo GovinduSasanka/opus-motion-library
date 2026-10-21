@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tidepool - Opus Motion in plain HTML</title>
+    <!--
+      Plain HTML / WordPress / Vue / Svelte: one script tag, then <opus-motion> anywhere.
+      Build it first in the library:  npm run build:lib   (writes dist/opus-motion.element.js)
+      Serve this repo root (node examples/serve.mjs) and open http://localhost:5055/examples/html/
+      asset-base="/public" tells motions where the library's public/ folder is served (images like demo/*.jpg).
+    -->
+    <script src="/dist/opus-motion.element.js" defer></script>
+    <style>
+      :root { --ink: #04121c; --paper: #eaf6f8; --accent: #6fe3d6; }
+      * { box-sizing: border-box; }
+      body { margin: 0; font-family: Georgia, 'Times New Roman', serif; background: var(--ink); color: var(--paper); }
+      .hero { position: relative; min-height: 88vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
+      .hero .content { position: relative; z-index: 1; padding: 0 24px; text-shadow: 0 2px 24px rgba(0, 20, 40, .6); }
+      .hero h1 { font-size: clamp(48px, 8vw, 112px); font-weight: 400; letter-spacing: .18em; margin: 0 0 12px; }
+      .hero p { font-style: italic; font-size: 20px; color: #bfe3ea; margin: 0; }
+      section { padding: 96px 8vw; display: grid; grid-template-columns: 1fr 1.3fr; gap: 56px; align-items: center; }
+      section.alt { background: #071b27; grid-template-columns: 1.3fr 1fr; }
+      h2 { font-size: 38px; font-weight: 400; margin: 0 0 12px; }
+      p.body { color: #a9c9d2; line-height: 1.6; font-family: system-ui, sans-serif; }
+      .card { border-radius: 16px; overflow: hidden; box-shadow: 0 24px 70px rgba(0, 0, 0, .5); }
+      code { font-size: 13px; color: var(--accent); }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <!-- full-bleed background: the motion's own transparent-capable look, no pointer events -->
+      <opus-motion motion="caustics-godrays" background asset-base="/public"></opus-motion>
+      <div class="content">
+        <h1>TIDEPOOL</h1>
+        <p>field notes from the shallow sea</p>
+      </div>
+    </header>
+
+    <section>
+      <div>
+        <h2>A neon sign, live</h2>
+        <p class="body">A single motion with your own text and colours: <code>&lt;opus-motion motion="neon-sign" props='{...}'&gt;</code>. It starts when scrolled into view.</p>
+      </div>
+      <div class="card">
+        <opus-motion
+          motion="neon-sign"
+          props='{"lines":[{"text":"TIDEPOOL","color":"#7FE7FF","glow":"#2B8FB5"},{"text":"open late","color":"#FFC27A","glow":"#B5733C","size":0.5}],"pullBack":false}'
+          loop="crossfade"
+        ></opus-motion>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="card">
+        <!-- a recipe with a photo from the library's public/ folder (resolved through asset-base) -->
+        <opus-motion recipe="testimonial-quote" asset-base="/public" loop="once"
+          overrides='{"story-caption-box":{"items":[{"text":"\"The best morning of the whole trip.\""},{"text":"- R. Okafor, visitor"}]}}'></opus-motion>
+      </div>
+      <div>
+        <h2>A recipe, retold</h2>
+        <p class="body">Recipes are ready-made layer stacks. <code>overrides</code> swaps in your own words without touching the rest of the mix.</p>
+      </div>
+    </section>
+  </body>
+</html>
