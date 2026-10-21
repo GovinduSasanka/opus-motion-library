@@ -200,3 +200,9 @@ background warn that the alpha will be opaque. Verify alpha with
   Premiere, Resolve, AE) — e.g. `confetti-burst`, `embers`, `star-glint`, `film-look`, `hud-chrome`, `blur-in-title`
   with `backdrop:"none"`.
 - PowerPoint on Windows: mp4 (alpha is not supported); put the overlay over a matching slide background colour instead.
+
+## Known issue: pixel filters in small players
+Motions that use the SVG pixelate filter (`aurora` with its default `pixelSize: 6`, `pixel-dither`, `comic-halftone`)
+can render blank or partly blank in Chrome when a 1920-wide composition is displayed scaled down to roughly 300–500 px.
+Render the player at its on-screen size instead (`width`/`height` close to the element's CSS size — the showcase site
+does this), or pass `pixelSize: 0` to `aurora`. Exports and full-size players are not affected.
