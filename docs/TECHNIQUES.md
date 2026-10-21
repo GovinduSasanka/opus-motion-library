@@ -232,7 +232,7 @@ footage-only effects (painted characters, photoreal renders) noted in the analys
 | `glitch-slice` | `glitch-image` |
 | `flash-to-cream` | transition:flash |
 | `counter-ticker` | number-counter |
-| `chat-bubble-pop` | `chat-bubbles` |
+| `chat-bubble-pop` | `chat-bubbles`, `sms-thread` |
 | `speech-balloon-pop` | `chat-bubbles` |
 | `comment-chip-stagger` | `chat-bubbles` |
 | `thought-bubble-sequence` | `chat-bubbles` |

@@ -67,6 +67,29 @@ Each scene lasts `max(min, lead + speech + pad)` frames; narration is generated 
 (`cli/voice.py`), checked with Whisper (`cli/voice-check.py`), captioned in short chunks, and the music ducks under the voice.
 See `storyboards/demo.json` for a full 8-minute example.
 
+## Use it in your project
+
+Copied or linked into another project? Start with **[AGENTS.md](AGENTS.md)** (written for the AI agent doing the work),
+[docs/CHOOSING.md](docs/CHOOSING.md) (goal → motions, recipes, pairings) and [docs/INTEGRATION.md](docs/INTEGRATION.md) (per stack).
+
+```bash
+node cli/mgl.mjs suggest "dark hero for an AI tool with a stats section"   # ranked recipes + motions, why, props
+node cli/mgl.mjs recipes                                                  # 19 ready-made mixes (recipes/previews/)
+node cli/mgl.mjs recipe hero-aurora-night --overrides '{"blur-in-title":{"title":"ACME"}}'
+node cli/mgl.mjs add product-launch number-counter --to ../my-video/src   # copy just that source into a Remotion / React project
+node cli/mgl.mjs export confetti-burst --as webm-alpha                     # mp4 | webm-alpha | prores-alpha | gif | png | poster
+npm run build:lib                                                         # dist/: ESM (+ code-split /web), <opus-motion> element, types
+```
+```tsx
+import {MotionBackground, MotionPlayer} from 'opus-motion-library/web';   // React / Next.js ('use client') / Vite
+<MotionBackground recipe="hero-aurora-night" style={{minHeight: '90vh'}}><h1>Your headline</h1></MotionBackground>
+```
+```html
+<script src="opus-motion.element.js" defer></script>                      <!-- plain HTML, WordPress, Vue, Svelte -->
+<opus-motion recipe="hero-aurora-night" background></opus-motion>
+```
+Working, screenshot-verified examples: `examples/react-vite/`, `examples/html/`, `examples/remotion-project/`.
+
 ## How it was built
 
 1. **Analysis** — each of the 23 sample videos was cut into contact sheets (`analysis/sheets/`), then measured with
@@ -84,7 +107,10 @@ src/core/          easing (measured curves), seeded noise, stage (u-units, camer
 src/motions/       one file per motion, grouped by family
 src/transitions.tsx   33 transition presentations (docs/TRANSITIONS.md)
 src/Compose.tsx    multi-scene composer: scenes, transitions, overlays, captions, music cues, sfx
-cli/mgl.mjs        list | info | render | still | compose | gallery
+cli/mgl.mjs        list | info | render | still | compose | gallery | suggest | recipes | recipe | add | export
+src/web/           MotionPlayer / MotionMix / MotionBackground (Remotion Player) and the <opus-motion> element
+recipes/           ready-made mixes (layer stacks / multi-scene specs) + previews
+examples/          react-vite, html, remotion-project (integration examples)
 cli/direct.mjs     storyboard -> narrated, captioned, mastered video
 cli/voice.py       local Qwen3-TTS narration;  cli/voice-check.py  Whisper speech check
 analysis/          contact sheets + reverse-engineering notes for each sample video

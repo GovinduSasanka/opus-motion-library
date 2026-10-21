@@ -19,19 +19,66 @@ const order = ['text', 'transition', 'shape', 'fx', 'environment', 'character', 
 const cats = [...new Set(catalog.map((m) => m.category))].sort((a, b) => (order.indexOf(a) + 99) % 99 - (order.indexOf(b) + 99) % 99);
 let md = `# Motion catalog\n\n${catalog.length} motions. Generated from \`catalog.json\` by \`cli/gen-docs.mjs\` — do not edit by hand.\n\n`;
 md += `Render any of them: \`node cli/mgl.mjs render <id> [--props '{...}'] [--format landscape|square|portrait]\`. Previews live in \`gallery/\`.\n\n`;
-md += cats.map((c) => `- [${c}](#${c}) (${catalog.filter((m) => m.category === c).length})`).join('\n') + '\n\n';
+md += `Choosing: \`node cli/mgl.mjs suggest "<what you need>"\` and [CHOOSING.md](CHOOSING.md). Using them in a website / app / other project: [INTEGRATION.md](INTEGRATION.md).\n\n`;
+md += cats.map((c) => `- [${c}](#${c}) (${catalog.filter((m) => m.category === c).length})`).join('\n') + '\n- [recipes](#recipes) (ready-made mixes)\n\n';
+// quick capability index
+const yes = (f) => catalog.filter(f).map((m) => `\`${m.id}\``).join(', ');
+md += `## Capability index\n\n| capability | motions |\n|---|---|\n`;
+md += `| overlay (transparent background — put it on top of other motions or your page) | ${yes((m) => m.overlay)} |\n`;
+md += `| seamless loop | ${yes((m) => m.loopable)} |\n`;
+md += `| takes your image (\`src\` / \`images\` / \`heroSrc\`) | ${yes((m) => m.takesImage)} |\n`;
+md += `| heavy (three.js / WebGL — prefer an exported video on mobile web) | ${yes((m) => m.weight === 'heavy')} |\n\n`;
+// recipes
+const recipeDir = path.join(root, 'recipes');
+const recipes = fs.existsSync(recipeDir) ? fs.readdirSync(recipeDir).filter((f) => f.endsWith('.json')).sort().map((f) => JSON.parse(fs.readFileSync(path.join(recipeDir, f), 'utf8'))) : [];
+if (recipes.length) {
+  md += `## recipes\n\nReady-made mixes in \`recipes/\` — render with \`node cli/mgl.mjs recipe <id>\`, play on the web with \`<MotionBackground recipe="<id>">\` / \`<MotionMix recipe="<id>">\` / \`<opus-motion recipe="<id>">\`.\n\n`;
+  for (const r of recipes) {
+    md += `### \`${r.id}\` — ${r.title} (${r.format})\n\n`;
+    if (fs.existsSync(path.join(recipeDir, 'previews', `${r.id}.jpg`))) md += `![${r.id}](../recipes/previews/${r.id}.jpg)\n\n`;
+    const mixOf = r.layers ? r.layers.map((l) => `\`${l.motion}\`${l.role ? ` (${l.role})` : ''}`).join(' + ') : r.scenes.map((s) => (s.motion ? `\`${s.motion}\`` : (s.layers ?? []).map((l) => `\`${l.motion}\``).join(' + '))).join(' → ');
+    md += `${r.useFor}\n\n**Mix:** ${mixOf}  \n${r.notes ? `**Customise:** ${r.notes}\n` : ''}\n`;
+  }
+}
+md += `## motions by category\n\n`;
 for (const c of cats) {
   md += `## ${c}\n\n`;
   for (const m of catalog.filter((x) => x.category === c)) {
     md += `### \`${m.id}\` — ${m.title}\n\n`;
     if (fs.existsSync(path.join(root, 'gallery', `${m.id}.jpg`))) md += `![${m.id}](../gallery/${m.id}.jpg)\n\n`;
-    md += `${m.description}\n\n**Use for:** ${m.useFor}  \n**Rebuilt from:** ${m.source.join(', ')}  \n**Default length:** ${m.durationInFrames} frames (${(m.durationInFrames / 30).toFixed(1)} s @ 30 fps)\n\n`;
+    md += `${m.description}\n\n**Use for:** ${m.useFor}  \n**Rebuilt from:** ${m.source.join(', ')}  \n**Default length:** ${m.durationInFrames} frames (${(m.durationInFrames / 30).toFixed(1)} s @ 30 fps)${m.bestLength && m.bestLength !== m.durationInFrames ? ` · best ${m.bestLength}` : ''}\n\n`;
+    if (m.roles) {
+      const caps = [
+        m.overlay ? `overlay (\`${JSON.stringify(m.overlayProps)}\`)` : 'paints its own background',
+        m.loopable ? 'seamless loop' : null,
+        m.takesText ? `text: ${m.textProps.map((k) => `\`${k}\``).join(', ')}` : null,
+        m.takesImage ? `image: ${m.imageProps.map((k) => `\`${k}\``).join(', ')}` : null,
+        `weight: ${m.weight}`,
+      ].filter(Boolean);
+      md += `**Roles:** ${m.roles.join(', ')} · **Mood:** ${m.mood.join(', ') || '—'}  \n**Capabilities:** ${caps.join(' · ')}  \n`;
+      if (m.pairsWith?.length) md += `**Pairs well with:** ${m.pairsWith.map((p) => `\`${p}\``).join(', ')}  \n`;
+      if (m.notes) md += `**Note:** ${m.notes}  \n`;
+      if (m.avoid) md += `**Avoid:** ${m.avoid}  \n`;
+      md += '\n';
+    }
     md += `| prop | default | notes |\n|---|---|---|\n`;
     for (const [k, v] of Object.entries(m.props)) md += `| \`${k}\` | \`${esc(short(v.default))}\` | ${esc(v.doc)} |\n`;
     md += '\n';
   }
 }
 fs.writeFileSync(path.join(root, 'docs', 'CATALOG.md'), md);
+
+// ---------- CHOOSING.md "pairs well with" table (between markers)
+const choosingFile = path.join(root, 'docs', 'CHOOSING.md');
+if (fs.existsSync(choosingFile)) {
+  const c = fs.readFileSync(choosingFile, 'utf8');
+  const rows = catalog
+    .filter((m) => m.pairsWith?.length)
+    .map((m) => `| \`${m.id}\` | ${m.roles.join(', ')} | ${m.pairsWith.map((x) => `\`${x}\``).join(', ')} | ${esc(m.avoid ?? m.notes ?? '')} |`)
+    .join('\n');
+  const table = `<!-- pairs:start -->\n| motion | roles | pairs well with | note |\n|---|---|---|---|\n${rows}\n<!-- pairs:end -->`;
+  fs.writeFileSync(choosingFile, c.replace(/<!-- pairs:start -->[\s\S]*<!-- pairs:end -->/, table));
+}
 
 // ---------- TECHNIQUES.md
 // PLAN.md rows map motion ids to "(vN technique-id, ...)" lists; analysis docs define the technique ids.
