@@ -126,3 +126,28 @@ for (const f of vids) {
 tmd = tmd.replace('# Technique map\n\n', `# Technique map\n\n**${total} techniques documented across ${vids.length} videos; ${mapped} are rebuilt by a library motion, transition or core helper; the rest are footage-only (painted characters / photoreal 3D props) and noted as such.**\n\n`);
 fs.writeFileSync(path.join(root, 'docs', 'TECHNIQUES.md'), tmd);
 console.log(`docs: CATALOG.md (${catalog.length} motions), TECHNIQUES.md (${mapped}/${total} techniques mapped)`);
+
+// ---------- README catalogue (between <!-- catalogue:start --> and <!-- catalogue:end -->)
+{
+  const readmePath = path.join(root, 'README.md');
+  const readme = fs.readFileSync(readmePath, 'utf8');
+  const a = readme.indexOf('<!-- catalogue:start -->');
+  const b = readme.indexOf('<!-- catalogue:end -->');
+  if (a >= 0 && b > a) {
+    const famName = {text: 'Type', transition: 'Transitions', shape: 'Shapes & line art', fx: 'Effects & accents', environment: 'Worlds & weather', character: 'Characters', data: 'Data', ui: 'Interfaces', hud: 'HUD & blueprints', image: 'Image looks', '3d': 'Real 3D'};
+    const fams = Object.keys(famName).filter((c) => catalog.some((m) => m.category === c));
+    let cat = '';
+    fams.forEach((c, k) => {
+      const ms = catalog.filter((m) => m.category === c);
+      cat += `<details${k === 0 ? ' open' : ''}><summary><b>${famName[c]}</b> (${ms.length})</summary>\n\n| preview | motion | what it does |\n|---|---|---|\n`;
+      for (const m of ms) {
+        const badges = [m.overlay ? '`overlay`' : '', m.takesImage ? '`your image`' : '', m.loopable ? '`loops`' : '', m.weight === 'heavy' ? '`3D`' : ''].filter(Boolean).join(' ');
+        const img = fs.existsSync(path.join(root, 'gallery', `${m.id}.jpg`)) ? `<img src="gallery/${m.id}.jpg" width="260" alt="${m.id}"/>` : '';
+        cat += `| ${img} | **\`${m.id}\`**<br/>${esc(m.title)} ${badges} | ${esc(m.description)} |\n`;
+      }
+      cat += '\n</details>\n\n';
+    });
+    fs.writeFileSync(readmePath, readme.slice(0, a + '<!-- catalogue:start -->'.length) + '\n' + cat + readme.slice(b));
+    console.log(`docs: README catalogue (${catalog.length} motions)`);
+  }
+}

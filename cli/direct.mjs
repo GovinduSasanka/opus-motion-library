@@ -309,6 +309,12 @@ meta.forEach((m, i) => {
 });
 for (const o of sb.overlays ?? []) overlays.push({motion: o.motion, from: o.from ?? 0, duration: o.duration ?? t - (o.from ?? 0), props: o.props ?? {}, blend: o.blend, opacity: o.opacity});
 
+// audio is optional (not shipped in the repo): drop any music bed or sound effect whose file is missing
+const have = (f) => fs.existsSync(path.join(root, 'public', f));
+const missingAudio = new Set([...musicCues.map((m) => m.file), ...sfx.map((x) => x.file)].filter((f) => !have(f)));
+if (missingAudio.size) console.log(`audio: skipping ${missingAudio.size} missing file(s) (run node cli/fetch-audio.mjs): ${[...missingAudio].join(', ')}`);
+for (const arr of [musicCues, sfx]) for (let k = arr.length - 1; k >= 0; k--) if (missingAudio.has(arr[k].file)) arr.splice(k, 1);
+
 const spec = {
   width: W,
   height: H,

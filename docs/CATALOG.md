@@ -523,6 +523,8 @@ Huge thin-mono counter that ticks or odometer-rolls through dwell keyframes, wit
 
 ### `scene-tag` — Scene index tag
 
+![scene-tag](../gallery/scene-tag.jpg)
+
 Small glass pill in a corner with an index number, a hairline and a name; slides in, holds, fades. Transparent overlay.
 
 **Use for:** Labelling items in showreels, galleries, portfolios, product feature tours and step-by-step videos.  
@@ -1689,6 +1691,8 @@ A six-spike specular "ting" with soft bloom flashes on a blade tip, shimmers thr
 
 ### `mix` — Mix (layer motions together)
 
+![mix](../gallery/mix.jpg)
+
 Stacks any motions in one frame: backdrop + subject + text + accent, each with its own timing, opacity and blend mode.
 
 **Use for:** Building a richer shot out of several motions at once (e.g. aurora sky + neon sign + embers, or a photo look + callouts + captions).  
@@ -2842,6 +2846,8 @@ Chat bubbles and comment / prompt chips pop in one by one around a box-bot, a sp
 | `background` | `"#12031f"` |  |
 
 ### `sms-thread` — SMS thread on a phone
+
+![sms-thread](../gallery/sms-thread.jpg)
 
 A phone rises in beside a headline; a missed-call alert, typing dots and SMS bubbles pop in one by one and the thread scrolls like a real chat, with day notes and a verdict badge springing in under the headline.
 

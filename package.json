@@ -1,8 +1,7 @@
 {
   "name": "opus-motion-library",
-  "private": true,
-  "version": "1.0.0",
-  "description": "Reusable, parameterized motion-graphics library reverse-engineered from 23 Opus 5.5 videos. Remotion + React + SVG + three.js.",
+  "version": "1.1.0",
+  "description": "109 parameterised motion graphics for videos, websites and apps — titles, transitions, weather, characters, data, HUDs, image looks and 3D. Remotion + React + SVG + three.js. AI-agent ready.",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -86,5 +85,37 @@
     "remotion": "4.0.532",
     "three": "0.169.0",
     "typescript": "^5.6.0"
+  },
+  "keywords": [
+    "remotion",
+    "motion-graphics",
+    "animation",
+    "react",
+    "video",
+    "svg",
+    "threejs",
+    "motion-design",
+    "transitions",
+    "after-effects",
+    "kinetic-typography",
+    "web-animation",
+    "ai-agents",
+    "claude",
+    "generative",
+    "video-generation",
+    "typescript"
+  ],
+  "author": "Govindu Sasanka (https://github.com/GovinduSasanka)",
+  "license": "MIT",
+  "homepage": "https://govindusasanka.github.io/opus-motion-library/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GovinduSasanka/opus-motion-library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GovinduSasanka/opus-motion-library/issues"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }

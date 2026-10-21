@@ -1,0 +1,14 @@
+name: Motion request
+description: Suggest a new motion, recipe or transition
+labels: [motion-request]
+body:
+  - type: textarea
+    id: look
+    attributes: {label: What should it look like?, description: "Describe it, or link a reference (video timestamp, GIF, site)"}
+    validations: {required: true}
+  - type: textarea
+    id: use
+    attributes: {label: What would you use it for?}
+  - type: textarea
+    id: props
+    attributes: {label: Props you would want to control, placeholder: "text, colours, speed, count…"}

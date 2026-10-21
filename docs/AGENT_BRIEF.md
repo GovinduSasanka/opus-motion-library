@@ -10,7 +10,7 @@ Project root: the repository root.
 2. `docs/PLAN.md` — the whole library; your rows tell you which source techniques each motion must cover.
 3. The analysis docs `analysis/videoN.md` — open the subsections named in your assignment (search by technique id).
    They have measured timings, easing, colours and implementation recipes. Reproduce those numbers.
-4. Look at the source: contact sheets `analysis/sheets/videoN/s_XX.jpg` (1 fps, timestamped) and extracted frames in
+4. Look at the source: contact sheets `analysis/sheets/videoN/s_XX.jpg` (local only) (1 fps, timestamped) and extracted frames in
    `analysis/frames/videoN/`. Pull extra frames if needed: `ffmpeg -v error -ss T -i sample/videoN.mp4 -frames:v 1 -vf scale=960:-2 out/check/x.jpg`.
 5. Existing code to reuse: `src/core/*` (ease, random, stage, shapes, fonts, types), and finished motions in
    `src/motions/text/` and `src/motions/shape/sonar-ping.tsx` as style references.

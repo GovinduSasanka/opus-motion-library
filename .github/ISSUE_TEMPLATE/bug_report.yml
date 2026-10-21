@@ -1,0 +1,18 @@
+name: Bug report
+description: Something renders wrong, crashes, or a command fails
+labels: [bug]
+body:
+  - type: input
+    id: motion
+    attributes: {label: Motion / command, placeholder: "e.g. depth-descent, mgl render, MotionPlayer"}
+    validations: {required: true}
+  - type: textarea
+    id: what
+    attributes: {label: What happened, description: "Include props / spec JSON and a screenshot if you can"}
+    validations: {required: true}
+  - type: textarea
+    id: expected
+    attributes: {label: What you expected}
+  - type: input
+    id: env
+    attributes: {label: Environment, placeholder: "OS, Node version, browser (for web players)"}
