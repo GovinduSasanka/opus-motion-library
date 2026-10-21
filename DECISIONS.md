@@ -98,3 +98,44 @@ Needs you / for the other agent:
   propDocs (I set `overlayProps` for it in `docs/motion-meta.json`; the recipe `social-short-captions` relies on it).
 - (owner) Decide whether `dist/` should be committed for HTML-only hosts that have no Node.
 - (owner) Remotion company licence if this is used commercially by a company above Remotion's free tier.
+
+## Showcase site + launch media (2026-10-22)
+
+**What**: `site/` — Vite + React + TS showcase, deployed by `.github/workflows/pages.yml` to
+https://govindusasanka.github.io/opus-motion-library/ (base `/opus-motion-library/`, override with `SITE_BASE`).
+Pages: landing (live hero, why strip, highlight film, motion wall, quickstart, AI-agent section, live recipes),
+`#/gallery` (+ `#/gallery/<id>` detail drawer with format toggle, live JSON props editor, props table, CLI / React /
+HTML / Remotion-spec snippets), `#/recipes`, `#/transitions`, `#/docs`. Run: `cd site && npm install && npm run dev`
+(after `npm run build:lib` at the root); production: `npm run build`, output `site/dist`.
+
+- **Dogfoods `opus-motion-library/web` via `file:..`** (same as `examples/react-vite`) rather than the element bundle:
+  per-motion code splitting (only the hero's two motions load on the landing page, ~1 MB first view incl. fonts),
+  and the React components give the editor live prop updates. CI builds `dist/` first (`npm run build:lib`).
+- **Hash routing** (`#/gallery/aurora`) so GitHub Pages needs no 404 rewrite; deep links work.
+- **Live-player budget**: the hero, plus one hovered card (a global hover slot) or the open detail panel. Thumbnails
+  are the middle frame of `gallery/<id>.jpg` (CSS background-position), loaded by IntersectionObserver.
+  Reduced motion → still frames (library default) and no hover playback.
+- **Players render at the box's device-pixel size**, not 1920×1080 (`Sized` in `site/src/components/live.tsx`).
+  Found while verifying: the library's SVG `PixelateFilter` (aurora's default `pixelSize: 6`, pixel-dither,
+  comic-halftone…) renders blank / partial in Chrome when a 1920-wide composition is displayed scaled down
+  (e.g. 300–500 px wide). Rendering the composition near 1:1 avoids it and is cheaper. **Library follow-up**: users
+  of `MotionPlayer` at small sizes will hit this too — consider making `PixelateFilter` scale-robust or documenting
+  "pass width/height near the display size" in INTEGRATION.md.
+- Assets: `site/copy-assets.mjs` copies `public/demo`, `gallery/`, `recipes/previews/` into `site/public` at build
+  time (gitignored); no music / sfx / voice. Generated missing gallery strips for `mix`, `scene-tag`, `sms-thread`.
+- Site install in CI: `npm ci || npm install` — the `file:..` link records the library's package.json in
+  `site/package-lock.json`, so a version bump at the root would otherwise make `npm ci` in `site/` fail.
+- Remotion's licence note still prints once in the console (warning, not an error); `acknowledgeRemotionLicense` was
+  not passed because that is the owner's call.
+- **Media**: `site/public/media/highlight.mp4` — 73.7 s cut of `out/demo.mp4` (16 segments: cold open, montage + title,
+  bouncing/eyes/hex, city fireworks, bathysphere, giant eye, crowd, image looks, product UI, wireframe ship,
+  "108 motions" card, after-hours mix, end card), 1280×720 H.264 CRF 28 + AAC 128k, faststart, **8.8 MB**;
+  `poster.jpg` from the end card. `docs/media/preview.gif` — 11.7 s, 720 px, 12 fps, 128-colour palette, **5.7 MB**
+  (replaces the 19.8 MB draft that was committed earlier). `docs/media/social-preview.png` 1280×640 (also used as
+  the site's og:image at `media/social-preview.png`).
+- Verified with puppeteer-core + Remotion's Chrome headless shell, `site/dist` served under `/opus-motion-library/`:
+  landing, gallery (+ detail), recipes (+ detail), transitions, docs at 1440 and 390 px — no horizontal overflow,
+  no console errors; hero / detail players change between shots 1 s apart; props editor re-renders live; Esc closes.
+
+**Needs you / main agent**: enable Pages (Settings → Pages → Source: GitHub Actions) and push `main`; upload
+`docs/media/social-preview.png` in Settings → General → Social preview; link the site + GIF from README.

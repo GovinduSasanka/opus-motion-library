@@ -64,6 +64,16 @@ const STEPS: {title: string; text: string; code: string; lang: 'bash' | 'tsx'}[]
 
 const AGENT_PROMPT = `Use ${REPO.replace('https://', '')} — read its AGENTS.md, then give our landing page an animated hero in our brand colours (navy #0B1020, mint #5EF0B5) with a stats counter below it.`;
 
+/** in-page link that also works when the hash is already set (scrolls every time) */
+const jump = (id: string) => (e: React.MouseEvent) => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  e.preventDefault();
+  history.replaceState(null, '', `#/${id}`);
+  const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  el.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block: 'start'});
+};
+
 const Film: React.FC = () => {
   const v = useRef<HTMLVideoElement>(null);
   const [started, setStarted] = useState(false);
@@ -129,10 +139,10 @@ export const Landing: React.FC = () => (
         <a className="btn btn-gold" href={REPO} target="_blank" rel="noreferrer">
           <GitHubIcon size={16} /> Star on GitHub
         </a>
-        <a className="btn btn-ghost" href="#/quickstart">
+        <a className="btn btn-ghost" href="#/quickstart" onClick={jump('quickstart')}>
           Get started
         </a>
-        <a className="btn btn-link" href="#/film">
+        <a className="btn btn-link" href="#/film" onClick={jump('film')}>
           Watch the film <span aria-hidden>→</span>
         </a>
       </div>
