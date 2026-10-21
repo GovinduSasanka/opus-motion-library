@@ -6,15 +6,19 @@ and rebuilt as a Remotion component you can call by name with your own text, col
 
 ![Every motion in the library](docs/library-overview.jpg)
 
-- **106 motions** in 11 families: text, shapes, fx, environments, characters, data, UI, HUD, images, 3D (+ a transition reel).
+- **109 motions** in 12 families: text, shapes, fx, environments, characters, data, UI, HUD, images, 3D, mix (+ a transition reel).
+- **19 recipes** — ready, previewed mixes (hero backgrounds, launch intro, stats, testimonial, loader, social short…).
+- **Use it anywhere** — render video, play live in React / Next.js / plain HTML (`MotionPlayer`, `MotionBackground`, `<opus-motion>`), or export mp4 / webm-alpha / ProRes 4444 / GIF for apps and editors. AI agents: start at [AGENTS.md](AGENTS.md).
 - **33 scene transitions** (iris, ink blob, torn paper, page turn, whiteout, glitch, ripple, spiral, liquid wave…).
 - **Resolution independent** — every motion renders at 16:9, 1:1 and 9:16.
 - **Deterministic** — seeded randomness; the same props always give the same frames.
 - **Narrated videos from a storyboard** — local Qwen3-TTS voice, captions, ducked music, loudness mastering. No cloud services.
 
-The demo film — **[download demo.mp4 (8 min, 1080p) from the v1.0.0 release](https://github.com/GovinduSasanka/opus-motion-library/releases/tag/v1.0.0)** — walks through every motion as one connected story — a single
-dot that learns to move, makes things, flies as a paper crane, dives into the deep, meets characters, becomes pictures,
-data and words — and ends with a full mix of everything.
+**Demo film** — **[watch / download (8 min, 1080p)](https://github.com/GovinduSasanka/opus-motion-library/releases/tag/v1.1.0)**:
+a premium showreel of every motion. A cinematic cold open, then eleven chapters (Motion, Form, Worlds, The Deep,
+Characters, Images, Data & Interfaces, Systems, Dimension, Type, Mix), each motion labelled with its index, captions
+that light up word by word with the narration and sit in the calmest part of each frame, cuts on the music's beats,
+and a full-mix finale. Rebuild it with `python storyboards/build-demo.py && node cli/direct.mjs storyboards/demo.json`.
 
 ## Quick start
 
@@ -63,8 +67,12 @@ node cli/mgl.mjs compose specs/my-video.json --out out/my-video.mp4
 ```bash
 node cli/direct.mjs storyboards/my-story.json            # voice -> timing -> captions -> render -> master
 ```
-Each scene lasts `max(min, lead + speech + pad)` frames; narration is generated locally with Qwen3-TTS
-(`cli/voice.py`), checked with Whisper (`cli/voice-check.py`), captioned in short chunks, and the music ducks under the voice.
+Each scene lasts `max(min, lead + speech + pad)` frames, nudged so cuts land on the music's beats (`"music": {"snap": true}`,
+beat grids from `cli/beats.py`). Narration is generated locally with Qwen3-TTS (`cli/voice.py`); Whisper
+(`cli/voice-check.py`) checks it and aligns every word, so `"captionStyle": {"variant": "premium"}` captions light up word
+by word in sync. Caption placement and the optional index tags (`"tag": true`) are chosen per scene from rendered stills
+(`cli/zones.py`): captions take the calmer band and a contrasting tone so they never sit on a motion's own text.
+Scenes can also be `"layers"` (a mix of several motions).
 See `storyboards/demo.json` for a full 8-minute example.
 
 ## Use it in your project

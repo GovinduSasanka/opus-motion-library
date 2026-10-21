@@ -1,557 +1,132 @@
 [
  {
   "id": "s001",
-  "text": "Every motion starts with a single dot. It sends out a signal, and listens.",
+  "text": "Every story you have ever loved is made of motion.",
   "say": ""
  },
  {
   "id": "s002",
-  "text": "Then, something answers.",
+  "text": "Light.",
   "say": ""
  },
  {
   "id": "s003",
-  "text": "And one conversation becomes millions.",
+  "text": "Depth.",
   "say": ""
  },
  {
   "id": "s004",
-  "text": "This is the Opus Motion Library. Every motion in this film was taken apart from twenty three sample videos, and rebuilt as code you can reuse.",
+  "text": "Life.",
   "say": ""
  },
  {
   "id": "s005",
-  "text": "Chapter one. Learning to move.",
-  "say": ""
- },
- {
-  "id": "s006",
-  "text": "First, the dot learns to fall. It squashes when it lands, and stretches when it flies.",
-  "say": ""
- },
- {
-  "id": "s007",
-  "text": "It learns that nothing in nature moves in a straight line. Things ease in, and ease out.",
-  "say": ""
- },
- {
-  "id": "s008",
-  "text": "Frame by frame, or pose to pose.",
-  "say": ""
- },
- {
-  "id": "s009",
-  "text": "It learns follow through. Everything keeps moving after you stop.",
-  "say": ""
- },
- {
-  "id": "s010",
-  "text": "Arcs turn motion into shapes.",
-  "say": ""
- },
- {
-  "id": "s011",
-  "text": "Light and shadow give it volume.",
-  "say": ""
- },
- {
-  "id": "s012",
-  "text": "And then, it opens its eyes.",
-  "say": ""
- },
- {
-  "id": "s013",
-  "text": "A character is born. It hops, it paints, it rolls.",
-  "say": ""
- },
- {
-  "id": "s014",
-  "text": "Chapter two. Making things.",
-  "say": ""
- },
- {
-  "id": "s015",
-  "text": "With eyes come ideas. Lines become plans.",
-  "say": ""
- },
- {
-  "id": "s016",
-  "text": "Circles become geometry.",
-  "say": ""
- },
- {
-  "id": "s017",
-  "text": "Geometry becomes structure.",
+  "text": "And character.",
   "say": ""
  },
  {
   "id": "s018",
-  "text": "And structure starts to turn.",
+  "text": "This is Opus Motion. Over a hundred motions, ready for anything you make.",
   "say": ""
  },
  {
   "id": "s019",
-  "text": "Life doubles itself, again and again.",
-  "say": ""
- },
- {
-  "id": "s020",
-  "text": "It branches out.",
-  "say": ""
- },
- {
-  "id": "s021",
-  "text": "Ideas spread like heat.",
-  "say": ""
- },
- {
-  "id": "s022",
-  "text": "They bloom.",
-  "say": ""
- },
- {
-  "id": "s023",
-  "text": "They grow.",
-  "say": ""
- },
- {
-  "id": "s024",
-  "text": "Some of them, you fall in love with.",
-  "say": ""
- },
- {
-  "id": "s025",
-  "text": "And one plain sheet of paper becomes a crane.",
-  "say": ""
- },
- {
-  "id": "s026",
-  "text": "Chapter three. The journey.",
+  "text": "Chapter one. Motion.",
   "say": ""
  },
  {
   "id": "s027",
-  "text": "The crane takes flight over the valley.",
-  "say": ""
- },
- {
-  "id": "s028",
-  "text": "It finds a flock, and takes the last place in line.",
+  "text": "Until something opens its eyes.",
   "say": ""
  },
  {
   "id": "s029",
-  "text": "Over fields and oceans, deserts, mountains and cities.",
-  "say": ""
- },
- {
-  "id": "s030",
-  "text": "Riding the wind.",
-  "say": ""
- },
- {
-  "id": "s031",
-  "text": "Down by the pond, dragonflies dart and hover.",
-  "say": ""
- },
- {
-  "id": "s032",
-  "text": "Spring drifts by.",
-  "say": ""
- },
- {
-  "id": "s033",
-  "text": "Look closer, and everything swirls.",
-  "say": ""
- },
- {
-  "id": "s034",
-  "text": "Days slowly turn into nights.",
-  "say": ""
- },
- {
-  "id": "s035",
-  "text": "On the savanna, the grass sways in the dark.",
-  "say": ""
- },
- {
-  "id": "s036",
-  "text": "The stars come out.",
-  "say": ""
- },
- {
-  "id": "s037",
-  "text": "And the sun rises again.",
-  "say": ""
- },
- {
-  "id": "s038",
-  "text": "Then the weather turns.",
-  "say": ""
- },
- {
-  "id": "s039",
-  "text": "Storms roll in.",
+  "text": "Chapter two. Form.",
   "say": ""
  },
  {
   "id": "s040",
-  "text": "Winter comes.",
-  "say": ""
- },
- {
-  "id": "s041",
-  "text": "And the northern sky lights up.",
-  "say": ""
- },
- {
-  "id": "s042",
-  "text": "We gather around the fire.",
-  "say": ""
- },
- {
-  "id": "s043",
-  "text": "Until the lights of the city appear.",
-  "say": ""
- },
- {
-  "id": "s044",
-  "text": "And the whole city celebrates.",
+  "text": "And a flat sheet becomes a crane.",
   "say": ""
  },
  {
   "id": "s045",
-  "text": "Chapter four. Into the deep.",
-  "say": ""
- },
- {
-  "id": "s046",
-  "text": "Below the surface, light dances.",
-  "say": ""
- },
- {
-  "id": "s047",
-  "text": "We dive.",
-  "say": ""
- },
- {
-  "id": "s048",
-  "text": "Schools of fish sweep past.",
-  "say": ""
- },
- {
-  "id": "s049",
-  "text": "Deeper. Past the height of the Statue of Liberty. Past the Eiffel Tower. Down to where the light gives up.",
-  "say": ""
- },
- {
-  "id": "s050",
-  "text": "Tiny swimmers race toward a single point.",
-  "say": ""
- },
- {
-  "id": "s051",
-  "text": "And something down here is watching.",
-  "say": ""
- },
- {
-  "id": "s052",
-  "text": "Chapter five. Characters.",
-  "say": ""
- },
- {
-  "id": "s053",
-  "text": "Meet Box Bot. It walks, it looks around, it wonders.",
-  "say": ""
- },
- {
-  "id": "s054",
-  "text": "It gets surprised. It gets ideas.",
-  "say": ""
- },
- {
-  "id": "s055",
-  "text": "It gets frustrated.",
-  "say": ""
- },
- {
-  "id": "s056",
-  "text": "Things break.",
-  "say": ""
- },
- {
-  "id": "s057",
-  "text": "And it fixes them.",
-  "say": ""
- },
- {
-  "id": "s058",
-  "text": "Sometimes with a little too much power.",
-  "say": ""
- },
- {
-  "id": "s059",
-  "text": "Bonk. Pop.",
-  "say": ""
- },
- {
-  "id": "s060",
-  "text": "Things get dramatic.",
-  "say": ""
- },
- {
-  "id": "s061",
-  "text": "A hero raises a sword.",
-  "say": ""
- },
- {
-  "id": "s062",
-  "text": "And an army follows.",
+  "text": "Chapter three. Worlds.",
   "say": ""
  },
  {
   "id": "s063",
-  "text": "A little explorer walks through the whole history of art, from cave walls to pixels.",
+  "text": "And the whole city celebrates.",
   "say": ""
  },
  {
   "id": "s064",
-  "text": "The shop is open.",
-  "say": ""
- },
- {
-  "id": "s065",
-  "text": "Celebrate every win.",
-  "say": ""
- },
- {
-  "id": "s066",
-  "text": "Chapter six. Pictures.",
-  "say": ""
- },
- {
-  "id": "s067",
-  "text": "A still picture can breathe.",
+  "text": "Chapter four. The deep.",
   "say": ""
  },
  {
   "id": "s068",
-  "text": "It can be recoloured.",
-  "say": ""
- },
- {
-  "id": "s069",
-  "text": "Rebuilt from glowing dots.",
+  "text": "Past the reach of sunlight, something is watching.",
   "say": ""
  },
  {
   "id": "s070",
-  "text": "Turned into pixel art.",
-  "say": ""
- },
- {
-  "id": "s071",
-  "text": "Printed like a comic book.",
-  "say": ""
- },
- {
-  "id": "s072",
-  "text": "Seen through stained glass.",
-  "say": ""
- },
- {
-  "id": "s073",
-  "text": "X-rayed.",
-  "say": ""
- },
- {
-  "id": "s074",
-  "text": "Glitched.",
-  "say": ""
- },
- {
-  "id": "s075",
-  "text": "Or finished like a film.",
-  "say": ""
- },
- {
-  "id": "s076",
-  "text": "Light itself can tell the story.",
-  "say": ""
- },
- {
-  "id": "s077",
-  "text": "Chapter seven. Data and interfaces.",
-  "say": ""
- },
- {
-  "id": "s078",
-  "text": "Numbers count up.",
-  "say": ""
- },
- {
-  "id": "s079",
-  "text": "Charts come alive.",
-  "say": ""
- },
- {
-  "id": "s080",
-  "text": "In real 3D, too.",
+  "text": "Chapter five. Characters.",
   "say": ""
  },
  {
   "id": "s081",
-  "text": "Signals pulse.",
-  "say": ""
- },
- {
-  "id": "s082",
-  "text": "Maps trace a journey.",
+  "text": "Walk through the whole history of art.",
   "say": ""
  },
  {
   "id": "s083",
-  "text": "Instruments measure.",
-  "say": ""
- },
- {
-  "id": "s084",
-  "text": "Labels explain what you are looking at.",
-  "say": ""
- },
- {
-  "id": "s085",
-  "text": "Messages pop in.",
-  "say": ""
- },
- {
-  "id": "s086",
-  "text": "Cards are dealt and played.",
-  "say": ""
- },
- {
-  "id": "s087",
-  "text": "Websites come to life.",
-  "say": ""
- },
- {
-  "id": "s088",
-  "text": "Side by side, the difference is clear.",
-  "say": ""
- },
- {
-  "id": "s089",
-  "text": "Three ideas collide.",
-  "say": ""
- },
- {
-  "id": "s090",
-  "text": "A game board draws itself.",
-  "say": ""
- },
- {
-  "id": "s091",
-  "text": "Code writes itself.",
-  "say": ""
- },
- {
-  "id": "s092",
-  "text": "And code builds whole worlds, from a flat plane to a mountain at sunrise.",
-  "say": ""
- },
- {
-  "id": "s093",
-  "text": "Wireframes rise out of blueprints.",
+  "text": "Chapter six. Images.",
   "say": ""
  },
  {
   "id": "s094",
-  "text": "Floor plans stand up.",
-  "say": ""
- },
- {
-  "id": "s095",
-  "text": "Pictures become clouds of light.",
-  "say": ""
- },
- {
-  "id": "s096",
-  "text": "Any frame can wear a heads up display.",
-  "say": ""
- },
- {
-  "id": "s097",
-  "text": "Time turns.",
-  "say": ""
- },
- {
-  "id": "s098",
-  "text": "Knowledge spreads outward.",
-  "say": ""
- },
- {
-  "id": "s099",
-  "text": "Zoom out.",
-  "say": ""
- },
- {
-  "id": "s100",
-  "text": "Or dive right in.",
-  "say": ""
- },
- {
-  "id": "s101",
-  "text": "Chapter eight. Words that move.",
-  "say": ""
- },
- {
-  "id": "s103",
-  "text": "Titles blur into focus.",
-  "say": ""
- },
- {
-  "id": "s104",
-  "text": "Stamps slam down.",
-  "say": ""
- },
- {
-  "id": "s105",
-  "text": "Chapters announce themselves.",
-  "say": ""
- },
- {
-  "id": "s106",
-  "text": "Stories get told.",
-  "say": ""
- },
- {
-  "id": "s107",
-  "text": "Signs flicker on.",
+  "text": "Chapter seven. Data and interfaces.",
   "say": ""
  },
  {
   "id": "s108",
-  "text": "And logos assemble themselves.",
+  "text": "Chapter eight. Systems.",
   "say": ""
  },
  {
-  "id": "s109",
-  "text": "Signed.",
+  "id": "s114",
+  "text": "Chapter nine. A third dimension.",
   "say": ""
  },
  {
-  "id": "s110",
+  "id": "s120",
+  "text": "Chapter ten. Type.",
+  "say": ""
+ },
+ {
+  "id": "s130",
+  "text": "And when you mix them, every frame becomes something new.",
+  "say": ""
+ },
+ {
+  "id": "s135",
   "text": "Now, everything at once.",
   "say": ""
  },
  {
-  "id": "s133",
-  "text": "Every motion. Every world. One library.",
+  "id": "s156",
+  "text": "Every motion. Every world.",
   "say": ""
  },
  {
-  "id": "s134",
-  "text": "Every motion you just saw is code. And it all starts with a dot.",
+  "id": "s157",
+  "text": "Opus Motion.",
+  "say": ""
+ },
+ {
+  "id": "s158",
+  "text": "In a video, a website, or an app.",
   "say": ""
  }
 ]

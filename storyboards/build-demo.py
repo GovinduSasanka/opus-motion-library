@@ -71,7 +71,7 @@ S("box-bot", 64, 66, {"style": "clean"}, tr="cut", tag=False, say="And *characte
 # hook montage: one beat each, no tags
 for mid, off, pr in [
     ("giant-eye-reveal", 52, {}), ("wireframe-build", 200, {}), ("fireworks", 66, {}), ("comic-burst", 18, {}),
-    ("dot-matrix", 60, {"src": "demo/owl.jpg"}), ("neon-sign", 80, {}), ("origami-fold", 200, {}), ("petal-bloom", 70, {"style": "radial"}),
+    ("dot-matrix", 60, {"src": "demo/owl.jpg"}), ("neon-sign", 80, {"lines": [{"text": "MOTION", "color": "#f59ac4", "glow": "#be5b80"}, {"text": "open late", "color": "#8be9ff", "glow": "#2f9fc9", "font": "hand"}]}), ("origami-fold", 200, {}), ("petal-bloom", 70, {"style": "radial"}),
     ("city-skyline", 160, {}), ("walker-world-scroll", 180, {}), ("iso-blocks-3d", 100, {}), ("zoom-tunnel", 100, {"word": "MOTION", "subtitle": ""}),
 ]:
     S(mid, 9, off, pr, tr="cut", tag=False, snap=False, sfx=[] if mid != "giant-eye-reveal" else [{"file": "sfx/riserbig.mp3", "at": 0, "volume": 0.28}])
@@ -118,7 +118,7 @@ CH("03", "WORLDS", "— weather, light and time.", "Chapter three. Worlds.", "pu
 S("parallax-landscape", 100, 0, {}, tr="cut")
 S("flock", 110, 40, {}, tr="cut")
 S("topdown-terrain", 140, 0, {}, tr="wave:lines")
-S("flow-lines", 90, 10, {}, tr="cut")
+S("flow-lines", 90, 10, {"mode": "heat"}, tr="cut")
 S("insect-flight", 100, 10, {}, tr="cut")
 S("falling-petals", 90, 0, {}, tr="fade")
 S("grass-field", 100, 0, {}, tr="cut")
@@ -129,7 +129,7 @@ S("lightning-flash", 110, 15, {}, tr="whiteout:blizzard")
 S("snowfall", 90, 0, {}, tr="fade")
 S("starfield-night", 90, 20, {}, tr="cut")
 S("aurora", 100, 30, {"pixelSize": 0}, tr="fade")
-S("embers", 90, 0, {}, tr="cut")
+S("embers", 90, 30, {"count": 320, "size": 1.3}, tr="cut")
 S("curl-flow", 90, 10, {}, tr="storm:watercolor")
 S("city-skyline", 150, 30, {}, tr="cut")
 S("fireworks", 130, 0, {}, tr="dots:bokeh", say="And the whole city *celebrates.*", sfx=[{"file": "sfx/boom.mp3", "at": 20, "volume": 0.22}])
@@ -178,19 +178,19 @@ S("live-chart", 120, 0, {"title": "growth", "xLabel": "wk", "yLabel": "k", "read
 S("map-route", 150, 0, {}, tr="page-turn:roll")
 S("science-reticle", 130, 0, {"labels": ["sample · 0.4 mm", "outer membrane"], "scaleLabel": "100 µm"}, tr="cut")
 S("callout-labels", 120, 0, {}, tr="cut")
-S("chat-bubbles", 180, 0, {}, tr="slide")
+S("chat-bubbles", 180, 0, {"messages": [{"text": "can you make our launch film?", "kind": "user"}, {"text": "On it! Picking motions now.", "kind": "reply"}, {"text": "aurora + neon title", "kind": "chip"}, {"text": "love the deep-sea dive", "kind": "comment"}, {"text": "add confetti at the end", "kind": "chip"}, {"text": "looks premium", "kind": "comment"}, {"text": "make a vertical cut too", "kind": "chip"}, {"text": "Launch day!", "kind": "speech"}], "thoughtCaption": "…and ship it tomorrow", "verdict": "APPROVED: ready to launch"}, tr="slide")
 S("sms-thread", 150, 0, {"kicker": "INSTANT REPLY", "title": "Answers\nin seconds", "contact": "New message", "contactSub": "Mobile · just now",
   "messages": [{"text": "Missed call · 2:14 pm", "from": "alert"}, {"text": "Sorry we missed you! How can we help?", "from": "us", "tag": "Sent automatically"},
                {"text": "Can you film our launch on Friday?", "from": "them"}, {"text": "Yes! Booking you in for 10am.", "from": "us"}], "badge": "Booked: Fri 10am"}, tr="flip")
 S("card-fan", 150, 0, {}, tr="cut")
 S("browser-mockup", 150, 0, {}, tr="cut")
-S("split-compare", 150, 0, {"headline": "Same scene, two looks", "subheadline": "Line art on the left, full colour on the right.", "footnote": ""}, tr="cut")
+S("split-compare", 140, 24, {"headline": "Same scene, two looks", "subheadline": "Line art on the left, full colour on the right.", "footnote": "", "left": {"label": "Line art", "color": "#e8af78", "desc": "Every edge traced", "stat": "", "src": "", "style": "lines"}, "right": {"label": "Full colour", "color": "#76c8fb", "desc": "Light, colour and atmosphere", "stat": "", "src": "", "style": "color"}}, tr="cut")
 S("panel-triptych", 160, 0, {"title": "Three moments, one story"}, tr="cut")
 S("perspective-grid", 150, 0, {}, tr="diagonal")
 
 # ---------------------------------------------------------------- 08 systems
 CH("08", "SYSTEMS", "— drawn as blueprints.", "Chapter eight. Systems.", "clock")
-S("hud-chrome", 130, 0, {"title": "OPUS MOTION", "subtitle": "LIBRARY", "headerRight": "LIVE", "counterLabel": "SCENE", "counter": "08"}, tr="cut")
+S("hud-chrome", 130, 0, {"title": "", "subtitle": "", "headerRight": "LIVE", "counterLabel": "SCENE", "counter": "08"}, tr="cut")
 S("era-dial", 140, 0, {}, tr="cut")
 S("radial-blueprint", 150, 0, {"categories": ["MOTION", "FORM", "WORLDS", "TYPE", "DATA"], "centerLabel": "OPUS"}, tr="cut")
 S("powers-of-ten", 130, 0, {}, tr="cut")
@@ -238,7 +238,7 @@ LAYERS([
 ], 150, tag={"name": "Mix · Golden Hour", "family": "mix"}, tr="cut")
 LAYERS([
     {"motion": "aurora", "props": {"pixelSize": 0}},
-    {"motion": "hud-chrome", "props": {"backdrop": "transparent", "previewSubject": False, "title": "NORTH", "subtitle": "69.6° N", "headerRight": "LIVE", "counterLabel": "SKY", "counter": "01", "showRuler": False}},
+    {"motion": "hud-chrome", "props": {"backdrop": "transparent", "previewSubject": False, "title": "", "subtitle": "", "headerRight": "LIVE", "counterLabel": "SKY", "counter": "01", "showRuler": False}},
     {"motion": "embers", "props": {"mode": "motes", "background": "transparent", "count": 18}, "blend": "screen"},
 ], 150, tag={"name": "Mix · Northern Signal", "family": "mix"}, tr="whiteout")
 
@@ -249,13 +249,13 @@ for mid, off, pr in [
     ("bouncing-ball", 30, {"hud": False}), ("origami-fold", 150, {}), ("topdown-terrain", 60, {}), ("flock", 120, {}), ("fireworks", 70, {}),
     ("depth-descent", 220, {}), ("giant-eye-reveal", 70, {}), ("box-bot", 120, {}), ("comic-burst", 24, {}), ("walker-world-scroll", 300, {}),
     ("pixel-dither", 60, {"src": "demo/lantern.jpg"}), ("terrain-build-3d", 300, {"showCode": False, "showTitle": False, "stageFrames": 26, "flybyFrames": 160}),
-    ("iso-bar-chart", 120, {}), ("hex-comb-build", 110, {}), ("aurora", 60, {"pixelSize": 0}), ("neon-sign", 90, {}), ("pair-field", 60, {}),
+    ("iso-bar-chart", 120, {}), ("hex-comb-build", 110, {}), ("aurora", 60, {"pixelSize": 0}), ("neon-sign", 90, {"lines": [{"text": "MOTION", "color": "#f59ac4", "glow": "#be5b80"}, {"text": "open late", "color": "#8be9ff", "glow": "#2f9fc9", "font": "hand"}]}), ("pair-field", 60, {}),
     ("petal-bloom", 80, {}), ("city-skyline", 150, {}), ("glitch-image", 40, {"src": "demo/desert.jpg"}),
 ]:
     S(mid, 8, off, pr, tr="cut", tag=False, snap=False)
 S("thumbnail-mosaic", 150, 0, {}, tr="whiteout", tag=True, say="Every motion. Every world.")
 S("glyph-orbit-logo", 200, 0, {"logo": "Opus Motion", "tagline": ["EVERY MOTION IS", "YOURS TO USE."], "pill": "VIDEO · WEB · APPS"}, tr="fade", tag=False, say="Opus Motion.", lead=60)
-S("end-card-credits", 200, 0, {"headline": "every frame you just saw is a motion you can use.", "lines": ["108 motions · 33 transitions · landscape, square and vertical", "for videos, websites and apps"], "credit": "Opus Motion Library", "fadeToBlack": True},
+S("end-card-credits", 200, 0, {"headline": "every frame here is a motion you can use.", "lines": ["108 motions · 33 transitions · landscape, square and vertical", "for videos, websites and apps"], "credit": "Opus Motion Library", "fadeToBlack": True},
   tr="cut", tag=False, say="In a video, a website, or an app.", lead=30)
 
 # count the motions that get an index tag

@@ -202,6 +202,7 @@ export const kineticCaptions = defineMotion({
   propDocs: {
     lines: 'caption lines; wrap a word in *stars* to highlight it',
     framesPerLine: 'frames each line stays on screen',
+    background: 'scene colour; "transparent" = caption overlay on top of other motions',
     position: 'bottom | center | top',
     highlightColor: 'box colour behind highlighted words',
     variant: "kinetic (word pop + highlight boxes) | premium (calm line, words brighten as spoken, soft scrim)",

@@ -11694,7 +11694,7 @@
    },
    "background": {
     "default": "#1c2433",
-    "doc": ""
+    "doc": "scene colour; \"transparent\" = caption overlay on top of other motions"
    },
    "position": {
     "default": "center",

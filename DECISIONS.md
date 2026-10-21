@@ -1,5 +1,43 @@
 # Decisions
 
+## Summary (2026-10-21) — premium demo + "use it from any project"
+
+**What was built**
+1. **Premium demo film** (`out/demo.mp4`, attached to release v1.1.0, 8:21, 1080p30): cinematic cold open
+   (mountain fly-by, "Light. Depth. Life. And character."), a 12-shot hook montage, an "OPUS MOTION" title, then 11
+   chapters that show every motion once with a glass index tag ("042 / 106 · Depth Descent"), 4 layered "mix" shots,
+   a fast full-mix finale, logo and end card. No mention of sample videos or how it was built; leftover sample text
+   (NOODLES, "12 principles" HUD, "written by Claude", export-time stats…) is overridden.
+2. **Captions aligned to the picture and the voice**: Whisper word timestamps → each word lights up as it is spoken
+   (`captionStyle.variant: "premium"`); per scene, rendered stills decide the caption band (top/bottom) and tone
+   (light/dark) so captions never sit on a motion's own text; tags pick the calmest corner on the other edge.
+3. **Cuts on the beat** (librosa beat grids, `music.snap`), whole-video finishing overlay (grain + vignette).
+4. **Mixing**: `layers` in Compose scenes / storyboards, a `mix` motion, overlay opacity + blend.
+5. **Use from other projects** (see the integration section below): AGENTS.md / CLAUDE.md, `mgl suggest`,
+   19 recipes, web components + `<opus-motion>` element, `mgl add`, `mgl export`, examples verified in a browser.
+
+**How to run**: `npm install`; demo: `python storyboards/build-demo.py && node cli/direct.mjs storyboards/demo.json`;
+library for web: `npm run build:lib`; AI agents start at `AGENTS.md`.
+
+**Verified**: final demo rendered and reviewed scene by scene (one frame per scene, 158 scenes), loudness −16.8 LUFS,
+no unintended black frames; examples (React/Vite, HTML, Remotion `mgl add`) built and screenshotted by the integration work.
+
+**Needs you**: review PR; decide whether to commit `dist/` for HTML-only hosts; Remotion company licence if used by a
+company above the free tier; the repo is private — make it public if you want to share the demo link.
+
+## Demo decisions (2026-10-21)
+- **Narration only at key beats** (cold open, title, chapter cards, ~8 highlights) instead of a line per motion — a
+  showreel reads more premium with music carrying most scenes. Chapter-card VO has no caption (the card already shows it).
+- **Every motion shown once with an index tag**; `transition-reel`, `scene-tag` (used as the tag overlay) and `mix`
+  (shown as four layered shots) are not separate scenes. Tag total = number of tagged shots (106).
+- **README still says the library was reverse-engineered from sample videos** — that's documentation of the repo, not
+  the demo. Remove it there too if you prefer: README.md first paragraph.
+- **Music**: added `epic-action` and `epic-cinematic-intense` (Pixabay licence, from repo-shorts) for chapters 5 and 9.
+- **Caption fit**: one caption line up to 10 words / 56 characters; longer sentences split at the comma nearest the middle.
+- **Stale voice takes** from the old demo were deleted from `public/voice/demo/`.
+- Change the film by editing `storyboards/build-demo.py` (tables of motions, offsets, props, transitions, VO lines).
+
+
 Decisions made while working unattended. Each section: what was unclear, what was chosen, how to change it.
 
 ## Integration layer: choose / mix / use in other projects (2026-10-21)

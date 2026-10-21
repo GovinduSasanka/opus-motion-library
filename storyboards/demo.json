@@ -179,7 +179,21 @@
   {
    "motion": "neon-sign",
    "min": 9,
-   "props": {},
+   "props": {
+    "lines": [
+     {
+      "text": "MOTION",
+      "color": "#f59ac4",
+      "glow": "#be5b80"
+     },
+     {
+      "text": "open late",
+      "color": "#8be9ff",
+      "glow": "#2f9fc9",
+      "font": "hand"
+     }
+    ]
+   },
    "offset": 80,
    "transition": {
     "type": "cut"
@@ -697,7 +711,9 @@
   {
    "motion": "flow-lines",
    "min": 90,
-   "props": {},
+   "props": {
+    "mode": "heat"
+   },
    "offset": 10,
    "transition": {
     "type": "cut"
@@ -805,7 +821,11 @@
   {
    "motion": "embers",
    "min": 90,
-   "props": {},
+   "props": {
+    "count": 320,
+    "size": 1.3
+   },
+   "offset": 30,
    "transition": {
     "type": "cut"
    },
@@ -1387,7 +1407,44 @@
   {
    "motion": "chat-bubbles",
    "min": 180,
-   "props": {},
+   "props": {
+    "messages": [
+     {
+      "text": "can you make our launch film?",
+      "kind": "user"
+     },
+     {
+      "text": "On it! Picking motions now.",
+      "kind": "reply"
+     },
+     {
+      "text": "aurora + neon title",
+      "kind": "chip"
+     },
+     {
+      "text": "love the deep-sea dive",
+      "kind": "comment"
+     },
+     {
+      "text": "add confetti at the end",
+      "kind": "chip"
+     },
+     {
+      "text": "looks premium",
+      "kind": "comment"
+     },
+     {
+      "text": "make a vertical cut too",
+      "kind": "chip"
+     },
+     {
+      "text": "Launch day!",
+      "kind": "speech"
+     }
+    ],
+    "thoughtCaption": "…and ship it tomorrow",
+    "verdict": "APPROVED: ready to launch"
+   },
    "transition": {
     "type": "slide"
    },
@@ -1447,12 +1504,29 @@
   },
   {
    "motion": "split-compare",
-   "min": 150,
+   "min": 140,
    "props": {
     "headline": "Same scene, two looks",
     "subheadline": "Line art on the left, full colour on the right.",
-    "footnote": ""
+    "footnote": "",
+    "left": {
+     "label": "Line art",
+     "color": "#e8af78",
+     "desc": "Every edge traced",
+     "stat": "",
+     "src": "",
+     "style": "lines"
+    },
+    "right": {
+     "label": "Full colour",
+     "color": "#76c8fb",
+     "desc": "Light, colour and atmosphere",
+     "stat": "",
+     "src": "",
+     "style": "color"
+    }
    },
+   "offset": 24,
    "transition": {
     "type": "cut"
    },
@@ -1509,8 +1583,8 @@
    "motion": "hud-chrome",
    "min": 130,
    "props": {
-    "title": "OPUS MOTION",
-    "subtitle": "LIBRARY",
+    "title": "",
+    "subtitle": "",
     "headerRight": "LIVE",
     "counterLabel": "SCENE",
     "counter": "08"
@@ -2040,8 +2114,8 @@
      "props": {
       "backdrop": "transparent",
       "previewSubject": false,
-      "title": "NORTH",
-      "subtitle": "69.6° N",
+      "title": "",
+      "subtitle": "",
       "headerRight": "LIVE",
       "counterLabel": "SKY",
       "counter": "01",
@@ -2253,7 +2327,21 @@
   {
    "motion": "neon-sign",
    "min": 8,
-   "props": {},
+   "props": {
+    "lines": [
+     {
+      "text": "MOTION",
+      "color": "#f59ac4",
+      "glow": "#be5b80"
+     },
+     {
+      "text": "open late",
+      "color": "#8be9ff",
+      "glow": "#2f9fc9",
+      "font": "hand"
+     }
+    ]
+   },
    "offset": 90,
    "transition": {
     "type": "cut"
@@ -2333,7 +2421,7 @@
    "motion": "end-card-credits",
    "min": 200,
    "props": {
-    "headline": "every frame you just saw is a motion you can use.",
+    "headline": "every frame here is a motion you can use.",
     "lines": [
      "108 motions · 33 transitions · landscape, square and vertical",
      "for videos, websites and apps"

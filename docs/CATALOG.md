@@ -408,7 +408,7 @@ Word-by-word pop-in captions; *starred* words sit on a solid highlight box.
 |---|---|---|
 | `lines` | `["People *bent* double","on the *sidewalk.*","It *isn't* …` | caption lines; wrap a word in *stars* to highlight it |
 | `framesPerLine` | `50` | frames each line stays on screen |
-| `background` | `"#1c2433"` |  |
+| `background` | `"#1c2433"` | scene colour; "transparent" = caption overlay on top of other motions |
 | `position` | `"center"` | bottom \| center \| top |
 | `highlightColor` | `"#d23a2c"` | box colour behind highlighted words |
 | `size` | `64` |  |
