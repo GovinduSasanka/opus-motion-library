@@ -37,7 +37,10 @@
     "public/demo",
     "src",
     "cli",
-    "tsconfig.json"
+    "tsconfig.json",
+    "mcp",
+    "styles.json",
+    "src/styles"
   ],
   "scripts": {
     "studio": "remotion studio src/index.ts",
@@ -47,7 +50,8 @@
     "typecheck": "tsc --noEmit",
     "build:lib": "node cli/build-lib.mjs",
     "gen": "node cli/gen-registry.mjs && node cli/gen-docs.mjs",
-    "suggest": "node cli/mgl.mjs suggest"
+    "suggest": "node cli/mgl.mjs suggest",
+    "mcp": "node mcp/server.mjs"
   },
   "peerDependencies": {
     "@react-three/fiber": "^9.0.0",
@@ -64,6 +68,7 @@
     "three": ">=0.160.0"
   },
   "devDependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
     "@react-three/fiber": "9.1.2",
     "@remotion/bundler": "4.0.532",
     "@remotion/cli": "4.0.532",
@@ -84,7 +89,8 @@
     "react-dom": "19.1.0",
     "remotion": "4.0.532",
     "three": "0.169.0",
-    "typescript": "^5.6.0"
+    "typescript": "^5.6.0",
+    "zod": "^4.6.7"
   },
   "keywords": [
     "remotion",
@@ -117,5 +123,8 @@
   },
   "engines": {
     "node": ">=20"
+  },
+  "bin": {
+    "opus-motion-mcp": "mcp/server.mjs"
   }
 }

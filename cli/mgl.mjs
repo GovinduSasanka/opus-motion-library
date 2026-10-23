@@ -98,7 +98,7 @@ const motionProps = () => {
   if (opts['props-file']) props = JSON.parse(fs.readFileSync(opts['props-file'], 'utf8'));
   if (typeof opts.props === 'string') props = {...props, ...JSON.parse(opts.props)};
   const [width, height] = size();
-  return {props, width, height, fps: Number(opts.fps ?? 30), frames: opts.frames ? Number(opts.frames) : undefined};
+  return {props, width, height, fps: Number(opts.fps ?? 30), frames: opts.frames ? Number(opts.frames) : undefined, style: typeof opts.style === "string" ? opts.style : undefined};
 };
 
 const recipeList = () =>

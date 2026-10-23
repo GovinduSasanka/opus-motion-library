@@ -2,16 +2,22 @@ import React from 'react';
 import {Composition, Folder} from 'remotion';
 import {motions, registry} from './registry';
 import {Compose, ComposeSpec, specDuration} from './Compose';
+import {Styled} from './Layers';
+import type {StyleRef} from './styles';
 import demo from '../specs/demo.json';
 
-type MotionInput = {motion: string; props?: Record<string, unknown>; width?: number; height?: number; fps?: number; frames?: number};
+type MotionInput = {motion: string; props?: Record<string, unknown>; style?: StyleRef; width?: number; height?: number; fps?: number; frames?: number};
 
 /** Renders one motion by id with user props (used by `mgl render`). */
-const MotionHost: React.FC<MotionInput> = ({motion, props}) => {
+const MotionHost: React.FC<MotionInput> = ({motion, props, style}) => {
   const def = registry[motion];
   if (!def) throw new Error(`unknown motion "${motion}"`);
   const C = def.component;
-  return <C {...def.defaultProps} {...(props ?? {})} />;
+  return (
+    <Styled style={style}>
+      <C {...def.defaultProps} {...(props ?? {})} />
+    </Styled>
+  );
 };
 
 export const RemotionRoot: React.FC = () => (

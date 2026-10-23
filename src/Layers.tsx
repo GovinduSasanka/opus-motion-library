@@ -1,6 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, Sequence} from 'remotion';
 import {registry} from './registry';
+import {resolveStyle, StyleFrame, StyleRef} from './styles';
 
 /**
  * A layer is one motion stacked inside a scene. Layers let you MIX motions: a backdrop
@@ -23,6 +24,8 @@ export interface LayerSpec {
   scale?: number;
   x?: number;
   y?: number;
+  /** visual style for this layer only (id from styles.json or inline) */
+  style?: StyleRef;
 }
 
 const Missing: React.FC<{id: string}> = ({id}) => (
@@ -41,6 +44,18 @@ export const MotionById: React.FC<{motion: string; props?: Record<string, unknow
   );
 };
 
+/** wraps children in a StyleFrame when a style is given */
+export const Styled: React.FC<{style?: StyleRef; children: React.ReactNode}> = ({style, children}) => {
+  const r = resolveStyle(style);
+  return r ? (
+    <StyleFrame style={r.style} strength={r.strength}>
+      {children}
+    </StyleFrame>
+  ) : (
+    <>{children}</>
+  );
+};
+
 export const Layers: React.FC<{layers: LayerSpec[]; length: number}> = ({layers, length}) => (
   <AbsoluteFill>
     {layers.map((l, i) => {
@@ -56,7 +71,9 @@ export const Layers: React.FC<{layers: LayerSpec[]; length: number}> = ({layers,
               transform: s !== 1 || l.x || l.y ? `translate(${(l.x ?? 0) * 100}%, ${(l.y ?? 0) * 100}%) scale(${s})` : undefined,
             }}
           >
-            <MotionById motion={l.motion} props={l.props} offset={l.offset} length={dur} />
+            <Styled style={l.style}>
+              <MotionById motion={l.motion} props={l.props} offset={l.offset} length={dur} />
+            </Styled>
           </AbsoluteFill>
         </Sequence>
       );

@@ -4,7 +4,8 @@ import {TransitionSeries, linearTiming, springTiming} from '@remotion/transition
 import {registry} from './registry';
 import {presentationFor, transitionFrames, TransitionSpec} from './transitions';
 import {CaptionTrack, CaptionCue} from './motions/text/kinetic-captions';
-import {Layers, LayerSpec, MotionById} from './Layers';
+import {Layers, LayerSpec, MotionById, Styled} from './Layers';
+import type {StyleRef} from './styles';
 
 export interface SceneSpec {
   /** motion id from the registry (or omit and give `layers` to mix several motions) */
@@ -16,6 +17,8 @@ export interface SceneSpec {
   props?: Record<string, unknown>;
   /** start the motion this many frames in (cut into the middle of a motion) */
   offset?: number;
+  /** visual style for this scene (id from styles.json, inline StyleDef, or {id, strength}) */
+  style?: StyleRef;
   /** transition INTO the next scene */
   transition?: TransitionSpec;
 }
@@ -25,6 +28,8 @@ export interface ComposeSpec {
   height?: number;
   fps?: number;
   background?: string;
+  /** visual style applied to the whole video (every scene restyled through one filter chain) */
+  style?: StyleRef;
   scenes: SceneSpec[];
   /** overlay layers that run across scene boundaries, in absolute frames */
   overlays?: {motion: string; from: number; duration: number; props?: Record<string, unknown>; offset?: number; opacity?: number; blend?: React.CSSProperties['mixBlendMode']}[];
@@ -69,13 +74,15 @@ export const Compose: React.FC<{spec: ComposeSpec}> = ({spec}) => {
     const d = sceneLength(s);
     items.push(
       <TransitionSeries.Sequence key={`s${i}`} durationInFrames={d}>
-        {s.layers ? (
-          <Sequence from={-(s.offset ?? 0)} durationInFrames={d + (s.offset ?? 0)} layout="absolute-fill">
-            <Layers layers={s.layers} length={d + (s.offset ?? 0)} />
-          </Sequence>
-        ) : (
-          <MotionById motion={s.motion ?? ''} props={s.props} offset={s.offset} length={d} />
-        )}
+        <Styled style={s.style}>
+          {s.layers ? (
+            <Sequence from={-(s.offset ?? 0)} durationInFrames={d + (s.offset ?? 0)} layout="absolute-fill">
+              <Layers layers={s.layers} length={d + (s.offset ?? 0)} />
+            </Sequence>
+          ) : (
+            <MotionById motion={s.motion ?? ''} props={s.props} offset={s.offset} length={d} />
+          )}
+        </Styled>
       </TransitionSeries.Sequence>,
     );
     if (i < spec.scenes.length - 1 && s.transition && s.transition.type !== 'cut') {
@@ -104,7 +111,9 @@ export const Compose: React.FC<{spec: ComposeSpec}> = ({spec}) => {
 
   return (
     <AbsoluteFill style={{background: spec.background ?? '#000'}}>
-      <TransitionSeries>{items}</TransitionSeries>
+      <Styled style={spec.style}>
+        <TransitionSeries>{items}</TransitionSeries>
+      </Styled>
       {(spec.overlays ?? []).map((o, i) => {
         if (!registry[o.motion]) return null;
         return (
