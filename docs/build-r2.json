@@ -1,0 +1,2566 @@
+{
+ "groups": {
+  "LA1": [
+   {
+    "id": "loupe-magnify",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 148
+   },
+   {
+    "id": "negative-develop-reveal",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 155
+   },
+   {
+    "id": "line-light-up",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 162
+   },
+   {
+    "id": "ground-plane-ruler",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 176
+   },
+   {
+    "id": "bulb-marquee-sign",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 238
+   },
+   {
+    "id": "deco-title-bar",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 252
+   },
+   {
+    "id": "mode7-floor-perspective",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 259
+   },
+   {
+    "id": "ascii-image-grid",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 297
+   },
+   {
+    "id": "letters-become-image",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 304
+   },
+   {
+    "id": "glyph-fractal-push",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 311
+   },
+   {
+    "id": "autofocus-hunt",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 385
+   },
+   {
+    "id": "liminal-corridor-3d",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 406
+   },
+   {
+    "id": "oblique-extrude-drawing",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 462
+   },
+   {
+    "id": "exploded-view-balloons",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 469
+   },
+   {
+    "id": "cyanotype-water-bloom",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 483
+   },
+   {
+    "id": "brick-snap-build",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 528
+   },
+   {
+    "id": "brick-collapse-physics",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 535
+   },
+   {
+    "id": "brick-rebuild-morph",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 542
+   },
+   {
+    "id": "brick-fx-fire-smoke",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 556
+   },
+   {
+    "id": "board-print-drop",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 597
+   },
+   {
+    "id": "ride-dimension-line",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 604
+   },
+   {
+    "id": "proportion-sweep",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 674
+   },
+   {
+    "id": "doc-highlight-evidence",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 681
+   },
+   {
+    "id": "freeze-frame-brackets",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 688
+   },
+   {
+    "id": "map-mask-reveal",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 695
+   },
+   {
+    "id": "news-bug-source-tag",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 702
+   },
+   {
+    "id": "vhs-crt-pass",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 738
+   },
+   {
+    "id": "cel-shade-crescent",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 745
+   },
+   {
+    "id": "chrome-80s-title",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 752
+   },
+   {
+    "id": "colour-model-relight",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 759
+   },
+   {
+    "id": "frame-blend-timelapse",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 804
+   }
+  ],
+  "LA2": [
+   {
+    "id": "crowd-tracks",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 811
+   },
+   {
+    "id": "grid-multiply",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 818
+   },
+   {
+    "id": "day-ring-dial",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 832
+   },
+   {
+    "id": "split-grid-countdown",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 872
+   },
+   {
+    "id": "mission-clock",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 879
+   },
+   {
+    "id": "planned-vs-heard-checklist",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 893
+   },
+   {
+    "id": "cam-chip-sync-badge",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 900
+   },
+   {
+    "id": "wax-resist-reveal",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 931
+   },
+   {
+    "id": "crayon-wax-shader",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 938
+   },
+   {
+    "id": "crayon-hatch-fill",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 945
+   },
+   {
+    "id": "snap-grid-collapse",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 990
+   },
+   {
+    "id": "ui-accumulation-storm",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 997
+   },
+   {
+    "id": "stack-plates-3d",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1052
+   },
+   {
+    "id": "chart-to-installation",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1059
+   },
+   {
+    "id": "last-object-drop",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1066
+   },
+   {
+    "id": "dot-to-stripes-morph",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1125
+   },
+   {
+    "id": "axis-ratchet-rescale",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1132
+   },
+   {
+    "id": "empty-next-cell",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1139
+   },
+   {
+    "id": "burin-engrave-hatch",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1176
+   },
+   {
+    "id": "magnification-roundel",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1183
+   },
+   {
+    "id": "wash-bloom-colour",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1190
+   },
+   {
+    "id": "copper-proof-pull",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1197
+   },
+   {
+    "id": "beat-punch-zoom",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1233
+   },
+   {
+    "id": "candy-set-backdrop",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1240
+   },
+   {
+    "id": "remix-thumbnail-shelf",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1268
+   },
+   {
+    "id": "glass-strip-sweep",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1308
+   },
+   {
+    "id": "comet-pulse-guide",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1315
+   },
+   {
+    "id": "exploded-view-snap",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1329
+   },
+   {
+    "id": "frost-to-clear",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1350
+   },
+   {
+    "id": "halftone-exhibit-numeral",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1396
+   },
+   {
+    "id": "mugshot-height-chart",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1410
+   }
+  ],
+  "LA3": [
+   {
+    "id": "redaction-bars",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1431
+   },
+   {
+    "id": "tilt-shift-diorama",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1468
+   },
+   {
+    "id": "lit-pixel-sprite",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1475
+   },
+   {
+    "id": "practical-light-shadow-jump",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1482
+   },
+   {
+    "id": "target-lock-box",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1545
+   },
+   {
+    "id": "spec-chip-rail",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1559
+   },
+   {
+    "id": "holo-solid-ignite",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1566
+   },
+   {
+    "id": "knife-paint-plate",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1608
+   },
+   {
+    "id": "knife-colour-relay",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1615
+   },
+   {
+    "id": "overhead-trail-mandala",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1629
+   },
+   {
+    "id": "ink-brush-stroke",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1674
+   },
+   {
+    "id": "handscroll-reveal",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1702
+   },
+   {
+    "id": "iso-diorama-board",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1740
+   },
+   {
+    "id": "iso-cutaway",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1747
+   },
+   {
+    "id": "isotype-count",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1754
+   },
+   {
+    "id": "focus-desaturate",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1761
+   },
+   {
+    "id": "diagonal-band-title",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1802
+   },
+   {
+    "id": "document-marker-highlight",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1816
+   },
+   {
+    "id": "photomontage-tower",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1823
+   },
+   {
+    "id": "lidar-canopy-peel",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1875
+   },
+   {
+    "id": "hairline-feature-trace",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1896
+   },
+   {
+    "id": "section-profile-chart",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1903
+   },
+   {
+    "id": "pixel-mascot-on-ui",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1936
+   },
+   {
+    "id": "screen-recorder-camera",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1943
+   },
+   {
+    "id": "keystroke-hud",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1957
+   },
+   {
+    "id": "hex-island-grow",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 1996
+   },
+   {
+    "id": "faceted-sea",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 2003
+   },
+   {
+    "id": "light-beam-ribbon",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 2016
+   },
+   {
+    "id": "crayon-pressure-pass",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 2066
+   },
+   {
+    "id": "fuse-beat-timer",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 2079
+   },
+   {
+    "id": "lives-counter",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": false,
+    "line": 2098
+   }
+  ],
+  "LB1": [
+   {
+    "id": "toon-cel-shape",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 173
+   },
+   {
+    "id": "coverage-route",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 218
+   },
+   {
+    "id": "sunburst-hero",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 238
+   },
+   {
+    "id": "news-strap",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 300
+   },
+   {
+    "id": "sting-bug",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 317
+   },
+   {
+    "id": "rundown-board",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 334
+   },
+   {
+    "id": "spinning-headline",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 444
+   },
+   {
+    "id": "newsreel-ident",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 460
+   },
+   {
+    "id": "grease-pencil-mark",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 488
+   },
+   {
+    "id": "nib-follow-camera",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 579
+   },
+   {
+    "id": "ink-blot-stop",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 594
+   },
+   {
+    "id": "lightbox-stack",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 675
+   },
+   {
+    "id": "paper-strip-title",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 712
+   },
+   {
+    "id": "sticker-cutout",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 799
+   },
+   {
+    "id": "popup-spread",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 812
+   },
+   {
+    "id": "papercut-rosette",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 948
+   },
+   {
+    "id": "backlit-cutout",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 955
+   },
+   {
+    "id": "motif-grid-pattern",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 994
+   },
+   {
+    "id": "pictogram-figure",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1001
+   },
+   {
+    "id": "rpg-menu-ui",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1067
+   },
+   {
+    "id": "riso-plate-reveal",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1096
+   },
+   {
+    "id": "toon-object-character",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1152
+   },
+   {
+    "id": "bouncing-ball-singalong",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1159
+   }
+  ],
+  "LB2": [
+   {
+    "id": "time-rings",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1201
+   },
+   {
+    "id": "swirl-portal",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1273
+   },
+   {
+    "id": "atomic-orbit-title",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1287
+   },
+   {
+    "id": "lamp-screen",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1337
+   },
+   {
+    "id": "press-lift",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1344
+   },
+   {
+    "id": "carved-plaque",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1351
+   },
+   {
+    "id": "hide-carve-patterns",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1358
+   },
+   {
+    "id": "intertitle-card",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1406
+   },
+   {
+    "id": "theatre-gate",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1413
+   },
+   {
+    "id": "screenprint-poster",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1462
+   },
+   {
+    "id": "palette-reink",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1476
+   },
+   {
+    "id": "registration-snap",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1483
+   },
+   {
+    "id": "type-architecture",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1521
+   },
+   {
+    "id": "diagonal-assemble-title",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1528
+   },
+   {
+    "id": "silhouette-runner",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1542
+   },
+   {
+    "id": "light-band-window",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1582
+   },
+   {
+    "id": "glass-crack-mend",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1589
+   },
+   {
+    "id": "knife-cut",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1662
+   },
+   {
+    "id": "grid-score",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1669
+   },
+   {
+    "id": "grid-exception",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1676
+   },
+   {
+    "id": "exploded-stack",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1716
+   },
+   {
+    "id": "studio-sweep",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1737
+   },
+   {
+    "id": "telestrator-freeze",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1765
+   }
+  ],
+  "LB3": [
+   {
+    "id": "marker-ring-arrow",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1772
+   },
+   {
+    "id": "perspective-flatten",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1779
+   },
+   {
+    "id": "tilt-shift-lens",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1820
+   },
+   {
+    "id": "toy-town-traffic",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1827
+   },
+   {
+    "id": "long-exposure-trails",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1841
+   },
+   {
+    "id": "woodblock-print-reveal",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1877
+   },
+   {
+    "id": "frame-breakout",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1884
+   },
+   {
+    "id": "print-wave",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1905
+   },
+   {
+    "id": "wash-arrival",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 1938
+   },
+   {
+    "id": "evidence-board",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 2064
+   },
+   {
+    "id": "sync-grid",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 2084
+   },
+   {
+    "id": "doc-highlight",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 2101
+   },
+   {
+    "id": "dot-tally",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 2115
+   },
+   {
+    "id": "brush-paint-in",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 2197
+   },
+   {
+    "id": "painted-choropleth",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 2260
+   },
+   {
+    "id": "white-model-projection",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 2321
+   },
+   {
+    "id": "sun-shadow-measure",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 2348
+   },
+   {
+    "id": "board-camera",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 2476
+   },
+   {
+    "id": "eraser-rewind",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 2493
+   },
+   {
+    "id": "magnet-pin",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 2506
+   },
+   {
+    "id": "woodcut-carve",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": false,
+    "line": 2588
+   }
+  ],
+  "MG1": [
+   {
+    "id": "ink-brush-boil",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 204
+   },
+   {
+    "id": "smear-frame",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 217
+   },
+   {
+    "id": "flipbook-riffle-outro",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 238
+   },
+   {
+    "id": "flame-sprite",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 250
+   },
+   {
+    "id": "iso-city-build",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 310
+   },
+   {
+    "id": "colour-ignition-wave",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 322
+   },
+   {
+    "id": "iso-ground-title",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 344
+   },
+   {
+    "id": "accum-render-3d",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 354
+   },
+   {
+    "id": "flat-person-desk",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 426
+   },
+   {
+    "id": "icon-grid-burst",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 443
+   },
+   {
+    "id": "one-line-journey",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 498
+   },
+   {
+    "id": "time-remap-clock",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 514
+   },
+   {
+    "id": "light-pulse-path",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 524
+   },
+   {
+    "id": "cloner-bed-ripple",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 594
+   },
+   {
+    "id": "jelly-type-drop",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 605
+   },
+   {
+    "id": "shockwave-flip-field",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 616
+   },
+   {
+    "id": "shape-morph-chain",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 709
+   },
+   {
+    "id": "sticker-slap",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 798
+   },
+   {
+    "id": "canvas-flythrough",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 812
+   },
+   {
+    "id": "periodic-table-lightup",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 827
+   },
+   {
+    "id": "chip-stack-bars",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 838
+   },
+   {
+    "id": "alert-reink-wave",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 920
+   },
+   {
+    "id": "target-lock",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 933
+   }
+  ],
+  "MG2": [
+   {
+    "id": "holo-globe",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 944
+   },
+   {
+    "id": "collage-puppet",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 1015
+   },
+   {
+    "id": "scissor-cut",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 1028
+   },
+   {
+    "id": "ransom-note-type",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 1038
+   },
+   {
+    "id": "mesh-gradient-bg",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 1108
+   },
+   {
+    "id": "glass-ui-cards",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 1122
+   },
+   {
+    "id": "liquid-glass-lens",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 1138
+   },
+   {
+    "id": "grid-beat-construct",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 1251
+   },
+   {
+    "id": "print-plates",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 1283
+   },
+   {
+    "id": "outrun-grid",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 1340
+   },
+   {
+    "id": "chrome-title-slam",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 1356
+   },
+   {
+    "id": "vhs-pass",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 1381
+   },
+   {
+    "id": "tape-stutter",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 1398
+   },
+   {
+    "id": "pixel-platformer-scene",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 1459
+   },
+   {
+    "id": "palette-lut-grade",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 1472
+   },
+   {
+    "id": "pixel-logo-drop",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 1486
+   },
+   {
+    "id": "pixel-reward-burst",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 1509
+   },
+   {
+    "id": "sdf-liquid-shade",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 1565
+   },
+   {
+    "id": "drop-splash-crown",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 1580
+   },
+   {
+    "id": "blob-to-wordmark",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 1613
+   },
+   {
+    "id": "hanazi-caption",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 1667
+   },
+   {
+    "id": "sticker-cutout-burst",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": false,
+    "line": 1694
+   }
+  ],
+  "PD": [
+   {
+    "id": "beat-grid",
+    "doc": "analysis/sources/pdoom.md",
+    "transition": false,
+    "line": 167
+   },
+   {
+    "id": "lyric-timing",
+    "doc": "analysis/sources/pdoom.md",
+    "transition": false,
+    "line": 183
+   },
+   {
+    "id": "lyric-anchored-timeline",
+    "doc": "analysis/sources/pdoom.md",
+    "transition": false,
+    "line": 194
+   },
+   {
+    "id": "word-slam-hook",
+    "doc": "analysis/sources/pdoom.md",
+    "transition": false,
+    "line": 222
+   },
+   {
+    "id": "width-pressure-type",
+    "doc": "analysis/sources/pdoom.md",
+    "transition": false,
+    "line": 238
+   },
+   {
+    "id": "token-sampler-prompt",
+    "doc": "analysis/sources/pdoom.md",
+    "transition": false,
+    "line": 252
+   },
+   {
+    "id": "lyric-on-path",
+    "doc": "analysis/sources/pdoom.md",
+    "transition": false,
+    "line": 266
+   },
+   {
+    "id": "beat-camera",
+    "doc": "analysis/sources/pdoom.md",
+    "transition": false,
+    "line": 323
+   },
+   {
+    "id": "shutter-blur",
+    "doc": "analysis/sources/pdoom.md",
+    "transition": false,
+    "line": 356
+   },
+   {
+    "id": "engraving-hatch",
+    "doc": "analysis/sources/pdoom.md",
+    "transition": false,
+    "line": 365
+   },
+   {
+    "id": "time-stutter",
+    "doc": "analysis/sources/pdoom.md",
+    "transition": false,
+    "line": 416
+   },
+   {
+    "id": "guilloche-note",
+    "doc": "analysis/sources/pdoom.md",
+    "transition": false,
+    "line": 423
+   },
+   {
+    "id": "token-tree",
+    "doc": "analysis/sources/pdoom.md",
+    "transition": false,
+    "line": 439
+   },
+   {
+    "id": "stage-curtain",
+    "doc": "analysis/sources/pdoom.md",
+    "transition": false,
+    "line": 494
+   },
+   {
+    "id": "mascot-emotions",
+    "doc": "analysis/sources/character-rig.md",
+    "transition": false,
+    "line": 195
+   },
+   {
+    "id": "emotion-timeline",
+    "doc": "analysis/sources/character-rig.md",
+    "transition": false,
+    "line": 204
+   },
+   {
+    "id": "emotion-idle-beat",
+    "doc": "analysis/sources/character-rig.md",
+    "transition": false,
+    "line": 213
+   },
+   {
+    "id": "smear-trail",
+    "doc": "analysis/sources/character-rig.md",
+    "transition": false,
+    "line": 231
+   },
+   {
+    "id": "chomp-lid",
+    "doc": "analysis/sources/character-rig.md",
+    "transition": false,
+    "line": 240
+   },
+   {
+    "id": "beat-dance",
+    "doc": "analysis/sources/character-rig.md",
+    "transition": false,
+    "line": 305
+   },
+   {
+    "id": "emotion-sheet",
+    "doc": "analysis/sources/character-rig.md",
+    "transition": false,
+    "line": 365
+   }
+  ],
+  "X14": [
+   {
+    "id": "voxel-rain-build",
+    "doc": "analysis/ext/x1.md",
+    "transition": false,
+    "line": 39
+   },
+   {
+    "id": "voxel-burst-swirl",
+    "doc": "analysis/ext/x1.md",
+    "transition": false,
+    "line": 46
+   },
+   {
+    "id": "plinth-progress-ring",
+    "doc": "analysis/ext/x1.md",
+    "transition": false,
+    "line": 67
+   },
+   {
+    "id": "studio-plinth-stage",
+    "doc": "analysis/ext/x1.md",
+    "transition": false,
+    "line": 81
+   },
+   {
+    "id": "type-marquee-field",
+    "doc": "analysis/ext/x2.md",
+    "transition": false,
+    "line": 77
+   },
+   {
+    "id": "slice-assemble-glyph",
+    "doc": "analysis/ext/x2.md",
+    "transition": false,
+    "line": 89
+   },
+   {
+    "id": "particle-shape-morph",
+    "doc": "analysis/ext/x2.md",
+    "transition": false,
+    "line": 96
+   },
+   {
+    "id": "dash-flow-field",
+    "doc": "analysis/ext/x2.md",
+    "transition": false,
+    "line": 110
+   },
+   {
+    "id": "book-open-3d",
+    "doc": "analysis/ext/x3.md",
+    "transition": false,
+    "line": 38
+   },
+   {
+    "id": "sketch-shade-in",
+    "doc": "analysis/ext/x3.md",
+    "transition": false,
+    "line": 52
+   },
+   {
+    "id": "energy-jar-fill",
+    "doc": "analysis/ext/x3.md",
+    "transition": false,
+    "line": 59
+   },
+   {
+    "id": "transfer-arc",
+    "doc": "analysis/ext/x3.md",
+    "transition": false,
+    "line": 66
+   },
+   {
+    "id": "glass-lesson-card",
+    "doc": "analysis/ext/x3.md",
+    "transition": false,
+    "line": 87
+   },
+   {
+    "id": "magnifier-loupe",
+    "doc": "analysis/ext/x3.md",
+    "transition": false,
+    "line": 94
+   },
+   {
+    "id": "lift-the-flap",
+    "doc": "analysis/ext/x3.md",
+    "transition": false,
+    "line": 101
+   },
+   {
+    "id": "player-toolbar",
+    "doc": "analysis/ext/x3.md",
+    "transition": false,
+    "line": 108
+   },
+   {
+    "id": "creator-hand",
+    "doc": "analysis/ext/x4.md",
+    "transition": false,
+    "line": 37
+   },
+   {
+    "id": "window-glow-sequence",
+    "doc": "analysis/ext/x4.md",
+    "transition": false,
+    "line": 58
+   },
+   {
+    "id": "conveyor-flow",
+    "doc": "analysis/ext/x4.md",
+    "transition": false,
+    "line": 86
+   },
+   {
+    "id": "tv-wall-switch-on",
+    "doc": "analysis/ext/x4.md",
+    "transition": false,
+    "line": 93
+   }
+  ],
+  "X58": [
+   {
+    "id": "paper-diorama",
+    "doc": "analysis/ext/x5.md",
+    "transition": false,
+    "line": 36
+   },
+   {
+    "id": "popup-layer-rise",
+    "doc": "analysis/ext/x5.md",
+    "transition": false,
+    "line": 43
+   },
+   {
+    "id": "paper-critter-rig",
+    "doc": "analysis/ext/x5.md",
+    "transition": false,
+    "line": 71
+   },
+   {
+    "id": "portal-glow",
+    "doc": "analysis/ext/x5.md",
+    "transition": false,
+    "line": 78
+   },
+   {
+    "id": "army-formation",
+    "doc": "analysis/ext/x6.md",
+    "transition": false,
+    "line": 59
+   },
+   {
+    "id": "data-view-flash",
+    "doc": "analysis/ext/x6.md",
+    "transition": false,
+    "line": 66
+   },
+   {
+    "id": "tactical-map",
+    "doc": "analysis/ext/x6.md",
+    "transition": false,
+    "line": 73
+   },
+   {
+    "id": "event-feed",
+    "doc": "analysis/ext/x6.md",
+    "transition": false,
+    "line": 87
+   },
+   {
+    "id": "agent-roster",
+    "doc": "analysis/ext/x6.md",
+    "transition": false,
+    "line": 94
+   },
+   {
+    "id": "agent-log-panel",
+    "doc": "analysis/ext/x6.md",
+    "transition": false,
+    "line": 101
+   },
+   {
+    "id": "versus-roster",
+    "doc": "analysis/ext/x6.md",
+    "transition": false,
+    "line": 108
+   },
+   {
+    "id": "prompt-wall",
+    "doc": "analysis/ext/x6.md",
+    "transition": false,
+    "line": 115
+   },
+   {
+    "id": "circuit-traces",
+    "doc": "analysis/ext/x6.md",
+    "transition": false,
+    "line": 122
+   },
+   {
+    "id": "vs-splash",
+    "doc": "analysis/ext/x7.md",
+    "transition": false,
+    "line": 42
+   },
+   {
+    "id": "fight-hud",
+    "doc": "analysis/ext/x7.md",
+    "transition": false,
+    "line": 56
+   },
+   {
+    "id": "beam-clash",
+    "doc": "analysis/ext/x7.md",
+    "transition": false,
+    "line": 70
+   },
+   {
+    "id": "token-pipeline",
+    "doc": "analysis/ext/x7.md",
+    "transition": false,
+    "line": 84
+   },
+   {
+    "id": "rocket-to-moon",
+    "doc": "analysis/ext/x7.md",
+    "transition": false,
+    "line": 98
+   },
+   {
+    "id": "circuit-rebuild",
+    "doc": "analysis/ext/x8.md",
+    "transition": false,
+    "line": 42
+   },
+   {
+    "id": "auto-frame-camera",
+    "doc": "analysis/ext/x8.md",
+    "transition": false,
+    "line": 56
+   },
+   {
+    "id": "iso-actuators",
+    "doc": "analysis/ext/x8.md",
+    "transition": false,
+    "line": 70
+   },
+   {
+    "id": "lesson-carousel",
+    "doc": "analysis/ext/x8.md",
+    "transition": false,
+    "line": 84
+   },
+   {
+    "id": "inspector-popover",
+    "doc": "analysis/ext/x8.md",
+    "transition": false,
+    "line": 91
+   }
+  ],
+  "TR": [
+   {
+    "id": "deco-door-split",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": true,
+    "line": 224
+   },
+   {
+    "id": "revolving-door-wipe",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": true,
+    "line": 231
+   },
+   {
+    "id": "crt-power-on-off",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": true,
+    "line": 318
+   },
+   {
+    "id": "tracking-tear-timejump",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": true,
+    "line": 392
+   },
+   {
+    "id": "fig-number-rewrite",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": true,
+    "line": 490
+   },
+   {
+    "id": "erase-to-ghost",
+    "doc": "analysis/sources/lemo-styles-a.md",
+    "transition": true,
+    "line": 618
+   },
+   {
+    "id": "blinds",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": true,
+    "line": 503
+   },
+   {
+    "id": "cloud-curtain",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": true,
+    "line": 698
+   },
+   {
+    "id": "mosaic-swirl",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": true,
+    "line": 1053
+   },
+   {
+    "id": "riso-overprint-wipe",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": true,
+    "line": 1103
+   },
+   {
+    "id": "scan-swap",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": true,
+    "line": 1229
+   },
+   {
+    "id": "portal-wipe",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": true,
+    "line": 1280
+   },
+   {
+    "id": "pillar-wipe",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": true,
+    "line": 1365
+   },
+   {
+    "id": "squeegee-pull",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": true,
+    "line": 1469
+   },
+   {
+    "id": "lights-out",
+    "doc": "analysis/sources/lemo-styles-b.md",
+    "transition": true,
+    "line": 2376
+   },
+   {
+    "id": "tile-cascade",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": true,
+    "line": 1265
+   },
+   {
+    "id": "crt-off",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": true,
+    "line": 1409
+   },
+   {
+    "id": "liquid-flood",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": true,
+    "line": 1600
+   },
+   {
+    "id": "candy-stripe-wipe",
+    "doc": "analysis/sources/mg-styles-15.md",
+    "transition": true,
+    "line": 1710
+   },
+   {
+    "id": "crt-collapse",
+    "doc": "analysis/sources/pdoom.md",
+    "transition": true,
+    "line": 391
+   },
+   {
+    "id": "page-burn-through",
+    "doc": "analysis/sources/pdoom.md",
+    "transition": true,
+    "line": 400
+   },
+   {
+    "id": "brush-band-wipe",
+    "doc": "analysis/sources/pdoom.md",
+    "transition": true,
+    "line": 464
+   },
+   {
+    "id": "brush-wipe",
+    "doc": "analysis/sources/character-rig.md",
+    "transition": true,
+    "line": 314
+   },
+   {
+    "id": "ball-zoom-flood",
+    "doc": "analysis/ext/x2.md",
+    "transition": true,
+    "line": 42
+   },
+   {
+    "id": "stepped-diagonal-wipe",
+    "doc": "analysis/ext/x2.md",
+    "transition": true,
+    "line": 56
+   },
+   {
+    "id": "line-open-wipe",
+    "doc": "analysis/ext/x2.md",
+    "transition": true,
+    "line": 70
+   },
+   {
+    "id": "core-shockwave-reveal",
+    "doc": "analysis/ext/x2.md",
+    "transition": true,
+    "line": 103
+   },
+   {
+    "id": "field-blinds-wipe",
+    "doc": "analysis/ext/x2.md",
+    "transition": true,
+    "line": 117
+   },
+   {
+    "id": "screen-portal-push",
+    "doc": "analysis/ext/x4.md",
+    "transition": true,
+    "line": 51
+   },
+   {
+    "id": "swing-doors-reveal",
+    "doc": "analysis/ext/x4.md",
+    "transition": true,
+    "line": 79
+   },
+   {
+    "id": "foreground-occluder",
+    "doc": "analysis/ext/x5.md",
+    "transition": true,
+    "line": 99
+   },
+   {
+    "id": "layer-swap",
+    "doc": "analysis/ext/x5.md",
+    "transition": true,
+    "line": 113
+   },
+   {
+    "id": "container-expand",
+    "doc": "analysis/ext/x6.md",
+    "transition": true,
+    "line": 45
+   }
+  ]
+ },
+ "styles": [
+  {
+   "id": "archive-lighttable",
+   "doc": "analysis/sources/lemo-styles-a.md",
+   "line": 113
+  },
+  {
+   "id": "art-deco",
+   "doc": "analysis/sources/lemo-styles-a.md",
+   "line": 193
+  },
+  {
+   "id": "ascii-crt",
+   "doc": "analysis/sources/lemo-styles-a.md",
+   "line": 268
+  },
+  {
+   "id": "backrooms",
+   "doc": "analysis/sources/lemo-styles-a.md",
+   "line": 341
+  },
+  {
+   "id": "blueprint",
+   "doc": "analysis/sources/lemo-styles-a.md",
+   "line": 415
+  },
+  {
+   "id": "brick-toy",
+   "doc": "analysis/sources/lemo-styles-a.md",
+   "line": 499
+  },
+  {
+   "id": "briefing-board",
+   "doc": "analysis/sources/lemo-styles-a.md",
+   "line": 565
+  },
+  {
+   "id": "caption-news",
+   "doc": "analysis/sources/lemo-styles-a.md",
+   "line": 640
+  },
+  {
+   "id": "cel-anime-80s",
+   "doc": "analysis/sources/lemo-styles-a.md",
+   "line": 715
+  },
+  {
+   "id": "city-symphony",
+   "doc": "analysis/sources/lemo-styles-a.md",
+   "line": 786
+  },
+  {
+   "id": "countdown",
+   "doc": "analysis/sources/lemo-styles-a.md",
+   "line": 852
+  },
+  {
+   "id": "crayon-book",
+   "doc": "analysis/sources/lemo-styles-a.md",
+   "line": 913
+  },
+  {
+   "id": "dark-keynote",
+   "doc": "analysis/sources/lemo-styles-a.md",
+   "line": 970
+  },
+  {
+   "id": "data-physical",
+   "doc": "analysis/sources/lemo-styles-a.md",
+   "line": 1031
+  },
+  {
+   "id": "dataviz",
+   "doc": "analysis/sources/lemo-styles-a.md",
+   "line": 1087
+  },
+  {
+   "id": "engraving",
+   "doc": "analysis/sources/lemo-styles-a.md",
+   "line": 1150
+  },
+  {
+   "id": "game-show",
+   "doc": "analysis/sources/lemo-styles-a.md",
+   "line": 1215
+  },
+  {
+   "id": "glass-product",
+   "doc": "analysis/sources/lemo-styles-a.md",
+   "line": 1284
+  },
+  {
+   "id": "halftone-dossier",
+   "doc": "analysis/sources/lemo-styles-a.md",
+   "line": 1361
+  },
+  {
+   "id": "hd-2d",
+   "doc": "analysis/sources/lemo-styles-a.md",
+   "line": 1442
+  },
+  {
+   "id": "hologram-hud",
+   "doc": "analysis/sources/lemo-styles-a.md",
+   "line": 1514
+  },
+  {
+   "id": "impasto",
+   "doc": "analysis/sources/lemo-styles-a.md",
+   "line": 1585
+  },
+  {
+   "id": "ink-wash",
+   "doc": "analysis/sources/lemo-styles-a.md",
+   "line": 1652
+  },
+  {
+   "id": "iso-infographic",
+   "doc": "analysis/sources/lemo-styles-a.md",
+   "line": 1718
+  },
+  {
+   "id": "kino-montage",
+   "doc": "analysis/sources/lemo-styles-a.md",
+   "line": 1784
+  },
+  {
+   "id": "lidar-survey",
+   "doc": "analysis/sources/lemo-styles-a.md",
+   "line": 1850
+  },
+  {
+   "id": "living-screencast",
+   "doc": "analysis/sources/lemo-styles-a.md",
+   "line": 1917
+  },
+  {
+   "id": "lowpoly-island",
+   "doc": "analysis/sources/lemo-styles-a.md",
+   "line": 1978
+  },
+  {
+   "id": "microgame",
+   "doc": "analysis/sources/lemo-styles-a.md",
+   "line": 2037
+  },
+  {
+   "id": "midcentury-toon",
+   "doc": "analysis/sources/lemo-styles-b.md",
+   "line": 110
+  },
+  {
+   "id": "news-package",
+   "doc": "analysis/sources/lemo-styles-b.md",
+   "line": 253
+  },
+  {
+   "id": "newsreel",
+   "doc": "analysis/sources/lemo-styles-b.md",
+   "line": 386
+  },
+  {
+   "id": "one-line",
+   "doc": "analysis/sources/lemo-styles-b.md",
+   "line": 518
+  },
+  {
+   "id": "paper-lantern",
+   "doc": "analysis/sources/lemo-styles-b.md",
+   "line": 619
+  },
+  {
+   "id": "paper-popup",
+   "doc": "analysis/sources/lemo-styles-b.md",
+   "line": 740
+  },
+  {
+   "id": "papercut-red",
+   "doc": "analysis/sources/lemo-styles-b.md",
+   "line": 924
+  },
+  {
+   "id": "pictogram-motion",
+   "doc": "analysis/sources/lemo-styles-b.md",
+   "line": 980
+  },
+  {
+   "id": "pixel-rpg",
+   "doc": "analysis/sources/lemo-styles-b.md",
+   "line": 1026
+  },
+  {
+   "id": "risograph",
+   "doc": "analysis/sources/lemo-styles-b.md",
+   "line": 1078
+  },
+  {
+   "id": "rubber-hose",
+   "doc": "analysis/sources/lemo-styles-b.md",
+   "line": 1128
+  },
+  {
+   "id": "satellite-briefing",
+   "doc": "analysis/sources/lemo-styles-b.md",
+   "line": 1184
+  },
+  {
+   "id": "scifi-toon",
+   "doc": "analysis/sources/lemo-styles-b.md",
+   "line": 1252
+  },
+  {
+   "id": "shadow-puppet",
+   "doc": "analysis/sources/lemo-styles-b.md",
+   "line": 1312
+  },
+  {
+   "id": "silent-film",
+   "doc": "analysis/sources/lemo-styles-b.md",
+   "line": 1376
+  },
+  {
+   "id": "silkscreen-poster",
+   "doc": "analysis/sources/lemo-styles-b.md",
+   "line": 1438
+  },
+  {
+   "id": "spy-titles",
+   "doc": "analysis/sources/lemo-styles-b.md",
+   "line": 1503
+  },
+  {
+   "id": "stained-glass",
+   "doc": "analysis/sources/lemo-styles-b.md",
+   "line": 1562
+  },
+  {
+   "id": "swiss-motion",
+   "doc": "analysis/sources/lemo-styles-b.md",
+   "line": 1644
+  },
+  {
+   "id": "teardown",
+   "doc": "analysis/sources/lemo-styles-b.md",
+   "line": 1701
+  },
+  {
+   "id": "telestrator",
+   "doc": "analysis/sources/lemo-styles-b.md",
+   "line": 1748
+  },
+  {
+   "id": "tilt-shift",
+   "doc": "analysis/sources/lemo-styles-b.md",
+   "line": 1804
+  },
+  {
+   "id": "ukiyoe",
+   "doc": "analysis/sources/lemo-styles-b.md",
+   "line": 1852
+  },
+  {
+   "id": "urban-sketch",
+   "doc": "analysis/sources/lemo-styles-b.md",
+   "line": 1916
+  },
+  {
+   "id": "visual-investigation",
+   "doc": "analysis/sources/lemo-styles-b.md",
+   "line": 1992
+  },
+  {
+   "id": "watercolor",
+   "doc": "analysis/sources/lemo-styles-b.md",
+   "line": 2131
+  },
+  {
+   "id": "white-model",
+   "doc": "analysis/sources/lemo-styles-b.md",
+   "line": 2277
+  },
+  {
+   "id": "whiteboard",
+   "doc": "analysis/sources/lemo-styles-b.md",
+   "line": 2393
+  },
+  {
+   "id": "woodcut",
+   "doc": "analysis/sources/lemo-styles-b.md",
+   "line": 2521
+  },
+  {
+   "id": "cel-boil",
+   "doc": "analysis/sources/mg-styles-15.md",
+   "line": 172
+  },
+  {
+   "id": "iso-diorama",
+   "doc": "analysis/sources/mg-styles-15.md",
+   "line": 280
+  },
+  {
+   "id": "flat-vector-pop",
+   "doc": "analysis/sources/mg-styles-15.md",
+   "line": 387
+  },
+  {
+   "id": "gold-line-luxe",
+   "doc": "analysis/sources/mg-styles-15.md",
+   "line": 481
+  },
+  {
+   "id": "soft-3d-candy",
+   "doc": "analysis/sources/mg-styles-15.md",
+   "line": 574
+  },
+  {
+   "id": "shape-morph",
+   "doc": "analysis/sources/mg-styles-15.md",
+   "line": 690
+  },
+  {
+   "id": "sticker-explainer",
+   "doc": "analysis/sources/mg-styles-15.md",
+   "line": 780
+  },
+  {
+   "id": "cyber-hud-fui",
+   "doc": "analysis/sources/mg-styles-15.md",
+   "line": 888
+  },
+  {
+   "id": "collage-cutout",
+   "doc": "analysis/sources/mg-styles-15.md",
+   "line": 993
+  },
+  {
+   "id": "aurora-glass",
+   "doc": "analysis/sources/mg-styles-15.md",
+   "line": 1090
+  },
+  {
+   "id": "bauhaus-kinetic",
+   "doc": "analysis/sources/mg-styles-15.md",
+   "line": 1231
+  },
+  {
+   "id": "synthwave-vhs",
+   "doc": "analysis/sources/mg-styles-15.md",
+   "line": 1321
+  },
+  {
+   "id": "pixel-quest",
+   "doc": "analysis/sources/mg-styles-15.md",
+   "line": 1438
+  },
+  {
+   "id": "liquid-candy",
+   "doc": "analysis/sources/mg-styles-15.md",
+   "line": 1548
+  },
+  {
+   "id": "variety-hanazi",
+   "doc": "analysis/sources/mg-styles-15.md",
+   "line": 1647
+  },
+  {
+   "id": "engraved-treatise",
+   "doc": "analysis/sources/pdoom.md",
+   "line": 111
+  },
+  {
+   "id": "watercolor-storybook",
+   "doc": "analysis/sources/pdoom.md",
+   "line": 142
+  },
+  {
+   "id": "ink-wash-cartoon",
+   "doc": "analysis/sources/character-rig.md",
+   "line": 377
+  },
+  {
+   "id": "voxel-studio",
+   "doc": "analysis/ext/x1.md",
+   "line": 100
+  },
+  {
+   "id": "swiss-reel",
+   "doc": "analysis/ext/x2.md",
+   "line": 159
+  },
+  {
+   "id": "ink-hatch-3d",
+   "doc": "analysis/ext/x3.md",
+   "line": 133
+  },
+  {
+   "id": "storybook-gouache",
+   "doc": "analysis/ext/x4.md",
+   "line": 122
+  },
+  {
+   "id": "paper-diorama",
+   "doc": "analysis/ext/x5.md",
+   "line": 129
+  },
+  {
+   "id": "klein-terminal",
+   "doc": "analysis/ext/x6.md",
+   "line": 157
+  },
+  {
+   "id": "arcade-halftone",
+   "doc": "analysis/ext/x7.md",
+   "line": 122
+  },
+  {
+   "id": "iso-workbench",
+   "doc": "analysis/ext/x8.md",
+   "line": 118
+  }
+ ],
+ "owner": {
+  "loupe-magnify": "LA1",
+  "negative-develop-reveal": "LA1",
+  "line-light-up": "LA1",
+  "ground-plane-ruler": "LA1",
+  "bulb-marquee-sign": "LA1",
+  "deco-title-bar": "LA1",
+  "mode7-floor-perspective": "LA1",
+  "ascii-image-grid": "LA1",
+  "letters-become-image": "LA1",
+  "glyph-fractal-push": "LA1",
+  "autofocus-hunt": "LA1",
+  "liminal-corridor-3d": "LA1",
+  "oblique-extrude-drawing": "LA1",
+  "exploded-view-balloons": "LA1",
+  "cyanotype-water-bloom": "LA1",
+  "brick-snap-build": "LA1",
+  "brick-collapse-physics": "LA1",
+  "brick-rebuild-morph": "LA1",
+  "brick-fx-fire-smoke": "LA1",
+  "board-print-drop": "LA1",
+  "ride-dimension-line": "LA1",
+  "proportion-sweep": "LA1",
+  "doc-highlight-evidence": "LA1",
+  "freeze-frame-brackets": "LA1",
+  "map-mask-reveal": "LA1",
+  "news-bug-source-tag": "LA1",
+  "vhs-crt-pass": "LA1",
+  "cel-shade-crescent": "LA1",
+  "chrome-80s-title": "LA1",
+  "colour-model-relight": "LA1",
+  "frame-blend-timelapse": "LA1",
+  "crowd-tracks": "LA2",
+  "grid-multiply": "LA2",
+  "day-ring-dial": "LA2",
+  "split-grid-countdown": "LA2",
+  "mission-clock": "LA2",
+  "planned-vs-heard-checklist": "LA2",
+  "cam-chip-sync-badge": "LA2",
+  "wax-resist-reveal": "LA2",
+  "crayon-wax-shader": "LA2",
+  "crayon-hatch-fill": "LA2",
+  "snap-grid-collapse": "LA2",
+  "ui-accumulation-storm": "LA2",
+  "stack-plates-3d": "LA2",
+  "chart-to-installation": "LA2",
+  "last-object-drop": "LA2",
+  "dot-to-stripes-morph": "LA2",
+  "axis-ratchet-rescale": "LA2",
+  "empty-next-cell": "LA2",
+  "burin-engrave-hatch": "LA2",
+  "magnification-roundel": "LA2",
+  "wash-bloom-colour": "LA2",
+  "copper-proof-pull": "LA2",
+  "beat-punch-zoom": "LA2",
+  "candy-set-backdrop": "LA2",
+  "remix-thumbnail-shelf": "LA2",
+  "glass-strip-sweep": "LA2",
+  "comet-pulse-guide": "LA2",
+  "exploded-view-snap": "LA2",
+  "frost-to-clear": "LA2",
+  "halftone-exhibit-numeral": "LA2",
+  "mugshot-height-chart": "LA2",
+  "redaction-bars": "LA3",
+  "tilt-shift-diorama": "LA3",
+  "lit-pixel-sprite": "LA3",
+  "practical-light-shadow-jump": "LA3",
+  "target-lock-box": "LA3",
+  "spec-chip-rail": "LA3",
+  "holo-solid-ignite": "LA3",
+  "knife-paint-plate": "LA3",
+  "knife-colour-relay": "LA3",
+  "overhead-trail-mandala": "LA3",
+  "ink-brush-stroke": "LA3",
+  "handscroll-reveal": "LA3",
+  "iso-diorama-board": "LA3",
+  "iso-cutaway": "LA3",
+  "isotype-count": "LA3",
+  "focus-desaturate": "LA3",
+  "diagonal-band-title": "LA3",
+  "document-marker-highlight": "LA3",
+  "photomontage-tower": "LA3",
+  "lidar-canopy-peel": "LA3",
+  "hairline-feature-trace": "LA3",
+  "section-profile-chart": "LA3",
+  "pixel-mascot-on-ui": "LA3",
+  "screen-recorder-camera": "LA3",
+  "keystroke-hud": "LA3",
+  "hex-island-grow": "LA3",
+  "faceted-sea": "LA3",
+  "light-beam-ribbon": "LA3",
+  "crayon-pressure-pass": "LA3",
+  "fuse-beat-timer": "LA3",
+  "lives-counter": "LA3",
+  "toon-cel-shape": "LB1",
+  "coverage-route": "LB1",
+  "sunburst-hero": "LB1",
+  "news-strap": "LB1",
+  "sting-bug": "LB1",
+  "rundown-board": "LB1",
+  "spinning-headline": "LB1",
+  "newsreel-ident": "LB1",
+  "grease-pencil-mark": "LB1",
+  "nib-follow-camera": "LB1",
+  "ink-blot-stop": "LB1",
+  "lightbox-stack": "LB1",
+  "paper-strip-title": "LB1",
+  "sticker-cutout": "LB1",
+  "popup-spread": "LB1",
+  "papercut-rosette": "LB1",
+  "backlit-cutout": "LB1",
+  "motif-grid-pattern": "LB1",
+  "pictogram-figure": "LB1",
+  "rpg-menu-ui": "LB1",
+  "riso-plate-reveal": "LB1",
+  "toon-object-character": "LB1",
+  "bouncing-ball-singalong": "LB1",
+  "time-rings": "LB2",
+  "swirl-portal": "LB2",
+  "atomic-orbit-title": "LB2",
+  "lamp-screen": "LB2",
+  "press-lift": "LB2",
+  "carved-plaque": "LB2",
+  "hide-carve-patterns": "LB2",
+  "intertitle-card": "LB2",
+  "theatre-gate": "LB2",
+  "screenprint-poster": "LB2",
+  "palette-reink": "LB2",
+  "registration-snap": "LB2",
+  "type-architecture": "LB2",
+  "diagonal-assemble-title": "LB2",
+  "silhouette-runner": "LB2",
+  "light-band-window": "LB2",
+  "glass-crack-mend": "LB2",
+  "knife-cut": "LB2",
+  "grid-score": "LB2",
+  "grid-exception": "LB2",
+  "exploded-stack": "LB2",
+  "studio-sweep": "LB2",
+  "telestrator-freeze": "LB2",
+  "marker-ring-arrow": "LB3",
+  "perspective-flatten": "LB3",
+  "tilt-shift-lens": "LB3",
+  "toy-town-traffic": "LB3",
+  "long-exposure-trails": "LB3",
+  "woodblock-print-reveal": "LB3",
+  "frame-breakout": "LB3",
+  "print-wave": "LB3",
+  "wash-arrival": "LB3",
+  "evidence-board": "LB3",
+  "sync-grid": "LB3",
+  "doc-highlight": "LB3",
+  "dot-tally": "LB3",
+  "brush-paint-in": "LB3",
+  "painted-choropleth": "LB3",
+  "white-model-projection": "LB3",
+  "sun-shadow-measure": "LB3",
+  "board-camera": "LB3",
+  "eraser-rewind": "LB3",
+  "magnet-pin": "LB3",
+  "woodcut-carve": "LB3",
+  "ink-brush-boil": "MG1",
+  "smear-frame": "MG1",
+  "flipbook-riffle-outro": "MG1",
+  "flame-sprite": "MG1",
+  "iso-city-build": "MG1",
+  "colour-ignition-wave": "MG1",
+  "iso-ground-title": "MG1",
+  "accum-render-3d": "MG1",
+  "flat-person-desk": "MG1",
+  "icon-grid-burst": "MG1",
+  "one-line-journey": "MG1",
+  "time-remap-clock": "MG1",
+  "light-pulse-path": "MG1",
+  "cloner-bed-ripple": "MG1",
+  "jelly-type-drop": "MG1",
+  "shockwave-flip-field": "MG1",
+  "shape-morph-chain": "MG1",
+  "sticker-slap": "MG1",
+  "canvas-flythrough": "MG1",
+  "periodic-table-lightup": "MG1",
+  "chip-stack-bars": "MG1",
+  "alert-reink-wave": "MG1",
+  "target-lock": "MG1",
+  "holo-globe": "MG2",
+  "collage-puppet": "MG2",
+  "scissor-cut": "MG2",
+  "ransom-note-type": "MG2",
+  "mesh-gradient-bg": "MG2",
+  "glass-ui-cards": "MG2",
+  "liquid-glass-lens": "MG2",
+  "grid-beat-construct": "MG2",
+  "print-plates": "MG2",
+  "outrun-grid": "MG2",
+  "chrome-title-slam": "MG2",
+  "vhs-pass": "MG2",
+  "tape-stutter": "MG2",
+  "pixel-platformer-scene": "MG2",
+  "palette-lut-grade": "MG2",
+  "pixel-logo-drop": "MG2",
+  "pixel-reward-burst": "MG2",
+  "sdf-liquid-shade": "MG2",
+  "drop-splash-crown": "MG2",
+  "blob-to-wordmark": "MG2",
+  "hanazi-caption": "MG2",
+  "sticker-cutout-burst": "MG2",
+  "beat-grid": "PD",
+  "lyric-timing": "PD",
+  "lyric-anchored-timeline": "PD",
+  "word-slam-hook": "PD",
+  "width-pressure-type": "PD",
+  "token-sampler-prompt": "PD",
+  "lyric-on-path": "PD",
+  "beat-camera": "PD",
+  "shutter-blur": "PD",
+  "engraving-hatch": "PD",
+  "time-stutter": "PD",
+  "guilloche-note": "PD",
+  "token-tree": "PD",
+  "stage-curtain": "PD",
+  "mascot-emotions": "PD",
+  "emotion-timeline": "PD",
+  "emotion-idle-beat": "PD",
+  "smear-trail": "PD",
+  "chomp-lid": "PD",
+  "beat-dance": "PD",
+  "emotion-sheet": "PD",
+  "voxel-rain-build": "X14",
+  "voxel-burst-swirl": "X14",
+  "plinth-progress-ring": "X14",
+  "studio-plinth-stage": "X14",
+  "type-marquee-field": "X14",
+  "slice-assemble-glyph": "X14",
+  "particle-shape-morph": "X14",
+  "dash-flow-field": "X14",
+  "book-open-3d": "X14",
+  "sketch-shade-in": "X14",
+  "energy-jar-fill": "X14",
+  "transfer-arc": "X14",
+  "glass-lesson-card": "X14",
+  "magnifier-loupe": "X14",
+  "lift-the-flap": "X14",
+  "player-toolbar": "X14",
+  "creator-hand": "X14",
+  "window-glow-sequence": "X14",
+  "conveyor-flow": "X14",
+  "tv-wall-switch-on": "X14",
+  "paper-diorama": "X58",
+  "popup-layer-rise": "X58",
+  "paper-critter-rig": "X58",
+  "portal-glow": "X58",
+  "army-formation": "X58",
+  "data-view-flash": "X58",
+  "tactical-map": "X58",
+  "event-feed": "X58",
+  "agent-roster": "X58",
+  "agent-log-panel": "X58",
+  "versus-roster": "X58",
+  "prompt-wall": "X58",
+  "circuit-traces": "X58",
+  "vs-splash": "X58",
+  "fight-hud": "X58",
+  "beam-clash": "X58",
+  "token-pipeline": "X58",
+  "rocket-to-moon": "X58",
+  "circuit-rebuild": "X58",
+  "auto-frame-camera": "X58",
+  "iso-actuators": "X58",
+  "lesson-carousel": "X58",
+  "inspector-popover": "X58",
+  "deco-door-split": "TR",
+  "revolving-door-wipe": "TR",
+  "crt-power-on-off": "TR",
+  "tracking-tear-timejump": "TR",
+  "fig-number-rewrite": "TR",
+  "erase-to-ghost": "TR",
+  "blinds": "TR",
+  "cloud-curtain": "TR",
+  "mosaic-swirl": "TR",
+  "riso-overprint-wipe": "TR",
+  "scan-swap": "TR",
+  "portal-wipe": "TR",
+  "pillar-wipe": "TR",
+  "squeegee-pull": "TR",
+  "lights-out": "TR",
+  "tile-cascade": "TR",
+  "crt-off": "TR",
+  "liquid-flood": "TR",
+  "candy-stripe-wipe": "TR",
+  "crt-collapse": "TR",
+  "page-burn-through": "TR",
+  "brush-band-wipe": "TR",
+  "brush-wipe": "TR",
+  "ball-zoom-flood": "TR",
+  "stepped-diagonal-wipe": "TR",
+  "line-open-wipe": "TR",
+  "core-shockwave-reveal": "TR",
+  "field-blinds-wipe": "TR",
+  "screen-portal-push": "TR",
+  "swing-doors-reveal": "TR",
+  "foreground-occluder": "TR",
+  "layer-swap": "TR",
+  "container-expand": "TR"
+ }
+}

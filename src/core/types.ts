@@ -15,7 +15,13 @@ export type Category =
   | 'environment'
   | 'fx'
   | 'image'
-  | 'ui';
+  | 'ui'
+  | 'music'
+  | 'game'
+  | 'document'
+  | 'product'
+  | 'map'
+  | 'mascot';
 
 export interface MotionDef<P extends Record<string, unknown> = Record<string, any>> {
   /** kebab-case id used by the CLI and compose specs */
