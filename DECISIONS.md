@@ -171,3 +171,25 @@ HTML / Remotion-spec snippets), `#/recipes`, `#/transitions`, `#/docs`. Run: `cd
 
 **Needs you / main agent**: enable Pages (Settings → Pages → Source: GitHub Actions) and push `main`; upload
 `docs/media/social-preview.png` in Settings → General → Social preview; link the site + GIF from README.
+
+## Prompt-corpus research (2026-10-24, expansion round 2)
+
+Outputs: `analysis/sources/prompts.md` (clusters, top-60 missing techniques, top-20 styles, 40 request phrasings),
+`analysis/sources/prompt-cases.json` (1185 records, 1138 unique cases), `docs/prompt-index.json` (case → our motions).
+Regenerate: `python -I out/prompt-research/parse_cases.py <opus_sources/repos> <repo>` then
+`python -I out/prompt-research/render_md.py <opus_sources/repos>` (scripts live in git-ignored `out/`; copy them into
+`cli/` if they should be kept).
+
+- **Case list for awesome-claude-5-5-videos** = the 424 posts in `data/collection-index.csv` (what the README calls the case
+  list). The 1,401-row `domain-style.csv` snapshot is only used as a cross-check and to label styles, not as records.
+- **opus-video-prompts has no licence**: records hold our own English titles/summaries (written from the case metadata),
+  links and detected features only; prompt text was scanned in memory and never written out. The 54 `cases.json` rows
+  plus 4 prompt files without a case row → 58 records.
+- **MIT/CC-BY summaries are generated** (title or first English sentence + detected genre/length/format/tools/techniques,
+  ≤200 chars) rather than hand-written; fill-in templates are labelled "template" instead of quoting them.
+- **Technique detection is a keyword taxonomy** (`out/prompt-research/taxonomy.py`) plus style-implied techniques;
+  "banned/avoid …" lists in prompts are stripped first so excluded effects are not counted. Counts are lower bounds.
+- **Ranking** = cases × usefulness (1–5, my judgement). Pipeline items (`sfx-synth-score`, `motion-blur-subframes`) stay in
+  the list but are marked; `stop-motion-boil`, `crt-vhs-overlay` and `cinematic-camera-3d` are EXTENDS of existing core
+  helpers / style engine, not new motions.
+- Thumbnail contact sheets (61 thumbnails) are in git-ignored `analysis/frames/prompt-thumbs/`.

@@ -1835,6 +1835,366 @@
     "transition": true,
     "line": 45
    }
+  ],
+  "PR": [
+   {
+    "id": "kinetic-type-slam",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 371,
+    "possibleOverlap": []
+   },
+   {
+    "id": "character-rig-2d",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 385,
+    "possibleOverlap": []
+   },
+   {
+    "id": "timeline-ruler",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 392,
+    "possibleOverlap": []
+   },
+   {
+    "id": "cursor-driver",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 406,
+    "possibleOverlap": []
+   },
+   {
+    "id": "pixel-sprite-scene",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 413,
+    "possibleOverlap": [
+     "lit-pixel-sprite",
+     "pixel-platformer-scene"
+    ]
+   },
+   {
+    "id": "flow-diagram",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 420,
+    "possibleOverlap": []
+   },
+   {
+    "id": "card-stack-cascade",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 427,
+    "possibleOverlap": []
+   },
+   {
+    "id": "match-cut",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 434,
+    "possibleOverlap": []
+   },
+   {
+    "id": "ui-shape-morph",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 441,
+    "possibleOverlap": [
+     "shape-morph-chain",
+     "particle-shape-morph"
+    ]
+   },
+   {
+    "id": "paper-cutout-layers",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 462,
+    "possibleOverlap": []
+   },
+   {
+    "id": "globe-3d",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 469,
+    "possibleOverlap": []
+   },
+   {
+    "id": "brush-stroke-reveal",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 476,
+    "possibleOverlap": [
+     "ink-brush-stroke"
+    ]
+   },
+   {
+    "id": "device-mockup",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 483,
+    "possibleOverlap": []
+   },
+   {
+    "id": "shape-morph",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 497,
+    "possibleOverlap": [
+     "shape-morph-chain",
+     "particle-shape-morph"
+    ]
+   },
+   {
+    "id": "product-turntable-3d",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 504,
+    "possibleOverlap": []
+   },
+   {
+    "id": "command-palette-type",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 511,
+    "possibleOverlap": []
+   },
+   {
+    "id": "impact-frame",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 518,
+    "possibleOverlap": []
+   },
+   {
+    "id": "game-hud",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 525,
+    "possibleOverlap": []
+   },
+   {
+    "id": "fog-clouds",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 532,
+    "possibleOverlap": []
+   },
+   {
+    "id": "exploded-view-3d",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 539,
+    "possibleOverlap": [
+     "exploded-view-balloons",
+     "exploded-view-snap"
+    ]
+   },
+   {
+    "id": "function-plot",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 546,
+    "possibleOverlap": []
+   },
+   {
+    "id": "atom-model",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 560,
+    "possibleOverlap": []
+   },
+   {
+    "id": "explosion-burst",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 567,
+    "possibleOverlap": []
+   },
+   {
+    "id": "particle-morph",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 574,
+    "possibleOverlap": [
+     "particle-shape-morph"
+    ]
+   },
+   {
+    "id": "fire-flames",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 581,
+    "possibleOverlap": []
+   },
+   {
+    "id": "iso-diorama",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 595,
+    "possibleOverlap": [
+     "iso-diorama-board"
+    ]
+   },
+   {
+    "id": "physics-pile",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 602,
+    "possibleOverlap": []
+   },
+   {
+    "id": "audio-spectrum",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 609,
+    "possibleOverlap": []
+   },
+   {
+    "id": "logo-assemble",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 616,
+    "possibleOverlap": []
+   },
+   {
+    "id": "notification-stack",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 623,
+    "possibleOverlap": []
+   },
+   {
+    "id": "orbit-system",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 630,
+    "possibleOverlap": []
+   },
+   {
+    "id": "glass-refraction",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 637,
+    "possibleOverlap": []
+   },
+   {
+    "id": "clay-look-3d",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 644,
+    "possibleOverlap": []
+   },
+   {
+    "id": "torn-paper-collage",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 651,
+    "possibleOverlap": []
+   },
+   {
+    "id": "clock-calendar",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 658,
+    "possibleOverlap": []
+   },
+   {
+    "id": "loot-reveal",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 672,
+    "possibleOverlap": []
+   },
+   {
+    "id": "voxel-diorama",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 679,
+    "possibleOverlap": []
+   },
+   {
+    "id": "mesh-gradient",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 693,
+    "possibleOverlap": [
+     "mesh-gradient-bg"
+    ]
+   },
+   {
+    "id": "city-build-3d",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 700,
+    "possibleOverlap": [
+     "iso-city-build"
+    ]
+   },
+   {
+    "id": "liquid-pour-fill",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 707,
+    "possibleOverlap": []
+   },
+   {
+    "id": "neural-net-layers",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 714,
+    "possibleOverlap": []
+   },
+   {
+    "id": "ocean-surface-3d",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 721,
+    "possibleOverlap": []
+   },
+   {
+    "id": "node-network",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 742,
+    "possibleOverlap": []
+   },
+   {
+    "id": "stickman-rig",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 749,
+    "possibleOverlap": []
+   },
+   {
+    "id": "talking-head-pip",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 756,
+    "possibleOverlap": []
+   },
+   {
+    "id": "carousel-3d",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 763,
+    "possibleOverlap": []
+   },
+   {
+    "id": "rocket-launch",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 777,
+    "possibleOverlap": []
+   },
+   {
+    "id": "marquee-ticker",
+    "doc": "analysis/sources/prompts.md",
+    "transition": false,
+    "line": 784,
+    "possibleOverlap": []
+   }
   ]
  },
  "styles": [
@@ -2561,6 +2921,54 @@
   "swing-doors-reveal": "TR",
   "foreground-occluder": "TR",
   "layer-swap": "TR",
-  "container-expand": "TR"
+  "container-expand": "TR",
+  "kinetic-type-slam": "PR",
+  "character-rig-2d": "PR",
+  "timeline-ruler": "PR",
+  "cursor-driver": "PR",
+  "pixel-sprite-scene": "PR",
+  "flow-diagram": "PR",
+  "card-stack-cascade": "PR",
+  "match-cut": "PR",
+  "ui-shape-morph": "PR",
+  "paper-cutout-layers": "PR",
+  "globe-3d": "PR",
+  "brush-stroke-reveal": "PR",
+  "device-mockup": "PR",
+  "shape-morph": "PR",
+  "product-turntable-3d": "PR",
+  "command-palette-type": "PR",
+  "impact-frame": "PR",
+  "game-hud": "PR",
+  "fog-clouds": "PR",
+  "exploded-view-3d": "PR",
+  "function-plot": "PR",
+  "atom-model": "PR",
+  "explosion-burst": "PR",
+  "particle-morph": "PR",
+  "fire-flames": "PR",
+  "iso-diorama": "PR",
+  "physics-pile": "PR",
+  "audio-spectrum": "PR",
+  "logo-assemble": "PR",
+  "notification-stack": "PR",
+  "orbit-system": "PR",
+  "glass-refraction": "PR",
+  "clay-look-3d": "PR",
+  "torn-paper-collage": "PR",
+  "clock-calendar": "PR",
+  "loot-reveal": "PR",
+  "voxel-diorama": "PR",
+  "mesh-gradient": "PR",
+  "city-build-3d": "PR",
+  "liquid-pour-fill": "PR",
+  "neural-net-layers": "PR",
+  "ocean-surface-3d": "PR",
+  "node-network": "PR",
+  "stickman-rig": "PR",
+  "talking-head-pip": "PR",
+  "carousel-3d": "PR",
+  "rocket-launch": "PR",
+  "marquee-ticker": "PR"
  }
 }
