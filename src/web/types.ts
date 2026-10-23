@@ -89,6 +89,8 @@ export interface MotionMetaLite {
 }
 
 export interface CommonPlayerProps {
+  /** visual style applied on top (style id from styles.json, e.g. "woodcut", "risograph", "blueprint") */
+  look?: string | {id: string; strength?: number};
   /** composition size; defaults to `format` (landscape 1920×1080) */
   format?: Format;
   width?: number;

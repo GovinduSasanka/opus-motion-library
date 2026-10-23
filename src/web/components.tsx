@@ -249,7 +249,7 @@ export interface MotionBackgroundProps extends Omit<MotionMixProps, 'fit'> {
 const findRecipe = (r?: string | Recipe) => (typeof r === 'string' ? allRecipes.find((x) => x.id === r) : r);
 
 export const createWebComponents = (resolver: MotionResolver) => {
-  const MotionPlayer: React.FC<MotionPlayerProps> = ({motion, props, overlay, background, ...rest}) => {
+  const MotionPlayer: React.FC<MotionPlayerProps> = ({motion, props, overlay, background, look, ...rest}) => {
     const id = typeof motion === 'string' ? motion : motion.id;
     const defs = useDefs(resolver, typeof motion === 'string' ? [motion] : []);
     const def = typeof motion === 'string' ? defs?.[motion] : motion;
@@ -258,11 +258,11 @@ export const createWebComponents = (resolver: MotionResolver) => {
     const loopMode = resolveLoop(rest.loop, meta?.loopable ?? false, true);
     const win: LoopWindow | null = loopMode === 'crossfade' ? crossfadeWindow(length, rest.fps) : null;
     const merged = overlay && meta?.overlayProps ? {...meta.overlayProps, ...(props ?? {})} : props;
-    const inputProps = useMemo(() => ({def, id, props: merged, background, window: win}), [def, id, JSON.stringify(merged), background, JSON.stringify(win)]); // eslint-disable-line react-hooks/exhaustive-deps
+    const inputProps = useMemo(() => ({def, id, props: merged, background, window: win, look}), [def, id, JSON.stringify(merged), background, JSON.stringify(win), JSON.stringify(look)]); // eslint-disable-line react-hooks/exhaustive-deps
     return <PlayerShell {...rest} component={def ? MotionComp : null} inputProps={inputProps} frames={win ? length - win.start : length} loopMode={loopMode} />;
   };
 
-  const MotionMix: React.FC<MotionMixProps> = ({recipe: recipeArg, layers: layersArg, spec: specArg, background, withText = true, overrides, ...rest}) => {
+  const MotionMix: React.FC<MotionMixProps> = ({recipe: recipeArg, layers: layersArg, spec: specArg, background, withText = true, overrides, look, ...rest}) => {
     const recipe = findRecipe(recipeArg);
     const spec: ComposeSpec | undefined = specArg ?? (recipe?.scenes ? {width: rest.width, height: rest.height, fps: recipe.fps, background: recipe.background, scenes: recipe.scenes, overlays: recipe.overlays} : undefined);
     const layers = useMemo(() => {
@@ -293,7 +293,7 @@ export const createWebComponents = (resolver: MotionResolver) => {
           height={h}
           fps={spec.fps ?? rest.fps}
           component={composeMod ? (composeMod.Compose as React.ComponentType<any>) : null}
-          inputProps={{spec}}
+          inputProps={{spec: look ? {...spec, style: look} : spec}}
           frames={rest.durationInFrames ?? frames}
           loopMode={loopMode === 'crossfade' ? true : loopMode}
         />
@@ -311,7 +311,7 @@ export const createWebComponents = (resolver: MotionResolver) => {
         {...rest}
         format={format}
         component={defs ? LayersComp : null}
-        inputProps={{layers, defs: defs ?? {}, background: background ?? recipe?.background, length, window: win}}
+        inputProps={{layers, defs: defs ?? {}, background: background ?? recipe?.background, length, window: win, look}}
         frames={win ? length - win.start : length}
         loopMode={loopMode}
       />

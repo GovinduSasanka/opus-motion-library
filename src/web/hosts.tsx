@@ -1,4 +1,5 @@
 import React from 'react';
+import {resolveStyle, StyleFrame, StyleRef} from '../styles';
 import {AbsoluteFill, Sequence, useCurrentFrame} from 'remotion';
 import type {MotionDef} from '../core/types';
 import type {MixLayer as LayerSpec} from './types';
@@ -40,8 +41,26 @@ const CrossfadeTail: React.FC<{from: number; fade: number; children: React.React
   return <AbsoluteFill style={{opacity: Math.min(1, (frame - from + 1) / fade)}}>{children}</AbsoluteFill>;
 };
 
+/** apply a visual style (look) to everything inside */
+export const Look: React.FC<{look?: StyleRef; children: React.ReactNode}> = ({look, children}) => {
+  const r = resolveStyle(look);
+  return r ? (
+    <StyleFrame style={r.style} strength={r.strength}>
+      {children}
+    </StyleFrame>
+  ) : (
+    <>{children}</>
+  );
+};
+
 /** Player root for a single motion (optionally with a crossfade loop window) */
-export const MotionComp: React.FC<{def?: MotionDef<any>; id?: string; props?: Record<string, unknown>; background?: string; window?: LoopWindow | null}> = ({def, id, props, background, window: win}) => {
+export const MotionComp: React.FC<{def?: MotionDef<any>; id?: string; props?: Record<string, unknown>; background?: string; window?: LoopWindow | null; look?: StyleRef}> = ({look, ...p}) => (
+  <Look look={look}>
+    <MotionCompInner {...p} />
+  </Look>
+);
+
+const MotionCompInner: React.FC<{def?: MotionDef<any>; id?: string; props?: Record<string, unknown>; background?: string; window?: LoopWindow | null}> = ({def, id, props, background, window: win}) => {
   if (!def) return <Missing id={id ?? '?'} />;
   const C = def.component;
   const merged = {...def.defaultProps, ...(props ?? {})};
@@ -92,7 +111,13 @@ export const DefLayers: React.FC<{layers: LayerSpec[]; defs: Defs; length: numbe
 );
 
 /** Player root for a layer stack; `window` crossfade-loops the whole stack */
-export const LayersComp: React.FC<{layers: LayerSpec[]; defs: Defs; background?: string; length: number; window?: LoopWindow | null}> = ({layers, defs, background, length, window: win}) => {
+export const LayersComp: React.FC<{layers: LayerSpec[]; defs: Defs; background?: string; length: number; window?: LoopWindow | null; look?: StyleRef}> = ({look, ...p}) => (
+  <Look look={look}>
+    <LayersCompInner {...p} />
+  </Look>
+);
+
+const LayersCompInner: React.FC<{layers: LayerSpec[]; defs: Defs; background?: string; length: number; window?: LoopWindow | null}> = ({layers, defs, background, length, window: win}) => {
   if (!win) {
     return (
       <AbsoluteFill style={{background}}>

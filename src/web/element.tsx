@@ -47,7 +47,7 @@ const flag = (el: HTMLElement, name: string, def: boolean) => {
 };
 const num = (s: string | null) => (s == null || s === '' ? undefined : Number(s));
 
-const ATTRS = ['motion', 'recipe', 'props', 'layers', 'overrides', 'format', 'width', 'height', 'fps', 'duration', 'loop', 'autoplay', 'controls', 'fit', 'background', 'overlay', 'with-text', 'play-on-view', 'reduced-motion', 'still-frame', 'asset-base'];
+const ATTRS = ['look', 'motion', 'recipe', 'props', 'layers', 'overrides', 'format', 'width', 'height', 'fps', 'duration', 'loop', 'autoplay', 'controls', 'fit', 'background', 'overlay', 'with-text', 'play-on-view', 'reduced-motion', 'still-frame', 'asset-base'];
 
 class OpusMotionElement extends HTMLElement {
   static observedAttributes = ATTRS;
@@ -107,6 +107,7 @@ class OpusMotionElement extends HTMLElement {
       respectReducedMotion: this.getAttribute('reduced-motion') !== 'play',
       stillFrame: num(this.getAttribute('still-frame')),
       assetBase: this.getAttribute('asset-base') ?? undefined,
+      look: this.getAttribute('look') ?? undefined,
       style: fit === 'cover' ? {width: '100%', height: '100%'} : undefined,
       onEnded: () => this.dispatchEvent(new CustomEvent('opus-ended')),
     };
