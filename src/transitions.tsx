@@ -1,6 +1,6 @@
-import React, {useId} from 'react';
-import {AbsoluteFill, Easing, useVideoConfig} from 'remotion';
-import type {TransitionPresentation, TransitionPresentationComponentProps} from '@remotion/transitions';
+import React from 'react';
+import {AbsoluteFill} from 'remotion';
+import type {TransitionPresentation} from '@remotion/transitions';
 import {fade} from '@remotion/transitions/fade';
 import {slide} from '@remotion/transitions/slide';
 import {wipe} from '@remotion/transitions/wipe';
@@ -8,6 +8,13 @@ import {clockWipe} from '@remotion/transitions/clock-wipe';
 import {flip} from '@remotion/transitions/flip';
 import {fbm, n2, rng} from './core/random';
 import {smoothClosed} from './core/shapes';
+import {at, axisFor, BlurFilter, C, clamp01, cornerR, E, Edge, frontLine, f1, gray, Hidden, lerp, Masked, Overlay, P, Plain, ptsStr, region, sampleEdge, sstep, straight, useFrameSize, useUid} from './transitions/kit';
+import {Curtain, Door} from './transitions/doors';
+import {Crt, Expand, Lights, ScreenPush, Tracking} from './transitions/screens';
+import {Brush, Erase, Flood, Overprint, Rewrite, Squeegee, Stripes} from './transitions/paint';
+import {Ball, Portal, Shockwave} from './transitions/burst';
+import {Burn, LayerSwap, Occluder, Scan} from './transitions/world';
+import {Blinds, LineOpen, MosaicT, SteppedDiagonal, Tiles} from './transitions/pattern';
 
 /**
  * Scene-to-scene transitions reverse-engineered from the samples (see docs/TRANSITIONS.md).
@@ -38,6 +45,34 @@ import {smoothClosed} from './core/shapes';
  *  strip       horizontal band slams open from centre, then floods   (v21 eye-strip-slam)
  *  dots        old scene breaks into zooming dots                    (v18 dot-zoom-punch); variant 'bokeh' (v18 particle-burst-zoom)
  *  xray        hole with a hand-hatched ink edge                     (v6 xray-hatch-hole)
+ *
+ * Round 2 (src/transitions/*.tsx, from the lemo-opuscar / mg-styles-15 / pdoom-video / ClaudeAnimationBase styles
+ * and the x2 x4 x5 x6 reference videos):
+ *  door        art-deco split doors swing open; variants 'revolve' (glass wing), 'saloon' (wooden half-doors)
+ *  curtain     scalloped paper cloud curtains close and part; variant 'velvet'
+ *  crt         TV switch-off to a dot, then power-on; variants 'off', 'on'
+ *  tracking    VHS tracking tear rolls down the frame, the scene changes under it
+ *  rewrite     a label is struck through and rewritten by hand ("FIG. 1" -> "FIG. 2")
+ *  erase       an eraser band leaves a 7 % ghost of the old scene
+ *  blinds      slats turn over; variants 'vertical', 'open' (x2 field-blinds-wipe)
+ *  tiles       cards flip in a diagonal wave; variant 'radial'
+ *  mosaic      pixelate up, swap, pixelate down; variant 'swirl' (RPG encounter swirl to white)
+ *  overprint   a riso ink disc multiplies over the frame, the scene swaps under it, it shrinks away
+ *  scan        soft satellite scan front with a glow swath; variant 'tear' (light bar)
+ *  portal      a spinning portal covers the frame, flashes, and the next scene opens out of it
+ *  occluder    a blurred foreground prop passes the lens (pillar); variants 'trunks', 'foliage', 'clouds', 'waves'
+ *  squeegee    screen-print squeegee pulls the new scene on with a ragged ink edge
+ *  lights      house lights snap off, a key light strikes with a flicker, lights come up
+ *  flood       three liquid colour sheets flood the frame and drain away
+ *  stripes     candy-stripe band stack + stripe field sweep across
+ *  burn        a spark runs under the page, burns it in two, the halves swing away
+ *  brush       five ragged paint bands cover the frame and drag off
+ *  ball        a ball flies at the camera and floods the frame with its colour
+ *  shockwave   flash, grey beat, then a disc with a chromatic fringe and radial streaks
+ *  screen      the camera pushes into a screen that shows the next scene
+ *  layer-swap  the old scene's layers drop out near-to-far, the new layers rise far-to-near
+ *  expand      a UI rect grows into the next screen; variant 'collapse' (rect -> dot on black)
+ *  diagonal 'stepped' (x2 pixel-staircase band), bands 'line' (x2 line-open-wipe)
  */
 export type TransitionType =
   | 'cut'
@@ -64,7 +99,31 @@ export type TransitionType =
   | 'bar'
   | 'strip'
   | 'dots'
-  | 'xray';
+  | 'xray'
+  | 'door'
+  | 'curtain'
+  | 'crt'
+  | 'tracking'
+  | 'rewrite'
+  | 'erase'
+  | 'blinds'
+  | 'tiles'
+  | 'mosaic'
+  | 'overprint'
+  | 'scan'
+  | 'portal'
+  | 'occluder'
+  | 'squeegee'
+  | 'lights'
+  | 'flood'
+  | 'stripes'
+  | 'burn'
+  | 'brush'
+  | 'ball'
+  | 'shockwave'
+  | 'screen'
+  | 'layer-swap'
+  | 'expand';
 
 export type TransitionSpec = {
   type: TransitionType;
@@ -88,14 +147,20 @@ export type TransitionSpec = {
   variant?: string;
   /** random seed for jagged / organic edges */
   seed?: number;
+  /** palette for multi-colour types (flood sheets, stripes bands, brush bands, squeegee bead, portal arms, line dot) */
+  colors?: string[];
+  /** text for types that draw words (rewrite: "old|new", e.g. "FIG. 1|FIG. 2 · EXPLODED VIEW") */
+  text?: string;
 };
 
 export const TRANSITION_TYPES: TransitionType[] = [
   'fade', 'slide', 'wipe', 'clock', 'flip', 'iris', 'blob', 'tear', 'zoom', 'flash', 'glitch', 'ripple', 'spiral', 'wave',
   'bands', 'diagonal', 'push-blur', 'page-turn', 'storm', 'whiteout', 'bar', 'strip', 'dots', 'xray',
+  'door', 'curtain', 'crt', 'tracking', 'rewrite', 'erase', 'blinds', 'tiles', 'mosaic', 'overprint', 'scan', 'portal',
+  'occluder', 'squeegee', 'lights', 'flood', 'stripes', 'burn', 'brush', 'ball', 'shockwave', 'screen', 'layer-swap', 'expand',
 ];
 
-type Def = {frames: number; color?: string; angle?: number; bands?: number; size?: number; variant?: string};
+type Def = {frames: number; color?: string; colors?: string[]; angle?: number; bands?: number; size?: number; variant?: string; x?: number; y?: number; text?: string};
 export const DEFAULTS: Record<string, Def> = {
   cut: {frames: 0},
   fade: {frames: 15},
@@ -131,6 +196,47 @@ export const DEFAULTS: Record<string, Def> = {
   dots: {frames: 16, color: '#ffffff'},
   'dots:bokeh': {frames: 20},
   xray: {frames: 10, color: '#1d140c'},
+  // round 2
+  door: {frames: 28, color: '#E8C27A'},
+  'door:revolve': {frames: 26, angle: 180, color: '#D9B36C'},
+  'door:saloon': {frames: 34, color: '#8A5A34'},
+  curtain: {frames: 40, color: '#CFC4DC'},
+  'curtain:velvet': {frames: 40, color: '#7A1424'},
+  crt: {frames: 22, color: '#B8D6FF'},
+  'crt:off': {frames: 16},
+  'crt:on': {frames: 14},
+  tracking: {frames: 16, size: 0.12},
+  rewrite: {frames: 32, color: '#C8372D', text: 'FIG. 1|FIG. 2', y: 0.84},
+  erase: {frames: 22, angle: 0, color: '#ffffff'},
+  blinds: {frames: 18, bands: 12, color: '#000000'},
+  'blinds:vertical': {frames: 18, bands: 8},
+  'blinds:open': {frames: 14, bands: 12},
+  tiles: {frames: 22, size: 0.12, color: '#000000'},
+  mosaic: {frames: 24, size: 0.06},
+  'mosaic:swirl': {frames: 40, color: '#ffffff'},
+  overprint: {frames: 26, color: '#FF48B0'},
+  scan: {frames: 14, angle: 90, color: '#ffffff'},
+  'scan:tear': {frames: 10, angle: 90, color: '#fff7e0'},
+  portal: {frames: 16, color: '#DCFFA8', colors: ['#160B33', '#3B1F86', '#7B4DFF', '#36D6C3', '#DCFFA8']},
+  occluder: {frames: 16, angle: 0, color: '#210c05'},
+  'occluder:trunks': {frames: 24, color: '#24160d'},
+  'occluder:foliage': {frames: 22, color: '#1d3a1b'},
+  'occluder:clouds': {frames: 22, angle: 90, color: '#eef1f6'},
+  'occluder:waves': {frames: 26, angle: 270, color: '#1d5fa8'},
+  squeegee: {frames: 18, angle: 0, colors: ['#FF4F7B', '#FFB000', '#2F6BFF']},
+  lights: {frames: 42, color: '#FFE2B0'},
+  flood: {frames: 36, angle: 20, colors: ['#FF5E8A', '#FFB84D', '#4CC9F0']},
+  stripes: {frames: 12, angle: 0, color: '#ffffff', colors: ['#FF3D7F', '#FFE14D', '#16B9F0']},
+  burn: {frames: 32, color: '#FF8A2A'},
+  brush: {frames: 20, angle: 0, colors: ['#9C3F22', '#C9683F']},
+  ball: {frames: 14, color: '#FF5A2C', x: 0.68, y: 0.58},
+  shockwave: {frames: 16, color: '#C8D86A'},
+  screen: {frames: 36, size: 0.42, color: '#15171c'},
+  'layer-swap': {frames: 24},
+  expand: {frames: 14, color: '#F4EFE6', size: 0.27},
+  'expand:collapse': {frames: 18},
+  'diagonal:stepped': {frames: 14, angle: 150, color: '#D2FC36', bands: 22, size: 0.25},
+  'bands:line': {frames: 12, color: '#ffffff', colors: ['#F6481E']},
 };
 
 const DIR_ANGLE: Record<string, number> = {'from-left': 0, 'from-right': 180, 'from-top': 90, 'from-bottom': 270};
@@ -140,119 +246,6 @@ const defOf = (s: TransitionSpec): Def => ({...(DEFAULTS[s.type] ?? {frames: 15}
 
 /** frames a transition lasts: spec.frames or the type's recommended default */
 export const transitionFrames = (s: TransitionSpec) => s.frames ?? defOf(s).frames;
-
-// ---------------------------------------------------------------------------------------------
-// helpers
-
-type P = {x: number; y: number; color: string; angle: number; bands: number; size: number; variant: string; seed: number};
-type C = React.FC<TransitionPresentationComponentProps<P>>;
-
-const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
-const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
-const sstep = (a: number, b: number, v: number) => {
-  const t = clamp01((v - a) / (b - a));
-  return t * t * (3 - 2 * t);
-};
-const E = {
-  inQuad: (t: number) => t * t,
-  inCubic: (t: number) => t * t * t,
-  outCubic: (t: number) => 1 - Math.pow(1 - t, 3),
-  inOutQuad: (t: number) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2),
-  inOutCubic: (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2),
-  inOutQuart: (t: number) => (t < 0.5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2),
-  inExpo: (t: number) => (t <= 0 ? 0 : Math.pow(2, 10 * t - 10)),
-  tear: Easing.bezier(0.3, 0.1, 0.3, 1),
-  slam: Easing.bezier(0.3, 0, 0.2, 1),
-  sweep: Easing.bezier(0.45, 0, 0.55, 1),
-};
-const gray = (v: number) => {
-  const c = Math.round(clamp01(v) * 255);
-  return `rgb(${c},${c},${c})`;
-};
-const f1 = (v: number) => v.toFixed(1);
-const ptsStr = (pts: number[][]) => pts.map((p) => `${f1(p[0])},${f1(p[1])}`).join(' ');
-
-const useUid = (prefix: string) => prefix + useId().replace(/[^a-zA-Z0-9]/g, '');
-const useFrameSize = () => {
-  const {width: w, height: h} = useVideoConfig();
-  return {w, h, u: Math.min(w, h) / 1080};
-};
-
-const Overlay: React.FC<{w: number; h: number; children: React.ReactNode; style?: React.CSSProperties}> = ({w, h, children, style}) => (
-  <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} style={{position: 'absolute', inset: 0, overflow: 'visible', pointerEvents: 'none', ...style}}>
-    {children}
-  </svg>
-);
-
-const BlurFilter: React.FC<{id: string; sd: number | string; w: number; h: number}> = ({id, sd, w, h}) => (
-  <filter id={id} filterUnits="userSpaceOnUse" x={-w} y={-h} width={3 * w} height={3 * h} colorInterpolationFilters="sRGB">
-    <feGaussianBlur stdDeviation={sd} />
-  </filter>
-);
-
-/** children seen through an SVG luminance mask (white = visible). One render of children. */
-const Masked: React.FC<{id: string; w: number; h: number; mask: React.ReactNode; defs?: React.ReactNode; style?: React.CSSProperties; children: React.ReactNode}> = ({
-  id,
-  w,
-  h,
-  mask,
-  defs,
-  style,
-  children,
-}) => (
-  <>
-    <svg width={0} height={0} style={{position: 'absolute'}}>
-      <defs>
-        {defs}
-        <mask id={id} maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" x={-w} y={-h} width={3 * w} height={3 * h}>
-          {mask}
-        </mask>
-      </defs>
-    </svg>
-    <AbsoluteFill style={{mask: `url(#${id})`, WebkitMask: `url(#${id})`, ...style}}>{children}</AbsoluteFill>
-  </>
-);
-
-const Plain: React.FC<{children: React.ReactNode; style?: React.CSSProperties}> = ({children, style}) => <AbsoluteFill style={style}>{children}</AbsoluteFill>;
-const Hidden: React.FC<{children: React.ReactNode}> = ({children}) => <AbsoluteFill style={{opacity: 0}}>{children}</AbsoluteFill>;
-
-/** frame axis for a travel direction: s = along travel, t = across */
-type Axis = {dx: number; dy: number; nx: number; ny: number; smin: number; smax: number; tmin: number; tmax: number; L: number; M: number};
-const axisFor = (angleDeg: number, w: number, h: number): Axis => {
-  const a = (angleDeg * Math.PI) / 180;
-  const r = (v: number) => (Math.abs(v) < 1e-9 ? 0 : v);
-  const dx = r(Math.cos(a));
-  const dy = r(Math.sin(a));
-  const nx = -dy;
-  const ny = dx;
-  const cs = [[0, 0], [w, 0], [0, h], [w, h]];
-  const ss = cs.map(([x, y]) => x * dx + y * dy);
-  const ts = cs.map(([x, y]) => x * nx + y * ny);
-  const smin = Math.min(...ss);
-  const smax = Math.max(...ss);
-  const tmin = Math.min(...ts);
-  const tmax = Math.max(...ts);
-  return {dx, dy, nx, ny, smin, smax, tmin, tmax, L: smax - smin, M: tmax - tmin};
-};
-const at = (ax: Axis, s: number, t: number): [number, number] => [ax.dx * s + ax.nx * t, ax.dy * s + ax.ny * t];
-type Edge = [number, number][]; // [t, sOffset]
-const sampleEdge = (ax: Axis, fn: (t: number) => number, step: number, pad: number): Edge => {
-  const out: Edge = [];
-  const t1 = ax.tmax + pad;
-  for (let t = ax.tmin - pad; t < t1 + step; t += step) out.push([Math.min(t, t1), fn(Math.min(t, t1))]);
-  return out;
-};
-const straight = (ax: Axis, pad = 20): Edge => [[ax.tmin - pad, 0], [ax.tmax + pad, 0]];
-/** polygon of the region BEHIND a front at S (s < S + edge(t)) */
-const region = (ax: Axis, S: number, edge: Edge) => {
-  const pts = edge.map(([t, ds]) => at(ax, S + ds, t));
-  const back = ax.smin - ax.L * 2;
-  pts.push(at(ax, back, edge[edge.length - 1][0]), at(ax, back, edge[0][0]));
-  return ptsStr(pts);
-};
-const frontLine = (ax: Axis, S: number, edge: Edge, off = 0) => ptsStr(edge.map(([t, ds]) => at(ax, S + ds + off, t)));
-
-const cornerR = (cx: number, cy: number, w: number, h: number) => Math.hypot(Math.max(cx, w - cx), Math.max(cy, h - cy));
 
 // ---------------------------------------------------------------------------------------------
 // iris — v4 iris-reveal-from-dot: hard circle, thin border, easeInQuad
@@ -1328,9 +1321,11 @@ export const presentationFor = (s: TransitionSpec, width = 1920, height = 1080):
   const variant = variantOf(s);
   const dir4: Dir4 | undefined = s.direction && s.direction !== 'from-center' ? s.direction : undefined;
   const pp: P = {
-    x: s.x ?? 0.5,
-    y: s.y ?? 0.5,
+    x: s.x ?? def.x ?? 0.5,
+    y: s.y ?? def.y ?? 0.5,
     color: s.color ?? def.color ?? '#ffffff',
+    colors: s.colors && s.colors.length ? s.colors : def.colors ?? [],
+    text: s.text ?? def.text ?? '',
     angle: s.angle ?? (dir4 ? DIR_ANGLE[dir4] : def.angle ?? 0),
     bands: s.bands ?? def.bands ?? 8,
     size: s.size ?? def.size ?? 0,
@@ -1365,9 +1360,9 @@ export const presentationFor = (s: TransitionSpec, width = 1920, height = 1080):
     case 'wave':
       return custom(Wave, pp);
     case 'bands':
-      return custom(Bands, pp);
+      return custom(variant === 'line' ? LineOpen : Bands, pp);
     case 'diagonal':
-      return custom(Diagonal, pp);
+      return custom(variant === 'stepped' ? SteppedDiagonal : Diagonal, pp);
     case 'push-blur':
       return custom(PushBlur, pp);
     case 'page-turn':
@@ -1384,6 +1379,54 @@ export const presentationFor = (s: TransitionSpec, width = 1920, height = 1080):
       return custom(Dots, pp);
     case 'xray':
       return custom(Xray, pp);
+    case 'door':
+      return custom(Door, pp);
+    case 'curtain':
+      return custom(Curtain, pp);
+    case 'crt':
+      return custom(Crt, pp);
+    case 'tracking':
+      return custom(Tracking, pp);
+    case 'lights':
+      return custom(Lights, pp);
+    case 'screen':
+      return custom(ScreenPush, pp);
+    case 'expand':
+      return custom(Expand, pp);
+    case 'brush':
+      return custom(Brush, pp);
+    case 'squeegee':
+      return custom(Squeegee, pp);
+    case 'overprint':
+      return custom(Overprint, pp);
+    case 'erase':
+      return custom(Erase, pp);
+    case 'stripes':
+      return custom(Stripes, pp);
+    case 'flood':
+      return custom(Flood, pp);
+    case 'rewrite':
+      return custom(Rewrite, pp);
+    case 'ball':
+      return custom(Ball, pp);
+    case 'shockwave':
+      return custom(Shockwave, pp);
+    case 'portal':
+      return custom(Portal, pp);
+    case 'occluder':
+      return custom(Occluder, pp);
+    case 'layer-swap':
+      return custom(LayerSwap, pp);
+    case 'burn':
+      return custom(Burn, pp);
+    case 'scan':
+      return custom(Scan, pp);
+    case 'blinds':
+      return custom(Blinds, pp);
+    case 'tiles':
+      return custom(Tiles, pp);
+    case 'mosaic':
+      return custom(MosaicT, pp);
     default:
       return fade();
   }
