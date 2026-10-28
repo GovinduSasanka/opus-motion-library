@@ -25,6 +25,10 @@
  *   node cli/mgl.mjs export <motion|recipe> --as mp4|webm|webm-alpha|prores-alpha|gif|png|poster [--format …] [--props …] [--frame N] [--out …]
  *        files for non-JS hosts (iOS, Android, Flutter, React Native, video editors, Keynote); alpha exports
  *        render the motion on a transparent background (its overlayProps)
+ *
+ * For websites, editors and other programs
+ *   node cli/mgl.mjs serve [--port 4321] [--host 127.0.0.1] [--token T] [--concurrency N]     HTTP catalog + render API (docs/HTTP_API.md)
+ *   node cli/mgl.mjs schema <motion-id> | --all                      props JSON Schema (also props-schema.json, GET /api/motions/:id/schema)
  */
 import {bundle} from '@remotion/bundler';
 import {renderMedia, renderStill, selectComposition, openBrowser} from '@remotion/renderer';
@@ -139,6 +143,18 @@ const EXPORTS = {mp4: '.mp4', webm: '.webm', 'webm-alpha': '.webm', 'prores-alph
 const main = async () => {
   if (!cmd || cmd === 'help') {
     console.log(fs.readFileSync(fileURLToPath(import.meta.url), 'utf8').split('*/')[0]);
+    return;
+  }
+  if (cmd === 'serve') {
+    const {startServer} = await import('./serve.mjs');
+    await startServer({root, opts});
+    return new Promise(() => {}); // keep running until Ctrl+C
+  }
+  if (cmd === 'schema') {
+    const {motionSchema} = await import('./schema.mjs');
+    const rows = opts.all ? catalog() : catalog().filter((x) => x.id === pos[0]);
+    if (!rows.length) throw new Error(pos[0] ? `no motion "${pos[0]}" — run: node cli/mgl.mjs list` : 'usage: mgl schema <motion-id> | --all');
+    console.log(JSON.stringify(opts.all ? Object.fromEntries(rows.map((x) => [x.id, motionSchema(x)])) : motionSchema(rows[0]), null, 2));
     return;
   }
   if (cmd === 'list') {

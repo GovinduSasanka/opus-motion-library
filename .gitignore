@@ -14,3 +14,6 @@ examples/**/screenshots/
 public/music/*.mp3
 public/sfx/*.mp3
 analysis/sheets/
+
+# sample film: generated finale-wall thumbnails (python storyboards/build-sample-film.py)
+public/sample-film/

@@ -175,7 +175,7 @@ or in the [catalogue below](#motion-catalogue).
 | Anything that speaks HTTP | `node cli/mgl.mjs serve` | catalogue and render API |
 | AI agents | MCP server, [`AGENTS.md`](AGENTS.md), Claude Code skill | the agent searches, previews, renders and wires it in |
 
-Details and per-stack gotchas: **[`docs/INTEGRATION.md`](docs/INTEGRATION.md)**. Choosing guide: [`docs/CHOOSING.md`](docs/CHOOSING.md).
+Details and per-stack gotchas: **[`docs/INTEGRATION.md`](docs/INTEGRATION.md)**. Building a video editor or calling it from a backend: [`mgl serve` HTTP API](docs/HTTP_API.md), a [props JSON Schema](props-schema.json) per motion and a [timeline-editor example](examples/timeline-editor/). Choosing guide: [`docs/CHOOSING.md`](docs/CHOOSING.md).
 
 ## For AI agents and MCP
 

@@ -55,6 +55,11 @@ jobs:
           SITE_BASE: /opus-motion-library/
         run: npm run build
 
+      # one-script-tag CDN for plain HTML / WordPress / editors, and static data for editors without the render server:
+      #   <script src="https://govindusasanka.github.io/opus-motion-library/opus-motion.element.js" defer></script>
+      - name: Publish the <opus-motion> bundle + catalog data next to the site
+        run: cp dist/opus-motion.element.js catalog.json props-schema.json styles.json transitions.json site/dist/
+
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3

@@ -17,8 +17,20 @@ something like *"choose proper motions from this repo and build something"*. Thi
   everything else.
 
 Key files: `catalog.json` (every motion: props, defaults, roles, overlay, loop, mood, weight, pairs-with),
-`docs/CHOOSING.md` (intent → motions), `docs/INTEGRATION.md` (per stack, step by step), `docs/CATALOG.md` (all props),
+`props-schema.json` (JSON Schema of every motion's props), `docs/CHOOSING.md` (intent → motions), `docs/INTEGRATION.md` (per stack, step by step), `docs/HTTP_API.md` (render server), `docs/CATALOG.md` (all props),
 `cli/mgl.mjs` (the CLI). Run CLI commands from the library folder (`cd <library> && node cli/mgl.mjs …`), after one `npm install` there.
+
+## Use it anywhere (one line each; full snippets in `docs/INTEGRATION.md` § "Use it anywhere")
+
+| you build | do this |
+|---|---|
+| **video-editor website** (timeline) | `<opus-motion layers='[…]' frame="0" autoplay="false">` + `el.seekTo(n)` / `play()` / `pause()` / `opus-frame`, or React `<MotionMix layers frame onFrame playerRef>`; property panel from `props-schema.json`; export `POST /api/render {layers}`. Demo: `examples/timeline-editor/` |
+| **HTTP API** (any language / backend) | `node cli/mgl.mjs serve` → `GET /api/motions`, `/api/motions/:id/schema`, `POST /api/render`, `GET /api/jobs/:id/file` (`docs/HTTP_API.md`, Docker included) |
+| **Remotion** | `node cli/mgl.mjs add <ids> --to <host>/src` |
+| **React / Next.js** | `import {MotionBackground, MotionPlayer} from 'opus-motion-library/web'` |
+| **Plain HTML / WordPress / Webflow** | `<script src="…/opus-motion.element.js" defer></script>` + `<opus-motion recipe="hero-aurora-night" background>` (CDN table: INTEGRATION.md § "One script tag") |
+| **Native apps, slides, editors** | `node cli/mgl.mjs export <id> --as mp4 \| webm-alpha \| prores-alpha` |
+| **AI agents** | MCP: `claude mcp add opus-motion -- node <lib>/mcp/server.mjs` (§ 7); without MCP: `node cli/mgl.mjs suggest "<brief>" --json` and `mgl schema <id>` |
 
 ## 1. What are you building? → integration path
 
@@ -154,6 +166,8 @@ node cli/mgl.mjs export <motion|recipe> --as mp4|webm|webm-alpha|prores-alpha|gi
 npm run build:lib                               # dist/ for web hosts (ESM + <opus-motion> element + types)
 node cli/mgl.mjs render <id> --style woodcut    # any motion, any style (see list_styles / docs/STYLES.md)
 node mcp/server.mjs                             # MCP server over stdio (or: npm run mcp)
+node cli/mgl.mjs serve [--port 4321] [--token T] # HTTP catalog + render API for websites / editors (docs/HTTP_API.md)
+node cli/mgl.mjs schema <id> | npm run schemas  # props JSON Schema(s) for property panels (props-schema.json)
 ```
 
 ```tsx

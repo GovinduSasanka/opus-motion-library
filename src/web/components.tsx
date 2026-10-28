@@ -1,4 +1,4 @@
-import React, {useEffect, useLayoutEffect, useMemo, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState} from 'react';
 import {Player, Thumbnail, type PlayerRef} from '@remotion/player';
 import type {MotionDef} from '../core/types';
 import {recipes as allRecipes} from '../recipes';
@@ -114,17 +114,46 @@ const PlayerShell: React.FC<ShellProps> = (p) => {
   const box = useRef<HTMLDivElement>(null);
   const player = useRef<PlayerRef>(null);
   const reducedPref = useReducedMotion();
-  const reduced = (p.respectReducedMotion ?? true) && reducedPref;
-  const watch = (p.lazy ?? true) || Boolean(p.playOnView);
+  const controlled = p.frame != null;
+  const reduced = !controlled && (p.respectReducedMotion ?? true) && reducedPref;
+  const watch = !controlled && ((p.lazy ?? true) || Boolean(p.playOnView));
   const [near, visible] = useViewport(box, watch);
   const size = useSize(box, fit === 'cover');
   setAssetBase(p.assetBase);
 
   const loop = p.loopMode === true || p.loopMode === 'restart' || p.loopMode === 'crossfade';
-  const autoPlay = p.autoPlay ?? true;
+  const autoPlay = controlled ? false : p.autoPlay ?? true;
+  // one handle for our own effects and the host's `playerRef`
+  const hostRef = p.playerRef;
+  const setPlayer = useCallback(
+    (inst: PlayerRef | null) => {
+      (player as React.MutableRefObject<PlayerRef | null>).current = inst;
+      if (typeof hostRef === 'function') hostRef(inst);
+      else if (hostRef) (hostRef as React.MutableRefObject<PlayerRef | null>).current = inst;
+    },
+    [hostRef],
+  );
+
+  // controlled frame: show exactly this frame while paused (re-run when the player mounts)
+  const lastFrame = Math.max(0, Math.round(p.frames) - 1);
+  useEffect(() => {
+    const pl = player.current;
+    if (!controlled || !pl) return;
+    if (pl.isPlaying()) return; // playing is driven through playerRef; feeding onFrame back into `frame` must not fight it
+    const target = Math.min(lastFrame, Math.max(0, Math.round(p.frame!)));
+    if (pl.getCurrentFrame() !== target) pl.seekTo(target);
+  }, [controlled, p.frame, lastFrame, near, p.component]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    if (!p.playOnView) return;
+    const pl = player.current;
+    if (!pl || !p.onFrame) return;
+    const cb = (e: {detail: {frame: number}}) => p.onFrame?.(e.detail.frame);
+    pl.addEventListener('frameupdate', cb);
+    return () => pl.removeEventListener('frameupdate', cb);
+  }, [p.onFrame, near, p.component]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    if (!p.playOnView || controlled) return;
     if (!(visible && autoPlay !== false)) {
       player.current?.pause();
       return;
@@ -173,7 +202,7 @@ const PlayerShell: React.FC<ShellProps> = (p) => {
         <Thumbnail component={p.component!} inputProps={p.inputProps} compositionWidth={cw} compositionHeight={ch} fps={fps} durationInFrames={frames} frameToDisplay={still} style={inner} />
       ) : ready ? (
         <Player
-          ref={player}
+          ref={setPlayer}
           component={p.component!}
           inputProps={p.inputProps}
           compositionWidth={cw}

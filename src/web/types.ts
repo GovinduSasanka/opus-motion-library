@@ -1,4 +1,5 @@
 import type React from 'react';
+import type {PlayerRef} from '@remotion/player';
 import type {MotionDef} from '../core/types';
 
 /*
@@ -121,5 +122,15 @@ export interface CommonPlayerProps {
   placeholder?: string;
   acknowledgeRemotionLicense?: boolean;
   onEnded?: () => void;
+  /**
+   * Controlled frame (timeline editors): when set, the player does not autoplay and seeks to this composition frame
+   * whenever it changes while paused (scrubbing). Start / stop playback with `playerRef`; a playing player is not
+   * seeked, so you can feed `onFrame` back into `frame`. Implies `lazy={false}`, ignores reduced motion.
+   */
+  frame?: number;
+  /** called with the current frame while playing or seeking (Remotion "frameupdate") */
+  onFrame?: (frame: number) => void;
+  /** the underlying Remotion Player handle: seekTo(frame), play(), pause(), isPlaying(), getCurrentFrame(), … */
+  playerRef?: React.Ref<PlayerRef>;
   resolver?: MotionResolver;
 }

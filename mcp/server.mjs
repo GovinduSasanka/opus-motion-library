@@ -202,7 +202,7 @@ server.tool(
 
 server.tool(
   'integration_guide',
-  'Step-by-step integration instructions for a stack: remotion, nextjs, react, vite, html, wordpress, vue, svelte, react-native, flutter, ios, android, keynote, premiere.',
+  'Step-by-step integration instructions for a stack: remotion, nextjs, react, vite, html, wordpress, vue, svelte, react-native, flutter, ios, android, keynote, premiere, editor (video-editor websites / timeline UIs), cdn (one script tag), matrix (use it anywhere).',
   {stack: z.string()},
   async ({stack}) => {
     const doc = fs.readFileSync(path.join(root, 'docs', 'INTEGRATION.md'), 'utf8');

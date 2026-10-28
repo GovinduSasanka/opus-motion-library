@@ -19,19 +19,26 @@
     },
     "./element": "./dist/opus-motion.element.js",
     "./catalog.json": "./catalog.json",
+    "./props-schema.json": "./props-schema.json",
+    "./styles.json": "./styles.json",
+    "./transitions.json": "./transitions.json",
     "./recipes/*": "./recipes/*",
     "./package.json": "./package.json"
   },
+  "jsdelivr": "dist/opus-motion.element.js",
+  "unpkg": "dist/opus-motion.element.js",
   "sideEffects": [
     "./dist/opus-motion.element.js"
   ],
   "files": [
     "dist",
     "catalog.json",
+    "props-schema.json",
     "transitions.json",
     "recipes/*.json",
     "docs/CHOOSING.md",
     "docs/INTEGRATION.md",
+    "docs/HTTP_API.md",
     "docs/CATALOG.md",
     "AGENTS.md",
     "public/demo",
@@ -49,7 +56,9 @@
     "compose": "node cli/mgl.mjs compose",
     "typecheck": "tsc --noEmit",
     "build:lib": "node cli/build-lib.mjs",
-    "gen": "node cli/gen-registry.mjs && node cli/gen-docs.mjs",
+    "gen": "node cli/gen-registry.mjs && node cli/gen-schemas.mjs && node cli/gen-docs.mjs",
+    "schemas": "node cli/gen-schemas.mjs",
+    "serve": "node cli/mgl.mjs serve",
     "suggest": "node cli/mgl.mjs suggest",
     "mcp": "node mcp/server.mjs"
   },

@@ -19,10 +19,13 @@
  *   play-on-view (default on)   reduced-motion  "still" (default) | "play"
  *   still-frame  frame shown for reduced motion
  *   asset-base   URL where the library's public/ folder is served (default: site root)
- * Events: "opus-ended".
+ * Timeline control (editors): attribute frame="45" shows that composition frame (change it to scrub), or call
+ *   el.seekTo(45) / el.play() / el.pause() / el.getCurrentFrame() / el.player (the Remotion PlayerRef)
+ * Events: "opus-ended", "opus-frame" (detail: {frame}).
  */
 import React from 'react';
 import {createRoot, type Root} from 'react-dom/client';
+import type {PlayerRef} from '@remotion/player';
 import {createWebComponents} from './components';
 import {staticResolver} from './static';
 import {recipes} from '../recipes';
@@ -47,11 +50,36 @@ const flag = (el: HTMLElement, name: string, def: boolean) => {
 };
 const num = (s: string | null) => (s == null || s === '' ? undefined : Number(s));
 
-const ATTRS = ['look', 'motion', 'recipe', 'props', 'layers', 'overrides', 'format', 'width', 'height', 'fps', 'duration', 'loop', 'autoplay', 'controls', 'fit', 'background', 'overlay', 'with-text', 'play-on-view', 'reduced-motion', 'still-frame', 'asset-base'];
+const ATTRS = ['look', 'motion', 'recipe', 'props', 'layers', 'overrides', 'format', 'width', 'height', 'fps', 'duration', 'loop', 'autoplay', 'controls', 'fit', 'background', 'overlay', 'with-text', 'play-on-view', 'reduced-motion', 'still-frame', 'asset-base', 'frame'];
 
 class OpusMotionElement extends HTMLElement {
   static observedAttributes = ATTRS;
   private root: Root | null = null;
+  /** the Remotion PlayerRef of the mounted player (null until it mounts) */
+  player: PlayerRef | null = null;
+  // stable identities, so React does not detach / re-attach the player ref on every render
+  private setPlayer = (p: PlayerRef | null) => {
+    this.player = p;
+  };
+  private emitFrame = (frame: number) => {
+    this.dispatchEvent(new CustomEvent('opus-frame', {detail: {frame}}));
+  };
+  private emitEnded = () => {
+    this.dispatchEvent(new CustomEvent('opus-ended'));
+  };
+  seekTo(frame: number) {
+    this.player?.pause();
+    this.player?.seekTo(frame);
+  }
+  play() {
+    this.player?.play();
+  }
+  pause() {
+    this.player?.pause();
+  }
+  getCurrentFrame() {
+    return this.player?.getCurrentFrame() ?? 0;
+  }
   private mount: HTMLDivElement | null = null;
 
   connectedCallback() {
@@ -109,7 +137,10 @@ class OpusMotionElement extends HTMLElement {
       assetBase: this.getAttribute('asset-base') ?? undefined,
       look: this.getAttribute('look') ?? undefined,
       style: fit === 'cover' ? {width: '100%', height: '100%'} : undefined,
-      onEnded: () => this.dispatchEvent(new CustomEvent('opus-ended')),
+      frame: num(this.getAttribute('frame')),
+      playerRef: this.setPlayer,
+      onFrame: this.emitFrame,
+      onEnded: this.emitEnded,
     };
     const motion = this.getAttribute('motion');
     const recipe = this.getAttribute('recipe');

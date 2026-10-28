@@ -35,6 +35,9 @@ jobs:
       - name: Generate registry + catalog
         run: node cli/gen-registry.mjs
 
+      - name: Generate props schemas
+        run: node cli/gen-schemas.mjs
+
       - name: Typecheck
         run: npx tsc --noEmit
 

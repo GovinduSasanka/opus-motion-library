@@ -1,5 +1,43 @@
 # Decisions
 
+## Update (2026-10-29) — "use it anywhere": HTTP render server, props schemas, editor/timeline support
+
+**Summary.** Video-creation websites, backends and agents can now use the library without touching its source:
+- `node cli/mgl.mjs serve` (`cli/serve.mjs`, also `npm run serve`): HTTP catalog + render queue. `GET /api/motions[/:id[/schema|/preview]]`,
+  `/api/suggest`, `/api/styles`, `/api/recipes`, `/api/transitions`, `POST /api/render` (motion | recipe | layers | spec → mp4, webm,
+  webm-alpha, prores-alpha, gif, poster), `GET/DELETE /api/jobs/:id`, `GET /api/jobs/:id/file` (Range), `/assets/*`, `/dist/*`, OpenAPI outline.
+  Bundles once, one job at a time, CORS on, binds 127.0.0.1 and checks the Host header; optional `--token` / `MGL_SERVE_TOKEN`. Docs: `docs/HTTP_API.md` (Docker included).
+- `props-schema.json` (`cli/schema.mjs` + `cli/gen-schemas.mjs`, `mgl schema <id>`, part of `npm run gen`): JSON Schema (2020-12) per motion from the
+  catalog defaults / docs, with `enum` for closed "a | b | c" docs and `x-opus-widget` / `x-opus-text` hints for property panels (616 motions at the time of writing).
+- Editor support in the web layer (`src/web`): `frame` (controlled), `onFrame`, `playerRef` on `MotionPlayer` / `MotionMix` / `MotionBackground`;
+  `<opus-motion>` gets a `frame` attribute, `seekTo()`, `play()`, `pause()`, `getCurrentFrame()`, `player` and an `opus-frame` event.
+- `examples/timeline-editor/`: a working multi-track editor in one HTML file (drag clips, schema-driven inspector, play / scrub, "Render mp4" through the server)
+  and `TimelineEditor.tsx` (React building blocks, typechecked).
+- Docs: "Use it anywhere" matrix, "Video-editor websites" and "One script tag from a CDN" sections in `docs/INTEGRATION.md`; compact matrix in `AGENTS.md`; README link.
+- CI: `pages.yml` copies `dist/opus-motion.element.js` + catalog / schema JSON next to the showcase site; `ci.yml` runs `gen-schemas`; `package.json` gets
+  `props-schema.json` / `styles.json` / `transitions.json` exports, `jsdelivr` / `unpkg` fields, `serve` and `schemas` scripts.
+
+**Verified.** `tsc --noEmit` clean; `npm run build:lib` ok (element 9.2 MB, 2.9 MB gzip); server: `/api/motions`, schema, suggest, styles, recipes, preview, assets (and
+path-traversal / bad Host / token / CORS checks); renders through the queue: motion → mp4 (h264, 540x540, 45 frames), poster PNG, webm-alpha (`yuva420p`), a layers mix and a 2-scene
+Compose spec with transition and overlay (frame counts match), cancel while queued and while rendering; the timeline example in headless Chrome (scrub, edit a prop keeps the playhead, play advances,
+pause syncs, Render button end to end against the server).
+
+**Decisions.**
+- `POST /api/render` `format` means the *output file type* (`mp4` default); the size preset is `aspect` (`landscape | square | portrait`). The old preset names are still accepted in `format` for CLI parity. Change in `plan()` in `cli/serve.mjs`.
+- One `props-schema.json` (1.9 MB) instead of 615 files; `node cli/gen-schemas.mjs --split schemas` writes per-id files when a host wants them. Regenerate with `npm run gen` (new motions from other agents are NOT in it until then).
+- Enums are parsed from prose docs: they are the intended choices, not a security boundary; open lists ("a | b | …") only get `x-opus-options`. Server does not validate props against the schema (the motion decides).
+- `frame` is controlled only while paused; a playing player is never seeked, so `onFrame` can be fed back into `frame` without fighting playback. Playback itself goes through `playerRef` / `el.play()`.
+- `/assets` and `/dist` stay open even with `--token` (public library files); only `/api` is protected. `POST /api/shutdown` exists only with `--allow-shutdown`.
+- Jobs live in memory and files are deleted after `--ttl` (60 min); a restart forgets them. One render at a time per process; scale by running more containers.
+- The element bundle is everything-in-one (9.2 MB); for production pages the docs point to the React `/web` entry or an exported video.
+
+**Needs you**
+- `npm publish` of `opus-motion-library` (npm returns 404 today). Until then the jsDelivr / unpkg one-tag URL `https://cdn.jsdelivr.net/npm/opus-motion-library@1.1.0/dist/opus-motion.element.js`
+  does not exist; the docs say so. (jsDelivr's GitHub mirror cannot serve it because `dist/` is gitignored: checked, 404.)
+- Push `main` so the updated Pages workflow publishes `https://govindusasanka.github.io/opus-motion-library/opus-motion.element.js` (404 today; Pages itself is live). Not pushed here (no commit / push allowed).
+- The Dockerfile in `docs/HTTP_API.md` is untested (no Docker on this machine). `mgl serve` needs the dev dependencies (`@remotion/bundler`, `@remotion/renderer`), so install the repo, not just the npm package.
+- Hosting the server publicly: set `--token` and `--cors-origin`, keep it off internal networks (renders fetch any URL in the props), and settle the Remotion company licence.
+
 ## Update (2026-10-29) — site: "world's largest" positioning + SEO prerender
 
 Details and how to edit: `docs/SITE-SEO.md`. Summary:
