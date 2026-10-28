@@ -113,7 +113,7 @@ export const App: React.FC = () => {
     } else if (!route.id) window.scrollTo({top: 0});
   }, [route.page, route.anchor]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
-    const t: Record<string, string> = {home: 'Opus Motion Library — 579 motion graphics, by name', gallery: 'Gallery', recipes: 'Recipes', transitions: 'Transitions', docs: 'Docs'};
+    const t: Record<string, string> = {home: 'Opus Motion Library — 595 motion graphics, by name', gallery: 'Gallery', recipes: 'Recipes', transitions: 'Transitions', docs: 'Docs'};
     document.title = route.page === 'home' ? t.home : `${t[route.page]}${route.id ? ` · ${route.id}` : ''} — Opus Motion Library`;
   }, [route.page, route.id]);
   return (

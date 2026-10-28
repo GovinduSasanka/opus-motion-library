@@ -76,6 +76,7 @@ import {bubbleScatterGrow} from './motions/data/bubble-scatter-grow';
 import {budgetEnvelopeSplit} from './motions/data/budget-envelope-split';
 import {causeEffectChain} from './motions/data/cause-effect-chain';
 import {chipStackBars} from './motions/data/chip-stack-bars';
+import {clockTimeTeach} from './motions/data/clock-time-teach';
 import {comparisonDumbbell} from './motions/data/comparison-dumbbell';
 import {crowdTracks} from './motions/data/crowd-tracks';
 import {deployPipelineStages} from './motions/data/deploy-pipeline-stages';
@@ -106,6 +107,7 @@ import {isotypeCount} from './motions/data/isotype-count';
 import {jsonTreeExpand} from './motions/data/json-tree-expand';
 import {liveChart} from './motions/data/live-chart';
 import {mapRoute} from './motions/data/map-route';
+import {mathEquationSolve} from './motions/data/math-equation-solve';
 import {microscopeDive} from './motions/data/microscope-dive';
 import {networkGraph} from './motions/data/network-graph';
 import {neuralNetLayers} from './motions/data/neural-net-layers';
@@ -128,6 +130,7 @@ import {scienceReticle} from './motions/data/science-reticle';
 import {sectionProfileChart} from './motions/data/section-profile-chart';
 import {serverRackStatus} from './motions/data/server-rack-status';
 import {stackedAreaFlow} from './motions/data/stacked-area-flow';
+import {starChartReward} from './motions/data/star-chart-reward';
 import {starFusionShells} from './motions/data/star-fusion-shells';
 import {stepProcessNumbered} from './motions/data/step-process-numbered';
 import {thumbnailMosaic} from './motions/data/thumbnail-mosaic';
@@ -138,9 +141,11 @@ import {treemapSplit} from './motions/data/treemap-split';
 import {vennDiagramOverlap} from './motions/data/venn-diagram-overlap';
 import {waterfallBridge} from './motions/data/waterfall-bridge';
 import {weatherForecastStrip} from './motions/data/weather-forecast-strip';
+import {archivePhotoKenBurnsCaption} from './motions/document/archive-photo-ken-burns-caption';
 import {certificateSeal} from './motions/document/certificate-seal';
 import {docHighlightEvidence} from './motions/document/doc-highlight-evidence';
 import {documentMarkerHighlight} from './motions/document/document-marker-highlight';
+import {documentZoomHighlight} from './motions/document/document-zoom-highlight';
 import {evidenceBoard} from './motions/document/evidence-board';
 import {formFillSubmit} from './motions/document/form-fill-submit';
 import {liftTheFlap} from './motions/document/lift-the-flap';
@@ -271,24 +276,30 @@ import {vsSplash} from './motions/game/vs-splash';
 import {agentRoster} from './motions/hud/agent-roster';
 import {alertReinkWave} from './motions/hud/alert-reink-wave';
 import {blurRedactRegion} from './motions/hud/blur-redact-region';
+import {breakingNewsTakeover} from './motions/hud/breaking-news-takeover';
 import {calloutLabels} from './motions/hud/callout-labels';
 import {camChipSyncBadge} from './motions/hud/cam-chip-sync-badge';
 import {clickRippleMarkers} from './motions/hud/click-ripple-markers';
 import {dayRingDial} from './motions/hud/day-ring-dial';
 import {eraDial} from './motions/hud/era-dial';
 import {eventFeed} from './motions/hud/event-feed';
+import {factCheckMeter} from './motions/hud/fact-check-meter';
 import {fightHud} from './motions/hud/fight-hud';
 import {gameHud} from './motions/hud/game-hud';
 import {handDrawnArrowCallout} from './motions/hud/hand-drawn-arrow-callout';
 import {hudChrome} from './motions/hud/hud-chrome';
+import {interviewNameSuper} from './motions/hud/interview-name-super';
+import {locationTimeStamp} from './motions/hud/location-time-stamp';
 import {magnificationRoundel} from './motions/hud/magnification-roundel';
 import {missionClock} from './motions/hud/mission-clock';
 import {newsBugSourceTag} from './motions/hud/news-bug-source-tag';
 import {numberedStepBadges} from './motions/hud/numbered-step-badges';
+import {pollNumbersSplit} from './motions/hud/poll-numbers-split';
 import {powersOfTen} from './motions/hud/powers-of-ten';
 import {promptWall} from './motions/hud/prompt-wall';
 import {radialBlueprint} from './motions/hud/radial-blueprint';
 import {scribbleCircleHighlight} from './motions/hud/scribble-circle-highlight';
+import {socialPostEmbed} from './motions/hud/social-post-embed';
 import {specChipRail} from './motions/hud/spec-chip-rail';
 import {spotlightDimFocus} from './motions/hud/spotlight-dim-focus';
 import {syncGrid} from './motions/hud/sync-grid';
@@ -438,6 +449,7 @@ import {sproutGrow} from './motions/shape/sprout-grow';
 import {swimmersConverge} from './motions/shape/swimmers-converge';
 import {toonCelShape} from './motions/shape/toon-cel-shape';
 import {agendaListSlide} from './motions/text/agenda-list-slide';
+import {alphabetLetterTrace} from './motions/text/alphabet-letter-trace';
 import {atomicOrbitTitle} from './motions/text/atomic-orbit-title';
 import {bigStatSlide} from './motions/text/big-stat-slide';
 import {blobToWordmark} from './motions/text/blob-to-wordmark';
@@ -452,12 +464,15 @@ import {chrome80sTitle} from './motions/text/chrome-80s-title';
 import {chromeTitleSlam} from './motions/text/chrome-title-slam';
 import {cinematicTitleCard} from './motions/text/cinematic-title-card';
 import {comicBurst} from './motions/text/comic-burst';
+import {countingObjects} from './motions/text/counting-objects';
 import {decoTitleBar} from './motions/text/deco-title-bar';
 import {definitionCard} from './motions/text/definition-card';
 import {diagonalAssembleTitle} from './motions/text/diagonal-assemble-title';
 import {diagonalBandTitle} from './motions/text/diagonal-band-title';
 import {endCardCredits} from './motions/text/end-card-credits';
 import {endScreenCards} from './motions/text/end-screen-cards';
+import {fillInTheBlank} from './motions/text/fill-in-the-blank';
+import {flashcardFlipDeck} from './motions/text/flashcard-flip-deck';
 import {flipbookRiffleOutro} from './motions/text/flipbook-riffle-outro';
 import {followerMilestone} from './motions/text/follower-milestone';
 import {glyphFractalPush} from './motions/text/glyph-fractal-push';
@@ -508,6 +523,7 @@ import {typewriterCode} from './motions/text/typewriter-code';
 import {typewriterDeleteRetype} from './motions/text/typewriter-delete-retype';
 import {typewriterSignature} from './motions/text/typewriter-signature';
 import {wordCarouselRotator} from './motions/text/word-carousel-rotator';
+import {wordTranslationPair} from './motions/text/word-translation-pair';
 import {bokehDrift} from './motions/texture/bokeh-drift';
 import {hideCarvePatterns} from './motions/texture/hide-carve-patterns';
 import {lightLeakWash} from './motions/texture/light-leak-wash';
@@ -657,6 +673,7 @@ export const motions: MotionDef<any>[] = [
   budgetEnvelopeSplit,
   causeEffectChain,
   chipStackBars,
+  clockTimeTeach,
   comparisonDumbbell,
   crowdTracks,
   deployPipelineStages,
@@ -687,6 +704,7 @@ export const motions: MotionDef<any>[] = [
   jsonTreeExpand,
   liveChart,
   mapRoute,
+  mathEquationSolve,
   microscopeDive,
   networkGraph,
   neuralNetLayers,
@@ -709,6 +727,7 @@ export const motions: MotionDef<any>[] = [
   sectionProfileChart,
   serverRackStatus,
   stackedAreaFlow,
+  starChartReward,
   starFusionShells,
   stepProcessNumbered,
   thumbnailMosaic,
@@ -719,9 +738,11 @@ export const motions: MotionDef<any>[] = [
   vennDiagramOverlap,
   waterfallBridge,
   weatherForecastStrip,
+  archivePhotoKenBurnsCaption,
   certificateSeal,
   docHighlightEvidence,
   documentMarkerHighlight,
+  documentZoomHighlight,
   evidenceBoard,
   formFillSubmit,
   liftTheFlap,
@@ -852,24 +873,30 @@ export const motions: MotionDef<any>[] = [
   agentRoster,
   alertReinkWave,
   blurRedactRegion,
+  breakingNewsTakeover,
   calloutLabels,
   camChipSyncBadge,
   clickRippleMarkers,
   dayRingDial,
   eraDial,
   eventFeed,
+  factCheckMeter,
   fightHud,
   gameHud,
   handDrawnArrowCallout,
   hudChrome,
+  interviewNameSuper,
+  locationTimeStamp,
   magnificationRoundel,
   missionClock,
   newsBugSourceTag,
   numberedStepBadges,
+  pollNumbersSplit,
   powersOfTen,
   promptWall,
   radialBlueprint,
   scribbleCircleHighlight,
+  socialPostEmbed,
   specChipRail,
   spotlightDimFocus,
   syncGrid,
@@ -1019,6 +1046,7 @@ export const motions: MotionDef<any>[] = [
   swimmersConverge,
   toonCelShape,
   agendaListSlide,
+  alphabetLetterTrace,
   atomicOrbitTitle,
   bigStatSlide,
   blobToWordmark,
@@ -1033,12 +1061,15 @@ export const motions: MotionDef<any>[] = [
   chromeTitleSlam,
   cinematicTitleCard,
   comicBurst,
+  countingObjects,
   decoTitleBar,
   definitionCard,
   diagonalAssembleTitle,
   diagonalBandTitle,
   endCardCredits,
   endScreenCards,
+  fillInTheBlank,
+  flashcardFlipDeck,
   flipbookRiffleOutro,
   followerMilestone,
   glyphFractalPush,
@@ -1089,6 +1120,7 @@ export const motions: MotionDef<any>[] = [
   typewriterDeleteRetype,
   typewriterSignature,
   wordCarouselRotator,
+  wordTranslationPair,
   bokehDrift,
   hideCarvePatterns,
   lightLeakWash,

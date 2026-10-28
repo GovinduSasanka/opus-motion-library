@@ -1,24 +1,24 @@
 # Motion catalog
 
-579 motions. Generated from `catalog.json` by `cli/gen-docs.mjs` — do not edit by hand.
+595 motions. Generated from `catalog.json` by `cli/gen-docs.mjs` — do not edit by hand.
 
 Render any of them: `node cli/mgl.mjs render <id> [--props '{...}'] [--format landscape|square|portrait]`. Previews live in `gallery/`.
 
 Choosing: `node cli/mgl.mjs suggest "<what you need>"` and [CHOOSING.md](CHOOSING.md). Using them in a website / app / other project: [INTEGRATION.md](INTEGRATION.md).
 
-- [text](#text) (71)
+- [text](#text) (76)
 - [transition](#transition) (2)
 - [shape](#shape) (42)
 - [fx](#fx) (49)
 - [environment](#environment) (47)
 - [character](#character) (17)
-- [data](#data) (71)
+- [data](#data) (74)
 - [ui](#ui) (65)
-- [hud](#hud) (29)
+- [hud](#hud) (35)
 - [camera](#camera) (9)
 - [texture](#texture) (4)
 - [3d](#3d) (41)
-- [document](#document) (14)
+- [document](#document) (16)
 - [game](#game) (21)
 - [image](#image) (34)
 - [map](#map) (11)
@@ -31,9 +31,9 @@ Choosing: `node cli/mgl.mjs suggest "<what you need>"` and [CHOOSING.md](CHOOSIN
 
 | capability | motions |
 |---|---|
-| overlay (transparent background — put it on top of other motions or your page) | `globe-3d`, `holo-solid-ignite`, `light-beam-ribbon`, `popup-spread`, `creator-hand`, `paper-critter-rig`, `pictogram-figure`, `api-request-flow`, `bar-race`, `bubble-scatter-grow`, `budget-envelope-split`, `cause-effect-chain`, `comparison-dumbbell`, `deploy-pipeline-stages`, `donut-breakdown`, `fitness-activity-rings`, `floorplan-draw`, `funnel-conversion`, `gantt-timeline`, `gauge-kpi-dial`, `git-branch-graph`, `heart-rate-monitor`, `heatmap-calendar`, `json-tree-expand`, `network-graph`, `org-chart-tree`, `progress-rings-stats`, `pros-cons-columns`, `radar-compare`, `sankey-flow`, `savings-goal-jar`, `server-rack-status`, `stacked-area-flow`, `step-process-numbered`, `treemap-split`, `venn-diagram-overlap`, `waterfall-bridge`, `weather-forecast-strip`, `certificate-seal`, `form-fill-submit`, `nutrition-facts-label`, `passport-stamps`, `receipt-print`, `aurora`, `bubbles`, `caustics-godrays`, `curl-flow`, `embers`, `falling-petals`, `fireworks`, `flow-lines`, `fog-clouds`, `insect-flight`, `lightning-flash`, `mesh-gradient-bg`, `rain`, `snowfall`, `starfield-night`, `starfield-warp`, `window-glow-sequence`, `backlit-cutout`, `circuit-traces`, `confetti-burst`, `electric-arcs`, `emote-pop`, `eyes-blink`, `fire-flames`, `giant-eye-reveal`, `grease-pencil-mark`, `impact-frame`, `ink-blot-stop`, `long-exposure-trails`, `magnifier-loupe`, `marker-ring-arrow`, `scribble-ball`, `smear-frame`, `smoke-puffs`, `sparkle-burst`, `star-glint`, `sticker-cutout`, `swirl-portal`, `vhs-crt-pass`, `achievement-unlock`, `bracket-advance`, `candy-set-backdrop`, `kill-streak-banner`, `level-up-burst`, `match-scoreboard`, `player-stat-card`, `stream-starting-soon`, `agent-roster`, `blur-redact-region`, `cam-chip-sync-badge`, `click-ripple-markers`, `day-ring-dial`, `event-feed`, `fight-hud`, `game-hud`, `hand-drawn-arrow-callout`, `hud-chrome`, `mission-clock`, `news-bug-source-tag`, `numbered-step-badges`, `prompt-wall`, `scribble-circle-highlight`, `spec-chip-rail`, `spotlight-dim-focus`, `target-lock-box`, `target-lock`, `tooltip-pointer`, `zoom-inset-box`, `film-look`, `sticker-slap`, `choropleth-fill`, `city-zoom-label`, `coverage-route`, `elevation-profile`, `flight-arcs`, `pin-drop-cluster`, `beat-dance`, `chomp-lid`, `emotion-idle-beat`, `emotion-sheet`, `emotion-timeline`, `mascot-nib`, `mascot-thinking`, `mascot-thumbs-up`, `mascot-wave-hello`, `smear-trail`, `beat-camera`, `beat-grid`, `beat-pulse-rings`, `engraving-hatch`, `equalizer-bars-loop`, `guilloche-note`, `lyric-on-path`, `lyric-timing`, `lyric-video`, `mixer-faders`, `now-playing-card`, `podcast-audiogram`, `shutter-blur`, `stage-curtain`, `time-stutter`, `token-sampler-prompt`, `token-tree`, `tracklist-reveal`, `vinyl-spin-label`, `width-pressure-type`, `add-to-cart-fly`, `coffee-pour-cup`, `colorway-swap`, `coupon-scratch-reveal`, `delivery-tracker`, `feature-callout-orbit`, `flash-deal-timer-card`, `order-confirmation`, `price-tag-drop`, `product-grid-filter`, `size-color-picker`, `spec-compare-table`, `sunburst-hero`, `unbox-lid-lift`, `comet-pulse-guide`, `ink-brush-stroke`, `logo-reveal-liquid`, `motif-grid-pattern`, `nib-follow-camera`, `papercut-rosette`, `toon-cel-shape`, `agenda-list-slide`, `big-stat-slide`, `blur-in-title`, `channel-intro-sting`, `chapter-countdown`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `definition-card`, `end-card-credits`, `end-screen-cards`, `follower-milestone`, `glyph-orbit-logo`, `key-takeaway-highlight`, `kinetic-captions`, `logo-reveal-lines`, `mask-rise-title`, `myth-vs-fact`, `news-strap`, `number-counter`, `outline-to-fill-text`, `paper-strip-title`, `per-letter-wave`, `qa-slide`, `quiz-question-reveal`, `quote-slide`, `rolling-credits`, `rundown-board`, `sale-countdown-banner`, `scene-tag`, `split-flap-board`, `sponsor-slate`, `stacked-repeat-echo`, `stamp-slam`, `sting-bug`, `story-caption-box`, `text-on-circle-spin`, `text-scramble-decode`, `typewriter-code`, `typewriter-delete-retype`, `typewriter-signature`, `word-carousel-rotator`, `bokeh-drift`, `light-leak-wash`, `pattern-scroll`, `agent-log-panel`, `ai-chat-streaming`, `appointment-booking-calendar`, `boarding-pass-print`, `checkout-steps`, `code-diff-highlight`, `comment-bubble-stream`, `cursor-driver`, `empty-state-illustration`, `glass-lesson-card`, `hero-gradient-orbs`, `hotel-rating-card`, `itinerary-route-stops`, `keystroke-hud`, `liquid-glass-lens`, `loader-spinner-set`, `logo-wall-grid`, `menu-board-items`, `notification-stack`, `planned-vs-heard-checklist`, `player-toolbar`, `poll-results-bars`, `property-listing-card`, `recipe-ingredients-steps`, `review-stars-rating`, `roadmap-swimlanes`, `skeleton-shimmer`, `story-progress-frames`, `subscribe-like-bell`, `success-check-burst`, `team-grid-photos`, `terminal-install-progress`, `testimonial-card-carousel`, `three-column-features`, `toast-stack-loop`, `typing-indicator-chat`, `upload-progress` |
+| overlay (transparent background — put it on top of other motions or your page) | `globe-3d`, `holo-solid-ignite`, `light-beam-ribbon`, `popup-spread`, `creator-hand`, `paper-critter-rig`, `pictogram-figure`, `api-request-flow`, `bar-race`, `bubble-scatter-grow`, `budget-envelope-split`, `cause-effect-chain`, `clock-time-teach`, `comparison-dumbbell`, `deploy-pipeline-stages`, `donut-breakdown`, `fitness-activity-rings`, `floorplan-draw`, `funnel-conversion`, `gantt-timeline`, `gauge-kpi-dial`, `git-branch-graph`, `heart-rate-monitor`, `heatmap-calendar`, `json-tree-expand`, `math-equation-solve`, `network-graph`, `org-chart-tree`, `progress-rings-stats`, `pros-cons-columns`, `radar-compare`, `sankey-flow`, `savings-goal-jar`, `server-rack-status`, `stacked-area-flow`, `star-chart-reward`, `step-process-numbered`, `treemap-split`, `venn-diagram-overlap`, `waterfall-bridge`, `weather-forecast-strip`, `archive-photo-ken-burns-caption`, `certificate-seal`, `form-fill-submit`, `nutrition-facts-label`, `passport-stamps`, `receipt-print`, `aurora`, `bubbles`, `caustics-godrays`, `curl-flow`, `embers`, `falling-petals`, `fireworks`, `flow-lines`, `fog-clouds`, `insect-flight`, `lightning-flash`, `mesh-gradient-bg`, `rain`, `snowfall`, `starfield-night`, `starfield-warp`, `window-glow-sequence`, `backlit-cutout`, `circuit-traces`, `confetti-burst`, `electric-arcs`, `emote-pop`, `eyes-blink`, `fire-flames`, `giant-eye-reveal`, `grease-pencil-mark`, `impact-frame`, `ink-blot-stop`, `long-exposure-trails`, `magnifier-loupe`, `marker-ring-arrow`, `scribble-ball`, `smear-frame`, `smoke-puffs`, `sparkle-burst`, `star-glint`, `sticker-cutout`, `swirl-portal`, `vhs-crt-pass`, `achievement-unlock`, `bracket-advance`, `candy-set-backdrop`, `kill-streak-banner`, `level-up-burst`, `match-scoreboard`, `player-stat-card`, `stream-starting-soon`, `agent-roster`, `blur-redact-region`, `breaking-news-takeover`, `cam-chip-sync-badge`, `click-ripple-markers`, `day-ring-dial`, `event-feed`, `fact-check-meter`, `fight-hud`, `game-hud`, `hand-drawn-arrow-callout`, `hud-chrome`, `interview-name-super`, `location-time-stamp`, `mission-clock`, `news-bug-source-tag`, `numbered-step-badges`, `poll-numbers-split`, `prompt-wall`, `scribble-circle-highlight`, `social-post-embed`, `spec-chip-rail`, `spotlight-dim-focus`, `target-lock-box`, `target-lock`, `tooltip-pointer`, `zoom-inset-box`, `film-look`, `sticker-slap`, `choropleth-fill`, `city-zoom-label`, `coverage-route`, `elevation-profile`, `flight-arcs`, `pin-drop-cluster`, `beat-dance`, `chomp-lid`, `emotion-idle-beat`, `emotion-sheet`, `emotion-timeline`, `mascot-nib`, `mascot-thinking`, `mascot-thumbs-up`, `mascot-wave-hello`, `smear-trail`, `beat-camera`, `beat-grid`, `beat-pulse-rings`, `engraving-hatch`, `equalizer-bars-loop`, `guilloche-note`, `lyric-on-path`, `lyric-timing`, `lyric-video`, `mixer-faders`, `now-playing-card`, `podcast-audiogram`, `shutter-blur`, `stage-curtain`, `time-stutter`, `token-sampler-prompt`, `token-tree`, `tracklist-reveal`, `vinyl-spin-label`, `width-pressure-type`, `add-to-cart-fly`, `coffee-pour-cup`, `colorway-swap`, `coupon-scratch-reveal`, `delivery-tracker`, `feature-callout-orbit`, `flash-deal-timer-card`, `order-confirmation`, `price-tag-drop`, `product-grid-filter`, `size-color-picker`, `spec-compare-table`, `sunburst-hero`, `unbox-lid-lift`, `comet-pulse-guide`, `ink-brush-stroke`, `logo-reveal-liquid`, `motif-grid-pattern`, `nib-follow-camera`, `papercut-rosette`, `toon-cel-shape`, `agenda-list-slide`, `alphabet-letter-trace`, `big-stat-slide`, `blur-in-title`, `channel-intro-sting`, `chapter-countdown`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `counting-objects`, `definition-card`, `end-card-credits`, `end-screen-cards`, `fill-in-the-blank`, `flashcard-flip-deck`, `follower-milestone`, `glyph-orbit-logo`, `key-takeaway-highlight`, `kinetic-captions`, `logo-reveal-lines`, `mask-rise-title`, `myth-vs-fact`, `news-strap`, `number-counter`, `outline-to-fill-text`, `paper-strip-title`, `per-letter-wave`, `qa-slide`, `quiz-question-reveal`, `quote-slide`, `rolling-credits`, `rundown-board`, `sale-countdown-banner`, `scene-tag`, `split-flap-board`, `sponsor-slate`, `stacked-repeat-echo`, `stamp-slam`, `sting-bug`, `story-caption-box`, `text-on-circle-spin`, `text-scramble-decode`, `typewriter-code`, `typewriter-delete-retype`, `typewriter-signature`, `word-carousel-rotator`, `word-translation-pair`, `bokeh-drift`, `light-leak-wash`, `pattern-scroll`, `agent-log-panel`, `ai-chat-streaming`, `appointment-booking-calendar`, `boarding-pass-print`, `checkout-steps`, `code-diff-highlight`, `comment-bubble-stream`, `cursor-driver`, `empty-state-illustration`, `glass-lesson-card`, `hero-gradient-orbs`, `hotel-rating-card`, `itinerary-route-stops`, `keystroke-hud`, `liquid-glass-lens`, `loader-spinner-set`, `logo-wall-grid`, `menu-board-items`, `notification-stack`, `planned-vs-heard-checklist`, `player-toolbar`, `poll-results-bars`, `property-listing-card`, `recipe-ingredients-steps`, `review-stars-rating`, `roadmap-swimlanes`, `skeleton-shimmer`, `story-progress-frames`, `subscribe-like-bell`, `success-check-burst`, `team-grid-photos`, `terminal-install-progress`, `testimonial-card-carousel`, `three-column-features`, `toast-stack-loop`, `typing-indicator-chat`, `upload-progress` |
 | seamless loop | `iso-bar-chart`, `city-rooftops-rain-window`, `desert-dunes-heat`, `embers`, `firefly-meadow-night`, `forest-parallax-mist`, `lava-lamp-blobs`, `ocean-waves-layers`, `snow-mountain-dawn`, `starfield-warp`, `sonar-ping`, `empty-state-illustration`, `hero-gradient-orbs`, `loader-spinner-set`, `skeleton-shimmer`, `success-check-burst`, `toast-stack-loop`, `typing-indicator-chat`, `upload-progress` |
-| takes your image (`src` / `images` / `heroSrc`) | `pointcloud-orbit`, `crash-zoom`, `dolly-zoom`, `orbit-parallax`, `whip-pan`, `beat-montage`, `crowd-tracks`, `ground-plane-ruler`, `map-route`, `microscope-dive`, `science-reticle`, `thumbnail-mosaic`, `mugshot-height-chart`, `depth-descent`, `lamp-screen`, `paper-diorama`, `studio-sweep`, `topdown-terrain`, `window-glow-sequence`, `beat-punch-zoom`, `crayon-wax-shader`, `focus-desaturate`, `frame-blend-timelapse`, `frame-breakout`, `freeze-frame-brackets`, `giant-eye-reveal`, `glass-crack-mend`, `long-exposure-trails`, `loupe-magnify`, `magnifier-loupe`, `swirl-portal`, `theatre-gate`, `vhs-crt-pass`, `loot-reveal`, `player-stat-card`, `rocket-to-moon`, `callout-labels`, `cam-chip-sync-badge`, `target-lock-box`, `target-lock`, `zoom-inset-box`, `ascii-image-grid`, `autofocus-hunt`, `brush-stroke-reveal`, `comic-halftone`, `dot-matrix`, `duotone`, `film-look`, `glass-pane-grid`, `glitch-image`, `grid-multiply`, `handscroll-reveal`, `ken-burns`, `knife-colour-relay`, `knife-paint-plate`, `light-sweep`, `negative-develop-reveal`, `perspective-flatten`, `photomontage-tower`, `pixel-dither`, `press-lift`, `proportion-sweep`, `riso-plate-reveal`, `spinning-headline`, `split-grid-countdown`, `sticker-cutout-burst`, `telestrator-freeze`, `tilt-shift-diorama`, `woodblock-print-reveal`, `woodcut-carve`, `xray-scan`, `map-mask-reveal`, `audio-spectrum`, `guilloche-note`, `add-to-cart-fly`, `colorway-swap`, `feature-callout-orbit`, `flash-deal-timer-card`, `frost-to-clear`, `size-color-picker`, `sunburst-hero`, `unbox-lid-lift`, `logo-reveal-liquid`, `scissor-cut`, `sonar-ping`, `blur-in-title`, `bouncing-ball-singalong`, `channel-intro-sting`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `diagonal-band-title`, `end-card-credits`, `flipbook-riffle-outro`, `glyph-orbit-logo`, `halftone-exhibit-numeral`, `hanazi-caption`, `letters-become-image`, `logo-assemble`, `logo-reveal-lines`, `mask-rise-title`, `number-counter`, `quote-slide`, `sponsor-slate`, `stamp-slam`, `story-caption-box`, `typewriter-code`, `browser-mockup`, `device-mockup`, `hotel-rating-card`, `property-listing-card`, `recipe-ingredients-steps`, `sms-thread`, `split-compare`, `story-progress-frames`, `tv-wall-switch-on`, `versus-roster` |
+| takes your image (`src` / `images` / `heroSrc`) | `pointcloud-orbit`, `crash-zoom`, `dolly-zoom`, `orbit-parallax`, `whip-pan`, `beat-montage`, `crowd-tracks`, `ground-plane-ruler`, `map-route`, `microscope-dive`, `science-reticle`, `thumbnail-mosaic`, `archive-photo-ken-burns-caption`, `mugshot-height-chart`, `depth-descent`, `lamp-screen`, `paper-diorama`, `studio-sweep`, `topdown-terrain`, `window-glow-sequence`, `beat-punch-zoom`, `crayon-wax-shader`, `focus-desaturate`, `frame-blend-timelapse`, `frame-breakout`, `freeze-frame-brackets`, `giant-eye-reveal`, `glass-crack-mend`, `long-exposure-trails`, `loupe-magnify`, `magnifier-loupe`, `swirl-portal`, `theatre-gate`, `vhs-crt-pass`, `loot-reveal`, `player-stat-card`, `rocket-to-moon`, `callout-labels`, `cam-chip-sync-badge`, `target-lock-box`, `target-lock`, `zoom-inset-box`, `ascii-image-grid`, `autofocus-hunt`, `brush-stroke-reveal`, `comic-halftone`, `dot-matrix`, `duotone`, `film-look`, `glass-pane-grid`, `glitch-image`, `grid-multiply`, `handscroll-reveal`, `ken-burns`, `knife-colour-relay`, `knife-paint-plate`, `light-sweep`, `negative-develop-reveal`, `perspective-flatten`, `photomontage-tower`, `pixel-dither`, `press-lift`, `proportion-sweep`, `riso-plate-reveal`, `spinning-headline`, `split-grid-countdown`, `sticker-cutout-burst`, `telestrator-freeze`, `tilt-shift-diorama`, `woodblock-print-reveal`, `woodcut-carve`, `xray-scan`, `map-mask-reveal`, `audio-spectrum`, `guilloche-note`, `add-to-cart-fly`, `colorway-swap`, `feature-callout-orbit`, `flash-deal-timer-card`, `frost-to-clear`, `size-color-picker`, `sunburst-hero`, `unbox-lid-lift`, `logo-reveal-liquid`, `scissor-cut`, `sonar-ping`, `blur-in-title`, `bouncing-ball-singalong`, `channel-intro-sting`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `diagonal-band-title`, `end-card-credits`, `flipbook-riffle-outro`, `glyph-orbit-logo`, `halftone-exhibit-numeral`, `hanazi-caption`, `letters-become-image`, `logo-assemble`, `logo-reveal-lines`, `mask-rise-title`, `number-counter`, `quote-slide`, `sponsor-slate`, `stamp-slam`, `story-caption-box`, `typewriter-code`, `browser-mockup`, `device-mockup`, `hotel-rating-card`, `property-listing-card`, `recipe-ingredients-steps`, `sms-thread`, `split-compare`, `story-progress-frames`, `tv-wall-switch-on`, `versus-roster` |
 | heavy (three.js / WebGL — prefer an exported video on mobile web) | `accum-render-3d`, `brick-collapse-physics`, `brick-fx-fire-smoke`, `brick-rebuild-morph`, `brick-snap-build`, `chart-to-installation`, `cloner-bed-ripple`, `colour-ignition-wave`, `exploded-stack`, `exploded-view-3d`, `glass-strip-sweep`, `globe-3d`, `iso-blocks-3d`, `iso-city-build`, `jelly-type-drop`, `last-object-drop`, `liminal-corridor-3d`, `ocean-surface-3d`, `particle-shape-morph`, `plan-tilt`, `pointcloud-orbit`, `product-turntable-3d`, `shockwave-flip-field`, `stack-plates-3d`, `terrain-build-3d`, `voxel-burst-swirl`, `voxel-diorama`, `wireframe-build`, `dash-flow-field` |
 
 ## recipes
@@ -366,6 +366,38 @@ Keynote agenda slide: big title column and a numbered list; a highlight pill gli
 | `accent` | `"#4FD1C5"` | numbers, pill and rule colour |
 | `fontFamily` | `"grotesk"` | title font: sans \| serif \| display \| grotesk \| rounded \| instrument \| mono |
 | `startAt` | `0` | frame the slide begins |
+
+### `alphabet-letter-trace` — Alphabet letter trace
+
+![alphabet-letter-trace](../gallery/alphabet-letter-trace.jpg)
+
+A handwriting lesson on ruled paper: a dotted letter track, numbered stroke-order dots with arrows, a pen dot tracing each stroke, a pop and sparkle, then a drawn picture and "A is for Apple" example word slide in.
+
+**Use for:** Kids' phonics and handwriting videos, alphabet series, ESL letter lessons, number-writing practice and educational app promos. Works for A-Z, a-z and 0-9 (up to 3 characters at once, e.g. "Aa"); pass a built-in picture or your own image.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 420 frames (14.0 s @ 30 fps)
+
+**Roles:** type, accent · **Mood:** paper, photo  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `letter` | `"Aa"` | the letter(s) to trace — up to 3 characters from A-Z, a-z, 0-9 (e.g. "Aa", "B", "7") |
+| `exampleWord` | `"Apple"` | example word shown after tracing (its first letter is highlighted) |
+| `exampleLead` | `"A is for"` | small line above the word, e.g. "B is for" |
+| `picture` | `"apple"` | built-in drawing: apple \| ball \| cat \| sun \| fish \| star \| house \| tree |
+| `imageSrc` | `""` | optional public/ path or URL of your own picture (replaces the built-in drawing) |
+| `prompt` | `"Trace the letter"` | small instruction on the board header |
+| `background` | `"#FFF4DC"` | backdrop colour or 'transparent' |
+| `ink` | `"#2B2A4C"` | text and outline colour |
+| `accent` | `"#FF6B6B"` | drawn stroke colour and first-letter highlight |
+| `accent2` | `"#2EA8FF"` | start dots, arrows and pen colour |
+| `board` | `"#FFFFFF"` | writing-board paper colour |
+| `fontFamily` | `""` | optional CSS font-family for the example word (empty = display) |
+| `showPicture` | `true` | false keeps the board centred and skips the picture + word |
+| `traceFrames` | `230` | frames the whole tracing takes (spread across the strokes) |
+| `startAt` | `0` | frame the lesson starts |
+| `speed` | `1` | playback speed multiplier |
 
 ### `atomic-orbit-title` — Atomic orbit title (retro toon)
 
@@ -792,6 +824,40 @@ Comic onomatopoeia (BONK! POP!) in a jagged halftone starburst that springs in a
 | `tagCorner` | `false` | telop: after the hold the word shrinks into a small tag in the top-left corner and stays |
 | `skewDeg` | `0` | telop: horizontal skew of the word |
 
+### `counting-objects` — Counting objects
+
+![counting-objects](../gallery/counting-objects.jpg)
+
+Kid-friendly counting: cute faced shapes (stars, hearts, apples, balloons, fish ...) pop into a ten-frame grid one by one while a big number and its word count up in step, then the set waves and the total is announced with confetti.
+
+**Use for:** Early-years maths and number-recognition videos, kids' app promos, preschool lessons and "how many?" social posts — pass the count, the shape, the unit word and your colours.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 360 frames (12.0 s @ 30 fps)
+
+**Roles:** type, accent · **Mood:** nature, playful, night  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `count` | `7` | how many objects to count (1-40) |
+| `shape` | `"star"` | star \| circle \| heart \| apple \| balloon \| square \| triangle \| flower \| fish |
+| `colors` | `["#FF6B6B","#FFB020","#2EC4B6","#4D96FF","#9B5DE5"]` | colours cycled across the objects (also tints the number box) |
+| `title` | `"Let's count!"` | heading shown while counting |
+| `unitLabel` | `"stars"` | what is being counted, plural (used in doneText) |
+| `doneText` | `"{n} {unit}!"` | heading after the last object; {n} = the count, {unit} = unitLabel |
+| `numberWords` | `["one","two","three","four","five","six","seven","eight",…` | number words for 1, 2, 3 ... (translate for other languages) |
+| `showWords` | `true` | show the number word under the number |
+| `faces` | `true` | give each object a smiling face |
+| `perRow` | `5` | objects per row in the grid (5 = ten-frame style) |
+| `interval` | `0` | frames between pops (0 = auto-fit to the clip) |
+| `background` | `"#FFF6E5"` | backdrop colour or 'transparent' |
+| `ink` | `"#2B2A4C"` | text, face and outline colour |
+| `accent` | `"#FF6B6B"` | completion heading colour |
+| `card` | `"#FFFFFF"` | number box colour before counting starts |
+| `fontFamily` | `""` | optional CSS font-family for the number and headings (empty = display) |
+| `startAt` | `0` | frame the lesson starts |
+| `speed` | `1` | playback speed multiplier |
+
 ### `deco-title-bar` — Art deco title bar
 
 ![deco-title-bar](../gallery/deco-title-bar.jpg)
@@ -968,6 +1034,71 @@ Outro screen: headline, two video-card slots (thumbnail or placeholder, label, r
 | `startAt` | `0` | frame the screen starts building |
 | `speed` | `1` | timing multiplier |
 | `fontFamily` | `""` | optional CSS font-family for all text |
+
+### `fill-in-the-blank` — Fill in the blank
+
+![fill-in-the-blank](../gallery/fill-in-the-blank.jpg)
+
+A cloze exercise: a sentence with a pulsing blank, answer chips that pop in below, a wrong chip that is tried and bounces back with a shake and a cross, then the right chip arcs into the blank, turns green with a tick and sparkles and the feedback appears.
+
+**Use for:** Grammar and vocabulary exercises, language-learning reels, classroom quiz clips, ESL practice posts and "can you spot the right word?" engagement videos — pass the sentence with ___ for the blank, the options and the answer.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 330 frames (11.0 s @ 30 fps)
+
+**Roles:** type, accent · **Mood:** playful  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `sentence` | `"The cat sat on the ___ all day."` | the sentence; write ___ (3 underscores) where the blank goes |
+| `options` | `["mat","sky","cloud"]` | answer chips shown below the sentence |
+| `answerIndex` | `0` | index (0-based) of the correct option |
+| `tryWrongFirst` | `true` | try a wrong option first (shake + cross) before the correct one lands |
+| `prompt` | `"Fill in the blank"` | label pill above the sentence |
+| `correctText` | `"Correct!"` | headline of the success banner |
+| `wrongText` | `"Not quite - try again"` | message while the wrong option is in the blank |
+| `explanation` | `"A cat can sit on a mat, but not on the sky."` | optional one-line explanation under the success banner (empty hides it) |
+| `background` | `"#EAF2FF"` | backdrop colour or 'transparent' |
+| `ink` | `"#1D2440"` | sentence text colour |
+| `accent` | `"#4C6FFF"` | chip and blank colour |
+| `card` | `"#FFFFFF"` | sentence card colour |
+| `correctColor` | `"#1FA463"` | success colour |
+| `wrongColor` | `"#E5484D"` | wrong-answer colour |
+| `fontFamily` | `""` | optional CSS font-family for the sentence and chips (empty = grotesk) |
+| `startAt` | `0` | frame the exercise starts |
+| `speed` | `1` | playback speed multiplier |
+
+### `flashcard-flip-deck` — Flashcard flip deck
+
+![flashcard-flip-deck](../gallery/flashcard-flip-deck.jpg)
+
+A study deck of flashcards: each card slides in showing the term, flips over in 3D to reveal its definition, then flies off as the next arrives, with a deck stack, progress dots, a counter and a deck-complete finish.
+
+**Use for:** Vocabulary, revision and quiz-prep videos, language-learning reels, course trailers and "test yourself" social posts — pass your own cards (term + definition), labels and brand colours.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 430 frames (14.3 s @ 30 fps)
+
+**Roles:** type · **Mood:** 3d, ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `cards`, `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `cards` | `[{"term":"Photosynthesis","definition":"How plants turn s…` | array of {term, definition} cards, shown in order |
+| `title` | `"Science words"` | deck title shown top-left |
+| `termLabel` | `"Term"` | small label on the term side |
+| `definitionLabel` | `"Meaning"` | small label on the definition side |
+| `flipHint` | `"Think, then flip"` | hint line at the bottom of the term side (empty hides it) |
+| `doneText` | `"Deck complete!"` | headline of the end state |
+| `doneSubtitle` | `"{n} cards reviewed"` | end-state subtitle; {n} is replaced by the card count |
+| `background` | `"#F4EFE6"` | backdrop colour or 'transparent' |
+| `ink` | `"#1F2430"` | title / counter / end-state text colour |
+| `accent` | `"#3D5AFE"` | term-side card colour, progress dots, check mark |
+| `accent2` | `"#FF9F1C"` | definition-side top stripe and label colour |
+| `card` | `"#FFFFFF"` | definition-side card colour |
+| `fontFamily` | `""` | optional CSS font-family for terms and the title (empty = grotesk) |
+| `hold` | `24` | frames each side is held before flipping / moving on (definition is held 30% longer) |
+| `startAt` | `0` | frame the deck starts |
+| `speed` | `1` | playback speed multiplier |
 
 ### `flipbook-riffle-outro` — Flipbook riffle outro
 
@@ -2572,6 +2703,33 @@ A fixed sentence with one swapping word — "We build [fast | safe | beautiful |
 | `ink` | `"#16130F"` | colour of the fixed text |
 | `accent` | `"#FF5A36"` | pill / word colour |
 | `pillInk` | `"#FFFFFF"` | word colour when on the pill |
+
+### `word-translation-pair` — Word translation pair
+
+![word-translation-pair](../gallery/word-translation-pair.jpg)
+
+A language lesson: a word in the first language rolls away letter by letter while its translation rolls in, the language chips swap highlight, and a pronunciation line with a speaker icon sweeps in. Cycles through any number of word pairs.
+
+**Use for:** Language-learning reels, vocabulary-of-the-day posts, travel phrase videos, bilingual kids' content and app promos — pass your own pairs (word, translation, pronunciation) and the two language names.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 380 frames (12.7 s @ 30 fps)
+
+**Roles:** type · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `pairs` | `[{"from":"Hello","to":"Hola","pron":"OH-lah"},{"from":"Th…` | array of {from, to, pron}: source word, translation, pronunciation respelling (empty pron hides the line) |
+| `fromLang` | `"English"` | name of the source language (left chip) |
+| `toLang` | `"Español"` | name of the target language (right chip) |
+| `background` | `"#16213E"` | backdrop colour or 'transparent' |
+| `ink` | `"#F4F1E8"` | source word and chip text colour |
+| `accent` | `"#FF8A5B"` | translated word and active chip colour |
+| `accent2` | `"#5BD1D7"` | underline, arrow and pronunciation sweep colour |
+| `fontFamily` | `""` | optional CSS font-family for the words (empty = grotesk); set one that supports your script |
+| `pairFrames` | `120` | frames each word pair stays on screen |
+| `startAt` | `0` | frame the lesson starts |
+| `speed` | `1` | playback speed multiplier |
 
 ## transition
 
@@ -7737,6 +7895,38 @@ Horizontal bars built from labelled unit chips, one chip per item: each row has 
 | `rowGap` | `12` | frames between row starts |
 | `chipFrames` | `1.2` | frames per chip (1 = one chip per frame) |
 
+### `clock-time-teach` — Clock time teach
+
+![clock-time-teach](../gallery/clock-time-teach.jpg)
+
+A friendly analogue clock for learning to tell the time: the short hour hand and long minute hand sweep forward to each target time, a coloured minute wedge follows, a digital readout ticks along and a caption ("half past six") pops in, with a hand legend.
+
+**Use for:** Telling-the-time lessons, kids' routine and schedule videos, ESL time vocabulary, timetable explainers and clock-based countdown/scheduling graphics — pass any list of times and optional captions.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 420 frames (14.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** editorial  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `times` | `["3:00","6:30","9:15","12:45"]` | target times in order, "h:mm" with optional am/pm or 24h (e.g. "3:00", "6:30 PM", "15:15"); the clock starts at 12:00 |
+| `captions` | `[]` | optional caption per time (empty or missing = auto English such as "half past 6") |
+| `format` | `"12h"` | '12h' or '24h' digital readout |
+| `showMinuteNumbers` | `true` | show 5, 10, 15 ... around the outside of the rim |
+| `showLegend` | `true` | show the hour-hand / minute-hand legend |
+| `hourHandLabel` | `"Hour hand: short"` | legend text for the hour hand |
+| `minuteHandLabel` | `"Minute hand: long"` | legend text for the minute hand |
+| `background` | `"#E8F6FF"` | backdrop colour or 'transparent' |
+| `ink` | `"#1E2A4A"` | numbers, ticks and readout panel colour |
+| `accent` | `"#FF6B6B"` | rim and hour-hand colour |
+| `accent2` | `"#1E9BE8"` | minute hand, wedge and readout digits colour |
+| `card` | `"#FFFFFF"` | clock face colour |
+| `fontFamily` | `""` | optional CSS font-family for clock numbers and captions (empty = display) |
+| `timeFrames` | `96` | frames each time is shown (sweep takes ~40%) |
+| `startAt` | `0` | frame the clock starts |
+| `speed` | `1` | playback speed multiplier |
+
 ### `comparison-dumbbell` — Comparison dumbbell
 
 ![comparison-dumbbell](../gallery/comparison-dumbbell.jpg)
@@ -8715,6 +8905,34 @@ Top-down illustrated paper map (fields, river, trees, blossoms) with a marker fl
 | `labelA` | `"A"` | range: label of the start marker |
 | `labelB` | `"B"` | range: label of the end marker |
 
+### `math-equation-solve` — Math equation solve
+
+![math-equation-solve](../gallery/math-equation-solve.jpg)
+
+A worked algebra solution on a chalkboard: each step is a new line, surviving terms fly down (across the equals sign when they swap sides), cancelled terms are struck through, new terms pop in, notes explain each move and the answer is boxed with a burst.
+
+**Use for:** Maths tutorials, homework-help shorts, algebra explainers, STEM course trailers and "solve it with me" reels — pass any list of equation steps as space-separated tokens and a note per step.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 360 frames (12.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `steps` | `["2x + 3 = 11","2x + 3 - 3 = 11 - 3","2x = 8","2x / 2 = 8…` | equation lines, one string per step; tokens are separated by spaces, e.g. "2x + 3 = 11" (- * / are shown as − × ÷) |
+| `notes` | `["Start with the equation","Subtract 3 from both sides","…` | optional one-line explanation per step (same order as steps; empty strings are skipped) |
+| `title` | `"Solve for x"` | heading above the board |
+| `background` | `"#17342D"` | backdrop colour or 'transparent' |
+| `ink` | `"#F4F1E8"` | numbers and general text colour |
+| `accent` | `"#FFD166"` | variable (letter) colour |
+| `accent2` | `"#7BDFF2"` | moving-term flash, notes and answer box colour |
+| `cancelColor` | `"#FF7A7A"` | strike-through colour for terms that cancel |
+| `fontFamily` | `""` | optional CSS font-family for the equations (empty = monospace; keep it monospaced so columns line up) |
+| `stepFrames` | `58` | frames per step |
+| `startAt` | `0` | frame the board starts |
+| `speed` | `1` | playback speed multiplier |
+
 ### `microscope-dive` — Microscope dive
 
 ![microscope-dive](../gallery/microscope-dive.jpg)
@@ -9406,6 +9624,40 @@ A smooth stacked area chart (or centred streamgraph) revealed left to right by a
 | `startAt` | `10` | frame the reveal starts |
 | `speed` | `1` | animation speed multiplier |
 
+### `star-chart-reward` — Star chart reward
+
+![star-chart-reward](../gallery/star-chart-reward.jpg)
+
+A kids' reward chart: gold stars slam into a tasks-by-days grid one after another (squash, ring and sparks) while a progress bar and counter climb and a locked medal fills with gold; on the last star the medal unlocks with a shine, confetti and a reward message.
+
+**Use for:** Kids' habit and chore trackers, classroom behaviour and reading charts, parenting and school app promos, gamified learning progress and "you earned it" reward beats — pass your tasks, days, which cells earn stars and the reward text.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 360 frames (12.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** hud, playful, night  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"My Star Chart"` | chart heading |
+| `tasks` | `["Brush teeth","Read a book","Tidy my room","Help someone"]` | task names, one per row (max 8) |
+| `days` | `["Mon","Tue","Wed","Thu","Fri"]` | column headings, e.g. weekdays (max 10) |
+| `pattern` | `["11111","11101","10111","11011"]` | one string per task row, a character per day: 1 = star earned, 0 = no star (e.g. "11011") |
+| `goal` | `0` | stars needed to unlock the reward (0 = every star in the pattern) |
+| `rewardLabel` | `"Reward"` | small label above the medal |
+| `rewardLockedText` | `"Collect {goal} stars"` | caption while locked; {goal} = stars needed |
+| `rewardTitle` | `"Super Star!"` | headline when the reward unlocks |
+| `rewardText` | `"{n} stars earned. Pizza night!"` | message under the headline; {n} = stars earned |
+| `background` | `"#FFF1D6"` | backdrop colour or 'transparent' |
+| `ink` | `"#2B2A4C"` | text colour |
+| `accent` | `"#FFC21A"` | star and medal gold |
+| `accent2` | `"#7C5CFF"` | header stripe, progress bar and ribbon colour |
+| `card` | `"#FFFFFF"` | chart and reward card colour |
+| `fontFamily` | `""` | optional CSS font-family for the title and reward headline (empty = display) |
+| `stamp` | `0` | frames between star stamps (0 = auto-fit) |
+| `startAt` | `0` | frame the chart starts |
+| `speed` | `1` | playback speed multiplier |
+
 ### `star-fusion-shells` — Star fusion shells
 
 ![star-fusion-shells](../gallery/star-fusion-shells.jpg)
@@ -9844,6 +10096,8 @@ Cut-out photo prints are lowered onto an enamel whiteboard from the camera side,
 | `background` | `"#8F8B83"` | wall colour behind the board |
 
 ### `boarding-pass-print` — Boarding pass printing
+
+![boarding-pass-print](../gallery/boarding-pass-print.jpg)
 
 A printer slot feeds out a boarding pass in stepped jerks: airline header, big FROM and TO codes with a dotted flight path, passenger fields, a perforated stub with a seat that lights up and a barcode that gets scanned.
 
@@ -10457,6 +10711,8 @@ Soft, blurred gradient orbs in your brand colours drift and breathe on closed pa
 
 ### `hotel-rating-card` — Hotel rating card
 
+![hotel-rating-card](../gallery/hotel-rating-card.jpg)
+
 A stay listing card: the photo wipes in and slowly pushes in, name and location slide up, stars fill one by one, the review score counts up, amenity icons pop in, the nightly price counts up and a Book button pulses.
 
 **Use for:** Hotel, rental and resort promos, travel-booking app demos, "top-rated stay" reels, property / venue / restaurant rating cards — set the photo, name, stars, score, price and amenities.  
@@ -10577,6 +10833,8 @@ Small isometric hardware tiles that come alive when running: an LED blinking wit
 | `columns` | `0` | tile columns (0 = auto: 3 landscape, 2 portrait) |
 
 ### `itinerary-route-stops` — Itinerary route with photo stops
+
+![itinerary-route-stops](../gallery/itinerary-route-stops.jpg)
 
 A dotted route draws across the frame while a marker travels it; each stop pops into a photo circle with a day badge, place name and note — day-by-day trip plans.
 
@@ -10798,6 +11056,8 @@ Pastel aurora backdrop: a carousel ring of cards turns, the Ring/Gallery toggle 
 
 ### `menu-board-items` — Menu board (chalk or clean)
 
+![menu-board-items](../gallery/menu-board-items.jpg)
+
 A cafe / restaurant menu: heading writes on, then each section and its items appear one after another — name wipe, dotted leader and a price that pops — on a chalkboard with a wooden frame or a clean printed page.
 
 **Use for:** Cafe, restaurant, bakery and food-truck menus, price lists, specials boards, event menus, any "items with prices" list in sections — set sections, items, prices and colours.  
@@ -10968,6 +11228,8 @@ A real-estate listing card rises in: the photo (or a drawn house) wipes in with 
 | `speed` | `1` | animation speed multiplier |
 
 ### `recipe-ingredients-steps` — Recipe: ingredients then timed steps
+
+![recipe-ingredients-steps](../gallery/recipe-ingredients-steps.jpg)
 
 A recipe card: the ingredient checklist ticks off item by item, then the numbered method runs step by step, highlighting the active step with a live countdown ring on timed steps and checking each one off.
 
@@ -11789,6 +12051,33 @@ Tutorial / privacy overlay: boxes over regions of the footage frost what is unde
 | `demoBackground` | `false` | true paints a neutral mock screen behind (previews); false = transparent overlay |
 | `demoTone` | `"light"` | light \| dark mock screen |
 
+### `breaking-news-takeover` — Breaking news takeover
+
+A full-screen "BREAKING NEWS" slam: white flash, an accent panel wipes across and the label crashes in with a shake, then contracts to a top band while the headline wipes in line by line, a sub-line fades up and a ticker scrolls along the bottom. Generic channel name; set background to "transparent" to lay it over footage.
+
+**Use for:** Urgent news beats, alert announcements, "just in" updates, product-incident or outage notices, news-style explainers and parody bulletins.  
+**Rebuilt from:** library original (broadcast news takeover pattern)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** photo, playful  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `label`, `headline` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `label` | `"BREAKING NEWS"` | the slam word(s), e.g. "BREAKING NEWS", "JUST IN", "ALERT" |
+| `channel` | `"Northwind News"` | channel / programme name shown in the band (generic sample, replace) |
+| `headline` | `"City council approves new harbour crossing after overnig…` | main headline (wraps to 3 lines in 16:9, 5 in portrait) |
+| `subhead` | `"Construction is expected to begin next spring, officials…` | one or two supporting sentences under the headline (empty = none) |
+| `ticker` | `["Markets open higher after a quiet start","Heavy rain ex…` | ticker items scrolling along the bottom |
+| `tickerTag` | `"LATEST"` | text of the accent tab at the left of the ticker |
+| `accent` | `"#D81E27"` | slam panel / band / ticker tab colour |
+| `ink` | `"#FFFFFF"` | headline colour |
+| `background` | `"#0B1220"` | backdrop colour behind the headline; "transparent" = overlay on other footage |
+| `slamHold` | `22` | extra frames the full-screen label holds before it contracts to the band |
+| `startAt` | `0` | frame the flash fires (shift the whole beat) |
+| `speed` | `1` | ticker scroll speed multiplier |
+| `live` | `true` | show the pulsing LIVE pill in the band |
+
 ### `callout-labels` — Callout labels
 
 ![callout-labels](../gallery/callout-labels.jpg)
@@ -11954,6 +12243,36 @@ A kill-feed style stack of one-line event chips in a corner: each actor name sit
 | `demoScene` | `true` | paint the painterly battlefield behind (preview only; turn off as an overlay) |
 | `seed` | `9` | demo feed seed |
 
+### `fact-check-meter` — Fact-check meter
+
+A fact-check graphic: the claim appears in a quote card, a segmented true-to-false gauge draws in, the needle sweeps and wobbles to the score while the matching zone label lights up, then a tilted verdict stamp and a one-line explanation land.
+
+**Use for:** Rating a claim in news, explainers, debunk and myth-busting videos; any "how true is it" or 0-to-1 rating with a verdict.  
+**Rebuilt from:** library original (fact-check rating-meter pattern)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `verdict` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `tag` | `"Fact check"` | chip above the claim (empty = none) |
+| `claimLabel` | `"The claim"` | small label on the claim card (empty = none) |
+| `claim` | `"Commute times in the city have been cut in half since 20…` | the statement being checked |
+| `claimSource` | `"Said by a local official · 3 March"` | who said it / where / when (empty = none) |
+| `verdict` | `"Mostly false"` | verdict stamp text |
+| `score` | `0.78` | needle position 0 (true) to 1 (false) |
+| `scaleLabels` | `["True","Mostly true","Half true","Mostly false","False"]` | labels of the gauge zones from true to false (2-7 entries = that many segments) |
+| `explanation` | `"Transport figures show average commutes fell by about 9 …` | one-line reason shown under the verdict |
+| `trueColor` | `"#2FA866"` | colour at the true end |
+| `midColor` | `"#F2C230"` | colour in the middle |
+| `falseColor` | `"#E0463A"` | colour at the false end |
+| `accent` | `"#F2B705"` | tag chip and claim bar colour |
+| `ink` | `"#F4F2EC"` | text colour |
+| `background` | `"#0F131B"` | backdrop colour; "transparent" = overlay |
+| `sweepAt` | `56` | frame the needle starts to sweep |
+| `speed` | `1` | timing multiplier |
+
 ### `fight-hud` — Fight HUD
 
 ![fight-hud](../gallery/fight-hud.jpg)
@@ -12090,6 +12409,63 @@ Overlay HUD: corner crop marks, header with red counter, live timecode, typed co
 | `frameCounter` | `false` | dev slot: "029 / 720" frame counter under the badge |
 | `progressSegments` | `0` | reel: number of progress segments (0 = one per chapter) |
 
+### `interview-name-super` — Interview name super
+
+A two-line interview super - name and title - in four layouts: "bar" (accent bar + dark panel), "tag" (solid name block over an offset title strip), "rule" (a thin accent line draws over bare type on a soft scrim) and "center" (centred serif name with a diamond divider). Left, right or centre; set backdrop to "transparent" to lay it over footage.
+
+**Use for:** Naming and titling anyone on screen: interviewees, speakers, experts, hosts, witnesses - in news, documentary, podcast, webinar and corporate video.  
+**Rebuilt from:** library original (interview lower-third / name super patterns)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** photo, cinematic, editorial, night  
+**Capabilities:** overlay (`{"backdrop":"transparent"}`) · text: `title`, `kicker` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `name` | `"Dr. Amara Okoye"` | person name (line 1) |
+| `title` | `"Senior Research Fellow, Northwind Institute"` | role / organisation (line 2) |
+| `kicker` | `""` | small label above or beside the name, e.g. "Interview", "Witness" (empty = none) |
+| `layout` | `"bar"` | "bar" \| "tag" \| "rule" \| "center" |
+| `position` | `"left"` | "left" \| "right" \| "center" (the "center" layout is always centred) |
+| `accent` | `"#F2B705"` | bar / name block / rule / divider colour |
+| `panelColor` | `"#10141B"` | panel fill ("bar" and "tag" layouts) |
+| `ink` | `"#F7F5EE"` | text colour |
+| `scrim` | `true` | soft bottom gradient behind "rule" and "center" layouts so bare type stays legible |
+| `startAt` | `0` | frame the super starts |
+| `outAt` | `132` | frame the super exits |
+| `backdrop` | `"footage"` | "footage" = procedural plate, "transparent" = overlay, or any CSS colour |
+
+### `location-time-stamp` — Location + time chyron
+
+A lower-left location chyron: an accent bar grows, the place strip opens and the place name types on with a block cursor, then a dark strip types region | date | time with an optional running clock and a LIVE / FILE tag chip above. Set backdrop to "transparent" to lay it over footage.
+
+**Use for:** Establishing where and when a shot was filmed: news reports, documentaries, travel and true-crime videos, field recordings, dated archive clips.  
+**Rebuilt from:** library original (news location-and-time chyron pattern)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** photo, cinematic, editorial, night  
+**Capabilities:** overlay (`{"backdrop":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `place` | `"Harbour District"` | place name (types on) |
+| `region` | `"Northwind"` | city / region / country shown first on the dark strip (empty = skip) |
+| `date` | `"14 March 2026"` | date text |
+| `time` | `"09:41"` | clock time "HH:MM" or "HH:MM:SS" (empty = none) |
+| `timezone` | `"Local"` | short zone label after the time (e.g. "GMT", "local"; empty = none) |
+| `tag` | `"Live"` | chip above the strip, e.g. "Live", "File footage", "Recorded" (empty = none) |
+| `ticking` | `true` | run the clock forward in real time (shows seconds) |
+| `typeSpeed` | `24` | characters per second for the place name |
+| `startAt` | `0` | frame the chyron starts |
+| `outAt` | `134` | frame the chyron slides out |
+| `accent` | `"#F2B705"` | bar, cursor, tag and time colour |
+| `placeColor` | `"#F4F1E8"` | place strip fill |
+| `placeInk` | `"#101318"` | place text colour |
+| `subColor` | `"#0F1218"` | date/time strip fill |
+| `subInk` | `"#F6F4EC"` | date/time text colour |
+| `backdrop` | `"footage"` | "footage" = procedural plate, "transparent" = overlay, or any CSS colour |
+| `align` | `"left"` | "left" or "right" corner |
+
 ### `magnification-roundel` — Magnification roundel
 
 ![magnification-roundel](../gallery/magnification-roundel.jpg)
@@ -12201,6 +12577,38 @@ Tutorial overlay on a transparent background: numbered badges (1, 2, 3 ...) pop 
 | `exitAt` | `0` | frame everything fades at (0 = just before the end) |
 | `demoBackground` | `false` | true paints a neutral mock screen behind (previews); false = transparent overlay |
 | `demoTone` | `"light"` | light \| dark mock screen |
+
+### `poll-numbers-split` — Poll numbers split
+
+Head-to-head poll result: two colour panels count their percentages up, a proportional bar below shows the split with an undecided remainder, a hatched band marks the margin of error, and a verdict chip reads "X leads by N" - or "within the margin of error" when the gap is inside it.
+
+**Use for:** Election and survey coverage, A/B test results, "which do you prefer" splits, two-option vote outcomes - anything with two shares and an honest margin of error.  
+**Rebuilt from:** library original (election / survey graphic pattern)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `question` | `"Which option do residents prefer for the new park?"` | the poll question (headline) |
+| `pollster` | `"Sample Research Poll"` | who ran the poll, shown next to the POLL tag |
+| `nameA` | `"Option A"` | first candidate / option name |
+| `nameB` | `"Option B"` | second candidate / option name |
+| `subA` | `"Riverside site"` | small line under name A (party, site, version; empty = none) |
+| `subB` | `"Hilltop site"` | small line under name B |
+| `valueA` | `48` | percentage for A (0-100) |
+| `valueB` | `44` | percentage for B (A + B <= 100; the rest shows as undecided) |
+| `marginOfError` | `3` | margin of error in percentage points (0 = hide the band) |
+| `note` | `"Sample of 1,200 adults · margin of error ±3 points · fie…` | method footnote (sample size, dates; empty = none) |
+| `leadLabel` | `"{name} leads by {n} pts"` | verdict when one side leads; {name} and {n} are filled in |
+| `tieLabel` | `"Too close to call · within the margin of error"` | verdict when the gap is within twice the margin of error (each share is +/- the margin) |
+| `colorA` | `"#2F6FDB"` | colour for A (panel + bar) |
+| `colorB` | `"#E0663A"` | colour for B (panel + bar) |
+| `background` | `"#0F1320"` | backdrop colour; "transparent" = overlay |
+| `ink` | `"#F4F2EC"` | text colour |
+| `speed` | `1` | timing multiplier |
+| `startAt` | `0` | frame the graphic starts (shift the beat) |
 
 ### `powers-of-ten` — Powers-of-ten zoom
 
@@ -12320,6 +12728,39 @@ Tutorial annotation overlay on a transparent background: a marker pen draws a lo
 | `seed` | `5` | wobble seed |
 | `demoBackground` | `false` | true paints a neutral mock screen behind (previews); false = transparent overlay |
 | `demoTone` | `"light"` | light \| dark mock screen |
+
+### `social-post-embed` — Social post embed
+
+A generic social-post card - avatar (initials or image), name, verified tick, handle, text with *highlighted* words, optional picture, time and reply / repost / like counts. It pops in, reveals its words one by one, counts the numbers up and "likes" itself with a heart pop. No real platform branding.
+
+**Use for:** Showing what someone posted in a news piece, explainer or reaction video: a quote, a viral claim, a customer comment, a screenshot-style callout.  
+**Rebuilt from:** library original (embedded-post pattern)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** photo  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `text` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `name` | `"Maya Ortiz"` | display name |
+| `handle` | `"@maya.ortiz"` | handle shown under the name |
+| `avatarSrc` | `""` | avatar image (public/ path or URL); empty = coloured circle with initials |
+| `verified` | `true` | show the round tick next to the name |
+| `text` | `"Just walked across the *new bridge* at sunrise. Twelve y…` | post text; wrap words in *asterisks* to colour and embolden them |
+| `time` | `"7:42 AM · 12 Mar 2026"` | timestamp line |
+| `replies` | `128` | reply count (counts up; 12480 shows as 12.5K) |
+| `reposts` | `2431` | repost / share count |
+| `likes` | `15800` | like count (the heart pop adds one) |
+| `media` | `false` | show a picture block under the text |
+| `imageSrc` | `""` | picture for the block (public/ path or URL); empty = procedural placeholder |
+| `likeAt` | `118` | frame the heart pops |
+| `wordsPerSecond` | `9` | text reveal speed |
+| `cardColor` | `"#FFFFFF"` | card fill |
+| `ink` | `"#0F1419"` | text colour |
+| `muted` | `"#667085"` | handle, time and icon colour |
+| `accent` | `"#2F6FDB"` | highlight words, tick and glow colour |
+| `likeColor` | `"#E0245E"` | liked-heart colour |
+| `background` | `"#10141C"` | backdrop colour; "transparent" = overlay |
 
 ### `spec-chip-rail` — Spec chip rail
 
@@ -14207,6 +14648,36 @@ A glowing amber wireframe galleon lifts out of a parchment blueprint part by par
 
 ## document
 
+### `archive-photo-ken-burns-caption` — Archive photo + caption
+
+An archive photograph with a slow Ken Burns move (push, pull, pan or tilt) and a dated caption - full-bleed with a lower-left caption block (kicker, date, serif caption, credit), or as a white-bordered print with a handwritten caption in the margin. Sepia / black-and-white / colour treatment, grain, dust specks and a developing-print fade-in.
+
+**Use for:** Documentary and history videos, news background pieces, "this is what it looked like" photo beats, dated archive stills with a credit line.  
+**Rebuilt from:** library original (documentary archive-still pattern)  
+**Default length:** 190 frames (6.3 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, photo, cinematic, nature, editorial  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `caption`, `kicker`, `credit` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `src` | `""` | the photo (public/ path or URL); empty = procedural placeholder scene |
+| `caption` | `"The harbour district, looking east from the old bridge"` | caption text |
+| `date` | `"March 1961"` | date line, e.g. "March 1961" (empty = none) |
+| `kicker` | `"Archive"` | small label before the date, e.g. "Archive", "File photo" (empty = none) |
+| `credit` | `"Photo: Northwind City Archive"` | credit line, e.g. "Photo: <collection>" (empty = none) |
+| `treatment` | `"sepia"` | "sepia" \| "bw" \| "color" |
+| `move` | `"push"` | "push" \| "pull" \| "pan-left" \| "pan-right" \| "tilt-up" \| "tilt-down" |
+| `zoom` | `0.16` | how far the push/pull travels (0-0.6) |
+| `framed` | `false` | true = white-bordered print with handwritten caption; false = full-bleed |
+| `grain` | `0.14` | film-grain strength (0 = none) |
+| `dust` | `true` | dust specks and scratches |
+| `accent` | `"#E8C66A"` | date, rule and kicker colour |
+| `ink` | `"#F4EDDD"` | caption colour (full-bleed layout) |
+| `background` | `"#14110D"` | backdrop behind a framed print; "transparent" = overlay |
+| `captionAt` | `34` | frame the caption starts to appear |
+| `speed` | `1` | timing multiplier |
+
 ### `certificate-seal` — Certificate with gold seal
 
 ![certificate-seal](../gallery/certificate-seal.jpg)
@@ -14297,6 +14768,40 @@ A tilted typed document slams onto an ink ground; a red highlighter bar sweeps a
 | `ink` | `"#141210"` | ink colour |
 | `paper` | `"#EDE4D0"` | paper colour |
 | `ground` | `"ink"` | 'ink' (dark ground) or 'paper' |
+
+### `document-zoom-highlight` — Document zoom + highlight
+
+A document page sits on a dark desk (procedural page, or your own page image); the camera zooms in on one paragraph while the rest of the page dims, a highlighter sweeps over the key phrase, and a SOURCE label slides in lower-left.
+
+**Use for:** Quoting a report, contract, court filing, policy or press release on screen - "here is the line that matters" - with the source credited.  
+**Rebuilt from:** library original (document-journalism "this is what it says" shot)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo, cinematic, editorial, night  
+**Capabilities:** paints its own background · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `pageSrc` | `""` | optional page image (public/ path or URL, ~1:1.29 portrait page); empty = procedural page |
+| `org` | `"Northwind Harbour Authority"` | procedural page: organisation line at the top |
+| `title` | `"Report on the New Crossing"` | procedural page: document title |
+| `meta` | `"Ref. NH-2041 · Filed 14 March · Page 3 of 12"` | procedural page: reference / date / page line |
+| `paragraphs` | `["The survey team walked the full length of the channel o…` | procedural page: body paragraphs (strings) |
+| `focusParagraph` | `1` | index (0-based) of the paragraph the camera zooms to |
+| `highlightText` | `"1,208 metres, more than twice the distance the present s…` | exact phrase inside the focus paragraph to mark ("" = the whole paragraph) |
+| `region` | `[0.1,0.4,0.8,0.14]` | with pageSrc: [x, y, width, height] of the area to zoom to and highlight, as 0-1 fractions of the page |
+| `source` | `"Northwind Harbour Authority · Report NH-2041, p. 3"` | source label text (publisher · document · page; empty = none) |
+| `sourceTag` | `"SOURCE"` | word in the accent block of the label |
+| `highlightColor` | `"#FFD43B"` | highlighter colour (multiplied over the text) |
+| `accent` | `"#C8282F"` | margin bar + label tab colour |
+| `ink` | `"#16181B"` | page text colour |
+| `paper` | `"#F5F1E6"` | page paper colour |
+| `desk` | `"#1B1E25"` | desk colour behind the page; "transparent" = overlay |
+| `tilt` | `-3` | page tilt in degrees before the zoom |
+| `fill` | `0.62` | fraction of the frame width the focused paragraph fills when zoomed (landscape) |
+| `zoomAt` | `24` | frame the camera starts to zoom |
+| `markAt` | `82` | frame the highlighter starts |
+| `speed` | `1` | timing multiplier |
 
 ### `evidence-board` — Evidence board
 
@@ -14457,6 +14962,8 @@ A round kawaii suspect rises in front of a height chart with cm labels at both e
 
 ### `nutrition-facts-label` — Nutrition facts label (count-up)
 
+![nutrition-facts-label](../gallery/nutrition-facts-label.jpg)
+
 A printed-style nutrition label: heavy rules draw on, then calories, nutrient amounts and daily-value percentages count up from zero in sequence, one row highlighted; wide frames add a macro donut that sweeps in beside it.
 
 **Use for:** Food and drink product promos, packaged-goods ads, health / diet explainers, recipe cards, menu nutrition callouts — set the calories, nutrient rows, serving info and colours.  
@@ -14489,6 +14996,8 @@ A printed-style nutrition label: heavy rules draw on, then calories, nutrient am
 | `startAt` | `0` | frame the scene starts |
 
 ### `passport-stamps` — Passport stamps thud on
+
+![passport-stamps](../gallery/passport-stamps.jpg)
 
 A passport page collects travel stamps one by one: a rubber-stamp tool drops, the inked stamp lands slightly rotated with a shockwave and a page shake, then the tool lifts — circle, rectangle, oval, octagon and arrow shapes in any ink colour.
 
@@ -17797,6 +18306,8 @@ A store header with a cart icon and a product card: the button is pressed, a cop
 | `startAt` | `0` | frame the card starts entering |
 
 ### `coffee-pour-cup` — Coffee pour: layered cup fills
+
+![coffee-pour-cup](../gallery/coffee-pour-cup.jpg)
 
 A glass or mug fills with a layered drink — a thin stream pours each layer in turn, the surface ripples, layers stack with soft interfaces, steam rises, a label sits on the cup and every layer is named on the side with a leader line.
 

@@ -58,8 +58,8 @@ const MenuBoardItems: React.FC<Props> = (p) => {
   const cellW = (areaW - gapX * (cols - 1)) / cols;
   const cellH = areaH / rows;
   const fMaxH = cellH / (2.35 + 2.6 * m);
-  const fMaxW = cellW / (chalk ? 14 : 16);
-  const f = Math.min(fMaxH, fMaxW, (chalk ? 56 : 44) * u);
+  const fMaxW = cellW / (chalk ? 11.5 : 13);
+  const f = Math.min(fMaxH, fMaxW, (chalk ? 60 : 48) * u);
 
   const boardBg = chalk ? p.background : p.background;
   const textC = chalk ? p.ink : p.ink;
@@ -69,6 +69,9 @@ const MenuBoardItems: React.FC<Props> = (p) => {
   const sectionStart = (i: number) => 28 + i * (stag * m + 12);
 
   const chalkId = 'mbi-chalk';
+  const wipe = (r: number) => (r >= 0.999 ? 'none' : `inset(-30% ${(1 - r) * 100}% -30% -5%)`);
+  const blockH = f * (2.35 + 2.6 * m);
+  const yOff = Math.max(0, (cellH - blockH) / 2) * 0.8;
 
   return (
     <AbsoluteFill style={{background: bgOf(chalk ? p.frameColor : p.background), fontFamily: fontBody, overflow: 'hidden'}}>
@@ -103,7 +106,7 @@ const MenuBoardItems: React.FC<Props> = (p) => {
       />
 
       <div style={{position: 'absolute', left: bx + innerPad, top: by + innerPad - (chalk ? 6 * u : 0), width: areaW, height: headH, textAlign: 'center', color: textC, filter: chalk ? `url(#${chalkId})` : undefined}}>
-        <div style={{display: 'inline-block', clipPath: `inset(0 ${(1 - titleW) * 100}% 0 0)`}}>
+        <div style={{display: 'inline-block', clipPath: wipe(titleW)}}>
           <div style={{fontFamily: fontHead, fontWeight: 700, fontSize: Math.min(headH * 0.46, (portrait ? 110 : 100) * u), lineHeight: 1.05, letterSpacing: chalk ? 2 * u : 0}}>{p.title}</div>
         </div>
         <div style={{fontFamily: chalk ? fonts.hand : fonts.mono, fontSize: Math.min(headH * 0.2, 36 * u), letterSpacing: chalk ? 3 * u : 5 * u, color: p.accent, marginTop: 6 * u, textTransform: 'uppercase', opacity: ease.out(sseg(t, 18, 34))}}>{p.subtitle}</div>
@@ -116,12 +119,12 @@ const MenuBoardItems: React.FC<Props> = (p) => {
         const c = si % cols;
         const r = Math.floor(si / cols);
         const x = bx + innerPad + c * (cellW + gapX);
-        const y = by + innerPad + headH + r * cellH;
+        const y = by + innerPad + headH + r * cellH + yOff;
         const s0 = sectionStart(si);
         const hw = ease.out(sseg(t, s0, s0 + 14));
         return (
           <div key={si} style={{position: 'absolute', left: x, top: y, width: cellW, height: cellH, color: textC, filter: chalk ? `url(#${chalkId})` : undefined}}>
-            <div style={{display: 'inline-block', clipPath: `inset(0 ${(1 - hw) * 100}% 0 0)`}}>
+            <div style={{display: 'inline-block', clipPath: wipe(hw)}}>
               <div style={{fontFamily: fontHead, fontWeight: 700, fontSize: f * 1.35, lineHeight: 1.2, color: p.accent, textTransform: chalk ? 'none' : 'uppercase', letterSpacing: chalk ? 1 * u : 3 * u}}>{s.title}</div>
             </div>
             <div style={{height: 2.5 * u, width: `${hw * 100}%`, background: withAlpha(p.accent, 0.7), margin: `${f * 0.1}px 0 ${f * 0.5}px`, borderRadius: 2 * u}} />
@@ -134,8 +137,8 @@ const MenuBoardItems: React.FC<Props> = (p) => {
               return (
                 <div key={ii} style={{marginBottom: f * 0.45}}>
                   <div style={{display: 'flex', alignItems: 'baseline', gap: f * 0.3, fontSize: f * 1.05, lineHeight: 1.2, fontWeight: chalk ? 700 : 700}}>
-                    <span style={{display: 'inline-block', clipPath: `inset(0 ${(1 - nameW) * 100}% 0 0)`, whiteSpace: 'nowrap'}}>{it.name}</span>
-                    <span style={{flex: 1, minWidth: 0, height: 0, borderBottom: `${2.5 * u}px dotted ${withAlpha(textC, 0.45)}`, transform: 'translateY(-0.25em)', transformOrigin: 'left', clipPath: `inset(0 ${(1 - leader) * 100}% 0 0)`}} />
+                    <span style={{display: 'inline-block', clipPath: wipe(nameW), whiteSpace: 'nowrap'}}>{it.name}</span>
+                    <span style={{flex: 1, minWidth: 0, height: 0, borderBottom: `${2.5 * u}px dotted ${withAlpha(textC, 0.45)}`, transform: 'translateY(-0.25em)', transformOrigin: 'left', clipPath: wipe(leader)}} />
                     <span style={{opacity: priceOn, transform: `scale(${lerp(0.6, 1, pricePop)})`, transformOrigin: 'right center', color: p.accent, fontWeight: 800, whiteSpace: 'nowrap'}}>{it.price}</span>
                   </div>
                   {it.desc ? <div style={{fontSize: f * 0.68, lineHeight: 1.3, color: withAlpha(textC, 0.62), opacity: nameW, fontFamily: chalk ? fonts.hand : fonts.sans, fontWeight: 500, fontStyle: chalk ? 'normal' : 'italic'}}>{it.desc}</div> : null}

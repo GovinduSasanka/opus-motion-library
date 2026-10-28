@@ -106,12 +106,12 @@ const BoardingPassPrint: React.FC<Props> = (p) => {
 
   const MAINW = colLayout ? DW : 980;
   const STUBW = colLayout ? DW : DW - 980;
-  const MAINH = colLayout ? 760 : DH;
+  const MAINH = colLayout ? 690 : DH;
   const STUBH = colLayout ? DH - 760 : DH;
   const cut = 26; // perforation notch radius
   const notch = p.background === 'transparent' ? null : p.background;
 
-  const codeFs = colLayout ? 138 : 150;
+  const codeFs = colLayout ? 118 : 150;
 
   return (
     <AbsoluteFill style={{background: bgOf(p.background), overflow: 'hidden', fontFamily: fonts.sans}}>
@@ -120,7 +120,7 @@ const BoardingPassPrint: React.FC<Props> = (p) => {
         <div
           style={{
             position: 'absolute',
-            left: (w - PW) / 2,
+            left: (w - DW) / 2,
             top: topNow - slotY,
             width: DW,
             height: DH,
@@ -136,7 +136,7 @@ const BoardingPassPrint: React.FC<Props> = (p) => {
               <div style={{fontFamily: fonts.mono, fontSize: 18, letterSpacing: 5, fontWeight: 700}}>{p.headerLabel}</div>
             </div>
             {/* route */}
-            <div style={{padding: colLayout ? '40px 44px 0' : '34px 56px 0', display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+            <div style={{padding: colLayout ? '74px 44px 0' : '40px 56px 0', display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
               <div>
                 <div style={{fontFamily: fonts.display, fontSize: codeFs, lineHeight: 1, color: p.ink}}>{p.fromCode}</div>
                 <div style={{fontSize: 24, fontWeight: 600, color: withAlpha(p.ink, 0.65), marginTop: 6}}>{p.fromCity}</div>
@@ -183,17 +183,17 @@ const BoardingPassPrint: React.FC<Props> = (p) => {
             }}
           >
             <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'baseline'}}>
-              <div style={{fontFamily: fonts.display, fontSize: 26}}>{p.airline}</div>
-              <div style={{fontFamily: fonts.mono, fontSize: 20, fontWeight: 700}}>
+              <div style={{fontFamily: fonts.display, fontSize: 24, whiteSpace: 'nowrap'}}>{p.airline}</div>
+              <div style={{fontFamily: fonts.mono, fontSize: 20, fontWeight: 700, whiteSpace: 'nowrap'}}>
                 {p.fromCode} → {p.toCode}
               </div>
             </div>
-            <div style={{display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginTop: colLayout ? 28 : 22}}>
+            <div style={{display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginTop: colLayout ? 28 : 40}}>
               <Field label="Seat" value={p.seat} ink={p.ink} sub={0.5} fs={colLayout ? 84 : 76} hi={seatHi * 0.95} accent={p.accent} onAccent={onAcc} />
               <Field label="Gate" value={p.gate} ink={p.ink} sub={0.5} fs={colLayout ? 56 : 48} />
             </div>
-            <div style={{marginTop: colLayout ? 34 : 30}}>
-              <Barcode w={STUBW - (colLayout ? 88 : 68)} h={colLayout ? 130 : 112} color={dark} seed={seed} sweep={scanT} sweepColor={'#FF3B30'} />
+            <div style={{marginTop: colLayout ? 30 : 44}}>
+              <Barcode w={STUBW - (colLayout ? 88 : 68)} h={colLayout ? 120 : 170} color={dark} seed={seed} sweep={scanT} sweepColor={'#FF3B30'} />
               <div style={{fontFamily: fonts.mono, fontSize: 16, letterSpacing: 4, marginTop: 10, color: withAlpha(p.ink, 0.6)}}>
                 {p.flight.replace(/\s/g, '')} {p.seat} {p.fromCode}{p.toCode}
               </div>

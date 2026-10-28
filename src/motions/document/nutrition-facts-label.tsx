@@ -1,7 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {ease, lerp} from '../../core/ease';
-import {bgOf} from '../../core/commerce-kit';
+import {bgOf, onColor} from '../../core/commerce-kit';
 import {fonts} from '../../core/fonts';
 import {sseg, withAlpha} from '../../core/r2-s1-kit';
 import {useStage} from '../../core/stage';
@@ -53,12 +53,13 @@ const NutritionFactsLabel: React.FC<Props> = (p) => {
 
   const DW = 640;
   const ROW = 46;
-  const DH = 470 + n * ROW;
+  const DH = 428 + n * ROW;
   const showPanel = wide && p.macros.length > 0;
   const sc = Math.min((h * (portrait ? 0.9 : 0.9)) / DH, ((showPanel ? w * 0.4 : w * 0.88)) / DW);
   const lx = showPanel ? w * 0.08 : (w - DW * sc) / 2;
   const ly = (h - DH * sc) / 2;
 
+  const panelInk = p.background === 'transparent' ? p.ink : onColor(p.background, '#111111', '#F5F5F5');
   const reveal = ease.out(sseg(t, 0, 26));
   const rule = (a: number, b: number) => ease.out(sseg(t, a, b));
   const num = (target: number, start: number, dec = decOf(target)) => fmt(target * ease.out(sseg(t, start, start + cnt)), dec);
@@ -142,15 +143,15 @@ const NutritionFactsLabel: React.FC<Props> = (p) => {
       {showPanel ? (
         <>
           <svg width={w} height={h} style={{position: 'absolute', inset: 0}}>
-            <circle cx={dcx} cy={dcy} r={dR - dW / 2} fill="none" stroke={withAlpha(p.ink, 0.1)} strokeWidth={dW} />
+            <circle cx={dcx} cy={dcy} r={dR - dW / 2} fill="none" stroke={withAlpha(panelInk, 0.12)} strokeWidth={dW} />
             {arcs}
           </svg>
-          <div style={{position: 'absolute', left: dcx - dR, top: dcy - 70 * u, width: dR * 2, textAlign: 'center', color: p.ink, opacity: ease.out(sseg(t, 36, 52))}}>
+          <div style={{position: 'absolute', left: dcx - dR, top: dcy - 70 * u, width: dR * 2, textAlign: 'center', color: panelInk, opacity: ease.out(sseg(t, 36, 52))}}>
             <div style={{fontWeight: 800, fontSize: 84 * u, lineHeight: 1, fontFamily: fonts.display}}>{num(p.calories, tCal, 0)}</div>
-            <div style={{fontFamily: fonts.mono, fontSize: 22 * u, letterSpacing: 4 * u, color: withAlpha(p.ink, 0.6), marginTop: 6 * u, textTransform: 'uppercase'}}>{p.caloriesLabel}</div>
+            <div style={{fontFamily: fonts.mono, fontSize: 22 * u, letterSpacing: 4 * u, color: withAlpha(panelInk, 0.6), marginTop: 6 * u, textTransform: 'uppercase'}}>{p.caloriesLabel}</div>
           </div>
-          <div style={{position: 'absolute', left: w * 0.55, width: w * 0.38, top: dcy + dR + 40 * u, color: p.ink}}>
-            <div style={{fontFamily: fonts.mono, fontWeight: 700, fontSize: 21 * u, letterSpacing: 4 * u, color: withAlpha(p.ink, 0.55), textTransform: 'uppercase', marginBottom: 14 * u, textAlign: 'center', opacity: ease.out(sseg(t, 40, 56))}}>{p.panelTitle}</div>
+          <div style={{position: 'absolute', left: w * 0.55, width: w * 0.38, top: dcy + dR + 40 * u, color: panelInk}}>
+            <div style={{fontFamily: fonts.mono, fontWeight: 700, fontSize: 21 * u, letterSpacing: 4 * u, color: withAlpha(panelInk, 0.6), textTransform: 'uppercase', marginBottom: 14 * u, textAlign: 'center', opacity: ease.out(sseg(t, 40, 56))}}>{p.panelTitle}</div>
             <div style={{display: 'flex', justifyContent: 'center', gap: 34 * u, flexWrap: 'wrap'}}>
               {macros.map((m, i) => {
                 const a = 46 + i * 8;
@@ -159,7 +160,7 @@ const NutritionFactsLabel: React.FC<Props> = (p) => {
                   <div key={i} style={{display: 'flex', alignItems: 'center', gap: 12 * u, opacity: op, transform: `translateY(${(1 - op) * 12 * u}px)`}}>
                     <div style={{width: 22 * u, height: 22 * u, borderRadius: 6 * u, background: m.color}} />
                     <div style={{fontSize: 28 * u, fontWeight: 700}}>
-                      {m.label} <span style={{fontWeight: 500, color: withAlpha(p.ink, 0.65)}}>{Math.round(((m.value * lerp(0, 1, op)) / msum) * 100 * 1) || 0}%</span>
+                      {m.label} <span style={{fontWeight: 500, color: withAlpha(panelInk, 0.7)}}>{Math.round(((m.value * lerp(0, 1, op)) / msum) * 100 * 1) || 0}%</span>
                     </div>
                   </div>
                 );

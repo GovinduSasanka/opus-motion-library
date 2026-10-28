@@ -23,6 +23,8 @@ type Props = {
   startAt: number;
 };
 
+const fitF = (text: string, maxW: number, max: number) => Math.min(max, maxW / (Math.max(3, text.length) * 0.8));
+
 const PALETTE = ['#2B4C9B', '#B3261E', '#1F7A4D', '#6A3FA0', '#C46A12', '#0C7C8A', '#8A2D5C', '#3D3D8F'];
 
 /** one stamp drawn in a -100..100 box */
@@ -38,7 +40,7 @@ const StampArt: React.FC<{s: StampDef; color: string; idx: number}> = ({s, color
   if (shape === 'rect' || shape === 'arrow') {
     const arrow = shape === 'arrow';
     const d = arrow ? 'M-94 -52 L58 -52 L96 0 L58 52 L-94 52 Z' : 'M-94 -54 H94 V54 H-94 Z';
-    const fs = Math.min(30, 150 / Math.max(4, place.length) * 1.5);
+    const fs = fitF(place, arrow ? 128 : 150, 30);
     body = (
       <g>
         <path d={d} {...common} strokeWidth={6} />
@@ -59,7 +61,7 @@ const StampArt: React.FC<{s: StampDef; color: string; idx: number}> = ({s, color
       <g>
         <ellipse rx={96} ry={64} {...common} strokeWidth={6} />
         <ellipse rx={85} ry={53} {...common} strokeWidth={2} />
-        <text y={-8} textAnchor="middle" fontFamily={fonts.display} fontSize={Math.min(28, 150 / Math.max(4, place.length) * 1.5)} fill={color}>
+        <text y={-8} textAnchor="middle" fontFamily={fonts.display} fontSize={fitF(place, 128, 28)} fill={color}>
           {place}
         </text>
         <line x1={-58} x2={58} y1={4} y2={4} stroke={color} strokeWidth={2} />
@@ -83,7 +85,7 @@ const StampArt: React.FC<{s: StampDef; color: string; idx: number}> = ({s, color
       <g>
         <polygon points={pts.join(' ')} {...common} strokeWidth={6} />
         <polygon points={pts2.join(' ')} {...common} strokeWidth={2} />
-        <text y={-10} textAnchor="middle" fontFamily={fonts.display} fontSize={Math.min(28, 140 / Math.max(4, place.length) * 1.5)} fill={color}>
+        <text y={-10} textAnchor="middle" fontFamily={fonts.display} fontSize={fitF(place, 112, 28)} fill={color}>
           {place}
         </text>
         <text y={18} textAnchor="middle" fontFamily={fonts.mono} fontWeight={700} fontSize={16} fill={color}>
@@ -100,22 +102,22 @@ const StampArt: React.FC<{s: StampDef; color: string; idx: number}> = ({s, color
         <circle r={94} {...common} strokeWidth={6} />
         <circle r={82} {...common} strokeWidth={2} />
         <circle r={50} {...common} strokeWidth={1.5} strokeDasharray="3 4" />
-        <path id={pid} d="M-66 0 A66 66 0 0 1 66 0" fill="none" />
-        <path id={pidB} d="M-74 0 A74 74 0 0 0 74 0" fill="none" />
-        <text fontFamily={fonts.display} fontSize={Math.min(22, 330 / Math.max(6, place.length))} fill={color} textAnchor="middle">
+        <path id={pid} d="M-60 0 A60 60 0 0 1 60 0" fill="none" />
+        <path id={pidB} d="M-73 0 A73 73 0 0 0 73 0" fill="none" />
+        <text fontFamily={fonts.display} fontSize={fitF(place, 165, 22)} fill={color} textAnchor="middle">
           <textPath href={`#${pid}`} startOffset="50%">
             {place}
           </textPath>
         </text>
-        <text fontFamily={fonts.mono} fontWeight={700} fontSize={11} letterSpacing={4} fill={color} textAnchor="middle" transform="translate(0 14)">
+        <text fontFamily={fonts.mono} fontWeight={700} fontSize={11} letterSpacing={4} fill={color} textAnchor="middle">
           <textPath href={`#${pidB}`} startOffset="50%">
             {label}
           </textPath>
         </text>
-        <text y={6} textAnchor="middle" fontFamily={fonts.mono} fontWeight={700} fontSize={19} fill={color}>
+        <text y={0} textAnchor="middle" fontFamily={fonts.mono} fontWeight={700} fontSize={Math.min(19, 100 / Math.max(6, s.date.length) * 1.7)} fill={color}>
           {s.date}
         </text>
-        <path d="M0 -34 l5.5 11 12 1.8 -8.7 8.4 2 12 -10.8 -5.7 -10.8 5.7 2 -12 -8.7 -8.4 12 -1.8z" fill={color} transform="translate(0 20) scale(0.7)" />
+        <path d="M0 -34 l5.5 11 12 1.8 -8.7 8.4 2 12 -10.8 -5.7 -10.8 5.7 2 -12 -8.7 -8.4 12 -1.8z" fill={color} transform="translate(0 50) scale(0.52)" />
       </g>
     );
   }
@@ -151,7 +153,7 @@ const PassportStamps: React.FC<Props> = (p) => {
   const pageY = (h - pageH) / 2;
   const padX = pageW * 0.05;
   const headH = pageH * 0.14;
-  const cols = portrait ? 2 : n <= 4 ? Math.max(2, n) : Math.min(4, Math.ceil(n / 2));
+  const cols = portrait ? 2 : n <= 1 ? 1 : n <= 4 ? 2 : Math.min(4, Math.ceil(n / 2));
   const rows = Math.ceil(n / cols);
   const cellW = (pageW - padX * 2) / cols;
   const cellH = (pageH - headH - padX * 1.3) / rows;

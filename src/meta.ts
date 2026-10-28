@@ -793,6 +793,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "clock-time-teach": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 420,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
  "comparison-dumbbell": {
   "overlay": true,
   "overlayProps": {
@@ -1125,6 +1137,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "math-equation-solve": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 360,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
  "microscope-dive": {
   "overlay": false,
   "overlayProps": null,
@@ -1370,6 +1394,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "star-chart-reward": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 360,
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light"
+ },
  "star-fusion-shells": {
   "overlay": false,
   "overlayProps": null,
@@ -1483,6 +1520,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "archive-photo-ken-burns-caption": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 190,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
  "certificate-seal": {
   "overlay": true,
   "overlayProps": {
@@ -1510,6 +1559,16 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "overlayProps": null,
   "loopable": false,
   "bestLength": 180,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "document-zoom-highlight": {
+  "overlay": false,
+  "overlayProps": null,
+  "loopable": false,
+  "bestLength": 210,
   "roles": [
    "subject"
   ],
@@ -2960,6 +3019,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "breaking-news-takeover": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 210,
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light"
+ },
  "callout-labels": {
   "overlay": false,
   "overlayProps": null,
@@ -3033,6 +3105,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "fact-check-meter": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 210,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
  "fight-hud": {
   "overlay": true,
   "overlayProps": {
@@ -3087,6 +3171,32 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "interview-name-super": {
+  "overlay": true,
+  "overlayProps": {
+   "backdrop": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 150,
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "location-time-stamp": {
+  "overlay": true,
+  "overlayProps": {
+   "backdrop": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 150,
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light"
+ },
  "magnification-roundel": {
   "overlay": false,
   "overlayProps": null,
@@ -3136,6 +3246,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "poll-numbers-split": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 210,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
  "powers-of-ten": {
   "overlay": false,
   "overlayProps": null,
@@ -3179,6 +3301,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "roles": [
    "frame",
    "accent"
+  ],
+  "weight": "light"
+ },
+ "social-post-embed": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 180,
+  "roles": [
+   "accent",
+   "subject"
   ],
   "weight": "light"
  },
@@ -4818,6 +4953,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "alphabet-letter-trace": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 420,
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light"
+ },
  "atomic-orbit-title": {
   "overlay": false,
   "overlayProps": null,
@@ -4975,6 +5123,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "counting-objects": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 360,
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light"
+ },
  "deco-title-bar": {
   "overlay": false,
   "overlayProps": null,
@@ -5036,6 +5197,31 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   },
   "loopable": false,
   "bestLength": 240,
+  "roles": [
+   "type"
+  ],
+  "weight": "light"
+ },
+ "fill-in-the-blank": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 330,
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light"
+ },
+ "flashcard-flip-deck": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 430,
   "roles": [
    "type"
   ],
@@ -5619,6 +5805,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "roles": [
    "type",
    "accent"
+  ],
+  "weight": "light"
+ },
+ "word-translation-pair": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 380,
+  "roles": [
+   "type"
   ],
   "weight": "light"
  },

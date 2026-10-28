@@ -37,9 +37,9 @@ const CoffeePourCup: React.FC<Props> = (p) => {
   const mug = p.cup === 'mug';
 
   // layout
-  const cs = u * (portrait ? 1.28 : 1.42);
+  const cs = u * (portrait ? 1.5 : 1.42);
   const cupX = w * (portrait ? 0.3 : 0.34);
-  const baseY = h * (portrait ? 0.7 : 0.86);
+  const baseY = h * (portrait ? 0.76 : 0.86);
   const H = (mug ? 330 : 430) * cs;
   const bw = (mug ? 140 : 108) * cs;
   const tw = (mug ? 140 : 150) * cs;

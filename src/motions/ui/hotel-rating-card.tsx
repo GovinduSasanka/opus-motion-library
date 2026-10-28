@@ -50,7 +50,7 @@ const HotelRatingCard: React.FC<Props> = (p) => {
   const dW = col ? cardW : cardW - photoW;
   const dH = col ? cardH - photoH : cardH;
   const pad = (col ? 40 : 52) * u;
-  const k = col ? (portrait ? 1.08 : 0.92) : 1;
+  const k = col ? (portrait ? 1.28 : 0.95) : 1.14;
 
   const enter = ease.out(sseg(t, 0, 24));
   const wipe = ease.inOut(sseg(t, 6, 34));

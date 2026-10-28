@@ -11337,6 +11337,137 @@
   }
  },
  {
+  "id": "clock-time-teach",
+  "title": "Clock time teach",
+  "category": "data",
+  "description": "A friendly analogue clock for learning to tell the time: the short hour hand and long minute hand sweep forward to each target time, a coloured minute wedge follows, a digital readout ticks along and a caption (\"half past six\") pops in, with a hand legend.",
+  "useFor": "Telling-the-time lessons, kids' routine and schedule videos, ESL time vocabulary, timetable explainers and clock-based countdown/scheduling graphics — pass any list of times and optional captions.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 420,
+  "tags": [
+   "clock",
+   "time",
+   "telling time",
+   "analogue",
+   "analog",
+   "hands",
+   "kids",
+   "children",
+   "school",
+   "education",
+   "o'clock",
+   "schedule",
+   "hour",
+   "minute",
+   "learning",
+   "lesson"
+  ],
+  "file": "src/motions/data/clock-time-teach.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "accent2",
+   "card"
+  ],
+  "loopable": false,
+  "bestLength": 420,
+  "mood": [
+   "editorial"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "times": {
+    "default": [
+     "3:00",
+     "6:30",
+     "9:15",
+     "12:45"
+    ],
+    "doc": "target times in order, \"h:mm\" with optional am/pm or 24h (e.g. \"3:00\", \"6:30 PM\", \"15:15\"); the clock starts at 12:00"
+   },
+   "captions": {
+    "default": [],
+    "doc": "optional caption per time (empty or missing = auto English such as \"half past 6\")"
+   },
+   "format": {
+    "default": "12h",
+    "doc": "'12h' or '24h' digital readout"
+   },
+   "showMinuteNumbers": {
+    "default": true,
+    "doc": "show 5, 10, 15 ... around the outside of the rim"
+   },
+   "showLegend": {
+    "default": true,
+    "doc": "show the hour-hand / minute-hand legend"
+   },
+   "hourHandLabel": {
+    "default": "Hour hand: short",
+    "doc": "legend text for the hour hand"
+   },
+   "minuteHandLabel": {
+    "default": "Minute hand: long",
+    "doc": "legend text for the minute hand"
+   },
+   "background": {
+    "default": "#E8F6FF",
+    "doc": "backdrop colour or 'transparent'"
+   },
+   "ink": {
+    "default": "#1E2A4A",
+    "doc": "numbers, ticks and readout panel colour"
+   },
+   "accent": {
+    "default": "#FF6B6B",
+    "doc": "rim and hour-hand colour"
+   },
+   "accent2": {
+    "default": "#1E9BE8",
+    "doc": "minute hand, wedge and readout digits colour"
+   },
+   "card": {
+    "default": "#FFFFFF",
+    "doc": "clock face colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family for clock numbers and captions (empty = display)"
+   },
+   "timeFrames": {
+    "default": 96,
+    "doc": "frames each time is shown (sweep takes ~40%)"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the clock starts"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "playback speed multiplier"
+   }
+  }
+ },
+ {
   "id": "comparison-dumbbell",
   "title": "Comparison dumbbell",
   "category": "data",
@@ -16351,6 +16482,127 @@
   }
  },
  {
+  "id": "math-equation-solve",
+  "title": "Math equation solve",
+  "category": "data",
+  "description": "A worked algebra solution on a chalkboard: each step is a new line, surviving terms fly down (across the equals sign when they swap sides), cancelled terms are struck through, new terms pop in, notes explain each move and the answer is boxed with a burst.",
+  "useFor": "Maths tutorials, homework-help shorts, algebra explainers, STEM course trailers and \"solve it with me\" reels — pass any list of equation steps as space-separated tokens and a note per step.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 360,
+  "tags": [
+   "math",
+   "maths",
+   "algebra",
+   "equation",
+   "solve",
+   "steps",
+   "worked solution",
+   "chalkboard",
+   "school",
+   "education",
+   "tutorial",
+   "homework",
+   "stem",
+   "cancel",
+   "formula"
+  ],
+  "file": "src/motions/data/math-equation-solve.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "accent2",
+   "cancelColor"
+  ],
+  "loopable": false,
+  "bestLength": 360,
+  "mood": [],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "steps": {
+    "default": [
+     "2x + 3 = 11",
+     "2x + 3 - 3 = 11 - 3",
+     "2x = 8",
+     "2x / 2 = 8 / 2",
+     "x = 4"
+    ],
+    "doc": "equation lines, one string per step; tokens are separated by spaces, e.g. \"2x + 3 = 11\" (- * / are shown as − × ÷)"
+   },
+   "notes": {
+    "default": [
+     "Start with the equation",
+     "Subtract 3 from both sides",
+     "Simplify",
+     "Divide both sides by 2",
+     "x = 4. Solved!"
+    ],
+    "doc": "optional one-line explanation per step (same order as steps; empty strings are skipped)"
+   },
+   "title": {
+    "default": "Solve for x",
+    "doc": "heading above the board"
+   },
+   "background": {
+    "default": "#17342D",
+    "doc": "backdrop colour or 'transparent'"
+   },
+   "ink": {
+    "default": "#F4F1E8",
+    "doc": "numbers and general text colour"
+   },
+   "accent": {
+    "default": "#FFD166",
+    "doc": "variable (letter) colour"
+   },
+   "accent2": {
+    "default": "#7BDFF2",
+    "doc": "moving-term flash, notes and answer box colour"
+   },
+   "cancelColor": {
+    "default": "#FF7A7A",
+    "doc": "strike-through colour for terms that cancel"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family for the equations (empty = monospace; keep it monospaced so columns line up)"
+   },
+   "stepFrames": {
+    "default": 58,
+    "doc": "frames per step"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the board starts"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "playback speed multiplier"
+   }
+  }
+ },
+ {
   "id": "microscope-dive",
   "title": "Microscope dive",
   "category": "data",
@@ -19634,6 +19886,161 @@
   }
  },
  {
+  "id": "star-chart-reward",
+  "title": "Star chart reward",
+  "category": "data",
+  "description": "A kids' reward chart: gold stars slam into a tasks-by-days grid one after another (squash, ring and sparks) while a progress bar and counter climb and a locked medal fills with gold; on the last star the medal unlocks with a shine, confetti and a reward message.",
+  "useFor": "Kids' habit and chore trackers, classroom behaviour and reading charts, parenting and school app promos, gamified learning progress and \"you earned it\" reward beats — pass your tasks, days, which cells earn stars and the reward text.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 360,
+  "tags": [
+   "star chart",
+   "reward",
+   "sticker",
+   "chart",
+   "kids",
+   "children",
+   "chores",
+   "habit",
+   "tracker",
+   "school",
+   "classroom",
+   "medal",
+   "progress",
+   "gamification",
+   "achievement",
+   "education"
+  ],
+  "file": "src/motions/data/star-chart-reward.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "accent2",
+   "card"
+  ],
+  "loopable": false,
+  "bestLength": 360,
+  "mood": [
+   "hud",
+   "playful",
+   "night"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "My Star Chart",
+    "doc": "chart heading"
+   },
+   "tasks": {
+    "default": [
+     "Brush teeth",
+     "Read a book",
+     "Tidy my room",
+     "Help someone"
+    ],
+    "doc": "task names, one per row (max 8)"
+   },
+   "days": {
+    "default": [
+     "Mon",
+     "Tue",
+     "Wed",
+     "Thu",
+     "Fri"
+    ],
+    "doc": "column headings, e.g. weekdays (max 10)"
+   },
+   "pattern": {
+    "default": [
+     "11111",
+     "11101",
+     "10111",
+     "11011"
+    ],
+    "doc": "one string per task row, a character per day: 1 = star earned, 0 = no star (e.g. \"11011\")"
+   },
+   "goal": {
+    "default": 0,
+    "doc": "stars needed to unlock the reward (0 = every star in the pattern)"
+   },
+   "rewardLabel": {
+    "default": "Reward",
+    "doc": "small label above the medal"
+   },
+   "rewardLockedText": {
+    "default": "Collect {goal} stars",
+    "doc": "caption while locked; {goal} = stars needed"
+   },
+   "rewardTitle": {
+    "default": "Super Star!",
+    "doc": "headline when the reward unlocks"
+   },
+   "rewardText": {
+    "default": "{n} stars earned. Pizza night!",
+    "doc": "message under the headline; {n} = stars earned"
+   },
+   "background": {
+    "default": "#FFF1D6",
+    "doc": "backdrop colour or 'transparent'"
+   },
+   "ink": {
+    "default": "#2B2A4C",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#FFC21A",
+    "doc": "star and medal gold"
+   },
+   "accent2": {
+    "default": "#7C5CFF",
+    "doc": "header stripe, progress bar and ribbon colour"
+   },
+   "card": {
+    "default": "#FFFFFF",
+    "doc": "chart and reward card colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family for the title and reward headline (empty = display)"
+   },
+   "stamp": {
+    "default": 0,
+    "doc": "frames between star stamps (0 = auto-fit)"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the chart starts"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "playback speed multiplier"
+   }
+  }
+ },
+ {
   "id": "star-fusion-shells",
   "title": "Star fusion shells",
   "category": "data",
@@ -21123,6 +21530,138 @@
   }
  },
  {
+  "id": "archive-photo-ken-burns-caption",
+  "title": "Archive photo + caption",
+  "category": "document",
+  "description": "An archive photograph with a slow Ken Burns move (push, pull, pan or tilt) and a dated caption - full-bleed with a lower-left caption block (kicker, date, serif caption, credit), or as a white-bordered print with a handwritten caption in the margin. Sepia / black-and-white / colour treatment, grain, dust specks and a developing-print fade-in.",
+  "useFor": "Documentary and history videos, news background pieces, \"this is what it looked like\" photo beats, dated archive stills with a credit line.",
+  "source": [
+   "library original (documentary archive-still pattern)"
+  ],
+  "durationInFrames": 190,
+  "tags": [
+   "archive",
+   "photo",
+   "ken burns",
+   "caption",
+   "documentary",
+   "history",
+   "sepia",
+   "old photo",
+   "credit",
+   "date",
+   "news",
+   "still",
+   "vintage",
+   "journalism"
+  ],
+  "file": "src/motions/document/archive-photo-ken-burns-caption.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": true,
+  "textProps": [
+   "caption",
+   "kicker",
+   "credit"
+  ],
+  "colorProps": [
+   "accent",
+   "ink",
+   "background"
+  ],
+  "loopable": false,
+  "bestLength": 190,
+  "mood": [
+   "paper",
+   "photo",
+   "cinematic",
+   "nature",
+   "editorial"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "src": {
+    "default": "",
+    "doc": "the photo (public/ path or URL); empty = procedural placeholder scene"
+   },
+   "caption": {
+    "default": "The harbour district, looking east from the old bridge",
+    "doc": "caption text"
+   },
+   "date": {
+    "default": "March 1961",
+    "doc": "date line, e.g. \"March 1961\" (empty = none)"
+   },
+   "kicker": {
+    "default": "Archive",
+    "doc": "small label before the date, e.g. \"Archive\", \"File photo\" (empty = none)"
+   },
+   "credit": {
+    "default": "Photo: Northwind City Archive",
+    "doc": "credit line, e.g. \"Photo: <collection>\" (empty = none)"
+   },
+   "treatment": {
+    "default": "sepia",
+    "doc": "\"sepia\" | \"bw\" | \"color\""
+   },
+   "move": {
+    "default": "push",
+    "doc": "\"push\" | \"pull\" | \"pan-left\" | \"pan-right\" | \"tilt-up\" | \"tilt-down\""
+   },
+   "zoom": {
+    "default": 0.16,
+    "doc": "how far the push/pull travels (0-0.6)"
+   },
+   "framed": {
+    "default": false,
+    "doc": "true = white-bordered print with handwritten caption; false = full-bleed"
+   },
+   "grain": {
+    "default": 0.14,
+    "doc": "film-grain strength (0 = none)"
+   },
+   "dust": {
+    "default": true,
+    "doc": "dust specks and scratches"
+   },
+   "accent": {
+    "default": "#E8C66A",
+    "doc": "date, rule and kicker colour"
+   },
+   "ink": {
+    "default": "#F4EDDD",
+    "doc": "caption colour (full-bleed layout)"
+   },
+   "background": {
+    "default": "#14110D",
+    "doc": "backdrop behind a framed print; \"transparent\" = overlay"
+   },
+   "captionAt": {
+    "default": 34,
+    "doc": "frame the caption starts to appear"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "timing multiplier"
+   }
+  }
+ },
+ {
   "id": "certificate-seal",
   "title": "Certificate with gold seal",
   "category": "document",
@@ -21493,6 +22032,159 @@
    "ground": {
     "default": "ink",
     "doc": "'ink' (dark ground) or 'paper'"
+   }
+  }
+ },
+ {
+  "id": "document-zoom-highlight",
+  "title": "Document zoom + highlight",
+  "category": "document",
+  "description": "A document page sits on a dark desk (procedural page, or your own page image); the camera zooms in on one paragraph while the rest of the page dims, a highlighter sweeps over the key phrase, and a SOURCE label slides in lower-left.",
+  "useFor": "Quoting a report, contract, court filing, policy or press release on screen - \"here is the line that matters\" - with the source credited.",
+  "source": [
+   "library original (document-journalism \"this is what it says\" shot)"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "document",
+   "zoom",
+   "highlight",
+   "highlighter",
+   "paragraph",
+   "report",
+   "quote",
+   "source",
+   "evidence",
+   "journalism",
+   "documentary",
+   "pdf",
+   "contract",
+   "filing",
+   "news"
+  ],
+  "file": "src/motions/document/document-zoom-highlight.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title"
+  ],
+  "colorProps": [
+   "highlightColor",
+   "accent",
+   "ink",
+   "paper",
+   "desk"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "photo",
+   "cinematic",
+   "editorial",
+   "night"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "pageSrc": {
+    "default": "",
+    "doc": "optional page image (public/ path or URL, ~1:1.29 portrait page); empty = procedural page"
+   },
+   "org": {
+    "default": "Northwind Harbour Authority",
+    "doc": "procedural page: organisation line at the top"
+   },
+   "title": {
+    "default": "Report on the New Crossing",
+    "doc": "procedural page: document title"
+   },
+   "meta": {
+    "default": "Ref. NH-2041 · Filed 14 March · Page 3 of 12",
+    "doc": "procedural page: reference / date / page line"
+   },
+   "paragraphs": {
+    "default": [
+     "The survey team walked the full length of the channel on four separate mornings and recorded every reading by hand before checking it against the harbour charts held in the archive.",
+     "The measured clear span required for safe passage is 1,208 metres, more than twice the distance the present structure can offer. A cable-stayed design meets this figure with room to spare and can be built while the existing crossing remains in service.",
+     "Costs and timings are set out in the tables that follow, with every figure traced to its original source document."
+    ],
+    "doc": "procedural page: body paragraphs (strings)"
+   },
+   "focusParagraph": {
+    "default": 1,
+    "doc": "index (0-based) of the paragraph the camera zooms to"
+   },
+   "highlightText": {
+    "default": "1,208 metres, more than twice the distance the present structure can offer",
+    "doc": "exact phrase inside the focus paragraph to mark (\"\" = the whole paragraph)"
+   },
+   "region": {
+    "default": [
+     0.1,
+     0.4,
+     0.8,
+     0.14
+    ],
+    "doc": "with pageSrc: [x, y, width, height] of the area to zoom to and highlight, as 0-1 fractions of the page"
+   },
+   "source": {
+    "default": "Northwind Harbour Authority · Report NH-2041, p. 3",
+    "doc": "source label text (publisher · document · page; empty = none)"
+   },
+   "sourceTag": {
+    "default": "SOURCE",
+    "doc": "word in the accent block of the label"
+   },
+   "highlightColor": {
+    "default": "#FFD43B",
+    "doc": "highlighter colour (multiplied over the text)"
+   },
+   "accent": {
+    "default": "#C8282F",
+    "doc": "margin bar + label tab colour"
+   },
+   "ink": {
+    "default": "#16181B",
+    "doc": "page text colour"
+   },
+   "paper": {
+    "default": "#F5F1E6",
+    "doc": "page paper colour"
+   },
+   "desk": {
+    "default": "#1B1E25",
+    "doc": "desk colour behind the page; \"transparent\" = overlay"
+   },
+   "tilt": {
+    "default": -3,
+    "doc": "page tilt in degrees before the zoom"
+   },
+   "fill": {
+    "default": 0.62,
+    "doc": "fraction of the frame width the focused paragraph fills when zoomed (landscape)"
+   },
+   "zoomAt": {
+    "default": 24,
+    "doc": "frame the camera starts to zoom"
+   },
+   "markAt": {
+    "default": 82,
+    "doc": "frame the highlighter starts"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "timing multiplier"
    }
   }
  },
@@ -38537,6 +39229,126 @@
   }
  },
  {
+  "id": "breaking-news-takeover",
+  "title": "Breaking news takeover",
+  "category": "hud",
+  "description": "A full-screen \"BREAKING NEWS\" slam: white flash, an accent panel wipes across and the label crashes in with a shake, then contracts to a top band while the headline wipes in line by line, a sub-line fades up and a ticker scrolls along the bottom. Generic channel name; set background to \"transparent\" to lay it over footage.",
+  "useFor": "Urgent news beats, alert announcements, \"just in\" updates, product-incident or outage notices, news-style explainers and parody bulletins.",
+  "source": [
+   "library original (broadcast news takeover pattern)"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "news",
+   "breaking",
+   "takeover",
+   "headline",
+   "ticker",
+   "alert",
+   "bulletin",
+   "broadcast",
+   "slam",
+   "urgent",
+   "just in",
+   "overlay",
+   "journalism",
+   "live"
+  ],
+  "file": "src/motions/hud/breaking-news-takeover.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "label",
+   "headline"
+  ],
+  "colorProps": [
+   "accent",
+   "ink",
+   "background"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "photo",
+   "playful"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "label": {
+    "default": "BREAKING NEWS",
+    "doc": "the slam word(s), e.g. \"BREAKING NEWS\", \"JUST IN\", \"ALERT\""
+   },
+   "channel": {
+    "default": "Northwind News",
+    "doc": "channel / programme name shown in the band (generic sample, replace)"
+   },
+   "headline": {
+    "default": "City council approves new harbour crossing after overnight vote",
+    "doc": "main headline (wraps to 3 lines in 16:9, 5 in portrait)"
+   },
+   "subhead": {
+    "default": "Construction is expected to begin next spring, officials said.",
+    "doc": "one or two supporting sentences under the headline (empty = none)"
+   },
+   "ticker": {
+    "default": [
+     "Markets open higher after a quiet start",
+     "Heavy rain expected across the coast tonight",
+     "Regional rail service resumes after maintenance",
+     "Library extends opening hours for exam season"
+    ],
+    "doc": "ticker items scrolling along the bottom"
+   },
+   "tickerTag": {
+    "default": "LATEST",
+    "doc": "text of the accent tab at the left of the ticker"
+   },
+   "accent": {
+    "default": "#D81E27",
+    "doc": "slam panel / band / ticker tab colour"
+   },
+   "ink": {
+    "default": "#FFFFFF",
+    "doc": "headline colour"
+   },
+   "background": {
+    "default": "#0B1220",
+    "doc": "backdrop colour behind the headline; \"transparent\" = overlay on other footage"
+   },
+   "slamHold": {
+    "default": 22,
+    "doc": "extra frames the full-screen label holds before it contracts to the band"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the flash fires (shift the whole beat)"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "ticker scroll speed multiplier"
+   },
+   "live": {
+    "default": true,
+    "doc": "show the pulsing LIVE pill in the band"
+   }
+  }
+ },
+ {
   "id": "callout-labels",
   "title": "Callout labels",
   "category": "hud",
@@ -39285,6 +40097,139 @@
   }
  },
  {
+  "id": "fact-check-meter",
+  "title": "Fact-check meter",
+  "category": "hud",
+  "description": "A fact-check graphic: the claim appears in a quote card, a segmented true-to-false gauge draws in, the needle sweeps and wobbles to the score while the matching zone label lights up, then a tilted verdict stamp and a one-line explanation land.",
+  "useFor": "Rating a claim in news, explainers, debunk and myth-busting videos; any \"how true is it\" or 0-to-1 rating with a verdict.",
+  "source": [
+   "library original (fact-check rating-meter pattern)"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "fact check",
+   "meter",
+   "gauge",
+   "verdict",
+   "true",
+   "false",
+   "rating",
+   "claim",
+   "needle",
+   "news",
+   "debunk",
+   "misinformation",
+   "journalism",
+   "truth"
+  ],
+  "file": "src/motions/hud/fact-check-meter.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "verdict"
+  ],
+  "colorProps": [
+   "trueColor",
+   "midColor",
+   "falseColor",
+   "accent",
+   "ink",
+   "background"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "hud"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "tag": {
+    "default": "Fact check",
+    "doc": "chip above the claim (empty = none)"
+   },
+   "claimLabel": {
+    "default": "The claim",
+    "doc": "small label on the claim card (empty = none)"
+   },
+   "claim": {
+    "default": "Commute times in the city have been cut in half since 2020.",
+    "doc": "the statement being checked"
+   },
+   "claimSource": {
+    "default": "Said by a local official · 3 March",
+    "doc": "who said it / where / when (empty = none)"
+   },
+   "verdict": {
+    "default": "Mostly false",
+    "doc": "verdict stamp text"
+   },
+   "score": {
+    "default": 0.78,
+    "doc": "needle position 0 (true) to 1 (false)"
+   },
+   "scaleLabels": {
+    "default": [
+     "True",
+     "Mostly true",
+     "Half true",
+     "Mostly false",
+     "False"
+    ],
+    "doc": "labels of the gauge zones from true to false (2-7 entries = that many segments)"
+   },
+   "explanation": {
+    "default": "Transport figures show average commutes fell by about 9 percent, not 50.",
+    "doc": "one-line reason shown under the verdict"
+   },
+   "trueColor": {
+    "default": "#2FA866",
+    "doc": "colour at the true end"
+   },
+   "midColor": {
+    "default": "#F2C230",
+    "doc": "colour in the middle"
+   },
+   "falseColor": {
+    "default": "#E0463A",
+    "doc": "colour at the false end"
+   },
+   "accent": {
+    "default": "#F2B705",
+    "doc": "tag chip and claim bar colour"
+   },
+   "ink": {
+    "default": "#F4F2EC",
+    "doc": "text colour"
+   },
+   "background": {
+    "default": "#0F131B",
+    "doc": "backdrop colour; \"transparent\" = overlay"
+   },
+   "sweepAt": {
+    "default": 56,
+    "doc": "frame the needle starts to sweep"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "timing multiplier"
+   }
+  }
+ },
+ {
   "id": "fight-hud",
   "title": "Fight HUD",
   "category": "hud",
@@ -39966,6 +40911,252 @@
   }
  },
  {
+  "id": "interview-name-super",
+  "title": "Interview name super",
+  "category": "hud",
+  "description": "A two-line interview super - name and title - in four layouts: \"bar\" (accent bar + dark panel), \"tag\" (solid name block over an offset title strip), \"rule\" (a thin accent line draws over bare type on a soft scrim) and \"center\" (centred serif name with a diamond divider). Left, right or centre; set backdrop to \"transparent\" to lay it over footage.",
+  "useFor": "Naming and titling anyone on screen: interviewees, speakers, experts, hosts, witnesses - in news, documentary, podcast, webinar and corporate video.",
+  "source": [
+   "library original (interview lower-third / name super patterns)"
+  ],
+  "durationInFrames": 150,
+  "tags": [
+   "overlay",
+   "lower third",
+   "name",
+   "title",
+   "interview",
+   "super",
+   "speaker",
+   "caption",
+   "news",
+   "documentary",
+   "broadcast",
+   "chyron",
+   "journalism",
+   "podcast"
+  ],
+  "file": "src/motions/hud/interview-name-super.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "backdrop": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "kicker"
+  ],
+  "colorProps": [
+   "accent",
+   "panelColor",
+   "ink"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "photo",
+   "cinematic",
+   "editorial",
+   "night"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "name": {
+    "default": "Dr. Amara Okoye",
+    "doc": "person name (line 1)"
+   },
+   "title": {
+    "default": "Senior Research Fellow, Northwind Institute",
+    "doc": "role / organisation (line 2)"
+   },
+   "kicker": {
+    "default": "",
+    "doc": "small label above or beside the name, e.g. \"Interview\", \"Witness\" (empty = none)"
+   },
+   "layout": {
+    "default": "bar",
+    "doc": "\"bar\" | \"tag\" | \"rule\" | \"center\""
+   },
+   "position": {
+    "default": "left",
+    "doc": "\"left\" | \"right\" | \"center\" (the \"center\" layout is always centred)"
+   },
+   "accent": {
+    "default": "#F2B705",
+    "doc": "bar / name block / rule / divider colour"
+   },
+   "panelColor": {
+    "default": "#10141B",
+    "doc": "panel fill (\"bar\" and \"tag\" layouts)"
+   },
+   "ink": {
+    "default": "#F7F5EE",
+    "doc": "text colour"
+   },
+   "scrim": {
+    "default": true,
+    "doc": "soft bottom gradient behind \"rule\" and \"center\" layouts so bare type stays legible"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the super starts"
+   },
+   "outAt": {
+    "default": 132,
+    "doc": "frame the super exits"
+   },
+   "backdrop": {
+    "default": "footage",
+    "doc": "\"footage\" = procedural plate, \"transparent\" = overlay, or any CSS colour"
+   }
+  }
+ },
+ {
+  "id": "location-time-stamp",
+  "title": "Location + time chyron",
+  "category": "hud",
+  "description": "A lower-left location chyron: an accent bar grows, the place strip opens and the place name types on with a block cursor, then a dark strip types region | date | time with an optional running clock and a LIVE / FILE tag chip above. Set backdrop to \"transparent\" to lay it over footage.",
+  "useFor": "Establishing where and when a shot was filmed: news reports, documentaries, travel and true-crime videos, field recordings, dated archive clips.",
+  "source": [
+   "library original (news location-and-time chyron pattern)"
+  ],
+  "durationInFrames": 150,
+  "tags": [
+   "overlay",
+   "chyron",
+   "location",
+   "lower third",
+   "time",
+   "date",
+   "clock",
+   "place",
+   "news",
+   "documentary",
+   "establishing",
+   "typewriter",
+   "timestamp",
+   "journalism",
+   "live"
+  ],
+  "file": "src/motions/hud/location-time-stamp.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "backdrop": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "accent",
+   "placeColor",
+   "placeInk",
+   "subColor",
+   "subInk"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "photo",
+   "cinematic",
+   "editorial",
+   "night"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "place": {
+    "default": "Harbour District",
+    "doc": "place name (types on)"
+   },
+   "region": {
+    "default": "Northwind",
+    "doc": "city / region / country shown first on the dark strip (empty = skip)"
+   },
+   "date": {
+    "default": "14 March 2026",
+    "doc": "date text"
+   },
+   "time": {
+    "default": "09:41",
+    "doc": "clock time \"HH:MM\" or \"HH:MM:SS\" (empty = none)"
+   },
+   "timezone": {
+    "default": "Local",
+    "doc": "short zone label after the time (e.g. \"GMT\", \"local\"; empty = none)"
+   },
+   "tag": {
+    "default": "Live",
+    "doc": "chip above the strip, e.g. \"Live\", \"File footage\", \"Recorded\" (empty = none)"
+   },
+   "ticking": {
+    "default": true,
+    "doc": "run the clock forward in real time (shows seconds)"
+   },
+   "typeSpeed": {
+    "default": 24,
+    "doc": "characters per second for the place name"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the chyron starts"
+   },
+   "outAt": {
+    "default": 134,
+    "doc": "frame the chyron slides out"
+   },
+   "accent": {
+    "default": "#F2B705",
+    "doc": "bar, cursor, tag and time colour"
+   },
+   "placeColor": {
+    "default": "#F4F1E8",
+    "doc": "place strip fill"
+   },
+   "placeInk": {
+    "default": "#101318",
+    "doc": "place text colour"
+   },
+   "subColor": {
+    "default": "#0F1218",
+    "doc": "date/time strip fill"
+   },
+   "subInk": {
+    "default": "#F6F4EC",
+    "doc": "date/time text colour"
+   },
+   "backdrop": {
+    "default": "footage",
+    "doc": "\"footage\" = procedural plate, \"transparent\" = overlay, or any CSS colour"
+   },
+   "align": {
+    "default": "left",
+    "doc": "\"left\" or \"right\" corner"
+   }
+  }
+ },
+ {
   "id": "magnification-roundel",
   "title": "Magnification roundel",
   "category": "hud",
@@ -40457,6 +41648,136 @@
    "demoTone": {
     "default": "light",
     "doc": "light | dark mock screen"
+   }
+  }
+ },
+ {
+  "id": "poll-numbers-split",
+  "title": "Poll numbers split",
+  "category": "hud",
+  "description": "Head-to-head poll result: two colour panels count their percentages up, a proportional bar below shows the split with an undecided remainder, a hatched band marks the margin of error, and a verdict chip reads \"X leads by N\" - or \"within the margin of error\" when the gap is inside it.",
+  "useFor": "Election and survey coverage, A/B test results, \"which do you prefer\" splits, two-option vote outcomes - anything with two shares and an honest margin of error.",
+  "source": [
+   "library original (election / survey graphic pattern)"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "poll",
+   "election",
+   "survey",
+   "percentages",
+   "margin of error",
+   "head to head",
+   "versus",
+   "split",
+   "news",
+   "results",
+   "data",
+   "candidates",
+   "journalism"
+  ],
+  "file": "src/motions/hud/poll-numbers-split.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "colorA",
+   "colorB",
+   "background",
+   "ink"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "hud"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "question": {
+    "default": "Which option do residents prefer for the new park?",
+    "doc": "the poll question (headline)"
+   },
+   "pollster": {
+    "default": "Sample Research Poll",
+    "doc": "who ran the poll, shown next to the POLL tag"
+   },
+   "nameA": {
+    "default": "Option A",
+    "doc": "first candidate / option name"
+   },
+   "nameB": {
+    "default": "Option B",
+    "doc": "second candidate / option name"
+   },
+   "subA": {
+    "default": "Riverside site",
+    "doc": "small line under name A (party, site, version; empty = none)"
+   },
+   "subB": {
+    "default": "Hilltop site",
+    "doc": "small line under name B"
+   },
+   "valueA": {
+    "default": 48,
+    "doc": "percentage for A (0-100)"
+   },
+   "valueB": {
+    "default": 44,
+    "doc": "percentage for B (A + B <= 100; the rest shows as undecided)"
+   },
+   "marginOfError": {
+    "default": 3,
+    "doc": "margin of error in percentage points (0 = hide the band)"
+   },
+   "note": {
+    "default": "Sample of 1,200 adults · margin of error ±3 points · fieldwork 3-9 March",
+    "doc": "method footnote (sample size, dates; empty = none)"
+   },
+   "leadLabel": {
+    "default": "{name} leads by {n} pts",
+    "doc": "verdict when one side leads; {name} and {n} are filled in"
+   },
+   "tieLabel": {
+    "default": "Too close to call · within the margin of error",
+    "doc": "verdict when the gap is within twice the margin of error (each share is +/- the margin)"
+   },
+   "colorA": {
+    "default": "#2F6FDB",
+    "doc": "colour for A (panel + bar)"
+   },
+   "colorB": {
+    "default": "#E0663A",
+    "doc": "colour for B (panel + bar)"
+   },
+   "background": {
+    "default": "#0F1320",
+    "doc": "backdrop colour; \"transparent\" = overlay"
+   },
+   "ink": {
+    "default": "#F4F2EC",
+    "doc": "text colour"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "timing multiplier"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the graphic starts (shift the beat)"
    }
   }
  },
@@ -40964,6 +42285,147 @@
    "demoTone": {
     "default": "light",
     "doc": "light | dark mock screen"
+   }
+  }
+ },
+ {
+  "id": "social-post-embed",
+  "title": "Social post embed",
+  "category": "hud",
+  "description": "A generic social-post card - avatar (initials or image), name, verified tick, handle, text with *highlighted* words, optional picture, time and reply / repost / like counts. It pops in, reveals its words one by one, counts the numbers up and \"likes\" itself with a heart pop. No real platform branding.",
+  "useFor": "Showing what someone posted in a news piece, explainer or reaction video: a quote, a viral claim, a customer comment, a screenshot-style callout.",
+  "source": [
+   "library original (embedded-post pattern)"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "social",
+   "post",
+   "tweet",
+   "comment",
+   "card",
+   "quote",
+   "embed",
+   "testimonial",
+   "news",
+   "viral",
+   "reaction",
+   "avatar",
+   "likes",
+   "journalism",
+   "overlay"
+  ],
+  "file": "src/motions/hud/social-post-embed.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "text"
+  ],
+  "colorProps": [
+   "cardColor",
+   "ink",
+   "muted",
+   "accent",
+   "likeColor",
+   "background"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "photo"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "name": {
+    "default": "Maya Ortiz",
+    "doc": "display name"
+   },
+   "handle": {
+    "default": "@maya.ortiz",
+    "doc": "handle shown under the name"
+   },
+   "avatarSrc": {
+    "default": "",
+    "doc": "avatar image (public/ path or URL); empty = coloured circle with initials"
+   },
+   "verified": {
+    "default": true,
+    "doc": "show the round tick next to the name"
+   },
+   "text": {
+    "default": "Just walked across the *new bridge* at sunrise. Twelve years of planning and it is finally open to everyone.",
+    "doc": "post text; wrap words in *asterisks* to colour and embolden them"
+   },
+   "time": {
+    "default": "7:42 AM · 12 Mar 2026",
+    "doc": "timestamp line"
+   },
+   "replies": {
+    "default": 128,
+    "doc": "reply count (counts up; 12480 shows as 12.5K)"
+   },
+   "reposts": {
+    "default": 2431,
+    "doc": "repost / share count"
+   },
+   "likes": {
+    "default": 15800,
+    "doc": "like count (the heart pop adds one)"
+   },
+   "media": {
+    "default": false,
+    "doc": "show a picture block under the text"
+   },
+   "imageSrc": {
+    "default": "",
+    "doc": "picture for the block (public/ path or URL); empty = procedural placeholder"
+   },
+   "likeAt": {
+    "default": 118,
+    "doc": "frame the heart pops"
+   },
+   "wordsPerSecond": {
+    "default": 9,
+    "doc": "text reveal speed"
+   },
+   "cardColor": {
+    "default": "#FFFFFF",
+    "doc": "card fill"
+   },
+   "ink": {
+    "default": "#0F1419",
+    "doc": "text colour"
+   },
+   "muted": {
+    "default": "#667085",
+    "doc": "handle, time and icon colour"
+   },
+   "accent": {
+    "default": "#2F6FDB",
+    "doc": "highlight words, tick and glow colour"
+   },
+   "likeColor": {
+    "default": "#E0245E",
+    "doc": "liked-heart colour"
+   },
+   "background": {
+    "default": "#10141C",
+    "doc": "backdrop colour; \"transparent\" = overlay"
    }
   }
  },
@@ -62215,6 +63677,133 @@
   }
  },
  {
+  "id": "alphabet-letter-trace",
+  "title": "Alphabet letter trace",
+  "category": "text",
+  "description": "A handwriting lesson on ruled paper: a dotted letter track, numbered stroke-order dots with arrows, a pen dot tracing each stroke, a pop and sparkle, then a drawn picture and \"A is for Apple\" example word slide in.",
+  "useFor": "Kids' phonics and handwriting videos, alphabet series, ESL letter lessons, number-writing practice and educational app promos. Works for A-Z, a-z and 0-9 (up to 3 characters at once, e.g. \"Aa\"); pass a built-in picture or your own image.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 420,
+  "tags": [
+   "alphabet",
+   "letter",
+   "trace",
+   "handwriting",
+   "phonics",
+   "kids",
+   "children",
+   "school",
+   "stroke order",
+   "abc",
+   "numbers",
+   "education",
+   "preschool",
+   "learning",
+   "writing"
+  ],
+  "file": "src/motions/text/alphabet-letter-trace.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "accent2",
+   "board"
+  ],
+  "loopable": false,
+  "bestLength": 420,
+  "mood": [
+   "paper",
+   "photo"
+  ],
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "letter": {
+    "default": "Aa",
+    "doc": "the letter(s) to trace — up to 3 characters from A-Z, a-z, 0-9 (e.g. \"Aa\", \"B\", \"7\")"
+   },
+   "exampleWord": {
+    "default": "Apple",
+    "doc": "example word shown after tracing (its first letter is highlighted)"
+   },
+   "exampleLead": {
+    "default": "A is for",
+    "doc": "small line above the word, e.g. \"B is for\""
+   },
+   "picture": {
+    "default": "apple",
+    "doc": "built-in drawing: apple | ball | cat | sun | fish | star | house | tree"
+   },
+   "imageSrc": {
+    "default": "",
+    "doc": "optional public/ path or URL of your own picture (replaces the built-in drawing)"
+   },
+   "prompt": {
+    "default": "Trace the letter",
+    "doc": "small instruction on the board header"
+   },
+   "background": {
+    "default": "#FFF4DC",
+    "doc": "backdrop colour or 'transparent'"
+   },
+   "ink": {
+    "default": "#2B2A4C",
+    "doc": "text and outline colour"
+   },
+   "accent": {
+    "default": "#FF6B6B",
+    "doc": "drawn stroke colour and first-letter highlight"
+   },
+   "accent2": {
+    "default": "#2EA8FF",
+    "doc": "start dots, arrows and pen colour"
+   },
+   "board": {
+    "default": "#FFFFFF",
+    "doc": "writing-board paper colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family for the example word (empty = display)"
+   },
+   "showPicture": {
+    "default": true,
+    "doc": "false keeps the board centred and skips the picture + word"
+   },
+   "traceFrames": {
+    "default": 230,
+    "doc": "frames the whole tracing takes (spread across the strokes)"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the lesson starts"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "playback speed multiplier"
+   }
+  }
+ },
+ {
   "id": "atomic-orbit-title",
   "title": "Atomic orbit title (retro toon)",
   "category": "text",
@@ -63969,6 +65558,171 @@
   }
  },
  {
+  "id": "counting-objects",
+  "title": "Counting objects",
+  "category": "text",
+  "description": "Kid-friendly counting: cute faced shapes (stars, hearts, apples, balloons, fish ...) pop into a ten-frame grid one by one while a big number and its word count up in step, then the set waves and the total is announced with confetti.",
+  "useFor": "Early-years maths and number-recognition videos, kids' app promos, preschool lessons and \"how many?\" social posts — pass the count, the shape, the unit word and your colours.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 360,
+  "tags": [
+   "counting",
+   "numbers",
+   "kids",
+   "children",
+   "preschool",
+   "maths",
+   "math",
+   "early years",
+   "shapes",
+   "education",
+   "school",
+   "learning",
+   "count",
+   "ten frame",
+   "cute"
+  ],
+  "file": "src/motions/text/counting-objects.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title"
+  ],
+  "colorProps": [
+   "colors",
+   "background",
+   "ink",
+   "accent",
+   "card"
+  ],
+  "loopable": false,
+  "bestLength": 360,
+  "mood": [
+   "nature",
+   "playful",
+   "night"
+  ],
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "count": {
+    "default": 7,
+    "doc": "how many objects to count (1-40)"
+   },
+   "shape": {
+    "default": "star",
+    "doc": "star | circle | heart | apple | balloon | square | triangle | flower | fish"
+   },
+   "colors": {
+    "default": [
+     "#FF6B6B",
+     "#FFB020",
+     "#2EC4B6",
+     "#4D96FF",
+     "#9B5DE5"
+    ],
+    "doc": "colours cycled across the objects (also tints the number box)"
+   },
+   "title": {
+    "default": "Let's count!",
+    "doc": "heading shown while counting"
+   },
+   "unitLabel": {
+    "default": "stars",
+    "doc": "what is being counted, plural (used in doneText)"
+   },
+   "doneText": {
+    "default": "{n} {unit}!",
+    "doc": "heading after the last object; {n} = the count, {unit} = unitLabel"
+   },
+   "numberWords": {
+    "default": [
+     "one",
+     "two",
+     "three",
+     "four",
+     "five",
+     "six",
+     "seven",
+     "eight",
+     "nine",
+     "ten",
+     "eleven",
+     "twelve",
+     "thirteen",
+     "fourteen",
+     "fifteen",
+     "sixteen",
+     "seventeen",
+     "eighteen",
+     "nineteen",
+     "twenty"
+    ],
+    "doc": "number words for 1, 2, 3 ... (translate for other languages)"
+   },
+   "showWords": {
+    "default": true,
+    "doc": "show the number word under the number"
+   },
+   "faces": {
+    "default": true,
+    "doc": "give each object a smiling face"
+   },
+   "perRow": {
+    "default": 5,
+    "doc": "objects per row in the grid (5 = ten-frame style)"
+   },
+   "interval": {
+    "default": 0,
+    "doc": "frames between pops (0 = auto-fit to the clip)"
+   },
+   "background": {
+    "default": "#FFF6E5",
+    "doc": "backdrop colour or 'transparent'"
+   },
+   "ink": {
+    "default": "#2B2A4C",
+    "doc": "text, face and outline colour"
+   },
+   "accent": {
+    "default": "#FF6B6B",
+    "doc": "completion heading colour"
+   },
+   "card": {
+    "default": "#FFFFFF",
+    "doc": "number box colour before counting starts"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family for the number and headings (empty = display)"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the lesson starts"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "playback speed multiplier"
+   }
+  }
+ },
+ {
   "id": "deco-title-bar",
   "title": "Art deco title bar",
   "category": "text",
@@ -64680,6 +66434,286 @@
    "fontFamily": {
     "default": "",
     "doc": "optional CSS font-family for all text"
+   }
+  }
+ },
+ {
+  "id": "fill-in-the-blank",
+  "title": "Fill in the blank",
+  "category": "text",
+  "description": "A cloze exercise: a sentence with a pulsing blank, answer chips that pop in below, a wrong chip that is tried and bounces back with a shake and a cross, then the right chip arcs into the blank, turns green with a tick and sparkles and the feedback appears.",
+  "useFor": "Grammar and vocabulary exercises, language-learning reels, classroom quiz clips, ESL practice posts and \"can you spot the right word?\" engagement videos — pass the sentence with ___ for the blank, the options and the answer.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 330,
+  "tags": [
+   "fill in the blank",
+   "cloze",
+   "quiz",
+   "grammar",
+   "language",
+   "esl",
+   "worksheet",
+   "exercise",
+   "vocabulary",
+   "education",
+   "school",
+   "answer",
+   "sentence",
+   "learning",
+   "test"
+  ],
+  "file": "src/motions/text/fill-in-the-blank.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "card",
+   "correctColor",
+   "wrongColor"
+  ],
+  "loopable": false,
+  "bestLength": 330,
+  "mood": [
+   "playful"
+  ],
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "sentence": {
+    "default": "The cat sat on the ___ all day.",
+    "doc": "the sentence; write ___ (3 underscores) where the blank goes"
+   },
+   "options": {
+    "default": [
+     "mat",
+     "sky",
+     "cloud"
+    ],
+    "doc": "answer chips shown below the sentence"
+   },
+   "answerIndex": {
+    "default": 0,
+    "doc": "index (0-based) of the correct option"
+   },
+   "tryWrongFirst": {
+    "default": true,
+    "doc": "try a wrong option first (shake + cross) before the correct one lands"
+   },
+   "prompt": {
+    "default": "Fill in the blank",
+    "doc": "label pill above the sentence"
+   },
+   "correctText": {
+    "default": "Correct!",
+    "doc": "headline of the success banner"
+   },
+   "wrongText": {
+    "default": "Not quite - try again",
+    "doc": "message while the wrong option is in the blank"
+   },
+   "explanation": {
+    "default": "A cat can sit on a mat, but not on the sky.",
+    "doc": "optional one-line explanation under the success banner (empty hides it)"
+   },
+   "background": {
+    "default": "#EAF2FF",
+    "doc": "backdrop colour or 'transparent'"
+   },
+   "ink": {
+    "default": "#1D2440",
+    "doc": "sentence text colour"
+   },
+   "accent": {
+    "default": "#4C6FFF",
+    "doc": "chip and blank colour"
+   },
+   "card": {
+    "default": "#FFFFFF",
+    "doc": "sentence card colour"
+   },
+   "correctColor": {
+    "default": "#1FA463",
+    "doc": "success colour"
+   },
+   "wrongColor": {
+    "default": "#E5484D",
+    "doc": "wrong-answer colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family for the sentence and chips (empty = grotesk)"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the exercise starts"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "playback speed multiplier"
+   }
+  }
+ },
+ {
+  "id": "flashcard-flip-deck",
+  "title": "Flashcard flip deck",
+  "category": "text",
+  "description": "A study deck of flashcards: each card slides in showing the term, flips over in 3D to reveal its definition, then flies off as the next arrives, with a deck stack, progress dots, a counter and a deck-complete finish.",
+  "useFor": "Vocabulary, revision and quiz-prep videos, language-learning reels, course trailers and \"test yourself\" social posts — pass your own cards (term + definition), labels and brand colours.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 430,
+  "tags": [
+   "flashcard",
+   "flip",
+   "deck",
+   "study",
+   "revision",
+   "vocabulary",
+   "term",
+   "definition",
+   "cards",
+   "education",
+   "language",
+   "learning",
+   "quiz",
+   "school"
+  ],
+  "file": "src/motions/text/flashcard-flip-deck.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "cards",
+   "title"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "accent2",
+   "card"
+  ],
+  "loopable": false,
+  "bestLength": 430,
+  "mood": [
+   "3d",
+   "ui"
+  ],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "cards": {
+    "default": [
+     {
+      "term": "Photosynthesis",
+      "definition": "How plants turn sunlight, water and air into food."
+     },
+     {
+      "term": "Habitat",
+      "definition": "The natural home where an animal or plant lives."
+     },
+     {
+      "term": "Evaporation",
+      "definition": "When liquid water warms up and rises as vapour."
+     },
+     {
+      "term": "Gravity",
+      "definition": "The force that pulls objects toward each other."
+     }
+    ],
+    "doc": "array of {term, definition} cards, shown in order"
+   },
+   "title": {
+    "default": "Science words",
+    "doc": "deck title shown top-left"
+   },
+   "termLabel": {
+    "default": "Term",
+    "doc": "small label on the term side"
+   },
+   "definitionLabel": {
+    "default": "Meaning",
+    "doc": "small label on the definition side"
+   },
+   "flipHint": {
+    "default": "Think, then flip",
+    "doc": "hint line at the bottom of the term side (empty hides it)"
+   },
+   "doneText": {
+    "default": "Deck complete!",
+    "doc": "headline of the end state"
+   },
+   "doneSubtitle": {
+    "default": "{n} cards reviewed",
+    "doc": "end-state subtitle; {n} is replaced by the card count"
+   },
+   "background": {
+    "default": "#F4EFE6",
+    "doc": "backdrop colour or 'transparent'"
+   },
+   "ink": {
+    "default": "#1F2430",
+    "doc": "title / counter / end-state text colour"
+   },
+   "accent": {
+    "default": "#3D5AFE",
+    "doc": "term-side card colour, progress dots, check mark"
+   },
+   "accent2": {
+    "default": "#FF9F1C",
+    "doc": "definition-side top stripe and label colour"
+   },
+   "card": {
+    "default": "#FFFFFF",
+    "doc": "definition-side card colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family for terms and the title (empty = grotesk)"
+   },
+   "hold": {
+    "default": 24,
+    "doc": "frames each side is held before flipping / moving on (definition is held 30% longer)"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the deck starts"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "playback speed multiplier"
    }
   }
  },
@@ -71408,6 +73442,124 @@
    "pillInk": {
     "default": "#FFFFFF",
     "doc": "word colour when on the pill"
+   }
+  }
+ },
+ {
+  "id": "word-translation-pair",
+  "title": "Word translation pair",
+  "category": "text",
+  "description": "A language lesson: a word in the first language rolls away letter by letter while its translation rolls in, the language chips swap highlight, and a pronunciation line with a speaker icon sweeps in. Cycles through any number of word pairs.",
+  "useFor": "Language-learning reels, vocabulary-of-the-day posts, travel phrase videos, bilingual kids' content and app promos — pass your own pairs (word, translation, pronunciation) and the two language names.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 380,
+  "tags": [
+   "translation",
+   "language",
+   "vocabulary",
+   "word",
+   "pronunciation",
+   "bilingual",
+   "learning",
+   "phrase",
+   "spanish",
+   "esl",
+   "education",
+   "morph",
+   "kinetic",
+   "lesson",
+   "travel"
+  ],
+  "file": "src/motions/text/word-translation-pair.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "accent2"
+  ],
+  "loopable": false,
+  "bestLength": 380,
+  "mood": [],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "pairs": {
+    "default": [
+     {
+      "from": "Hello",
+      "to": "Hola",
+      "pron": "OH-lah"
+     },
+     {
+      "from": "Thank you",
+      "to": "Gracias",
+      "pron": "GRAH-see-ahs"
+     },
+     {
+      "from": "Friend",
+      "to": "Amigo",
+      "pron": "ah-MEE-go"
+     }
+    ],
+    "doc": "array of {from, to, pron}: source word, translation, pronunciation respelling (empty pron hides the line)"
+   },
+   "fromLang": {
+    "default": "English",
+    "doc": "name of the source language (left chip)"
+   },
+   "toLang": {
+    "default": "Español",
+    "doc": "name of the target language (right chip)"
+   },
+   "background": {
+    "default": "#16213E",
+    "doc": "backdrop colour or 'transparent'"
+   },
+   "ink": {
+    "default": "#F4F1E8",
+    "doc": "source word and chip text colour"
+   },
+   "accent": {
+    "default": "#FF8A5B",
+    "doc": "translated word and active chip colour"
+   },
+   "accent2": {
+    "default": "#5BD1D7",
+    "doc": "underline, arrow and pronunciation sweep colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family for the words (empty = grotesk); set one that supports your script"
+   },
+   "pairFrames": {
+    "default": 120,
+    "doc": "frames each word pair stays on screen"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the lesson starts"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "playback speed multiplier"
    }
   }
  },

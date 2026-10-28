@@ -39,14 +39,15 @@ const Plate: React.FC<{size: number; accent: string; ink: string; src?: string}>
         <circle r={100} fill="#FFFFFF" />
         <circle r={86} fill="none" stroke={withAlpha(ink, 0.08)} strokeWidth={3} />
         <circle r={66} fill="#F4F1EA" />
-        <ellipse cx={0} cy={20} rx={44} ry={13} fill={mixHex(accent, '#8A5A2B', 0.45)} />
-        <ellipse cx={0} cy={9} rx={43} ry={13} fill={mixHex(accent, '#E3B26B', 0.55)} />
-        <ellipse cx={0} cy={-2} rx={42} ry={13} fill={mixHex(accent, '#8A5A2B', 0.35)} />
-        <ellipse cx={0} cy={-13} rx={41} ry={13} fill={mixHex(accent, '#E9BE79', 0.5)} />
-        <ellipse cx={0} cy={-15} rx={22} ry={6} fill="#FFF3C9" opacity={0.85} />
-        <circle cx={-14} cy={-27} r={6} fill="#B33A3A" />
-        <circle cx={-4} cy={-31} r={5} fill="#C94646" />
-        <path d="M18 -26 q6 -10 14 -4 q-4 9 -14 4z" fill="#4F9B5E" />
+        <circle cx={0} cy={0} r={42} fill={mixHex(accent, '#8A5A2B', 0.3)} />
+        <circle cx={0} cy={-2} r={36} fill={mixHex(accent, '#FFFFFF', 0.25)} />
+        {[0, 1, 2, 3, 4, 5, 6].map((i) => {
+          const a = (i / 7) * Math.PI * 2 + 0.4;
+          return <circle key={i} cx={Math.cos(a) * 20} cy={Math.sin(a) * 20 - 2} r={7.5} fill={i % 3 === 0 ? '#5BA05F' : i % 3 === 1 ? mixHex(accent, '#B33A3A', 0.5) : mixHex(accent, '#FFF3C9', 0.6)} />;
+        })}
+        <circle cx={0} cy={-2} r={9} fill="#FFF3C9" />
+        <path d="M-82 -30 v60 M-88 -30 v22 M-76 -30 v22" stroke={withAlpha(ink, 0.35)} strokeWidth={3} strokeLinecap="round" fill="none" />
+        <path d="M80 -30 q10 20 0 36 v26" stroke={withAlpha(ink, 0.35)} strokeWidth={3} strokeLinecap="round" fill="none" />
       </svg>
     )}
   </div>
@@ -59,7 +60,7 @@ const Ring: React.FC<{size: number; progress: number; color: string; track: stri
     <div style={{width: size, height: size, position: 'relative', flex: 'none'}}>
       <svg width={size} height={size} style={{position: 'absolute', inset: 0, transform: 'rotate(-90deg)'}}>
         <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke={track} strokeWidth={6 * u} />
-        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke={color} strokeWidth={6 * u} strokeLinecap="round" strokeDasharray={`${c * (1 - progress)} ${c}`} />
+        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke={color} strokeWidth={6 * u} strokeLinecap="round" strokeDasharray={`${c * (1 - progress)} ${c}`} strokeOpacity={progress >= 0.999 ? 0 : 1} />
       </svg>
       <div style={{position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: fonts.mono, fontWeight: 700, fontSize: size * 0.22, color: ink}}>{label}</div>
     </div>
@@ -91,7 +92,7 @@ const RecipeIngredientsSteps: React.FC<Props> = (p) => {
   const leftW = portrait ? w - pad * 2 : w * 0.37;
   const rightX = portrait ? pad : pad + leftW + gapPx;
   const rightW = portrait ? w - pad * 2 : w - rightX - pad;
-  const ingH = portrait ? h * 0.3 : h - colTop - h * 0.09 - h * 0.0;
+  const ingH = portrait ? (150 + Math.ceil((nI > 5 ? nI / 2 : nI)) * 72) * u : h - colTop - h * 0.09;
   const stepsTop = portrait ? colTop + ingH + gapPx : colTop;
   const stepsH = portrait ? h - stepsTop - pad : h - colTop - h * 0.09;
 
@@ -100,9 +101,9 @@ const RecipeIngredientsSteps: React.FC<Props> = (p) => {
   const rowsI = twoCol ? Math.ceil(nI / 2) : nI;
 
   // landscape ingredient card sits under the title block, so shrink it
-  const ingCardTop = portrait ? colTop : colTop + (leftW * 0.36 + 16 * u) * 0 + h * 0.2;
+  const ingCardTop = portrait ? colTop : colTop + h * 0.2;
   const ingCardH = portrait ? ingH : h - ingCardTop - h * 0.09;
-  const ingRowH = Math.min(portrait ? 62 * u : 66 * u, (ingCardH - 100 * u) / rowsI);
+  const ingRowH = Math.min(portrait ? 72 * u : 84 * u, (ingCardH - 100 * u) / rowsI);
 
   return (
     <AbsoluteFill style={{background: bgOf(p.background), fontFamily: fonts.sans, color: p.ink, overflow: 'hidden'}}>
@@ -132,7 +133,7 @@ const RecipeIngredientsSteps: React.FC<Props> = (p) => {
             const ck = sseg(t, at, at + 8);
             const pop = backOut(ck, 2.2);
             return (
-              <div key={i} style={{display: 'flex', alignItems: 'center', gap: 18 * u, opacity: lerp(0.0, 1, appear) * lerp(1, 0.62, ck), transform: `translateX(${(1 - appear) * -26 * u}px)`}}>
+              <div key={i} style={{display: 'flex', alignItems: 'center', gap: 18 * u, opacity: appear * lerp(1, 0.78, ck), transform: `translateX(${(1 - appear) * -26 * u}px)`}}>
                 <div style={{width: 38 * u, height: 38 * u, borderRadius: 11 * u, border: `${3 * u}px solid ${ck > 0.3 ? p.accent : withAlpha(p.ink, 0.3)}`, background: ck > 0.3 ? p.accent : 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', transform: `scale(${ck > 0 ? 0.85 + 0.15 * pop : 1})`, flex: 'none'}}>
                   {ck > 0 ? <CheckMark size={26 * u} color={onAcc} p={ck} sw={3.4} /> : null}
                 </div>
@@ -170,7 +171,7 @@ const RecipeIngredientsSteps: React.FC<Props> = (p) => {
                   borderRadius: 22 * u,
                   background: hi > 0 ? mixHex(p.card, p.accent, 0.11 * hi) : 'transparent',
                   border: `${3 * u}px solid ${hi > 0 ? withAlpha(p.accent, 0.55 * hi) : 'transparent'}`,
-                  opacity: t < stepStart - 10 ? lerp(0.4, 0.4, 1) : done ? 0.55 : act ? 1 : 0.5,
+                  opacity: t < stepStart - 10 ? 0.5 : done ? 0.6 : act ? 1 : 0.5,
                 }}
               >
                 <div style={{width: 64 * u, height: 64 * u, borderRadius: '50%', flex: 'none', background: act || done ? p.accent : 'transparent', border: `${3.5 * u}px solid ${act || done ? p.accent : withAlpha(p.ink, 0.3)}`, color: act || done ? onAcc : withAlpha(p.ink, 0.6), display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: 30 * u, fontFamily: fonts.display}}>

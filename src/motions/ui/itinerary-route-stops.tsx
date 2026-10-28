@@ -71,8 +71,8 @@ const ItineraryRouteStops: React.FC<Props> = (p) => {
     const x1 = w * 0.89;
     const sp = (x1 - x0) / (n - 1);
     R = Math.min(132 * u, sp * 0.4);
-    const amp = h * (w / h > 1.5 ? 0.15 : 0.2);
-    for (let i = 0; i < n; i++) pts.push([x0 + sp * i, h * 0.52 + (i % 2 ? amp : -amp)]);
+    const amp = h * (w / h > 1.5 ? 0.145 : 0.2);
+    for (let i = 0; i < n; i++) pts.push([x0 + sp * i, h * 0.575 + (i % 2 ? amp : -amp)]);
   }
   const PER = 24;
   const poly = catmull(pts, PER);
@@ -143,7 +143,7 @@ const ItineraryRouteStops: React.FC<Props> = (p) => {
       </Svg>
 
       {/* title */}
-      <div style={{position: 'absolute', left: 0, right: 0, top: h * (portrait ? 0.05 : 0.07), textAlign: 'center', opacity: titleIn, transform: `translateY(${(1 - titleIn) * -24 * u}px)`}}>
+      <div style={{position: 'absolute', left: 0, right: 0, top: h * (portrait ? 0.05 : 0.045), textAlign: 'center', opacity: titleIn, transform: `translateY(${(1 - titleIn) * -24 * u}px)`}}>
         <div style={{fontFamily: fonts.display, fontSize: (portrait ? 70 : 64) * u, lineHeight: 1.05}}>{p.title}</div>
         <div style={{fontFamily: fonts.mono, fontSize: 24 * u, letterSpacing: 5 * u, color: withAlpha(p.ink, 0.55), marginTop: 12 * u, textTransform: 'uppercase'}}>{p.subtitle}</div>
       </div>
@@ -154,7 +154,7 @@ const ItineraryRouteStops: React.FC<Props> = (p) => {
         const pop = backOut(sseg(t, tr - 4, tr + 12), 1.9);
         const show = sseg(t, tr - 4, tr + 6);
         const [x, y] = pts[i];
-        const above = !portrait && y < h * 0.52;
+        const above = !portrait && y < h * 0.575;
         const left = portrait && i % 2 === 1;
         const zoom = 1.04 + 0.08 * sseg(t, tr, tr + 80);
         const labW = portrait ? (left ? x - R - 30 * u - w * 0.04 : w - (x + R + 30 * u) - w * 0.04) : Math.min(w * 0.22, 360 * u);
