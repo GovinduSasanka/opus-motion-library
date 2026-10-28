@@ -4,7 +4,7 @@ import {Badges, MotionCard} from '../components/Cards';
 import {Sized} from '../components/live';
 import {CodeTabs} from '../components/Code';
 import {CloseButton, Drawer, Segmented} from '../components/Drawer';
-import {BASE, BLOB, byId, catalog, CATEGORY_LABEL, CATEGORY_ORDER, diffProps, fmtValue, starterProps} from '../data';
+import {BASE, BLOB, byId, catalog, CATEGORY_LABEL, diffProps, orderCategories, fmtValue, starterProps} from '../data';
 import {go, href} from '../router';
 import {motionSnippets} from '../snippets';
 
@@ -94,7 +94,7 @@ export const Gallery: React.FC<{id?: string}> = ({id}) => {
         <button className={`chip ${cat === 'all' ? 'is-on' : ''}`} onClick={() => setCat('all')}>
           All <span>{catalog.length}</span>
         </button>
-        {CATEGORY_ORDER.filter((c) => counts[c]).map((c) => (
+        {orderCategories(Object.keys(counts)).map((c) => (
           <button key={c} className={`chip ${cat === c ? 'is-on' : ''}`} onClick={() => setCat(c)}>
             {CATEGORY_LABEL[c]} <span>{counts[c]}</span>
           </button>
@@ -239,6 +239,10 @@ const MotionDetail: React.FC<{m: CatalogEntry; onClose: () => void; prev?: strin
                 <dd>{m.avoid}</dd>
               </>
             )}
+            <dt>Page</dt>
+            <dd>
+              <a href={`${BASE}motion/${m.id}/`}>Standalone page · share or bookmark</a>
+            </dd>
             <dt>Source</dt>
             <dd>
               <a href={`${BLOB}/${m.file}`} target="_blank" rel="noreferrer">

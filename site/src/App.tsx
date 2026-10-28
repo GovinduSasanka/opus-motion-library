@@ -1,8 +1,10 @@
 import React, {Suspense, lazy, useEffect, useState} from 'react';
 import {href, useRoute} from './router';
-import {REPO, totals} from './data';
+import {BASE, REPO, totals} from './data';
 import {Landing} from './pages/Landing';
-import {GitHubIcon, Mark} from './components/Icons';
+import {Mark} from './components/Icons';
+import {NavStar} from './components/Star';
+import {HEADLINE, TITLE_TAG} from './seo-content';
 
 const Gallery = lazy(() => import('./pages/Gallery').then((m) => ({default: m.Gallery})));
 const Recipes = lazy(() => import('./pages/Recipes').then((m) => ({default: m.Recipes})));
@@ -42,10 +44,7 @@ const Nav: React.FC<{page: string}> = ({page}) => {
             </a>
           ))}
         </nav>
-        <a className="nav-gh" href={REPO} target="_blank" rel="noreferrer">
-          <GitHubIcon size={16} />
-          <span>GitHub</span>
-        </a>
+        <NavStar />
         <button className="nav-burger" aria-label="Menu" aria-expanded={open} onClick={() => setOpen((v) => !v)}>
           <span />
           <span />
@@ -66,7 +65,7 @@ const Footer: React.FC = () => (
           </span>
         </a>
         <p>
-          {totals.motions} motions · {totals.transitions} transitions · {totals.recipes} recipes. Built on{' '}
+          {totals.motions} motions · {totals.styles} styles · {totals.transitions} transitions · {totals.recipes} recipes — {HEADLINE.toLowerCase()}. Built on{' '}
           <a href="https://www.remotion.dev" target="_blank" rel="noreferrer">
             Remotion
           </a>
@@ -80,6 +79,14 @@ const Footer: React.FC = () => (
           <a href={href('recipes')}>Recipes</a>
           <a href={href('transitions')}>Transitions</a>
           <a href={href('docs')}>Docs</a>
+        </div>
+        <div>
+          <h4>Browse</h4>
+          <a href={`${BASE}gallery/`}>All {totals.motions} motions</a>
+          <a href={`${BASE}category/text/`}>Text animations</a>
+          <a href={`${BASE}category/data/`}>Animated charts</a>
+          <a href={`${BASE}category/ui/`}>UI mockups</a>
+          <a href={`${BASE}styles/`}>{totals.styles} styles</a>
         </div>
         <div>
           <h4>Project</h4>
@@ -113,7 +120,7 @@ export const App: React.FC = () => {
     } else if (!route.id) window.scrollTo({top: 0});
   }, [route.page, route.anchor]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
-    const t: Record<string, string> = {home: 'Opus Motion Library — 605 motion graphics, by name', gallery: 'Gallery', recipes: 'Recipes', transitions: 'Transitions', docs: 'Docs'};
+    const t: Record<string, string> = {home: TITLE_TAG, gallery: 'Gallery', recipes: 'Recipes', transitions: 'Transitions', docs: 'Docs'};
     document.title = route.page === 'home' ? t.home : `${t[route.page]}${route.id ? ` · ${route.id}` : ''} — Opus Motion Library`;
   }, [route.page, route.id]);
   return (

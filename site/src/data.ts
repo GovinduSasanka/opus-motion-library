@@ -2,8 +2,9 @@ import catalogJson from 'opus-motion-library/catalog.json';
 import {recipes as allRecipes, type CatalogEntry, type Recipe} from 'opus-motion-library/web';
 import transitionsJson from '../../transitions.json';
 import transitionsMd from '../../docs/TRANSITIONS.md?raw';
+import {parseTransitions, REPO_URL, type Totals, type TransitionInfo} from './seo-content';
 
-export const REPO = 'https://github.com/GovinduSasanka/opus-motion-library';
+export const REPO = REPO_URL;
 export const BLOB = `${REPO}/blob/main`;
 /** Vite base ("/opus-motion-library/" on GitHub Pages) — where the copied library assets are served */
 export const BASE = import.meta.env.BASE_URL;
@@ -14,51 +15,13 @@ export const byId = new Map(catalog.map((m) => [m.id, m]));
 export const recipes: Recipe[] = allRecipes;
 export const recipeById = new Map(recipes.map((r) => [r.id, r]));
 
-export const CATEGORY_LABEL: Record<string, string> = {
-  text: 'Type',
-  shape: 'Shapes',
-  fx: 'FX',
-  environment: 'Worlds',
-  character: 'Characters',
-  data: 'Data',
-  ui: 'UI',
-  hud: 'HUD',
-  image: 'Image looks',
-  '3d': '3D',
-  transition: 'Transitions',
-};
-export const CATEGORY_ORDER = ['text', 'shape', 'environment', 'fx', 'character', 'data', 'ui', 'hud', 'image', '3d', 'transition'];
+export {CATEGORY_LABEL, CATEGORY_ORDER, categoryInfo, orderCategories} from './seo-content';
+export type {TransitionInfo};
 
 // ---------------------------------------------------------------- transitions (docs/TRANSITIONS.md table + transitions.json)
 
-export interface TransitionInfo {
-  key: string; // "type" or "type:variant"
-  type: string;
-  variant?: string;
-  looks: string;
-  source: string;
-  fields: string;
-  frames: number;
-}
-
-const stripMd = (s: string) => s.replace(/`/g, '').replace(/\*\*/g, '').trim();
-const rows = new Map<string, {looks: string; source: string; fields: string}>();
-for (const line of transitionsMd.split(/\r?\n/)) {
-  const m = line.match(/^\|\s*`([a-z-]+)`(?:\s*\(`([a-z-]+)`[^)]*\))?\s*\|(.+)$/);
-  if (!m) continue;
-  const cells = m[3].split('|').map((c) => c.trim());
-  if (cells.length < 4) continue;
-  const key = m[2] ? `${m[1]}:${m[2]}` : m[1];
-  rows.set(key, {looks: stripMd(cells[0]), source: stripMd(cells[1]), fields: stripMd(cells[2])});
-}
 const frames = transitionsJson as Record<string, number>;
-export const transitions: TransitionInfo[] = Object.keys(frames)
-  .filter((k) => k !== 'cut')
-  .map((key) => {
-    const [type, variant] = key.split(':');
-    const r = rows.get(key);
-    return {key, type, variant, looks: r?.looks ?? '', source: r?.source ?? '', fields: r?.fields ?? '', frames: frames[key]};
-  });
+export const transitions: TransitionInfo[] = parseTransitions(transitionsMd, frames);
 
 // ---------------------------------------------------------------- helpers
 
@@ -84,4 +47,11 @@ export const fmtValue = (v: unknown) => {
   return s.length > 90 ? s.slice(0, 87) + '…' : s;
 };
 
-export const totals = {motions: catalog.length, recipes: recipes.length, transitions: Object.keys(frames).length - 1};
+/** every number on the site comes from here (catalog.json, recipes, transitions.json; styles.json via vite.config.ts) */
+export const totals: Totals = {
+  motions: catalog.length,
+  styles: __MGL_STYLES__,
+  transitions: transitions.length,
+  recipes: recipes.length,
+  categories: new Set(catalog.map((m) => m.category)).size,
+};

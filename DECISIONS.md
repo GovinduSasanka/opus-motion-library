@@ -1,5 +1,25 @@
 # Decisions
 
+## Update (2026-10-29) — site: "world's largest" positioning + SEO prerender
+
+Details and how to edit: `docs/SITE-SEO.md`. Summary:
+- Landing hero now says "The world's largest open-source motion graphics library" with live counts (motions · styles ·
+  transitions · recipes, all read from catalog.json / styles.json / transitions.json / recipes at build time) and CTAs Star on
+  GitHub (live star count from the public GitHub API, cached 1 h in localStorage, silent fallback), Browse gallery, Quick start.
+  Added category tiles and a FAQ (also in FAQPage JSON-LD).
+- `npm run build` in `site/` now ends with `node prerender/index.mjs` (static HTML for every motion, category, recipe, gallery,
+  transitions, styles, docs, landing, 404, sitemap.xml, robots.txt, llms.txt) and `scripts/verify-prerender.mjs` (fails the build on
+  missing pages / duplicate titles / bad JSON-LD / broken links). The Pages workflow needs no change.
+- Decisions: the app keeps hash routes (`#/gallery/<id>`) for the interactive view and the static pages are separate indexable
+  URLs (`/motion/<id>/`) that link to each other; no new dependencies (esbuild comes with Vite); `og:image` of a motion is its
+  gallery strip as asked (1440x270, not 1.91:1 — platforms crop it; a per-motion 1200x630 card would need ~600 renders);
+  landing card `site/public/media/og-card.png` has no counts so it never goes stale; the "styles" count reaches the app through
+  a Vite `define` (styles.json is too big to bundle); categories added after the original 11 (game, music, product, …) now have
+  labels and show in the gallery filter (they were missing before).
+- **Needs you**: (1) robots.txt cannot work on a project-pages path — submit the sitemap in Google Search Console / Bing
+  Webmaster Tools (or use a custom domain); (2) set the repo About text, topics and social preview in the GitHub UI (suggested
+  text in docs/SITE-SEO.md); (3) after the first deploy, run a Rich Results test on one /motion/ page.
+
 ## Update (2026-10-29) — round 3: reusable building blocks (429 → 605+ motions)
 
 The ask: "the world's largest library; everything reusable for any purpose". Rules for every new motion are in

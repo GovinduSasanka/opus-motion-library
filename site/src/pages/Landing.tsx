@@ -3,9 +3,10 @@ import {MotionBackground} from 'opus-motion-library/web';
 import {Code} from '../components/Code';
 import {RecipeCard} from '../components/Cards';
 import {Strip} from '../components/live';
-import {asset, BASE, byId, CATEGORY_LABEL, REPO, totals} from '../data';
+import {asset, BASE, byId, catalog, CATEGORY_LABEL, categoryInfo, orderCategories, REPO, totals} from '../data';
+import {faq, HEADLINE, lede, subline} from '../seo-content';
+import {StarButton} from '../components/Star';
 import {href} from '../router';
-import {GitHubIcon} from '../components/Icons';
 
 /** the hero: two motions layered live behind real HTML text, tinted to the site's gold */
 const HERO_LAYERS = [
@@ -26,8 +27,8 @@ const HERO_LAYERS = [
   {motion: 'embers', props: {mode: 'motes', background: 'transparent', backdrop: false, count: 22, speed: 0.45, color: '#F3D9A4'}, blend: 'screen' as const, opacity: 0.75},
 ];
 
-const WHY: [string, string][] = [
-  ['Video', 'Render mp4 with Remotion, or compose multi-scene films with 97 transitions, 148 styles, captions and music.'],
+const WHY = (t: typeof totals): [string, string][] => [
+  ['Video', `Render mp4 with Remotion, or compose multi-scene films with ${t.transitions} transitions, ${t.styles} styles, captions and music.`],
   ['Web', 'MotionPlayer, MotionBackground and a no-build <opus-motion> element. Plays live, pauses off-screen.'],
   ['Apps', 'Export mp4, webm with alpha, ProRes 4444, GIF or PNG for iOS, Android, Flutter and editors.'],
   ['AI-agent ready', 'AGENTS.md, a measured catalog.json and `mgl suggest` let an agent choose and wire motions for you.'],
@@ -112,6 +113,12 @@ const Film: React.FC = () => {
   );
 };
 
+const categoryList: [string, number][] = (() => {
+  const n: Record<string, number> = {};
+  for (const m of catalog) n[m.category] = (n[m.category] ?? 0) + 1;
+  return orderCategories(Object.keys(n)).map((c): [string, number] => [c, n[c]]);
+})();
+
 export const Landing: React.FC = () => (
   <>
     <MotionBackground
@@ -129,18 +136,20 @@ export const Landing: React.FC = () => (
       <p className="kicker">
         <span className="dot" /> Open source · MIT · Remotion + React
       </p>
-      <h1 className="display">
-        Motion graphics,
-        <br />
-        <em>by name.</em>
+      <h1 className="display hero-title">
+        {HEADLINE.split('open-source')[0]}
+        <span className="nb">open-source</span>{' '}
+        <em>motion graphics library</em>
       </h1>
-      <p className="lede">605 motion graphics you can drop into videos, websites and apps — by name, with your own words and colours.</p>
+      <p className="hero-stats">{subline(totals)}</p>
+      <p className="lede">{lede(totals)}</p>
       <div className="cta-row">
-        <a className="btn btn-gold" href={REPO} target="_blank" rel="noreferrer">
-          <GitHubIcon size={16} /> Star on GitHub
+        <StarButton />
+        <a className="btn btn-ghost" href={href('gallery')}>
+          Browse gallery <span aria-hidden>→</span>
         </a>
         <a className="btn btn-ghost" href="#/quickstart" onClick={jump('quickstart')}>
-          Get started
+          Quick start
         </a>
         <a className="btn btn-link" href="#/film" onClick={jump('film')}>
           Watch the film <span aria-hidden>→</span>
@@ -153,11 +162,11 @@ export const Landing: React.FC = () => (
 
     <section className="stats wrap" aria-label="Library in numbers">
       {[
-        [totals.motions, 'motions', 'in 12 families'],
+        [totals.motions, 'motions', `in ${totals.categories} families`],
+        [totals.styles, 'styles', 'one-line looks'],
         [totals.transitions, 'transitions', 'iris, ink, torn paper…'],
         [totals.recipes, 'recipes', 'ready-made mixes'],
-        [3, 'formats', '16:9 · 1:1 · 9:16'],
-      ].map(([n, l, s]) => (
+              ].map(([n, l, s]) => (
         <div key={String(l)} className="stat">
           <span className="stat-n">{n}</span>
           <span className="stat-l">{l}</span>
@@ -167,7 +176,7 @@ export const Landing: React.FC = () => (
     </section>
 
     <section className="why wrap" aria-label="Why the library">
-      {WHY.map(([t, d]) => (
+      {WHY(totals).map(([t, d]) => (
         <div key={t} className="why-item">
           <h3>{t}</h3>
           <p>{d.split('`').map((s, i) => (i % 2 ? <code key={i}>{s}</code> : s))}</p>
@@ -320,15 +329,57 @@ export const Landing: React.FC = () => (
       </div>
     </section>
 
+    <section id="categories" className="section wrap" aria-labelledby="cats-h">
+      <div className="section-head">
+        <p className="eyebrow">Browse by category</p>
+        <h2 className="h2" id="cats-h">
+          Free motion graphics for <em>every kind of video.</em>
+        </h2>
+        <p className="sub">
+          Lower thirds and kinetic typography, animated charts, backgrounds, characters, UI mockups, 3D, HUDs and video transitions — each motion has its own page with props and copy-paste code for Remotion,
+          React and HTML.
+        </p>
+      </div>
+      <ul className="cat-grid">
+        {categoryList.map(([c, n]) => (
+          <li key={c}>
+            <a href={`${BASE}category/${c}/`} className="cat-tile">
+              <b>{categoryInfo(c).title}</b>
+              <span>{n} motions</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p className="sub small">
+        Or <a href={`${BASE}gallery/`}>see all {totals.motions} motions on one page</a>, the <a href={`${BASE}recipes/`}>recipes</a>, the <a href={`${BASE}transitions/`}>transitions</a> and the{' '}
+        <a href={`${BASE}styles/`}>styles</a>.
+      </p>
+    </section>
+
+    <section id="faq" className="section wrap faq" aria-labelledby="faq-h">
+      <div className="section-head">
+        <p className="eyebrow">FAQ</p>
+        <h2 className="h2" id="faq-h">
+          Questions, <em>answered.</em>
+        </h2>
+      </div>
+      <div className="faq-list">
+        {faq(totals).map((f) => (
+          <details key={f.q}>
+            <summary>{f.q}</summary>
+            <p>{f.a.split('`').map((s, i) => (i % 2 ? <code key={i}>{s}</code> : s))}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
     <section className="closing wrap">
       <h2 className="display small">
         Make something <em>move.</em>
       </h2>
       <p className="lede">Free and open source. If it saves you an afternoon, a star helps others find it.</p>
       <div className="cta-row center">
-        <a className="btn btn-gold" href={REPO} target="_blank" rel="noreferrer">
-          <GitHubIcon size={16} /> Star on GitHub
-        </a>
+        <StarButton />
         <a className="btn btn-ghost" href={href('gallery')}>
           Open the gallery
         </a>

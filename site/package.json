@@ -7,8 +7,11 @@
   "scripts": {
     "assets": "node copy-assets.mjs",
     "dev": "npm run assets && vite",
-    "build": "npm run assets && tsc --noEmit && vite build",
-    "preview": "vite preview --port 4174 --strictPort"
+    "build": "npm run assets && tsc --noEmit && vite build && node prerender/index.mjs && node scripts/verify-prerender.mjs",
+    "preview": "vite preview --port 4174 --strictPort",
+    "prerender": "node prerender/index.mjs",
+    "og-card": "node scripts/make-og-card.mjs",
+    "verify": "node scripts/verify-prerender.mjs"
   },
   "dependencies": {
     "@react-three/fiber": "9.1.2",
