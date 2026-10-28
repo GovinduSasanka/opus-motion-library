@@ -10114,6 +10114,235 @@
   }
  },
  {
+  "id": "bar-race",
+  "title": "Bar chart race",
+  "category": "data",
+  "description": "Ranked horizontal bars that grow, then re-order smoothly over time as the data steps through keyframes: bars overtake each other, values roll, the leader changes, and a big faded period label (year, quarter) changes behind them.",
+  "useFor": "Rankings over time: market share by year, top products by quarter, followers by month, league tables, \"who is winning\" stories. Give the names once and one values row per period in `frames`.",
+  "source": [
+   "original round-3 chart motion"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "bar chart race",
+   "ranking",
+   "leaderboard",
+   "chart",
+   "data",
+   "overtake",
+   "timeline",
+   "infographic",
+   "count-up",
+   "statistics",
+   "overlay"
+  ],
+  "file": "src/motions/data/bar-race.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle",
+   "prefix"
+  ],
+  "colorProps": [
+   "colors",
+   "background",
+   "ink"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "hud"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "names": {
+    "default": [
+     "Aurora",
+     "Beacon",
+     "Cobalt",
+     "Delta",
+     "Ember",
+     "Fjord",
+     "Garnet",
+     "Harbor"
+    ],
+    "doc": "one name per bar; colours follow the name index so a bar keeps its colour while it moves"
+   },
+   "frames": {
+    "default": [
+     {
+      "label": "2019",
+      "values": [
+       12,
+       18,
+       9,
+       30,
+       6,
+       14,
+       4,
+       20
+      ]
+     },
+     {
+      "label": "2020",
+      "values": [
+       20,
+       22,
+       16,
+       34,
+       12,
+       18,
+       10,
+       24
+      ]
+     },
+     {
+      "label": "2021",
+      "values": [
+       34,
+       27,
+       31,
+       36,
+       22,
+       21,
+       19,
+       27
+      ]
+     },
+     {
+      "label": "2022",
+      "values": [
+       52,
+       31,
+       49,
+       38,
+       41,
+       25,
+       33,
+       30
+      ]
+     },
+     {
+      "label": "2023",
+      "values": [
+       71,
+       38,
+       66,
+       41,
+       62,
+       31,
+       52,
+       33
+      ]
+     },
+     {
+      "label": "2024",
+      "values": [
+       96,
+       47,
+       82,
+       45,
+       90,
+       36,
+       71,
+       37
+      ]
+     }
+    ],
+    "doc": "keyframes [{label, values[]}] — one values row per period, same order as names"
+   },
+   "topN": {
+    "default": 6,
+    "doc": "how many bars are visible at a time (others slide off the bottom)"
+   },
+   "title": {
+    "default": "Who is growing fastest",
+    "doc": "headline (empty = none)"
+   },
+   "subtitle": {
+    "default": "Index of weekly active users",
+    "doc": "small line under the headline (empty = none)"
+   },
+   "prefix": {
+    "default": "",
+    "doc": "text before every value"
+   },
+   "suffix": {
+    "default": "",
+    "doc": "text after every value, e.g. \"%\", \"M\""
+   },
+   "decimals": {
+    "default": 0,
+    "doc": "decimal places on values"
+   },
+   "stepFrames": {
+    "default": 34,
+    "doc": "frames per keyframe step at speed 1"
+   },
+   "scale": {
+    "default": "dynamic",
+    "doc": "\"dynamic\" rescales to the current leader, \"fixed\" keeps one scale for the whole race"
+   },
+   "showRank": {
+    "default": false,
+    "doc": "print the live rank number at the left"
+   },
+   "showPeriod": {
+    "default": true,
+    "doc": "big faded period label behind the bars"
+   },
+   "colors": {
+    "default": [
+     "#2F6FED",
+     "#FF7A45",
+     "#16B39A",
+     "#F2B134",
+     "#8E5CF0",
+     "#E5487F",
+     "#5BC0EB",
+     "#7A8794"
+    ],
+    "doc": "bar palette by name index"
+   },
+   "background": {
+    "default": "#0F1722",
+    "doc": "page colour, or \"transparent\""
+   },
+   "ink": {
+    "default": "#EEF2F7",
+    "doc": "text colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "CSS font family (empty = Space Grotesk)"
+   },
+   "startAt": {
+    "default": 8,
+    "doc": "frame the bars start to grow"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed multiplier"
+   }
+  }
+ },
+ {
   "id": "beat-montage",
   "title": "Accelerating beat montage",
   "category": "data",
@@ -10763,6 +10992,178 @@
    "seed": {
     "default": 3,
     "doc": "seed for bases when sequence is empty"
+   }
+  }
+ },
+ {
+  "id": "donut-breakdown",
+  "title": "Donut breakdown",
+  "category": "data",
+  "description": "A donut chart that sweeps round clockwise segment by segment with percentage labels, a count-up total in the centre and a legend whose values count up as each segment lands; an optional highlighted slice pops out while the rest dim.",
+  "useFor": "Share-of-total stories on any brand: revenue by channel, budget split, traffic sources, survey answers, market share. Replace data, colours, prefix / suffix; works on a transparent background over footage.",
+  "source": [
+   "original round-3 chart motion"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "donut",
+   "pie",
+   "chart",
+   "breakdown",
+   "share",
+   "percentage",
+   "infographic",
+   "data",
+   "legend",
+   "overlay",
+   "count-up",
+   "statistics"
+  ],
+  "file": "src/motions/data/donut-breakdown.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle",
+   "centerLabel",
+   "prefix"
+  ],
+  "colorProps": [
+   "colors",
+   "background",
+   "ink"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "hud"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "data": {
+    "default": [
+     {
+      "label": "Direct",
+      "value": 420
+     },
+     {
+      "label": "Search",
+      "value": 310
+     },
+     {
+      "label": "Social",
+      "value": 180
+     },
+     {
+      "label": "Referral",
+      "value": 120
+     },
+     {
+      "label": "Other",
+      "value": 70
+     }
+    ],
+    "doc": "slices [{label, value, color?}]; any count, values are relative"
+   },
+   "title": {
+    "default": "Traffic by source",
+    "doc": "headline (empty = none)"
+   },
+   "subtitle": {
+    "default": "Share of total sessions, thousands",
+    "doc": "small line under the headline (empty = none)"
+   },
+   "centerLabel": {
+    "default": "TOTAL",
+    "doc": "small caption under the centre total (empty = none)"
+   },
+   "prefix": {
+    "default": "",
+    "doc": "text before every number, e.g. \"$\""
+   },
+   "suffix": {
+    "default": "K",
+    "doc": "text after every number, e.g. \"K\", \"%\", \" users\""
+   },
+   "decimals": {
+    "default": 0,
+    "doc": "decimal places on the numbers"
+   },
+   "showPercent": {
+    "default": true,
+    "doc": "print each slice share on the ring"
+   },
+   "showLegend": {
+    "default": true,
+    "doc": "legend beside (16:9, 1:1) or below (9:16) the donut"
+   },
+   "legendValues": {
+    "default": true,
+    "doc": "show the count-up value next to each legend label"
+   },
+   "sort": {
+    "default": false,
+    "doc": "sort slices largest first"
+   },
+   "highlight": {
+    "default": -1,
+    "doc": "index of a slice to pop out once the sweep ends (-1 = none)"
+   },
+   "ringWidth": {
+    "default": 0.34,
+    "doc": "ring thickness as a fraction of the radius (0.1-0.8)"
+   },
+   "gap": {
+    "default": 2,
+    "doc": "gap between slices in degrees"
+   },
+   "colors": {
+    "default": [
+     "#2F6FED",
+     "#FF7A45",
+     "#16B39A",
+     "#F2B134",
+     "#8E5CF0",
+     "#E5487F",
+     "#5BC0EB",
+     "#7A8794"
+    ],
+    "doc": "palette used for slices without their own colour"
+   },
+   "background": {
+    "default": "#F5F3EE",
+    "doc": "page colour, or \"transparent\" to sit over other content"
+   },
+   "ink": {
+    "default": "#18212B",
+    "doc": "text and track colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "CSS font family (empty = Space Grotesk)"
+   },
+   "startAt": {
+    "default": 10,
+    "doc": "frame the sweep starts"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed multiplier"
    }
   }
  },
@@ -12213,6 +12614,323 @@
    "areaColor": {
     "default": "#83C167",
     "doc": "area colour"
+   }
+  }
+ },
+ {
+  "id": "funnel-conversion",
+  "title": "Funnel conversion",
+  "category": "data",
+  "description": "A conversion funnel: stage bars narrow in proportion to their value and grow in one after another from the top, labels with colour keys on the left, count-up values on the right, step-to-step \"↓ 40%\" conversion pills between stages and an overall conversion figure at the bottom.",
+  "useFor": "Sales and signup funnels, hiring pipelines, checkout drop-off, content-to-lead stories, any \"how many survive each step\" breakdown. Replace stages, colours, prefix / suffix.",
+  "source": [
+   "original round-3 chart motion"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "funnel",
+   "conversion",
+   "pipeline",
+   "sales",
+   "chart",
+   "data",
+   "drop-off",
+   "stages",
+   "infographic",
+   "count-up",
+   "marketing",
+   "overlay"
+  ],
+  "file": "src/motions/data/funnel-conversion.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "stages",
+   "title",
+   "subtitle",
+   "prefix"
+  ],
+  "colorProps": [
+   "colors",
+   "background",
+   "ink"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "hud",
+   "playful"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "stages": {
+    "default": [
+     {
+      "label": "Visitors",
+      "value": 48000
+     },
+     {
+      "label": "Sign-ups",
+      "value": 19200
+     },
+     {
+      "label": "Trials",
+      "value": 8600
+     },
+     {
+      "label": "Paying",
+      "value": 3100
+     },
+     {
+      "label": "Renewed",
+      "value": 1900
+     }
+    ],
+    "doc": "stages top to bottom [{label, value, color?}]; widths are proportional to value"
+   },
+   "title": {
+    "default": "From visit to renewal",
+    "doc": "headline (empty = none)"
+   },
+   "subtitle": {
+    "default": "Users at each stage of the journey",
+    "doc": "small line under the headline (empty = none)"
+   },
+   "prefix": {
+    "default": "",
+    "doc": "text before values"
+   },
+   "suffix": {
+    "default": "",
+    "doc": "text after values, e.g. \"K\""
+   },
+   "decimals": {
+    "default": 0,
+    "doc": "decimals on stage values"
+   },
+   "conversionDecimals": {
+    "default": 0,
+    "doc": "decimals on the conversion percentages"
+   },
+   "showConversion": {
+    "default": true,
+    "doc": "show the \"↓ n%\" pill between stages"
+   },
+   "showPercentInside": {
+    "default": true,
+    "doc": "print each stage share of the top inside its bar when wide enough"
+   },
+   "summaryLabel": {
+    "default": "Overall conversion",
+    "doc": "label of the final overall-conversion line (empty = hide it)"
+   },
+   "colors": {
+    "default": [
+     "#2F6FED",
+     "#3D83F0",
+     "#3F9AE6",
+     "#2DB3C6",
+     "#16B39A",
+     "#3CC48A"
+    ],
+    "doc": "palette for stages without their own colour"
+   },
+   "background": {
+    "default": "#F5F3EE",
+    "doc": "page colour, or \"transparent\""
+   },
+   "ink": {
+    "default": "#18212B",
+    "doc": "text colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "CSS font family (empty = Space Grotesk)"
+   },
+   "startAt": {
+    "default": 10,
+    "doc": "frame the first stage appears"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed multiplier"
+   }
+  }
+ },
+ {
+  "id": "gauge-kpi-dial",
+  "title": "Gauge KPI dial",
+  "category": "data",
+  "description": "A 240-degree dial gauge: coloured zone bands sweep on, tick labels appear, the needle swings to the value with a small overshoot and wobble while a big KPI number counts up in the colour of the zone it is in, with a target marker and zone legend.",
+  "useFor": "One headline KPI with a good / ok / bad reading: NPS, uptime, conversion rate, utilisation, health score, goal progress. Set value, min, max, zones, prefix / suffix.",
+  "source": [
+   "original round-3 chart motion"
+  ],
+  "durationInFrames": 150,
+  "tags": [
+   "gauge",
+   "dial",
+   "kpi",
+   "speedometer",
+   "needle",
+   "score",
+   "nps",
+   "meter",
+   "chart",
+   "data",
+   "infographic",
+   "count-up",
+   "dashboard"
+  ],
+  "file": "src/motions/data/gauge-kpi-dial.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "label",
+   "title",
+   "subtitle",
+   "prefix"
+  ],
+  "colorProps": [
+   "accent",
+   "background",
+   "ink"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "hud"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "value": {
+    "default": 78,
+    "doc": "the reading the needle lands on"
+   },
+   "min": {
+    "default": 0,
+    "doc": "dial minimum"
+   },
+   "max": {
+    "default": 100,
+    "doc": "dial maximum"
+   },
+   "target": {
+    "default": 85,
+    "doc": "target marker position (outside min..max = no marker)"
+   },
+   "label": {
+    "default": "Customer satisfaction",
+    "doc": "caption under the big number"
+   },
+   "title": {
+    "default": "Satisfaction score",
+    "doc": "headline (empty = none)"
+   },
+   "subtitle": {
+    "default": "Current quarter against target",
+    "doc": "small line under the headline (empty = none)"
+   },
+   "prefix": {
+    "default": "",
+    "doc": "text before numbers"
+   },
+   "suffix": {
+    "default": "%",
+    "doc": "text after numbers, e.g. \"%\""
+   },
+   "decimals": {
+    "default": 0,
+    "doc": "decimal places on the big number"
+   },
+   "zones": {
+    "default": [
+     {
+      "to": 40,
+      "color": "#E5484D",
+      "label": "Needs work"
+     },
+     {
+      "to": 70,
+      "color": "#F5A524",
+      "label": "On track"
+     },
+     {
+      "to": 100,
+      "color": "#12A594",
+      "label": "Strong"
+     }
+    ],
+    "doc": "colour bands [{to, color, label?}] ascending by \"to\"; empty = one accent arc that fills to the value"
+   },
+   "accent": {
+    "default": "#2F6FED",
+    "doc": "colour used when there are no zones"
+   },
+   "ticks": {
+    "default": 5,
+    "doc": "number of tick intervals around the dial"
+   },
+   "tickDecimals": {
+    "default": 0,
+    "doc": "decimals on tick labels"
+   },
+   "showLegend": {
+    "default": true,
+    "doc": "legend of the labelled zones"
+   },
+   "targetLabel": {
+    "default": "Target",
+    "doc": "word before the target number"
+   },
+   "background": {
+    "default": "#0F1722",
+    "doc": "page colour, or \"transparent\""
+   },
+   "ink": {
+    "default": "#EEF2F7",
+    "doc": "text, needle and track colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "CSS font family (empty = Space Grotesk)"
+   },
+   "startAt": {
+    "default": 8,
+    "doc": "frame the dial starts drawing"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed multiplier"
    }
   }
  },
@@ -14566,6 +15284,169 @@
   }
  },
  {
+  "id": "progress-rings-stats",
+  "title": "Progress rings stats",
+  "category": "data",
+  "description": "Activity-style progress rings with round caps that sweep clockwise to their value one after another while the numbers count up; either a row / grid of separate rings with the number inside and a label below, or concentric rings with a live legend and an overall percentage in the middle.",
+  "useFor": "Goal progress and KPI sets: completion rates, daily targets, quota attainment, fitness-style stats, survey scores. Each ring has its own value, max, colour, prefix and suffix.",
+  "source": [
+   "original round-3 chart motion"
+  ],
+  "durationInFrames": 150,
+  "tags": [
+   "progress ring",
+   "rings",
+   "activity rings",
+   "goal",
+   "kpi",
+   "stats",
+   "chart",
+   "data",
+   "completion",
+   "infographic",
+   "count-up",
+   "legend",
+   "overlay"
+  ],
+  "file": "src/motions/data/progress-rings-stats.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle",
+   "prefix",
+   "centerLabel"
+  ],
+  "colorProps": [
+   "colors",
+   "background",
+   "ink"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "hud"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "rings": {
+    "default": [
+     {
+      "label": "Move",
+      "value": 480,
+      "max": 600,
+      "suffix": " kcal"
+     },
+     {
+      "label": "Exercise",
+      "value": 42,
+      "max": 60,
+      "suffix": " min"
+     },
+     {
+      "label": "Stand",
+      "value": 10,
+      "max": 12,
+      "suffix": " hrs"
+     },
+     {
+      "label": "Sleep",
+      "value": 7.2,
+      "max": 8,
+      "suffix": " h"
+     }
+    ],
+    "doc": "rings [{label, value, max?(default 100), color?, prefix?, suffix?}]; the fill is value / max"
+   },
+   "layout": {
+    "default": "row",
+    "doc": "\"row\" = separate rings in a row / grid, \"concentric\" = nested rings with a legend"
+   },
+   "title": {
+    "default": "Today at a glance",
+    "doc": "headline (empty = none)"
+   },
+   "subtitle": {
+    "default": "Progress against daily goals",
+    "doc": "small line under the headline (empty = none)"
+   },
+   "prefix": {
+    "default": "",
+    "doc": "default text before numbers"
+   },
+   "suffix": {
+    "default": "",
+    "doc": "default text after numbers (a ring can override)"
+   },
+   "decimals": {
+    "default": 0,
+    "doc": "decimal places on numbers"
+   },
+   "showPercent": {
+    "default": true,
+    "doc": "row layout: print the percentage under the number inside each ring"
+   },
+   "showLegend": {
+    "default": true,
+    "doc": "concentric layout: legend with count-up values"
+   },
+   "centerLabel": {
+    "default": "OVERALL",
+    "doc": "concentric layout: caption under the overall percentage"
+   },
+   "thickness": {
+    "default": 0.12,
+    "doc": "ring thickness as a fraction of the ring diameter (row) or slot (concentric) 0.05-0.4"
+   },
+   "colors": {
+    "default": [
+     "#FF4D6D",
+     "#7ED957",
+     "#35C2FF",
+     "#B07CFF",
+     "#F2B134",
+     "#16B39A"
+    ],
+    "doc": "palette for rings without their own colour"
+   },
+   "background": {
+    "default": "#0F1722",
+    "doc": "page colour, or \"transparent\""
+   },
+   "ink": {
+    "default": "#EEF2F7",
+    "doc": "text colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "CSS font family (empty = Space Grotesk)"
+   },
+   "startAt": {
+    "default": 10,
+    "doc": "frame the first ring starts"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed multiplier"
+   }
+  }
+ },
+ {
   "id": "pros-cons-columns",
   "title": "Pros and cons columns",
   "category": "data",
@@ -14791,6 +15672,180 @@
    "bColor": {
     "default": "#43A57A",
     "doc": "b² square / equation colour"
+   }
+  }
+ },
+ {
+  "id": "radar-compare",
+  "title": "Radar compare",
+  "category": "data",
+  "description": "A radar (spider) chart: concentric rings and spokes fade in with axis labels, then each series polygon grows out from the centre in turn with vertex dots and count-up value labels; a legend lists every series with its average.",
+  "useFor": "Comparing two or three things across the same criteria: products, plans, candidates, teams, skill profiles, before / after. Replace axes, series, max and colours.",
+  "source": [
+   "original round-3 chart motion"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "radar",
+   "spider",
+   "web chart",
+   "compare",
+   "comparison",
+   "chart",
+   "data",
+   "skills",
+   "profile",
+   "infographic",
+   "legend",
+   "overlay"
+  ],
+  "file": "src/motions/data/radar-compare.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle",
+   "prefix"
+  ],
+  "colorProps": [
+   "colors",
+   "background",
+   "ink"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "hud"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "axes": {
+    "default": [
+     "Speed",
+     "Quality",
+     "Cost",
+     "Support",
+     "Reach",
+     "Design"
+    ],
+    "doc": "axis labels around the chart (3 or more)"
+   },
+   "series": {
+    "default": [
+     {
+      "name": "Option A",
+      "values": [
+       82,
+       70,
+       55,
+       88,
+       64,
+       76
+      ]
+     },
+     {
+      "name": "Option B",
+      "values": [
+       58,
+       86,
+       78,
+       52,
+       80,
+       62
+      ]
+     }
+    ],
+    "doc": "series [{name, values[] (one per axis), color?}]"
+   },
+   "max": {
+    "default": 100,
+    "doc": "value at the outer ring (0 = largest value in the data)"
+   },
+   "rings": {
+    "default": 4,
+    "doc": "number of grid rings"
+   },
+   "title": {
+    "default": "How the options compare",
+    "doc": "headline (empty = none)"
+   },
+   "subtitle": {
+    "default": "Scores out of 100 on six criteria",
+    "doc": "small line under the headline (empty = none)"
+   },
+   "prefix": {
+    "default": "",
+    "doc": "text before numbers"
+   },
+   "suffix": {
+    "default": "",
+    "doc": "text after numbers"
+   },
+   "decimals": {
+    "default": 0,
+    "doc": "decimal places on numbers"
+   },
+   "showValues": {
+    "default": true,
+    "doc": "value labels at every vertex (best with 1-2 series)"
+   },
+   "showAverage": {
+    "default": true,
+    "doc": "show each series average (count-up) in the legend"
+   },
+   "showLegend": {
+    "default": true,
+    "doc": "legend beside (16:9, 1:1) or below (9:16) the chart"
+   },
+   "fillOpacity": {
+    "default": 0.22,
+    "doc": "polygon fill opacity 0-1"
+   },
+   "colors": {
+    "default": [
+     "#2F6FED",
+     "#FF7A45",
+     "#16B39A",
+     "#F2B134",
+     "#8E5CF0",
+     "#E5487F"
+    ],
+    "doc": "palette for series without their own colour"
+   },
+   "background": {
+    "default": "#F5F3EE",
+    "doc": "page colour, or \"transparent\""
+   },
+   "ink": {
+    "default": "#18212B",
+    "doc": "text and grid colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "CSS font family (empty = Space Grotesk)"
+   },
+   "startAt": {
+    "default": 10,
+    "doc": "frame the grid starts drawing"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed multiplier"
    }
   }
  },
@@ -15173,6 +16228,198 @@
    "surface": {
     "default": "#2A2D2F",
     "doc": "low-ground colour of the lit surface"
+   }
+  }
+ },
+ {
+  "id": "stacked-area-flow",
+  "title": "Stacked area flow",
+  "category": "data",
+  "description": "A smooth stacked area chart (or centred streamgraph) revealed left to right by a wipe: layers swell over the timeline, a dashed scrubber follows the reveal edge with a running total, the legend values count with it, and the axis and gridlines sit quietly behind.",
+  "useFor": "Composition over time: revenue by product line, traffic by source, energy mix, users by plan, time spent by activity. Replace xLabels and series; set baseline \"center\" for a streamgraph look.",
+  "source": [
+   "original round-3 chart motion"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "stacked area",
+   "streamgraph",
+   "area chart",
+   "chart",
+   "data",
+   "composition",
+   "timeline",
+   "trend",
+   "infographic",
+   "count-up",
+   "legend",
+   "overlay"
+  ],
+  "file": "src/motions/data/stacked-area-flow.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle",
+   "prefix"
+  ],
+  "colorProps": [
+   "colors",
+   "background",
+   "ink"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "hud"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "xLabels": {
+    "default": [
+     "2019",
+     "2020",
+     "2021",
+     "2022",
+     "2023",
+     "2024"
+    ],
+    "doc": "labels along the x axis (years, months, ...)"
+   },
+   "series": {
+    "default": [
+     {
+      "name": "Subscriptions",
+      "values": [
+       40,
+       52,
+       66,
+       80,
+       96,
+       118
+      ]
+     },
+     {
+      "name": "Services",
+      "values": [
+       24,
+       26,
+       34,
+       38,
+       46,
+       52
+      ]
+     },
+     {
+      "name": "Hardware",
+      "values": [
+       30,
+       34,
+       30,
+       36,
+       32,
+       40
+      ]
+     },
+     {
+      "name": "Licensing",
+      "values": [
+       10,
+       14,
+       20,
+       26,
+       36,
+       44
+      ]
+     }
+    ],
+    "doc": "layers bottom to top [{name, values[] (one per x label), color?}]"
+   },
+   "baseline": {
+    "default": "zero",
+    "doc": "\"zero\" = stacked area from the axis, \"center\" = streamgraph centred on the middle"
+   },
+   "title": {
+    "default": "Where growth comes from",
+    "doc": "headline (empty = none)"
+   },
+   "subtitle": {
+    "default": "Revenue by line, millions",
+    "doc": "small line under the headline (empty = none)"
+   },
+   "prefix": {
+    "default": "$",
+    "doc": "text before numbers, e.g. \"$\""
+   },
+   "suffix": {
+    "default": "M",
+    "doc": "text after numbers, e.g. \"M\""
+   },
+   "decimals": {
+    "default": 0,
+    "doc": "decimal places on the readouts"
+   },
+   "showGrid": {
+    "default": true,
+    "doc": "horizontal gridlines with value labels (zero baseline only)"
+   },
+   "showLegend": {
+    "default": true,
+    "doc": "legend with live values, beside (16:9) or below (1:1, 9:16)"
+   },
+   "showScrubber": {
+    "default": true,
+    "doc": "dashed line and running total that follow the reveal edge"
+   },
+   "totalLabel": {
+    "default": "Total",
+    "doc": "word before the running total (empty = number only)"
+   },
+   "colors": {
+    "default": [
+     "#2F6FED",
+     "#16B39A",
+     "#F2B134",
+     "#FF7A45",
+     "#8E5CF0",
+     "#E5487F"
+    ],
+    "doc": "palette for series without their own colour"
+   },
+   "background": {
+    "default": "#0F1722",
+    "doc": "page colour, or \"transparent\""
+   },
+   "ink": {
+    "default": "#EEF2F7",
+    "doc": "text and grid colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "CSS font family (empty = Space Grotesk)"
+   },
+   "startAt": {
+    "default": 10,
+    "doc": "frame the reveal starts"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed multiplier"
    }
   }
  },
@@ -16115,6 +17362,185 @@
    "stagger": {
     "default": 26,
     "doc": "frames between circles"
+   }
+  }
+ },
+ {
+  "id": "waterfall-bridge",
+  "title": "Waterfall bridge",
+  "category": "data",
+  "description": "A waterfall / bridge chart: an opening total, then floating increase and decrease bars that grow one after another from the running level, joined by dashed connectors, with signed count-up values and a closing total; vertical on 16:9 and 1:1, horizontal on 9:16.",
+  "useFor": "Explaining how one number became another: revenue bridge, profit walk, budget variance, headcount change, price-volume-mix. Give the opening total, the deltas and let the end total compute itself.",
+  "source": [
+   "original round-3 chart motion"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "waterfall",
+   "bridge",
+   "variance",
+   "walk",
+   "finance",
+   "chart",
+   "data",
+   "increase",
+   "decrease",
+   "infographic",
+   "count-up",
+   "legend",
+   "overlay"
+  ],
+  "file": "src/motions/data/waterfall-bridge.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle",
+   "prefix"
+  ],
+  "colorProps": [
+   "increaseColor",
+   "decreaseColor",
+   "totalColor",
+   "background",
+   "ink"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "nature",
+   "hud"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "steps": {
+    "default": [
+     {
+      "label": "Opening",
+      "value": 120,
+      "total": true
+     },
+     {
+      "label": "New customers",
+      "value": 45
+     },
+     {
+      "label": "Upgrades",
+      "value": 30
+     },
+     {
+      "label": "Churn",
+      "value": -28
+     },
+     {
+      "label": "Refunds",
+      "value": -9
+     },
+     {
+      "label": "Price change",
+      "value": 22
+     }
+    ],
+    "doc": "bars in order [{label, value, total?}]; total:true sets the running level (usually the first), otherwise value is a +/- change"
+   },
+   "autoTotal": {
+    "default": true,
+    "doc": "append a closing total bar computed from the steps"
+   },
+   "endLabel": {
+    "default": "Closing",
+    "doc": "label of the closing total bar"
+   },
+   "title": {
+    "default": "From opening to closing",
+    "doc": "headline (empty = none)"
+   },
+   "subtitle": {
+    "default": "What moved the number, in thousands",
+    "doc": "small line under the headline (empty = none)"
+   },
+   "prefix": {
+    "default": "",
+    "doc": "text before numbers, e.g. \"$\""
+   },
+   "suffix": {
+    "default": "K",
+    "doc": "text after numbers, e.g. \"K\", \"%\""
+   },
+   "decimals": {
+    "default": 0,
+    "doc": "decimal places"
+   },
+   "showConnectors": {
+    "default": true,
+    "doc": "dashed lines joining bars at the running level"
+   },
+   "showGrid": {
+    "default": true,
+    "doc": "value gridlines (with axis labels on 16:9 and 1:1)"
+   },
+   "showLegend": {
+    "default": true,
+    "doc": "increase / decrease / total legend"
+   },
+   "increaseLabel": {
+    "default": "Increase",
+    "doc": "legend text for increases (empty = hide entry)"
+   },
+   "decreaseLabel": {
+    "default": "Decrease",
+    "doc": "legend text for decreases"
+   },
+   "totalLabel": {
+    "default": "Total",
+    "doc": "legend text for totals"
+   },
+   "increaseColor": {
+    "default": "#16B39A",
+    "doc": "colour of increase bars"
+   },
+   "decreaseColor": {
+    "default": "#E5487F",
+    "doc": "colour of decrease bars"
+   },
+   "totalColor": {
+    "default": "#2F6FED",
+    "doc": "colour of total bars"
+   },
+   "background": {
+    "default": "#F5F3EE",
+    "doc": "page colour, or \"transparent\""
+   },
+   "ink": {
+    "default": "#18212B",
+    "doc": "text and grid colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "CSS font family (empty = Space Grotesk)"
+   },
+   "startAt": {
+    "default": 10,
+    "doc": "frame the first bar starts"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed multiplier"
    }
   }
  },
@@ -29044,6 +30470,115 @@
   }
  },
  {
+  "id": "achievement-unlock",
+  "title": "Achievement unlock toast",
+  "category": "game",
+  "description": "A round badge pops with a drawn rim and spark burst, the toast unrolls from it with ACHIEVEMENT UNLOCKED, the title, a description and a points chip, a shine sweeps across, then it rolls back up; several achievements play in turn.",
+  "useFor": "Game and gamified-app reward pop-ups, trophy / badge unlocks in tutorials and courses, milestone \"you earned\" toasts, stream alerts. Replace the items (title, description, points, icon or your own iconSrc) and colours; use background \"transparent\" over gameplay.",
+  "source": [
+   "original"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "achievement",
+   "unlock",
+   "trophy",
+   "badge",
+   "toast",
+   "reward",
+   "game",
+   "gaming",
+   "notification",
+   "gamification",
+   "overlay",
+   "esports",
+   "stream",
+   "alert",
+   "milestone"
+  ],
+  "file": "src/motions/game/achievement-unlock.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "items"
+  ],
+  "colorProps": [
+   "background",
+   "surface",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [],
+  "roles": [
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "items": {
+    "default": [
+     {
+      "title": "First Victory",
+      "description": "Win your first ranked match",
+      "points": 50,
+      "icon": "trophy"
+     },
+     {
+      "title": "Sharpshooter",
+      "description": "Land 100 precision hits in a single season",
+      "points": 100,
+      "icon": "star"
+     }
+    ],
+    "doc": "up to 5 of {title, description?, points?, icon? (trophy|star|crown|bolt|shield|flame|heart), iconSrc? (own image), color?}"
+   },
+   "header": {
+    "default": "Achievement unlocked",
+    "doc": "small label above the title"
+   },
+   "pointsLabel": {
+    "default": "PTS",
+    "doc": "unit under the points number"
+   },
+   "position": {
+    "default": "bottom-center",
+    "doc": "bottom-center | bottom-left | top-center | top-right"
+   },
+   "background": {
+    "default": "#0A0D1A",
+    "doc": "frame colour, or \"transparent\" to overlay gameplay"
+   },
+   "surface": {
+    "default": "#161C34",
+    "doc": "toast card colour"
+   },
+   "ink": {
+    "default": "#F4F6FF",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#FFC933",
+    "doc": "default badge / highlight colour (an item can override with color)"
+   },
+   "fontFamily": {
+    "default": "auto",
+    "doc": "CSS font family, or \"auto\""
+   }
+  }
+ },
+ {
   "id": "army-formation",
   "title": "Army formation",
   "category": "game",
@@ -29212,6 +30747,131 @@
    "statusLabel": {
     "default": "IDLE",
     "doc": "small status text next to the selection label"
+   }
+  }
+ },
+ {
+  "id": "bracket-advance",
+  "title": "Bracket advance",
+  "category": "game",
+  "description": "Single-elimination tournament bracket from your entrants and results: winners light up, connector lines draw on in the accent colour, names advance round by round, losers dim, and a champion card lands. Left-to-right in landscape, top-to-bottom in portrait.",
+  "useFor": "Esports and sports tournament announcements, playoff recaps, \"road to the final\" posts, quiz or pitch-competition brackets. Give `teams` (2-16) and `results` (0 = upper side won, 1 = lower side won per match, per round).",
+  "source": [
+   "original"
+  ],
+  "durationInFrames": 330,
+  "tags": [
+   "esports",
+   "tournament",
+   "bracket",
+   "playoff",
+   "knockout",
+   "elimination",
+   "champion",
+   "game",
+   "gaming",
+   "sports",
+   "versus",
+   "teams",
+   "schedule",
+   "diagram"
+  ],
+  "file": "src/motions/game/bracket-advance.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title"
+  ],
+  "colorProps": [
+   "background",
+   "surface",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 330,
+  "mood": [
+   "nature",
+   "playful"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Playoff Bracket",
+    "doc": "heading"
+   },
+   "teams": {
+    "default": [
+     "Nova",
+     "Vortex",
+     "Ember",
+     "Glacier",
+     "Titan",
+     "Raven",
+     "Apex",
+     "Zenith"
+    ],
+    "doc": "entrants in bracket order (2-16; padded to a power of two with byes)"
+   },
+   "results": {
+    "default": [
+     [
+      0,
+      1,
+      0,
+      0
+     ],
+     [
+      0,
+      1
+     ],
+     [
+      0
+     ]
+    ],
+    "doc": "per round, per match: 0 = the upper entrant won, 1 = the lower one (ignored where a bye decides)"
+   },
+   "roundNames": {
+    "default": [],
+    "doc": "column labels, first round first; empty = automatic (Quarterfinals, Semifinals, Final...)"
+   },
+   "championLabel": {
+    "default": "Champion",
+    "doc": "label above the champion card"
+   },
+   "background": {
+    "default": "#0A0F1E",
+    "doc": "frame colour, or \"transparent\" to overlay content"
+   },
+   "surface": {
+    "default": "#141B33",
+    "doc": "match box colour"
+   },
+   "ink": {
+    "default": "#F3F6FF",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#35E0A1",
+    "doc": "winner path / highlight colour"
+   },
+   "fontFamily": {
+    "default": "auto",
+    "doc": "CSS font family, or \"auto\""
    }
   }
  },
@@ -29473,6 +31133,227 @@
    "alert": {
     "default": "#FF3B3B",
     "doc": "hard-shadow colour of GO! and the last-2-beats numeral"
+   }
+  }
+ },
+ {
+  "id": "kill-streak-banner",
+  "title": "Streak banner (double / triple / ...)",
+  "category": "game",
+  "description": "A slanted full-width banner slams in with shake, flash and speed lines: multiplier badge, tier word (DOUBLE, TRIPLE, QUAD...), lit pips and a counting points reward; each next tier hits harder and shifts colour.",
+  "useFor": "Multi-kill and combo callouts in gaming highlights, win streaks, quiz or sales streaks, \"combo x3\" moments in app demos. Rename labels, suffix, player and points; background \"transparent\" overlays gameplay footage.",
+  "source": [
+   "original"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "streak",
+   "combo",
+   "multi-kill",
+   "double",
+   "triple",
+   "banner",
+   "esports",
+   "game",
+   "gaming",
+   "highlight",
+   "killfeed",
+   "overlay",
+   "score",
+   "multiplier",
+   "callout"
+  ],
+  "file": "src/motions/game/kill-streak-banner.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "labels"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "accent2"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [],
+  "roles": [
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "labels": {
+    "default": [
+     "Double",
+     "Triple",
+     "Quad",
+     "Mega"
+    ],
+    "doc": "tier words in order (Double, Triple, Quad, Mega...)"
+   },
+   "count": {
+    "default": 4,
+    "doc": "how many tiers to play (1-6, at most the number of labels)"
+   },
+   "suffix": {
+    "default": "Streak",
+    "doc": "word after the tier (Streak, Combo, Kill, Win...)"
+   },
+   "startAt": {
+    "default": 2,
+    "doc": "multiplier shown on the first tier (x2 by default)"
+   },
+   "player": {
+    "default": "Player One",
+    "doc": "name on the line under the band"
+   },
+   "detail": {
+    "default": "Opponent eliminated",
+    "doc": "small caption next to the name; empty hides it"
+   },
+   "points": {
+    "default": 100,
+    "doc": "reward per tier step (counts up, grows with each tier); 0 hides it"
+   },
+   "background": {
+    "default": "#0A0C18",
+    "doc": "frame colour, or \"transparent\" to overlay gameplay"
+   },
+   "ink": {
+    "default": "#FFFFFF",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#FFB020",
+    "doc": "first tier colour"
+   },
+   "accent2": {
+    "default": "#FF3D5A",
+    "doc": "final tier colour"
+   },
+   "fontFamily": {
+    "default": "auto",
+    "doc": "CSS font family, or \"auto\""
+   }
+  }
+ },
+ {
+  "id": "level-up-burst",
+  "title": "Level-up burst",
+  "category": "game",
+  "description": "An XP bar fills with a counting reward and overflows in a flash: rays, shockwave rings and sparks burst from a hex level badge whose number ticks up, LEVEL UP slams in, the bar drains to the carry-over and perk chips pop.",
+  "useFor": "Game progression and reward moments, gamified apps and courses (\"you reached level 12\"), streak or rank-up celebrations, creator milestone cards. Replace title, level, xp and perks; works as an overlay with background \"transparent\".",
+  "source": [
+   "original"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "level up",
+   "xp",
+   "progress",
+   "reward",
+   "rank",
+   "game",
+   "gaming",
+   "esports",
+   "celebration",
+   "burst",
+   "rays",
+   "achievement",
+   "gamification",
+   "overlay"
+  ],
+  "file": "src/motions/game/level-up-burst.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "accent2"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "nature"
+  ],
+  "roles": [
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Level Up",
+    "doc": "big word on the burst (LEVEL UP, RANK UP, NEW TIER...)"
+   },
+   "level": {
+    "default": 12,
+    "doc": "the new level shown on the badge (the old one is level - 1)"
+   },
+   "xp": {
+    "default": 1250,
+    "doc": "xp reward counted up on the bar"
+   },
+   "xpLabel": {
+    "default": "XP",
+    "doc": "unit after the number (XP, PTS, STARS)"
+   },
+   "carry": {
+    "default": 0.32,
+    "doc": "fraction of the bar left filled after the level-up (0-1)"
+   },
+   "perks": {
+    "default": [
+     "New ability unlocked",
+     "+10 Max health"
+    ],
+    "doc": "up to 3 chips shown under the bar"
+   },
+   "background": {
+    "default": "#0A0D1A",
+    "doc": "frame colour, or \"transparent\" to overlay content"
+   },
+   "ink": {
+    "default": "#FFFFFF",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#FFC933",
+    "doc": "badge / title / ray colour"
+   },
+   "accent2": {
+    "default": "#33C8FF",
+    "doc": "xp bar colour"
+   },
+   "fontFamily": {
+    "default": "auto",
+    "doc": "CSS font family, or \"auto\""
    }
   }
  },
@@ -29846,6 +31727,146 @@
    "seed": {
     "default": 4,
     "doc": "particle seed"
+   }
+  }
+ },
+ {
+  "id": "match-scoreboard",
+  "title": "Match scoreboard",
+  "category": "game",
+  "description": "Slanted two-team scoreboard with crests, score boxes that roll up point by point with a flash, a centre match clock, a stage label and a subtitle chip.",
+  "useFor": "Esports and sports match overlays, tournament recaps, \"score so far\" cards and stream scenes. Give your team names, tags, logos and colours; use background \"transparent\" to lay it over footage.",
+  "source": [
+   "original"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "esports",
+   "scoreboard",
+   "score",
+   "match",
+   "versus",
+   "teams",
+   "tournament",
+   "sports",
+   "game",
+   "gaming",
+   "stream",
+   "overlay",
+   "clock",
+   "timer",
+   "lower-third",
+   "hud"
+  ],
+  "file": "src/motions/game/match-scoreboard.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "subtitle"
+  ],
+  "colorProps": [
+   "colorA",
+   "colorB",
+   "background",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "hud"
+  ],
+  "roles": [
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "teamA": {
+    "default": "Team Nova",
+    "doc": "left team name (shown at wide frames)"
+   },
+   "teamB": {
+    "default": "Team Vortex",
+    "doc": "right team name"
+   },
+   "tagA": {
+    "default": "NOV",
+    "doc": "left team short tag (3 letters; used in narrow frames and as the logo fallback)"
+   },
+   "tagB": {
+    "default": "VTX",
+    "doc": "right team short tag"
+   },
+   "logoA": {
+    "default": "",
+    "doc": "left logo image (public/ path or URL); empty = coloured tag badge"
+   },
+   "logoB": {
+    "default": "",
+    "doc": "right logo image; empty = coloured tag badge"
+   },
+   "colorA": {
+    "default": "#2F7BFF",
+    "doc": "left team colour"
+   },
+   "colorB": {
+    "default": "#FF4D5E",
+    "doc": "right team colour"
+   },
+   "scoreA": {
+    "default": 3,
+    "doc": "final score of the left team (points tick up one at a time)"
+   },
+   "scoreB": {
+    "default": 2,
+    "doc": "final score of the right team"
+   },
+   "stage": {
+    "default": "Grand Final",
+    "doc": "label above the bar (e.g. Grand Final, Map 2)"
+   },
+   "subtitle": {
+    "default": "Best of 5",
+    "doc": "chip under the clock (e.g. Best of 5); empty hides it"
+   },
+   "clockFrom": {
+    "default": 612,
+    "doc": "match clock at the start, in seconds (counts down if larger than clockTo)"
+   },
+   "clockTo": {
+    "default": 754,
+    "doc": "match clock at the end, in seconds"
+   },
+   "position": {
+    "default": "center",
+    "doc": "center | top | bottom"
+   },
+   "background": {
+    "default": "#080B16",
+    "doc": "frame colour, or \"transparent\" to overlay footage"
+   },
+   "ink": {
+    "default": "#FFFFFF",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#FFC933",
+    "doc": "clock / stage highlight colour"
+   },
+   "fontFamily": {
+    "default": "auto",
+    "doc": "CSS font family, or \"auto\""
    }
   }
  },
@@ -30299,6 +32320,147 @@
   }
  },
  {
+  "id": "player-stat-card",
+  "title": "Player stat card",
+  "category": "game",
+  "description": "Profile card with an avatar panel, name, handle, role and team chips, an overall-rating hex badge and segmented stat bars that fill and count up in turn. Side-by-side in landscape, stacked in portrait.",
+  "useFor": "Esports roster and player-of-the-match cards, character or hero select, fantasy picks, athlete or team-member intros, product-spec \"stat\" cards. Set `src` to the avatar and `stats` to your own labelled numbers.",
+  "source": [
+   "original"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "esports",
+   "player",
+   "stats",
+   "profile",
+   "card",
+   "character",
+   "roster",
+   "rating",
+   "leaderboard",
+   "game",
+   "gaming",
+   "athlete",
+   "bars",
+   "hero",
+   "intro"
+  ],
+  "file": "src/motions/game/player-stat-card.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "surface",
+   "ink",
+   "accent",
+   "accent2"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "nature",
+   "playful"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "name": {
+    "default": "Alex Mercer",
+    "doc": "player name (large)"
+   },
+   "handle": {
+    "default": "@nightfall",
+    "doc": "handle / tagline under the name"
+   },
+   "role": {
+    "default": "Entry",
+    "doc": "filled chip (role, class, position)"
+   },
+   "team": {
+    "default": "Team Nova",
+    "doc": "outlined chip (team, guild, club)"
+   },
+   "src": {
+    "default": "",
+    "doc": "avatar image (public/ path or URL); empty = neutral silhouette with initials"
+   },
+   "stats": {
+    "default": [
+     {
+      "label": "Aim",
+      "value": 92
+     },
+     {
+      "label": "Reaction",
+      "value": 88
+     },
+     {
+      "label": "Teamplay",
+      "value": 76
+     },
+     {
+      "label": "Game sense",
+      "value": 84
+     },
+     {
+      "label": "Clutch",
+      "value": 69
+     }
+    ],
+    "doc": "array of {label, value, max?, suffix?} (up to 6); bars fill to value / max (max defaults to 100)"
+   },
+   "overall": {
+    "default": "auto",
+    "doc": "number for the badge, or \"auto\" to average the stats"
+   },
+   "badgeLabel": {
+    "default": "OVR",
+    "doc": "tiny label in the badge (OVR, LVL, RTG)"
+   },
+   "background": {
+    "default": "#090C1A",
+    "doc": "frame colour, or \"transparent\" to overlay content"
+   },
+   "surface": {
+    "default": "#131A33",
+    "doc": "card colour"
+   },
+   "ink": {
+    "default": "#F3F6FF",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#35E0A1",
+    "doc": "highlight colour (chips, badge, bar end)"
+   },
+   "accent2": {
+    "default": "#2F7BFF",
+    "doc": "second colour (bar start, glow)"
+   },
+   "fontFamily": {
+    "default": "auto",
+    "doc": "CSS font family, or \"auto\""
+   }
+  }
+ },
+ {
   "id": "rocket-to-moon",
   "title": "Rocket to moon",
   "category": "game",
@@ -30510,6 +32672,124 @@
    "background": {
     "default": "#05060F",
     "doc": "letterbox colour"
+   }
+  }
+ },
+ {
+  "id": "stream-starting-soon",
+  "title": "Stream starting soon",
+  "category": "game",
+  "description": "Looping \"starting soon\" screen: drifting stripes and orbs, a big layered title, a ring of ticks sweeping around a live mm:ss countdown, a message line and a ticker that rotates your social handles.",
+  "useFor": "Live-stream, premiere and webinar waiting screens, \"be right back\" and pre-roll loops. Set title, streamer, logoSrc, countdownFrom (seconds) and socials; loop it under the real countdown or render it as the idle scene.",
+  "source": [
+   "original"
+  ],
+  "durationInFrames": 300,
+  "tags": [
+   "stream",
+   "streaming",
+   "starting soon",
+   "countdown",
+   "live",
+   "offline",
+   "be right back",
+   "waiting",
+   "loop",
+   "premiere",
+   "gaming",
+   "esports",
+   "webinar",
+   "socials",
+   "ticker",
+   "idle"
+  ],
+  "file": "src/motions/game/stream-starting-soon.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "accent2"
+  ],
+  "loopable": false,
+  "bestLength": 300,
+  "mood": [],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Starting Soon",
+    "doc": "big title (STARTING SOON, BE RIGHT BACK, WE ARE LIVE...)"
+   },
+   "streamer": {
+    "default": "Your Channel",
+    "doc": "channel / host name shown beside the logo"
+   },
+   "logoSrc": {
+    "default": "",
+    "doc": "logo image (public/ path or URL); empty = coloured initials badge"
+   },
+   "message": {
+    "default": "Grab a drink, we go live in a moment",
+    "doc": "line under the countdown"
+   },
+   "countdownFrom": {
+    "default": 300,
+    "doc": "countdown start in seconds (ticks down once per second through the clip)"
+   },
+   "socials": {
+    "default": [
+     {
+      "label": "Follow",
+      "handle": "@yourhandle"
+     },
+     {
+      "label": "Community",
+      "handle": "yourcommunity.link"
+     },
+     {
+      "label": "Schedule",
+      "handle": "Live Tue / Thu / Sat"
+     }
+    ],
+    "doc": "up to 5 of {label, handle} that rotate in the bottom ticker"
+   },
+   "background": {
+    "default": "#0B0A1E",
+    "doc": "frame colour, or \"transparent\" to overlay content"
+   },
+   "ink": {
+    "default": "#FFFFFF",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#FF3D81",
+    "doc": "main highlight colour"
+   },
+   "accent2": {
+    "default": "#7A5CFF",
+    "doc": "second colour for glow and stripes"
+   },
+   "fontFamily": {
+    "default": "auto",
+    "doc": "CSS font family, or \"auto\""
    }
   }
  },
@@ -42429,6 +44709,129 @@
   }
  },
  {
+  "id": "beat-pulse-rings",
+  "title": "Beat pulse rings (bpm grid)",
+  "category": "music",
+  "description": "Concentric rings pulse out of a centre disc on every beat of a bpm grid: circles, polygons or squares in two colours, bigger echoing rings on every downbeat, the disc kicking with each hit and optionally printing the tempo. Rings are already in flight at frame 0, so a whole number of bars loops seamlessly.",
+  "useFor": "Beat-synced hooks and drops, DJ / club / radio promos, metronome and tempo explainers, heartbeat or sonar-style attention pulses behind a logo or title. Match bpm to the soundtrack.",
+  "source": [
+   "original (beat-synced pulse pattern)"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "beat",
+   "pulse",
+   "rings",
+   "bpm",
+   "tempo",
+   "rhythm",
+   "music",
+   "loop",
+   "loops",
+   "kick",
+   "drop",
+   "dj",
+   "metronome",
+   "radio",
+   "ripple",
+   "sonar",
+   "audio",
+   "overlay"
+  ],
+  "file": "src/motions/music/beat-pulse-rings.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "accent2"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "hud"
+  ],
+  "roles": [
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "bpm": {
+    "default": 120,
+    "doc": "tempo in beats per minute (the ring grid; set to the soundtrack tempo)"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame of beat 0 (shift the grid to line up with a drop)"
+   },
+   "shape": {
+    "default": "circle",
+    "doc": "'circle' | 'polygon' | 'square'"
+   },
+   "sides": {
+    "default": 6,
+    "doc": "number of sides when shape is polygon (3-12)"
+   },
+   "lifeBeats": {
+    "default": 3,
+    "doc": "how many beats a ring lives (bigger = more rings on screen)"
+   },
+   "downbeatEvery": {
+    "default": 4,
+    "doc": "every Nth beat is a big second-colour ring (4 = one per bar of 4/4, 1 = all)"
+   },
+   "thickness": {
+    "default": 6,
+    "doc": "ring stroke thickness in px at 1080p"
+   },
+   "centerText": {
+    "default": "120",
+    "doc": "text in the centre disc (e.g. the bpm, a logo word); empty = no text"
+   },
+   "centerCaption": {
+    "default": "BPM",
+    "doc": "small caps line under the centre text, empty to hide"
+   },
+   "fillDisc": {
+    "default": true,
+    "doc": "true = solid centre disc, false = outline only"
+   },
+   "background": {
+    "default": "#0A0C16",
+    "doc": "background colour, or 'transparent' to overlay on video"
+   },
+   "ink": {
+    "default": "#F4F5FB",
+    "doc": "centre text colour when the disc is an outline"
+   },
+   "accent": {
+    "default": "#5B8CFF",
+    "doc": "colour of the normal beat rings and the disc"
+   },
+   "accent2": {
+    "default": "#FF6FB5",
+    "doc": "colour of the downbeat rings"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family for the centre text"
+   }
+  }
+ },
+ {
   "id": "engraving-hatch",
   "title": "Engraving hatch (white-line plate)",
   "category": "music",
@@ -42526,6 +44929,124 @@
    "labels": {
     "default": true,
     "doc": "mono figure labels"
+   }
+  }
+ },
+ {
+  "id": "equalizer-bars-loop",
+  "title": "Equalizer bars (seamless loop)",
+  "category": "music",
+  "description": "A seamlessly looping equalizer: rounded bars, LED segments, dot stacks or a mirrored centre-line spectrum, bar count, colours, bass profile and glow all adjustable. Heights are beat-locked sine harmonics with whole cycles per loop, so the last frame flows into the first. Text-free, transparent-capable.",
+  "useFor": "Looping music-player glyphs, podcast / radio / stream backdrops, \"audio playing\" indicators, DJ and event lower thirds, lyric-video bases when no soundtrack is wired. Use a short duration (2-4 s) and loop it.",
+  "source": [
+   "original (looping equalizer pattern)"
+  ],
+  "durationInFrames": 120,
+  "tags": [
+   "equalizer",
+   "bars",
+   "loop",
+   "loops",
+   "seamless",
+   "audio",
+   "music",
+   "visualizer",
+   "visualiser",
+   "spectrum",
+   "level meter",
+   "vu",
+   "podcast",
+   "radio",
+   "playing",
+   "overlay",
+   "led"
+  ],
+  "file": "src/motions/music/equalizer-bars-loop.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "colors",
+   "background"
+  ],
+  "loopable": false,
+  "bestLength": 120,
+  "mood": [],
+  "roles": [
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "bars": {
+    "default": 32,
+    "doc": "number of bars (4-120)"
+   },
+   "style": {
+    "default": "bars",
+    "doc": "'bars' | 'segments' (LED blocks) | 'dots' | 'mirror' (grows both ways from the centre line)"
+   },
+   "colors": {
+    "default": [
+     "#7CF5C8",
+     "#5B8CFF",
+     "#FF6FB5"
+    ],
+    "doc": "gradient colours (across the bars, or bottom-to-top when colorMode is height)"
+   },
+   "colorMode": {
+    "default": "across",
+    "doc": "'across' = colour by bar position | 'height' = colour by level (VU style)"
+   },
+   "bpm": {
+    "default": 120,
+    "doc": "tempo that sets the main beat cycles per loop (rounded to whole cycles so the loop is seamless)"
+   },
+   "profile": {
+    "default": "bass-left",
+    "doc": "energy shape across the spectrum: 'bass-left' | 'bass-right' | 'bell' | 'flat'"
+   },
+   "widthFrac": {
+    "default": 0.7,
+    "doc": "width of the equalizer as a fraction of the frame width"
+   },
+   "heightFrac": {
+    "default": 0.45,
+    "doc": "maximum height as a fraction of the frame height"
+   },
+   "gap": {
+    "default": 0.36,
+    "doc": "gap between bars as a fraction of the slot (0-0.9)"
+   },
+   "align": {
+    "default": "center",
+    "doc": "'center' = block centred vertically | 'bottom' = baseline near the bottom edge (mirror style always centres)"
+   },
+   "glow": {
+    "default": 0.4,
+    "doc": "blurred glow strength 0-1 (0 = off)"
+   },
+   "reflection": {
+    "default": true,
+    "doc": "faint reflection under the baseline (bars style, bottom align)"
+   },
+   "background": {
+    "default": "#0A0C16",
+    "doc": "background colour, or 'transparent' to overlay on video"
+   },
+   "seed": {
+    "default": 7,
+    "doc": "pattern seed"
    }
   }
  },
@@ -43100,6 +45621,474 @@
    "size": {
     "default": 118,
     "doc": "lyric size in u (auto-shrinks so the longest word fits)"
+   }
+  }
+ },
+ {
+  "id": "mixer-faders",
+  "title": "Mixer faders (channel strips + meters)",
+  "category": "music",
+  "description": "A mixing-desk panel: per-channel pan knobs that turn to position, segmented green / amber / red level meters that bounce, faders that slide to their level values with a staggered overshoot and then ride gently, mute buttons, labels and a wider stereo master strip. Fully driven by `channels`, `levels`, `pans` and `mutes` arrays.",
+  "useFor": "Music production and mixing tutorials, DAW / plugin promos, \"the mix\" explainers (levels = relative loudness of instruments or any 0-1 data as faders), studio and podcast-editing intros, audio-gear ads.",
+  "source": [
+   "original (mixing console pattern)"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "mixer",
+   "faders",
+   "mixing desk",
+   "console",
+   "levels",
+   "audio",
+   "music",
+   "studio",
+   "daw",
+   "production",
+   "meter",
+   "vu",
+   "knob",
+   "pan",
+   "channels",
+   "sliders",
+   "sound"
+  ],
+  "file": "src/motions/music/mixer-faders.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "caption",
+   "levels"
+  ],
+  "colorProps": [
+   "colors",
+   "background",
+   "panel",
+   "ink",
+   "accent",
+   "hot"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "playful"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "The Mix",
+    "doc": "heading above the desk, empty to hide"
+   },
+   "caption": {
+    "default": "Session 04",
+    "doc": "small caps tag at the right of the heading"
+   },
+   "channels": {
+    "default": [
+     "Kick",
+     "Bass",
+     "Synth",
+     "Vocal",
+     "FX",
+     "Perc"
+    ],
+    "doc": "channel labels (1-12 recommended, 7 characters shown)"
+   },
+   "levels": {
+    "default": [
+     0.74,
+     0.62,
+     0.5,
+     0.82,
+     0.34,
+     0.56
+    ],
+    "doc": "fader position per channel 0-1"
+   },
+   "pans": {
+    "default": [
+     0,
+     -0.1,
+     -0.5,
+     0,
+     0.6,
+     0.35
+    ],
+    "doc": "knob position per channel -1..1 (left to right)"
+   },
+   "mutes": {
+    "default": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "doc": "true per channel to light its mute button and silence the meter"
+   },
+   "masterLevel": {
+    "default": 0.78,
+    "doc": "master fader 0-1"
+   },
+   "showMaster": {
+    "default": true,
+    "doc": "show the wider master strip with a stereo meter"
+   },
+   "masterLabel": {
+    "default": "Master",
+    "doc": "label of the master strip"
+   },
+   "ride": {
+    "default": 1,
+    "doc": "amount of gentle fader riding after they settle (0 = still)"
+   },
+   "colors": {
+    "default": [
+     "#FF6B6B",
+     "#FFB13D",
+     "#3DDC97",
+     "#5B8CFF",
+     "#B47BFF",
+     "#FF6FB5"
+    ],
+    "doc": "fader cap / knob indicator colours, cycled per channel"
+   },
+   "audioSrc": {
+    "default": "",
+    "doc": "soundtrack path/URL; meters follow its spectrum bands. Empty = synthetic beat"
+   },
+   "playAudio": {
+    "default": false,
+    "doc": "also play audioSrc in this layer (leave false if the composition already plays it)"
+   },
+   "bpm": {
+    "default": 118,
+    "doc": "tempo of the synthetic meter pump"
+   },
+   "background": {
+    "default": "#0A0B12",
+    "doc": "background colour, or 'transparent' to overlay on video"
+   },
+   "panel": {
+    "default": "#1C1F2E",
+    "doc": "desk panel colour"
+   },
+   "ink": {
+    "default": "#F4F5FB",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#3DDC97",
+    "doc": "meter green, master label"
+   },
+   "hot": {
+    "default": "#FF4D5E",
+    "doc": "meter red and mute colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family for the heading"
+   },
+   "seed": {
+    "default": 6,
+    "doc": "meter jitter seed"
+   }
+  }
+ },
+ {
+  "id": "now-playing-card",
+  "title": "Now playing card (album art + scrubber + controls)",
+  "category": "music",
+  "description": "Streaming-app style now-playing card: album art, track / artist / album, a gradient scrubber with elapsed and remaining time, shuffle / previous / play-pause / next / repeat controls and a like heart. The play button is pressed (play becomes pause, scrubber starts) and the heart pops, with an equalizer glyph in the corner. Horizontal card on landscape and square, vertical card on portrait.",
+  "useFor": "Music release and playlist promos, \"now playing\" overlays for streams and radio, app-store screenshots for audio apps, podcast and audiobook UI beats. Swap track, artist and cover art; pass audioSrc to make the art breathe.",
+  "source": [
+   "original (now-playing widget pattern)"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "now playing",
+   "music",
+   "player",
+   "card",
+   "album",
+   "scrubber",
+   "controls",
+   "spotify",
+   "streaming",
+   "playlist",
+   "track",
+   "ui",
+   "audio",
+   "overlay",
+   "play button",
+   "song"
+  ],
+  "file": "src/motions/music/now-playing-card.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "label"
+  ],
+  "colorProps": [
+   "background",
+   "cardColor",
+   "ink",
+   "accent",
+   "accent2"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "nature",
+   "ui"
+  ],
+  "roles": [
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "track": {
+    "default": "Golden Hour Drive",
+    "doc": "track title (wraps to 2 lines on portrait, ellipsised on 1 line otherwise)"
+   },
+   "artist": {
+    "default": "Sample Artist",
+    "doc": "artist name"
+   },
+   "album": {
+    "default": "Night Signals - Single",
+    "doc": "album / playlist / episode line"
+   },
+   "label": {
+    "default": "Now playing",
+    "doc": "small caps label above the title"
+   },
+   "coverSrc": {
+    "default": "",
+    "doc": "album art (public/ path or URL); empty = procedural gradient cover"
+   },
+   "audioSrc": {
+    "default": "",
+    "doc": "optional track path/URL: art breathes to its bass; empty = synthetic beat"
+   },
+   "playAudio": {
+    "default": false,
+    "doc": "also play audioSrc in this layer (leave false if the composition already plays it)"
+   },
+   "startSec": {
+    "default": 42,
+    "doc": "playback position at the start (seconds)"
+   },
+   "totalSec": {
+    "default": 214,
+    "doc": "track length in seconds"
+   },
+   "scrubSpeed": {
+    "default": 4,
+    "doc": "how many times faster than real time the scrubber advances (so it visibly moves in a short clip)"
+   },
+   "startPaused": {
+    "default": true,
+    "doc": "true = starts paused and the play button is pressed at pressAt; false = already playing"
+   },
+   "pressAt": {
+    "default": 36,
+    "doc": "frame the play button is pressed (when startPaused)"
+   },
+   "likeAt": {
+    "default": 100,
+    "doc": "frame the like heart pops; -1 = never"
+   },
+   "background": {
+    "default": "#0B0D18",
+    "doc": "page background, or 'transparent' to overlay on video"
+   },
+   "cardColor": {
+    "default": "#181B2C",
+    "doc": "card fill colour"
+   },
+   "ink": {
+    "default": "#F4F5FB",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#3DDC97",
+    "doc": "play button, label, heart and scrubber start colour"
+   },
+   "accent2": {
+    "default": "#5B8CFF",
+    "doc": "scrubber end colour and cover gradient"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family for all text (default: Space Grotesk + Inter)"
+   },
+   "seed": {
+    "default": 11,
+    "doc": "procedural cover seed"
+   }
+  }
+ },
+ {
+  "id": "podcast-audiogram",
+  "title": "Podcast audiogram (cover + waveform + captions)",
+  "category": "music",
+  "description": "Social audiogram clip: cover art that breathes with the beat, show / episode label, title, a seeded waveform whose bars fill with a gradient as a playhead sweeps (bars near the playhead bounce), elapsed / total time and word-by-word caption lines. Landscape = cover left / text right; square and portrait stack cover over text.",
+  "useFor": "Podcast episode teasers, quote clips for Reels / Shorts / LinkedIn, voice-note and radio promos, spoken-word and interview highlights. Pass audioSrc for real audio-reactive bounce.",
+  "source": [
+   "original (podcast-audiogram pattern)"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "podcast",
+   "audiogram",
+   "waveform",
+   "audio",
+   "cover art",
+   "episode",
+   "captions",
+   "progress",
+   "music",
+   "voice",
+   "radio",
+   "quote",
+   "teaser",
+   "social",
+   "overlay"
+  ],
+  "file": "src/motions/music/podcast-audiogram.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "accent2"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "nature",
+   "playful",
+   "editorial"
+  ],
+  "roles": [
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "show": {
+    "default": "The Sample Show",
+    "doc": "podcast / show name (small label)"
+   },
+   "episode": {
+    "default": "Ep 42",
+    "doc": "episode tag shown next to the show name, empty to hide"
+   },
+   "title": {
+    "default": "How small teams ship great work",
+    "doc": "episode title (wraps to 3 lines)"
+   },
+   "speaker": {
+    "default": "Guest name",
+    "doc": "speaker / guest name centred under the waveform, empty to hide"
+   },
+   "captions": {
+    "default": [
+     "The best teams I have seen keep the loop tiny.",
+     "Ship something small, listen, then change one thing.",
+     "That is the whole secret, honestly."
+    ],
+    "doc": "caption lines shown one after another, words light up as they are spoken"
+   },
+   "coverSrc": {
+    "default": "",
+    "doc": "cover art image (public/ path or URL); empty = procedural gradient cover"
+   },
+   "audioSrc": {
+    "default": "",
+    "doc": "soundtrack path/URL used only to make the waveform bounce; empty = synthetic beat"
+   },
+   "playAudio": {
+    "default": false,
+    "doc": "also play audioSrc in this layer (leave false if the composition already plays it)"
+   },
+   "bars": {
+    "default": 56,
+    "doc": "number of waveform bars (16-160)"
+   },
+   "seed": {
+    "default": 5,
+    "doc": "waveform + procedural cover seed"
+   },
+   "startSec": {
+    "default": 754,
+    "doc": "clip start position in the episode (seconds), drives the elapsed time"
+   },
+   "totalSec": {
+    "default": 2310,
+    "doc": "episode length in seconds, shown at the right of the waveform"
+   },
+   "background": {
+    "default": "#0E1020",
+    "doc": "background colour, or 'transparent' to overlay on video"
+   },
+   "ink": {
+    "default": "#F4F5FB",
+    "doc": "text / playhead colour"
+   },
+   "accent": {
+    "default": "#FF7A59",
+    "doc": "played-waveform start colour and label colour"
+   },
+   "accent2": {
+    "default": "#7B61FF",
+    "doc": "played-waveform end colour and cover gradient"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family for all text (default: Space Grotesk + Inter)"
    }
   }
  },
@@ -43824,6 +46813,298 @@
    "seed": {
     "default": 4,
     "doc": "sub-branch variety"
+   }
+  }
+ },
+ {
+  "id": "tracklist-reveal",
+  "title": "Tracklist reveal (numbered tracks + durations)",
+  "category": "music",
+  "description": "Album / EP / playlist tracklist: a header with cover art, title, artist and \"8 tracks · 31:42\" (computed from the durations), then numbered rows slide in one by one with ruled lines and right-aligned times, and a \"now playing\" band with an animated equalizer glyph steps down the list. Two columns on landscape, header-over-list on square and portrait.",
+  "useFor": "Album and EP announcements, playlist and mixtape reveals, setlists, podcast chapter lists, festival lineups (use the duration column for set times), \"what is on the record\" beats.",
+  "source": [
+   "original (tracklist pattern)"
+  ],
+  "durationInFrames": 300,
+  "tags": [
+   "tracklist",
+   "track list",
+   "album",
+   "playlist",
+   "songs",
+   "music",
+   "setlist",
+   "lineup",
+   "durations",
+   "numbered",
+   "list",
+   "chapters",
+   "release",
+   "ep",
+   "mixtape",
+   "now playing"
+  ],
+  "file": "src/motions/music/tracklist-reveal.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "accent2"
+  ],
+  "loopable": false,
+  "bestLength": 300,
+  "mood": [
+   "nature",
+   "editorial"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Night Signals",
+    "doc": "album / playlist title (wraps)"
+   },
+   "artist": {
+    "default": "Sample Artist",
+    "doc": "artist / curator line"
+   },
+   "meta": {
+    "default": "",
+    "doc": "small caps line under the artist; empty = auto \"N tracks · total time\" from the durations"
+   },
+   "tracks": {
+    "default": [
+     {
+      "title": "Golden Hour Drive",
+      "duration": "3:34"
+     },
+     {
+      "title": "Static Bloom",
+      "duration": "4:02"
+     },
+     {
+      "title": "Paper Skyline",
+      "duration": "2:58"
+     },
+     {
+      "title": "Low Tide Radio",
+      "duration": "3:47"
+     },
+     {
+      "title": "Afterimage",
+      "duration": "5:11"
+     },
+     {
+      "title": "Neon Hush",
+      "duration": "3:20"
+     },
+     {
+      "title": "Quiet Machines",
+      "duration": "4:36"
+     },
+     {
+      "title": "Last Train Home",
+      "duration": "4:14"
+     }
+    ],
+    "doc": "array of {title, duration \"m:ss\", artist?} - rows scale down to fit any count"
+   },
+   "coverSrc": {
+    "default": "",
+    "doc": "cover art (public/ path or URL); empty = procedural gradient cover"
+   },
+   "numbered": {
+    "default": true,
+    "doc": "show 01, 02, ... numbers"
+   },
+   "highlight": {
+    "default": true,
+    "doc": "step a now-playing band down the list after the reveal"
+   },
+   "holdPerTrack": {
+    "default": 22,
+    "doc": "frames the band stays on each track"
+   },
+   "stagger": {
+    "default": 7,
+    "doc": "frames between rows sliding in"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the reveal begins"
+   },
+   "background": {
+    "default": "#0E0F1A",
+    "doc": "background colour, or 'transparent' to overlay on video"
+   },
+   "ink": {
+    "default": "#F4F5FB",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#FFB13D",
+    "doc": "label, numbers highlight, now-playing band"
+   },
+   "accent2": {
+    "default": "#7B61FF",
+    "doc": "cover gradient and background tint"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family for all text (default: Space Grotesk + Inter)"
+   },
+   "seed": {
+    "default": 9,
+    "doc": "procedural cover seed"
+   }
+  }
+ },
+ {
+  "id": "vinyl-spin-label",
+  "title": "Vinyl record spin with label + tonearm drop",
+  "category": "music",
+  "description": "A vinyl record on a platter: grooves, track gaps, scratches and two fixed light sheens while it spins up to 33 rpm; the centre label shows your art (or a procedural side-A label), and a metal tonearm swings in, drops onto the groove and slowly tracks inward. Title, artist and caption sit beside it on landscape and below it on square / portrait.",
+  "useFor": "Album / single / playlist announcements, \"now spinning\" stream overlays, vinyl-drop and record-store promos, retro music intros, podcast bumpers. Swap labelSrc for the release art.",
+  "source": [
+   "original (turntable pattern)"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "vinyl",
+   "record",
+   "turntable",
+   "music",
+   "album",
+   "spin",
+   "tonearm",
+   "dj",
+   "retro",
+   "lp",
+   "now playing",
+   "label",
+   "analog",
+   "release",
+   "single",
+   "overlay"
+  ],
+  "file": "src/motions/music/vinyl-spin-label.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "caption"
+  ],
+  "colorProps": [
+   "recordColor",
+   "background",
+   "ink",
+   "accent",
+   "accent2"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "pixel",
+   "nature",
+   "editorial"
+  ],
+  "roles": [
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Midnight Static",
+    "doc": "release / track title (wraps to 3 lines)"
+   },
+   "artist": {
+    "default": "Sample Artist",
+    "doc": "artist name"
+   },
+   "caption": {
+    "default": "Out now on vinyl",
+    "doc": "small caps line under the artist"
+   },
+   "side": {
+    "default": "A",
+    "doc": "side letter on the procedural label and the SIDE tag"
+   },
+   "labelText": {
+    "default": "Sample Records",
+    "doc": "small text on the procedural label (label / brand)"
+   },
+   "labelSrc": {
+    "default": "",
+    "doc": "picture for the record label (public/ path or URL); empty = procedural label"
+   },
+   "rpm": {
+    "default": 33.3,
+    "doc": "revolutions per minute (33.3, 45, 78)"
+   },
+   "tonearm": {
+    "default": true,
+    "doc": "show the tonearm (false = bare spinning record)"
+   },
+   "dropAt": {
+    "default": 30,
+    "doc": "frame the tonearm starts swinging in"
+   },
+   "recordColor": {
+    "default": "#101015",
+    "doc": "vinyl colour (dark for black wax, any colour for coloured vinyl)"
+   },
+   "background": {
+    "default": "#17161f",
+    "doc": "background colour, or 'transparent' to overlay on video"
+   },
+   "ink": {
+    "default": "#F5F3EE",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#F2A33A",
+    "doc": "label colour and tonearm cartridge"
+   },
+   "accent2": {
+    "default": "#C2410C",
+    "doc": "label stripe and background tint"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family for all text (default: Space Grotesk + Inter)"
+   },
+   "seed": {
+    "default": 4,
+    "doc": "groove / scratch seed"
    }
   }
  },
@@ -57323,7 +60604,7 @@
   "id": "rolling-credits",
   "title": "Rolling credits",
   "category": "text",
-  "description": "Credits that roll up from a list of {role, names[]} sections under a title: roles in small tracked accent caps beside (landscape) or above (portrait) the names, soft edge fade, a steady scroll that finishes exactly at the end, or beat-locked glides (set a bpm) that land one section per bar for music.",
+  "description": "Credits that roll up from a list of {role, names[]} sections under a title: roles in small tracked accent caps beside (landscape) or above (portrait) the names, soft edge fade, a steady scroll that settles on the closing line at the end, or beat-locked glides (set a bpm) that land one section per bar for music.",
   "useFor": "End credits for films, videos and podcasts, \"made by\" rolls, cast / crew / thanks lists; pass bpm to match the music.",
   "source": [
    "original (branding pass, round 3)"
@@ -62208,6 +65489,115 @@
   }
  },
  {
+  "id": "empty-state-illustration",
+  "title": "Empty state illustration",
+  "category": "ui",
+  "description": "An original friendly line illustration (empty box, search with no results, or empty inbox with a paper plane) that floats and twinkles, with a title, explanation and a pulsing call-to-action button. Seamless loop.",
+  "useFor": "\"Nothing here yet\" screens, no-results and empty-inbox states, onboarding prompts, 404-style pages, and app demos that need a calm, friendly beat.",
+  "source": [
+   "original"
+  ],
+  "durationInFrames": 150,
+  "tags": [
+   "empty-state",
+   "illustration",
+   "no-results",
+   "inbox",
+   "search",
+   "onboarding",
+   "ui",
+   "app",
+   "website",
+   "loop",
+   "line-art",
+   "cta",
+   "friendly",
+   "404"
+  ],
+  "file": "src/motions/ui/empty-state-illustration.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "accent2"
+  ],
+  "loopable": true,
+  "bestLength": 150,
+  "mood": [
+   "paper",
+   "blueprint",
+   "ui"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "skeleton-shimmer",
+   "toast-stack-loop",
+   "browser-mockup"
+  ],
+  "notes": "Purely periodic (float, twinkle, button pulse): seamless loop. variant: box|search|inbox.",
+  "props": {
+   "variant": {
+    "default": "box",
+    "doc": "box | search | inbox"
+   },
+   "title": {
+    "default": "Nothing here yet",
+    "doc": "headline"
+   },
+   "subtitle": {
+    "default": "When you add your first item it will show up right here. It only takes a minute.",
+    "doc": "one or two explanatory lines"
+   },
+   "cta": {
+    "default": "Add your first item",
+    "doc": "button label"
+   },
+   "showCta": {
+    "default": true,
+    "doc": "show the call-to-action button"
+   },
+   "background": {
+    "default": "#F4F6FB",
+    "doc": "frame colour, or \"transparent\" to overlay content"
+   },
+   "ink": {
+    "default": "#1E2433",
+    "doc": "line and text colour"
+   },
+   "accent": {
+    "default": "#4F6BFF",
+    "doc": "button, highlights and illustration tint"
+   },
+   "accent2": {
+    "default": "#FFB84D",
+    "doc": "secondary sparkle / flap colour"
+   },
+   "fontFamily": {
+    "default": "auto",
+    "doc": "CSS font family, or \"auto\""
+   }
+  }
+ },
+ {
   "id": "glass-lesson-card",
   "title": "Glass lesson cards",
   "category": "ui",
@@ -62541,6 +65931,121 @@
      "Formal"
     ],
     "doc": "chip labels in the controls card (the first is active)"
+   }
+  }
+ },
+ {
+  "id": "hero-gradient-orbs",
+  "title": "Hero gradient orbs",
+  "category": "ui",
+  "description": "Soft, blurred gradient orbs in your brand colours drift and breathe on closed paths — a calm, premium looping background for website heroes, sections and app screens.",
+  "useFor": "A full-bleed website hero or section backdrop behind HTML headlines, a landing-page \"mesh gradient\" that moves, or a soft ambient layer under UI mockups. Overlay-capable with background \"transparent\".",
+  "source": [
+   "original"
+  ],
+  "durationInFrames": 360,
+  "tags": [
+   "hero",
+   "background",
+   "gradient",
+   "orbs",
+   "blobs",
+   "mesh-gradient",
+   "website",
+   "landing",
+   "backdrop",
+   "loop",
+   "calm",
+   "ambient",
+   "overlay",
+   "soft",
+   "ui",
+   "section",
+   "saas"
+  ],
+  "file": "src/motions/ui/hero-gradient-orbs.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "palette",
+   "background"
+  ],
+  "loopable": true,
+  "bestLength": 360,
+  "mood": [
+   "ui"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "blur-in-title",
+   "mask-rise-title",
+   "film-look"
+  ],
+  "notes": "Pass your brand colours in palette. speed is an integer (laps per loop). Put headline text in HTML on top.",
+  "props": {
+   "palette": {
+    "default": [
+     "#6C7BFF",
+     "#FF6FB1",
+     "#44D2FF",
+     "#FFB86B"
+    ],
+    "doc": "orb colours (hex), used round-robin — pass your brand colours"
+   },
+   "count": {
+    "default": 6,
+    "doc": "number of orbs (1-14)"
+   },
+   "size": {
+    "default": 1,
+    "doc": "scale of the orbs (1 = about a third of the frame)"
+   },
+   "drift": {
+    "default": 1,
+    "doc": "how far the orbs travel (0 = still, breathing only)"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "whole laps per 12 s loop (integer; 1 = slow and calm)"
+   },
+   "opacity": {
+    "default": 0.85,
+    "doc": "orb strength 0..1"
+   },
+   "blend": {
+    "default": "screen",
+    "doc": "normal | screen | multiply | plus-lighter (screen on dark, multiply on light)"
+   },
+   "grain": {
+    "default": 0.5,
+    "doc": "film-grain amount 0..1 that hides colour banding"
+   },
+   "vignette": {
+    "default": 0.5,
+    "doc": "edge darkening 0..1 (ignored when transparent)"
+   },
+   "seed": {
+    "default": 11,
+    "doc": "changes the orb layout"
+   },
+   "background": {
+    "default": "#0B1020",
+    "doc": "base colour, or \"transparent\" to layer over other content"
    }
   }
  },
@@ -63349,6 +66854,115 @@
      "#f472b6"
     ],
     "doc": "three accent colours for the page glows and cards"
+   }
+  }
+ },
+ {
+  "id": "loader-spinner-set",
+  "title": "Loader / spinner set",
+  "category": "ui",
+  "description": "Six seamless loading indicators — spinning ring, chasing dots, equaliser bars, orbit, sonar pulse and a morphing shape — with an optional \"Loading…\" label.",
+  "useFor": "Loading, buffering, \"generating…\" and splash screens for apps and websites; pick the variant that matches the brand, or show all six as a sheet.",
+  "source": [
+   "original"
+  ],
+  "durationInFrames": 120,
+  "tags": [
+   "loader",
+   "spinner",
+   "loading",
+   "ui",
+   "progress",
+   "waiting",
+   "buffering",
+   "loop",
+   "website",
+   "app",
+   "splash",
+   "overlay",
+   "dots",
+   "ring",
+   "pulse"
+  ],
+  "file": "src/motions/ui/loader-spinner-set.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "label"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "accent2"
+  ],
+  "loopable": true,
+  "bestLength": 120,
+  "mood": [
+   "hud",
+   "ui"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "film-look",
+   "number-counter",
+   "sonar-ping"
+  ],
+  "notes": "variant: ring|dots|bars|orbit|pulse|morph|all; speed is an integer (whole cycles per loop) so the loop stays seamless.",
+  "props": {
+   "variant": {
+    "default": "ring",
+    "doc": "ring | dots | bars | orbit | pulse | morph | all (all = a sheet of the six)"
+   },
+   "label": {
+    "default": "Loading",
+    "doc": "text under the loader (\"Loading\", \"Generating\", …); animated dots are appended"
+   },
+   "showLabel": {
+    "default": true,
+    "doc": "show the label"
+   },
+   "speed": {
+    "default": 2,
+    "doc": "whole cycles per 4 s loop (integer, 1 = slow, 3 = brisk) — keeps the loop seamless"
+   },
+   "size": {
+    "default": 1,
+    "doc": "scale of the indicator"
+   },
+   "background": {
+    "default": "#F6F7FB",
+    "doc": "frame colour, or \"transparent\" to overlay content"
+   },
+   "ink": {
+    "default": "#1E2433",
+    "doc": "label / track colour"
+   },
+   "accent": {
+    "default": "#4F6BFF",
+    "doc": "main indicator colour"
+   },
+   "accent2": {
+    "default": "#B26BFF",
+    "doc": "secondary colour (gradient / satellites)"
+   },
+   "fontFamily": {
+    "default": "auto",
+    "doc": "CSS font family for the label, or \"auto\""
    }
   }
  },
@@ -64715,6 +68329,108 @@
   }
  },
  {
+  "id": "skeleton-shimmer",
+  "title": "Skeleton shimmer",
+  "category": "ui",
+  "description": "A card, list, profile or card-grid skeleton placeholder with a soft diagonal shimmer sweeping across every bone, in a seamless loop.",
+  "useFor": "Loading states for websites and apps — a \"content is on its way\" backdrop, product demos of fast-loading UI, or a loading overlay before real content fades in.",
+  "source": [
+   "original"
+  ],
+  "durationInFrames": 120,
+  "tags": [
+   "skeleton",
+   "shimmer",
+   "loading",
+   "placeholder",
+   "ui",
+   "website",
+   "app",
+   "loop",
+   "card",
+   "list",
+   "wireframe",
+   "content-loading"
+  ],
+  "file": "src/motions/ui/skeleton-shimmer.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "accent"
+  ],
+  "loopable": true,
+  "bestLength": 120,
+  "mood": [
+   "blueprint",
+   "ui"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "loader-spinner-set",
+   "browser-mockup",
+   "device-mockup"
+  ],
+  "notes": "Seamless loop: the shimmer starts and ends fully off-screen. Dark background colours switch to a dark skeleton.",
+  "props": {
+   "layout": {
+    "default": "card",
+    "doc": "card | list | profile | grid"
+   },
+   "rows": {
+    "default": 3,
+    "doc": "how many text lines / list rows (2-8)"
+   },
+   "sweeps": {
+    "default": 1,
+    "doc": "shimmer passes per 4 s loop (integer)"
+   },
+   "angle": {
+    "default": 18,
+    "doc": "shimmer band tilt in degrees"
+   },
+   "showHeader": {
+    "default": true,
+    "doc": "show a skeleton app header bar"
+   },
+   "background": {
+    "default": "#EDF0F6",
+    "doc": "page colour (dark colours switch to a dark skeleton), or \"transparent\""
+   },
+   "cardColor": {
+    "default": "auto",
+    "doc": "panel colour, or \"auto\""
+   },
+   "boneColor": {
+    "default": "auto",
+    "doc": "placeholder block colour, or \"auto\""
+   },
+   "shimmerColor": {
+    "default": "auto",
+    "doc": "shimmer highlight colour, or \"auto\""
+   },
+   "accent": {
+    "default": "#4F6BFF",
+    "doc": "tint of the call-to-action bone"
+   }
+  }
+ },
+ {
   "id": "sms-thread",
   "title": "SMS thread on a phone",
   "category": "ui",
@@ -65395,6 +69111,131 @@
   }
  },
  {
+  "id": "success-check-burst",
+  "title": "Success / error check burst",
+  "category": "ui",
+  "description": "A badge pops, its ring and a checkmark draw on, a shock ring and particles burst out and a message rises; `error` swaps in a shaking cross, `warning` an exclamation mark. Fades back to empty so it loops.",
+  "useFor": "Payment done, form submitted, upload finished, task failed — a confirmation state for apps, checkout flows, onboarding and product demos.",
+  "source": [
+   "original"
+  ],
+  "durationInFrames": 120,
+  "tags": [
+   "success",
+   "check",
+   "checkmark",
+   "error",
+   "cross",
+   "warning",
+   "confirmation",
+   "done",
+   "ui",
+   "celebrate",
+   "burst",
+   "particles",
+   "status",
+   "loop",
+   "overlay",
+   "app",
+   "website"
+  ],
+  "file": "src/motions/ui/success-check-burst.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "message"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "errorColor",
+   "warningColor",
+   "accent2"
+  ],
+  "loopable": true,
+  "bestLength": 120,
+  "mood": [
+   "ui"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "confetti-burst",
+   "number-counter",
+   "toast-stack-loop"
+  ],
+  "notes": "Fades back to an empty frame at the end, so it loops (frame 0 == last frame). variant: success|error|warning.",
+  "props": {
+   "variant": {
+    "default": "success",
+    "doc": "success | error | warning"
+   },
+   "title": {
+    "default": "Payment successful",
+    "doc": "headline under the badge"
+   },
+   "message": {
+    "default": "Your receipt is on its way to your inbox.",
+    "doc": "one supporting line"
+   },
+   "showText": {
+    "default": true,
+    "doc": "show the title and message"
+   },
+   "particles": {
+    "default": 22,
+    "doc": "particles in the burst (0-60; success and warning only)"
+   },
+   "size": {
+    "default": 1,
+    "doc": "scale of the badge"
+   },
+   "background": {
+    "default": "#F7F8FB",
+    "doc": "frame colour, or \"transparent\" to overlay content"
+   },
+   "ink": {
+    "default": "#1B2233",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#18B26B",
+    "doc": "success colour"
+   },
+   "errorColor": {
+    "default": "#F0506E",
+    "doc": "error colour"
+   },
+   "warningColor": {
+    "default": "#F5A524",
+    "doc": "warning colour"
+   },
+   "accent2": {
+    "default": "#FFC93C",
+    "doc": "second particle colour"
+   },
+   "fontFamily": {
+    "default": "auto",
+    "doc": "CSS font family, or \"auto\""
+   }
+  }
+ },
+ {
   "id": "talking-head-pip",
   "title": "Talking head PiP",
   "category": "ui",
@@ -65660,6 +69501,154 @@
   }
  },
  {
+  "id": "toast-stack-loop",
+  "title": "Toast stack loop",
+  "category": "ui",
+  "description": "App toast notifications slide in one by one, stack with success / error / warning / info icons, count down their dismiss bar and slide out again — a seamless loop over a faint app wireframe.",
+  "useFor": "Product demos of feedback and notifications, a UX-patterns explainer, loading/err states for websites, or an overlay that makes a screenshot feel alive.",
+  "source": [
+   "original"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "toast",
+   "notification",
+   "snackbar",
+   "alert",
+   "ui",
+   "app",
+   "website",
+   "stack",
+   "feedback",
+   "loop",
+   "overlay",
+   "success",
+   "error",
+   "popup"
+  ],
+  "file": "src/motions/ui/toast-stack-loop.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent",
+   "showPage": false
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "toasts"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "errorColor",
+   "warningColor",
+   "infoColor"
+  ],
+  "loopable": true,
+  "bestLength": 240,
+  "mood": [
+   "blueprint",
+   "ui"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "browser-mockup",
+   "device-mockup",
+   "success-check-burst"
+  ],
+  "notes": "Empty at the first and last frame; with background transparent and showPage false it overlays a screenshot or UI.",
+  "props": {
+   "toasts": {
+    "default": [
+     {
+      "type": "success",
+      "title": "Changes saved",
+      "message": "Your profile was updated."
+     },
+     {
+      "type": "info",
+      "title": "New version available",
+      "message": "Refresh to get the latest features."
+     },
+     {
+      "type": "warning",
+      "title": "Storage almost full",
+      "message": "92% of your plan is used."
+     },
+     {
+      "type": "error",
+      "title": "Payment failed",
+      "message": "Check your card details and try again."
+     }
+    ],
+    "doc": "array of {type: success|error|warning|info, title, message?} (up to 6)"
+   },
+   "position": {
+    "default": "bottom-right",
+    "doc": "bottom-right | top-right | bottom-center | top-center"
+   },
+   "theme": {
+    "default": "light",
+    "doc": "light | dark toast cards"
+   },
+   "life": {
+    "default": 84,
+    "doc": "frames each toast stays before auto-dismiss (shrinks automatically to fit the loop)"
+   },
+   "stagger": {
+    "default": 34,
+    "doc": "frames between toast arrivals"
+   },
+   "showPage": {
+    "default": true,
+    "doc": "draw a faint app wireframe behind the toasts"
+   },
+   "background": {
+    "default": "#EEF1F7",
+    "doc": "frame colour, or \"transparent\" to overlay content"
+   },
+   "surfaceColor": {
+    "default": "auto",
+    "doc": "toast card colour, or \"auto\""
+   },
+   "ink": {
+    "default": "#1B2233",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#18B26B",
+    "doc": "success colour"
+   },
+   "errorColor": {
+    "default": "#F0506E",
+    "doc": "error colour"
+   },
+   "warningColor": {
+    "default": "#F5A524",
+    "doc": "warning colour"
+   },
+   "infoColor": {
+    "default": "#4F6BFF",
+    "doc": "info colour"
+   },
+   "fontFamily": {
+    "default": "auto",
+    "doc": "CSS font family, or \"auto\""
+   }
+  }
+ },
+ {
   "id": "tv-wall-switch-on",
   "title": "TV wall switch-on",
   "category": "ui",
@@ -65811,6 +69800,142 @@
      "#3F5068"
     ],
     "doc": "cassette spine colours (hex list, picked at random per cassette)"
+   }
+  }
+ },
+ {
+  "id": "typing-indicator-chat",
+  "title": "Chat with typing indicator",
+  "category": "ui",
+  "description": "A chat window: replies appear as bouncing typing dots that morph into the message, your messages slide in, the thread scrolls and clears at the end — a seamless loop. Messages are a prop.",
+  "useFor": "Support-bot, AI-assistant and messaging product demos, \"talk to us\" website sections, onboarding conversations, any \"someone is typing…\" beat.",
+  "source": [
+   "original"
+  ],
+  "durationInFrames": 270,
+  "tags": [
+   "chat",
+   "typing",
+   "typing-indicator",
+   "messages",
+   "bubbles",
+   "chatbot",
+   "support",
+   "assistant",
+   "ui",
+   "app",
+   "website",
+   "loop",
+   "messenger",
+   "conversation"
+  ],
+  "file": "src/motions/ui/typing-indicator-chat.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "messages",
+   "contact"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent"
+  ],
+  "loopable": true,
+  "bestLength": 270,
+  "mood": [
+   "playful",
+   "ui"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "device-mockup",
+   "sms-thread",
+   "film-look"
+  ],
+  "notes": "Conversation clears at the end so it loops; messages is a prop (from \"me\"|\"them\").",
+  "props": {
+   "messages": {
+    "default": [
+     {
+      "from": "me",
+      "text": "Hi! Can you help me change my delivery address?"
+     },
+     {
+      "from": "them",
+      "text": "Of course! Which order is it for?"
+     },
+     {
+      "from": "me",
+      "text": "Order #4821, it ships tomorrow."
+     },
+     {
+      "from": "them",
+      "text": "Done, it will now arrive at your new address. Anything else?"
+     }
+    ],
+    "doc": "array of {from: \"me\" | \"them\", text} (up to 8); \"them\" messages get a typing indicator first"
+   },
+   "contact": {
+    "default": "Support",
+    "doc": "name in the chat header (also colours the avatar)"
+   },
+   "status": {
+    "default": "Online",
+    "doc": "small line under the name (\"Online\", \"typing…\")"
+   },
+   "typingFrames": {
+    "default": 40,
+    "doc": "frames the typing dots bounce before each reply"
+   },
+   "gap": {
+    "default": 16,
+    "doc": "frames of pause between messages"
+   },
+   "showHeader": {
+    "default": true,
+    "doc": "show the contact header"
+   },
+   "showTyping": {
+    "default": true,
+    "doc": "show the typing indicator before incoming messages"
+   },
+   "background": {
+    "default": "#E9EDF6",
+    "doc": "frame colour, or \"transparent\" to overlay content"
+   },
+   "windowColor": {
+    "default": "auto",
+    "doc": "chat window colour, or \"auto\""
+   },
+   "bubbleColor": {
+    "default": "auto",
+    "doc": "incoming bubble colour, or \"auto\""
+   },
+   "ink": {
+    "default": "#1B2233",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#4F6BFF",
+    "doc": "your bubble colour"
+   },
+   "fontFamily": {
+    "default": "auto",
+    "doc": "CSS font family, or \"auto\""
    }
   }
  },
@@ -66115,6 +70240,127 @@
    "cursor": {
     "default": true,
     "doc": "show a small cursor that operates each state"
+   }
+  }
+ },
+ {
+  "id": "upload-progress",
+  "title": "Upload progress card",
+  "category": "ui",
+  "description": "A file card with an extension badge, file name and size: the progress bar fills with stop-and-go speed and a live percentage, then turns green with a check at 100%. Enters and leaves so it loops.",
+  "useFor": "Upload / download / export states, file-sharing and cloud-storage product demos, \"your file is being processed\" beats, app-store style screenshots.",
+  "source": [
+   "original"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "upload",
+   "progress",
+   "progress-bar",
+   "file",
+   "download",
+   "ui",
+   "app",
+   "website",
+   "loading",
+   "done",
+   "loop",
+   "storage",
+   "cloud",
+   "overlay"
+  ],
+  "file": "src/motions/ui/upload-progress.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "fileName",
+   "statusLabel",
+   "doneLabel"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "doneColor"
+  ],
+  "loopable": true,
+  "bestLength": 180,
+  "mood": [
+   "ui"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [
+   "skeleton-shimmer",
+   "success-check-burst",
+   "browser-mockup"
+  ],
+  "notes": "Card enters, uploads to 100%, completes and leaves: seamless loop.",
+  "props": {
+   "fileName": {
+    "default": "brand-guidelines.pdf",
+    "doc": "file name (its extension becomes the badge)"
+   },
+   "fileSize": {
+    "default": 24.6,
+    "doc": "total size as a number (shown as \"x of y\")"
+   },
+   "sizeUnit": {
+    "default": "MB",
+    "doc": "unit label after the size (MB, KB, GB)"
+   },
+   "statusLabel": {
+    "default": "Uploading…",
+    "doc": "status text while uploading"
+   },
+   "doneLabel": {
+    "default": "Upload complete",
+    "doc": "status text when finished"
+   },
+   "speedLabel": {
+    "default": "3.2 MB/s",
+    "doc": "optional speed text next to the status (empty to hide)"
+   },
+   "showCancel": {
+    "default": true,
+    "doc": "show a small \"Cancel\" link while uploading"
+   },
+   "background": {
+    "default": "#EEF1F7",
+    "doc": "frame colour, or \"transparent\" to overlay content"
+   },
+   "cardColor": {
+    "default": "auto",
+    "doc": "card colour, or \"auto\""
+   },
+   "ink": {
+    "default": "#1B2233",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#4F6BFF",
+    "doc": "progress colour"
+   },
+   "doneColor": {
+    "default": "#18B26B",
+    "doc": "colour of the finished state"
+   },
+   "fontFamily": {
+    "default": "auto",
+    "doc": "CSS font family, or \"auto\""
    }
   }
  },

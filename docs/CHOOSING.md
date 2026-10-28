@@ -235,6 +235,14 @@ Generated from `docs/motion-meta.json` by `cli/gen-docs.mjs`.
 | `browser-mockup` | subject | `star-glint`, `confetti-burst`, `mask-rise-title` | heroSrc = your real screenshot or hero art. |
 | `card-fan` | subject | `sparkle-burst`, `number-counter`, `comic-burst` |  |
 | `chat-bubbles` | subject | `emote-pop`, `starfield-night`, `box-bot` |  |
+| `empty-state-illustration` | subject | `skeleton-shimmer`, `toast-stack-loop`, `browser-mockup` | Purely periodic (float, twinkle, button pulse): seamless loop. variant: box\|search\|inbox. |
+| `hero-gradient-orbs` | accent, subject | `blur-in-title`, `mask-rise-title`, `film-look` | Pass your brand colours in palette. speed is an integer (laps per loop). Put headline text in HTML on top. |
+| `loader-spinner-set` | accent, subject | `film-look`, `number-counter`, `sonar-ping` | variant: ring\|dots\|bars\|orbit\|pulse\|morph\|all; speed is an integer (whole cycles per loop) so the loop stays seamless. |
+| `skeleton-shimmer` | accent, subject | `loader-spinner-set`, `browser-mockup`, `device-mockup` | Seamless loop: the shimmer starts and ends fully off-screen. Dark background colours switch to a dark skeleton. |
 | `sms-thread` | subject | `film-look`, `number-counter`, `confetti-burst` |  |
 | `split-compare` | subject | `mask-rise-title`, `film-look`, `callout-labels` |  |
+| `success-check-burst` | accent, subject | `confetti-burst`, `number-counter`, `toast-stack-loop` | Fades back to an empty frame at the end, so it loops (frame 0 == last frame). variant: success\|error\|warning. |
+| `toast-stack-loop` | accent, subject | `browser-mockup`, `device-mockup`, `success-check-burst` | Empty at the first and last frame; with background transparent and showPage false it overlays a screenshot or UI. |
+| `typing-indicator-chat` | subject | `device-mockup`, `sms-thread`, `film-look` | Conversation clears at the end so it loops; messages is a prop (from "me"\|"them"). |
+| `upload-progress` | accent, subject | `skeleton-shimmer`, `success-check-burst`, `browser-mockup` | Card enters, uploads to 100%, completes and leaves: seamless loop. |
 <!-- pairs:end -->

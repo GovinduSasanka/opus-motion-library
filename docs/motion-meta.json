@@ -978,6 +978,107 @@
     "photo",
     "editorial"
    ]
+  },
+  "loader-spinner-set": {
+   "loopable": true,
+   "bestLength": 120,
+   "pairsWith": [
+    "film-look",
+    "number-counter",
+    "sonar-ping"
+   ],
+   "notes": "variant: ring|dots|bars|orbit|pulse|morph|all; speed is an integer (whole cycles per loop) so the loop stays seamless."
+  },
+  "skeleton-shimmer": {
+   "loopable": true,
+   "bestLength": 120,
+   "pairsWith": [
+    "loader-spinner-set",
+    "browser-mockup",
+    "device-mockup"
+   ],
+   "notes": "Seamless loop: the shimmer starts and ends fully off-screen. Dark background colours switch to a dark skeleton."
+  },
+  "success-check-burst": {
+   "loopable": true,
+   "bestLength": 120,
+   "pairsWith": [
+    "confetti-burst",
+    "number-counter",
+    "toast-stack-loop"
+   ],
+   "notes": "Fades back to an empty frame at the end, so it loops (frame 0 == last frame). variant: success|error|warning.",
+   "textProps": [
+    "title",
+    "message"
+   ]
+  },
+  "toast-stack-loop": {
+   "loopable": true,
+   "bestLength": 240,
+   "overlay": true,
+   "overlayProps": {
+    "background": "transparent",
+    "showPage": false
+   },
+   "pairsWith": [
+    "browser-mockup",
+    "device-mockup",
+    "success-check-burst"
+   ],
+   "notes": "Empty at the first and last frame; with background transparent and showPage false it overlays a screenshot or UI.",
+   "textProps": [
+    "toasts"
+   ]
+  },
+  "upload-progress": {
+   "loopable": true,
+   "bestLength": 180,
+   "pairsWith": [
+    "skeleton-shimmer",
+    "success-check-burst",
+    "browser-mockup"
+   ],
+   "notes": "Card enters, uploads to 100%, completes and leaves: seamless loop.",
+   "textProps": [
+    "fileName",
+    "statusLabel",
+    "doneLabel"
+   ]
+  },
+  "typing-indicator-chat": {
+   "loopable": true,
+   "bestLength": 270,
+   "pairsWith": [
+    "device-mockup",
+    "sms-thread",
+    "film-look"
+   ],
+   "notes": "Conversation clears at the end so it loops; messages is a prop (from \"me\"|\"them\")."
+  },
+  "empty-state-illustration": {
+   "loopable": true,
+   "bestLength": 150,
+   "pairsWith": [
+    "skeleton-shimmer",
+    "toast-stack-loop",
+    "browser-mockup"
+   ],
+   "notes": "Purely periodic (float, twinkle, button pulse): seamless loop. variant: box|search|inbox."
+  },
+  "hero-gradient-orbs": {
+   "loopable": true,
+   "bestLength": 360,
+   "overlay": true,
+   "overlayProps": {
+    "background": "transparent"
+   },
+   "pairsWith": [
+    "blur-in-title",
+    "mask-rise-title",
+    "film-look"
+   ],
+   "notes": "Pass your brand colours in palette. speed is an integer (laps per loop). Put headline text in HTML on top."
   }
  }
 }

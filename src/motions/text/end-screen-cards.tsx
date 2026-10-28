@@ -65,29 +65,27 @@ const EndScreenCards: React.FC<Props> = ({title, subtitle, cards, circleLabel, c
   let titleY: number;
   if (wide) {
     cw = Math.min(w * 0.3, h * 0.5 * cardAr);
-    circleR = Math.min(h * 0.19, w * 0.1);
+    circleR = Math.min(h * 0.17, w * 0.085);
     const row = h * 0.52;
-    const gap = Math.min(w * 0.04, 70 * u);
+    const gap = 34 * u + circleR * 0.2;
     const total = cw * 2 + circleR * 2 + gap * 2;
     const x0 = (w - total) / 2;
     circleC = [x0 + cw + gap + circleR, row];
     cardPos = [[x0, row - cw / cardAr / 2], [x0 + cw + gap * 2 + circleR * 2, row - cw / cardAr / 2]];
     titleY = h * 0.15;
   } else if (portrait) {
-    cw = w * 0.78;
-    circleR = w * 0.2;
-    circleC = [cx, h * 0.3];
+    cw = w * 0.68;
+    circleR = w * 0.16;
+    circleC = [cx, h * 0.245];
     const ch = cw / cardAr;
-    const y0 = h * 0.45;
-    cardPos = [[(w - cw) / 2, y0], [(w - cw) / 2, y0 + ch + 70 * u]];
-    titleY = h * 0.09;
+    const y0 = h * 0.385;
+    cardPos = [[(w - cw) / 2, y0], [(w - cw) / 2, y0 + ch + 76 * u]];
+    titleY = h * 0.075;
   } else {
-    cw = w * 0.42;
-    circleR = h * 0.16;
-    circleC = [cx, h * 0.38];
-    const ch = cw / cardAr;
-    cardPos = [[w * 0.06, h * 0.62], [w * 0.52, h * 0.62]];
-    void ch;
+    cw = w * 0.4;
+    circleR = h * 0.135;
+    circleC = [cx, h * 0.335];
+    cardPos = [[w * 0.08, h * 0.6], [w * 0.52, h * 0.6]];
     titleY = h * 0.1;
   }
   const ch = cw / cardAr;
@@ -164,7 +162,7 @@ const EndScreenCards: React.FC<Props> = ({title, subtitle, cards, circleLabel, c
         );
       })}
       {subtitle && (
-        <div style={{position: 'absolute', left: 0, right: 0, bottom: h * (wide ? 0.07 : portrait ? 0.045 : 0.07), textAlign: 'center', color: sub, fontWeight: 600, fontSize: (portrait ? 34 : 28) * u, letterSpacing: '0.04em', opacity: subT, transform: `translateY(${(1 - subT) * 14 * u}px)`, padding: `0 ${w * 0.06}px`}}>
+        <div style={{position: 'absolute', left: 0, right: 0, bottom: h * (wide ? 0.07 : portrait ? 0.045 : 0.035), textAlign: 'center', color: sub, fontWeight: 600, fontSize: (portrait ? 34 : 28) * u, letterSpacing: '0.04em', opacity: subT, transform: `translateY(${(1 - subT) * 14 * u}px)`, padding: `0 ${w * 0.06}px`}}>
           {subtitle}
         </div>
       )}

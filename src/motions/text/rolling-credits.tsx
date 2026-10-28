@@ -7,7 +7,7 @@ import {defineMotion} from '../../core/types';
 
 /**
  * Rolling credits. `sections` ([{role, names[]}]) are laid out as a title block, one block per section and an optional closing
- * line. They either roll up at a steady speed so the last block clears the top exactly at the end, or (`bpm` > 0) glide up
+ * line. They either roll up at a steady speed so the closing line comes to rest in the middle exactly at the end, or (`bpm` > 0) glide up
  * block by block, landing each one on the beat so the roll can follow music. Roles and names are split in two columns on
  * landscape and stacked and centred on square / portrait frames.
  */
@@ -35,7 +35,7 @@ const RollingCredits: React.FC<Props> = ({title, sections, closing, layout, bpm,
   const split = layout === 'split' || (layout === 'auto' && !portrait && w / h > 1.3);
   const nameFs = (portrait ? 52 : split ? 46 : 48) * u;
   const nameLh = nameFs * 1.38;
-  const roleFs = (portrait ? 26 : 22) * u;
+  const roleFs = (portrait ? 30 : 26) * u;
   const roleLh = roleFs * 1.5;
   const titleFs = (portrait ? 96 : 88) * u;
   const gap = (portrait ? 150 : 120) * u;
@@ -148,7 +148,7 @@ export const rollingCredits = defineMotion<Props>({
   title: 'Rolling credits',
   category: 'text',
   description:
-    'Credits that roll up from a list of {role, names[]} sections under a title: roles in small tracked accent caps beside (landscape) or above (portrait) the names, soft edge fade, a steady scroll that finishes exactly at the end, or beat-locked glides (set a bpm) that land one section per bar for music.',
+    'Credits that roll up from a list of {role, names[]} sections under a title: roles in small tracked accent caps beside (landscape) or above (portrait) the names, soft edge fade, a steady scroll that settles on the closing line at the end, or beat-locked glides (set a bpm) that land one section per bar for music.',
   source: ['original (branding pass, round 3)'],
   useFor: 'End credits for films, videos and podcasts, "made by" rolls, cast / crew / thanks lists; pass bpm to match the music.',
   durationInFrames: 480,

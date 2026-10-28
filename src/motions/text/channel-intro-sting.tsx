@@ -87,7 +87,7 @@ const ChannelIntroSting: React.FC<Props> = ({name, tagline, src, background, acc
     <AbsoluteFill style={{background: bg, overflow: 'hidden'}}>
       <Svg style={{opacity: 1 - outT * 0.0}}>{shapeEls}</Svg>
       {/* flash ring where the shapes collapse */}
-      <AbsoluteFill style={{background: '#ffffff', opacity: flash * 0.35}} />
+      <AbsoluteFill style={{background: '#ffffff', opacity: flash * 0.22}} />
       {/* band */}
       <div
         style={{

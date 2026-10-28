@@ -710,6 +710,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "bar-race": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 240,
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light"
+ },
  "beat-montage": {
   "overlay": false,
   "overlayProps": null,
@@ -758,6 +771,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "loopable": false,
   "bestLength": 180,
   "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "donut-breakdown": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 180,
+  "roles": [
+   "accent",
    "subject"
   ],
   "weight": "light"
@@ -847,6 +873,31 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "overlayProps": null,
   "loopable": false,
   "bestLength": 240,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "funnel-conversion": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 180,
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "gauge-kpi-dial": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 150,
   "roles": [
    "subject"
   ],
@@ -1012,6 +1063,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "progress-rings-stats": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 150,
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light"
+ },
  "pros-cons-columns": {
   "overlay": true,
   "overlayProps": {
@@ -1030,6 +1094,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "loopable": false,
   "bestLength": 220,
   "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "radar-compare": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 180,
+  "roles": [
+   "accent",
    "subject"
   ],
   "weight": "light"
@@ -1060,6 +1137,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "loopable": false,
   "bestLength": 180,
   "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "stacked-area-flow": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 210,
+  "roles": [
+   "accent",
    "subject"
   ],
   "weight": "light"
@@ -1134,6 +1224,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "loopable": false,
   "bestLength": 210,
   "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "waterfall-bridge": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 180,
+  "roles": [
+   "accent",
    "subject"
   ],
   "weight": "light"
@@ -2246,11 +2349,35 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "achievement-unlock": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 240,
+  "roles": [
+   "accent"
+  ],
+  "weight": "light"
+ },
  "army-formation": {
   "overlay": false,
   "overlayProps": null,
   "loopable": false,
   "bestLength": 180,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "bracket-advance": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 330,
   "roles": [
    "subject"
   ],
@@ -2275,6 +2402,30 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "bestLength": 180,
   "roles": [
    "subject"
+  ],
+  "weight": "light"
+ },
+ "kill-streak-banner": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 240,
+  "roles": [
+   "accent"
+  ],
+  "weight": "light"
+ },
+ "level-up-burst": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 210,
+  "roles": [
+   "accent"
   ],
   "weight": "light"
  },
@@ -2305,6 +2456,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "bestLength": 150,
   "roles": [
    "subject"
+  ],
+  "weight": "light"
+ },
+ "match-scoreboard": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 240,
+  "roles": [
+   "accent"
   ],
   "weight": "light"
  },
@@ -2348,6 +2511,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "player-stat-card": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 240,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
  "rocket-to-moon": {
   "overlay": false,
   "overlayProps": null,
@@ -2361,6 +2536,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
  "rpg-menu-ui": {
   "overlay": false,
   "overlayProps": null,
+  "loopable": false,
+  "bestLength": 300,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "stream-starting-soon": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
   "loopable": false,
   "bestLength": 300,
   "roles": [
@@ -3283,6 +3470,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "beat-pulse-rings": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 240,
+  "roles": [
+   "accent"
+  ],
+  "weight": "light"
+ },
  "engraving-hatch": {
   "overlay": true,
   "overlayProps": {
@@ -3292,6 +3491,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "bestLength": 240,
   "roles": [
    "subject"
+  ],
+  "weight": "light"
+ },
+ "equalizer-bars-loop": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 120,
+  "roles": [
+   "accent"
   ],
   "weight": "light"
  },
@@ -3353,6 +3564,42 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "mixer-faders": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 240,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "now-playing-card": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 180,
+  "roles": [
+   "accent"
+  ],
+  "weight": "light"
+ },
+ "podcast-audiogram": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 240,
+  "roles": [
+   "accent"
+  ],
+  "weight": "light"
+ },
  "shutter-blur": {
   "overlay": true,
   "overlayProps": {
@@ -3411,6 +3658,30 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "bestLength": 300,
   "roles": [
    "subject"
+  ],
+  "weight": "light"
+ },
+ "tracklist-reveal": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 300,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "vinyl-spin-label": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 240,
+  "roles": [
+   "accent"
   ],
   "weight": "light"
  },
@@ -4865,6 +5136,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "empty-state-illustration": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": true,
+  "bestLength": 150,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
  "glass-lesson-card": {
   "overlay": true,
   "overlayProps": {
@@ -4885,6 +5168,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "loopable": false,
   "bestLength": 210,
   "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "hero-gradient-orbs": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": true,
+  "bestLength": 360,
+  "roles": [
+   "accent",
    "subject"
   ],
   "weight": "light"
@@ -4950,6 +5246,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "loopable": false,
   "bestLength": 200,
   "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "loader-spinner-set": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": true,
+  "bestLength": 120,
+  "roles": [
+   "accent",
    "subject"
   ],
   "weight": "light"
@@ -5060,6 +5369,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "skeleton-shimmer": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": true,
+  "bestLength": 120,
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light"
+ },
  "sms-thread": {
   "overlay": false,
   "overlayProps": null,
@@ -5115,6 +5437,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "success-check-burst": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": true,
+  "bestLength": 120,
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light"
+ },
  "talking-head-pip": {
   "overlay": false,
   "overlayProps": null,
@@ -5138,11 +5473,37 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "toast-stack-loop": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent",
+   "showPage": false
+  },
+  "loopable": true,
+  "bestLength": 240,
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light"
+ },
  "tv-wall-switch-on": {
   "overlay": false,
   "overlayProps": null,
   "loopable": false,
   "bestLength": 150,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "typing-indicator-chat": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": true,
+  "bestLength": 270,
   "roles": [
    "subject"
   ],
@@ -5164,6 +5525,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "loopable": false,
   "bestLength": 205,
   "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "upload-progress": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": true,
+  "bestLength": 180,
+  "roles": [
+   "accent",
    "subject"
   ],
   "weight": "light"

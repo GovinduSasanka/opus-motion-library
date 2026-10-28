@@ -50,7 +50,7 @@ const SponsorSlate: React.FC<Props> = ({label, name, src, offer, disclaimer, bac
   const out = fadeOut ? eio(seg(frame, D - 16, D)) : 0;
   const lineLen = Math.min(w * 0.16, 200 * u) * lineT;
   const labFs = (portrait ? 28 : 24) * u;
-  const labW = label.length * labFs * 0.62 + 0.4 * labFs * label.length * 0.5;
+  const labW = label.length * labFs * 1.12;
 
   const sx = mix(-0.3, 1.3, sheen);
   return (
