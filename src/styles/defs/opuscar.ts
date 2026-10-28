@@ -112,7 +112,7 @@ export const letterpressNewsprint = defineStyle({
   palette: {bg: '#D9D4C7', paper: '#D9D4C7', ink: '#1A1A1A', accent: '#1A1A1A', swatches: ['#1A1A1A', '#5A5750', '#D9D4C7']},
   steps: [
     {type: 'saturate', value: 0},
-    {type: 'grade', gamma: 0.6, lift: 0.1},
+    {type: 'grade', gamma: 1.7, lift: 0.08},
     {type: 'contrast', value: 1.3},
     {type: 'lines', gap: 5.5, angle: 0, ink: '#121212', paper: '#DCD7CA'},
     {type: 'bleed', radius: 1, strength: 0.7},
@@ -214,7 +214,7 @@ export const typewriterArt = defineStyle({
   useFor: 'Writers, archives and memos, retro-tech, poetic openers, "typed into existence" reveals.',
   palette: {bg: '#F1EBDD', paper: '#F1EBDD', ink: '#1E1B18', accent: '#B3261E', swatches: ['#F1EBDD', '#1E1B18', '#B3261E']},
   steps: [
-    {type: 'grade', gamma: 0.55, lift: 0.05},
+    {type: 'grade', gamma: 1.8, lift: 0.04},
     {type: 'contrast', value: 1.6},
     {type: 'ascii', cell: 3, ink: '#0C0A08', paper: '#F1EBDD', invert: true, gain: 1.7, gamma: 0.8},
     {type: 'bleed', radius: 0.7, strength: 0.8},

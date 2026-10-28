@@ -432,7 +432,7 @@ export const stainedGlass = defineStyle({
     {type: 'saturate', value: 1.5},
     {type: 'toon', levels: 4, smooth: 3, outline: '#1D1F23', width: 4, strength: 12},
     {type: 'posterize', levels: 6},
-    {type: 'crackle', scale: 90, amount: 1.4, color: '#1D1F23', width: 0.045, mode: 'multiply', seed: 12},
+    {type: 'crackle', scale: 70, amount: 1.1, color: '#1D1F23', width: 0.022, mode: 'multiply', seed: 12},
     {type: 'texture', freq: [0.02, 0.3], amount: 0.1, mode: 'multiply', octaves: 2, seed: 8},
     {type: 'bloom', radius: 8, threshold: 0.6, amount: 0.6},
   ],
