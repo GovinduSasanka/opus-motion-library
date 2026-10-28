@@ -1,6 +1,6 @@
 # Motion catalog
 
-615 motions. Generated from `catalog.json` by `cli/gen-docs.mjs` — do not edit by hand.
+616 motions. Generated from `catalog.json` by `cli/gen-docs.mjs` — do not edit by hand.
 
 Render any of them: `node cli/mgl.mjs render <id> [--props '{...}'] [--format landscape|square|portrait]`. Previews live in `gallery/`.
 
@@ -17,7 +17,7 @@ Choosing: `node cli/mgl.mjs suggest "<what you need>"` and [CHOOSING.md](CHOOSIN
 - [hud](#hud) (35)
 - [camera](#camera) (9)
 - [texture](#texture) (4)
-- [3d](#3d) (45)
+- [3d](#3d) (46)
 - [document](#document) (16)
 - [game](#game) (29)
 - [image](#image) (34)
@@ -31,10 +31,10 @@ Choosing: `node cli/mgl.mjs suggest "<what you need>"` and [CHOOSING.md](CHOOSIN
 
 | capability | motions |
 |---|---|
-| overlay (transparent background — put it on top of other motions or your page) | `floating-devices-stack`, `globe-3d`, `holo-solid-ignite`, `isometric-room-build`, `light-beam-ribbon`, `popup-spread`, `3d-text-extrude-spin`, `creator-hand`, `paper-critter-rig`, `pictogram-figure`, `api-request-flow`, `bar-race`, `bubble-scatter-grow`, `budget-envelope-split`, `cause-effect-chain`, `clock-time-teach`, `comparison-dumbbell`, `deploy-pipeline-stages`, `donut-breakdown`, `fitness-activity-rings`, `floorplan-draw`, `funnel-conversion`, `gantt-timeline`, `gauge-kpi-dial`, `git-branch-graph`, `heart-rate-monitor`, `heatmap-calendar`, `json-tree-expand`, `math-equation-solve`, `network-graph`, `org-chart-tree`, `progress-rings-stats`, `pros-cons-columns`, `radar-compare`, `sankey-flow`, `savings-goal-jar`, `server-rack-status`, `stacked-area-flow`, `star-chart-reward`, `step-process-numbered`, `treemap-split`, `venn-diagram-overlap`, `waterfall-bridge`, `weather-forecast-strip`, `archive-photo-ken-burns-caption`, `certificate-seal`, `form-fill-submit`, `nutrition-facts-label`, `passport-stamps`, `receipt-print`, `aurora`, `bubbles`, `caustics-godrays`, `curl-flow`, `embers`, `falling-petals`, `fireworks`, `flow-lines`, `fog-clouds`, `insect-flight`, `lightning-flash`, `mesh-gradient-bg`, `rain`, `snowfall`, `starfield-night`, `starfield-warp`, `window-glow-sequence`, `backlit-cutout`, `circuit-traces`, `confetti-burst`, `electric-arcs`, `emote-pop`, `eyes-blink`, `fire-flames`, `giant-eye-reveal`, `grease-pencil-mark`, `impact-frame`, `ink-blot-stop`, `long-exposure-trails`, `magnifier-loupe`, `marker-ring-arrow`, `scribble-ball`, `smear-frame`, `smoke-puffs`, `sparkle-burst`, `star-glint`, `sticker-cutout`, `swirl-portal`, `vhs-crt-pass`, `achievement-unlock`, `bracket-advance`, `candy-set-backdrop`, `countdown-to-kickoff`, `kill-streak-banner`, `level-up-burst`, `match-scoreboard`, `match-stats-compare`, `medal-podium`, `player-stat-card`, `race-leaderboard-live`, `shot-map-heat`, `stopwatch-split-times`, `stream-starting-soon`, `team-lineup-pitch`, `transfer-announcement`, `agent-roster`, `blur-redact-region`, `breaking-news-takeover`, `cam-chip-sync-badge`, `click-ripple-markers`, `day-ring-dial`, `event-feed`, `fact-check-meter`, `fight-hud`, `game-hud`, `hand-drawn-arrow-callout`, `hud-chrome`, `interview-name-super`, `location-time-stamp`, `mission-clock`, `news-bug-source-tag`, `numbered-step-badges`, `poll-numbers-split`, `prompt-wall`, `scribble-circle-highlight`, `social-post-embed`, `spec-chip-rail`, `spotlight-dim-focus`, `target-lock-box`, `target-lock`, `tooltip-pointer`, `zoom-inset-box`, `film-look`, `sticker-slap`, `choropleth-fill`, `city-zoom-label`, `coverage-route`, `elevation-profile`, `flight-arcs`, `pin-drop-cluster`, `beat-dance`, `chomp-lid`, `emotion-idle-beat`, `emotion-sheet`, `emotion-timeline`, `mascot-nib`, `mascot-thinking`, `mascot-thumbs-up`, `mascot-wave-hello`, `smear-trail`, `beat-camera`, `beat-grid`, `beat-pulse-rings`, `engraving-hatch`, `equalizer-bars-loop`, `guilloche-note`, `lyric-on-path`, `lyric-timing`, `lyric-video`, `mixer-faders`, `now-playing-card`, `podcast-audiogram`, `shutter-blur`, `stage-curtain`, `time-stutter`, `token-sampler-prompt`, `token-tree`, `tracklist-reveal`, `vinyl-spin-label`, `width-pressure-type`, `add-to-cart-fly`, `coffee-pour-cup`, `colorway-swap`, `coupon-scratch-reveal`, `delivery-tracker`, `feature-callout-orbit`, `flash-deal-timer-card`, `order-confirmation`, `price-tag-drop`, `product-grid-filter`, `size-color-picker`, `spec-compare-table`, `sunburst-hero`, `unbox-lid-lift`, `comet-pulse-guide`, `ink-brush-stroke`, `logo-reveal-liquid`, `motif-grid-pattern`, `nib-follow-camera`, `papercut-rosette`, `toon-cel-shape`, `agenda-list-slide`, `alphabet-letter-trace`, `anniversary-years-badge`, `big-stat-slide`, `birthday-cake-candles`, `blur-in-title`, `channel-intro-sting`, `chapter-countdown`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `countdown-new-year`, `counting-objects`, `definition-card`, `end-card-credits`, `end-screen-cards`, `event-ticket-reveal`, `fill-in-the-blank`, `flashcard-flip-deck`, `follower-milestone`, `glyph-orbit-logo`, `graduation-cap-toss`, `holiday-greeting-card`, `key-takeaway-highlight`, `kinetic-captions`, `logo-reveal-lines`, `mask-rise-title`, `myth-vs-fact`, `news-strap`, `number-counter`, `outline-to-fill-text`, `paper-strip-title`, `per-letter-wave`, `qa-slide`, `quiz-question-reveal`, `quote-slide`, `rolling-credits`, `rsvp-invite-card`, `rundown-board`, `sale-countdown-banner`, `scene-tag`, `split-flap-board`, `sponsor-slate`, `stacked-repeat-echo`, `stamp-slam`, `sting-bug`, `story-caption-box`, `text-on-circle-spin`, `text-scramble-decode`, `typewriter-code`, `typewriter-delete-retype`, `typewriter-signature`, `wedding-save-the-date`, `word-carousel-rotator`, `word-translation-pair`, `bokeh-drift`, `light-leak-wash`, `pattern-scroll`, `agent-log-panel`, `ai-chat-streaming`, `appointment-booking-calendar`, `boarding-pass-print`, `checkout-steps`, `code-diff-highlight`, `comment-bubble-stream`, `cursor-driver`, `empty-state-illustration`, `glass-lesson-card`, `hero-gradient-orbs`, `hotel-rating-card`, `itinerary-route-stops`, `keystroke-hud`, `liquid-glass-lens`, `loader-spinner-set`, `logo-wall-grid`, `menu-board-items`, `notification-stack`, `planned-vs-heard-checklist`, `player-toolbar`, `poll-results-bars`, `property-listing-card`, `recipe-ingredients-steps`, `review-stars-rating`, `roadmap-swimlanes`, `skeleton-shimmer`, `story-progress-frames`, `subscribe-like-bell`, `success-check-burst`, `team-grid-photos`, `terminal-install-progress`, `testimonial-card-carousel`, `three-column-features`, `toast-stack-loop`, `typing-indicator-chat`, `upload-progress` |
+| overlay (transparent background — put it on top of other motions or your page) | `floating-devices-stack`, `globe-3d`, `holo-solid-ignite`, `isometric-room-build`, `light-beam-ribbon`, `orbiting-icons-sphere`, `popup-spread`, `3d-text-extrude-spin`, `creator-hand`, `paper-critter-rig`, `pictogram-figure`, `api-request-flow`, `bar-race`, `bubble-scatter-grow`, `budget-envelope-split`, `cause-effect-chain`, `clock-time-teach`, `comparison-dumbbell`, `deploy-pipeline-stages`, `donut-breakdown`, `fitness-activity-rings`, `floorplan-draw`, `funnel-conversion`, `gantt-timeline`, `gauge-kpi-dial`, `git-branch-graph`, `heart-rate-monitor`, `heatmap-calendar`, `json-tree-expand`, `math-equation-solve`, `network-graph`, `org-chart-tree`, `progress-rings-stats`, `pros-cons-columns`, `radar-compare`, `sankey-flow`, `savings-goal-jar`, `server-rack-status`, `stacked-area-flow`, `star-chart-reward`, `step-process-numbered`, `treemap-split`, `venn-diagram-overlap`, `waterfall-bridge`, `weather-forecast-strip`, `archive-photo-ken-burns-caption`, `certificate-seal`, `form-fill-submit`, `nutrition-facts-label`, `passport-stamps`, `receipt-print`, `aurora`, `bubbles`, `caustics-godrays`, `curl-flow`, `embers`, `falling-petals`, `fireworks`, `flow-lines`, `fog-clouds`, `insect-flight`, `lightning-flash`, `mesh-gradient-bg`, `rain`, `snowfall`, `starfield-night`, `starfield-warp`, `window-glow-sequence`, `backlit-cutout`, `circuit-traces`, `confetti-burst`, `electric-arcs`, `emote-pop`, `eyes-blink`, `fire-flames`, `giant-eye-reveal`, `grease-pencil-mark`, `impact-frame`, `ink-blot-stop`, `long-exposure-trails`, `magnifier-loupe`, `marker-ring-arrow`, `scribble-ball`, `smear-frame`, `smoke-puffs`, `sparkle-burst`, `star-glint`, `sticker-cutout`, `swirl-portal`, `vhs-crt-pass`, `achievement-unlock`, `bracket-advance`, `candy-set-backdrop`, `countdown-to-kickoff`, `kill-streak-banner`, `level-up-burst`, `match-scoreboard`, `match-stats-compare`, `medal-podium`, `player-stat-card`, `race-leaderboard-live`, `shot-map-heat`, `stopwatch-split-times`, `stream-starting-soon`, `team-lineup-pitch`, `transfer-announcement`, `agent-roster`, `blur-redact-region`, `breaking-news-takeover`, `cam-chip-sync-badge`, `click-ripple-markers`, `day-ring-dial`, `event-feed`, `fact-check-meter`, `fight-hud`, `game-hud`, `hand-drawn-arrow-callout`, `hud-chrome`, `interview-name-super`, `location-time-stamp`, `mission-clock`, `news-bug-source-tag`, `numbered-step-badges`, `poll-numbers-split`, `prompt-wall`, `scribble-circle-highlight`, `social-post-embed`, `spec-chip-rail`, `spotlight-dim-focus`, `target-lock-box`, `target-lock`, `tooltip-pointer`, `zoom-inset-box`, `film-look`, `sticker-slap`, `choropleth-fill`, `city-zoom-label`, `coverage-route`, `elevation-profile`, `flight-arcs`, `pin-drop-cluster`, `beat-dance`, `chomp-lid`, `emotion-idle-beat`, `emotion-sheet`, `emotion-timeline`, `mascot-nib`, `mascot-thinking`, `mascot-thumbs-up`, `mascot-wave-hello`, `smear-trail`, `beat-camera`, `beat-grid`, `beat-pulse-rings`, `engraving-hatch`, `equalizer-bars-loop`, `guilloche-note`, `lyric-on-path`, `lyric-timing`, `lyric-video`, `mixer-faders`, `now-playing-card`, `podcast-audiogram`, `shutter-blur`, `stage-curtain`, `time-stutter`, `token-sampler-prompt`, `token-tree`, `tracklist-reveal`, `vinyl-spin-label`, `width-pressure-type`, `add-to-cart-fly`, `coffee-pour-cup`, `colorway-swap`, `coupon-scratch-reveal`, `delivery-tracker`, `feature-callout-orbit`, `flash-deal-timer-card`, `order-confirmation`, `price-tag-drop`, `product-grid-filter`, `size-color-picker`, `spec-compare-table`, `sunburst-hero`, `unbox-lid-lift`, `comet-pulse-guide`, `ink-brush-stroke`, `logo-reveal-liquid`, `motif-grid-pattern`, `nib-follow-camera`, `papercut-rosette`, `toon-cel-shape`, `agenda-list-slide`, `alphabet-letter-trace`, `anniversary-years-badge`, `big-stat-slide`, `birthday-cake-candles`, `blur-in-title`, `channel-intro-sting`, `chapter-countdown`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `countdown-new-year`, `counting-objects`, `definition-card`, `end-card-credits`, `end-screen-cards`, `event-ticket-reveal`, `fill-in-the-blank`, `flashcard-flip-deck`, `follower-milestone`, `glyph-orbit-logo`, `graduation-cap-toss`, `holiday-greeting-card`, `key-takeaway-highlight`, `kinetic-captions`, `logo-reveal-lines`, `mask-rise-title`, `myth-vs-fact`, `news-strap`, `number-counter`, `outline-to-fill-text`, `paper-strip-title`, `per-letter-wave`, `qa-slide`, `quiz-question-reveal`, `quote-slide`, `rolling-credits`, `rsvp-invite-card`, `rundown-board`, `sale-countdown-banner`, `scene-tag`, `split-flap-board`, `sponsor-slate`, `stacked-repeat-echo`, `stamp-slam`, `sting-bug`, `story-caption-box`, `text-on-circle-spin`, `text-scramble-decode`, `typewriter-code`, `typewriter-delete-retype`, `typewriter-signature`, `wedding-save-the-date`, `word-carousel-rotator`, `word-translation-pair`, `bokeh-drift`, `light-leak-wash`, `pattern-scroll`, `agent-log-panel`, `ai-chat-streaming`, `appointment-booking-calendar`, `boarding-pass-print`, `checkout-steps`, `code-diff-highlight`, `comment-bubble-stream`, `cursor-driver`, `empty-state-illustration`, `glass-lesson-card`, `hero-gradient-orbs`, `hotel-rating-card`, `itinerary-route-stops`, `keystroke-hud`, `liquid-glass-lens`, `loader-spinner-set`, `logo-wall-grid`, `menu-board-items`, `notification-stack`, `planned-vs-heard-checklist`, `player-toolbar`, `poll-results-bars`, `property-listing-card`, `recipe-ingredients-steps`, `review-stars-rating`, `roadmap-swimlanes`, `skeleton-shimmer`, `story-progress-frames`, `subscribe-like-bell`, `success-check-burst`, `team-grid-photos`, `terminal-install-progress`, `testimonial-card-carousel`, `three-column-features`, `toast-stack-loop`, `typing-indicator-chat`, `upload-progress` |
 | seamless loop | `iso-bar-chart`, `city-rooftops-rain-window`, `desert-dunes-heat`, `embers`, `firefly-meadow-night`, `forest-parallax-mist`, `lava-lamp-blobs`, `ocean-waves-layers`, `snow-mountain-dawn`, `starfield-warp`, `sonar-ping`, `empty-state-illustration`, `hero-gradient-orbs`, `loader-spinner-set`, `skeleton-shimmer`, `success-check-burst`, `toast-stack-loop`, `typing-indicator-chat`, `upload-progress` |
-| takes your image (`src` / `images` / `heroSrc`) | `pointcloud-orbit`, `crash-zoom`, `dolly-zoom`, `orbit-parallax`, `whip-pan`, `beat-montage`, `crowd-tracks`, `ground-plane-ruler`, `map-route`, `microscope-dive`, `science-reticle`, `thumbnail-mosaic`, `archive-photo-ken-burns-caption`, `mugshot-height-chart`, `depth-descent`, `lamp-screen`, `paper-diorama`, `studio-sweep`, `topdown-terrain`, `window-glow-sequence`, `beat-punch-zoom`, `crayon-wax-shader`, `focus-desaturate`, `frame-blend-timelapse`, `frame-breakout`, `freeze-frame-brackets`, `giant-eye-reveal`, `glass-crack-mend`, `long-exposure-trails`, `loupe-magnify`, `magnifier-loupe`, `swirl-portal`, `theatre-gate`, `vhs-crt-pass`, `loot-reveal`, `player-stat-card`, `rocket-to-moon`, `transfer-announcement`, `callout-labels`, `cam-chip-sync-badge`, `target-lock-box`, `target-lock`, `zoom-inset-box`, `ascii-image-grid`, `autofocus-hunt`, `brush-stroke-reveal`, `comic-halftone`, `dot-matrix`, `duotone`, `film-look`, `glass-pane-grid`, `glitch-image`, `grid-multiply`, `handscroll-reveal`, `ken-burns`, `knife-colour-relay`, `knife-paint-plate`, `light-sweep`, `negative-develop-reveal`, `perspective-flatten`, `photomontage-tower`, `pixel-dither`, `press-lift`, `proportion-sweep`, `riso-plate-reveal`, `spinning-headline`, `split-grid-countdown`, `sticker-cutout-burst`, `telestrator-freeze`, `tilt-shift-diorama`, `woodblock-print-reveal`, `woodcut-carve`, `xray-scan`, `map-mask-reveal`, `audio-spectrum`, `guilloche-note`, `add-to-cart-fly`, `colorway-swap`, `feature-callout-orbit`, `flash-deal-timer-card`, `frost-to-clear`, `size-color-picker`, `sunburst-hero`, `unbox-lid-lift`, `logo-reveal-liquid`, `scissor-cut`, `sonar-ping`, `blur-in-title`, `bouncing-ball-singalong`, `channel-intro-sting`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `diagonal-band-title`, `end-card-credits`, `flipbook-riffle-outro`, `glyph-orbit-logo`, `halftone-exhibit-numeral`, `hanazi-caption`, `letters-become-image`, `logo-assemble`, `logo-reveal-lines`, `mask-rise-title`, `number-counter`, `quote-slide`, `sponsor-slate`, `stamp-slam`, `story-caption-box`, `typewriter-code`, `browser-mockup`, `device-mockup`, `hotel-rating-card`, `property-listing-card`, `recipe-ingredients-steps`, `sms-thread`, `split-compare`, `story-progress-frames`, `tv-wall-switch-on`, `versus-roster` |
-| heavy (three.js / WebGL — prefer an exported video on mobile web) | `accum-render-3d`, `brick-collapse-physics`, `brick-fx-fire-smoke`, `brick-rebuild-morph`, `brick-snap-build`, `chart-to-installation`, `cloner-bed-ripple`, `colour-ignition-wave`, `exploded-stack`, `exploded-view-3d`, `floating-devices-stack`, `glass-strip-sweep`, `globe-3d`, `iso-blocks-3d`, `iso-city-build`, `isometric-room-build`, `jelly-type-drop`, `last-object-drop`, `liminal-corridor-3d`, `low-poly-terrain-flyover`, `ocean-surface-3d`, `particle-shape-morph`, `plan-tilt`, `pointcloud-orbit`, `product-turntable-3d`, `shockwave-flip-field`, `stack-plates-3d`, `terrain-build-3d`, `3d-text-extrude-spin`, `voxel-burst-swirl`, `voxel-diorama`, `wireframe-build`, `dash-flow-field` |
+| takes your image (`src` / `images` / `heroSrc`) | `orbiting-icons-sphere`, `pointcloud-orbit`, `crash-zoom`, `dolly-zoom`, `orbit-parallax`, `whip-pan`, `beat-montage`, `crowd-tracks`, `ground-plane-ruler`, `map-route`, `microscope-dive`, `science-reticle`, `thumbnail-mosaic`, `archive-photo-ken-burns-caption`, `mugshot-height-chart`, `depth-descent`, `lamp-screen`, `paper-diorama`, `studio-sweep`, `topdown-terrain`, `window-glow-sequence`, `beat-punch-zoom`, `crayon-wax-shader`, `focus-desaturate`, `frame-blend-timelapse`, `frame-breakout`, `freeze-frame-brackets`, `giant-eye-reveal`, `glass-crack-mend`, `long-exposure-trails`, `loupe-magnify`, `magnifier-loupe`, `swirl-portal`, `theatre-gate`, `vhs-crt-pass`, `loot-reveal`, `player-stat-card`, `rocket-to-moon`, `transfer-announcement`, `callout-labels`, `cam-chip-sync-badge`, `target-lock-box`, `target-lock`, `zoom-inset-box`, `ascii-image-grid`, `autofocus-hunt`, `brush-stroke-reveal`, `comic-halftone`, `dot-matrix`, `duotone`, `film-look`, `glass-pane-grid`, `glitch-image`, `grid-multiply`, `handscroll-reveal`, `ken-burns`, `knife-colour-relay`, `knife-paint-plate`, `light-sweep`, `negative-develop-reveal`, `perspective-flatten`, `photomontage-tower`, `pixel-dither`, `press-lift`, `proportion-sweep`, `riso-plate-reveal`, `spinning-headline`, `split-grid-countdown`, `sticker-cutout-burst`, `telestrator-freeze`, `tilt-shift-diorama`, `woodblock-print-reveal`, `woodcut-carve`, `xray-scan`, `map-mask-reveal`, `audio-spectrum`, `guilloche-note`, `add-to-cart-fly`, `colorway-swap`, `feature-callout-orbit`, `flash-deal-timer-card`, `frost-to-clear`, `size-color-picker`, `sunburst-hero`, `unbox-lid-lift`, `logo-reveal-liquid`, `scissor-cut`, `sonar-ping`, `blur-in-title`, `bouncing-ball-singalong`, `channel-intro-sting`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `diagonal-band-title`, `end-card-credits`, `flipbook-riffle-outro`, `glyph-orbit-logo`, `halftone-exhibit-numeral`, `hanazi-caption`, `letters-become-image`, `logo-assemble`, `logo-reveal-lines`, `mask-rise-title`, `number-counter`, `quote-slide`, `sponsor-slate`, `stamp-slam`, `story-caption-box`, `typewriter-code`, `browser-mockup`, `device-mockup`, `hotel-rating-card`, `property-listing-card`, `recipe-ingredients-steps`, `sms-thread`, `split-compare`, `story-progress-frames`, `tv-wall-switch-on`, `versus-roster` |
+| heavy (three.js / WebGL — prefer an exported video on mobile web) | `accum-render-3d`, `brick-collapse-physics`, `brick-fx-fire-smoke`, `brick-rebuild-morph`, `brick-snap-build`, `chart-to-installation`, `cloner-bed-ripple`, `colour-ignition-wave`, `exploded-stack`, `exploded-view-3d`, `floating-devices-stack`, `glass-strip-sweep`, `globe-3d`, `iso-blocks-3d`, `iso-city-build`, `isometric-room-build`, `jelly-type-drop`, `last-object-drop`, `liminal-corridor-3d`, `low-poly-terrain-flyover`, `ocean-surface-3d`, `orbiting-icons-sphere`, `particle-shape-morph`, `plan-tilt`, `pointcloud-orbit`, `product-turntable-3d`, `shockwave-flip-field`, `stack-plates-3d`, `terrain-build-3d`, `3d-text-extrude-spin`, `voxel-burst-swirl`, `voxel-diorama`, `wireframe-build`, `dash-flow-field` |
 
 ## recipes
 
@@ -14425,7 +14425,7 @@ A seeded, flat-shaded low-poly island (mountains with snow caps, grass, sand, pi
 | `clouds` | `9` | number of low-poly clouds |
 | `path` | `"fly"` | 'fly' (low pass across the island) \| 'orbit' (circle around it) |
 | `speed` | `1` | how much of the path is covered (1 = the whole path over the clip) |
-| `altitude` | `30` | camera height above the ground (world units) |
+| `altitude` | `36` | camera height above the ground (world units) |
 | `fog` | `0.0045` | fog density (0 = clear) |
 | `title` | `"Wide open horizons"` | headline ("" with an empty subtitle = scene only) |
 | `subtitle` | `"Explore what is out there"` | line under the headline |
@@ -14465,6 +14465,39 @@ A perspective sea built from Gerstner waves with analytic normals, fresnel sky r
 | `title` | `""` | optional serif title over the sea (empty = none) |
 | `subtitle` | `""` | optional mono subtitle |
 | `ink` | `"#FFFFFF"` | title colour |
+
+### `orbiting-icons-sphere` — Orbiting icons sphere
+
+Icon (or logo) badges with labels cover a slowly rotating, tilted sphere: they pop out of a glossy core with a stagger, near-side badges are large and highlighted while far-side ones shrink, dim and pass behind the core. Latitude rings and a dotted shell give the globe form; a title sits on the core.
+
+**Use for:** Integrations / "works with" walls, feature or skills clouds, ecosystem and partner beats, community and category hubs. Pass `items` (labels), optional `icons` names or `images` (logos) and brand `colors`.  
+**Rebuilt from:** 3D tag-cloud / integrations globe (original build; three.js + HTML badges)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `items`, `title`, `subtitle` · image: `images` · weight: heavy  
+
+| prop | default | notes |
+|---|---|---|
+| `items` | `["Design","Code","Cloud","Data","Mail","Chat","Music","Ph…` | badge labels (1-40); the count sets how many badges cover the sphere |
+| `icons` | `[]` | glyph per badge: design \| code \| cloud \| data \| mail \| chat \| music \| photo \| map \| pay \| docs \| video \| bolt \| star \| heart \| lock \| user \| globe (empty = pick from the label, else cycle) |
+| `images` | `[]` | logo / icon images per badge (public/ path or URL); overrides the glyph for that badge |
+| `title` | `"One hub\nevery tool"` | text on the core (\n for a line break; "" for none) |
+| `subtitle` | `"Connect what you already use"` | small line under the title |
+| `background` | `"#f1f4fb"` | background colour ('transparent' to composite over other content) |
+| `ink` | `""` | label colour (empty = auto contrast) |
+| `coreColor` | `"#1b2660"` | core sphere colour |
+| `coreInk` | `""` | title colour on the core (empty = auto contrast) |
+| `colors` | `["#4f6bff","#ff5ea8","#18b8a6","#ffb020"]` | badge colours, cycled |
+| `coreStyle` | `"solid"` | 'solid' (glossy core, hides the far side) \| 'wire' (dark wireframe core) \| 'none' (open globe) |
+| `showLabels` | `true` | show the text label under each badge |
+| `rings` | `3` | number of orbit rings 0..5 |
+| `dots` | `420` | number of dots in the shell (0 = none) |
+| `speed` | `0.55` | rotation in degrees per frame |
+| `tilt` | `18` | axis tilt in degrees |
+| `startAt` | `4` | frame the core appears |
+| `stagger` | `4` | frames between badges popping out |
+| `size` | `1` | overall scale multiplier |
 
 ### `particle-shape-morph` — Particle shape morph
 
@@ -15643,6 +15676,8 @@ Full-bleed game-show set: one saturated candy hue with a same-hue lighter patter
 
 ### `countdown-to-kickoff` — Countdown to kick-off
 
+![countdown-to-kickoff](../gallery/countdown-to-kickoff.jpg)
+
 Two team crests flank four rolling countdown tiles (days, hours, minutes, seconds) that tick down with a roll and a pulse on the seconds tile, under stadium light beams in the team colours, with competition, date and venue lines; at zero the headline switches to a final message.
 
 **Use for:** Match-day teasers, "kick-off in" promos, tip-off, race-start, tournament and event countdowns. Set the starting days / hours / minutes / seconds, the two teams (names, colours, optional logos), the date and venue.  
@@ -15895,6 +15930,8 @@ Slanted two-team scoreboard with crests, score boxes that roll up point by point
 
 ### `match-stats-compare` — Match stats comparison
 
+![match-stats-compare](../gallery/match-stats-compare.jpg)
+
 Two team crests and names over a stack of comparison rows: each stat has a centred label, two values that count up and a bar that opens from the middle to the split (share or mirrored); the leading side lights up in its colour, the other dims; optional score in the middle.
 
 **Use for:** Post-match and half-time stats (possession, shots, corners), head-to-head previews, player-vs-player or product-vs-product comparisons. Give the two team names, colours (and logos) and the stats as {label, a, b}.  
@@ -15927,6 +15964,8 @@ Two team crests and names over a stack of comparison rows: each stat has a centr
 | `fontFamily` | `"auto"` | CSS font family, or "auto" |
 
 ### `medal-podium` — Medal podium
+
+![medal-podium](../gallery/medal-podium.jpg)
 
 A 2-1-3 podium whose blocks rise in turn (bronze, silver, gold); each winner drops on top with a photo or initials badge, name, a flag-style colour chip and a result line, then a spotlight, a sheen on the gold block and a confetti burst.
 
@@ -16082,6 +16121,8 @@ Profile card with an avatar panel, name, handle, role and team chips, an overall
 
 ### `race-leaderboard-live` — Race leaderboard (live)
 
+![race-leaderboard-live](../gallery/race-leaderboard-live.jpg)
+
 A slanted timing tower: the field is re-ranked at every lap / split, rows glide into place, overtakers flash with a green arrow and places gained, the leader shows the race time and the rest the gap behind, with an optional last-lap column and a lap counter.
 
 **Use for:** Race and heat coverage (motor racing, cycling, swimming, athletics, rowing, esports races), "who is ahead" timing towers, live-results recaps and standings changes. Give each competitor a name, a colour and their lap/split times in seconds.  
@@ -16155,6 +16196,8 @@ Game systems as narration at native 320x180: FIGHT/ITEM/MAGIC/RUN with a bobbing
 
 ### `shot-map-heat` — Shot map with heat
 
+![shot-map-heat](../gallery/shot-map-heat.jpg)
+
 A half pitch or half court draws on and shots land one by one (goals as bold discs, saves as hollow dots, misses as crosses) while a smooth heat map of shot locations builds underneath; counters for shots, goals and conversion run in a side panel or header.
 
 **Use for:** Match and player shot maps, xG explainers, basketball shot charts, scouting reports and "where do they score from" stories. Give the shots as {x, y, result, value} (x 0 = far edge .. 1 = goal line, y 0..1 across, result goal | saved | miss).  
@@ -16185,6 +16228,8 @@ A half pitch or half court draws on and shots land one by one (goals as bold dis
 | `fontFamily` | `"auto"` | CSS font family, or "auto" |
 
 ### `stopwatch-split-times` — Stopwatch with split times
+
+![stopwatch-split-times](../gallery/stopwatch-split-times.jpg)
 
 A large stopwatch (sweep hand, lap-progress ring, digital readout) counts up while each lap freezes the readout and drops a row into a splits list with a bar, the time and the +/- against the previous lap; at the finish the best lap turns green, the slowest red and a total bar locks in.
 
@@ -16266,6 +16311,8 @@ A "HUD OFF" symbolic battle view: coloured glyph clusters (circles, triangles, h
 
 ### `team-lineup-pitch` — Team line-up on pitch
 
+![team-lineup-pitch](../gallery/team-lineup-pitch.jpg)
+
 A pitch or court draws on, then each player drops onto his position as a numbered disc with a name tag; dashed links join each line of the formation and one player can be spotlighted. Title and formation label sit beside (wide) or above (square / tall).
 
 **Use for:** Starting-XI graphics, team sheets, tactics explainers, five-a-side or basketball starting fives, fantasy picks and match-day previews. Give the players as {name, number, x, y} (x = 0 own goal to 1 opposing goal, y = 0 to 1 across), your team colour and a title.  
@@ -16294,6 +16341,8 @@ A pitch or court draws on, then each player drops onto his position as a numbere
 | `fontFamily` | `"auto"` | CSS font family, or "auto" |
 
 ### `transfer-announcement` — Transfer announcement
+
+![transfer-announcement](../gallery/transfer-announcement.jpg)
 
 Club-colour panels wipe in, the player photo slides onto a slanted panel, the name reveals line by line, then FROM club to TO club crest chips with a travelling arrow, a fee and date chip, a contract note and an OFFICIAL stamp that slams on.
 

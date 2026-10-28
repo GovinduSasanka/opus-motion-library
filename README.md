@@ -2,62 +2,89 @@
 
 # Opus Motion Library
 
-**605 motion graphics you can drop into videos, websites and apps — by name, with your own words, colours and images.**
+### The largest open-source motion graphics library for Remotion, React and the web
 
-Titles · transitions · weather · characters · data · HUDs · image looks · real 3D — for Remotion, React, plain HTML and native apps.<br/>
-Built so an AI agent can pick, mix and ship them for you.
+**616 parameterised motions · 97 transitions · 148 one-line styles · 33 ready-made recipes**<br/>
+Titles, data viz, UI mockups, weather, characters, HUDs, image looks and real 3D. Each one takes your text, colours, images and data, and renders at 16:9, 1:1 or 9:16.
 
-[![MIT licence](https://img.shields.io/badge/licence-MIT-E9C27A?style=flat-square)](LICENSE)
-[![Release](https://img.shields.io/github/v/release/GovinduSasanka/opus-motion-library?style=flat-square&color=E9C27A)](https://github.com/GovinduSasanka/opus-motion-library/releases)
+[![Stars](https://img.shields.io/github/stars/GovinduSasanka/opus-motion-library?style=for-the-badge&logo=github&color=E9C27A)](https://github.com/GovinduSasanka/opus-motion-library/stargazers)
+[![MIT licence](https://img.shields.io/badge/licence-MIT-E9C27A?style=for-the-badge)](LICENSE)
+[![Motions](https://img.shields.io/badge/motions-616-0B84F3?style=for-the-badge)](https://govindusasanka.github.io/opus-motion-library/)
+<br/>
 [![Remotion 4](https://img.shields.io/badge/Remotion-4-0B84F3?style=flat-square)](https://www.remotion.dev)
-[![React 19](https://img.shields.io/badge/React-19-61DAFB?style=flat-square)](https://react.dev)
-[![Stars](https://img.shields.io/github/stars/GovinduSasanka/opus-motion-library?style=flat-square&color=F2EEE6)](https://github.com/GovinduSasanka/opus-motion-library/stargazers)
+[![React 19](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript&logoColor=white)](tsconfig.json)
+[![MCP server](https://img.shields.io/badge/MCP-server-8A63D2?style=flat-square)](#for-ai-agents-and-mcp)
+[![Release](https://img.shields.io/github/v/release/GovinduSasanka/opus-motion-library?style=flat-square&color=F2EEE6)](https://github.com/GovinduSasanka/opus-motion-library/releases)
 
-[**Live gallery**](https://govindusasanka.github.io/opus-motion-library/) ·
-[**Watch the 8-minute showreel**](https://github.com/GovinduSasanka/opus-motion-library/releases/tag/v1.1.0) ·
-[**Quickstart**](#quickstart) ·
-[**For AI agents**](AGENTS.md)
+[**Live site and gallery**](https://govindusasanka.github.io/opus-motion-library/) ·
+[**Quick start**](#quick-start-30-seconds) ·
+[**What's inside**](#whats-inside) ·
+[**Use it anywhere**](#use-it-anywhere) ·
+[**AI agents / MCP**](#for-ai-agents-and-mcp) ·
+[**Showreel**](https://github.com/GovinduSasanka/opus-motion-library/releases/tag/v1.1.0)
 
-<img src="docs/media/preview.gif" alt="Opus Motion Library showreel preview" width="100%"/>
+<img src="docs/media/hero.gif" alt="A grid of twelve live motions from the library: 3D, charts, news, maps, type and UI" width="100%"/>
 
 </div>
 
 ---
 
-## Why
+## Why this library
 
-Good motion design is slow to make and hard to reuse. Every motion here is a **pure function of time** with **JSON
-props**: give it your text, palette and pictures and it renders the same way every time, at **16:9, 1:1 or 9:16**, in a
-**video**, on a **web page**, or as an **exported clip** for an app.
+Good motion design is slow to make and almost never reusable. Here every motion is a **pure function of time** with
+**JSON props**: hand it your words, palette and pictures and it renders the same way every time, in a video, on a web
+page, or as a clip for an app.
 
-- **605 motions, 97 transitions, 148 styles, 33 recipes**: from a sonar ping, an origami crane and a deep-sea dive to iso bar charts,
-  chat bubbles, glitch looks and a terrain that builds itself in real 3D.
-- **Mix anything**: stack a backdrop, a subject, type and an accent in one shot (`layers`), with blend modes.
-- **Use it anywhere**: Remotion video · `<MotionPlayer>` / `<MotionBackground>` in React or Next.js ·
-  `<opus-motion>` custom element for any HTML site · `mp4` / `webm`-with-alpha / ProRes 4444 / GIF exports for
-  iOS, Android, Flutter, Keynote and video editors.
-- **AI-agent ready**: paste the repo into any project and tell Claude, Codex or Cursor *"pick motions from this library"*
-  — [`AGENTS.md`](AGENTS.md) and `mgl suggest` tell it what to choose, how to mix it and how to wire it into that stack.
-- **Narrated films from a storyboard**: local text-to-speech, word-synced captions placed clear of on-screen text,
-  cuts on the beat, loudness mastering — no cloud services.
-- **Deterministic and resolution independent**: seeded randomness, sizes in frame units, no timers.
+- **Big.** 616 motions across 18 families, plus 97 transitions, 148 styles and 33 recipes. Every motion
+  has a preview strip in the [live gallery](https://govindusasanka.github.io/opus-motion-library/).
+- **Reusable, not a template.** Every motion exposes text, colour, image and data props (`node cli/mgl.mjs info <id>`;
+  JSON Schema in [`props-schema.json`](props-schema.json)). Nothing has to ship with sample text.
+- **Any shape.** 16:9, 1:1 and 9:16 from the same motion.
+- **Mix them.** Stack a backdrop, a subject, type and an accent in one shot with `layers` and blend modes, or start from
+  a tested [recipe](recipes) (`hero-aurora-night`, `product-launch`, `data-story-60s`, `lyric-video-vertical`, ...).
+- **Restyle in one id.** A [styles engine](docs/STYLES.md) turns any motion into a woodcut, risograph, blueprint, neon-noir
+  or anime-cel look without touching its code.
+- **Cut between them.** 97 [transitions](docs/TRANSITIONS.md) (iris, page-turn, glitch, ink blob, door, CRT...).
+- **Works where you work.** Remotion, React / Next.js, plain HTML and WordPress, exported clips for video editors,
+  iOS, Android and Keynote, and AI agents over MCP.
+- **Open.** MIT-licensed code, deterministic output (seeded randomness, no timers), no cloud service needed to render.
 
-![Every motion in the library](docs/library-overview.jpg)
+<p align="center"><img src="docs/media/hero-mosaic.jpg" alt="Mosaic of 48 different motions from the library" width="100%"/><br/><sub>48 of the 616 motions, first frames straight from <a href="gallery"><code>gallery/</code></a>.</sub></p>
 
-## Quickstart
+## Quick start (30 seconds)
+
+Needs Node 20+ and FFmpeg on `PATH`.
 
 ```bash
 git clone https://github.com/GovinduSasanka/opus-motion-library.git
 cd opus-motion-library && npm install
 node cli/gen-registry.mjs
 
-node cli/mgl.mjs list                                          # all 605 motions
-node cli/mgl.mjs suggest "dark hero for a launch with stats"   # what should I use?
+node cli/mgl.mjs list                                           # all 616 motions
+node cli/mgl.mjs suggest "dark hero for a launch with stats"    # what should I use?
 node cli/mgl.mjs render stamp-slam --props '{"lines":["HELLO","2026"],"keyword":"LAUNCH"}' --format portrait
-npm run studio                                                 # browse everything in Remotion Studio
+npm run studio                                                  # browse everything in Remotion Studio
 ```
 
-### In a React / Next.js site
+Pick the snippet for your stack. [`docs/INTEGRATION.md`](docs/INTEGRATION.md) has the step-by-step version for each.
+
+<details open><summary><b>Remotion</b>: copy only the source you need into your video project</summary>
+
+```bash
+node cli/mgl.mjs add product-launch number-counter --to ../my-video/src
+```
+
+```tsx
+import {Composition} from 'remotion';
+import {numberCounter} from './opus-motion';
+
+<Composition id="stat" component={numberCounter.component} width={1080} height={1080} fps={30} durationInFrames={150}
+  defaultProps={{...numberCounter.defaultProps, label: 'DOWNLOADS', keyframes: [[0, 0], [90, 125000]]}} />
+```
+</details>
+
+<details><summary><b>React / Next.js</b>: <code>MotionPlayer</code> and <code>MotionBackground</code></summary>
 
 ```bash
 npm run build:lib            # in the library folder, once
@@ -67,59 +94,115 @@ npm run build:lib            # in the library folder, once
 import {MotionBackground, MotionPlayer} from 'opus-motion-library/web';
 
 <MotionBackground recipe="hero-aurora-night">
-  <h1>Ship faster</h1>          {/* real HTML text on top of a live motion */}
+  <h1>Ship faster</h1>          {/* real HTML text over a live motion */}
 </MotionBackground>
 
 <MotionPlayer motion="number-counter" props={{keyframes: [[0, 0], [60, 48210]], label: 'USERS'}} playOnView />
 ```
+</details>
 
-### In any HTML page (WordPress, Vue, Svelte, Webflow…)
+<details><summary><b>Plain HTML</b>, WordPress, Vue, Svelte, Webflow: the <code>&lt;opus-motion&gt;</code> element</summary>
 
 ```html
 <script src="opus-motion.element.js"></script>
 <opus-motion motion="aurora" props='{"pixelSize":0}' background loop></opus-motion>
 ```
+</details>
 
-### In a Remotion project, or as files for an app
+<details><summary><b>CLI</b>: choose, render, restyle, export</summary>
 
 ```bash
-node cli/mgl.mjs add depth-descent stamp-slam --to ../my-video/src     # copies only the source you need
-node cli/mgl.mjs export confetti-burst --as webm-alpha                 # transparent overlay for apps / editors
+node cli/mgl.mjs suggest "<your brief>" --overlay --limit 8       # rank motions and recipes
+node cli/mgl.mjs recipes                                          # ready-made mixes
+node cli/mgl.mjs recipe hero-aurora-night --overrides '{"blur-in-title":{"title":"ACME"}}'
+node cli/mgl.mjs render box-bot --style cel-boil                  # restyle with one id
+node cli/mgl.mjs export confetti-burst --as webm-alpha            # transparent clip for apps and editors
+node cli/mgl.mjs serve                                            # HTTP catalogue + render API
+```
+</details>
+
+<details><summary><b>Claude Code and other AI agents</b>: MCP server</summary>
+
+```bash
+claude mcp add opus-motion -- node /absolute/path/to/opus-motion-library/mcp/server.mjs
 ```
 
-Full guides: [`docs/INTEGRATION.md`](docs/INTEGRATION.md) (every stack, step by step) ·
-[`docs/CHOOSING.md`](docs/CHOOSING.md) (intent → motions) · [`docs/CATALOG.md`](docs/CATALOG.md) (every prop).
+Then ask: *"Use the opus-motion tools to add an animated hero, a stats section and a success state to this site."*
+Claude Desktop, Cursor, Windsurf and Codex config is in [For AI agents and MCP](#for-ai-agents-and-mcp).
+</details>
 
-## Use it from your AI agent
+## What's inside
 
-Copy or link this repo into your project and say:
+Counts are read from [`catalog.json`](catalog.json). Inspect any id with `node cli/mgl.mjs info <id>`.
 
-> *Use the Opus Motion Library in `./opus-motion-library` to add an animated hero, a stats section and a success state.*
+| family | motions | what you get | examples |
+|---|--:|---|---|
+| **Type & titles** | 84 | titles, kinetic type, lower thirds, stats, lyrics, badges | `blur-in-title`, `word-slam-hook`, `big-stat-slide` |
+| **Data & charts** | 74 | animated charts, counters, flows, comparisons, explainers | `bar-race`, `number-counter`, `deploy-pipeline-stages` |
+| **UI & app mockups** | 65 | browsers, chats, notifications, cards, checkout and onboarding flows | `browser-mockup`, `chat-bubbles`, `ai-chat-streaming` |
+| **Real 3D** | 46 | three.js scenes: globes, voxel worlds, exploded views, terrain | `globe-3d`, `voxel-diorama`, `exploded-view-3d` |
+| **Worlds & weather** | 47 | skylines, rain, snow, aurora, deserts, oceans, night scenes | `aurora`, `city-skyline`, `firefly-meadow-night` |
+| **Effects & accents** | 49 | confetti, explosions, electric arcs, glitch and light passes | `confetti-burst`, `explosion-burst`, `electric-arcs` |
+| **Shapes & line art** | 42 | generative geometry, drawn-on paths, construction and growth | `branch-grow`, `compass-construct`, `bouncing-ball` |
+| **HUD & blueprints** | 35 | callouts, dials, news takeovers, feeds and tech overlays | `breaking-news-takeover`, `callout-labels`, `event-feed` |
+| **Image looks** | 34 | Ken Burns, duotone, halftone, glitch and film treatments for your photos | `ken-burns`, `duotone`, `film-look` |
+| **Games & sport** | 29 | scoreboards, lineups, loot, level-ups, podiums and kickoff timers | `team-lineup-pitch`, `medal-podium`, `level-up-burst` |
+| **Characters** | 17 | rigged and drawn figures, silhouettes and critters | `box-bot`, `silhouette-runner`, `flame-sprite` |
+| **Product & e-commerce** | 18 | price tags, deal timers, unboxing, delivery tracking, colourways | `price-tag-drop`, `flash-deal-timer-card`, `order-confirmation` |
+| **Music & audio** | 23 | spectrums, lyric videos, audiograms, now-playing cards | `audio-spectrum`, `lyric-video`, `podcast-audiogram` |
+| **Maps** | 11 | choropleths, flight arcs, routes, pin drops, city zooms | `flight-arcs`, `choropleth-fill`, `pin-drop-cluster` |
+| **Mascots** | 11 | idle, wave, think and thumbs-up loops for a brand character | `mascot-wave-hello`, `mascot-thinking`, `pixel-mascot-on-ui` |
+| **Documents** | 16 | receipts, passports, evidence boards, highlights and redaction | `receipt-print`, `passport-stamps`, `redaction-bars` |
+| **Camera moves** | 9 | dolly zoom, whip pan, rack focus, orbit parallax | `dolly-zoom`, `whip-pan`, `rack-focus` |
+| **Textures & backdrops** | 4 | bokeh, light leaks and scrolling patterns | `bokeh-drift`, `light-leak-wash`, `pattern-scroll` |
+| **Transition motions** | 2 | whole-shot transitions you can use as a scene | `match-cut`, `transition-reel` |
+| **Transitions** | 97 | scene-to-scene cuts shared by every motion ([`docs/TRANSITIONS.md`](docs/TRANSITIONS.md)) | `iris`, `page-turn`, `glitch`, `blob:ink`, `door`, `crt` |
+| **Styles** | 148 | one-id look changes: print, paper, neon, cel, blueprint ([`docs/STYLES.md`](docs/STYLES.md)) | `woodcut`, `ukiyoe`, `cel-boil`, `paper-lantern` |
+| **Recipes** | 33 | tested multi-layer mixes you customise ([`recipes/`](recipes), previews in `recipes/previews/`) | `hero-aurora-night`, `product-launch`, `data-story-60s` |
 
-The agent reads [`AGENTS.md`](AGENTS.md) (also [`CLAUDE.md`](CLAUDE.md)), runs `mgl suggest` with your brief, prefers a
-tested **recipe**, layers backdrop + subject + type + accent, swaps in your copy and brand colours, and picks the right
-integration path for your stack. A Claude Code skill ships in [`.claude/skills/opus-motion`](.claude/skills/opus-motion/SKILL.md).
+Full prop tables: [`docs/CATALOG.md`](docs/CATALOG.md). Browse visually in the [live gallery](https://govindusasanka.github.io/opus-motion-library/)
+or in the [catalogue below](#motion-catalogue).
 
-## Use from AI agents (MCP)
+## Use it anywhere
+
+| where | how | notes |
+|---|---|---|
+| Remotion project | `mgl add <ids> --to <src>` | copies only the source you need, prints the `npm install` line |
+| React, Next.js, Vite | `opus-motion-library/web` or `mgl add --player` | `MotionPlayer`, `MotionMix`, `MotionBackground`; `playOnView`, reduced-motion still frame |
+| Plain HTML, WordPress, Vue, Svelte, Webflow | `<opus-motion>` custom element | one script tag, no build step on the host |
+| iOS, Android, Flutter, React Native | `mgl export --as mp4 / webm-alpha / png` | pre-rendered clips; export heavy 3D motions for mobile |
+| Premiere, Resolve, CapCut, Keynote, PowerPoint | `mgl export --as prores-alpha / mp4` | alpha exports render on a transparent background |
+| Anything that speaks HTTP | `node cli/mgl.mjs serve` | catalogue and render API |
+| AI agents | MCP server, [`AGENTS.md`](AGENTS.md), Claude Code skill | the agent searches, previews, renders and wires it in |
+
+Details and per-stack gotchas: **[`docs/INTEGRATION.md`](docs/INTEGRATION.md)**. Choosing guide: [`docs/CHOOSING.md`](docs/CHOOSING.md).
+
+## For AI agents and MCP
 
 The library runs as a [Model Context Protocol](https://modelcontextprotocol.io) server, so Claude Code, Claude Desktop,
 Cursor, Windsurf and Codex can search motions and styles, preview a still, render an MP4, export a clip and copy source
 into your project as tools.
 
 ```bash
-claude mcp add opus-motion -- node /absolute/path/to/motion_graphics_library/mcp/server.mjs
+claude mcp add opus-motion -- node /absolute/path/to/opus-motion-library/mcp/server.mjs
 ```
 
-Claude Code already picks up [`.mcp.json`](.mcp.json) when you open the library folder. For Claude Desktop and other
-clients, add this to their MCP config:
+Claude Code picks up [`.mcp.json`](.mcp.json) automatically when you open the library folder. For Claude Desktop and
+other clients add this to their MCP config:
 
 ```json
-{"mcpServers": {"opus-motion": {"command": "node", "args": ["/absolute/path/to/motion_graphics_library/mcp/server.mjs"]}}}
+{"mcpServers": {"opus-motion": {"command": "node", "args": ["/absolute/path/to/opus-motion-library/mcp/server.mjs"]}}}
 ```
 
-Run `npm install` once first; rendering also needs FFmpeg on PATH. The tools (`search_motions`, `preview`, `render`,
-`export`, `add_to_project`, `get_motion`, `list_styles`, `get_style`, `list_recipes`, `get_recipe`, `integration_guide`)
-are described in [`AGENTS.md`](AGENTS.md).
+Run `npm install` once first; rendering also needs FFmpeg on `PATH`. Tools: `search_motions`, `preview`, `render`,
+`export`, `add_to_project`, `get_motion`, `list_styles`, `get_style`, `list_recipes`, `get_recipe`, `integration_guide`
+(described in [`AGENTS.md`](AGENTS.md)). Prefer plain files? Copy the repo into your project and tell your agent:
+
+> *Use the Opus Motion Library in `./opus-motion-library` to add an animated hero, a stats section and a success state.*
+
+It reads [`AGENTS.md`](AGENTS.md) (also [`CLAUDE.md`](CLAUDE.md)), runs `mgl suggest` with your brief, prefers a tested
+recipe, layers backdrop + subject + type + accent, swaps in your copy and brand colours, and picks the integration path
+for your stack. A Claude Code skill ships in [`.claude/skills/opus-motion`](.claude/skills/opus-motion/SKILL.md).
 
 ## Mix motions
 
@@ -132,8 +215,8 @@ are described in [`AGENTS.md`](AGENTS.md).
 ]}
 ```
 
-Use it as a scene in a video spec, `node cli/mgl.mjs render mix --props '{"layers":[…]}'`, or `<MotionMix layers={…} />` on
-the web. Nineteen ready mixes live in [`recipes/`](recipes) — `node cli/mgl.mjs recipes`.
+Use it as a scene in a video spec, `node cli/mgl.mjs render mix --props '{"layers":[...]}'`, or `<MotionMix layers={...} />`
+on the web. Ready mixes live in [`recipes/`](recipes): `node cli/mgl.mjs recipes`.
 
 ## Restyle anything
 
@@ -146,11 +229,10 @@ node cli/mgl.mjs still ken-burns --style ukiyoe --out out/ukiyoe.png
 ```
 
 ```tsx
-<MotionPlayer motion="city-skyline" look="paper-lantern" />   // web players; <opus-motion look="…"> works too
+<MotionPlayer motion="city-skyline" look="paper-lantern" />   // <opus-motion look="..."> works too
 ```
 
-In a Compose spec, put `"style"` on the whole video, on one scene or on one layer. The full style catalogue, with what
-each look is for, is in [`docs/STYLES.md`](docs/STYLES.md).
+In a Compose spec, put `"style"` on the whole video, on one scene or on one layer. See [`docs/STYLES.md`](docs/STYLES.md).
 
 ## Make a narrated video
 
@@ -172,9 +254,8 @@ each look is for, is in [`docs/STYLES.md`](docs/STYLES.md).
 node cli/direct.mjs storyboards/my-story.json
 ```
 
-Voice comes from local Qwen3-TTS, Whisper aligns every word so captions light up as they are spoken, rendered stills of
-each scene decide where captions and index tags sit (never on a motion's own text), cuts snap to the music's beats, and
-the mix is mastered to −16 LUFS. The showreel is built this way: `python storyboards/build-demo.py && node cli/direct.mjs storyboards/demo.json`.
+Optional and fully local: Qwen3-TTS voice, Whisper word alignment so captions light up as they are spoken, captions placed
+clear of on-screen text, cuts snapped to the music's beats, loudness mastered to -16 LUFS.
 
 ## Motion catalogue
 
@@ -698,7 +779,7 @@ the mix is mastered to −16 LUFS. The showreel is built this way: `python story
 
 </details>
 
-<details><summary><b>Real 3D</b> (45)</summary>
+<details><summary><b>Real 3D</b> (46)</summary>
 
 | preview | motion | what it does |
 |---|---|---|
@@ -730,6 +811,7 @@ the mix is mastered to −16 LUFS. The showreel is built this way: `python story
 | <img src="gallery/liminal-corridor-3d.jpg" width="260" alt="liminal-corridor-3d"/> | **`liminal-corridor-3d`**<br/>Liminal office corridor (3D) `3D` | A handheld camcorder walks an endless, empty office of mustard wallpaper partitions on a 2.4 m grid under a drop ceiling of fluorescent troffers (a few dead, a few flickering), the far corridors fading into dark fog, one red EXIT sign far ahead and a REC / clock OSD. |
 |  | **`low-poly-terrain-flyover`**<br/>Low-poly terrain flyover `3D` | A seeded, flat-shaded low-poly island (mountains with snow caps, grass, sand, pine forests, a faceted sea and drifting clouds) under a gradient sky and fog, with the camera flying low across it (or circling it). |
 | <img src="gallery/ocean-surface-3d.jpg" width="260" alt="ocean-surface-3d"/> | **`ocean-surface-3d`**<br/>Ocean surface 3D `3D` | A perspective sea built from Gerstner waves with analytic normals, fresnel sky reflection, sparkling sun glitter, crest foam and horizon fog under a gradient sky and sun glow; low-skim, high or drifting camera. |
+|  | **`orbiting-icons-sphere`**<br/>Orbiting icons sphere `overlay` `your image` `3D` | Icon (or logo) badges with labels cover a slowly rotating, tilted sphere: they pop out of a glossy core with a stagger, near-side badges are large and highlighted while far-side ones shrink, dim and pass behind the core. Latitude rings and a dotted shell give the globe form; a title sits on the core. |
 | <img src="gallery/particle-shape-morph.jpg" width="260" alt="particle-shape-morph"/> | **`particle-shape-morph`**<br/>Particle shape morph `3D` | A title glyph dissolves into ≈ 5 k sand-like particles that sweep (left first) into a rotating Fibonacci sphere around a red core, open into a tilted spinning torus, then collapse into a tiny glowing core with an orange bloom, while a mono caption tracks N and the stage. |
 | <img src="gallery/plan-tilt.jpg" width="260" alt="plan-tilt"/> | **`plan-tilt`**<br/>Plan tilt to 3D `3D` | An ink floor plan draws on top-down, then the camera tilts to eye level as the walls extrude into a 3D line drawing, dollies through the front door, and cranes back up until it reads as the plan again. |
 | <img src="gallery/plinth-progress-ring.jpg" width="260" alt="plinth-progress-ring"/> | **`plinth-progress-ring`**<br/>Plinth progress ring  | A round matte studio plinth whose ~120-notch ring lights orange clockwise as a clay-voxel model is placed, stays lit while the model exists and drains grey while it lifts away: a progress / loading indicator that lives in the scene. |
@@ -747,6 +829,183 @@ the mix is mastered to −16 LUFS. The showreel is built this way: `python story
 | <img src="gallery/voxel-rain-build.jpg" width="260" alt="voxel-rain-build"/> | **`voxel-rain-build`**<br/>Voxel rain build  | Clay-studio three.js scene: ~1.1 k rounded orange cubes rain from above the frame and stack bottom-up into an original voxel creature on a round white plinth, while the plinth notch ring fills and a mono HUD counts the voxels; the creature then blinks and looks around. |
 | <img src="gallery/white-model-projection.jpg" width="260" alt="white-model-projection"/> | **`white-model-projection`**<br/>White model projection (data as light)  | A white massing model of a city on a dark plinth in a dark room. House lights snap off, a projector strikes with a flicker and a warm wash spreads from its axis lighting one set of buildings amber; a second layer pops buildings on one by one with a white flash, a rising level of light colours every facade by height, and a final pick-out lights one tower alone. The model never changes, only the light. |
 | <img src="gallery/wireframe-build.jpg" width="260" alt="wireframe-build"/> | **`wireframe-build`**<br/>Wireframe build `3D` | A glowing amber wireframe galleon lifts out of a parchment blueprint part by part with sparks, then hull strips flash white-hot and cool into dark wood and sails fill with canvas, under a slow orbiting camera. |
+
+</details>
+
+<details><summary><b>Games & sports</b> (29)</summary>
+
+| preview | motion | what it does |
+|---|---|---|
+| <img src="gallery/achievement-unlock.jpg" width="260" alt="achievement-unlock"/> | **`achievement-unlock`**<br/>Achievement unlock toast `overlay` | A round badge pops with a drawn rim and spark burst, the toast unrolls from it with ACHIEVEMENT UNLOCKED, the title, a description and a points chip, a shine sweeps across, then it rolls back up; several achievements play in turn. |
+| <img src="gallery/army-formation.jpg" width="260" alt="army-formation"/> | **`army-formation`**<br/>Army formation  | A painterly isometric battlefield with four faction armies of tiny unit sprites around banner shields: they spawn as white placeholders, flood with faction colour, bob, march inwards and trade arcing arrow volleys, with a selection ring on one army and a centre-out "initialised" title in red brackets. |
+| <img src="gallery/bracket-advance.jpg" width="260" alt="bracket-advance"/> | **`bracket-advance`**<br/>Bracket advance `overlay` | Single-elimination tournament bracket from your entrants and results: winners light up, connector lines draw on in the accent colour, names advance round by round, losers dim, and a champion card lands. Left-to-right in landscape, top-to-bottom in portrait. |
+| <img src="gallery/candy-set-backdrop.jpg" width="260" alt="candy-set-backdrop"/> | **`candy-set-backdrop`**<br/>Candy set backdrop `overlay` | Full-bleed game-show set: one saturated candy hue with a same-hue lighter pattern — slowly scrolling diagonal stripes, offset polka dots or a rotating sunburst — plus a darker floor band with an ink line, a hopping "GAME 1" pill, star bursts and beat punches; the hue hard-cuts with a white flash every two bars. |
+| <img src="gallery/countdown-to-kickoff.jpg" width="260" alt="countdown-to-kickoff"/> | **`countdown-to-kickoff`**<br/>Countdown to kick-off `overlay` | Two team crests flank four rolling countdown tiles (days, hours, minutes, seconds) that tick down with a roll and a pulse on the seconds tile, under stadium light beams in the team colours, with competition, date and venue lines; at zero the headline switches to a final message. |
+| <img src="gallery/fuse-beat-timer.jpg" width="260" alt="fuse-beat-timer"/> | **`fuse-beat-timer`**<br/>Fuse beat timer  | A rope fuse along the bottom with one knot per beat; a sparkling spark spawning star particles travels along it so it passes every knot exactly on the beat, charring the rope, toward a rocket (that launches) or a bomb (that bursts). A big beats-left numeral pops on every beat over a violet sunburst stage. |
+| <img src="gallery/kill-streak-banner.jpg" width="260" alt="kill-streak-banner"/> | **`kill-streak-banner`**<br/>Streak banner (double / triple / ...) `overlay` | A slanted full-width banner slams in with shake, flash and speed lines: multiplier badge, tier word (DOUBLE, TRIPLE, QUAD...), lit pips and a counting points reward; each next tier hits harder and shifts colour. |
+| <img src="gallery/level-up-burst.jpg" width="260" alt="level-up-burst"/> | **`level-up-burst`**<br/>Level-up burst `overlay` | An XP bar fills with a counting reward and overflows in a flash: rays, shockwave rings and sparks burst from a hex level badge whose number ticks up, LEVEL UP slams in, the bar drains to the carry-over and perk chips pop. |
+| <img src="gallery/lit-pixel-sprite.jpg" width="260" alt="lit-pixel-sprite"/> | **`lit-pixel-sprite`**<br/>Lit pixel sprites  | Flat low-res pixel characters with 1-px selout outlines step through 4-frame walk cycles and 2-frame idles on a dusk plaza. Two practical lamps and a drifting lantern tint their colours as they pass, posterised light pools band across the floor, and each sprite casts sheared shadows away from every nearby light while the camera drifts smoothly. |
+| <img src="gallery/lives-counter.jpg" width="260" alt="lives-counter"/> | **`lives-counter`**<br/>Lives counter  | A dark rounded toon panel (ink outline, hard shadow) with hero-head icons: on a loss one icon cracks in five frames, shards fly, it shakes and greys while a slam caption announces it; the last life blinks at 2 Hz under a top-spot light; a gain re-lights an icon with a pop. |
+| <img src="gallery/loot-reveal.jpg" width="260" alt="loot-reveal"/> | **`loot-reveal`**<br/>Loot reveal `your image` | Mobile-game reward moment: a wooden chest (or sealed card / medallion) drops in, shakes in three escalating beats while rarity-coloured light leaks out, bursts with a 2-frame flash, shockwave, god rays and particles, then an item card rises, flips to a faceted gem (or your image), stars pop in and a title banner stamps on. |
+| <img src="gallery/match-scoreboard.jpg" width="260" alt="match-scoreboard"/> | **`match-scoreboard`**<br/>Match scoreboard `overlay` | Slanted two-team scoreboard with crests, score boxes that roll up point by point with a flash, a centre match clock, a stage label and a subtitle chip. |
+| <img src="gallery/match-stats-compare.jpg" width="260" alt="match-stats-compare"/> | **`match-stats-compare`**<br/>Match stats comparison `overlay` | Two team crests and names over a stack of comparison rows: each stat has a centred label, two values that count up and a bar that opens from the middle to the split (share or mirrored); the leading side lights up in its colour, the other dims; optional score in the middle. |
+| <img src="gallery/medal-podium.jpg" width="260" alt="medal-podium"/> | **`medal-podium`**<br/>Medal podium `overlay` | A 2-1-3 podium whose blocks rise in turn (bronze, silver, gold); each winner drops on top with a photo or initials badge, name, a flag-style colour chip and a result line, then a spotlight, a sheen on the gold block and a confetti burst. |
+| <img src="gallery/palette-lut-grade.jpg" width="260" alt="palette-lut-grade"/> | **`palette-lut-grade`**<br/>Palette LUT grade  | A pixel lakeside scene changes time of day by swapping palette slots, not by fading: day, afternoon, golden, sunset, dusk, night, each in two 1/3 steps; a dithered night front rolls in toward a lantern and a dithered light pool re-lights the nearby cabin and ground; water slots colour-cycle and stars twinkle. |
+| <img src="gallery/pixel-platformer-scene.jpg" width="260" alt="pixel-platformer-scene"/> | **`pixel-platformer-scene`**<br/>Pixel platformer scene  | Attract-mode pixel platformer in crisp 180p index colour: parallax mountains, clouds, forest hills with a colour-cycling waterfall, a scrolling ground with a river and sagging plank bridge, a chibi hero running, jumping, grabbing coins and stomping slimes, with +100 / +500 popups and a SCORE / COIN HUD. |
+| <img src="gallery/pixel-reward-burst.jpg" width="260" alt="pixel-reward-burst"/> | **`pixel-reward-burst`**<br/>Pixel reward burst  | A pixel treasure chest shakes while the view steps in by whole-number zooms (x6, x8, x10, x12) with "?" and "!" bubbles and two lid hops, then bursts open: palette flash, a rotating fan of dithered light rays that grows and collapses in stepped drops, a ballistic coin fountain and a gem that rises and glows. |
+| <img src="gallery/pixel-sprite-scene.jpg" width="260" alt="pixel-sprite-scene"/> | **`pixel-sprite-scene`**<br/>Pixel sprite scene (state machine)  | A native ~160x90 pixel night scene with dithered sky bands, twinkling stars, a pixel moon, stepped mountains and a ground line; a procedural wizard / knight / cat sprite loops idle, charge, cast, recover with palette-stepped particles, a 1 px moon rim light, 10 fps character timing and 1-2 px screen shake on the cast. |
+| <img src="gallery/player-stat-card.jpg" width="260" alt="player-stat-card"/> | **`player-stat-card`**<br/>Player stat card `overlay` `your image` | Profile card with an avatar panel, name, handle, role and team chips, an overall-rating hex badge and segmented stat bars that fill and count up in turn. Side-by-side in landscape, stacked in portrait. |
+| <img src="gallery/race-leaderboard-live.jpg" width="260" alt="race-leaderboard-live"/> | **`race-leaderboard-live`**<br/>Race leaderboard (live) `overlay` | A slanted timing tower: the field is re-ranked at every lap / split, rows glide into place, overtakers flash with a green arrow and places gained, the leader shows the race time and the rest the gap behind, with an optional last-lap column and a lap counter. |
+| <img src="gallery/rocket-to-moon.jpg" width="260" alt="rocket-to-moon"/> | **`rocket-to-moon`**<br/>Rocket to moon `your image` | A launch end card: the hero shoots up off a lantern-lit stage on a light trail, a one-frame flash cuts to space, it streaks to a big halftoned crescent moon and plants as a shrinking four-spike flare while the moon glows blue and the product name and "NOW LAUNCHED" pop in. |
+| <img src="gallery/rpg-menu-ui.jpg" width="260" alt="rpg-menu-ui"/> | **`rpg-menu-ui`**<br/>RPG menu UI  | Game systems as narration at native 320x180: FIGHT/ITEM/MAGIC/RUN with a bobbing hand cursor that hesitates, a party window with HP ticking down (red when low, greyed member, blinking KO), a level-up stat roll, a save-file list choosing NEW FILE and an item-get box, on a dithered blue window skin. |
+| <img src="gallery/shot-map-heat.jpg" width="260" alt="shot-map-heat"/> | **`shot-map-heat`**<br/>Shot map with heat `overlay` | A half pitch or half court draws on and shots land one by one (goals as bold discs, saves as hollow dots, misses as crosses) while a smooth heat map of shot locations builds underneath; counters for shots, goals and conversion run in a side panel or header. |
+| <img src="gallery/stopwatch-split-times.jpg" width="260" alt="stopwatch-split-times"/> | **`stopwatch-split-times`**<br/>Stopwatch with split times `overlay` | A large stopwatch (sweep hand, lap-progress ring, digital readout) counts up while each lap freezes the readout and drops a row into a splits list with a bar, the time and the +/- against the previous lap; at the finish the best lap turns green, the slowest red and a total bar locks in. |
+| <img src="gallery/stream-starting-soon.jpg" width="260" alt="stream-starting-soon"/> | **`stream-starting-soon`**<br/>Stream starting soon `overlay` | Looping "starting soon" screen: drifting stripes and orbs, a big layered title, a ring of ticks sweeping around a live mm:ss countdown, a message line and a ticker that rotates your social handles. |
+| <img src="gallery/tactical-map.jpg" width="260" alt="tactical-map"/> | **`tactical-map`**<br/>Tactical map  | A "HUD OFF" symbolic battle view: coloured glyph clusters (circles, triangles, hexagons) drift on a near-black isometric grid with stepped white selection rectangles, dashed command links, a floating command box and horizontal glitch bands on entry. |
+| <img src="gallery/team-lineup-pitch.jpg" width="260" alt="team-lineup-pitch"/> | **`team-lineup-pitch`**<br/>Team line-up on pitch `overlay` | A pitch or court draws on, then each player drops onto his position as a numbered disc with a name tag; dashed links join each line of the formation and one player can be spotlighted. Title and formation label sit beside (wide) or above (square / tall). |
+| <img src="gallery/transfer-announcement.jpg" width="260" alt="transfer-announcement"/> | **`transfer-announcement`**<br/>Transfer announcement `overlay` `your image` | Club-colour panels wipe in, the player photo slides onto a slanted panel, the name reveals line by line, then FROM club to TO club crest chips with a travelling arrow, a fee and date chip, a contract note and an OFFICIAL stamp that slams on. |
+| <img src="gallery/vs-splash.jpg" width="260" alt="vs-splash"/> | **`vs-splash`**<br/>VS splash  | A fighting-game versus card: blue and red striped panels slam shut along a steep diagonal with a white divider, a dark VS badge with a gold crescent springs in, a brush word pops above, judge mascots wobble below, and "FIGHT!" slams in over radial speed lines while the card dims. |
+
+</details>
+
+<details><summary><b>Music & audio</b> (23)</summary>
+
+| preview | motion | what it does |
+|---|---|---|
+| <img src="gallery/audio-spectrum.jpg" width="260" alt="audio-spectrum"/> | **`audio-spectrum`**<br/>Audio spectrum (bars / circle / wave / scope) `your image` | Audio-reactive visualiser: rounded gradient bars with peak-hold caps, a circular spectrum around a pulsing disc, a layered mirrored wave, or a green-phosphor oscilloscope, driven by the real soundtrack (64-128 log-spaced bins, release smoothing, peak hold) or by a synthetic beat when no file is given. Exports useAudioEnergy() to drive other motions. |
+| <img src="gallery/beat-camera.jpg" width="260" alt="beat-camera"/> | **`beat-camera`**<br/>Beat camera (snap reframes) `overlay` | The camera never floats: on every beat (or downbeat) it snaps to a new framing — punch-in, roll, whip, orbit, push — each move caught by a damped spring, with a +4 % punch on the kicks and a hair of shake that dies before the next cut; demoed over an engraved plinth table and a heavy title, and usable as a wrapper around any motion in a mix. |
+| <img src="gallery/beat-grid.jpg" width="260" alt="beat-grid"/> | **`beat-grid`**<br/>Beat grid (music clock HUD) `overlay` | A deadpan music clock: a huge BPM readout, four bar squares that flash on each beat, a beat/bar phase dial, and a scrolling ruler of beats and eighths with section blocks and kick/snare/hat lanes lighting as they cross the playhead — the beat grid every music motion in the library syncs to. |
+| <img src="gallery/beat-pulse-rings.jpg" width="260" alt="beat-pulse-rings"/> | **`beat-pulse-rings`**<br/>Beat pulse rings (bpm grid) `overlay` | Concentric rings pulse out of a centre disc on every beat of a bpm grid: circles, polygons or squares in two colours, bigger echoing rings on every downbeat, the disc kicking with each hit and optionally printing the tempo. Rings are already in flight at frame 0, so a whole number of bars loops seamlessly. |
+| <img src="gallery/engraving-hatch.jpg" width="260" alt="engraving-hatch"/> | **`engraving-hatch`**<br/>Engraving hatch (white-line plate) `overlay` | A white-line scratchboard engraving cuts itself on near-black: contour lines follow the form of a slowly turning sphere (or a ridge terrain), each line swelling where the light hits and thinning to a hair in shadow, a ground plate with a cast shadow, a hot orange rim light (or spark path) as the only glowing thing, deadpan figure labels. |
+| <img src="gallery/equalizer-bars-loop.jpg" width="260" alt="equalizer-bars-loop"/> | **`equalizer-bars-loop`**<br/>Equalizer bars (seamless loop) `overlay` | A seamlessly looping equalizer: rounded bars, LED segments, dot stacks or a mirrored centre-line spectrum, bar count, colours, bass profile and glow all adjustable. Heights are beat-locked sine harmonics with whole cycles per loop, so the last frame flows into the first. Text-free, transparent-capable. |
+| <img src="gallery/guilloche-note.jpg" width="260" alt="guilloche-note"/> | **`guilloche-note`**<br/>Guilloché banknote `overlay` `your image` | A banknote engraves itself on bone paper: lathe-work waves and a woven border band draw on, interlaced guilloché rosettes (r = R + a·sin(nθ + φ)) slowly turn, a portrait oval fills with line-relief engraving (horizontal lines lifted and thickened by the picture), serial numbers type in hazard orange and a seal stamps on. |
+| <img src="gallery/lyric-anchored-timeline.jpg" width="260" alt="lyric-anchored-timeline"/> | **`lyric-anchored-timeline`**<br/>Lyric-anchored cuts (edit by lyric text)  | A lyric video whose scenes are placed by lyric text, not timestamps: each scene names a fragment of its line and cuts on the last beat (or downbeat) before that line’s first word, then integrates the words its own way (orange field, outline fill, rubber-stamped, stacked); an edit strip shows beats, word blocks and the snapped cut markers. |
+| <img src="gallery/lyric-on-path.jpg" width="260" alt="lyric-on-path"/> | **`lyric-on-path`**<br/>Lyric on a path (spark / fuse) `overlay` | An orange spark with a white-hot core drags a hairline curve across the frame and the lyric rides it: each word appears on the path, tilted to the tangent, exactly as it is sung; in the fuse variant the burning front makes words glow as it passes, then they char to ash and crumble off the line. |
+| <img src="gallery/lyric-timing.jpg" width="260" alt="lyric-timing"/> | **`lyric-timing`**<br/>Lyric timing lane (word + syllable sync) `overlay` | A DAW-style lyric lane: every word is a block sized to its sung duration scrolling past a playhead on a beat grid, filling as it is sung (split at syllables, dashed when estimated), with line brackets, confidence bars, a word readout and the current line lighting word by word above. |
+| <img src="gallery/lyric-video.jpg" width="260" alt="lyric-video"/> | **`lyric-video`**<br/>Lyric video (karaoke + beat) `overlay` | Big lyric lines set left in a heavy variable grotesk; unsung words wait as hairline outlines and fill solid at the singer’s speed (syllable-aware), the current word lights hazard orange and creeps, the type breathes on every kick, a beat ruler and bar counter tick along the bottom. |
+| <img src="gallery/mixer-faders.jpg" width="260" alt="mixer-faders"/> | **`mixer-faders`**<br/>Mixer faders (channel strips + meters) `overlay` | A mixing-desk panel: per-channel pan knobs that turn to position, segmented green / amber / red level meters that bounce, faders that slide to their level values with a staggered overshoot and then ride gently, mute buttons, labels and a wider stereo master strip. Fully driven by `channels`, `levels`, `pans` and `mutes` arrays. |
+| <img src="gallery/now-playing-card.jpg" width="260" alt="now-playing-card"/> | **`now-playing-card`**<br/>Now playing card (album art + scrubber + controls) `overlay` | Streaming-app style now-playing card: album art, track / artist / album, a gradient scrubber with elapsed and remaining time, shuffle / previous / play-pause / next / repeat controls and a like heart. The play button is pressed (play becomes pause, scrubber starts) and the heart pops, with an equalizer glyph in the corner. Horizontal card on landscape and square, vertical card on portrait. |
+| <img src="gallery/podcast-audiogram.jpg" width="260" alt="podcast-audiogram"/> | **`podcast-audiogram`**<br/>Podcast audiogram (cover + waveform + captions) `overlay` | Social audiogram clip: cover art that breathes with the beat, show / episode label, title, a seeded waveform whose bars fill with a gradient as a playhead sweeps (bars near the playhead bounce), elapsed / total time and word-by-word caption lines. Landscape = cover left / text right; square and portrait stack cover over text. |
+| <img src="gallery/shutter-blur.jpg" width="260" alt="shutter-blur"/> | **`shutter-blur`**<br/>Shutter motion blur (wrapper demo) `overlay` | Real shutter motion blur: a word whips through the frame once per bar and a ball swings below, rendered as the average of N sub-frame samples over a fractional-frame shutter so fast moves leave true streaks; split-screen compares the stepped original with the blurred pass. The `<ShutterBlur>` wrapper works around any deterministic motion. |
+| <img src="gallery/stage-curtain.jpg" width="260" alt="stage-curtain"/> | **`stage-curtain`**<br/>Painted stage + curtains `overlay` | A hand-painted storybook theatre: a slowly rotating two-colour sunburst backdrop, a wooden plank floor, spotlight cones swinging and pulsing on the beat, footlights, and velvet side curtains with a scalloped valance that sweep open at the start and close at the end — with Nib dancing centre stage (or empty, or as a front-only frame over your own scene). |
+| <img src="gallery/time-stutter.jpg" width="260" alt="time-stutter"/> | **`time-stutter`**<br/>Time stutter (DJ retrig) `overlay` | DJ-style time stutter: the scene — a sweeping clock hand and a word sliding through — plays normally, then the last beat retrigs ×3 like a spun-back record (with an accent flash and a ⟲ REPEAT counter), and time carries on shifted so nothing is skipped; the OUT→SRC readout shows the remap. The `<TimeRemap>` wrapper stutters any motion. |
+| <img src="gallery/token-sampler-prompt.jpg" width="260" alt="token-sampler-prompt"/> | **`token-sampler-prompt`**<br/>Token sampler prompt (LLM typing) `overlay` | A thin prompt field in a dark void types a phrase token by token on the beat (or on sung-word starts): just before each token a tiny next-token distribution flickers above the caret and the sampled candidate lights orange, the camera re-frames between caret, text and field with a hair of kick per token, and ⏎ fires a flash-zoom on the closing downbeat. |
+| <img src="gallery/token-tree.jpg" width="260" alt="token-tree"/> | **`token-tree`**<br/>Token tree (what the model could have said) `overlay` | A sentence is generated token by token on the beat along a bright chosen path while every node sprouts dim alternative branches with their tokens and probabilities that keep branching into the dark; the camera rides the tip, then pulls back in beat steps until the whole tree is in frame, the last token set in italic serif. |
+| <img src="gallery/tracklist-reveal.jpg" width="260" alt="tracklist-reveal"/> | **`tracklist-reveal`**<br/>Tracklist reveal (numbered tracks + durations) `overlay` | Album / EP / playlist tracklist: a header with cover art, title, artist and "8 tracks · 31:42" (computed from the durations), then numbered rows slide in one by one with ruled lines and right-aligned times, and a "now playing" band with an animated equalizer glyph steps down the list. Two columns on landscape, header-over-list on square and portrait. |
+| <img src="gallery/vinyl-spin-label.jpg" width="260" alt="vinyl-spin-label"/> | **`vinyl-spin-label`**<br/>Vinyl record spin with label + tonearm drop `overlay` | A vinyl record on a platter: grooves, track gaps, scratches and two fixed light sheens while it spins up to 33 rpm; the centre label shows your art (or a procedural side-A label), and a metal tonearm swings in, drops onto the groove and slowly tracks inward. Title, artist and caption sit beside it on landscape and below it on square / portrait. |
+| <img src="gallery/width-pressure-type.jpg" width="260" alt="width-pressure-type"/> | **`width-pressure-type`**<br/>Width pressure type (condensing slab) `overlay` | A lyric packed into the broadcast title-safe box condenses on every kick — variable width 125→62, weight 300→900, tracking collapsing, more copies stacking with shrinking leading until the box is a solid slab — then bursts through title-safe, action-safe and finally the frame while a deadpan mono QC log complains and a counter races upward. |
+| <img src="gallery/word-slam-hook.jpg" width="260" alt="word-slam-hook"/> | **`word-slam-hook`**<br/>Word slam hook (one word per beat)  | A hook phrase plays one giant word per beat: each word slams in full-frame in heavy variable grotesk over type-specimen guides (baseline / cap-height hairlines, deadpan mono labels), with a two-frame invert flash, screen shake and punch zoom on every hit; four escalation variants up to a strobing maximal pass, and the last word can roll into a giant number. |
+
+</details>
+
+<details><summary><b>Product & commerce</b> (18)</summary>
+
+| preview | motion | what it does |
+|---|---|---|
+| <img src="gallery/add-to-cart-fly.jpg" width="260" alt="add-to-cart-fly"/> | **`add-to-cart-fly`**<br/>Add to cart (thumbnail flies into cart) `overlay` `your image` | A store header with a cart icon and a product card: the button is pressed, a copy of the product picture flies in an arc into the cart, the cart wiggles and its badge count bumps with a +1. |
+| <img src="gallery/coffee-pour-cup.jpg" width="260" alt="coffee-pour-cup"/> | **`coffee-pour-cup`**<br/>Coffee pour: layered cup fills `overlay` | A glass or mug fills with a layered drink — a thin stream pours each layer in turn, the surface ripples, layers stack with soft interfaces, steam rises, a label sits on the cup and every layer is named on the side with a leader line. |
+| <img src="gallery/colorway-swap.jpg" width="260" alt="colorway-swap"/> | **`colorway-swap`**<br/>Colourway swap `overlay` `your image` | A product cycles through a list of colourways: the image is recoloured (luminance tint, or the procedural speaker repaints), the backdrop disc and name follow, and a row of swatch chips highlights the active one. |
+| <img src="gallery/coupon-scratch-reveal.jpg" width="260" alt="coupon-scratch-reveal"/> | **`coupon-scratch-reveal`**<br/>Coupon scratch card reveal `overlay` | A coupon ticket with a foil window: a coin scratches back and forth with flying flakes until the discount code is revealed with a pop and confetti, then a "Copy code" button is tapped and turns to "Copied". |
+| <img src="gallery/delivery-tracker.jpg" width="260" alt="delivery-tracker"/> | **`delivery-tracker`**<br/>Delivery tracker (timeline + van on a route) `overlay` | A map with a street grid and a route from shop to home, a delivery van driving along it with a growing trail, a status timeline that ticks through the stages and an ETA countdown that ends in a Delivered check. |
+| <img src="gallery/exploded-view-snap.jpg" width="260" alt="exploded-view-snap"/> | **`exploded-view-snap`**<br/>Exploded view snap  | A product's parts float apart along one diagonal axis (tilting, spinning, hovering with a slow drift), then all snap back together in a quarter second on a beat with a click cluster, a micro-shake, the screen lighting up and a camera push. |
+| <img src="gallery/feature-callout-orbit.jpg" width="260" alt="feature-callout-orbit"/> | **`feature-callout-orbit`**<br/>Feature callouts around a product `overlay` `your image` | A product image floats in the centre with a dashed orbit ring; feature labels pop out of it one by one on elbowed leader lines (dot, line draw-on, label chip). Columns in landscape, rows in portrait. |
+| <img src="gallery/flash-deal-timer-card.jpg" width="260" alt="flash-deal-timer-card"/> | **`flash-deal-timer-card`**<br/>Flash deal card (countdown + draining stock bar) `overlay` `your image` | A product card with a FLASH DEAL ribbon, discount badge, struck-through old price, a ticking HH:MM:SS countdown and a stock bar that drains and turns red as units run out, with a pulsing call-to-action. |
+| <img src="gallery/frost-to-clear.jpg" width="260" alt="frost-to-clear"/> | **`frost-to-clear`**<br/>Frost to clear `your image` | A frosted glass shell clears: roughness drops 0.4 to 0.015 and transmission rises to 1 over about 1.2 s, the blurred white-tinted ghost of the mechanism inside sharpens into crisp gears, with live material readouts. |
+| <img src="gallery/iso-cutaway.jpg" width="260" alt="iso-cutaway"/> | **`iso-cutaway`**<br/>Iso cutaway  | A flat isometric building: a dashed cut line draws across its near wall, the skin slides out along its normal and fades, then the second wall and the roof follow; hatched cream/ink section rims stay on the cut edges and the floors inside (machines, desks, little people) pop up, each with a leader callout. |
+| <img src="gallery/liquid-pour-fill.jpg" width="260" alt="liquid-pour-fill"/> | **`liquid-pour-fill`**<br/>Liquid pour fill  | Four ingredients pour into a tall glass one after another as a stream with a splash, each layer rising with an eased level and a decaying sine meniscus while a panel counts every amount up in ml, shows STEP 01 / 04 and ends on the finished-drink title. |
+| <img src="gallery/order-confirmation.jpg" width="260" alt="order-confirmation"/> | **`order-confirmation`**<br/>Order confirmation receipt `overlay` | A check burst and headline beside a receipt card with a zig-zag edge: item lines slide in, subtotal / shipping / tax appear, the total counts up, then a barcode and a delivery-note chip. |
+| <img src="gallery/price-tag-drop.jpg" width="260" alt="price-tag-drop"/> | **`price-tag-drop`**<br/>Price tag drop `overlay` | A price tag hangs on a string, drops in and swings to rest; the old price is struck through, the new price pops in and a discount badge stamps on (auto percentage unless set). |
+| <img src="gallery/product-grid-filter.jpg" width="260" alt="product-grid-filter"/> | **`product-grid-filter`**<br/>Product grid with filter chips (re-flow) `overlay` | A grid of product cards with filter chips on top; as the active chip changes the matching cards glide to new slots, the others shrink away and the count updates, then it returns to All. |
+| <img src="gallery/size-color-picker.jpg" width="260" alt="size-color-picker"/> | **`size-color-picker`**<br/>Size & colour variant picker `overlay` `your image` | A product picture with colour swatches and size chips that are tapped in turn: the picture re-tints, the chosen chip fills, the price rolls to the new value and the add button wakes up. |
+| <img src="gallery/spec-compare-table.jpg" width="260" alt="spec-compare-table"/> | **`spec-compare-table`**<br/>Spec comparison table `overlay` | A comparison card: product names across the top, spec rows ticking in one after another with a check on each row winner, then the winning column is lit with an accent band and a badge. |
+| <img src="gallery/sunburst-hero.jpg" width="260" alt="sunburst-hero"/> | **`sunburst-hero`**<br/>Sunburst hero (mid-century reveal) `overlay` `your image` | Retro product reveal: translucent wedge rays spin out to the frame edge, a cream disc opens behind the product with a back-ease and a broken ink rim, atomic sparkles twinkle on twos, and a two-plate "Meet …" script title with a slab subtitle prints beside it. |
+| <img src="gallery/unbox-lid-lift.jpg" width="260" alt="unbox-lid-lift"/> | **`unbox-lid-lift`**<br/>Unbox lid lift `overlay` `your image` | A packaging box gives a little shake, the lid lifts, tilts and slides away, light rays and a glow pour out and the product image rises out of the box, then a title and subtitle settle in below. |
+
+</details>
+
+<details><summary><b>Documents & print</b> (16)</summary>
+
+| preview | motion | what it does |
+|---|---|---|
+| <img src="gallery/archive-photo-ken-burns-caption.jpg" width="260" alt="archive-photo-ken-burns-caption"/> | **`archive-photo-ken-burns-caption`**<br/>Archive photo + caption `overlay` `your image` | An archive photograph with a slow Ken Burns move (push, pull, pan or tilt) and a dated caption - full-bleed with a lower-left caption block (kicker, date, serif caption, credit), or as a white-bordered print with a handwritten caption in the margin. Sepia / black-and-white / colour treatment, grain, dust specks and a developing-print fade-in. |
+| <img src="gallery/certificate-seal.jpg" width="260" alt="certificate-seal"/> | **`certificate-seal`**<br/>Certificate with gold seal `overlay` | A certificate: double border draws on, title / recipient name / description settle in, the name and a signature write on left-to-right, then a gold wax-style seal with ribbons stamps down with a shake and a shockwave ring. |
+| <img src="gallery/doc-highlight-evidence.jpg" width="260" alt="doc-highlight-evidence"/> | **`doc-highlight-evidence`**<br/>Document highlight evidence  | A document page lies tilted on a dark desk and pushes in; a yellow highlighter sweeps the key sentence (multiply), then the figure it states slams beside the page as a big honey block with a pull-quote mark under a tightening vignette. Variant reading-light: a warm brightness band grows over the line while the page pushes in hard. |
+| <img src="gallery/document-marker-highlight.jpg" width="260" alt="document-marker-highlight"/> | **`document-marker-highlight`**<br/>Document marker highlight  | A tilted typed document slams onto an ink ground; a red highlighter bar sweeps across one exact sentence (multiply, rough edges), a hand-drawn red ellipse circles the heading, then the key number slams in huge on a red block beside the page — constructivist ink, paper and one red. |
+| <img src="gallery/document-zoom-highlight.jpg" width="260" alt="document-zoom-highlight"/> | **`document-zoom-highlight`**<br/>Document zoom + highlight  | A document page sits on a dark desk (procedural page, or your own page image); the camera zooms in on one paragraph while the rest of the page dims, a highlighter sweeps over the key phrase, and a SOURCE label slides in lower-left. |
+| <img src="gallery/evidence-board.jpg" width="260" alt="evidence-board"/> | **`evidence-board`**<br/>Evidence board  | Five evidence tiles cut in one by one with a flash — a document strip with a highlighted line, a freeze frame with corner brackets, ring and loupe, a photo with a ring, a waveform tile with a quote and a play-line, a report quote — then each sends a thin red dashed link to the same zone of a line-drawn schematic, the zone fills red, and ✓ badges land on each tile a beat apart. |
+| <img src="gallery/form-fill-submit.jpg" width="260" alt="form-fill-submit"/> | **`form-fill-submit`**<br/>Form fill and submit `overlay` | A form card fills itself: fields take focus and type their values with a blinking caret, a checkbox ticks, a cursor glides to the button and clicks, the button spins and the card becomes a success state. |
+| <img src="gallery/lift-the-flap.jpg" width="260" alt="lift-the-flap"/> | **`lift-the-flap`**<br/>Lift the flap  | Textbook page: a PREDICT question gets its answer ticked, a cursor taps a cream paper flap ("Lift the flap to see the answer", hand-drawn "lift here" arrow), the corner peeks, then the flap flips up about its top edge toward the viewer in ≈ 0.15 s with a darker underside and a growing shadow, folds away into a small tab and reveals the printed answer; a marker sweep highlights the key phrase and a handwritten note pops in. |
+| <img src="gallery/line-light-up.jpg" width="260" alt="line-light-up"/> | **`line-light-up`**<br/>Line light-up (backlit document)  | A backlit document on a light table: the camera eases in, one line of type brightens left-to-right while the rest of the page dims, an underline draws under it, the figure is ringed in the signal colour and lifts into a dark reading card with label and source. |
+| <img src="gallery/mugshot-height-chart.jpg" width="260" alt="mugshot-height-chart"/> | **`mugshot-height-chart`**<br/>Mugshot height chart `your image` | A round kawaii suspect rises in front of a height chart with cm labels at both edges, inside a blue halftone halo, holding a navy name plate (name, case no., charge); two camera flashes make it squint, a big "99+" stat and a profile block slide in on the sides, on mottled archive paper with a slow push-in. |
+| <img src="gallery/nutrition-facts-label.jpg" width="260" alt="nutrition-facts-label"/> | **`nutrition-facts-label`**<br/>Nutrition facts label (count-up) `overlay` | A printed-style nutrition label: heavy rules draw on, then calories, nutrient amounts and daily-value percentages count up from zero in sequence, one row highlighted; wide frames add a macro donut that sweeps in beside it. |
+| <img src="gallery/passport-stamps.jpg" width="260" alt="passport-stamps"/> | **`passport-stamps`**<br/>Passport stamps thud on `overlay` | A passport page collects travel stamps one by one: a rubber-stamp tool drops, the inked stamp lands slightly rotated with a shockwave and a page shake, then the tool lifts — circle, rectangle, oval, octagon and arrow shapes in any ink colour. |
+| <img src="gallery/receipt-print.jpg" width="260" alt="receipt-print"/> | **`receipt-print`**<br/>Receipt print `overlay` | A thermal receipt printer feeds paper up out of its slot one line-feed at a time: store header, itemised lines, computed subtotal / tax / total (highlighted), footer and a barcode. |
+| <img src="gallery/redaction-bars.jpg" width="260" alt="redaction-bars"/> | **`redaction-bars`**<br/>Redaction bars  | A typed case-file page on cream paper: navy ink bars print over chosen words with a 2-frame stamp kick, then lift one by one (slide-and-peel with a back ease) to reveal a yellow-highlighted word — some stay hidden — and a red DECLASSIFIED stamp slams at the end. |
+| <img src="gallery/screenprint-poster.jpg" width="260" alt="screenprint-poster"/> | **`screenprint-poster`**<br/>Screen-print poster (builds one ink at a time)  | A portrait poster builds one ink at a time under a squeegee on the beat: stepped-band sky, a concentric sun ring, far ridge with a lit facet, mid hills and near pines, then the info band stamps in its header, name, big number, rule and stats row; layers sit slightly out of register and the screen frame lifts away from the finished print. |
+| <img src="gallery/textbook-energy-lab.jpg" width="260" alt="textbook-energy-lab"/> | **`textbook-energy-lab`**<br/>Textbook energy lab  | An open physics textbook on a sage desk under window-light shadows. The right-page pencil apparatus stands up: a ball rolls a U-track while three beakers (gravitational, kinetic, thermal) trade liquid levels, joined by glowing transfer arcs. |
+
+</details>
+
+<details><summary><b>Maps</b> (11)</summary>
+
+| preview | motion | what it does |
+|---|---|---|
+| <img src="gallery/choropleth-fill.jpg" width="260" alt="choropleth-fill"/> | **`choropleth-fill`**<br/>Choropleth fill (tile map + legend) `overlay` | An abstract hex/square tile territory fills region by region with a colour ramp driven by values, with labels, count-ups, a gradient legend and a highest-region callout. Regions are generic tiles, not real borders. |
+| <img src="gallery/city-zoom-label.jpg" width="260" alt="city-zoom-label"/> | **`city-zoom-label`**<br/>City zoom + label card `overlay` | A world map zooms (expo ease, graticule re-scaling) down to a lat/lon, a pin pings, and a label card with name, subtitle and coordinates slides in. |
+| <img src="gallery/coverage-route.jpg" width="260" alt="coverage-route"/> | **`coverage-route`**<br/>Coverage route (floor plan) `overlay` | Top-down mid-century floor plan: a robot route draws itself region by region — a wall-follow loop, then back-and-forth lanes that flow around furniture without crossing, curls at every U-turn, stars and dots popping between lanes, a dotted return to the dock — while the camera pulls back and counter-rotates to reveal a patterned whole. |
+| <img src="gallery/elevation-profile.jpg" width="260" alt="elevation-profile"/> | **`elevation-profile`**<br/>Elevation profile `overlay` | A route elevation line draws left to right, coloured by steepness, with a moving marker and live distance / total gain / grade readouts and a peak flag. |
+| <img src="gallery/flight-arcs.jpg" width="260" alt="flight-arcs"/> | **`flight-arcs`**<br/>Flight arcs (great-circle routes) `overlay` | Great-circle arcs fly between lat/lon cities on a flat map: planes (or dots) travel with a glowing trail, cities ping on arrival, a distance counter adds up. |
+| <img src="gallery/hairline-feature-trace.jpg" width="260" alt="hairline-feature-trace"/> | **`hairline-feature-trace`**<br/>Hairline feature trace  | On a dark raking-lit survey surface, 1-px amber hairlines light up along traced features in order (compound walls, a sinuous road, a pipe run, a boundary loop). Each line has a bright head glow at the drawing front and a faint halo behind, stays crisp at any distance, and is draped on the terrain while the camera drifts. |
+| <img src="gallery/iso-diorama-board.jpg" width="260" alt="iso-diorama-board"/> | **`iso-diorama-board`**<br/>Iso diorama board  | A floating flat-isometric diorama board (cream top, soil strata and a blue water corner on its front edges) builds up: stations drop in with a squash — farm, plant, port, city — trees pop, then a dashed ink route draws far-to-near with a red subject cube riding it; label pins with values pop at each stop and a legend card locks the total. Flat three-tone shading, no outlines. |
+| <img src="gallery/map-mask-reveal.jpg" width="260" alt="map-mask-reveal"/> | **`map-mask-reveal`**<br/>Map mask reveal `your image` | A choropleth map fills in west to east; one region is outlined in the accent with a leader label, the camera pushes into it, then a photo of the place grows out of the region's own outline until it fills the frame. |
+| <img src="gallery/painted-choropleth.jpg" width="260" alt="painted-choropleth"/> | **`painted-choropleth`**<br/>Painted choropleth map  | A painted island map: the coastline is brushed in, then regions fill with quantised watercolour bands (wobbly wash edges, three-pass look) driven by station data; the field can morph through time (e.g. 50 Ma to today) with a radial fill reveal, a huge serif year label and a band legend. |
+| <img src="gallery/pin-drop-cluster.jpg" width="260" alt="pin-drop-cluster"/> | **`pin-drop-cluster`**<br/>Pin drop + clustering map `overlay` | Map pins drop onto a map region, merge into numbered cluster bubbles, split into single pins as the camera zooms in, then merge again. |
+| <img src="gallery/time-rings.jpg" width="260" alt="time-rings"/> | **`time-rings`**<br/>Time rings (dated scan passes)  | A locked top-down view where soft scan passes sweep down the frame, each swapping in an older or newer dated plate and leaving that date's outline as a thin white ring with a year label; the lost band flashes, a light runs the newest outline, the rest dims, and an amber reading rolls in and lands. |
+
+</details>
+
+<details><summary><b>Mascots</b> (11)</summary>
+
+| preview | motion | what it does |
+|---|---|---|
+| <img src="gallery/beat-dance.jpg" width="260" alt="beat-dance"/> | **`beat-dance`**<br/>Beat dance (Nib + crew) `overlay` | Nib dances on the music under a pulsing spotlight — bounce, hop, raise-the-roof, sway, a drawn spin through its key views on beat 4, wave, walk, run, stomp, shimmy or a mix that changes every two bars — with an optional back-up crew offset so nobody twins. |
+| <img src="gallery/chomp-lid.jpg" width="260" alt="chomp-lid"/> | **`chomp-lid`**<br/>Chomp on the beat (Nib muncher) `overlay` | Nib opens its mouth into a huge toothy D (teeth always sized to the gap) and snaps it shut on the beat, munching labelled blocks that arc in from the side one per bite, with a squash on each chomp and a spray of crumbs. |
+| <img src="gallery/emotion-idle-beat.jpg" width="260" alt="emotion-idle-beat"/> | **`emotion-idle-beat`**<br/>Emotion idles on the beat (Nib line-up) `overlay` | A line-up of Nib mascots, each in a different mood, each moving with its own body language (bounce, sob per beat, cool nod, furious tremble, slow sleepy breath) locked to one tempo, over beat-pulsing floor spots and a four-dot metronome. |
+| <img src="gallery/emotion-sheet.jpg" width="260" alt="emotion-sheet"/> | **`emotion-sheet`**<br/>Mascot emotion sheet (Nib) `overlay` | A model sheet of the ink-drop mascot Nib: all 31 named emotions in a labelled grid, every one alive on the beat (idle body language, blinks, emotes); also a views, dances or hats sheet. |
+| <img src="gallery/emotion-timeline.jpg" width="260" alt="emotion-timeline"/> | **`emotion-timeline`**<br/>Acted emotion timeline (Nib) `overlay` | Nib acts a chain of moods without ever snapping: eyes squint shut before each key, the face swaps under them, a squash-and-stretch take sized to the new mood fires, the pose overshoots into its new idle, colour and blush cross-fade and the new emote pops; an optional key strip shows the keys and playhead. |
+| <img src="gallery/mascot-nib.jpg" width="260" alt="mascot-nib"/> | **`mascot-nib`**<br/>Mascot Nib (31 emotions) `overlay` | Nib, the library’s hand-inked ink-drop mascot with a springy curl, round eyes, brows and noodle arms, drops in and stays alive in any of 31 named emotions (face, colour shift, emote mark and its own beat-locked body language); can follow an action script (walk, run, hop, jump, feel, turn, dance, take, wave, look, emote). |
+| <img src="gallery/mascot-thinking.jpg" width="260" alt="mascot-thinking"/> | **`mascot-thinking`**<br/>Mascot Pip thinking to idea `overlay` | Pip ponders with a hand by its head while a thought bubble of pulsing dots grows, then the dots flip to a glowing light bulb, the antenna lights and Pip hops. |
+| <img src="gallery/mascot-thumbs-up.jpg" width="260" alt="mascot-thumbs-up"/> | **`mascot-thumbs-up`**<br/>Mascot Pip thumbs up + confetti `overlay` | Pip crouches, jumps and lands with a thumbs-up while confetti cannons fire and a "nice work" bubble pops. |
+| <img src="gallery/mascot-wave-hello.jpg" width="260" alt="mascot-wave-hello"/> | **`mascot-wave-hello`**<br/>Mascot Pip waves hello `overlay` | An original capsule-robot mascot (Pip) pops in, waves, blinks and says a typed line in a speech bubble. |
+| <img src="gallery/pixel-mascot-on-ui.jpg" width="260" alt="pixel-mascot-on-ui"/> | **`pixel-mascot-on-ui`**<br/>Pixel mascot on UI  | A chunky pixel-art mascot lives inside a crisp redrawn task-app window: it hops onto the top edges of the heading, input box, list rows and button with wind-up squash, parabolic arc, air stretch and damped landing squash plus dust, walks with a 9 Hz leg swap, blinks, breathes on the beat, and every action changes the real UI (typing with a pencil, checkboxes tick with sparkles, the button presses and hearts float). Original sprite, editable as character rows. |
+| <img src="gallery/smear-trail.jpg" width="260" alt="smear-trail"/> | **`smear-trail`**<br/>Smear trail dash (Nib) `overlay` | Nib dashes in so fast the drawing smears: the body stretches wide, dry-brush streaks of its own colour and thin ink speed lines trail behind, the eyes collapse to dashes; it skids to a stop in a dust puff, does a take, then zips off the other side. |
+
+</details>
+
+<details><summary><b>Camera moves</b> (9)</summary>
+
+| preview | motion | what it does |
+|---|---|---|
+| <img src="gallery/auto-frame-camera.jpg" width="260" alt="auto-frame-camera"/> | **`auto-frame-camera`**<br/>Auto-frame camera  | Self-framing camera for build-up diagrams: as blocks are added the isometric scene pans and zooms (0.7 s easeInOutCubic) so the current assembly always fills the viewport with a constant margin, while the header and readouts never move. Dashed guides show the margin box and the content bounds. |
+| <img src="gallery/board-camera.jpg" width="260" alt="board-camera"/> | **`board-camera`**<br/>Board camera (one huge board, one long dolly)  | A very large board holds every idea in its own region; the camera dollies between regions with log-zoom weighting and small rolls, pushes into one symbol, then pulls back past the board edge to show the whole lesson hanging on a wall in an aluminium frame with a pen tray. Directional motion blur appears when the camera moves fast. |
+| <img src="gallery/canvas-flythrough.jpg" width="260" alt="canvas-flythrough"/> | **`canvas-flythrough`**<br/>Canvas flythrough  | One tall layout holding every section; a virtual camera flies between stations with a van Wijk smooth zoom (zooming out slightly while travelling, settling on a long ease, speed-proportional camera blur) and at the end pulls all the way out to reveal the whole canvas was a phone screen. |
+| <img src="gallery/crash-zoom.jpg" width="260" alt="crash-zoom"/> | **`crash-zoom`**<br/>Crash zoom `your image` | Snap punch-in on a point of interest: expo-out zoom, ghosted zoom blur, decaying shake, radial speed lines and a flash. |
+| <img src="gallery/dolly-zoom.jpg" width="260" alt="dolly-zoom"/> | **`dolly-zoom`**<br/>Dolly zoom (vertigo) `your image` | Vertigo effect: the subject holds its size while the background stretches behind it, with a tightening vignette. |
+| <img src="gallery/orbit-parallax.jpg" width="260" alt="orbit-parallax"/> | **`orbit-parallax`**<br/>Orbit parallax `your image` | 2.5D camera orbit around a cut-out subject: depth layers slide against each other while the subject turns slightly. |
+| <img src="gallery/rack-focus.jpg" width="260" alt="rack-focus"/> | **`rack-focus`**<br/>Rack focus  | Focus pulls between a foreground, a subject and a background layer: blur follows depth, bokeh blooms, lens breathes. |
+| <img src="gallery/time-remap-clock.jpg" width="260" alt="time-remap-clock"/> | **`time-remap-clock`**<br/>Time remap clock  | Explains and demonstrates the punctuation-hold clock: two balls on a track, one on the constant timeline, one on the remapped clock that eases to a full stop on each hold, then runs up to ~2x to catch back up; a live speed graph shows the dip, the stop and the sin² catch-up. The same pure remap (buildTimeRemap in src/core/r2-mg1b-kit.tsx) can drive any motion for musical breaths. |
+| <img src="gallery/whip-pan.jpg" width="260" alt="whip-pan"/> | **`whip-pan`**<br/>Whip pan `your image` | The camera whips sideways to the next picture: expo-fast slide, directional motion blur, speed streaks, a settle. |
+
+</details>
+
+<details><summary><b>Textures & backgrounds</b> (4)</summary>
+
+| preview | motion | what it does |
+|---|---|---|
+| <img src="gallery/bokeh-drift.jpg" width="260" alt="bokeh-drift"/> | **`bokeh-drift`**<br/>Bokeh drift `overlay` | Soft depth-of-field light discs in three depth bands drifting through the frame with a gentle twinkle; circle or hexagon bokeh. |
+| <img src="gallery/hide-carve-patterns.jpg" width="260" alt="hide-carve-patterns"/> | **`hide-carve-patterns`**<br/>Hide-carve patterns (openwork library)  | The openwork vocabulary of shadow theatre on lit cloth: crescent fish-scale holes, diamond lattice, coin holes, cloud scrolls, meander bands, bead lines, tapered rain slits and leaf holes, each hide piece pressed on and cut by a sweeping knife. |
+| <img src="gallery/light-leak-wash.jpg" width="260" alt="light-leak-wash"/> | **`light-leak-wash`**<br/>Light-leak wash `overlay` | Analogue film light leaks: hot colour blobs bleed in from the frame edges, swell, drift and fall away, screen-blended. |
+| <img src="gallery/pattern-scroll.jpg" width="260" alt="pattern-scroll"/> | **`pattern-scroll`**<br/>Pattern scroll `overlay` | Seamless tiling geometric background (dots, lines, checks, waves, diamonds, plus) scrolling in any direction, loop-perfect. |
 
 </details>
 
@@ -784,17 +1043,30 @@ rebuilds it.
 
 ## Contributing
 
-New motions, recipes, transitions and integrations are very welcome — see [CONTRIBUTING.md](CONTRIBUTING.md) and the
-[authoring guide](docs/AUTHORING.md). Share what you make in [Discussions](https://github.com/GovinduSasanka/opus-motion-library/discussions).
+New motions, recipes, transitions, styles and integrations are very welcome. Start with [CONTRIBUTING.md](CONTRIBUTING.md)
+and the [authoring guide](docs/AUTHORING.md); after a change run
+`node cli/gen-registry.mjs && npx tsc --noEmit && node cli/gen-docs.mjs`. Share what you make in
+[Discussions](https://github.com/GovinduSasanka/opus-motion-library/discussions), and please follow the
+[Code of Conduct](CODE_OF_CONDUCT.md). Security reports: [SECURITY.md](SECURITY.md).
 
-## Licence and credits
+## Licence and attribution
 
 - Code: [MIT](LICENSE). Rendering uses [Remotion](https://www.remotion.dev/license), which is free for individuals and
   small teams; larger companies need a Remotion company licence.
+- Third-party libraries, fonts and assets are listed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 - Demo illustrations in `public/demo/` were generated for this project. Music and sound effects (Pixabay Content
   License) are not redistributed; sources are listed in `public/music/music.json` and `public/sfx/sfx.json`.
 - Fonts load from Google Fonts (OFL).
 - Not affiliated with or endorsed by Anthropic. "Claude" and "Opus" are trademarks of Anthropic.
 
-<div align="center"><br/>If this saves you time, a ⭐ helps others find it.<br/><br/>
-<a href="https://star-history.com/#GovinduSasanka/opus-motion-library&Date"><img src="https://api.star-history.com/svg?repos=GovinduSasanka/opus-motion-library&type=Date" width="560" alt="Star history"/></a></div>
+<div align="center">
+
+## ⭐ Star the repo if this saves you time
+
+A star is the cheapest way to help other developers and designers find it. Thank you.
+
+[![Star on GitHub](https://img.shields.io/github/stars/GovinduSasanka/opus-motion-library?style=for-the-badge&logo=github&label=Star&color=E9C27A)](https://github.com/GovinduSasanka/opus-motion-library)
+
+<a href="https://star-history.com/#GovinduSasanka/opus-motion-library&Date"><img src="https://api.star-history.com/svg?repos=GovinduSasanka/opus-motion-library&type=Date" width="560" alt="Star history chart"/></a>
+
+</div>

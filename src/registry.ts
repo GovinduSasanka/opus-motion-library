@@ -28,6 +28,7 @@ import {lightBeamRibbon} from './motions/3d/light-beam-ribbon';
 import {liminalCorridor3d} from './motions/3d/liminal-corridor-3d';
 import {lowPolyTerrainFlyover} from './motions/3d/low-poly-terrain-flyover';
 import {oceanSurface3d} from './motions/3d/ocean-surface-3d';
+import {orbitingIconsSphere} from './motions/3d/orbiting-icons-sphere';
 import {particleShapeMorph} from './motions/3d/particle-shape-morph';
 import {planTilt} from './motions/3d/plan-tilt';
 import {plinthProgressRing} from './motions/3d/plinth-progress-ring';
@@ -645,6 +646,7 @@ export const motions: MotionDef<any>[] = [
   liminalCorridor3d,
   lowPolyTerrainFlyover,
   oceanSurface3d,
+  orbitingIconsSphere,
   particleShapeMorph,
   planTilt,
   plinthProgressRing,

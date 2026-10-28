@@ -173,10 +173,10 @@ const LIB: Record<string, Place> = {
   shelf: {p: [-3.65, -0.7], ry: 0, Comp: Shelf},
   desk: {p: [-3.45, 2.3], ry: 0, Comp: Desk},
   chair: {p: [-2.3, 2.3], ry: -Math.PI / 2 - 0.25, Comp: Chair},
-  plant: {p: [3.3, -3.2], ry: 0, Comp: Plant},
-  lamp: {p: [2.0, -3.4], ry: 0, Comp: Lamp},
-  bed: {p: [2.4, -2.1], ry: 0, Comp: Bed},
-  tv: {p: [-0.7, -3.6], ry: 0, Comp: Tv},
+  plant: {p: [3.3, 3.1], ry: 0, Comp: Plant},
+  lamp: {p: [-3.35, -3.4], ry: 0, Comp: Lamp},
+  bed: {p: [2.4, -1.7], ry: 0, Comp: Bed},
+  tv: {p: [2.55, -3.55], ry: 0, Comp: Tv},
 };
 
 const landState = (frame: number, start: number, dropH: number) => {
@@ -194,7 +194,8 @@ const landState = (frame: number, start: number, dropH: number) => {
   return {y: Math.max(0, 0.25 * Math.abs(Math.sin(e * 0.55)) * Math.exp(-e * 0.4)), sy: 1 - 0.2 * Math.max(0, sq) + 0.08 * Math.min(0, sq), sxz: 1 + 0.1 * Math.max(0, sq), vis: true};
 };
 
-const WallArt: React.FC<{src: string; pal: Pal; seed: number}> = ({src, pal, seed}) => {
+/** wall picture texture: the user's image (cover-fitted) or generated abstract art. Call outside the canvas. */
+const useWallArt = (src: string, pal: Pal, seed: number) => {
   const img = useImgTexture(src || undefined, 'room wall art');
   const gen = useMemo(
     () =>
@@ -210,7 +211,10 @@ const WallArt: React.FC<{src: string; pal: Pal; seed: number}> = ({src, pal, see
       }, false),
     [pal.accent, pal.accent2, pal.wall, seed],
   );
-  const tex = useMemo(() => (img ? coverTexture(img, 1.25) : gen), [img, gen]);
+  return useMemo(() => (img ? coverTexture(img, 1.25) : gen), [img, gen]);
+};
+
+const WallArt: React.FC<{tex: THREE.Texture}> = ({tex}) => {
   return (
     <group>
       <Bx p={[0, 0, 0]} s={[1.5, 1.2, 0.06]} c={pal.ink} cast={false} />
@@ -229,6 +233,7 @@ const IsometricRoom: React.FC<Props> = (P) => {
   const stacked = portrait || aspect < 1.2;
   const hasText = !!(P.title || P.subtitle);
   const pal: Pal = {floor: P.floorColor, wall: P.wallColor, accent: P.accent, accent2: P.accent2, wood: P.woodColor, ink: shade(P.accent, -0.7)};
+  const artTex = useWallArt(P.wallArt, pal, 3);
   const bgRef = P.background === 'transparent' ? '#ffffff' : P.background;
   const ink = P.ink || (luma(bgRef) > 0.5 ? '#1c2540' : '#ffffff');
 
@@ -288,7 +293,7 @@ const IsometricRoom: React.FC<Props> = (P) => {
         <CameraRig position={cam.position} target={cam.target} fov={fov} near={1} far={200} />
         <hemisphereLight args={['#ffffff', mixHex(P.floorColor, '#8a8aa0', 0.5), 1.5]} />
         <directionalLight position={[7, 12, 5]} intensity={1.7} color="#fff6e8" castShadow shadow-mapSize={[2048, 2048]} shadow-camera-left={-9} shadow-camera-right={9} shadow-camera-top={9} shadow-camera-bottom={-9} shadow-camera-near={1} shadow-camera-far={40} shadow-bias={-0.0006} shadow-normalBias={0.02} />
-        <pointLight position={[2, 3.2, -3]} intensity={detail * 14} distance={8} decay={2} color="#ffd9a0" />
+        <pointLight position={[-3.1, 3.4, -3.1]} intensity={detail * 14} distance={8} decay={2} color="#ffd9a0" />
         <group scale={[floorScale, 1, floorScale]}>
           {/* floor slab + planks */}
           <mesh position={[0, -0.18, 0]} receiveShadow castShadow>
@@ -318,7 +323,7 @@ const IsometricRoom: React.FC<Props> = (P) => {
             <Bx p={[0, 0, 0.075]} s={[1.9, 0.07, 0.02]} c="#ffffff" cast={false} />
           </group>
           <group position={[-3.95, 2.3, -2.4]} rotation={[0, Math.PI / 2, 0]}>
-            <WallArt src={P.wallArt} pal={pal} seed={3} />
+            <WallArt tex={artTex} />
           </group>
         </group>
         {items.map((id, i) => {

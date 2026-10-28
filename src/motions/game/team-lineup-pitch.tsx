@@ -84,7 +84,7 @@ const TeamLineupPitch: React.FC<Props> = (P) => {
   const drawP = easeIO(sseg(frame, 4, 40));
   const fieldOpacity = easeOut3(sseg(frame, 0, 16));
 
-  const mR = Math.min(L.w, L.h) * (vertical ? 0.056 : sport === 'basketball' ? 0.066 : 0.056);
+  const mR = Math.min(L.w, L.h) * (vertical ? 0.05 : sport === 'basketball' ? 0.066 : 0.056);
   const r = clampN(mR, 18 * u, 56 * u);
   const hl = String(P.highlight ?? '').trim();
 
@@ -106,8 +106,8 @@ const TeamLineupPitch: React.FC<Props> = (P) => {
 
   const titleP = easeOut3(sseg(frame, 6, 34));
   const fmP = backOut(sseg(frame, 14, 40));
-  const tFs = fitFont((P.title || '').toUpperCase(), (wide ? 74 : portrait ? 84 : 62) * u, (wide ? panelW : w - pad * 2) * 0.98);
-  const fmFs = (wide ? 150 : portrait ? 130 : 96) * u;
+  const tFs = fitFont((P.title || '').toUpperCase(), (wide ? 74 : portrait ? 84 : 62) * u, (wide ? panelW : w - pad * 2) * 0.94);
+  const fmFs = fitFont(P.formation || ' ', (wide ? 150 : portrait ? 130 : 96) * u, (wide ? panelW : w - pad * 2) * 0.96);
 
   return (
     <AbsoluteFill style={{background: bgCss(P.background)}}>
@@ -162,7 +162,7 @@ const TeamLineupPitch: React.FC<Props> = (P) => {
         const isHl = hl !== '' && (hl === ns || hl.toLowerCase() === p.name.toLowerCase());
         const pulse = isHl ? 0.5 + 0.5 * Math.sin((frame - 120) * 0.2) : 0;
         const spot = isHl ? easeOut3(sseg(frame, 118, 136)) : 0;
-        const nameFs = fitFont(p.name.toUpperCase(), r * 0.72, r * 4.1, 'sans', 0.04);
+        const nameFs = fitFont(p.name.toUpperCase(), r * (vertical ? 0.6 : 0.72), r * (vertical ? 3.5 : 4.1), 'sans', 0.04);
         const ring = r * (1.55 + 0.25 * pulse);
         return (
           <div key={p.i} style={{position: 'absolute', left: pos.x, top: pos.y, width: 0, height: 0, opacity: o, transform: `translateY(${drop}px)`}}>

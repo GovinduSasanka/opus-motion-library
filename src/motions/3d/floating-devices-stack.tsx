@@ -165,27 +165,47 @@ const FloatingDevices: React.FC<Props> = (P) => {
   const stacked = portrait || aspect < 1.2;
   const side = hasText && !stacked;
   const fovT = Math.tan((fov * Math.PI) / 360);
+  // horizontal extent of the devices actually used (laptops are wide, phones narrow)
+  const reach = {laptop: 1.0, tablet: 0.55, phone: 0.34};
+  let minX = Infinity;
+  let maxX = -Infinity;
+  devs.forEach((d, i) => {
+    const r = reach[kindOf(d)] * slots[i].s;
+    minX = Math.min(minX, slots[i].p[0] - r);
+    maxX = Math.max(maxX, slots[i].p[0] + r);
+  });
+  const midX = (minX + maxX) / 2;
+  const spanHalf = (maxX - minX) / 2 + 0.2;
   let dist: number;
   let textDx = 0;
   let textDy = 0;
   if (stacked) {
     // hero on top, small devices below; with a title the stack starts ~27% down the frame
-    const halfW = 1.6;
-    const hv = Math.max(halfW / aspect, hasText ? 2.9 : 2.1);
+    const hv = Math.max(Math.max(1.6, spanHalf) / aspect, hasText ? 2.9 : 2.1);
     dist = hv / fovT / P.size;
     textDy = hasText ? 1.75 - 0.44 * hv - 0.1 : 0;
   } else {
-    const halfW = devs.length >= 4 ? 3.3 : 2.5;
     // with a text column the stack is framed in the right ~55% of the frame
-    const viewHalfW = side ? halfW / 0.56 : halfW;
+    const viewHalfW = side ? spanHalf / 0.56 : spanHalf;
     textDx = side ? -0.4 * viewHalfW : 0;
     dist = fitDistBox(viewHalfW, 1.6, fov, aspect) / P.size;
   }
   const sway = Math.sin((frame / Math.max(1, durationInFrames)) * Math.PI * 2) * P.sway * (Math.PI / 180);
-  const eye: V3 = [Math.sin(sway) * dist, 0.9 + dist * 0.06, Math.cos(sway) * dist];
-  const cam = viewShift(eye, [0, 0.1, 0], textDx, textDy);
+  const eye: V3 = [midX + Math.sin(sway) * dist, 0.9 + dist * 0.06, Math.cos(sway) * dist];
+  const cam = viewShift(eye, [midX, 0.1, 0], textDx, textDy);
+  // screen textures are loaded out here (outside the canvas) so the frame waits for them; hooks run for 5 fixed slots
+  const srcAt = (i: number) => (i < devs.length && P.screens.length ? P.screens[i % P.screens.length] : '');
+  const accA = P.accent;
+  const accB = P.accent2;
+  const lightBg = shade(accA, 0.78);
+  const texs = [
+    useScreenTex(srcAt(0), kindOf(devs[0] ?? 'laptop'), 0, lightBg, accA, accB, P.darkScreens),
+    useScreenTex(srcAt(1), kindOf(devs[1] ?? 'laptop'), 1, lightBg, accA, accB, P.darkScreens),
+    useScreenTex(srcAt(2), kindOf(devs[2] ?? 'laptop'), 2, lightBg, accA, accB, P.darkScreens),
+    useScreenTex(srcAt(3), kindOf(devs[3] ?? 'laptop'), 3, lightBg, accA, accB, P.darkScreens),
+    useScreenTex(srcAt(4), kindOf(devs[4] ?? 'laptop'), 4, lightBg, accA, accB, P.darkScreens),
+  ];
   const ink = P.ink || (luma(P.background) > 0.5 ? '#13213f' : '#ffffff');
-  const bgRef = P.background === 'transparent' ? '#ffffff' : P.background;
 
   return (
     <AbsoluteFill style={{background: bgCss(P.background, P.accent)}}>
@@ -196,7 +216,7 @@ const FloatingDevices: React.FC<Props> = (P) => {
         <directionalLight position={[-4, 6, 5]} intensity={2} color="#fff4e6" />
         <directionalLight position={[5, 2, -3]} intensity={1.2} color={mixHex(P.accent, '#ffffff', 0.4)} />
         {devs.map((d, i) => (
-          <Item key={i} i={i} kind={kindOf(d)} slot={slots[i]} src={P.screens.length ? P.screens[i % P.screens.length] : ''} P={P} bg={bgRef} frame={frame} />
+          <Item key={i} i={i} kind={kindOf(d)} slot={slots[i]} tex={texs[i]} P={P} frame={frame} />
         ))}
       </Stage3D>
       <Headline title={P.title} subtitle={P.subtitle} ink={ink} accent={P.accent} at={P.startAt + 10} place={portrait || aspect < 1.2 ? 'top' : 'side'} />
@@ -204,8 +224,7 @@ const FloatingDevices: React.FC<Props> = (P) => {
   );
 };
 
-const Item: React.FC<{i: number; kind: Kind; slot: Slot; src: string; P: Props; bg: string; frame: number}> = ({i, kind, slot, src, P, bg, frame}) => {
-  const tex = useScreenTex(src, kind, i, shade(P.accent, 0.78), P.accent, P.accent2, P.darkScreens);
+const Item: React.FC<{i: number; kind: Kind; slot: Slot; tex: THREE.Texture; P: Props; frame: number}> = ({i, kind, slot, tex, P, frame}) => {
   const edge = shade(P.bodyColor, 0.25);
   // hero (slot 0) lands first, the others follow
   const st = P.startAt + i * P.stagger;

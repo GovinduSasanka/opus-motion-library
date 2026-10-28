@@ -134,8 +134,10 @@ console.log(`docs: CATALOG.md (${catalog.length} motions), TECHNIQUES.md (${mapp
   const a = readme.indexOf('<!-- catalogue:start -->');
   const b = readme.indexOf('<!-- catalogue:end -->');
   if (a >= 0 && b > a) {
-    const famName = {text: 'Type', transition: 'Transitions', shape: 'Shapes & line art', fx: 'Effects & accents', environment: 'Worlds & weather', character: 'Characters', data: 'Data', ui: 'Interfaces', hud: 'HUD & blueprints', image: 'Image looks', '3d': 'Real 3D'};
-    const fams = Object.keys(famName).filter((c) => catalog.some((m) => m.category === c));
+    const famName = {text: 'Type', transition: 'Transitions', shape: 'Shapes & line art', fx: 'Effects & accents', environment: 'Worlds & weather', character: 'Characters', data: 'Data', ui: 'Interfaces', hud: 'HUD & blueprints', image: 'Image looks', '3d': 'Real 3D', game: 'Games & sports', music: 'Music & audio', product: 'Product & commerce', document: 'Documents & print', map: 'Maps', mascot: 'Mascots', camera: 'Camera moves', texture: 'Textures & backgrounds'};
+    // every category in the catalogue gets a section (unknown ones fall back to their id)
+    const fams = [...Object.keys(famName), ...new Set(catalog.map((m) => m.category))].filter((c, i, all) => all.indexOf(c) === i && catalog.some((m) => m.category === c));
+    for (const c of fams) famName[c] ??= c;
     let cat = '';
     fams.forEach((c, k) => {
       const ms = catalog.filter((m) => m.category === c);

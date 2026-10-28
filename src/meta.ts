@@ -294,6 +294,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "heavy"
  },
+ "orbiting-icons-sphere": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 240,
+  "roles": [
+   "subject"
+  ],
+  "weight": "heavy"
+ },
  "particle-shape-morph": {
   "overlay": false,
   "overlayProps": null,

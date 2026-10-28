@@ -60,9 +60,9 @@ const buildTerrain = (seed: number, relief: number, sea: number, palette: string
     if (e < -0.2) c.copy(cDeep);
     else if (e < 0.05 * relief) c.copy(cSand);
     else if (r < 0.62) c.copy(cGrass).lerp(cForest, smoothstep(0.25, 0.6, r) * 0.6);
-    else if (r < 1.0) c.copy(cRock).lerp(cGrass, smoothstep(0.78, 0.62, r) * 0.5);
+    else if (r < 0.86) c.copy(cRock).lerp(cGrass, smoothstep(0.74, 0.62, r) * 0.5);
     else c.copy(cSnow);
-    if (slope > 0.9 && e > 0.05 * relief && r < 1.0) c.lerp(cRock, clamp((slope - 0.9) * 1.1));
+    if (slope > 0.9 && e > 0.05 * relief && r < 0.86) c.lerp(cRock, clamp((slope - 0.9) * 1.1));
     return c.multiplyScalar(0.93 + v * 0.14);
   };
 

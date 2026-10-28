@@ -30,6 +30,7 @@ export const loaders: Record<string, () => Promise<MotionDef<any>>> = {
   'liminal-corridor-3d': () => import('../motions/3d/liminal-corridor-3d').then((x) => x.liminalCorridor3d as MotionDef<any>),
   'low-poly-terrain-flyover': () => import('../motions/3d/low-poly-terrain-flyover').then((x) => x.lowPolyTerrainFlyover as MotionDef<any>),
   'ocean-surface-3d': () => import('../motions/3d/ocean-surface-3d').then((x) => x.oceanSurface3d as MotionDef<any>),
+  'orbiting-icons-sphere': () => import('../motions/3d/orbiting-icons-sphere').then((x) => x.orbitingIconsSphere as MotionDef<any>),
   'particle-shape-morph': () => import('../motions/3d/particle-shape-morph').then((x) => x.particleShapeMorph as MotionDef<any>),
   'plan-tilt': () => import('../motions/3d/plan-tilt').then((x) => x.planTilt as MotionDef<any>),
   'plinth-progress-ring': () => import('../motions/3d/plinth-progress-ring').then((x) => x.plinthProgressRing as MotionDef<any>),

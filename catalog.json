@@ -3727,7 +3727,7 @@
     "doc": "how much of the path is covered (1 = the whole path over the clip)"
    },
    "altitude": {
-    "default": 30,
+    "default": 36,
     "doc": "camera height above the ground (world units)"
    },
    "fog": {
@@ -3891,6 +3891,169 @@
    "ink": {
     "default": "#FFFFFF",
     "doc": "title colour"
+   }
+  }
+ },
+ {
+  "id": "orbiting-icons-sphere",
+  "title": "Orbiting icons sphere",
+  "category": "3d",
+  "description": "Icon (or logo) badges with labels cover a slowly rotating, tilted sphere: they pop out of a glossy core with a stagger, near-side badges are large and highlighted while far-side ones shrink, dim and pass behind the core. Latitude rings and a dotted shell give the globe form; a title sits on the core.",
+  "useFor": "Integrations / \"works with\" walls, feature or skills clouds, ecosystem and partner beats, community and category hubs. Pass `items` (labels), optional `icons` names or `images` (logos) and brand `colors`.",
+  "source": [
+   "3D tag-cloud / integrations globe (original build; three.js + HTML badges)"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "icons",
+   "sphere",
+   "orbit",
+   "globe",
+   "integrations",
+   "tag cloud",
+   "logos",
+   "partners",
+   "ecosystem",
+   "skills",
+   "features",
+   "hub",
+   "rotating",
+   "badges",
+   "labels",
+   "three.js",
+   "3d",
+   "apps",
+   "works with"
+  ],
+  "file": "src/motions/3d/orbiting-icons-sphere.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "images"
+  ],
+  "takesText": true,
+  "textProps": [
+   "items",
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "background",
+   "coreColor",
+   "colors"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "3d"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "heavy",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "items": {
+    "default": [
+     "Design",
+     "Code",
+     "Cloud",
+     "Data",
+     "Mail",
+     "Chat",
+     "Music",
+     "Photo",
+     "Map",
+     "Pay",
+     "Docs",
+     "Video"
+    ],
+    "doc": "badge labels (1-40); the count sets how many badges cover the sphere"
+   },
+   "icons": {
+    "default": [],
+    "doc": "glyph per badge: design | code | cloud | data | mail | chat | music | photo | map | pay | docs | video | bolt | star | heart | lock | user | globe (empty = pick from the label, else cycle)"
+   },
+   "images": {
+    "default": [],
+    "doc": "logo / icon images per badge (public/ path or URL); overrides the glyph for that badge"
+   },
+   "title": {
+    "default": "One hub\nevery tool",
+    "doc": "text on the core (\\n for a line break; \"\" for none)"
+   },
+   "subtitle": {
+    "default": "Connect what you already use",
+    "doc": "small line under the title"
+   },
+   "background": {
+    "default": "#f1f4fb",
+    "doc": "background colour ('transparent' to composite over other content)"
+   },
+   "ink": {
+    "default": "",
+    "doc": "label colour (empty = auto contrast)"
+   },
+   "coreColor": {
+    "default": "#1b2660",
+    "doc": "core sphere colour"
+   },
+   "coreInk": {
+    "default": "",
+    "doc": "title colour on the core (empty = auto contrast)"
+   },
+   "colors": {
+    "default": [
+     "#4f6bff",
+     "#ff5ea8",
+     "#18b8a6",
+     "#ffb020"
+    ],
+    "doc": "badge colours, cycled"
+   },
+   "coreStyle": {
+    "default": "solid",
+    "doc": "'solid' (glossy core, hides the far side) | 'wire' (dark wireframe core) | 'none' (open globe)"
+   },
+   "showLabels": {
+    "default": true,
+    "doc": "show the text label under each badge"
+   },
+   "rings": {
+    "default": 3,
+    "doc": "number of orbit rings 0..5"
+   },
+   "dots": {
+    "default": 420,
+    "doc": "number of dots in the shell (0 = none)"
+   },
+   "speed": {
+    "default": 0.55,
+    "doc": "rotation in degrees per frame"
+   },
+   "tilt": {
+    "default": 18,
+    "doc": "axis tilt in degrees"
+   },
+   "startAt": {
+    "default": 4,
+    "doc": "frame the core appears"
+   },
+   "stagger": {
+    "default": 4,
+    "doc": "frames between badges popping out"
+   },
+   "size": {
+    "default": 1,
+    "doc": "overall scale multiplier"
    }
   }
  },
