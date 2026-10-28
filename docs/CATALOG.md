@@ -13991,6 +13991,8 @@ An endless low-poly ocean in orthographic view: every triangle glints on its own
 
 ### `floating-devices-stack` — Floating devices stack (3D laptop, tablet, phone)
 
+![floating-devices-stack](../gallery/floating-devices-stack.jpg)
+
 A real-3D laptop, tablet and phone rise into a layered, slightly rotated stack and float with a gentle sway, lit by a soft studio. Each screen shows your image (cover-fitted) or a generated app UI in your colours; an optional headline sits beside or above.
 
 **Use for:** App / SaaS launches, "works on every device" beats, store previews and landing-page heroes. Pass `screens` (your screenshots), `devices` order, brand colours and a `title`.  
@@ -14224,6 +14226,8 @@ A pastel isometric island builds itself in true orthographic 3D: floor tiles fal
 
 ### `isometric-room-build` — Isometric room build (3D furniture drop-in)
 
+![isometric-room-build](../gallery/isometric-room-build.jpg)
+
 A cut-away isometric room builds itself: the plank floor grows, two walls rise with a window and framed art, then rug, sofa, table, shelf, desk, plant and lamp drop in one after another with a squash-and-settle while the camera drifts a few degrees.
 
 **Use for:** Interior design, real estate, home / furniture e-commerce, "build your space" and game-lobby beats. Choose the `furniture` list, palette colours and `wallArt` image; add a `title`.  
@@ -14403,6 +14407,8 @@ A handheld camcorder walks an endless, empty office of mustard wallpaper partiti
 
 ### `low-poly-terrain-flyover` — Low-poly terrain flyover
 
+![low-poly-terrain-flyover](../gallery/low-poly-terrain-flyover.jpg)
+
 A seeded, flat-shaded low-poly island (mountains with snow caps, grass, sand, pine forests, a faceted sea and drifting clouds) under a gradient sky and fog, with the camera flying low across it (or circling it).
 
 **Use for:** Travel and outdoors intros, game / world-building teasers, nature or sustainability titles, calm looping hero backdrops. Change `seed` for a new island, `palette` and `sky` for the mood (autumn, desert, arctic), `title` for the words.  
@@ -14467,6 +14473,8 @@ A perspective sea built from Gerstner waves with analytic normals, fresnel sky r
 | `ink` | `"#FFFFFF"` | title colour |
 
 ### `orbiting-icons-sphere` — Orbiting icons sphere
+
+![orbiting-icons-sphere](../gallery/orbiting-icons-sphere.jpg)
 
 Icon (or logo) badges with labels cover a slowly rotating, tilted sphere: they pop out of a glossy core with a stagger, near-side badges are large and highlighted while far-side ones shrink, dim and pass behind the core. Latitude rings and a dotted shell give the globe form; a title sits on the core.
 
@@ -14853,6 +14861,8 @@ A procedural mountain heightmap rebuilds itself in labelled stages — flat, noi
 | `colors` | `{"rock":"#6e6a66","scree":"#9a948c","grass":"#4f6a3a","sn…` | rock / scree / grass / snow / clay / sun / zenith / horizon / cloudShadow / cloudLight |
 
 ### `3d-text-extrude-spin` — 3D text extrude and spin (settles)
+
+![3d-text-extrude-spin](../gallery/3d-text-extrude-spin.jpg)
 
 Your words as real extruded, bevelled 3D letters: they scale in spinning on the vertical (or horizontal) axis, ease out of the spin with a damped wobble, then a light streak sweeps across the glossy faces. Spin the whole word or each letter in a stagger.
 

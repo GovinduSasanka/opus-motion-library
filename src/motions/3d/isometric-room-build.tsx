@@ -214,10 +214,10 @@ const useWallArt = (src: string, pal: Pal, seed: number) => {
   return useMemo(() => (img ? coverTexture(img, 1.25) : gen), [img, gen]);
 };
 
-const WallArt: React.FC<{tex: THREE.Texture}> = ({tex}) => {
+const WallArt: React.FC<{tex: THREE.Texture; frame: string}> = ({tex, frame}) => {
   return (
     <group>
-      <Bx p={[0, 0, 0]} s={[1.5, 1.2, 0.06]} c={pal.ink} cast={false} />
+      <Bx p={[0, 0, 0]} s={[1.5, 1.2, 0.06]} c={frame} cast={false} />
       <mesh position={[0, 0, 0.034]}>
         <planeGeometry args={[1.38, 1.1]} />
         <meshBasicMaterial map={tex} toneMapped={false} />
@@ -323,7 +323,7 @@ const IsometricRoom: React.FC<Props> = (P) => {
             <Bx p={[0, 0, 0.075]} s={[1.9, 0.07, 0.02]} c="#ffffff" cast={false} />
           </group>
           <group position={[-3.95, 2.3, -2.4]} rotation={[0, Math.PI / 2, 0]}>
-            <WallArt tex={artTex} />
+            <WallArt tex={artTex} frame={pal.ink} />
           </group>
         </group>
         {items.map((id, i) => {
