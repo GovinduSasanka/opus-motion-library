@@ -50,13 +50,14 @@ const StreamStartingSoon: React.FC<Props> = (P) => {
   const digitPulse = 1 + 0.05 * (1 - sseg(frame % fps, 0, 7));
 
   // layout
-  const ringR = (portrait ? 262 : 192) * u;
-  const ringY = h * (portrait ? 0.56 : 0.585);
-  const titleY = h * (portrait ? 0.27 : 0.2);
+  const ringR = (portrait ? 262 : 212) * u;
+  const ringY = h * (portrait ? 0.56 : 0.59);
+  const titleY = h * (portrait ? 0.27 : 0.235);
   const words = (P.title || '').toUpperCase().split(/\s+/).filter(Boolean);
-  const lines = portrait && words.length > 1 ? words : [words.join(' ')];
+  const half = Math.ceil(words.length / 2);
+  const lines = portrait && words.length > 1 ? [words.slice(0, half).join(' '), words.slice(half).join(' ')] : [words.join(' ')];
   let tfs = (portrait ? 190 : 150) * u;
-  const widest = Math.max(...lines.map((l) => estWidth(l, tfs, 'display')));
+  const widest = Math.max(...lines.map((l) => estWidth(l, tfs, 'display') * 1.15));
   const maxW = w * (portrait ? 0.9 : 0.82);
   if (widest > maxW) tfs = (tfs * maxW) / widest;
   const bob = Math.sin(ph * TAU * 2) * 8 * u;
@@ -82,7 +83,7 @@ const StreamStartingSoon: React.FC<Props> = (P) => {
   const seg = T / n;
   const tickerAlpha = (i: number) => {
     const d = ((((frame - (i + 0.5) * seg) % T) + T * 1.5) % T) - T / 2;
-    return Math.max(0, Math.min(1, (seg / 2 + 6 - Math.abs(d)) / 12));
+    return Math.max(0, Math.min(1, (seg / 2 - Math.abs(d)) / 5));
   };
 
   const ticks = 60;
@@ -165,8 +166,8 @@ const StreamStartingSoon: React.FC<Props> = (P) => {
         </g>
       </Svg>
       <div style={{position: 'absolute', left: cx - ringR, top: ringY - ringR, width: ringR * 2, height: ringR * 2, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
-        <div style={{fontFamily: mono, fontWeight: 700, fontSize: ringR * 0.6, lineHeight: 1, color: P.ink, fontVariantNumeric: 'tabular-nums', transform: `scale(${digitPulse})`, textShadow: `0 0 ${24 * u}px ${withAlpha(P.accent, 0.5)}`}}>{mmss(secs)}</div>
-        <div style={{fontFamily: body, fontWeight: 700, fontSize: ringR * 0.12, letterSpacing: ringR * 0.035, color: P.accent, marginTop: ringR * 0.07}}>{secs > 0 ? 'UNTIL WE GO LIVE' : 'ANY SECOND NOW'}</div>
+        <div style={{fontFamily: mono, fontWeight: 700, fontSize: ringR * 0.5, lineHeight: 1, color: P.ink, fontVariantNumeric: 'tabular-nums', transform: `scale(${digitPulse})`, textShadow: `0 0 ${24 * u}px ${withAlpha(P.accent, 0.5)}`}}>{mmss(secs)}</div>
+        <div style={{fontFamily: body, fontWeight: 700, fontSize: ringR * 0.115, letterSpacing: ringR * 0.03, color: P.accent, marginTop: ringR * 0.07}}>{secs > 0 ? 'UNTIL WE GO LIVE' : 'ANY SECOND NOW'}</div>
       </div>
 
       {/* message */}

@@ -60,9 +60,9 @@ const AchievementUnlock: React.FC<Props> = (P) => {
   const col = it.color || P.accent;
 
   // card geometry
-  const S = u * (portrait ? 1.18 : 1.05);
+  const S = u * (portrait ? 1.18 : 1.3);
   const CH = 150 * S;
-  const CW = portrait ? w * 0.92 : Math.min(w * 0.46, 860 * S);
+  const CW = portrait ? w * 0.92 : Math.min(w * 0.58, 860 * S);
   const margin = Math.max(48 * u, w * 0.035);
   const pos = P.position;
   const x = pos.endsWith('center') ? (w - CW) / 2 : pos === 'bottom-left' ? margin : w - CW - margin;

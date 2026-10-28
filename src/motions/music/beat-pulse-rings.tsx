@@ -4,7 +4,7 @@ import {clamp, ease} from '../../core/ease';
 import {fonts} from '../../core/fonts';
 import {Svg, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
-import {mix, rgbaStr} from '../../core/r2-pr3-kit';
+import {mix, rgb3, rgbaStr} from '../../core/r2-pr3-kit';
 
 /**
  * Beat pulse rings: on every beat of a `bpm` grid a ring is emitted from the centre disc and expands / fades;
@@ -83,7 +83,8 @@ const BeatPulseRings: React.FC<Props> = (P) => {
   const dr = disc * (1 + kick * 0.2);
   const heading = P.fontFamily || fonts.grotesk;
   const discCol = isDown(kNow) && phase < 0.35 ? P.accent2 : P.accent;
-  const glowA = 0.25 + kick * 0.35;
+  const lightBg = !clear && rgb3(P.background).reduce((a, b) => a + b, 0) > 384;
+  const glowA = (0.25 + kick * 0.35) * (P.fillDisc ? 1 : 0.3) * (lightBg ? 0.3 : 1);
   const bg = clear ? undefined : `radial-gradient(ellipse at 50% 50%, ${mix(P.background, P.accent, 0.12)} 0%, ${P.background} 68%)`;
 
   return (

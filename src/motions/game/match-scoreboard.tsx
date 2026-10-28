@@ -1,5 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
+import {wrapText} from '../../core/r3-social';
 import {Crest, bgCss, bodyFont, easeIO, easeOut3, headFont, mixHex, mmss, sseg, withAlpha} from '../../core/r3-game-kit';
 import {Svg, Vignette, useStage} from '../../core/stage';
 import {estWidth} from '../../core/text-kit';
@@ -34,7 +35,7 @@ type Props = {
 
 const MatchScoreboard: React.FC<Props> = (P) => {
   const frame = useCurrentFrame();
-  const {w, h, u, durationInFrames: T, portrait} = useStage();
+  const {w, h, u, durationInFrames: T} = useStage();
   const head = headFont(P.fontFamily);
   const body = bodyFont(P.fontFamily);
   const sA = Math.max(0, Math.round(P.scoreA));
@@ -71,18 +72,22 @@ const MatchScoreboard: React.FC<Props> = (P) => {
   const nowB = cur(evB);
 
   // geometry
-  const S = u * (portrait ? 1 : 1.1);
   const W = Math.min(w * 0.94, 1620 * u);
-  const H = 132 * S * (portrait ? 0.9 : 1);
-  const tw = W * (portrait ? 0.23 : 0.17);
-  const sw = W * (portrait ? 0.1 : 0.085);
+  const narrow = W < 1300 * u;
+  const S = u * (narrow ? 1.2 : 1.1);
+  const H = 132 * S;
+  const tw = W * (narrow ? 0.2 : 0.17);
+  const sw = W * (narrow ? 0.1 : 0.085);
   const plate = (W - tw - sw * 2) / 2;
   const skew = H * 0.28;
-  const crest = H * 0.82;
-  const useTag = W < 1300 * u;
+  const crest = H * (narrow ? 0.64 : 0.82);
+  const useTag = narrow;
   const yTop = P.position === 'top' ? 70 * u : P.position === 'bottom' ? h - H - 120 * u : h / 2 - H / 2;
   const x0 = (w - W) / 2;
 
+  const digits = String(Math.max(sA, sB)).length;
+  const scoreFs = Math.min(H * 0.62, (sw * 0.86) / (digits * 0.72));
+  const clockFs = Math.min(H * 0.4, (tw * 0.86) / 3.3);
   const open = easeIO(sseg(frame, 0, 26));
   const clip = `inset(-40px ${(1 - open) * 50}% -40px ${(1 - open) * 50}%)`;
   const clockP = sseg(frame, 30, T - 30);
@@ -96,11 +101,19 @@ const MatchScoreboard: React.FC<Props> = (P) => {
     const ev = side === 0 ? evA : evB;
     const flash = 1 - sseg(frame, last(ev), last(ev) + 16);
     const pad = H * 0.12;
-    const textW = plate - crest - pad * 3 - skew * 1.3;
-    const label = useTag ? tag || name.slice(0, 3) : name;
-    let fs = 50 * S * (useTag ? 0.9 : 1);
-    const need = estWidth(label.toUpperCase(), fs, 'display') * 1.18;
-    if (need > textW) fs = (fs * textW) / need;
+    const textW = plate - crest - pad * (narrow ? 2.6 : 3) - skew * (narrow ? 1.0 : 1.3);
+    const label = (name || tag || '').toUpperCase();
+    let fs = (useTag ? 40 : 50) * S;
+    let lines: string[] = [label];
+    if (useTag) {
+      lines = wrapText(label, fs, textW, 'display', 2);
+      const widest = Math.max(...lines.map((l) => estWidth(l, fs, 'display') * 1.18));
+      if (widest > textW) fs = (fs * textW) / widest;
+      if (lines.length > 1) fs = Math.min(fs, H * 0.3);
+    } else {
+      const need = estWidth(label, fs, 'display') * 1.18;
+      if (need > textW) fs = (fs * textW) / need;
+    }
     const x = side === 0 ? x0 : x0 + W - plate;
     const enter = easeOut3(sseg(frame, 14, 40));
     const pop = easeOut3(sseg(frame, 18 + side * 4, 44 + side * 4));
@@ -142,7 +155,11 @@ const MatchScoreboard: React.FC<Props> = (P) => {
             textShadow: '0 2px 8px rgba(0,0,0,0.4)',
           }}
         >
-          {label}
+          <div style={{textAlign: side === 0 ? 'left' : 'right', lineHeight: 1.05}}>
+            {lines.map((l, k) => (
+              <div key={k}>{l}</div>
+            ))}
+          </div>
         </div>
       </div>
     );
@@ -164,7 +181,7 @@ const MatchScoreboard: React.FC<Props> = (P) => {
     return (
       <div style={{position: 'absolute', left: x, top: 0, width: sw, height: H, opacity: easeOut3(show)}}>
         <div style={{position: 'absolute', inset: 0, background: mixHex(dark, col, 0.18 + flash * 0.5), borderTop: `${4 * S}px solid ${mixHex(col, '#ffffff', 0.15 + flash * 0.5)}`}} />
-        <div style={{position: 'absolute', inset: 0, overflow: 'hidden', fontFamily: head, fontSize: H * 0.62, color: P.ink, lineHeight: 1}}>
+        <div style={{position: 'absolute', inset: 0, overflow: 'hidden', fontFamily: head, fontSize: scoreFs, color: P.ink, lineHeight: 1}}>
           {total > 0 && lf > -900 ? (
             <>
               {shown(prev, -p * H)}
@@ -183,7 +200,7 @@ const MatchScoreboard: React.FC<Props> = (P) => {
       <div style={{position: 'absolute', inset: 0, background: dark}} />
       <div style={{position: 'absolute', left: 0, right: 0, top: 0, height: 4 * S, background: P.accent}} />
       <div style={{position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 2 * S}}>
-        <div style={{fontFamily: body, fontWeight: 700, fontSize: H * 0.4, color: P.ink, letterSpacing: H * 0.01, fontVariantNumeric: 'tabular-nums', lineHeight: 1}}>{mmss(clockSec)}</div>
+        <div style={{fontFamily: body, fontWeight: 700, fontSize: clockFs, color: P.ink, letterSpacing: H * 0.01, fontVariantNumeric: 'tabular-nums', lineHeight: 1}}>{mmss(clockSec)}</div>
         <div style={{display: 'flex', alignItems: 'center', gap: 8 * S}}>
           <div style={{width: 9 * S, height: 9 * S, borderRadius: '50%', background: P.accent, opacity: 0.55 + 0.45 * Math.sin(frame * 0.3)}} />
           <div style={{fontFamily: body, fontWeight: 700, fontSize: H * 0.15, color: P.accent, letterSpacing: H * 0.03}}>LIVE</div>
@@ -193,7 +210,7 @@ const MatchScoreboard: React.FC<Props> = (P) => {
   );
 
   const stageP = easeOut3(sseg(frame, 38, 62));
-  const bigTagSize = Math.min(w * 0.26, h * 0.5);
+  const bigTagSize = Math.min(w * 0.15, h * 0.34);
 
   return (
     <AbsoluteFill style={{background: bgCss(P.background)}}>

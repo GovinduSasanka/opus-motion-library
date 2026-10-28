@@ -56,12 +56,12 @@ const TracklistReveal: React.FC<Props> = (P) => {
   let listTop: number;
   let listBottom: number;
   if (!stacked) {
-    coverS = Math.min(h * 0.46, w * 0.24);
+    coverS = Math.min(h * 0.4, w * 0.21);
     coverX = w * 0.07;
-    coverY = h * 0.15;
+    coverY = h * 0.13;
     hdrX = coverX;
     hdrW = w * 0.34;
-    hdrY = coverY + coverS + 54 * u;
+    hdrY = coverY + coverS + 88 * u;
     listX = w * 0.47;
     listW = w * 0.46;
     listTop = h * 0.12;
@@ -75,20 +75,19 @@ const TracklistReveal: React.FC<Props> = (P) => {
     hdrY = coverY + coverS * 0.32;
     listX = w * 0.07;
     listW = w * 0.86;
-    listTop = coverY + coverS + (portrait ? 56 : 32) * u;
+    listTop = coverY + coverS + (portrait ? 70 : 58) * u;
     listBottom = h * (portrait ? 0.94 : 0.95);
   }
-  const rowH = Math.min((portrait ? 104 : 100) * u, (listBottom - listTop) / n);
+  const rowH = Math.min((portrait ? 150 : 100) * u, (listBottom - listTop) / n);
   const fs = Math.min(40 * u, rowH * 0.42);
   const titleFs = (stacked ? (portrait ? 54 : 44) : 70) * u;
   const hdrCh = Math.max(6, Math.floor(hdrW / (titleFs * 0.56)));
   const hdrLines = wrapText(P.title, hdrCh, stacked ? 2 : 3);
-  const numW = P.numbered ? fs * 1.9 : 0;
+  const numW = P.numbered || P.highlight ? fs * 1.9 : 0;
   const durW = fs * 3;
   const startRows = P.startAt + 14;
   const revealEnd = startRows + (n - 1) * P.stagger + 24;
   const hlStart = revealEnd + 6;
-  const hlIdx = P.highlight ? Math.min(n - 1, Math.max(-1, Math.floor((frame - hlStart) / Math.max(4, P.holdPerTrack)))) : -1;
   // highlight band moves smoothly between rows
   const bandRow = (() => {
     if (!P.highlight || frame < hlStart) return -1;
@@ -96,7 +95,7 @@ const TracklistReveal: React.FC<Props> = (P) => {
     const f = ((frame - hlStart) % Math.max(4, P.holdPerTrack)) / Math.max(4, P.holdPerTrack);
     const cur = Math.min(n - 1, i);
     const prev = Math.max(0, cur - 1);
-    const mv = cur === prev ? 1 : ease.inOut(clamp(f * 4));
+    const mv = cur === prev ? 1 : ease.inOut(clamp(f * 6));
     return prev + (cur - prev) * mv;
   })();
 
@@ -106,7 +105,7 @@ const TracklistReveal: React.FC<Props> = (P) => {
   tracks.forEach((tr, i) => {
     const a = prog(frame, startRows + i * P.stagger, startRows + i * P.stagger + 20, ease.out);
     const y = listTop + i * rowH + rowH / 2;
-    const active = hlIdx === i;
+    const active = bandRow >= 0 && Math.round(bandRow) === i;
     const maxCh = Math.max(6, Math.floor((listW - numW - durW - 24 * u) / (fs * 0.53)));
     const label = tr.title;
     const shown = label.length > maxCh ? label.slice(0, maxCh - 1).trimEnd() + '…' : label;

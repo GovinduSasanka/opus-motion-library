@@ -71,8 +71,10 @@ import {atomElectronCloud} from './motions/data/atom-electron-cloud';
 import {axisRatchetRescale} from './motions/data/axis-ratchet-rescale';
 import {barRace} from './motions/data/bar-race';
 import {beatMontage} from './motions/data/beat-montage';
+import {bubbleScatterGrow} from './motions/data/bubble-scatter-grow';
 import {causeEffectChain} from './motions/data/cause-effect-chain';
 import {chipStackBars} from './motions/data/chip-stack-bars';
+import {comparisonDumbbell} from './motions/data/comparison-dumbbell';
 import {crowdTracks} from './motions/data/crowd-tracks';
 import {dnaHelixUnzip} from './motions/data/dna-helix-unzip';
 import {donutBreakdown} from './motions/data/donut-breakdown';
@@ -86,19 +88,23 @@ import {flameTestColors} from './motions/data/flame-test-colors';
 import {flowDiagram} from './motions/data/flow-diagram';
 import {functionPlot} from './motions/data/function-plot';
 import {funnelConversion} from './motions/data/funnel-conversion';
+import {ganttTimeline} from './motions/data/gantt-timeline';
 import {gaugeKpiDial} from './motions/data/gauge-kpi-dial';
 import {gridException} from './motions/data/grid-exception';
 import {gridScore} from './motions/data/grid-score';
 import {groundPlaneRuler} from './motions/data/ground-plane-ruler';
+import {heatmapCalendar} from './motions/data/heatmap-calendar';
 import {isoBarChart} from './motions/data/iso-bar-chart';
 import {isotypeCount} from './motions/data/isotype-count';
 import {liveChart} from './motions/data/live-chart';
 import {mapRoute} from './motions/data/map-route';
 import {microscopeDive} from './motions/data/microscope-dive';
+import {networkGraph} from './motions/data/network-graph';
 import {neuralNetLayers} from './motions/data/neural-net-layers';
 import {nodeNetwork} from './motions/data/node-network';
 import {orbitSystem} from './motions/data/orbit-system';
 import {orderBookDepth} from './motions/data/order-book-depth';
+import {orgChartTree} from './motions/data/org-chart-tree';
 import {overheadTrailMandala} from './motions/data/overhead-trail-mandala';
 import {panelTriptych} from './motions/data/panel-triptych';
 import {periodicTableLightup} from './motions/data/periodic-table-lightup';
@@ -108,6 +114,7 @@ import {prosConsColumns} from './motions/data/pros-cons-columns';
 import {pythagorasRearrange} from './motions/data/pythagoras-rearrange';
 import {radarCompare} from './motions/data/radar-compare';
 import {rideDimensionLine} from './motions/data/ride-dimension-line';
+import {sankeyFlow} from './motions/data/sankey-flow';
 import {scienceReticle} from './motions/data/science-reticle';
 import {sectionProfileChart} from './motions/data/section-profile-chart';
 import {stackedAreaFlow} from './motions/data/stacked-area-flow';
@@ -117,6 +124,7 @@ import {thumbnailMosaic} from './motions/data/thumbnail-mosaic';
 import {timelineRuler} from './motions/data/timeline-ruler';
 import {tokenPipeline} from './motions/data/token-pipeline';
 import {transferArc} from './motions/data/transfer-arc';
+import {treemapSplit} from './motions/data/treemap-split';
 import {vennDiagramOverlap} from './motions/data/venn-diagram-overlap';
 import {waterfallBridge} from './motions/data/waterfall-bridge';
 import {certificateSeal} from './motions/document/certificate-seal';
@@ -241,24 +249,32 @@ import {tacticalMap} from './motions/game/tactical-map';
 import {vsSplash} from './motions/game/vs-splash';
 import {agentRoster} from './motions/hud/agent-roster';
 import {alertReinkWave} from './motions/hud/alert-reink-wave';
+import {blurRedactRegion} from './motions/hud/blur-redact-region';
 import {calloutLabels} from './motions/hud/callout-labels';
 import {camChipSyncBadge} from './motions/hud/cam-chip-sync-badge';
+import {clickRippleMarkers} from './motions/hud/click-ripple-markers';
 import {dayRingDial} from './motions/hud/day-ring-dial';
 import {eraDial} from './motions/hud/era-dial';
 import {eventFeed} from './motions/hud/event-feed';
 import {fightHud} from './motions/hud/fight-hud';
 import {gameHud} from './motions/hud/game-hud';
+import {handDrawnArrowCallout} from './motions/hud/hand-drawn-arrow-callout';
 import {hudChrome} from './motions/hud/hud-chrome';
 import {magnificationRoundel} from './motions/hud/magnification-roundel';
 import {missionClock} from './motions/hud/mission-clock';
 import {newsBugSourceTag} from './motions/hud/news-bug-source-tag';
+import {numberedStepBadges} from './motions/hud/numbered-step-badges';
 import {powersOfTen} from './motions/hud/powers-of-ten';
 import {promptWall} from './motions/hud/prompt-wall';
 import {radialBlueprint} from './motions/hud/radial-blueprint';
+import {scribbleCircleHighlight} from './motions/hud/scribble-circle-highlight';
 import {specChipRail} from './motions/hud/spec-chip-rail';
+import {spotlightDimFocus} from './motions/hud/spotlight-dim-focus';
 import {syncGrid} from './motions/hud/sync-grid';
 import {targetLockBox} from './motions/hud/target-lock-box';
 import {targetLock} from './motions/hud/target-lock';
+import {tooltipPointer} from './motions/hud/tooltip-pointer';
+import {zoomInsetBox} from './motions/hud/zoom-inset-box';
 import {zoomTunnel} from './motions/hud/zoom-tunnel';
 import {asciiImageGrid} from './motions/image/ascii-image-grid';
 import {autofocusHunt} from './motions/image/autofocus-hunt';
@@ -392,7 +408,9 @@ import {speedLines} from './motions/shape/speed-lines';
 import {sproutGrow} from './motions/shape/sprout-grow';
 import {swimmersConverge} from './motions/shape/swimmers-converge';
 import {toonCelShape} from './motions/shape/toon-cel-shape';
+import {agendaListSlide} from './motions/text/agenda-list-slide';
 import {atomicOrbitTitle} from './motions/text/atomic-orbit-title';
+import {bigStatSlide} from './motions/text/big-stat-slide';
 import {blobToWordmark} from './motions/text/blob-to-wordmark';
 import {blurInTitle} from './motions/text/blur-in-title';
 import {bouncingBallSingalong} from './motions/text/bouncing-ball-singalong';
@@ -436,7 +454,9 @@ import {newsreelIdent} from './motions/text/newsreel-ident';
 import {numberCounter} from './motions/text/number-counter';
 import {paperStripTitle} from './motions/text/paper-strip-title';
 import {pixelLogoDrop} from './motions/text/pixel-logo-drop';
+import {qaSlide} from './motions/text/qa-slide';
 import {quizQuestionReveal} from './motions/text/quiz-question-reveal';
+import {quoteSlide} from './motions/text/quote-slide';
 import {ransomNoteType} from './motions/text/ransom-note-type';
 import {rollingCredits} from './motions/text/rolling-credits';
 import {rundownBoard} from './motions/text/rundown-board';
@@ -482,6 +502,7 @@ import {keystrokeHud} from './motions/ui/keystroke-hud';
 import {lessonCarousel} from './motions/ui/lesson-carousel';
 import {liquidGlassLens} from './motions/ui/liquid-glass-lens';
 import {loaderSpinnerSet} from './motions/ui/loader-spinner-set';
+import {logoWallGrid} from './motions/ui/logo-wall-grid';
 import {magnetPin} from './motions/ui/magnet-pin';
 import {masonryGallerySwitch} from './motions/ui/masonry-gallery-switch';
 import {notificationStack} from './motions/ui/notification-stack';
@@ -490,6 +511,7 @@ import {playerToolbar} from './motions/ui/player-toolbar';
 import {pollResultsBars} from './motions/ui/poll-results-bars';
 import {remixThumbnailShelf} from './motions/ui/remix-thumbnail-shelf';
 import {reviewStarsRating} from './motions/ui/review-stars-rating';
+import {roadmapSwimlanes} from './motions/ui/roadmap-swimlanes';
 import {screenRecorderCamera} from './motions/ui/screen-recorder-camera';
 import {skeletonShimmer} from './motions/ui/skeleton-shimmer';
 import {smsThread} from './motions/ui/sms-thread';
@@ -499,7 +521,9 @@ import {storyProgressFrames} from './motions/ui/story-progress-frames';
 import {subscribeLikeBell} from './motions/ui/subscribe-like-bell';
 import {successCheckBurst} from './motions/ui/success-check-burst';
 import {talkingHeadPip} from './motions/ui/talking-head-pip';
+import {teamGridPhotos} from './motions/ui/team-grid-photos';
 import {testimonialCardCarousel} from './motions/ui/testimonial-card-carousel';
+import {threeColumnFeatures} from './motions/ui/three-column-features';
 import {toastStackLoop} from './motions/ui/toast-stack-loop';
 import {tvWallSwitchOn} from './motions/ui/tv-wall-switch-on';
 import {typingIndicatorChat} from './motions/ui/typing-indicator-chat';
@@ -580,8 +604,10 @@ export const motions: MotionDef<any>[] = [
   axisRatchetRescale,
   barRace,
   beatMontage,
+  bubbleScatterGrow,
   causeEffectChain,
   chipStackBars,
+  comparisonDumbbell,
   crowdTracks,
   dnaHelixUnzip,
   donutBreakdown,
@@ -595,19 +621,23 @@ export const motions: MotionDef<any>[] = [
   flowDiagram,
   functionPlot,
   funnelConversion,
+  ganttTimeline,
   gaugeKpiDial,
   gridException,
   gridScore,
   groundPlaneRuler,
+  heatmapCalendar,
   isoBarChart,
   isotypeCount,
   liveChart,
   mapRoute,
   microscopeDive,
+  networkGraph,
   neuralNetLayers,
   nodeNetwork,
   orbitSystem,
   orderBookDepth,
+  orgChartTree,
   overheadTrailMandala,
   panelTriptych,
   periodicTableLightup,
@@ -617,6 +647,7 @@ export const motions: MotionDef<any>[] = [
   pythagorasRearrange,
   radarCompare,
   rideDimensionLine,
+  sankeyFlow,
   scienceReticle,
   sectionProfileChart,
   stackedAreaFlow,
@@ -626,6 +657,7 @@ export const motions: MotionDef<any>[] = [
   timelineRuler,
   tokenPipeline,
   transferArc,
+  treemapSplit,
   vennDiagramOverlap,
   waterfallBridge,
   certificateSeal,
@@ -750,24 +782,32 @@ export const motions: MotionDef<any>[] = [
   vsSplash,
   agentRoster,
   alertReinkWave,
+  blurRedactRegion,
   calloutLabels,
   camChipSyncBadge,
+  clickRippleMarkers,
   dayRingDial,
   eraDial,
   eventFeed,
   fightHud,
   gameHud,
+  handDrawnArrowCallout,
   hudChrome,
   magnificationRoundel,
   missionClock,
   newsBugSourceTag,
+  numberedStepBadges,
   powersOfTen,
   promptWall,
   radialBlueprint,
+  scribbleCircleHighlight,
   specChipRail,
+  spotlightDimFocus,
   syncGrid,
   targetLockBox,
   targetLock,
+  tooltipPointer,
+  zoomInsetBox,
   zoomTunnel,
   asciiImageGrid,
   autofocusHunt,
@@ -901,7 +941,9 @@ export const motions: MotionDef<any>[] = [
   sproutGrow,
   swimmersConverge,
   toonCelShape,
+  agendaListSlide,
   atomicOrbitTitle,
+  bigStatSlide,
   blobToWordmark,
   blurInTitle,
   bouncingBallSingalong,
@@ -945,7 +987,9 @@ export const motions: MotionDef<any>[] = [
   numberCounter,
   paperStripTitle,
   pixelLogoDrop,
+  qaSlide,
   quizQuestionReveal,
+  quoteSlide,
   ransomNoteType,
   rollingCredits,
   rundownBoard,
@@ -991,6 +1035,7 @@ export const motions: MotionDef<any>[] = [
   lessonCarousel,
   liquidGlassLens,
   loaderSpinnerSet,
+  logoWallGrid,
   magnetPin,
   masonryGallerySwitch,
   notificationStack,
@@ -999,6 +1044,7 @@ export const motions: MotionDef<any>[] = [
   pollResultsBars,
   remixThumbnailShelf,
   reviewStarsRating,
+  roadmapSwimlanes,
   screenRecorderCamera,
   skeletonShimmer,
   smsThread,
@@ -1008,7 +1054,9 @@ export const motions: MotionDef<any>[] = [
   subscribeLikeBell,
   successCheckBurst,
   talkingHeadPip,
+  teamGridPhotos,
   testimonialCardCarousel,
+  threeColumnFeatures,
   toastStackLoop,
   tvWallSwitchOn,
   typingIndicatorChat,

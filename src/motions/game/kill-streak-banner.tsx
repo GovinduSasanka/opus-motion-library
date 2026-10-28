@@ -45,7 +45,7 @@ const KillStreakBanner: React.FC<Props> = (P) => {
   const globalOut = easeIO(sseg(frame, T - 18, T - 2));
 
   const bandY = h * (portrait ? 0.4 : 0.42);
-  const bandH = (portrait ? 230 : 200) * u;
+  const bandH = (portrait ? 250 : 250) * u;
 
   const R = rng('kill-streak-banner');
   const streaks = Array.from({length: 26}, () => ({y: R(), l: 0.15 + R() * 0.4, s: 0.6 + R() * 1.1, d: R() * 6}));
@@ -67,9 +67,9 @@ const KillStreakBanner: React.FC<Props> = (P) => {
     const bandOpen = easeOut3(sseg(f, 0, 9));
     const flash = (1 - sseg(f, 0, 10)) * (0.3 + 0.1 * i);
     const label = `${(labels[i] || '').toUpperCase()} ${(P.suffix || '').toUpperCase()}`.trim();
-    let fs = (portrait ? 128 : 150) * u * power;
-    const maxW = (portrait ? w * 0.9 : w * 0.64) - (portrait ? 190 * u : 0);
-    const need = estWidth(label, fs, 'display');
+    let fs = (portrait ? 128 : 190) * u * power;
+    const maxW = (portrait ? w * 0.9 : w * 0.7) - (portrait ? 190 * u : 120 * u);
+    const need = estWidth(label, fs, 'display') * 1.08;
     if (need > maxW) fs = (fs * maxW) / need;
     const pop = backOut(sseg(f, 0, 12), 2.2);
     const mult = Math.round(P.startAt) + i;
@@ -115,16 +115,16 @@ const KillStreakBanner: React.FC<Props> = (P) => {
             const pp = lit ? backOut(sseg(f, 8 + (k === i ? 0 : -8), 22 + (k === i ? 0 : -8)), 2.6) : 0;
             const fresh = k === i ? 1 : 0;
             return (
-              <div key={k} style={{width: 34 * u, height: 34 * u, transform: `rotate(45deg) scale(${lit ? 0.6 + 0.4 * pp + fresh * 0.25 * (1 - sseg(f, 10, 26)) : 0.6})`, background: lit ? col : 'transparent', border: `${3 * u}px solid ${lit ? col : withAlpha(P.ink, 0.3)}`, boxShadow: lit ? `0 0 ${22 * u}px ${withAlpha(col, 0.8)}` : undefined}} />
+              <div key={k} style={{width: 40 * u, height: 40 * u, transform: `rotate(45deg) scale(${lit ? 0.6 + 0.4 * pp + fresh * 0.25 * (1 - sseg(f, 10, 26)) : 0.6})`, background: lit ? col : 'transparent', border: `${3 * u}px solid ${lit ? col : withAlpha(P.ink, 0.3)}`, boxShadow: lit ? `0 0 ${22 * u}px ${withAlpha(col, 0.8)}` : undefined}} />
             );
           })}
         </div>
         {/* player line */}
-        <div style={{position: 'absolute', left: 0, right: 0, top: bandY + bandH / 2 + 90 * u, display: 'flex', flexDirection: portrait ? 'column' : 'row', alignItems: 'center', justifyContent: 'center', gap: (portrait ? 8 : 26) * u, opacity: easeOut3(sseg(f, 8, 22)), transform: `translateY(${(1 - easeOut3(sseg(f, 8, 22))) * 20 * u}px)`}}>
-          <div style={{fontFamily: head, fontSize: (portrait ? 54 : 46) * u, color: P.ink, textTransform: 'uppercase', letterSpacing: 2 * u}}>{P.player}</div>
-          {P.detail ? <div style={{fontFamily: body, fontWeight: 700, fontSize: (portrait ? 28 : 26) * u, color: withAlpha(P.ink, 0.65), letterSpacing: 4 * u, textTransform: 'uppercase'}}>{P.detail}</div> : null}
+        <div style={{position: 'absolute', left: 0, right: 0, top: bandY + bandH / 2 + 100 * u, display: 'flex', flexDirection: portrait ? 'column' : 'row', alignItems: 'center', justifyContent: 'center', gap: (portrait ? 8 : 26) * u, opacity: easeOut3(sseg(f, 8, 22)), transform: `translateY(${(1 - easeOut3(sseg(f, 8, 22))) * 20 * u}px)`}}>
+          <div style={{fontFamily: head, fontSize: (portrait ? 58 : 56) * u, color: P.ink, textTransform: 'uppercase', letterSpacing: 2 * u}}>{P.player}</div>
+          {P.detail ? <div style={{fontFamily: body, fontWeight: 700, fontSize: (portrait ? 30 : 30) * u, color: withAlpha(P.ink, 0.65), letterSpacing: 4 * u, textTransform: 'uppercase'}}>{P.detail}</div> : null}
           {P.points ? (
-            <div style={{fontFamily: head, fontSize: (portrait ? 60 : 50) * u, color: col, fontVariantNumeric: 'tabular-nums'}}>+{fmtInt(P.points * (i + 1) * easeOut3(sseg(f, 10, 34)))}</div>
+            <div style={{fontFamily: head, fontSize: (portrait ? 64 : 62) * u, color: col, fontVariantNumeric: 'tabular-nums'}}>+{fmtInt(P.points * (i + 1) * easeOut3(sseg(f, 10, 34)))}</div>
           ) : null}
         </div>
         <div style={{position: 'absolute', inset: 0, background: col, opacity: flash * 0.35, mixBlendMode: 'screen', pointerEvents: 'none'}} />

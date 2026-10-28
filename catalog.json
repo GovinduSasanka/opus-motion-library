@@ -10497,6 +10497,240 @@
   }
  },
  {
+  "id": "bubble-scatter-grow",
+  "title": "Bubble scatter grow",
+  "category": "data",
+  "description": "A bubble chart: axes and grid fade in, then bubbles grow in from left to right at their x / y position with area proportional to size, coloured per group, with collision-aware labels and an optional highlighted bubble with a ring.",
+  "useFor": "Three-variable comparisons: markets by size, growth and margin, countries, products, campaigns, startups. Pass points as [{label, x, y, size, group?, color?}], axis titles and number formats; works on a transparent background.",
+  "source": [
+   "original round-3 chart motion"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "bubble",
+   "scatter",
+   "chart",
+   "axes",
+   "grow",
+   "comparison",
+   "infographic",
+   "data",
+   "overlay",
+   "statistics",
+   "market",
+   "plot"
+  ],
+  "file": "src/motions/data/bubble-scatter-grow.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle",
+   "xLabel",
+   "yLabel"
+  ],
+  "colorProps": [
+   "colors",
+   "background",
+   "ink"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "hud"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "points": {
+    "default": [
+     {
+      "label": "Alpha",
+      "x": 12,
+      "y": 78,
+      "size": 40,
+      "group": "North"
+     },
+     {
+      "label": "Bravo",
+      "x": 28,
+      "y": 52,
+      "size": 120,
+      "group": "North"
+     },
+     {
+      "label": "Cedar",
+      "x": 35,
+      "y": 88,
+      "size": 70,
+      "group": "South"
+     },
+     {
+      "label": "Delta",
+      "x": 47,
+      "y": 35,
+      "size": 200,
+      "group": "South"
+     },
+     {
+      "label": "Ember",
+      "x": 58,
+      "y": 66,
+      "size": 90,
+      "group": "East"
+     },
+     {
+      "label": "Fjord",
+      "x": 66,
+      "y": 22,
+      "size": 55,
+      "group": "East"
+     },
+     {
+      "label": "Grove",
+      "x": 74,
+      "y": 80,
+      "size": 150,
+      "group": "North"
+     },
+     {
+      "label": "Harbor",
+      "x": 86,
+      "y": 48,
+      "size": 240,
+      "group": "West"
+     },
+     {
+      "label": "Indigo",
+      "x": 92,
+      "y": 90,
+      "size": 35,
+      "group": "West"
+     },
+     {
+      "label": "Juniper",
+      "x": 20,
+      "y": 24,
+      "size": 25,
+      "group": "South"
+     }
+    ],
+    "doc": "bubbles [{label, x, y, size, group?, color?}]; group sets the colour and builds the legend"
+   },
+   "title": {
+    "default": "Reach vs engagement",
+    "doc": "headline (empty = none)"
+   },
+   "subtitle": {
+    "default": "Bubble area shows audience size",
+    "doc": "small line under the headline (empty = none)"
+   },
+   "xLabel": {
+    "default": "Reach (thousands)",
+    "doc": "x-axis title (empty = none)"
+   },
+   "yLabel": {
+    "default": "Engagement",
+    "doc": "y-axis title (empty = none)"
+   },
+   "sizeLabel": {
+    "default": "Bubble size = audience",
+    "doc": "small note about what the bubble size means (empty = none)"
+   },
+   "xPrefix": {
+    "default": "",
+    "doc": "text before x-axis numbers"
+   },
+   "xSuffix": {
+    "default": "",
+    "doc": "text after x-axis numbers"
+   },
+   "yPrefix": {
+    "default": "",
+    "doc": "text before y-axis numbers"
+   },
+   "ySuffix": {
+    "default": "%",
+    "doc": "text after y-axis numbers, e.g. \"%\""
+   },
+   "xDecimals": {
+    "default": 0,
+    "doc": "decimals on x-axis numbers"
+   },
+   "yDecimals": {
+    "default": 0,
+    "doc": "decimals on y-axis numbers"
+   },
+   "showLabels": {
+    "default": true,
+    "doc": "print bubble labels (inside when they fit, else beside, skipping collisions)"
+   },
+   "labelTop": {
+    "default": 0,
+    "doc": "only label the N largest bubbles (0 = all that fit)"
+   },
+   "maxRadius": {
+    "default": 96,
+    "doc": "radius of the largest bubble in u (capped to the plot size)"
+   },
+   "bubbleOpacity": {
+    "default": 0.72,
+    "doc": "fill opacity of bubbles 0-1"
+   },
+   "highlight": {
+    "default": "",
+    "doc": "label of a bubble to ring and spotlight at the end (empty = none)"
+   },
+   "colors": {
+    "default": [
+     "#2F6FED",
+     "#FF7A45",
+     "#16B39A",
+     "#F2B134",
+     "#8E5CF0",
+     "#E5487F",
+     "#5BC0EB",
+     "#7A8794"
+    ],
+    "doc": "palette for groups / bubbles without their own colour"
+   },
+   "background": {
+    "default": "#F5F3EE",
+    "doc": "page colour, or \"transparent\" to sit over other content"
+   },
+   "ink": {
+    "default": "#18212B",
+    "doc": "text and grid colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "CSS font family (empty = Space Grotesk)"
+   },
+   "startAt": {
+    "default": 10,
+    "doc": "frame the axes start to appear"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed multiplier"
+   }
+  }
+ },
+ {
   "id": "cause-effect-chain",
   "title": "Cause and effect chain",
   "category": "data",
@@ -10761,6 +10995,194 @@
    "chipFrames": {
     "default": 1.2,
     "doc": "frames per chip (1 = one chip per frame)"
+   }
+  }
+ },
+ {
+  "id": "comparison-dumbbell",
+  "title": "Comparison dumbbell",
+  "category": "data",
+  "description": "A dumbbell (before / after) chart: for each category a \"before\" dot appears on a shared axis, then the \"after\" dot slides away from it, stretching a connector coloured green for improvement and red for decline, with value labels and a change pill at the right.",
+  "useFor": "Change between two states per item: before vs after, last year vs this year, plan vs actual, men vs women, A vs B, scores pre- and post-launch. Pass data as [{label, before, after}], set the two series names, colours, prefix / suffix and which direction is good.",
+  "source": [
+   "original round-3 chart motion"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "dumbbell",
+   "before after",
+   "comparison",
+   "change",
+   "chart",
+   "dot plot",
+   "slope",
+   "delta",
+   "infographic",
+   "data",
+   "overlay",
+   "statistics",
+   "progress"
+  ],
+  "file": "src/motions/data/comparison-dumbbell.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle",
+   "prefix"
+  ],
+  "colorProps": [
+   "beforeColor",
+   "afterColor",
+   "goodColor",
+   "badColor",
+   "background",
+   "ink"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "hud"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "data": {
+    "default": [
+     {
+      "label": "Onboarding",
+      "before": 42,
+      "after": 78
+     },
+     {
+      "label": "Checkout",
+      "before": 55,
+      "after": 71
+     },
+     {
+      "label": "Search",
+      "before": 38,
+      "after": 64
+     },
+     {
+      "label": "Support",
+      "before": 61,
+      "after": 66
+     },
+     {
+      "label": "Mobile app",
+      "before": 47,
+      "after": 52
+     },
+     {
+      "label": "Reporting",
+      "before": 70,
+      "after": 58
+     }
+    ],
+    "doc": "rows [{label, before, after}]; any count"
+   },
+   "title": {
+    "default": "Satisfaction by area",
+    "doc": "headline (empty = none)"
+   },
+   "subtitle": {
+    "default": "Score out of 100, before and after the redesign",
+    "doc": "small line under the headline (empty = none)"
+   },
+   "beforeLabel": {
+    "default": "Before",
+    "doc": "legend name of the first dot"
+   },
+   "afterLabel": {
+    "default": "After",
+    "doc": "legend name of the second dot"
+   },
+   "prefix": {
+    "default": "",
+    "doc": "text before every number, e.g. \"$\""
+   },
+   "suffix": {
+    "default": "",
+    "doc": "text after every number, e.g. \"%\", \" pts\""
+   },
+   "decimals": {
+    "default": 0,
+    "doc": "decimal places on the numbers"
+   },
+   "sort": {
+    "default": "none",
+    "doc": "\"none\", \"delta\" (biggest change first), \"after\" or \"before\" (largest first)"
+   },
+   "showValues": {
+    "default": true,
+    "doc": "print the before and after values beside the dots"
+   },
+   "showDelta": {
+    "default": true,
+    "doc": "show the change pill at the right"
+   },
+   "deltaMode": {
+    "default": "absolute",
+    "doc": "\"absolute\" (after minus before) or \"percent\""
+   },
+   "goodDirection": {
+    "default": "up",
+    "doc": "\"up\" (increase is green) or \"down\" (decrease is green, e.g. cost, time)"
+   },
+   "zeroBased": {
+    "default": false,
+    "doc": "start the axis at zero (otherwise it zooms to the data range)"
+   },
+   "beforeColor": {
+    "default": "#9AA3AD",
+    "doc": "colour of the before dot"
+   },
+   "afterColor": {
+    "default": "#2F6FED",
+    "doc": "colour of the after dot"
+   },
+   "goodColor": {
+    "default": "#12A150",
+    "doc": "connector and pill colour for a good change"
+   },
+   "badColor": {
+    "default": "#E5484D",
+    "doc": "connector and pill colour for a bad change"
+   },
+   "background": {
+    "default": "#F5F3EE",
+    "doc": "page colour, or \"transparent\" to sit over other content"
+   },
+   "ink": {
+    "default": "#18212B",
+    "doc": "text and grid colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "CSS font family (empty = Space Grotesk)"
+   },
+   "startAt": {
+    "default": 10,
+    "doc": "frame the first row starts"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed multiplier"
    }
   }
  },
@@ -12773,6 +13195,221 @@
   }
  },
  {
+  "id": "gantt-timeline",
+  "title": "Gantt timeline",
+  "category": "data",
+  "description": "A project Gantt chart: a time axis with grid, task rows whose bars grow from their start to their end with a progress fill and duration, diamond milestones dropping in on a lane above, and a red \"today\" marker sweeping down and bobbing on the timeline; bars coloured by group with a legend.",
+  "useFor": "Schedules and roadmaps: project plans, launch timelines, sprint plans, production calendars, course or treatment plans. Pass tasks as [{label, start, end, group?, progress?}] and milestones as [{label, at}] in any unit (days, weeks, months); use tickLabels for named periods.",
+  "source": [
+   "original round-3 chart motion"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "gantt",
+   "timeline",
+   "schedule",
+   "roadmap",
+   "project",
+   "milestone",
+   "chart",
+   "plan",
+   "infographic",
+   "data",
+   "overlay",
+   "tasks",
+   "planning"
+  ],
+  "file": "src/motions/data/gantt-timeline.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "colors",
+   "background",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "hud"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "tasks": {
+    "default": [
+     {
+      "label": "Research",
+      "start": 0,
+      "end": 3,
+      "group": "Plan",
+      "progress": 1
+     },
+     {
+      "label": "Concept & scope",
+      "start": 2,
+      "end": 5,
+      "group": "Plan",
+      "progress": 1
+     },
+     {
+      "label": "Design",
+      "start": 4,
+      "end": 8,
+      "group": "Build",
+      "progress": 0.85
+     },
+     {
+      "label": "Development",
+      "start": 6,
+      "end": 12,
+      "group": "Build",
+      "progress": 0.45
+     },
+     {
+      "label": "Testing",
+      "start": 10,
+      "end": 13,
+      "group": "Launch",
+      "progress": 0.1
+     },
+     {
+      "label": "Launch",
+      "start": 12.5,
+      "end": 14,
+      "group": "Launch",
+      "progress": 0
+     }
+    ],
+    "doc": "rows [{label, start, end, group?, color?, progress? 0-1}] in axis units"
+   },
+   "milestones": {
+    "default": [
+     {
+      "label": "Kick-off",
+      "at": 0
+     },
+     {
+      "label": "Beta",
+      "at": 10
+     },
+     {
+      "label": "Go live",
+      "at": 14
+     }
+    ],
+    "doc": "diamond markers [{label, at}] in axis units (empty array = none)"
+   },
+   "today": {
+    "default": 7,
+    "doc": "axis position of the \"today\" marker (outside the axis range or negative = hidden)"
+   },
+   "todayLabel": {
+    "default": "TODAY",
+    "doc": "text in the today pill"
+   },
+   "title": {
+    "default": "Project timeline",
+    "doc": "headline (empty = none)"
+   },
+   "subtitle": {
+    "default": "Fourteen weeks from kick-off to launch",
+    "doc": "small line under the headline (empty = none)"
+   },
+   "axisMin": {
+    "default": 0,
+    "doc": "left end of the axis (with axisMax = 0 both are automatic)"
+   },
+   "axisMax": {
+    "default": 0,
+    "doc": "right end of the axis (0 = automatic)"
+   },
+   "tickStep": {
+    "default": 0,
+    "doc": "distance between axis ticks (0 = automatic)"
+   },
+   "tickPrefix": {
+    "default": "W",
+    "doc": "text before axis numbers, e.g. \"W\" or \"Day \""
+   },
+   "tickSuffix": {
+    "default": "",
+    "doc": "text after axis numbers"
+   },
+   "tickLabels": {
+    "default": [],
+    "doc": "optional names for whole-number ticks, e.g. [\"Jan\",\"Feb\",\"Mar\"] (index = value)"
+   },
+   "showDurations": {
+    "default": true,
+    "doc": "print each task length on or after its bar"
+   },
+   "durationSuffix": {
+    "default": " wk",
+    "doc": "text after the length, e.g. \" wk\", \"d\""
+   },
+   "showProgress": {
+    "default": true,
+    "doc": "fill the completed part of each bar from its progress value"
+   },
+   "colors": {
+    "default": [
+     "#2F6FED",
+     "#FF7A45",
+     "#16B39A",
+     "#F2B134",
+     "#8E5CF0",
+     "#E5487F",
+     "#5BC0EB",
+     "#7A8794"
+    ],
+    "doc": "palette for groups"
+   },
+   "background": {
+    "default": "#F5F3EE",
+    "doc": "page colour, or \"transparent\" to sit over other content"
+   },
+   "ink": {
+    "default": "#18212B",
+    "doc": "text, grid and milestone colour"
+   },
+   "accent": {
+    "default": "#2F6FED",
+    "doc": "bar colour for tasks without a group or colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "CSS font family (empty = Space Grotesk)"
+   },
+   "startAt": {
+    "default": 8,
+    "doc": "frame the axis starts to appear"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed multiplier"
+   }
+  }
+ },
+ {
   "id": "gauge-kpi-dial",
   "title": "Gauge KPI dial",
   "category": "data",
@@ -13494,6 +14131,168 @@
    "mono": {
     "default": true,
     "doc": "grade a supplied photo to silver-gelatin greys"
+   }
+  }
+ },
+ {
+  "id": "heatmap-calendar",
+  "title": "Heatmap calendar",
+  "category": "data",
+  "description": "A GitHub-style contribution calendar: one rounded square per day, shaded in levels of the accent colour, popping in left to right with month and weekday labels, count-up stats and a less / more legend; the best day gets a pulsing ring. Reflows to a grid of mini-month calendars in square and vertical frames.",
+  "useFor": "Activity over a year: commits, workouts, streaks, sales days, habits, support tickets, website traffic by day. Pass values (one number per day) and startDate, set the accent colour and unit; leave values empty to preview with seeded sample data.",
+  "source": [
+   "original round-3 chart motion"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "heatmap",
+   "calendar",
+   "github",
+   "contribution",
+   "activity",
+   "streak",
+   "habit",
+   "chart",
+   "infographic",
+   "data",
+   "overlay",
+   "statistics",
+   "year"
+  ],
+  "file": "src/motions/data/heatmap-calendar.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle",
+   "prefix"
+  ],
+  "colorProps": [
+   "accent",
+   "background",
+   "ink"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "hud"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "values": {
+    "default": [],
+    "doc": "one number per day, up to 371 (empty = seeded sample year)"
+   },
+   "sampleSeed": {
+    "default": 7,
+    "doc": "seed for the sample data used when values is empty"
+   },
+   "startDate": {
+    "default": "2025-01-05",
+    "doc": "date of the first value, \"YYYY-MM-DD\" (drives month labels and weekday alignment)"
+   },
+   "weekStart": {
+    "default": "sun",
+    "doc": "\"sun\" or \"mon\": which weekday is the top row"
+   },
+   "layout": {
+    "default": "auto",
+    "doc": "\"auto\" (strip in 16:9, mini months in 1:1 / 9:16), \"strip\" or \"months\""
+   },
+   "levels": {
+    "default": 5,
+    "doc": "number of shades including empty (3-8)"
+   },
+   "title": {
+    "default": "A year of activity",
+    "doc": "headline (empty = none)"
+   },
+   "subtitle": {
+    "default": "Each square is one day, darker means more",
+    "doc": "small line under the headline (empty = none)"
+   },
+   "prefix": {
+    "default": "",
+    "doc": "text before total and best-day numbers"
+   },
+   "suffix": {
+    "default": "",
+    "doc": "text after total and best-day numbers, e.g. \" commits\""
+   },
+   "totalLabel": {
+    "default": "Total contributions",
+    "doc": "caption under the total"
+   },
+   "bestLabel": {
+    "default": "Best day",
+    "doc": "caption under the best-day value"
+   },
+   "activeLabel": {
+    "default": "Active days",
+    "doc": "caption under the active-days count"
+   },
+   "lessLabel": {
+    "default": "Less",
+    "doc": "legend text at the light end"
+   },
+   "moreLabel": {
+    "default": "More",
+    "doc": "legend text at the dark end"
+   },
+   "showStats": {
+    "default": true,
+    "doc": "show the three count-up stats"
+   },
+   "showLegend": {
+    "default": true,
+    "doc": "show the less / more legend"
+   },
+   "showWeekdays": {
+    "default": true,
+    "doc": "show Mon / Wed / Fri labels (strip layout)"
+   },
+   "accent": {
+    "default": "#16A34A",
+    "doc": "colour of the busiest days"
+   },
+   "emptyOpacity": {
+    "default": 0.09,
+    "doc": "opacity of days with a zero value"
+   },
+   "background": {
+    "default": "#F5F3EE",
+    "doc": "page colour, or \"transparent\" to sit over other content"
+   },
+   "ink": {
+    "default": "#18212B",
+    "doc": "text and empty-day colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "CSS font family (empty = Space Grotesk)"
+   },
+   "startAt": {
+    "default": 8,
+    "doc": "frame the first square appears"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed multiplier"
    }
   }
  },
@@ -14256,6 +15055,289 @@
   }
  },
  {
+  "id": "network-graph",
+  "title": "Network graph (your nodes and edges)",
+  "category": "data",
+  "description": "A labelled node-link diagram built from your own nodes and edges: a seeded force layout (computed once, fully deterministic) is revealed outward from the hub, nodes pop in coloured by group and sized by importance, edges draw between them, and the hub pulses with expanding rings; nodes drift slightly after.",
+  "useFor": "Explicit relationship maps: system architecture, supply chains, org or contact networks, dependency graphs, knowledge graphs, social graphs with named members. Pass nodes [{id, label?, group?, size?}] and edges [{from, to, weight?}]; for a random generated growth effect use node-network instead.",
+  "source": [
+   "original round-3 chart motion"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "network",
+   "graph",
+   "nodes",
+   "edges",
+   "links",
+   "diagram",
+   "relationships",
+   "architecture",
+   "dependency",
+   "knowledge graph",
+   "force layout",
+   "hub",
+   "infographic",
+   "data",
+   "overlay"
+  ],
+  "file": "src/motions/data/network-graph.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "colors",
+   "background",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "hud"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "nodes": {
+    "default": [
+     {
+      "id": "Core",
+      "group": "Platform"
+     },
+     {
+      "id": "API",
+      "group": "Platform"
+     },
+     {
+      "id": "Auth",
+      "group": "Platform"
+     },
+     {
+      "id": "Queue",
+      "group": "Platform"
+     },
+     {
+      "id": "Web",
+      "group": "Clients"
+     },
+     {
+      "id": "iOS",
+      "group": "Clients"
+     },
+     {
+      "id": "Android",
+      "group": "Clients"
+     },
+     {
+      "id": "CLI",
+      "group": "Clients"
+     },
+     {
+      "id": "Billing",
+      "group": "Services"
+     },
+     {
+      "id": "Search",
+      "group": "Services"
+     },
+     {
+      "id": "Email",
+      "group": "Services"
+     },
+     {
+      "id": "Reports",
+      "group": "Services"
+     },
+     {
+      "id": "Cache",
+      "group": "Data"
+     },
+     {
+      "id": "Store",
+      "group": "Data"
+     },
+     {
+      "id": "Lake",
+      "group": "Data"
+     }
+    ],
+    "doc": "nodes [{id, label?, group?, size?, color?}]; group sets the colour and legend; size (default = number of links) sets the radius; nodes missing here are created from the edges"
+   },
+   "edges": {
+    "default": [
+     {
+      "from": "Core",
+      "to": "API"
+     },
+     {
+      "from": "Core",
+      "to": "Auth"
+     },
+     {
+      "from": "Core",
+      "to": "Queue"
+     },
+     {
+      "from": "Core",
+      "to": "Cache"
+     },
+     {
+      "from": "Core",
+      "to": "Store"
+     },
+     {
+      "from": "API",
+      "to": "Web"
+     },
+     {
+      "from": "API",
+      "to": "iOS"
+     },
+     {
+      "from": "API",
+      "to": "Android"
+     },
+     {
+      "from": "API",
+      "to": "CLI"
+     },
+     {
+      "from": "Auth",
+      "to": "Web"
+     },
+     {
+      "from": "Queue",
+      "to": "Billing"
+     },
+     {
+      "from": "Queue",
+      "to": "Email"
+     },
+     {
+      "from": "Queue",
+      "to": "Reports"
+     },
+     {
+      "from": "API",
+      "to": "Search"
+     },
+     {
+      "from": "Store",
+      "to": "Lake"
+     },
+     {
+      "from": "Reports",
+      "to": "Lake"
+     },
+     {
+      "from": "Search",
+      "to": "Store"
+     },
+     {
+      "from": "Billing",
+      "to": "Email"
+     }
+    ],
+    "doc": "links [{from, to, weight?}] using node ids; weight 0.1-10 thickens and shortens the link"
+   },
+   "seed": {
+    "default": 3,
+    "doc": "layout seed: change it to get a different arrangement of the same graph"
+   },
+   "title": {
+    "default": "How the pieces connect",
+    "doc": "headline (empty = none)"
+   },
+   "subtitle": {
+    "default": "Services, clients and data stores around one core",
+    "doc": "small line under the headline (empty = none)"
+   },
+   "showLabels": {
+    "default": true,
+    "doc": "print node names under the nodes"
+   },
+   "hub": {
+    "default": "",
+    "doc": "id of the node that reveals first and pulses (empty = the most connected node)"
+   },
+   "hubPulse": {
+    "default": true,
+    "doc": "expanding rings around the hub"
+   },
+   "minRadius": {
+    "default": 14,
+    "doc": "smallest node radius in u"
+   },
+   "maxRadius": {
+    "default": 40,
+    "doc": "largest node radius in u"
+   },
+   "edgeOpacity": {
+    "default": 0.32,
+    "doc": "link opacity 0-1"
+   },
+   "drift": {
+    "default": 5,
+    "doc": "gentle post-layout drift in u (0 = still)"
+   },
+   "colors": {
+    "default": [
+     "#2F6FED",
+     "#FF7A45",
+     "#16B39A",
+     "#F2B134",
+     "#8E5CF0",
+     "#E5487F",
+     "#5BC0EB",
+     "#7A8794"
+    ],
+    "doc": "palette for groups / nodes without their own colour"
+   },
+   "background": {
+    "default": "#F5F3EE",
+    "doc": "page colour, or \"transparent\" to sit over other content"
+   },
+   "ink": {
+    "default": "#18212B",
+    "doc": "text and link colour"
+   },
+   "accent": {
+    "default": "#FF7A45",
+    "doc": "colour of the hub links and pulse"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "CSS font family (empty = Space Grotesk)"
+   },
+   "startAt": {
+    "default": 10,
+    "doc": "frame the hub appears"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed multiplier"
+   }
+  }
+ },
+ {
   "id": "neural-net-layers",
   "title": "Neural net layers",
   "category": "data",
@@ -14820,6 +15902,191 @@
   }
  },
  {
+  "id": "org-chart-tree",
+  "title": "Org chart tree",
+  "category": "data",
+  "description": "A hierarchy diagram from one nested tree prop: the root card pops in, then elbow connectors draw down (or across, in vertical frames) and each level of cards pops in, with branches colour-coded and an optional highlighted node that spotlights its chain of command.",
+  "useFor": "Org charts, team structures, decision trees, site maps, product families, taxonomies, family trees. Pass tree as {name, role?, children:[...]} nested to any depth; reflows left-to-right in 9:16.",
+  "source": [
+   "original round-3 chart motion"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "org chart",
+   "tree",
+   "hierarchy",
+   "diagram",
+   "team",
+   "structure",
+   "taxonomy",
+   "sitemap",
+   "decision tree",
+   "infographic",
+   "data",
+   "overlay",
+   "connectors"
+  ],
+  "file": "src/motions/data/org-chart-tree.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "colors",
+   "cardColor",
+   "rootColor",
+   "lineColor",
+   "background",
+   "ink"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "hud",
+   "ui"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "tree": {
+    "default": {
+     "name": "Chief Executive",
+     "role": "Leadership",
+     "children": [
+      {
+       "name": "Product",
+       "role": "Head of Product",
+       "children": [
+        {
+         "name": "Design",
+         "role": "Design lead"
+        },
+        {
+         "name": "Research",
+         "role": "Research lead"
+        }
+       ]
+      },
+      {
+       "name": "Engineering",
+       "role": "Head of Engineering",
+       "children": [
+        {
+         "name": "Platform",
+         "role": "Team lead"
+        },
+        {
+         "name": "Mobile",
+         "role": "Team lead"
+        },
+        {
+         "name": "Data",
+         "role": "Team lead"
+        }
+       ]
+      },
+      {
+       "name": "Growth",
+       "role": "Head of Growth",
+       "children": [
+        {
+         "name": "Brand",
+         "role": "Team lead"
+        },
+        {
+         "name": "Sales",
+         "role": "Team lead"
+        }
+       ]
+      }
+     ]
+    },
+    "doc": "hierarchy {name, role?, color?, children?: [...]} nested to any depth"
+   },
+   "title": {
+    "default": "How the company is organised",
+    "doc": "headline (empty = none)"
+   },
+   "subtitle": {
+    "default": "Three departments, seven teams",
+    "doc": "small line under the headline (empty = none)"
+   },
+   "direction": {
+    "default": "auto",
+    "doc": "\"auto\" (down in 16:9 / 1:1, across in 9:16), \"down\" or \"right\""
+   },
+   "showInitials": {
+    "default": false,
+    "doc": "draw a coloured initials badge in each card"
+   },
+   "highlight": {
+    "default": "",
+    "doc": "name of a node to spotlight at the end (empty = none); its ancestors and descendants stay lit"
+   },
+   "colors": {
+    "default": [
+     "#2F6FED",
+     "#FF7A45",
+     "#16B39A",
+     "#F2B134",
+     "#8E5CF0",
+     "#E5487F",
+     "#5BC0EB",
+     "#7A8794"
+    ],
+    "doc": "palette: one colour per top-level branch"
+   },
+   "cardColor": {
+    "default": "#FFFFFF",
+    "doc": "card fill colour"
+   },
+   "rootColor": {
+    "default": "#18212B",
+    "doc": "root card colour"
+   },
+   "lineColor": {
+    "default": "#9AA3AD",
+    "doc": "connector colour"
+   },
+   "background": {
+    "default": "#F5F3EE",
+    "doc": "page colour, or \"transparent\" to sit over other content"
+   },
+   "ink": {
+    "default": "#18212B",
+    "doc": "text colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "CSS font family (empty = Space Grotesk)"
+   },
+   "startAt": {
+    "default": 10,
+    "doc": "frame the root card appears"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed multiplier"
+   }
+  }
+ },
+ {
   "id": "overhead-trail-mandala",
   "title": "Overhead trail mandala",
   "category": "data",
@@ -15371,7 +16638,7 @@
       "suffix": " h"
      }
     ],
-    "doc": "rings [{label, value, max?(default 100), color?, prefix?, suffix?}]; the fill is value / max"
+    "doc": "rings [{label, value, max?(default 100), color?, prefix?, suffix?, decimals?}]; the fill is value / max"
    },
    "layout": {
     "default": "row",
@@ -15970,6 +17237,210 @@
    "background": {
     "default": "#F3F1EB",
     "doc": "board colour"
+   }
+  }
+ },
+ {
+  "id": "sankey-flow",
+  "title": "Sankey flow",
+  "category": "data",
+  "description": "A Sankey diagram built from a list of weighted links: node bars grow column by column and curved ribbons, sized by value and coloured source-to-target, sweep across between them with labels and values; an optional highlighted node dims everything not connected to it.",
+  "useFor": "Where things go: traffic to conversions, budget to departments, energy or cash flows, funnels with leaks, user journeys. Pass links as [{from, to, value}], set prefix / suffix and brand colours; works on a transparent background over footage.",
+  "source": [
+   "original round-3 chart motion"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "sankey",
+   "flow",
+   "links",
+   "diagram",
+   "chart",
+   "funnel",
+   "budget",
+   "journey",
+   "conversion",
+   "allocation",
+   "infographic",
+   "data",
+   "overlay",
+   "statistics"
+  ],
+  "file": "src/motions/data/sankey-flow.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle",
+   "prefix"
+  ],
+  "colorProps": [
+   "colors",
+   "background",
+   "ink"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "hud"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "links": {
+    "default": [
+     {
+      "from": "Organic",
+      "to": "Visitors",
+      "value": 420
+     },
+     {
+      "from": "Paid",
+      "to": "Visitors",
+      "value": 260
+     },
+     {
+      "from": "Referral",
+      "to": "Visitors",
+      "value": 180
+     },
+     {
+      "from": "Visitors",
+      "to": "Sign-ups",
+      "value": 380
+     },
+     {
+      "from": "Visitors",
+      "to": "Bounced",
+      "value": 480
+     },
+     {
+      "from": "Sign-ups",
+      "to": "Trial",
+      "value": 300
+     },
+     {
+      "from": "Sign-ups",
+      "to": "Inactive",
+      "value": 80
+     },
+     {
+      "from": "Trial",
+      "to": "Paying",
+      "value": 170
+     },
+     {
+      "from": "Trial",
+      "to": "Churned",
+      "value": 130
+     }
+    ],
+    "doc": "weighted links [{from, to, value, color?}]; nodes are created from the names, columns follow the flow direction"
+   },
+   "nodeColors": {
+    "default": {
+     "Visitors": "#8E5CF0",
+     "Bounced": "#9AA3AD",
+     "Inactive": "#B8BEC5",
+     "Paying": "#12A150",
+     "Churned": "#E5484D"
+    },
+    "doc": "optional node name -> colour overrides, e.g. {\"Paid\":\"#E5487F\"}"
+   },
+   "title": {
+    "default": "Where visitors go",
+    "doc": "headline (empty = none)"
+   },
+   "subtitle": {
+    "default": "Monthly sessions from first touch to paying customer",
+    "doc": "small line under the headline (empty = none)"
+   },
+   "prefix": {
+    "default": "",
+    "doc": "text before every number, e.g. \"$\""
+   },
+   "suffix": {
+    "default": "",
+    "doc": "text after every number, e.g. \"K\", \" users\""
+   },
+   "decimals": {
+    "default": 0,
+    "doc": "decimal places on the numbers"
+   },
+   "showValues": {
+    "default": true,
+    "doc": "print each node total (tall nodes: under the name, short nodes: next to it)"
+   },
+   "linkMode": {
+    "default": "gradient",
+    "doc": "ribbon colour: \"gradient\" (source to target), \"source\" or \"target\""
+   },
+   "linkOpacity": {
+    "default": 0.5,
+    "doc": "ribbon opacity 0-1"
+   },
+   "nodeWidth": {
+    "default": 26,
+    "doc": "node bar width in u"
+   },
+   "nodePad": {
+    "default": 22,
+    "doc": "vertical gap between nodes of a column in u"
+   },
+   "align": {
+    "default": "left",
+    "doc": "\"justify\" pushes end nodes to the last column, \"left\" keeps them where they land"
+   },
+   "highlight": {
+    "default": "",
+    "doc": "node name to spotlight at the end (empty = none); unrelated nodes and links dim"
+   },
+   "colors": {
+    "default": [
+     "#2F6FED",
+     "#FF7A45",
+     "#16B39A",
+     "#F2B134",
+     "#8E5CF0",
+     "#E5487F",
+     "#5BC0EB",
+     "#7A8794"
+    ],
+    "doc": "palette used for nodes without an override"
+   },
+   "background": {
+    "default": "#F5F3EE",
+    "doc": "page colour, or \"transparent\" to sit over other content"
+   },
+   "ink": {
+    "default": "#18212B",
+    "doc": "text colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "CSS font family (empty = Space Grotesk)"
+   },
+   "startAt": {
+    "default": 8,
+    "doc": "frame the first column appears"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed multiplier"
    }
   }
  },
@@ -17239,6 +18710,195 @@
    "pitch": {
     "default": 26,
     "doc": "camera elevation in degrees"
+   }
+  }
+ },
+ {
+  "id": "treemap-split",
+  "title": "Treemap split",
+  "category": "data",
+  "description": "A squarified treemap: one block fills the chart area, splits into strips and then into value-sized rectangles, each labelled with its name, a count-up value and share; colour by palette or by value, with an optional highlighted tile.",
+  "useFor": "Part-to-whole with many items: portfolio or budget breakdowns, disk usage, market caps, revenue by product, survey categories, file sizes. Pass data as [{label, value, color?}], set prefix / suffix and colours; works on a transparent background.",
+  "source": [
+   "original round-3 chart motion"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "treemap",
+   "tiles",
+   "chart",
+   "breakdown",
+   "share",
+   "proportion",
+   "infographic",
+   "data",
+   "overlay",
+   "statistics",
+   "budget",
+   "portfolio"
+  ],
+  "file": "src/motions/data/treemap-split.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle",
+   "prefix"
+  ],
+  "colorProps": [
+   "lowColor",
+   "highColor",
+   "colors",
+   "background",
+   "ink"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "hud"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "data": {
+    "default": [
+     {
+      "label": "Software",
+      "value": 380
+     },
+     {
+      "label": "Hardware",
+      "value": 240
+     },
+     {
+      "label": "Services",
+      "value": 190
+     },
+     {
+      "label": "Cloud",
+      "value": 150
+     },
+     {
+      "label": "Support",
+      "value": 90
+     },
+     {
+      "label": "Training",
+      "value": 60
+     },
+     {
+      "label": "Licensing",
+      "value": 45
+     },
+     {
+      "label": "Partners",
+      "value": 30
+     },
+     {
+      "label": "Other",
+      "value": 20
+     }
+    ],
+    "doc": "tiles [{label, value, color?}]; any count, values are relative, sorted largest first"
+   },
+   "title": {
+    "default": "Revenue by product line",
+    "doc": "headline (empty = none)"
+   },
+   "subtitle": {
+    "default": "Area shows share of total revenue",
+    "doc": "small line under the headline (empty = none)"
+   },
+   "prefix": {
+    "default": "$",
+    "doc": "text before every number, e.g. \"$\""
+   },
+   "suffix": {
+    "default": "M",
+    "doc": "text after every number, e.g. \"M\", \" GB\""
+   },
+   "decimals": {
+    "default": 0,
+    "doc": "decimal places on the values"
+   },
+   "showValue": {
+    "default": true,
+    "doc": "print the (counting-up) value in each tile"
+   },
+   "showShare": {
+    "default": true,
+    "doc": "print the percentage share in each tile"
+   },
+   "colorMode": {
+    "default": "palette",
+    "doc": "\"palette\" (one colour per tile) or \"value\" (low-to-high gradient)"
+   },
+   "lowColor": {
+    "default": "#BFD4FF",
+    "doc": "colour of the smallest tile when colorMode is \"value\""
+   },
+   "highColor": {
+    "default": "#1C4FD8",
+    "doc": "colour of the largest tile when colorMode is \"value\""
+   },
+   "gap": {
+    "default": 8,
+    "doc": "gap between tiles in u"
+   },
+   "radius": {
+    "default": 14,
+    "doc": "tile corner radius in u"
+   },
+   "highlight": {
+    "default": "",
+    "doc": "label of a tile to outline and spotlight at the end (empty = none)"
+   },
+   "colors": {
+    "default": [
+     "#2F6FED",
+     "#FF7A45",
+     "#16B39A",
+     "#F2B134",
+     "#8E5CF0",
+     "#E5487F",
+     "#5BC0EB",
+     "#7A8794"
+    ],
+    "doc": "palette for tiles without their own colour"
+   },
+   "background": {
+    "default": "#F5F3EE",
+    "doc": "page colour, or \"transparent\" to sit over other content"
+   },
+   "ink": {
+    "default": "#18212B",
+    "doc": "text colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "CSS font family (empty = Space Grotesk)"
+   },
+   "startAt": {
+    "default": 10,
+    "doc": "frame the split starts"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed multiplier"
    }
   }
  },
@@ -33351,6 +35011,159 @@
   }
  },
  {
+  "id": "blur-redact-region",
+  "title": "Blur / pixelate redact region",
+  "category": "hud",
+  "description": "Tutorial / privacy overlay: boxes over regions of the footage frost what is underneath (backdrop blur), pop in a scattered pixel mosaic or slide a solid censor bar across, each with corner ticks and a lock badge label; a region can drift to follow a moving element.",
+  "useFor": "Hide names, emails, keys or faces in a screen recording or screenshot walkthrough: pass `regions` (0-1 rects) with a `mode` and a label like \"Hidden\".",
+  "source": [
+   "screen-recording tutorial annotation"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "blur",
+   "pixelate",
+   "redact",
+   "censor",
+   "privacy",
+   "hide",
+   "mosaic",
+   "annotation",
+   "tutorial",
+   "screen recording",
+   "overlay",
+   "lock"
+  ],
+  "file": "src/motions/hud/blur-redact-region.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "tint",
+   "outline",
+   "labelBg",
+   "labelInk"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "photo",
+   "pixel"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "regions": {
+    "default": [
+     {
+      "x": 0.12000000000000001,
+      "y": 0.03,
+      "w": 0.2,
+      "h": 0.028,
+      "mode": "blur",
+      "label": "Blurred"
+     },
+     {
+      "x": 0.12000000000000001,
+      "y": 0.6200000000000001,
+      "w": 0.12,
+      "h": 0.05,
+      "mode": "pixelate",
+      "label": "Pixelated"
+     },
+     {
+      "x": 0.15000000000000002,
+      "y": 0.8400000000000001,
+      "w": 0.26,
+      "h": 0.05,
+      "mode": "bar",
+      "label": "Hidden"
+     }
+    ],
+    "doc": "array of {x, y, w, h (0-1, x/y = top-left), mode?: blur|pixelate|bar, label?, toX?, toY? (drift to this top-left), at?}"
+   },
+   "blurPx": {
+    "default": 16,
+    "doc": "backdrop blur radius in u (blur and pixelate modes)"
+   },
+   "pixelSize": {
+    "default": 15,
+    "doc": "mosaic block size in u"
+   },
+   "tint": {
+    "default": "#9AA3B5",
+    "doc": "frost / mosaic / bar colour"
+   },
+   "tintOpacity": {
+    "default": 0.45,
+    "doc": "frost tint opacity (0-1)"
+   },
+   "radius": {
+    "default": 10,
+    "doc": "corner radius in u"
+   },
+   "outline": {
+    "default": "#FFFFFF",
+    "doc": "dashed outline and corner tick colour"
+   },
+   "showLabels": {
+    "default": true,
+    "doc": "show the lock badge label above each region"
+   },
+   "labelBg": {
+    "default": "#12151C",
+    "doc": "badge fill"
+   },
+   "labelInk": {
+    "default": "#FFFFFF",
+    "doc": "badge text and lock colour"
+   },
+   "fontFamily": {
+    "default": "stub",
+    "doc": "CSS font-family for badges"
+   },
+   "startAt": {
+    "default": 10,
+    "doc": "frame of the first region"
+   },
+   "stagger": {
+    "default": 34,
+    "doc": "frames between regions"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed multiplier"
+   },
+   "exitAt": {
+    "default": 0,
+    "doc": "frame everything fades at (0 = just before the end)"
+   },
+   "seed": {
+    "default": 7,
+    "doc": "mosaic pattern seed"
+   },
+   "demoBackground": {
+    "default": false,
+    "doc": "true paints a neutral mock screen behind (previews); false = transparent overlay"
+   },
+   "demoTone": {
+    "default": "light",
+    "doc": "light | dark mock screen"
+   }
+  }
+ },
+ {
   "id": "callout-labels",
   "title": "Callout labels",
   "category": "hud",
@@ -33591,6 +35404,145 @@
    "accent": {
     "default": "#FF5B1F",
     "doc": "accent colour (synced dot, LIVE badge)"
+   }
+  }
+ },
+ {
+  "id": "click-ripple-markers",
+  "title": "Click ripple markers",
+  "category": "hud",
+  "description": "Tutorial overlay on a transparent background: concentric rings ripple out of each click point, a dot stays behind and a chip names the click (click, double click, right click) with its timestamp; earlier clicks dim and an optional dotted trail links them.",
+  "useFor": "Show exactly where and when something was clicked in a screen recording, UX test replay or bug report: pass `clicks` with x/y, the frame `at` and the `kind`.",
+  "source": [
+   "screen-recording tutorial annotation"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "click",
+   "ripple",
+   "marker",
+   "timestamp",
+   "tap",
+   "annotation",
+   "tutorial",
+   "screen recording",
+   "overlay",
+   "ux test",
+   "interaction"
+  ],
+  "file": "src/motions/hud/click-ripple-markers.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "color",
+   "accent",
+   "labelBg",
+   "labelInk"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "clicks": {
+    "default": [
+     {
+      "x": 0.8500000000000001,
+      "y": 0.044,
+      "kind": "click",
+      "at": 16
+     },
+     {
+      "x": 0.36,
+      "y": 0.33,
+      "kind": "double",
+      "at": 64
+     },
+     {
+      "x": 0.855,
+      "y": 0.904,
+      "kind": "right",
+      "at": 112
+     }
+    ],
+    "doc": "array of {x, y (0-1 point), at? (frame), kind?: click|double|right, label?, time?}"
+   },
+   "timestamps": {
+    "default": true,
+    "doc": "append the timestamp (m:ss.d from the video start) to each chip"
+   },
+   "keep": {
+    "default": "all",
+    "doc": "all = earlier clicks stay dimmed | last = only the latest | none = rings only"
+   },
+   "trail": {
+    "default": true,
+    "doc": "dotted trail between consecutive clicks"
+   },
+   "cursor": {
+    "default": false,
+    "doc": "draw a small pointer arrow at each click"
+   },
+   "size": {
+    "default": 80,
+    "doc": "ripple radius in u"
+   },
+   "color": {
+    "default": "#FF3B6B",
+    "doc": "click colour"
+   },
+   "accent": {
+    "default": "#1FD1A5",
+    "doc": "right-click colour"
+   },
+   "labelBg": {
+    "default": "#12151C",
+    "doc": "chip fill"
+   },
+   "labelInk": {
+    "default": "#FFFFFF",
+    "doc": "chip text colour"
+   },
+   "fontFamily": {
+    "default": "stub",
+    "doc": "CSS font-family for chips"
+   },
+   "startAt": {
+    "default": 10,
+    "doc": "default frame of the first click"
+   },
+   "stagger": {
+    "default": 44,
+    "doc": "default frames between clicks"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed multiplier (ripple / pop timing)"
+   },
+   "exitAt": {
+    "default": 0,
+    "doc": "frame everything fades at (0 = just before the end)"
+   },
+   "demoBackground": {
+    "default": false,
+    "doc": "true paints a neutral mock screen behind (previews); false = transparent overlay"
+   },
+   "demoTone": {
+    "default": "light",
+    "doc": "light | dark mock screen"
    }
   }
  },
@@ -34250,6 +36202,148 @@
   }
  },
  {
+  "id": "hand-drawn-arrow-callout",
+  "title": "Hand-drawn arrow callout",
+  "category": "hud",
+  "description": "Tutorial annotation overlay on a transparent background: a handwritten label pops, a sketchy double-pass pen arrow draws from it to a target point with a scribbled head and impact ticks. Several callouts run in sequence; positions are 0-1 fractions of the frame.",
+  "useFor": "Point at a button, field or number in any screen recording or tutorial (\"click here\", \"watch this\"): pass `callouts` with the target x/y and your own label text.",
+  "source": [
+   "screen-recording tutorial annotation"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "arrow",
+   "callout",
+   "annotation",
+   "tutorial",
+   "screen recording",
+   "hand-drawn",
+   "overlay",
+   "pointer",
+   "label",
+   "sketch"
+  ],
+  "file": "src/motions/hud/hand-drawn-arrow-callout.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "color",
+   "labelBg",
+   "labelInk"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "paper"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "callouts": {
+    "default": [
+     {
+      "x": 0.8500000000000001,
+      "y": 0.07200000000000001,
+      "label": "Click here",
+      "lx": 0.72,
+      "ly": 0.2,
+      "curve": 0.22
+     },
+     {
+      "x": 0.34,
+      "y": 0.41,
+      "label": "Watch this bar",
+      "sublabel": "it jumps after the update",
+      "lx": 0.2,
+      "ly": 0.64,
+      "curve": -0.2
+     },
+     {
+      "x": 0.8,
+      "y": 0.904,
+      "label": "Then save",
+      "lx": 0.52,
+      "ly": 0.86,
+      "curve": 0.2
+     }
+    ],
+    "doc": "array of {x, y, label, sublabel?, lx?, ly?, curve?, color?, at?}: x/y = target (0-1), lx/ly = label centre (0-1), at = start frame"
+   },
+   "color": {
+    "default": "#FF4B3E",
+    "doc": "arrow colour"
+   },
+   "labelBg": {
+    "default": "#FFE14D",
+    "doc": "sticker fill (or text colour for plain/underline)"
+   },
+   "labelInk": {
+    "default": "#15171C",
+    "doc": "sticker text colour"
+   },
+   "labelStyle": {
+    "default": "sticker",
+    "doc": "sticker | underline | plain"
+   },
+   "fontFamily": {
+    "default": "stub",
+    "doc": "CSS font-family for labels (default handwriting)"
+   },
+   "labelSize": {
+    "default": 62,
+    "doc": "label font size in u"
+   },
+   "strokeWidth": {
+    "default": 6,
+    "doc": "pen width in u"
+   },
+   "boil": {
+    "default": true,
+    "doc": "redraw the wobble on threes (hand-drawn boil)"
+   },
+   "startAt": {
+    "default": 8,
+    "doc": "frame of the first callout"
+   },
+   "stagger": {
+    "default": 48,
+    "doc": "frames between callouts"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed multiplier"
+   },
+   "exitAt": {
+    "default": 0,
+    "doc": "frame everything fades at (0 = just before the end)"
+   },
+   "seed": {
+    "default": 3,
+    "doc": "wobble seed"
+   },
+   "demoBackground": {
+    "default": false,
+    "doc": "true paints a neutral mock screen behind (previews); false = transparent overlay"
+   },
+   "demoTone": {
+    "default": "light",
+    "doc": "light | dark mock screen"
+   }
+  }
+ },
+ {
   "id": "hud-chrome",
   "title": "HUD chrome overlay",
   "category": "hud",
@@ -34821,6 +36915,147 @@
   }
  },
  {
+  "id": "numbered-step-badges",
+  "title": "Numbered step badges",
+  "category": "hud",
+  "description": "Tutorial overlay on a transparent background: numbered badges (1, 2, 3 ...) pop onto points of the footage one after another with a pulse ring and a caption chip, linked by a dotted path that draws on between them. Circle, map-pin or rounded-square badges.",
+  "useFor": "Number the steps of a how-to on top of a screen recording or screenshot (\"1 pick a file, 2 choose a format, 3 export\"): pass `steps` with x/y points and your own captions.",
+  "source": [
+   "screen-recording tutorial annotation"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "steps",
+   "numbered",
+   "badges",
+   "step by step",
+   "how-to",
+   "annotation",
+   "tutorial",
+   "screen recording",
+   "overlay",
+   "markers",
+   "sequence"
+  ],
+  "file": "src/motions/hud/numbered-step-badges.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "accent",
+   "badgeInk",
+   "labelBg",
+   "labelInk"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "photo",
+   "editorial"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "steps": {
+    "default": [
+     {
+      "x": 0.14,
+      "y": 0.044,
+      "label": "Search for a file"
+     },
+     {
+      "x": 0.55,
+      "y": 0.3,
+      "label": "Pick a chart",
+      "side": "left"
+     },
+     {
+      "x": 0.43,
+      "y": 0.64,
+      "label": "Check the totals"
+     },
+     {
+      "x": 0.855,
+      "y": 0.904,
+      "label": "Save it"
+     }
+    ],
+    "doc": "array of {x, y (0-1 point), label?, n? (badge text), side?: auto|left|right|top|bottom, at?}"
+   },
+   "badgeStyle": {
+    "default": "circle",
+    "doc": "circle | pin | square"
+   },
+   "size": {
+    "default": 64,
+    "doc": "badge diameter in u"
+   },
+   "connect": {
+    "default": true,
+    "doc": "draw a dotted path between consecutive badges"
+   },
+   "accent": {
+    "default": "#2F6BFF",
+    "doc": "badge fill and path colour"
+   },
+   "badgeInk": {
+    "default": "#FFFFFF",
+    "doc": "number colour"
+   },
+   "labelBg": {
+    "default": "#12151C",
+    "doc": "caption chip fill"
+   },
+   "labelInk": {
+    "default": "#FFFFFF",
+    "doc": "caption chip text colour"
+   },
+   "fontFamily": {
+    "default": "stub",
+    "doc": "CSS font-family for numbers and captions"
+   },
+   "firstNumber": {
+    "default": 1,
+    "doc": "number of the first badge"
+   },
+   "startAt": {
+    "default": 8,
+    "doc": "frame of the first badge"
+   },
+   "stagger": {
+    "default": 36,
+    "doc": "frames between badges"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed multiplier"
+   },
+   "exitAt": {
+    "default": 0,
+    "doc": "frame everything fades at (0 = just before the end)"
+   },
+   "demoBackground": {
+    "default": false,
+    "doc": "true paints a neutral mock screen behind (previews); false = transparent overlay"
+   },
+   "demoTone": {
+    "default": "light",
+    "doc": "light | dark mock screen"
+   }
+  }
+ },
+ {
   "id": "powers-of-ten",
   "title": "Powers-of-ten zoom",
   "category": "hud",
@@ -35180,6 +37415,143 @@
   }
  },
  {
+  "id": "scribble-circle-highlight",
+  "title": "Scribble circle highlight",
+  "category": "hud",
+  "description": "Tutorial annotation overlay on a transparent background: a marker pen draws a looping circle, a scribbled underline, a sketchy box or a translucent highlighter swath around chosen regions of the footage, each with an optional handwritten label.",
+  "useFor": "Circle the button, underline the setting, box the table or highlight the number in any screen recording: pass `marks` with the region (x, y, w, h in 0-1), the mark `type` and your own label.",
+  "source": [
+   "screen-recording tutorial annotation"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "circle",
+   "highlight",
+   "marker",
+   "underline",
+   "box",
+   "annotation",
+   "tutorial",
+   "screen recording",
+   "hand-drawn",
+   "overlay",
+   "scribble",
+   "emphasis"
+  ],
+  "file": "src/motions/hud/scribble-circle-highlight.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "color"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "paper",
+   "photo"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "marks": {
+    "default": [
+     {
+      "type": "circle",
+      "x": 0.79,
+      "y": 0.016,
+      "w": 0.12,
+      "h": 0.056,
+      "label": "New project"
+     },
+     {
+      "type": "box",
+      "x": 0.12000000000000001,
+      "y": 0.22,
+      "w": 0.46,
+      "h": 0.25,
+      "label": "Spot the dip"
+     },
+     {
+      "type": "underline",
+      "x": 0.12000000000000001,
+      "y": 0.625,
+      "w": 0.12,
+      "h": 0.04
+     },
+     {
+      "type": "highlight",
+      "x": 0.66,
+      "y": 0.625,
+      "w": 0.17,
+      "h": 0.04,
+      "label": "Total"
+     }
+    ],
+    "doc": "array of {type: circle|underline|box|highlight, x, y, w, h (0-1 region, x/y = top-left), label?, color?, at?}"
+   },
+   "color": {
+    "default": "#FF9F0A",
+    "doc": "marker colour (per-mark override with `color`)"
+   },
+   "fontFamily": {
+    "default": "stub",
+    "doc": "CSS font-family for labels"
+   },
+   "strokeWidth": {
+    "default": 7,
+    "doc": "marker width in u"
+   },
+   "passes": {
+    "default": 2,
+    "doc": "loops drawn for circle marks (1-3)"
+   },
+   "boil": {
+    "default": true,
+    "doc": "redraw the wobble on threes"
+   },
+   "startAt": {
+    "default": 8,
+    "doc": "frame of the first mark"
+   },
+   "stagger": {
+    "default": 36,
+    "doc": "frames between marks"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed multiplier"
+   },
+   "exitAt": {
+    "default": 0,
+    "doc": "frame everything fades at (0 = just before the end)"
+   },
+   "seed": {
+    "default": 5,
+    "doc": "wobble seed"
+   },
+   "demoBackground": {
+    "default": false,
+    "doc": "true paints a neutral mock screen behind (previews); false = transparent overlay"
+   },
+   "demoTone": {
+    "default": "light",
+    "doc": "light | dark mock screen"
+   }
+  }
+ },
+ {
   "id": "spec-chip-rail",
   "title": "Spec chip rail",
   "category": "hud",
@@ -35309,6 +37681,163 @@
    "accent": {
     "default": 38,
     "doc": "value hue (38 amber)"
+   }
+  }
+ },
+ {
+  "id": "spotlight-dim-focus",
+  "title": "Spotlight dim focus",
+  "category": "hud",
+  "description": "Tutorial overlay: the frame dims except a soft-edged cut-out (rounded rectangle, ellipse or circle) that closes in on a region, glides to the next one with a caption chip on each, then opens back up. Everything outside the cut-out is just a dark veil, so it sits on any footage.",
+  "useFor": "Walk a viewer through parts of a screen recording one region at a time (\"first the search bar, then the chart, then save\"): pass `regions` (0-1 rects) with captions.",
+  "source": [
+   "screen-recording tutorial annotation"
+  ],
+  "durationInFrames": 270,
+  "tags": [
+   "spotlight",
+   "dim",
+   "focus",
+   "highlight region",
+   "vignette",
+   "annotation",
+   "tutorial",
+   "screen recording",
+   "overlay",
+   "cut-out",
+   "attention"
+  ],
+  "file": "src/motions/hud/spotlight-dim-focus.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "dimColor",
+   "ringColor",
+   "labelBg",
+   "labelInk"
+  ],
+  "loopable": false,
+  "bestLength": 270,
+  "mood": [
+   "photo",
+   "editorial",
+   "night"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "regions": {
+    "default": [
+     {
+      "x": 0.1,
+      "y": 0.018,
+      "w": 0.42,
+      "h": 0.052,
+      "shape": "rounded",
+      "label": "Start with a search"
+     },
+     {
+      "x": 0.1,
+      "y": 0.12,
+      "w": 0.5,
+      "h": 0.38,
+      "shape": "rounded",
+      "label": "Read the chart"
+     },
+     {
+      "x": 0.39,
+      "y": 0.6000000000000001,
+      "w": 0.16,
+      "h": 0.1,
+      "shape": "circle",
+      "label": "Check this number"
+     },
+     {
+      "x": 0.79,
+      "y": 0.875,
+      "w": 0.13,
+      "h": 0.058,
+      "shape": "rounded",
+      "label": "Save your work"
+     }
+    ],
+    "doc": "array of {x, y, w, h (0-1, x/y = top-left), shape: rounded|circle|ellipse, label?, hold?}"
+   },
+   "dim": {
+    "default": 0.7,
+    "doc": "veil opacity outside the cut-out (0-1)"
+   },
+   "dimColor": {
+    "default": "#05070D",
+    "doc": "veil colour"
+   },
+   "feather": {
+    "default": 6,
+    "doc": "edge softness of the cut-out in u"
+   },
+   "pad": {
+    "default": 14,
+    "doc": "extra margin around each region in u"
+   },
+   "radius": {
+    "default": 26,
+    "doc": "corner radius of rounded cut-outs in u"
+   },
+   "ring": {
+    "default": true,
+    "doc": "draw a thin ring around the cut-out"
+   },
+   "ringColor": {
+    "default": "#FFFFFF",
+    "doc": "ring colour"
+   },
+   "labelBg": {
+    "default": "#FFFFFF",
+    "doc": "caption chip fill"
+   },
+   "labelInk": {
+    "default": "#12151C",
+    "doc": "caption chip text colour"
+   },
+   "fontFamily": {
+    "default": "stub",
+    "doc": "CSS font-family for captions"
+   },
+   "hold": {
+    "default": 38,
+    "doc": "frames to hold on each region"
+   },
+   "move": {
+    "default": 22,
+    "doc": "frames to glide between regions (also the open / close time)"
+   },
+   "startAt": {
+    "default": 6,
+    "doc": "frame the veil starts closing in"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "timing multiplier (2 = twice as fast)"
+   },
+   "demoBackground": {
+    "default": false,
+    "doc": "true paints a neutral mock screen behind (previews); false = transparent overlay (only the veil is drawn)"
+   },
+   "demoTone": {
+    "default": "light",
+    "doc": "light | dark mock screen"
    }
   }
  },
@@ -35709,6 +38238,262 @@
    "lockAt": {
     "default": 112,
     "doc": "frame the brackets snap on (they start 13 frames earlier)"
+   }
+  }
+ },
+ {
+  "id": "tooltip-pointer",
+  "title": "Tooltip pointer",
+  "category": "hud",
+  "description": "Tutorial overlay on a transparent background: a tooltip bubble with a title and wrapped text and a pointer touching a target point pops out of the pointer tip, with a pulsing beacon on the target. Tips replace each other one by one (with a \"1 / 3\" counter) or all stay stacked.",
+  "useFor": "Explain a control in a product tour, onboarding walkthrough or screen-recording tutorial: pass `tips` with the target x/y, a title and a sentence of text.",
+  "source": [
+   "screen-recording tutorial annotation"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "tooltip",
+   "pointer",
+   "bubble",
+   "onboarding",
+   "product tour",
+   "beacon",
+   "annotation",
+   "tutorial",
+   "screen recording",
+   "overlay",
+   "hint",
+   "walkthrough"
+  ],
+  "file": "src/motions/hud/tooltip-pointer.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "tips": {
+    "default": [
+     {
+      "x": 0.30000000000000004,
+      "y": 0.06999999999999999,
+      "title": "Search",
+      "text": "Find any project, file or teammate by typing a few letters."
+     },
+     {
+      "x": 0.52,
+      "y": 0.28,
+      "title": "Live chart",
+      "text": "Bars update as soon as new data comes in.",
+      "side": "right"
+     },
+     {
+      "x": 0.855,
+      "y": 0.875,
+      "title": "Save",
+      "text": "Your changes are stored and shared with the team."
+     }
+    ],
+    "doc": "array of {x, y (0-1 target), title?, text, side?: auto|top|bottom|left|right, at?}"
+   },
+   "mode": {
+    "default": "sequence",
+    "doc": "sequence = one tip at a time | stack = all tips stay"
+   },
+   "theme": {
+    "default": "dark",
+    "doc": "dark | light | accent bubble"
+   },
+   "accent": {
+    "default": "#3D7BFF",
+    "doc": "beacon colour (and bubble colour for the accent theme)"
+   },
+   "beacon": {
+    "default": true,
+    "doc": "pulsing dot on the target"
+   },
+   "showCounter": {
+    "default": true,
+    "doc": "show \"1 / 3\" in sequence mode"
+   },
+   "maxWidth": {
+    "default": 440,
+    "doc": "maximum bubble width in u"
+   },
+   "fontSize": {
+    "default": 30,
+    "doc": "body text size in u"
+   },
+   "fontFamily": {
+    "default": "stub",
+    "doc": "CSS font-family for the bubble"
+   },
+   "hold": {
+    "default": 76,
+    "doc": "frames per tip (sequence mode, and the default spacing of `at`)"
+   },
+   "startAt": {
+    "default": 10,
+    "doc": "frame of the first tip"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed multiplier"
+   },
+   "exitAt": {
+    "default": 0,
+    "doc": "frame everything fades at (0 = just before the end)"
+   },
+   "demoBackground": {
+    "default": false,
+    "doc": "true paints a neutral mock screen behind (previews); false = transparent overlay"
+   },
+   "demoTone": {
+    "default": "light",
+    "doc": "light | dark mock screen"
+   }
+  }
+ },
+ {
+  "id": "zoom-inset-box",
+  "title": "Zoom inset box",
+  "category": "hud",
+  "description": "Tutorial overlay: a dashed box marks a small region, connector lines run from its corners and a magnified inset (a crop of the same picture) grows out of it into a free corner with a zoom badge. Pass the footage frame as `src`; without one it magnifies a built-in mock screen.",
+  "useFor": "Show tiny UI detail legibly in a screen recording (a menu item, a number, a toggle): set `zooms` with the source region, the inset position and a still of the footage in `src`.",
+  "source": [
+   "screen-recording tutorial annotation"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "zoom",
+   "inset",
+   "magnify",
+   "crop",
+   "detail",
+   "annotation",
+   "tutorial",
+   "screen recording",
+   "overlay",
+   "picture in picture",
+   "connector"
+  ],
+  "file": "src/motions/hud/zoom-inset-box.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "color",
+   "borderColor",
+   "labelBg",
+   "labelInk"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "photo"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "zooms": {
+    "default": [
+     {
+      "region": {
+       "x": 0.43,
+       "y": 0.2,
+       "w": 0.14,
+       "h": 0.2
+      },
+      "inset": {
+       "x": 0.66,
+       "y": 0.15,
+       "w": 0.27
+      }
+     }
+    ],
+    "doc": "array of {region:{x,y,w,h}, inset:{x,y,w}, label?, at?}: region = source box (0-1, x/y = top-left), inset = landing spot (x/y top-left, w = width fraction), label overrides the auto \"2.5x\""
+   },
+   "src": {
+    "default": "",
+    "doc": "public/ path or URL of the frame to magnify (same picture as the footage); empty = mock screen"
+   },
+   "color": {
+    "default": "#FFD60A",
+    "doc": "region box and connector colour"
+   },
+   "borderColor": {
+    "default": "#FFFFFF",
+    "doc": "inset border colour"
+   },
+   "labelBg": {
+    "default": "#FFD60A",
+    "doc": "zoom badge fill"
+   },
+   "labelInk": {
+    "default": "#15171C",
+    "doc": "zoom badge text colour"
+   },
+   "fontFamily": {
+    "default": "stub",
+    "doc": "CSS font-family for the badge"
+   },
+   "showZoomLabel": {
+    "default": true,
+    "doc": "show the zoom-factor badge under the inset"
+   },
+   "startAt": {
+    "default": 10,
+    "doc": "frame of the first zoom"
+   },
+   "stagger": {
+    "default": 60,
+    "doc": "frames between zooms"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed multiplier"
+   },
+   "exitAt": {
+    "default": 0,
+    "doc": "frame everything fades at (0 = just before the end)"
+   },
+   "demoBackground": {
+    "default": false,
+    "doc": "true paints a neutral mock screen behind (previews); false = transparent overlay (the inset still shows its crop)"
+   },
+   "demoTone": {
+    "default": "light",
+    "doc": "light | dark mock screen"
    }
   }
  },
@@ -45692,7 +48477,7 @@
   "props": {
    "title": {
     "default": "The Mix",
-    "doc": "heading above the desk, empty to hide"
+    "doc": "heading above the desk, empty to hide (auto-darkens on light backgrounds)"
    },
    "caption": {
     "default": "Session 04",
@@ -54687,6 +57472,125 @@
   }
  },
  {
+  "id": "agenda-list-slide",
+  "title": "Agenda list slide",
+  "category": "text",
+  "description": "Keynote agenda slide: big title column and a numbered list; a highlight pill glides item to item so the current topic is bright and the rest dim.",
+  "useFor": "Meeting and webinar agendas, chapter lists, course outlines, table-of-contents beats and \"what we will cover\" slides in decks and videos.",
+  "source": [
+   "original (round 3, presentation slides)"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "slide",
+   "keynote",
+   "presentation",
+   "agenda",
+   "list",
+   "outline",
+   "table-of-contents",
+   "steps",
+   "numbered",
+   "highlight",
+   "deck",
+   "overlay"
+  ],
+  "file": "src/motions/text/agenda-list-slide.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "items"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [],
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Agenda",
+    "doc": "slide title (left column / top)"
+   },
+   "eyebrow": {
+    "default": "Today",
+    "doc": "small tag above the title (empty to hide)"
+   },
+   "items": {
+    "default": [
+     {
+      "title": "Where we are today",
+      "note": "Context and goals"
+     },
+     {
+      "title": "What we learned",
+      "note": "Findings from the pilot"
+     },
+     {
+      "title": "The plan",
+      "note": "Scope, owners, timing"
+     },
+     {
+      "title": "Budget and resources",
+      "note": "What it takes"
+     },
+     {
+      "title": "Decisions and next steps",
+      "note": "What we need from you"
+     }
+    ],
+    "doc": "array of strings or {title, note?} — up to 9"
+   },
+   "activeIndex": {
+    "default": -1,
+    "doc": "-1 = highlight steps through every item; 0..n-1 = hold the highlight on that item"
+   },
+   "holdFrames": {
+    "default": 36,
+    "doc": "frames each item stays highlighted"
+   },
+   "background": {
+    "default": "#101A2B",
+    "doc": "frame colour, or \"transparent\" to overlay content"
+   },
+   "ink": {
+    "default": "#F2F5FA",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#4FD1C5",
+    "doc": "numbers, pill and rule colour"
+   },
+   "fontFamily": {
+    "default": "grotesk",
+    "doc": "title font: sans | serif | display | grotesk | rounded | instrument | mono"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the slide begins"
+   }
+  }
+ },
+ {
   "id": "atomic-orbit-title",
   "title": "Atomic orbit title (retro toon)",
   "category": "text",
@@ -54808,6 +57712,124 @@
    "seed": {
     "default": 2,
     "doc": "star layout seed"
+   }
+  }
+ },
+ {
+  "id": "big-stat-slide",
+  "title": "Big stat slide",
+  "category": "text",
+  "description": "Keynote one-number slide: an eyebrow tag, a huge number counting up with accent prefix/suffix, an accent rule drawing under it, a one-line label and a source footnote.",
+  "useFor": "The \"one number\" beat of a pitch or keynote deck, KPI reveals, annual-report highlights, data-led social posts and explainer videos that need a headline statistic with its source.",
+  "source": [
+   "original (round 3, presentation slides)"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "slide",
+   "keynote",
+   "presentation",
+   "stat",
+   "number",
+   "kpi",
+   "metric",
+   "counter",
+   "pitch",
+   "deck",
+   "big-number",
+   "overlay"
+  ],
+  "file": "src/motions/text/big-stat-slide.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "prefix",
+   "label"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [],
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "value": {
+    "default": 87,
+    "doc": "the number to count up to"
+   },
+   "decimals": {
+    "default": 0,
+    "doc": "decimal places shown"
+   },
+   "prefix": {
+    "default": "",
+    "doc": "small accent text before the number (e.g. \"$\", \"+\")"
+   },
+   "suffix": {
+    "default": "%",
+    "doc": "small accent text after the number (e.g. \"%\", \"x\", \"M\")"
+   },
+   "thousands": {
+    "default": true,
+    "doc": "use thousands separators"
+   },
+   "label": {
+    "default": "of customers say onboarding is faster than the tools they used before",
+    "doc": "sentence under the number (wraps, shrinks to fit)"
+   },
+   "eyebrow": {
+    "default": "Key result",
+    "doc": "small tag above the number (empty to hide)"
+   },
+   "source": {
+    "default": "Source: sample customer survey, n = 1,200 (2025)",
+    "doc": "footnote at the bottom (empty to hide)"
+   },
+   "background": {
+    "default": "#10141C",
+    "doc": "frame colour, or \"transparent\" to overlay content"
+   },
+   "ink": {
+    "default": "#F4F1EA",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#FF6A3D",
+    "doc": "rule, tag, prefix/suffix and ring colour"
+   },
+   "fontFamily": {
+    "default": "grotesk",
+    "doc": "number font: sans | serif | display | grotesk | rounded | instrument | mono"
+   },
+   "ring": {
+    "default": true,
+    "doc": "faint decorative rings behind the number"
+   },
+   "countFrames": {
+    "default": 70,
+    "doc": "frames the count-up takes"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the slide begins"
    }
   }
  },
@@ -60369,6 +63391,120 @@
   }
  },
  {
+  "id": "qa-slide",
+  "title": "Q&A slide",
+  "category": "text",
+  "description": "Keynote Q&A slide: a question lands beside an accent \"Q\" badge, three thinking dots pulse in the answer card, then the answer reveals word by word; several pairs play in turn with a counter.",
+  "useFor": "FAQ and Q&A segments in decks, webinars and explainer videos, \"common questions\" slides, interview-style answers and objection handling beats.",
+  "source": [
+   "original (round 3, presentation slides)"
+  ],
+  "durationInFrames": 300,
+  "tags": [
+   "slide",
+   "keynote",
+   "presentation",
+   "qa",
+   "q&a",
+   "faq",
+   "question",
+   "answer",
+   "reveal",
+   "webinar",
+   "interview",
+   "deck",
+   "overlay"
+  ],
+  "file": "src/motions/text/qa-slide.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "items"
+  ],
+  "colorProps": [
+   "background",
+   "cardColor",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 300,
+  "mood": [
+   "3d"
+  ],
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "items": {
+    "default": [
+     {
+      "question": "How long does it take to get started?",
+      "answer": "Most teams are up and running in under an hour. Import your data, invite your colleagues and you are done."
+     },
+     {
+      "question": "What happens to our data if we leave?",
+      "answer": "You can export everything in open formats at any time, and we delete your copy within thirty days on request."
+     }
+    ],
+    "doc": "array of {question, answer} — each pair plays for holdFrames (up to 8)"
+   },
+   "heading": {
+    "default": "Q & A",
+    "doc": "small caption top-left (empty to hide)"
+   },
+   "qLabel": {
+    "default": "Q",
+    "doc": "letter in the question badge"
+   },
+   "aLabel": {
+    "default": "A",
+    "doc": "letter in the answer badge"
+   },
+   "holdFrames": {
+    "default": 150,
+    "doc": "frames each question/answer pair stays on screen"
+   },
+   "background": {
+    "default": "#F5F1EA",
+    "doc": "frame colour, or \"transparent\" to overlay content"
+   },
+   "cardColor": {
+    "default": "#FFFFFF",
+    "doc": "answer card fill, or \"auto\""
+   },
+   "ink": {
+    "default": "#1C2030",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#3E6AE1",
+    "doc": "badge, bar and dot colour"
+   },
+   "fontFamily": {
+    "default": "grotesk",
+    "doc": "question font: sans | serif | display | grotesk | rounded | instrument | mono"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the slide begins"
+   }
+  }
+ },
+ {
   "id": "quiz-question-reveal",
   "title": "Quiz question reveal",
   "category": "text",
@@ -60482,6 +63618,106 @@
    "speed": {
     "default": 1,
     "doc": "playback speed multiplier"
+   }
+  }
+ },
+ {
+  "id": "quote-slide",
+  "title": "Quote slide",
+  "category": "text",
+  "description": "Keynote quote slide: giant accent quote mark pops in, the quote reveals word by word / typed / line by line, then name and role slide in beside an optional round portrait.",
+  "useFor": "Testimonial and pull-quote slides, customer or founder quotes in pitch decks, interview highlights, quote cards for social and videos.",
+  "source": [
+   "original (round 3, presentation slides)"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "slide",
+   "keynote",
+   "presentation",
+   "quote",
+   "testimonial",
+   "pull-quote",
+   "attribution",
+   "portrait",
+   "typography",
+   "deck",
+   "overlay"
+  ],
+  "file": "src/motions/text/quote-slide.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [],
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "quote": {
+    "default": "Good design is mostly about removing everything that gets in the way of the idea.",
+    "doc": "the quote text (wraps and shrinks to fit; no quote marks needed)"
+   },
+   "author": {
+    "default": "Alex Morgan",
+    "doc": "name shown under the quote"
+   },
+   "role": {
+    "default": "Creative Director",
+    "doc": "role / company line (empty to hide)"
+   },
+   "src": {
+    "default": "",
+    "doc": "optional portrait image (public/ path or URL); empty = type only"
+   },
+   "reveal": {
+    "default": "words",
+    "doc": "words | type | fade — how the quote appears"
+   },
+   "fontFamily": {
+    "default": "serif",
+    "doc": "quote font: serif | sans | display | grotesk | rounded | instrument"
+   },
+   "background": {
+    "default": "#F4EFE6",
+    "doc": "frame colour, or \"transparent\" to overlay content"
+   },
+   "ink": {
+    "default": "#1E1B16",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#C8553D",
+    "doc": "quote mark, bar and rule colour"
+   },
+   "revealFrames": {
+    "default": 90,
+    "doc": "frames the quote takes to reveal"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the slide begins"
    }
   }
  },
@@ -66967,6 +70203,154 @@
   }
  },
  {
+  "id": "logo-wall-grid",
+  "title": "Logo wall grid",
+  "category": "ui",
+  "description": "Keynote \"trusted by\" slide: a headline over a grid of client tiles (logo images or invented wordmarks with geometric marks) that pop in as a ripple, sequence or shuffle, then an accent highlight roams the wall.",
+  "useFor": "Client / partner / customer logo walls, \"as seen in\" and sponsor slides, integration lists and social-proof sections of decks, sales videos and landing pages.",
+  "source": [
+   "original (round 3, presentation slides)"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "slide",
+   "keynote",
+   "presentation",
+   "logos",
+   "clients",
+   "partners",
+   "trusted-by",
+   "sponsors",
+   "grid",
+   "social-proof",
+   "brands",
+   "deck",
+   "overlay"
+  ],
+  "file": "src/motions/ui/logo-wall-grid.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "logos"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Trusted by teams worldwide",
+    "doc": "headline above the wall"
+   },
+   "logos": {
+    "default": [
+     {
+      "name": "Northfold"
+     },
+     {
+      "name": "Brightloop"
+     },
+     {
+      "name": "Cobaltly"
+     },
+     {
+      "name": "Orbito"
+     },
+     {
+      "name": "Pinegrove Co"
+     },
+     {
+      "name": "Quantis"
+     },
+     {
+      "name": "Redmeadow"
+     },
+     {
+      "name": "Solvane"
+     },
+     {
+      "name": "Tidewell"
+     },
+     {
+      "name": "Umbrix"
+     },
+     {
+      "name": "Vantora"
+     },
+     {
+      "name": "Zephyra"
+     }
+    ],
+    "doc": "array of strings or {name, src?} — src = logo image path/URL (wordmark drawn when empty) — up to 24"
+   },
+   "columns": {
+    "default": 0,
+    "doc": "grid columns; 0 = automatic"
+   },
+   "tileStyle": {
+    "default": "outline",
+    "doc": "outline | filled | none"
+   },
+   "monochrome": {
+    "default": false,
+    "doc": "turn logo images greyscale (use on light backgrounds)"
+   },
+   "order": {
+    "default": "ripple",
+    "doc": "ripple (from centre) | sequence | shuffle"
+   },
+   "background": {
+    "default": "#0F1722",
+    "doc": "frame colour, or \"transparent\" to overlay content"
+   },
+   "cardColor": {
+    "default": "auto",
+    "doc": "tile fill for tileStyle \"filled\", or \"auto\""
+   },
+   "ink": {
+    "default": "#F1F3F7",
+    "doc": "text and tile line colour"
+   },
+   "accent": {
+    "default": "#6EE7B7",
+    "doc": "underline and roaming highlight colour"
+   },
+   "fontFamily": {
+    "default": "grotesk",
+    "doc": "headline font: sans | serif | display | grotesk | rounded | instrument | mono"
+   },
+   "stagger": {
+    "default": 2.4,
+    "doc": "frames between tiles popping in"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the slide begins"
+   }
+  }
+ },
+ {
   "id": "magnet-pin",
   "title": "Magnet pin (board token)",
   "category": "ui",
@@ -68058,6 +71442,188 @@
    "startAt": {
     "default": 0,
     "doc": "frame the sequence begins"
+   }
+  }
+ },
+ {
+  "id": "roadmap-swimlanes",
+  "title": "Roadmap swimlanes",
+  "category": "ui",
+  "description": "Keynote roadmap: quarter columns across the top, one swimlane per workstream; item bars slide in on their lane (done solid, upcoming tinted, in progress with a progress strip) while a \"today\" line sweeps to the current date.",
+  "useFor": "Product and project roadmaps, release plans, quarterly OKR timelines, programme schedules and \"what ships when\" slides for decks, videos and status pages.",
+  "source": [
+   "original (round 3, presentation slides)"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "slide",
+   "keynote",
+   "presentation",
+   "roadmap",
+   "timeline",
+   "swimlanes",
+   "gantt",
+   "quarters",
+   "plan",
+   "schedule",
+   "milestones",
+   "deck"
+  ],
+  "file": "src/motions/ui/roadmap-swimlanes.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title"
+  ],
+  "colorProps": [
+   "palette",
+   "background",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Product roadmap",
+    "doc": "slide title"
+   },
+   "quarters": {
+    "default": [
+     "Q1",
+     "Q2",
+     "Q3",
+     "Q4"
+    ],
+    "doc": "column headings across the top (2-8 strings, e.g. quarters, months, sprints)"
+   },
+   "lanes": {
+    "default": [
+     {
+      "name": "Product",
+      "items": [
+       {
+        "label": "Onboarding revamp",
+        "start": 0,
+        "end": 1.4
+       },
+       {
+        "label": "Analytics v2",
+        "start": 1.5,
+        "end": 3
+       },
+       {
+        "label": "Public API",
+        "start": 3.05,
+        "end": 4
+       }
+      ]
+     },
+     {
+      "name": "Growth",
+      "items": [
+       {
+        "label": "Referral program",
+        "start": 0.2,
+        "end": 1.25
+       },
+       {
+        "label": "Pricing tests",
+        "start": 1.3,
+        "end": 2.5
+       },
+       {
+        "label": "Partner launch",
+        "start": 2.6,
+        "end": 3.85
+       }
+      ]
+     },
+     {
+      "name": "Platform",
+      "items": [
+       {
+        "label": "Infrastructure migration",
+        "start": 0,
+        "end": 2
+       },
+       {
+        "label": "Security audit",
+        "start": 2.1,
+        "end": 2.95
+       },
+       {
+        "label": "Scale to 10x",
+        "start": 3,
+        "end": 4
+       }
+      ]
+     }
+    ],
+    "doc": "array of {name, color?, items:[{label, start, end}]} — start/end are in column units (0 = left edge, 4 = right edge of 4 columns); up to 6 lanes"
+   },
+   "palette": {
+    "default": [
+     "#5B9DFF",
+     "#F5A524",
+     "#34C79A",
+     "#C77DFF",
+     "#FF6B8B",
+     "#7FD1E8"
+    ],
+    "doc": "lane colours used when a lane has no colour of its own"
+   },
+   "nowAt": {
+    "default": 1.6,
+    "doc": "position of the \"today\" line in column units (items ending before it are shown done)"
+   },
+   "nowLabel": {
+    "default": "TODAY",
+    "doc": "text on the today marker"
+   },
+   "background": {
+    "default": "#0F1624",
+    "doc": "frame colour, or \"transparent\" to overlay content"
+   },
+   "cardColor": {
+    "default": "auto",
+    "doc": "lane band fill, or \"auto\""
+   },
+   "ink": {
+    "default": "#EEF2F8",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#FF5C7A",
+    "doc": "today line and title underline colour"
+   },
+   "fontFamily": {
+    "default": "grotesk",
+    "doc": "title font: sans | serif | display | grotesk | rounded | instrument | mono"
+   },
+   "stagger": {
+    "default": 4,
+    "doc": "frames between bars sliding in"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the slide begins"
    }
   }
  },
@@ -69374,6 +72940,141 @@
   }
  },
  {
+  "id": "team-grid-photos",
+  "title": "Team grid with photos",
+  "category": "ui",
+  "description": "Keynote team slide: a headline over a grid of person cards (round or rounded photo, or coloured initials, plus name and role) that pop in with a drawing accent ring.",
+  "useFor": "Meet-the-team and about-us slides, speaker lineups, advisor and contributor walls, org intros in pitch decks, videos and landing pages.",
+  "source": [
+   "original (round 3, presentation slides)"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "slide",
+   "keynote",
+   "presentation",
+   "team",
+   "people",
+   "grid",
+   "photos",
+   "avatars",
+   "about-us",
+   "speakers",
+   "staff",
+   "cards",
+   "deck"
+  ],
+  "file": "src/motions/ui/team-grid-photos.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "background",
+   "cardColor",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "photo",
+   "ui"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Meet the team",
+    "doc": "headline above the grid"
+   },
+   "subtitle": {
+    "default": "The people behind the product",
+    "doc": "line under the headline (empty to hide)"
+   },
+   "people": {
+    "default": [
+     {
+      "name": "Jordan Lee",
+      "role": "Founder & CEO"
+     },
+     {
+      "name": "Priya Nair",
+      "role": "Head of Design"
+     },
+     {
+      "name": "Marco Silva",
+      "role": "Engineering Lead"
+     },
+     {
+      "name": "Amira Hassan",
+      "role": "Product Manager"
+     },
+     {
+      "name": "Tom Becker",
+      "role": "Customer Success"
+     },
+     {
+      "name": "Yuki Tanaka",
+      "role": "Operations"
+     }
+    ],
+    "doc": "array of {name, role?, src?} (src = photo path/URL; initials are drawn when empty) — up to 12"
+   },
+   "columns": {
+    "default": 0,
+    "doc": "grid columns; 0 = automatic (best fit for the frame)"
+   },
+   "shape": {
+    "default": "circle",
+    "doc": "photo shape: circle | rounded"
+   },
+   "background": {
+    "default": "#F3F1EC",
+    "doc": "frame colour, or \"transparent\" to overlay content"
+   },
+   "cardColor": {
+    "default": "#FFFFFF",
+    "doc": "card fill, or \"auto\" (tinted from the background)"
+   },
+   "ink": {
+    "default": "#1D2230",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#E0643C",
+    "doc": "ring and underline colour"
+   },
+   "fontFamily": {
+    "default": "grotesk",
+    "doc": "headline font: sans | serif | display | grotesk | rounded | instrument | mono"
+   },
+   "stagger": {
+    "default": 6,
+    "doc": "frames between cards popping in"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the slide begins"
+   }
+  }
+ },
+ {
   "id": "testimonial-card-carousel",
   "title": "Testimonial card carousel",
   "category": "ui",
@@ -69497,6 +73198,130 @@
    "startAt": {
     "default": 0,
     "doc": "frame the sequence begins"
+   }
+  }
+ },
+ {
+  "id": "three-column-features",
+  "title": "Three-column features",
+  "category": "ui",
+  "description": "Keynote feature slide: a headline over three cards (2-4 supported), each with a line icon that draws on (or your own image), a heading and a short text; columns in landscape, stacked rows in portrait.",
+  "useFor": "Feature and benefit slides, \"why us\" and pillars of a plan, product overviews, service lists and three-point summaries for decks, promos and landing pages.",
+  "source": [
+   "original (round 3, presentation slides)"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "slide",
+   "keynote",
+   "presentation",
+   "features",
+   "benefits",
+   "columns",
+   "icons",
+   "three-column",
+   "pillars",
+   "services",
+   "cards",
+   "deck",
+   "overlay"
+  ],
+  "file": "src/motions/ui/three-column-features.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "photo",
+   "3d",
+   "nature",
+   "ui"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Why teams choose us",
+    "doc": "headline above the columns"
+   },
+   "subtitle": {
+    "default": "Three reasons it sticks",
+    "doc": "line under the headline (empty to hide)"
+   },
+   "columns": {
+    "default": [
+     {
+      "icon": "bolt",
+      "heading": "Fast by default",
+      "text": "Pages and reports load in milliseconds, so nobody waits on the tool."
+     },
+     {
+      "icon": "shield",
+      "heading": "Secure and private",
+      "text": "Your data stays encrypted and under your control, always."
+     },
+     {
+      "icon": "users",
+      "heading": "Built for teams",
+      "text": "Share, comment and decide together without leaving the page."
+     }
+    ],
+    "doc": "array of {icon?, heading, text?, src?} — 2 to 4 entries; icon is one of bolt | shield | chart | globe | heart | star | gear | lock | spark | users | clock | cloud | target | code | check | rocket; src overrides the icon with your own image"
+   },
+   "cardStyle": {
+    "default": "cards",
+    "doc": "cards (filled cards) | open (no card, thin dividers)"
+   },
+   "background": {
+    "default": "#0F1A2A",
+    "doc": "frame colour, or \"transparent\" to overlay content"
+   },
+   "cardColor": {
+    "default": "auto",
+    "doc": "card fill, or \"auto\" (tinted from the background)"
+   },
+   "ink": {
+    "default": "#F1F5FB",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#5EC8FF",
+    "doc": "icon and underline colour"
+   },
+   "fontFamily": {
+    "default": "grotesk",
+    "doc": "headline font: sans | serif | display | grotesk | rounded | instrument | mono"
+   },
+   "stagger": {
+    "default": 4,
+    "doc": "beat spacing between columns (frames x 3)"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the slide begins"
    }
   }
  },

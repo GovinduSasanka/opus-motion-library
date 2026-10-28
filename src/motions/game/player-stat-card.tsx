@@ -1,7 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, Img, useCurrentFrame} from 'remotion';
 import {resolveSrc} from '../../core/asset';
-import {Silhouette, avatarColor, backOut, bgCss, bodyFont, easeIO, easeOut3, headFont, initials, mixHex, sseg, withAlpha} from '../../core/r3-game-kit';
+import {fmtInt, Silhouette, avatarColor, backOut, bgCss, bodyFont, easeIO, easeOut3, headFont, initials, mixHex, sseg, withAlpha} from '../../core/r3-game-kit';
 import {Svg, Vignette, useStage} from '../../core/stage';
 import {estWidth} from '../../core/text-kit';
 import {defineMotion} from '../../core/types';
@@ -49,11 +49,14 @@ const PlayerStatCard: React.FC<Props> = (P) => {
 
   // geometry
   const CW = portrait ? w * 0.9 : Math.min(w * 0.88, 1560 * u);
-  const CH = portrait ? Math.min(h * 0.84, 1560 * u) : Math.min(h * 0.74, 720 * u);
+  const pRow = 96 * u;
+  const pUsed = 330 * u + stats.length * pRow + 40 * u;
+  const pAv = Math.min(780 * u, Math.min(h * 0.84, 1560 * u) - pUsed);
+  const CH = portrait ? pAv + pUsed : Math.min(h * 0.74, 720 * u);
   const left = (w - CW) / 2;
   const top = (h - CH) / 2;
   const avW = portrait ? CW : CW * 0.38;
-  const avH = portrait ? CH * 0.36 : CH;
+  const avH = portrait ? pAv : CH;
   const pad = (portrait ? 44 : 52) * u;
   const infoW = portrait ? CW - pad * 2 : CW - avW - pad * 1.6 - 40 * u;
   const skew = portrait ? 0 : 70 * u;
@@ -71,7 +74,7 @@ const PlayerStatCard: React.FC<Props> = (P) => {
   const nameNeed = estWidth(nameStr, nameFs, 'display');
   if (nameNeed > infoW) nameFs = (nameFs * infoW) / nameNeed;
 
-  const rowH = portrait ? 82 * u : Math.min(62 * u, (CH - 300 * u) / stats.length);
+  const rowH = portrait ? pRow : Math.min(88 * u, (CH - 290 * u) / stats.length);
   const badge = (portrait ? 170 : 150) * u;
   const bp = backOut(sseg(frame, 30, 54), 2);
   const oCount = Math.round(overall * easeOut3(sseg(frame, 34, 90)));
@@ -103,16 +106,17 @@ const PlayerStatCard: React.FC<Props> = (P) => {
     const fill = easeOut3(sseg(frame, a + 10, a + 56));
     const ap = easeOut3(sseg(frame, a, a + 16));
     const frac = Math.min(1, s.value / s.max) * fill;
-    const num = Math.round(s.value * fill);
+    const dec = String(s.value).includes('.') ? Math.min(2, String(s.value).split('.')[1].length) : 0;
+    const num = dec ? (s.value * fill).toFixed(dec) : fmtInt(s.value * fill);
     return (
       <div key={i} style={{height: rowH, display: 'flex', alignItems: 'center', gap: 18 * u, opacity: ap, transform: `translateX(${(1 - ap) * 40 * u}px)`}}>
-        <div style={{width: (portrait ? 220 : 190) * u, fontFamily: body, fontWeight: 700, fontSize: (portrait ? 30 : 26) * u, letterSpacing: 2 * u, textTransform: 'uppercase', color: withAlpha(P.ink, 0.72), whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>{s.label}</div>
+        <div style={{width: (portrait ? 220 : 190) * u, fontFamily: body, fontWeight: 700, fontSize: Math.min(rowH * 0.4, 32 * u), letterSpacing: 2 * u, textTransform: 'uppercase', color: withAlpha(P.ink, 0.72), whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>{s.label}</div>
         <div style={{flex: 1, height: rowH * 0.36, position: 'relative', background: withAlpha(P.ink, 0.09), borderRadius: 4 * u, overflow: 'hidden'}}>
           <div style={{position: 'absolute', left: 0, top: 0, bottom: 0, width: `${frac * 100}%`, background: `linear-gradient(90deg, ${P.accent2}, ${P.accent})`}} />
           <div style={{position: 'absolute', left: `calc(${frac * 100}% - ${5 * u}px)`, top: 0, bottom: 0, width: 5 * u, background: '#fff', opacity: fill > 0 && fill < 1 ? 0.9 : 0}} />
           <div style={{position: 'absolute', inset: 0, background: `repeating-linear-gradient(90deg, transparent 0, transparent calc(5% - ${3 * u}px), ${P.surface} calc(5% - ${3 * u}px), ${P.surface} 5%)`}} />
         </div>
-        <div style={{width: (portrait ? 110 : 96) * u, textAlign: 'right', fontFamily: head, fontSize: (portrait ? 44 : 38) * u, color: P.ink, fontVariantNumeric: 'tabular-nums'}}>
+        <div style={{flex: 'none', minWidth: (portrait ? 110 : 96) * u, textAlign: 'right', whiteSpace: 'nowrap', fontFamily: head, fontSize: Math.min(rowH * 0.6, 48 * u), color: P.ink, fontVariantNumeric: 'tabular-nums'}}>
           {num}
           {s.suffix ? <span style={{fontSize: 22 * u, marginLeft: 3 * u, color: withAlpha(P.ink, 0.6)}}>{s.suffix}</span> : null}
         </div>

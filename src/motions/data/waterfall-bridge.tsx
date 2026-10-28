@@ -84,7 +84,7 @@ const WaterfallBridge: React.FC<Props> = ({
   const N = Math.max(1, bars.length);
   const vmin = Math.min(0, ...bars.map((b) => b.lo));
   const vmax = Math.max(1, ...bars.map((b) => b.hi));
-  const sc = niceScale(vmin, vmax * 1.08, 4);
+  const sc = niceScale(vmin, vmax * 1.02, 4);
   const colorOf = (k: 'up' | 'down' | 'total') => (k === 'up' ? increaseColor : k === 'down' ? decreaseColor : totalColor);
 
   const legSize = (portrait ? 30 : 26) * u;
@@ -157,7 +157,7 @@ const WaterfallBridge: React.FC<Props> = ({
       );
     });
   } else {
-    const labW = 230 * u;
+    const labW = 250 * u;
     const valRoom = 190 * u;
     const x0 = box.x + labW;
     const x1 = box.x + box.w - valRoom;
@@ -186,9 +186,11 @@ const WaterfallBridge: React.FC<Props> = ({
       }
       content.push(
         <g key={i}>
-          <text x={x0 - 18 * u} y={cyy + fs * 0.35} textAnchor="end" fontFamily={font} fontWeight={600} fontSize={fs} fill={ink} fillOpacity={0.85} opacity={prog(frame, s0 + i * per, s0 + i * per + 14)}>
-            {clip(b.label, labW - 24 * u, fs)}
-          </text>
+          {wrapLines(b.label, labW - 24 * u, fs, 0.56, 2).map((ln, k, arr) => (
+            <text key={k} x={x0 - 18 * u} y={cyy + fs * 0.35 + (k - (arr.length - 1) / 2) * fs * 1.15} textAnchor="end" fontFamily={font} fontWeight={600} fontSize={fs} fill={ink} fillOpacity={0.85} opacity={prog(frame, s0 + i * per, s0 + i * per + 14)}>
+              {ln}
+            </text>
+          ))}
           <rect x={xl} y={cyy - bh / 2} width={Math.max(0, xr - xl)} height={bh} rx={Math.min(8 * u, bh / 5)} fill={col} />
           <text x={xv(Math.max(b.hi, a)) + 14 * u} y={cyy + vfs * 0.36} fontFamily={font} fontWeight={700} fontSize={vfs} fill={ink} opacity={clamp(t * 2 - 0.6)} style={{fontVariantNumeric: 'tabular-nums'}}>
             {fmt(b.v * t, decimals, prefix, suffix, b.kind !== 'total')}

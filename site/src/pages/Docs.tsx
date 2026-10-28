@@ -16,7 +16,7 @@ const DOCS: {title: string; text: string; url: string; tag: string}[] = [
   {tag: 'Reference', title: 'Motion catalogue', text: 'The live catalogue table in the README: every motion by family, with what it is for.', url: `${REPO}#motion-catalogue`},
   {tag: 'Contribute', title: 'Contributing', text: 'How to propose a motion, report a bug and open a pull request.', url: `${BLOB}/CONTRIBUTING.md`},
   {tag: 'Contribute', title: 'Authoring a motion', text: 'The conventions every motion follows: u-units, measured easing, seeded noise, three formats.', url: `${BLOB}/docs/AUTHORING.md`},
-  {tag: 'Background', title: 'How it works', text: 'Reference films, MIT motion repos and a 1,138-case prompt corpus → 507 generalised motions and 148 styles.', url: `${REPO}#how-it-works`},
+  {tag: 'Background', title: 'How it works', text: 'Reference films, MIT motion repos and a 1,138-case prompt corpus → 531 generalised motions and 148 styles.', url: `${REPO}#how-it-works`},
 ];
 
 export const Docs: React.FC = () => (

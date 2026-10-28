@@ -1,20 +1,20 @@
 # Motion catalog
 
-507 motions. Generated from `catalog.json` by `cli/gen-docs.mjs` — do not edit by hand.
+531 motions. Generated from `catalog.json` by `cli/gen-docs.mjs` — do not edit by hand.
 
 Render any of them: `node cli/mgl.mjs render <id> [--props '{...}'] [--format landscape|square|portrait]`. Previews live in `gallery/`.
 
 Choosing: `node cli/mgl.mjs suggest "<what you need>"` and [CHOOSING.md](CHOOSING.md). Using them in a website / app / other project: [INTEGRATION.md](INTEGRATION.md).
 
-- [text](#text) (59)
+- [text](#text) (63)
 - [transition](#transition) (2)
 - [shape](#shape) (42)
 - [fx](#fx) (49)
 - [environment](#environment) (39)
 - [character](#character) (17)
-- [data](#data) (52)
-- [ui](#ui) (50)
-- [hud](#hud) (21)
+- [data](#data) (60)
+- [ui](#ui) (54)
+- [hud](#hud) (29)
 - [camera](#camera) (9)
 - [texture](#texture) (4)
 - [3d](#3d) (41)
@@ -31,9 +31,9 @@ Choosing: `node cli/mgl.mjs suggest "<what you need>"` and [CHOOSING.md](CHOOSIN
 
 | capability | motions |
 |---|---|
-| overlay (transparent background — put it on top of other motions or your page) | `globe-3d`, `holo-solid-ignite`, `light-beam-ribbon`, `popup-spread`, `creator-hand`, `paper-critter-rig`, `pictogram-figure`, `bar-race`, `cause-effect-chain`, `donut-breakdown`, `funnel-conversion`, `gauge-kpi-dial`, `progress-rings-stats`, `pros-cons-columns`, `radar-compare`, `stacked-area-flow`, `step-process-numbered`, `venn-diagram-overlap`, `waterfall-bridge`, `certificate-seal`, `form-fill-submit`, `receipt-print`, `aurora`, `bubbles`, `caustics-godrays`, `curl-flow`, `embers`, `falling-petals`, `fireworks`, `flow-lines`, `fog-clouds`, `insect-flight`, `lightning-flash`, `mesh-gradient-bg`, `rain`, `snowfall`, `starfield-night`, `window-glow-sequence`, `backlit-cutout`, `circuit-traces`, `confetti-burst`, `electric-arcs`, `emote-pop`, `eyes-blink`, `fire-flames`, `giant-eye-reveal`, `grease-pencil-mark`, `impact-frame`, `ink-blot-stop`, `long-exposure-trails`, `magnifier-loupe`, `marker-ring-arrow`, `scribble-ball`, `smear-frame`, `smoke-puffs`, `sparkle-burst`, `star-glint`, `sticker-cutout`, `swirl-portal`, `vhs-crt-pass`, `achievement-unlock`, `bracket-advance`, `candy-set-backdrop`, `kill-streak-banner`, `level-up-burst`, `match-scoreboard`, `player-stat-card`, `stream-starting-soon`, `agent-roster`, `cam-chip-sync-badge`, `day-ring-dial`, `event-feed`, `fight-hud`, `game-hud`, `hud-chrome`, `mission-clock`, `news-bug-source-tag`, `prompt-wall`, `spec-chip-rail`, `target-lock-box`, `target-lock`, `film-look`, `sticker-slap`, `choropleth-fill`, `city-zoom-label`, `coverage-route`, `elevation-profile`, `flight-arcs`, `pin-drop-cluster`, `beat-dance`, `chomp-lid`, `emotion-idle-beat`, `emotion-sheet`, `emotion-timeline`, `mascot-nib`, `mascot-thinking`, `mascot-thumbs-up`, `mascot-wave-hello`, `smear-trail`, `beat-camera`, `beat-grid`, `beat-pulse-rings`, `engraving-hatch`, `equalizer-bars-loop`, `guilloche-note`, `lyric-on-path`, `lyric-timing`, `lyric-video`, `mixer-faders`, `now-playing-card`, `podcast-audiogram`, `shutter-blur`, `stage-curtain`, `time-stutter`, `token-sampler-prompt`, `token-tree`, `tracklist-reveal`, `vinyl-spin-label`, `width-pressure-type`, `colorway-swap`, `feature-callout-orbit`, `price-tag-drop`, `spec-compare-table`, `sunburst-hero`, `unbox-lid-lift`, `comet-pulse-guide`, `ink-brush-stroke`, `logo-reveal-liquid`, `motif-grid-pattern`, `nib-follow-camera`, `papercut-rosette`, `toon-cel-shape`, `blur-in-title`, `channel-intro-sting`, `chapter-countdown`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `definition-card`, `end-card-credits`, `end-screen-cards`, `follower-milestone`, `glyph-orbit-logo`, `key-takeaway-highlight`, `kinetic-captions`, `logo-reveal-lines`, `mask-rise-title`, `myth-vs-fact`, `news-strap`, `number-counter`, `paper-strip-title`, `quiz-question-reveal`, `rolling-credits`, `rundown-board`, `sale-countdown-banner`, `scene-tag`, `sponsor-slate`, `stamp-slam`, `sting-bug`, `story-caption-box`, `typewriter-code`, `typewriter-signature`, `bokeh-drift`, `light-leak-wash`, `pattern-scroll`, `agent-log-panel`, `comment-bubble-stream`, `cursor-driver`, `empty-state-illustration`, `glass-lesson-card`, `hero-gradient-orbs`, `keystroke-hud`, `liquid-glass-lens`, `loader-spinner-set`, `notification-stack`, `planned-vs-heard-checklist`, `player-toolbar`, `poll-results-bars`, `review-stars-rating`, `skeleton-shimmer`, `story-progress-frames`, `subscribe-like-bell`, `success-check-burst`, `testimonial-card-carousel`, `toast-stack-loop`, `typing-indicator-chat`, `upload-progress` |
+| overlay (transparent background — put it on top of other motions or your page) | `globe-3d`, `holo-solid-ignite`, `light-beam-ribbon`, `popup-spread`, `creator-hand`, `paper-critter-rig`, `pictogram-figure`, `bar-race`, `bubble-scatter-grow`, `cause-effect-chain`, `comparison-dumbbell`, `donut-breakdown`, `funnel-conversion`, `gantt-timeline`, `gauge-kpi-dial`, `heatmap-calendar`, `network-graph`, `org-chart-tree`, `progress-rings-stats`, `pros-cons-columns`, `radar-compare`, `sankey-flow`, `stacked-area-flow`, `step-process-numbered`, `treemap-split`, `venn-diagram-overlap`, `waterfall-bridge`, `certificate-seal`, `form-fill-submit`, `receipt-print`, `aurora`, `bubbles`, `caustics-godrays`, `curl-flow`, `embers`, `falling-petals`, `fireworks`, `flow-lines`, `fog-clouds`, `insect-flight`, `lightning-flash`, `mesh-gradient-bg`, `rain`, `snowfall`, `starfield-night`, `window-glow-sequence`, `backlit-cutout`, `circuit-traces`, `confetti-burst`, `electric-arcs`, `emote-pop`, `eyes-blink`, `fire-flames`, `giant-eye-reveal`, `grease-pencil-mark`, `impact-frame`, `ink-blot-stop`, `long-exposure-trails`, `magnifier-loupe`, `marker-ring-arrow`, `scribble-ball`, `smear-frame`, `smoke-puffs`, `sparkle-burst`, `star-glint`, `sticker-cutout`, `swirl-portal`, `vhs-crt-pass`, `achievement-unlock`, `bracket-advance`, `candy-set-backdrop`, `kill-streak-banner`, `level-up-burst`, `match-scoreboard`, `player-stat-card`, `stream-starting-soon`, `agent-roster`, `cam-chip-sync-badge`, `day-ring-dial`, `event-feed`, `fight-hud`, `game-hud`, `hud-chrome`, `mission-clock`, `news-bug-source-tag`, `prompt-wall`, `spec-chip-rail`, `target-lock-box`, `target-lock`, `film-look`, `sticker-slap`, `choropleth-fill`, `city-zoom-label`, `coverage-route`, `elevation-profile`, `flight-arcs`, `pin-drop-cluster`, `beat-dance`, `chomp-lid`, `emotion-idle-beat`, `emotion-sheet`, `emotion-timeline`, `mascot-nib`, `mascot-thinking`, `mascot-thumbs-up`, `mascot-wave-hello`, `smear-trail`, `beat-camera`, `beat-grid`, `beat-pulse-rings`, `engraving-hatch`, `equalizer-bars-loop`, `guilloche-note`, `lyric-on-path`, `lyric-timing`, `lyric-video`, `mixer-faders`, `now-playing-card`, `podcast-audiogram`, `shutter-blur`, `stage-curtain`, `time-stutter`, `token-sampler-prompt`, `token-tree`, `tracklist-reveal`, `vinyl-spin-label`, `width-pressure-type`, `colorway-swap`, `feature-callout-orbit`, `price-tag-drop`, `spec-compare-table`, `sunburst-hero`, `unbox-lid-lift`, `comet-pulse-guide`, `ink-brush-stroke`, `logo-reveal-liquid`, `motif-grid-pattern`, `nib-follow-camera`, `papercut-rosette`, `toon-cel-shape`, `agenda-list-slide`, `big-stat-slide`, `blur-in-title`, `channel-intro-sting`, `chapter-countdown`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `definition-card`, `end-card-credits`, `end-screen-cards`, `follower-milestone`, `glyph-orbit-logo`, `key-takeaway-highlight`, `kinetic-captions`, `logo-reveal-lines`, `mask-rise-title`, `myth-vs-fact`, `news-strap`, `number-counter`, `paper-strip-title`, `qa-slide`, `quiz-question-reveal`, `quote-slide`, `rolling-credits`, `rundown-board`, `sale-countdown-banner`, `scene-tag`, `sponsor-slate`, `stamp-slam`, `sting-bug`, `story-caption-box`, `typewriter-code`, `typewriter-signature`, `bokeh-drift`, `light-leak-wash`, `pattern-scroll`, `agent-log-panel`, `comment-bubble-stream`, `cursor-driver`, `empty-state-illustration`, `glass-lesson-card`, `hero-gradient-orbs`, `keystroke-hud`, `liquid-glass-lens`, `loader-spinner-set`, `logo-wall-grid`, `notification-stack`, `planned-vs-heard-checklist`, `player-toolbar`, `poll-results-bars`, `review-stars-rating`, `roadmap-swimlanes`, `skeleton-shimmer`, `story-progress-frames`, `subscribe-like-bell`, `success-check-burst`, `team-grid-photos`, `testimonial-card-carousel`, `three-column-features`, `toast-stack-loop`, `typing-indicator-chat`, `upload-progress` |
 | seamless loop | `iso-bar-chart`, `embers`, `sonar-ping`, `empty-state-illustration`, `hero-gradient-orbs`, `loader-spinner-set`, `skeleton-shimmer`, `success-check-burst`, `toast-stack-loop`, `typing-indicator-chat`, `upload-progress` |
-| takes your image (`src` / `images` / `heroSrc`) | `pointcloud-orbit`, `crash-zoom`, `dolly-zoom`, `orbit-parallax`, `whip-pan`, `beat-montage`, `crowd-tracks`, `ground-plane-ruler`, `map-route`, `microscope-dive`, `science-reticle`, `thumbnail-mosaic`, `mugshot-height-chart`, `depth-descent`, `lamp-screen`, `paper-diorama`, `studio-sweep`, `topdown-terrain`, `window-glow-sequence`, `beat-punch-zoom`, `crayon-wax-shader`, `focus-desaturate`, `frame-blend-timelapse`, `frame-breakout`, `freeze-frame-brackets`, `giant-eye-reveal`, `glass-crack-mend`, `long-exposure-trails`, `loupe-magnify`, `magnifier-loupe`, `swirl-portal`, `theatre-gate`, `vhs-crt-pass`, `loot-reveal`, `player-stat-card`, `rocket-to-moon`, `callout-labels`, `cam-chip-sync-badge`, `target-lock-box`, `target-lock`, `ascii-image-grid`, `autofocus-hunt`, `brush-stroke-reveal`, `comic-halftone`, `dot-matrix`, `duotone`, `film-look`, `glass-pane-grid`, `glitch-image`, `grid-multiply`, `handscroll-reveal`, `ken-burns`, `knife-colour-relay`, `knife-paint-plate`, `light-sweep`, `negative-develop-reveal`, `perspective-flatten`, `photomontage-tower`, `pixel-dither`, `press-lift`, `proportion-sweep`, `riso-plate-reveal`, `spinning-headline`, `split-grid-countdown`, `sticker-cutout-burst`, `telestrator-freeze`, `tilt-shift-diorama`, `woodblock-print-reveal`, `woodcut-carve`, `xray-scan`, `map-mask-reveal`, `audio-spectrum`, `guilloche-note`, `colorway-swap`, `feature-callout-orbit`, `frost-to-clear`, `sunburst-hero`, `unbox-lid-lift`, `logo-reveal-liquid`, `scissor-cut`, `sonar-ping`, `blur-in-title`, `bouncing-ball-singalong`, `channel-intro-sting`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `diagonal-band-title`, `end-card-credits`, `flipbook-riffle-outro`, `glyph-orbit-logo`, `halftone-exhibit-numeral`, `hanazi-caption`, `letters-become-image`, `logo-assemble`, `logo-reveal-lines`, `mask-rise-title`, `number-counter`, `sponsor-slate`, `stamp-slam`, `story-caption-box`, `typewriter-code`, `browser-mockup`, `device-mockup`, `sms-thread`, `split-compare`, `story-progress-frames`, `tv-wall-switch-on`, `versus-roster` |
+| takes your image (`src` / `images` / `heroSrc`) | `pointcloud-orbit`, `crash-zoom`, `dolly-zoom`, `orbit-parallax`, `whip-pan`, `beat-montage`, `crowd-tracks`, `ground-plane-ruler`, `map-route`, `microscope-dive`, `science-reticle`, `thumbnail-mosaic`, `mugshot-height-chart`, `depth-descent`, `lamp-screen`, `paper-diorama`, `studio-sweep`, `topdown-terrain`, `window-glow-sequence`, `beat-punch-zoom`, `crayon-wax-shader`, `focus-desaturate`, `frame-blend-timelapse`, `frame-breakout`, `freeze-frame-brackets`, `giant-eye-reveal`, `glass-crack-mend`, `long-exposure-trails`, `loupe-magnify`, `magnifier-loupe`, `swirl-portal`, `theatre-gate`, `vhs-crt-pass`, `loot-reveal`, `player-stat-card`, `rocket-to-moon`, `callout-labels`, `cam-chip-sync-badge`, `target-lock-box`, `target-lock`, `zoom-inset-box`, `ascii-image-grid`, `autofocus-hunt`, `brush-stroke-reveal`, `comic-halftone`, `dot-matrix`, `duotone`, `film-look`, `glass-pane-grid`, `glitch-image`, `grid-multiply`, `handscroll-reveal`, `ken-burns`, `knife-colour-relay`, `knife-paint-plate`, `light-sweep`, `negative-develop-reveal`, `perspective-flatten`, `photomontage-tower`, `pixel-dither`, `press-lift`, `proportion-sweep`, `riso-plate-reveal`, `spinning-headline`, `split-grid-countdown`, `sticker-cutout-burst`, `telestrator-freeze`, `tilt-shift-diorama`, `woodblock-print-reveal`, `woodcut-carve`, `xray-scan`, `map-mask-reveal`, `audio-spectrum`, `guilloche-note`, `colorway-swap`, `feature-callout-orbit`, `frost-to-clear`, `sunburst-hero`, `unbox-lid-lift`, `logo-reveal-liquid`, `scissor-cut`, `sonar-ping`, `blur-in-title`, `bouncing-ball-singalong`, `channel-intro-sting`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `diagonal-band-title`, `end-card-credits`, `flipbook-riffle-outro`, `glyph-orbit-logo`, `halftone-exhibit-numeral`, `hanazi-caption`, `letters-become-image`, `logo-assemble`, `logo-reveal-lines`, `mask-rise-title`, `number-counter`, `quote-slide`, `sponsor-slate`, `stamp-slam`, `story-caption-box`, `typewriter-code`, `browser-mockup`, `device-mockup`, `sms-thread`, `split-compare`, `story-progress-frames`, `tv-wall-switch-on`, `versus-roster` |
 | heavy (three.js / WebGL — prefer an exported video on mobile web) | `accum-render-3d`, `brick-collapse-physics`, `brick-fx-fire-smoke`, `brick-rebuild-morph`, `brick-snap-build`, `chart-to-installation`, `cloner-bed-ripple`, `colour-ignition-wave`, `exploded-stack`, `exploded-view-3d`, `glass-strip-sweep`, `globe-3d`, `iso-blocks-3d`, `iso-city-build`, `jelly-type-drop`, `last-object-drop`, `liminal-corridor-3d`, `ocean-surface-3d`, `particle-shape-morph`, `plan-tilt`, `pointcloud-orbit`, `product-turntable-3d`, `shockwave-flip-field`, `stack-plates-3d`, `terrain-build-3d`, `voxel-burst-swirl`, `voxel-diorama`, `wireframe-build`, `dash-flow-field` |
 
 ## recipes
@@ -341,6 +341,30 @@ A seamless 14-second loop for a landing-page hero, app promo or showreel tile: o
 
 ## text
 
+### `agenda-list-slide` — Agenda list slide
+
+Keynote agenda slide: big title column and a numbered list; a highlight pill glides item to item so the current topic is bright and the rest dim.
+
+**Use for:** Meeting and webinar agendas, chapter lists, course outlines, table-of-contents beats and "what we will cover" slides in decks and videos.  
+**Rebuilt from:** original (round 3, presentation slides)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** type, accent · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `items` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Agenda"` | slide title (left column / top) |
+| `eyebrow` | `"Today"` | small tag above the title (empty to hide) |
+| `items` | `[{"title":"Where we are today","note":"Context and goals"…` | array of strings or {title, note?} — up to 9 |
+| `activeIndex` | `-1` | -1 = highlight steps through every item; 0..n-1 = hold the highlight on that item |
+| `holdFrames` | `36` | frames each item stays highlighted |
+| `background` | `"#101A2B"` | frame colour, or "transparent" to overlay content |
+| `ink` | `"#F2F5FA"` | text colour |
+| `accent` | `"#4FD1C5"` | numbers, pill and rule colour |
+| `fontFamily` | `"grotesk"` | title font: sans \| serif \| display \| grotesk \| rounded \| instrument \| mono |
+| `startAt` | `0` | frame the slide begins |
+
 ### `atomic-orbit-title` — Atomic orbit title (retro toon)
 
 ![atomic-orbit-title](../gallery/atomic-orbit-title.jpg)
@@ -371,6 +395,35 @@ A 1950s atomic-age TV title in fat cream block caps with a thick ink outline and
 | `background` | `"#2a1f6b"` | backdrop colour |
 | `fontSize` | `150` | title size in u at one line |
 | `seed` | `2` | star layout seed |
+
+### `big-stat-slide` — Big stat slide
+
+Keynote one-number slide: an eyebrow tag, a huge number counting up with accent prefix/suffix, an accent rule drawing under it, a one-line label and a source footnote.
+
+**Use for:** The "one number" beat of a pitch or keynote deck, KPI reveals, annual-report highlights, data-led social posts and explainer videos that need a headline statistic with its source.  
+**Rebuilt from:** original (round 3, presentation slides)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** type, accent · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `prefix`, `label` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `value` | `87` | the number to count up to |
+| `decimals` | `0` | decimal places shown |
+| `prefix` | `""` | small accent text before the number (e.g. "$", "+") |
+| `suffix` | `"%"` | small accent text after the number (e.g. "%", "x", "M") |
+| `thousands` | `true` | use thousands separators |
+| `label` | `"of customers say onboarding is faster than the tools the…` | sentence under the number (wraps, shrinks to fit) |
+| `eyebrow` | `"Key result"` | small tag above the number (empty to hide) |
+| `source` | `"Source: sample customer survey, n = 1,200 (2025)"` | footnote at the bottom (empty to hide) |
+| `background` | `"#10141C"` | frame colour, or "transparent" to overlay content |
+| `ink` | `"#F4F1EA"` | text colour |
+| `accent` | `"#FF6A3D"` | rule, tag, prefix/suffix and ring colour |
+| `fontFamily` | `"grotesk"` | number font: sans \| serif \| display \| grotesk \| rounded \| instrument \| mono |
+| `ring` | `true` | faint decorative rings behind the number |
+| `countFrames` | `70` | frames the count-up takes |
+| `startAt` | `0` | frame the slide begins |
 
 ### `blob-to-wordmark` — Blob to wordmark
 
@@ -1694,6 +1747,31 @@ A chunky gold pixel-glyph logo falls with gravity, lands on a white flash frame,
 | `glints` | `true` | four-point glints after the shine |
 | `seed` | `5` | seed for stars, dust and sparks |
 
+### `qa-slide` — Q&A slide
+
+Keynote Q&A slide: a question lands beside an accent "Q" badge, three thinking dots pulse in the answer card, then the answer reveals word by word; several pairs play in turn with a counter.
+
+**Use for:** FAQ and Q&A segments in decks, webinars and explainer videos, "common questions" slides, interview-style answers and objection handling beats.  
+**Rebuilt from:** original (round 3, presentation slides)  
+**Default length:** 300 frames (10.0 s @ 30 fps)
+
+**Roles:** type, accent · **Mood:** 3d  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `items` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `items` | `[{"question":"How long does it take to get started?","ans…` | array of {question, answer} — each pair plays for holdFrames (up to 8) |
+| `heading` | `"Q & A"` | small caption top-left (empty to hide) |
+| `qLabel` | `"Q"` | letter in the question badge |
+| `aLabel` | `"A"` | letter in the answer badge |
+| `holdFrames` | `150` | frames each question/answer pair stays on screen |
+| `background` | `"#F5F1EA"` | frame colour, or "transparent" to overlay content |
+| `cardColor` | `"#FFFFFF"` | answer card fill, or "auto" |
+| `ink` | `"#1C2030"` | text colour |
+| `accent` | `"#3E6AE1"` | badge, bar and dot colour |
+| `fontFamily` | `"grotesk"` | question font: sans \| serif \| display \| grotesk \| rounded \| instrument \| mono |
+| `startAt` | `0` | frame the slide begins |
+
 ### `quiz-question-reveal` — Quiz question reveal
 
 ![quiz-question-reveal](../gallery/quiz-question-reveal.jpg)
@@ -1722,6 +1800,31 @@ A QUIZ tag and question, lettered option cards dealing in, a draining timer ring
 | `fontFamily` | `""` | optional CSS font-family (empty = grotesk) |
 | `startAt` | `0` | frame the intro starts |
 | `speed` | `1` | playback speed multiplier |
+
+### `quote-slide` — Quote slide
+
+Keynote quote slide: giant accent quote mark pops in, the quote reveals word by word / typed / line by line, then name and role slide in beside an optional round portrait.
+
+**Use for:** Testimonial and pull-quote slides, customer or founder quotes in pitch decks, interview highlights, quote cards for social and videos.  
+**Rebuilt from:** original (round 3, presentation slides)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** type, accent · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `quote` | `"Good design is mostly about removing everything that get…` | the quote text (wraps and shrinks to fit; no quote marks needed) |
+| `author` | `"Alex Morgan"` | name shown under the quote |
+| `role` | `"Creative Director"` | role / company line (empty to hide) |
+| `src` | `""` | optional portrait image (public/ path or URL); empty = type only |
+| `reveal` | `"words"` | words \| type \| fade — how the quote appears |
+| `fontFamily` | `"serif"` | quote font: serif \| sans \| display \| grotesk \| rounded \| instrument |
+| `background` | `"#F4EFE6"` | frame colour, or "transparent" to overlay content |
+| `ink` | `"#1E1B16"` | text colour |
+| `accent` | `"#C8553D"` | quote mark, bar and rule colour |
+| `revealFrames` | `90` | frames the quote takes to reveal |
+| `startAt` | `0` | frame the slide begins |
 
 ### `ransom-note-type` — Ransom-note type
 
@@ -6840,6 +6943,8 @@ A pencil chart draws calmly until one value pierces the top frame line — torn 
 
 ### `bar-race` — Bar chart race
 
+![bar-race](../gallery/bar-race.jpg)
+
 Ranked horizontal bars that grow, then re-order smoothly over time as the data steps through keyframes: bars overtake each other, values roll, the leader changes, and a big faded period label (year, quarter) changes behind them.
 
 **Use for:** Rankings over time: market share by year, top products by quarter, followers by month, league tables, "who is winning" stories. Give the names once and one values row per period in `frames`.  
@@ -6902,6 +7007,43 @@ Hard-cut image montage whose cuts accelerate 12 f -> 6 f -> 3 f, a persistent ce
 | `reverse` | `false` | replay the shots in reverse order with contracting rings (rewind / flashback; combine with steps [4,2]) |
 | `shapePalette` | `["#E8584A","#2B6CB0","#F2C94C","#1F7A5C","#7B4FB8","#ECE4…` | shapes mode: background colours cycled per shot |
 
+### `bubble-scatter-grow` — Bubble scatter grow
+
+A bubble chart: axes and grid fade in, then bubbles grow in from left to right at their x / y position with area proportional to size, coloured per group, with collision-aware labels and an optional highlighted bubble with a ring.
+
+**Use for:** Three-variable comparisons: markets by size, growth and margin, countries, products, campaigns, startups. Pass points as [{label, x, y, size, group?, color?}], axis titles and number formats; works on a transparent background.  
+**Rebuilt from:** original round-3 chart motion  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** hud  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle`, `xLabel`, `yLabel` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `points` | `[{"label":"Alpha","x":12,"y":78,"size":40,"group":"North"…` | bubbles [{label, x, y, size, group?, color?}]; group sets the colour and builds the legend |
+| `title` | `"Reach vs engagement"` | headline (empty = none) |
+| `subtitle` | `"Bubble area shows audience size"` | small line under the headline (empty = none) |
+| `xLabel` | `"Reach (thousands)"` | x-axis title (empty = none) |
+| `yLabel` | `"Engagement"` | y-axis title (empty = none) |
+| `sizeLabel` | `"Bubble size = audience"` | small note about what the bubble size means (empty = none) |
+| `xPrefix` | `""` | text before x-axis numbers |
+| `xSuffix` | `""` | text after x-axis numbers |
+| `yPrefix` | `""` | text before y-axis numbers |
+| `ySuffix` | `"%"` | text after y-axis numbers, e.g. "%" |
+| `xDecimals` | `0` | decimals on x-axis numbers |
+| `yDecimals` | `0` | decimals on y-axis numbers |
+| `showLabels` | `true` | print bubble labels (inside when they fit, else beside, skipping collisions) |
+| `labelTop` | `0` | only label the N largest bubbles (0 = all that fit) |
+| `maxRadius` | `96` | radius of the largest bubble in u (capped to the plot size) |
+| `bubbleOpacity` | `0.72` | fill opacity of bubbles 0-1 |
+| `highlight` | `""` | label of a bubble to ring and spotlight at the end (empty = none) |
+| `colors` | `["#2F6FED","#FF7A45","#16B39A","#F2B134","#8E5CF0","#E548…` | palette for groups / bubbles without their own colour |
+| `background` | `"#F5F3EE"` | page colour, or "transparent" to sit over other content |
+| `ink` | `"#18212B"` | text and grid colour |
+| `fontFamily` | `""` | CSS font family (empty = Space Grotesk) |
+| `startAt` | `10` | frame the axes start to appear |
+| `speed` | `1` | animation speed multiplier |
+
 ### `cause-effect-chain` — Cause and effect chain
 
 ![cause-effect-chain](../gallery/cause-effect-chain.jpg)
@@ -6954,6 +7096,43 @@ Horizontal bars built from labelled unit chips, one chip per item: each row has 
 | `startAt` | `16` | frame the first row starts |
 | `rowGap` | `12` | frames between row starts |
 | `chipFrames` | `1.2` | frames per chip (1 = one chip per frame) |
+
+### `comparison-dumbbell` — Comparison dumbbell
+
+A dumbbell (before / after) chart: for each category a "before" dot appears on a shared axis, then the "after" dot slides away from it, stretching a connector coloured green for improvement and red for decline, with value labels and a change pill at the right.
+
+**Use for:** Change between two states per item: before vs after, last year vs this year, plan vs actual, men vs women, A vs B, scores pre- and post-launch. Pass data as [{label, before, after}], set the two series names, colours, prefix / suffix and which direction is good.  
+**Rebuilt from:** original round-3 chart motion  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** hud  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle`, `prefix` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `data` | `[{"label":"Onboarding","before":42,"after":78},{"label":"…` | rows [{label, before, after}]; any count |
+| `title` | `"Satisfaction by area"` | headline (empty = none) |
+| `subtitle` | `"Score out of 100, before and after the redesign"` | small line under the headline (empty = none) |
+| `beforeLabel` | `"Before"` | legend name of the first dot |
+| `afterLabel` | `"After"` | legend name of the second dot |
+| `prefix` | `""` | text before every number, e.g. "$" |
+| `suffix` | `""` | text after every number, e.g. "%", " pts" |
+| `decimals` | `0` | decimal places on the numbers |
+| `sort` | `"none"` | "none", "delta" (biggest change first), "after" or "before" (largest first) |
+| `showValues` | `true` | print the before and after values beside the dots |
+| `showDelta` | `true` | show the change pill at the right |
+| `deltaMode` | `"absolute"` | "absolute" (after minus before) or "percent" |
+| `goodDirection` | `"up"` | "up" (increase is green) or "down" (decrease is green, e.g. cost, time) |
+| `zeroBased` | `false` | start the axis at zero (otherwise it zooms to the data range) |
+| `beforeColor` | `"#9AA3AD"` | colour of the before dot |
+| `afterColor` | `"#2F6FED"` | colour of the after dot |
+| `goodColor` | `"#12A150"` | connector and pill colour for a good change |
+| `badColor` | `"#E5484D"` | connector and pill colour for a bad change |
+| `background` | `"#F5F3EE"` | page colour, or "transparent" to sit over other content |
+| `ink` | `"#18212B"` | text and grid colour |
+| `fontFamily` | `""` | CSS font family (empty = Space Grotesk) |
+| `startAt` | `10` | frame the first row starts |
+| `speed` | `1` | animation speed multiplier |
 
 ### `crowd-tracks` — Crowd tracks
 
@@ -7015,6 +7194,8 @@ A rotating DNA double helix draws on, coloured A-T / G-C base-pair rungs fill in
 | `seed` | `3` | seed for bases when sequence is empty |
 
 ### `donut-breakdown` — Donut breakdown
+
+![donut-breakdown](../gallery/donut-breakdown.jpg)
 
 A donut chart that sweeps round clockwise segment by segment with percentage labels, a count-up total in the centre and a legend whose values count up as each segment lands; an optional highlighted slice pops out while the rest dim.
 
@@ -7316,6 +7497,8 @@ Maths-explainer plot on dark slate: axes draw on, a curve from a safe expression
 
 ### `funnel-conversion` — Funnel conversion
 
+![funnel-conversion](../gallery/funnel-conversion.jpg)
+
 A conversion funnel: stage bars narrow in proportion to their value and grow in one after another from the top, labels with colour keys on the left, count-up values on the right, step-to-step "↓ 40%" conversion pills between stages and an overall conversion figure at the bottom.
 
 **Use for:** Sales and signup funnels, hiring pipelines, checkout drop-off, content-to-lead stories, any "how many survive each step" breakdown. Replace stages, colours, prefix / suffix.  
@@ -7344,7 +7527,45 @@ A conversion funnel: stage bars narrow in proportion to their value and grow in 
 | `startAt` | `10` | frame the first stage appears |
 | `speed` | `1` | animation speed multiplier |
 
+### `gantt-timeline` — Gantt timeline
+
+A project Gantt chart: a time axis with grid, task rows whose bars grow from their start to their end with a progress fill and duration, diamond milestones dropping in on a lane above, and a red "today" marker sweeping down and bobbing on the timeline; bars coloured by group with a legend.
+
+**Use for:** Schedules and roadmaps: project plans, launch timelines, sprint plans, production calendars, course or treatment plans. Pass tasks as [{label, start, end, group?, progress?}] and milestones as [{label, at}] in any unit (days, weeks, months); use tickLabels for named periods.  
+**Rebuilt from:** original round-3 chart motion  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** hud  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `tasks` | `[{"label":"Research","start":0,"end":3,"group":"Plan","pr…` | rows [{label, start, end, group?, color?, progress? 0-1}] in axis units |
+| `milestones` | `[{"label":"Kick-off","at":0},{"label":"Beta","at":10},{"l…` | diamond markers [{label, at}] in axis units (empty array = none) |
+| `today` | `7` | axis position of the "today" marker (outside the axis range or negative = hidden) |
+| `todayLabel` | `"TODAY"` | text in the today pill |
+| `title` | `"Project timeline"` | headline (empty = none) |
+| `subtitle` | `"Fourteen weeks from kick-off to launch"` | small line under the headline (empty = none) |
+| `axisMin` | `0` | left end of the axis (with axisMax = 0 both are automatic) |
+| `axisMax` | `0` | right end of the axis (0 = automatic) |
+| `tickStep` | `0` | distance between axis ticks (0 = automatic) |
+| `tickPrefix` | `"W"` | text before axis numbers, e.g. "W" or "Day " |
+| `tickSuffix` | `""` | text after axis numbers |
+| `tickLabels` | `[]` | optional names for whole-number ticks, e.g. ["Jan","Feb","Mar"] (index = value) |
+| `showDurations` | `true` | print each task length on or after its bar |
+| `durationSuffix` | `" wk"` | text after the length, e.g. " wk", "d" |
+| `showProgress` | `true` | fill the completed part of each bar from its progress value |
+| `colors` | `["#2F6FED","#FF7A45","#16B39A","#F2B134","#8E5CF0","#E548…` | palette for groups |
+| `background` | `"#F5F3EE"` | page colour, or "transparent" to sit over other content |
+| `ink` | `"#18212B"` | text, grid and milestone colour |
+| `accent` | `"#2F6FED"` | bar colour for tasks without a group or colour |
+| `fontFamily` | `""` | CSS font family (empty = Space Grotesk) |
+| `startAt` | `8` | frame the axis starts to appear |
+| `speed` | `1` | animation speed multiplier |
+
 ### `gauge-kpi-dial` — Gauge KPI dial
+
+![gauge-kpi-dial](../gallery/gauge-kpi-dial.jpg)
 
 A 240-degree dial gauge: coloured zone bands sweep on, tick labels appear, the needle swings to the value with a small overshoot and wobble while a big KPI number counts up in the colour of the zone it is in, with a target marker and zone legend.
 
@@ -7478,6 +7699,45 @@ A measuring tape is laid on the ground of a photograph in true one-point perspec
 | `runFrames` | `78` | frames for the tape to reach its end |
 | `accent` | `"#FF5A1F"` | tape / signal colour |
 | `mono` | `true` | grade a supplied photo to silver-gelatin greys |
+
+### `heatmap-calendar` — Heatmap calendar
+
+A GitHub-style contribution calendar: one rounded square per day, shaded in levels of the accent colour, popping in left to right with month and weekday labels, count-up stats and a less / more legend; the best day gets a pulsing ring. Reflows to a grid of mini-month calendars in square and vertical frames.
+
+**Use for:** Activity over a year: commits, workouts, streaks, sales days, habits, support tickets, website traffic by day. Pass values (one number per day) and startDate, set the accent colour and unit; leave values empty to preview with seeded sample data.  
+**Rebuilt from:** original round-3 chart motion  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** hud  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle`, `prefix` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `values` | `[]` | one number per day, up to 371 (empty = seeded sample year) |
+| `sampleSeed` | `7` | seed for the sample data used when values is empty |
+| `startDate` | `"2025-01-05"` | date of the first value, "YYYY-MM-DD" (drives month labels and weekday alignment) |
+| `weekStart` | `"sun"` | "sun" or "mon": which weekday is the top row |
+| `layout` | `"auto"` | "auto" (strip in 16:9, mini months in 1:1 / 9:16), "strip" or "months" |
+| `levels` | `5` | number of shades including empty (3-8) |
+| `title` | `"A year of activity"` | headline (empty = none) |
+| `subtitle` | `"Each square is one day, darker means more"` | small line under the headline (empty = none) |
+| `prefix` | `""` | text before total and best-day numbers |
+| `suffix` | `""` | text after total and best-day numbers, e.g. " commits" |
+| `totalLabel` | `"Total contributions"` | caption under the total |
+| `bestLabel` | `"Best day"` | caption under the best-day value |
+| `activeLabel` | `"Active days"` | caption under the active-days count |
+| `lessLabel` | `"Less"` | legend text at the light end |
+| `moreLabel` | `"More"` | legend text at the dark end |
+| `showStats` | `true` | show the three count-up stats |
+| `showLegend` | `true` | show the less / more legend |
+| `showWeekdays` | `true` | show Mon / Wed / Fri labels (strip layout) |
+| `accent` | `"#16A34A"` | colour of the busiest days |
+| `emptyOpacity` | `0.09` | opacity of days with a zero value |
+| `background` | `"#F5F3EE"` | page colour, or "transparent" to sit over other content |
+| `ink` | `"#18212B"` | text and empty-day colour |
+| `fontFamily` | `""` | CSS font family (empty = Space Grotesk) |
+| `startAt` | `8` | frame the first square appears |
+| `speed` | `1` | animation speed multiplier |
 
 ### `iso-bar-chart` — Isometric bar-chart staircase
 
@@ -7652,6 +7912,39 @@ One continuous powers-of-ten zoom from a glass slide on a graphite bench through
 | `src` | `""` | optional public/ image used as the specimen (zoom range is shortened so it stays sharp; give value/unit that match the circled region) |
 | `fieldLabel` | `"FIELD"` | small label above the field-of-view readout |
 
+### `network-graph` — Network graph (your nodes and edges)
+
+A labelled node-link diagram built from your own nodes and edges: a seeded force layout (computed once, fully deterministic) is revealed outward from the hub, nodes pop in coloured by group and sized by importance, edges draw between them, and the hub pulses with expanding rings; nodes drift slightly after.
+
+**Use for:** Explicit relationship maps: system architecture, supply chains, org or contact networks, dependency graphs, knowledge graphs, social graphs with named members. Pass nodes [{id, label?, group?, size?}] and edges [{from, to, weight?}]; for a random generated growth effect use node-network instead.  
+**Rebuilt from:** original round-3 chart motion  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** hud  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `nodes` | `[{"id":"Core","group":"Platform"},{"id":"API","group":"Pl…` | nodes [{id, label?, group?, size?, color?}]; group sets the colour and legend; size (default = number of links) sets the radius; nodes missing here are created from the edges |
+| `edges` | `[{"from":"Core","to":"API"},{"from":"Core","to":"Auth"},{…` | links [{from, to, weight?}] using node ids; weight 0.1-10 thickens and shortens the link |
+| `seed` | `3` | layout seed: change it to get a different arrangement of the same graph |
+| `title` | `"How the pieces connect"` | headline (empty = none) |
+| `subtitle` | `"Services, clients and data stores around one core"` | small line under the headline (empty = none) |
+| `showLabels` | `true` | print node names under the nodes |
+| `hub` | `""` | id of the node that reveals first and pulses (empty = the most connected node) |
+| `hubPulse` | `true` | expanding rings around the hub |
+| `minRadius` | `14` | smallest node radius in u |
+| `maxRadius` | `40` | largest node radius in u |
+| `edgeOpacity` | `0.32` | link opacity 0-1 |
+| `drift` | `5` | gentle post-layout drift in u (0 = still) |
+| `colors` | `["#2F6FED","#FF7A45","#16B39A","#F2B134","#8E5CF0","#E548…` | palette for groups / nodes without their own colour |
+| `background` | `"#F5F3EE"` | page colour, or "transparent" to sit over other content |
+| `ink` | `"#18212B"` | text and link colour |
+| `accent` | `"#FF7A45"` | colour of the hub links and pulse |
+| `fontFamily` | `""` | CSS font family (empty = Space Grotesk) |
+| `startAt` | `10` | frame the hub appears |
+| `speed` | `1` | animation speed multiplier |
+
 ### `neural-net-layers` — Neural net layers
 
 ![neural-net-layers](../gallery/neural-net-layers.jpg)
@@ -7781,6 +8074,35 @@ Stepped cumulative bid (left) and ask (right) depth curves grow out from a dashe
 | `seed` | `7` | changes the sample book shape |
 | `liveliness` | `1` | 0 = frozen book, 1 = normal churn, 2 = frantic |
 
+### `org-chart-tree` — Org chart tree
+
+A hierarchy diagram from one nested tree prop: the root card pops in, then elbow connectors draw down (or across, in vertical frames) and each level of cards pops in, with branches colour-coded and an optional highlighted node that spotlights its chain of command.
+
+**Use for:** Org charts, team structures, decision trees, site maps, product families, taxonomies, family trees. Pass tree as {name, role?, children:[...]} nested to any depth; reflows left-to-right in 9:16.  
+**Rebuilt from:** original round-3 chart motion  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** hud, ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `tree` | `{"name":"Chief Executive","role":"Leadership","children":…` | hierarchy {name, role?, color?, children?: [...]} nested to any depth |
+| `title` | `"How the company is organised"` | headline (empty = none) |
+| `subtitle` | `"Three departments, seven teams"` | small line under the headline (empty = none) |
+| `direction` | `"auto"` | "auto" (down in 16:9 / 1:1, across in 9:16), "down" or "right" |
+| `showInitials` | `false` | draw a coloured initials badge in each card |
+| `highlight` | `""` | name of a node to spotlight at the end (empty = none); its ancestors and descendants stay lit |
+| `colors` | `["#2F6FED","#FF7A45","#16B39A","#F2B134","#8E5CF0","#E548…` | palette: one colour per top-level branch |
+| `cardColor` | `"#FFFFFF"` | card fill colour |
+| `rootColor` | `"#18212B"` | root card colour |
+| `lineColor` | `"#9AA3AD"` | connector colour |
+| `background` | `"#F5F3EE"` | page colour, or "transparent" to sit over other content |
+| `ink` | `"#18212B"` | text colour |
+| `fontFamily` | `""` | CSS font family (empty = Space Grotesk) |
+| `startAt` | `10` | frame the root card appears |
+| `speed` | `1` | animation speed multiplier |
+
 ### `overhead-trail-mandala` — Overhead trail mandala
 
 ![overhead-trail-mandala](../gallery/overhead-trail-mandala.jpg)
@@ -7899,6 +8221,8 @@ Pen strokes draw a perspective trapezoid board, coloured-pencil hatch fills squa
 
 ### `progress-rings-stats` — Progress rings stats
 
+![progress-rings-stats](../gallery/progress-rings-stats.jpg)
+
 Activity-style progress rings with round caps that sweep clockwise to their value one after another while the numbers count up; either a row / grid of separate rings with the number inside and a label below, or concentric rings with a live legend and an overall percentage in the middle.
 
 **Use for:** Goal progress and KPI sets: completion rates, daily targets, quota attainment, fitness-style stats, survey scores. Each ring has its own value, max, colour, prefix and suffix.  
@@ -7910,7 +8234,7 @@ Activity-style progress rings with round caps that sweep clockwise to their valu
 
 | prop | default | notes |
 |---|---|---|
-| `rings` | `[{"label":"Move","value":480,"max":600,"suffix":" kcal"},…` | rings [{label, value, max?(default 100), color?, prefix?, suffix?}]; the fill is value / max |
+| `rings` | `[{"label":"Move","value":480,"max":600,"suffix":" kcal"},…` | rings [{label, value, max?(default 100), color?, prefix?, suffix?, decimals?}]; the fill is value / max |
 | `layout` | `"row"` | "row" = separate rings in a row / grid, "concentric" = nested rings with a legend |
 | `title` | `"Today at a glance"` | headline (empty = none) |
 | `subtitle` | `"Progress against daily goals"` | small line under the headline (empty = none) |
@@ -7986,6 +8310,8 @@ A square of side a+b draws on; four right triangles pop in around a tilted c-squ
 
 ### `radar-compare` — Radar compare
 
+![radar-compare](../gallery/radar-compare.jpg)
+
 A radar (spider) chart: concentric rings and spokes fade in with axis labels, then each series polygon grows out from the centre in turn with vertex dots and count-up value labels; a legend lists every series with its average.
 
 **Use for:** Comparing two or three things across the same criteria: products, plans, candidates, teams, skill profiles, before / after. Replace axes, series, max and colours.  
@@ -8043,6 +8369,40 @@ Quantities drawn as real lengths to one scale on a whiteboard: blue dimension ar
 | `itemFrames` | `34` | frames between items |
 | `rideCamera` | `true` | camera rides the arrow tips (false = whole frame from the start) |
 | `background` | `"#F3F1EB"` | board colour |
+
+### `sankey-flow` — Sankey flow
+
+A Sankey diagram built from a list of weighted links: node bars grow column by column and curved ribbons, sized by value and coloured source-to-target, sweep across between them with labels and values; an optional highlighted node dims everything not connected to it.
+
+**Use for:** Where things go: traffic to conversions, budget to departments, energy or cash flows, funnels with leaks, user journeys. Pass links as [{from, to, value}], set prefix / suffix and brand colours; works on a transparent background over footage.  
+**Rebuilt from:** original round-3 chart motion  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** hud  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle`, `prefix` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `links` | `[{"from":"Organic","to":"Visitors","value":420},{"from":"…` | weighted links [{from, to, value, color?}]; nodes are created from the names, columns follow the flow direction |
+| `nodeColors` | `{"Visitors":"#8E5CF0","Bounced":"#9AA3AD","Inactive":"#B8…` | optional node name -> colour overrides, e.g. {"Paid":"#E5487F"} |
+| `title` | `"Where visitors go"` | headline (empty = none) |
+| `subtitle` | `"Monthly sessions from first touch to paying customer"` | small line under the headline (empty = none) |
+| `prefix` | `""` | text before every number, e.g. "$" |
+| `suffix` | `""` | text after every number, e.g. "K", " users" |
+| `decimals` | `0` | decimal places on the numbers |
+| `showValues` | `true` | print each node total (tall nodes: under the name, short nodes: next to it) |
+| `linkMode` | `"gradient"` | ribbon colour: "gradient" (source to target), "source" or "target" |
+| `linkOpacity` | `0.5` | ribbon opacity 0-1 |
+| `nodeWidth` | `26` | node bar width in u |
+| `nodePad` | `22` | vertical gap between nodes of a column in u |
+| `align` | `"left"` | "justify" pushes end nodes to the last column, "left" keeps them where they land |
+| `highlight` | `""` | node name to spotlight at the end (empty = none); unrelated nodes and links dim |
+| `colors` | `["#2F6FED","#FF7A45","#16B39A","#F2B134","#8E5CF0","#E548…` | palette used for nodes without an override |
+| `background` | `"#F5F3EE"` | page colour, or "transparent" to sit over other content |
+| `ink` | `"#18212B"` | text colour |
+| `fontFamily` | `""` | CSS font family (empty = Space Grotesk) |
+| `startAt` | `8` | frame the first column appears |
+| `speed` | `1` | animation speed multiplier |
 
 ### `science-reticle` — Science HUD reticle
 
@@ -8108,6 +8468,8 @@ A vertical plane slices one feature of a raking-lit survey surface; its profile 
 | `surface` | `"#2A2D2F"` | low-ground colour of the lit surface |
 
 ### `stacked-area-flow` — Stacked area flow
+
+![stacked-area-flow](../gallery/stacked-area-flow.jpg)
 
 A smooth stacked area chart (or centred streamgraph) revealed left to right by a wipe: layers swell over the timeline, a dashed scrubber follows the reveal edge with a running total, the legend values count with it, and the axis and gridlines sit quietly behind.
 
@@ -8316,6 +8678,40 @@ A thick gradient tube arches out of one glowing ink-line jar and draws itself in
 | `yaw` | `-18` | 3/4 view yaw in degrees (drifts +6°) |
 | `pitch` | `26` | camera elevation in degrees |
 
+### `treemap-split` — Treemap split
+
+A squarified treemap: one block fills the chart area, splits into strips and then into value-sized rectangles, each labelled with its name, a count-up value and share; colour by palette or by value, with an optional highlighted tile.
+
+**Use for:** Part-to-whole with many items: portfolio or budget breakdowns, disk usage, market caps, revenue by product, survey categories, file sizes. Pass data as [{label, value, color?}], set prefix / suffix and colours; works on a transparent background.  
+**Rebuilt from:** original round-3 chart motion  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** hud  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle`, `prefix` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `data` | `[{"label":"Software","value":380},{"label":"Hardware","va…` | tiles [{label, value, color?}]; any count, values are relative, sorted largest first |
+| `title` | `"Revenue by product line"` | headline (empty = none) |
+| `subtitle` | `"Area shows share of total revenue"` | small line under the headline (empty = none) |
+| `prefix` | `"$"` | text before every number, e.g. "$" |
+| `suffix` | `"M"` | text after every number, e.g. "M", " GB" |
+| `decimals` | `0` | decimal places on the values |
+| `showValue` | `true` | print the (counting-up) value in each tile |
+| `showShare` | `true` | print the percentage share in each tile |
+| `colorMode` | `"palette"` | "palette" (one colour per tile) or "value" (low-to-high gradient) |
+| `lowColor` | `"#BFD4FF"` | colour of the smallest tile when colorMode is "value" |
+| `highColor` | `"#1C4FD8"` | colour of the largest tile when colorMode is "value" |
+| `gap` | `8` | gap between tiles in u |
+| `radius` | `14` | tile corner radius in u |
+| `highlight` | `""` | label of a tile to outline and spotlight at the end (empty = none) |
+| `colors` | `["#2F6FED","#FF7A45","#16B39A","#F2B134","#8E5CF0","#E548…` | palette for tiles without their own colour |
+| `background` | `"#F5F3EE"` | page colour, or "transparent" to sit over other content |
+| `ink` | `"#18212B"` | text colour |
+| `fontFamily` | `""` | CSS font family (empty = Space Grotesk) |
+| `startAt` | `10` | frame the split starts |
+| `speed` | `1` | animation speed multiplier |
+
 ### `venn-diagram-overlap` — Venn diagram overlap
 
 ![venn-diagram-overlap](../gallery/venn-diagram-overlap.jpg)
@@ -8345,6 +8741,8 @@ Two or three translucent circles pop in one by one with labels and example words
 | `stagger` | `26` | frames between circles |
 
 ### `waterfall-bridge` — Waterfall bridge
+
+![waterfall-bridge](../gallery/waterfall-bridge.jpg)
 
 A waterfall / bridge chart: an opening total, then floating increase and decrease bars that grow one after another from the running level, joined by dashed connectors, with signed count-up values and a closing total; vertical on 16:9 and 1:1, horizontal on 9:16.
 
@@ -9153,6 +9551,33 @@ Six seamless loading indicators — spinning ring, chasing dots, equaliser bars,
 | `accent2` | `"#B26BFF"` | secondary colour (gradient / satellites) |
 | `fontFamily` | `"auto"` | CSS font family for the label, or "auto" |
 
+### `logo-wall-grid` — Logo wall grid
+
+Keynote "trusted by" slide: a headline over a grid of client tiles (logo images or invented wordmarks with geometric marks) that pop in as a ripple, sequence or shuffle, then an accent highlight roams the wall.
+
+**Use for:** Client / partner / customer logo walls, "as seen in" and sponsor slides, integration lists and social-proof sections of decks, sales videos and landing pages.  
+**Rebuilt from:** original (round 3, presentation slides)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `logos` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Trusted by teams worldwide"` | headline above the wall |
+| `logos` | `[{"name":"Northfold"},{"name":"Brightloop"},{"name":"Coba…` | array of strings or {name, src?} — src = logo image path/URL (wordmark drawn when empty) — up to 24 |
+| `columns` | `0` | grid columns; 0 = automatic |
+| `tileStyle` | `"outline"` | outline \| filled \| none |
+| `monochrome` | `false` | turn logo images greyscale (use on light backgrounds) |
+| `order` | `"ripple"` | ripple (from centre) \| sequence \| shuffle |
+| `background` | `"#0F1722"` | frame colour, or "transparent" to overlay content |
+| `cardColor` | `"auto"` | tile fill for tileStyle "filled", or "auto" |
+| `ink` | `"#F1F3F7"` | text and tile line colour |
+| `accent` | `"#6EE7B7"` | underline and roaming highlight colour |
+| `fontFamily` | `"grotesk"` | headline font: sans \| serif \| display \| grotesk \| rounded \| instrument \| mono |
+| `stagger` | `2.4` | frames between tiles popping in |
+| `startAt` | `0` | frame the slide begins |
+
 ### `magnet-pin` — Magnet pin (board token)
 
 ![magnet-pin](../gallery/magnet-pin.jpg)
@@ -9365,6 +9790,33 @@ Stars fill one after another up to a rating (the last one partially) while a big
 | `accent` | `"#E9983A"` | top breakdown bar colour |
 | `starColor` | `"#F5B223"` | filled star colour |
 | `startAt` | `0` | frame the sequence begins |
+
+### `roadmap-swimlanes` — Roadmap swimlanes
+
+Keynote roadmap: quarter columns across the top, one swimlane per workstream; item bars slide in on their lane (done solid, upcoming tinted, in progress with a progress strip) while a "today" line sweeps to the current date.
+
+**Use for:** Product and project roadmaps, release plans, quarterly OKR timelines, programme schedules and "what ships when" slides for decks, videos and status pages.  
+**Rebuilt from:** original (round 3, presentation slides)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Product roadmap"` | slide title |
+| `quarters` | `["Q1","Q2","Q3","Q4"]` | column headings across the top (2-8 strings, e.g. quarters, months, sprints) |
+| `lanes` | `[{"name":"Product","items":[{"label":"Onboarding revamp",…` | array of {name, color?, items:[{label, start, end}]} — start/end are in column units (0 = left edge, 4 = right edge of 4 columns); up to 6 lanes |
+| `palette` | `["#5B9DFF","#F5A524","#34C79A","#C77DFF","#FF6B8B","#7FD1…` | lane colours used when a lane has no colour of its own |
+| `nowAt` | `1.6` | position of the "today" line in column units (items ending before it are shown done) |
+| `nowLabel` | `"TODAY"` | text on the today marker |
+| `background` | `"#0F1624"` | frame colour, or "transparent" to overlay content |
+| `cardColor` | `"auto"` | lane band fill, or "auto" |
+| `ink` | `"#EEF2F8"` | text colour |
+| `accent` | `"#FF5C7A"` | today line and title underline colour |
+| `fontFamily` | `"grotesk"` | title font: sans \| serif \| display \| grotesk \| rounded \| instrument \| mono |
+| `stagger` | `4` | frames between bars sliding in |
+| `startAt` | `0` | frame the slide begins |
 
 ### `screen-recorder-camera` — Screen recorder camera
 
@@ -9661,6 +10113,32 @@ The speaker (your video, or a built-in presenter stand-in) starts full-frame the
 | `captions` | `true` | show captions (kept clear of the PiP) |
 | `speakerName` | `""` | optional small name tag by the PiP |
 
+### `team-grid-photos` — Team grid with photos
+
+Keynote team slide: a headline over a grid of person cards (round or rounded photo, or coloured initials, plus name and role) that pop in with a drawing accent ring.
+
+**Use for:** Meet-the-team and about-us slides, speaker lineups, advisor and contributor walls, org intros in pitch decks, videos and landing pages.  
+**Rebuilt from:** original (round 3, presentation slides)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo, ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Meet the team"` | headline above the grid |
+| `subtitle` | `"The people behind the product"` | line under the headline (empty to hide) |
+| `people` | `[{"name":"Jordan Lee","role":"Founder & CEO"},{"name":"Pr…` | array of {name, role?, src?} (src = photo path/URL; initials are drawn when empty) — up to 12 |
+| `columns` | `0` | grid columns; 0 = automatic (best fit for the frame) |
+| `shape` | `"circle"` | photo shape: circle \| rounded |
+| `background` | `"#F3F1EC"` | frame colour, or "transparent" to overlay content |
+| `cardColor` | `"#FFFFFF"` | card fill, or "auto" (tinted from the background) |
+| `ink` | `"#1D2230"` | text colour |
+| `accent` | `"#E0643C"` | ring and underline colour |
+| `fontFamily` | `"grotesk"` | headline font: sans \| serif \| display \| grotesk \| rounded \| instrument \| mono |
+| `stagger` | `6` | frames between cards popping in |
+| `startAt` | `0` | frame the slide begins |
+
 ### `testimonial-card-carousel` — Testimonial card carousel
 
 ![testimonial-card-carousel](../gallery/testimonial-card-carousel.jpg)
@@ -9687,6 +10165,31 @@ Customer quote cards with a big quote mark, star rating, avatar, name and role r
 | `starColor` | `"#F2B134"` | filled star colour |
 | `quoteFont` | `"sans"` | "sans" or "serif" for the quote text |
 | `startAt` | `0` | frame the sequence begins |
+
+### `three-column-features` — Three-column features
+
+Keynote feature slide: a headline over three cards (2-4 supported), each with a line icon that draws on (or your own image), a heading and a short text; columns in landscape, stacked rows in portrait.
+
+**Use for:** Feature and benefit slides, "why us" and pillars of a plan, product overviews, service lists and three-point summaries for decks, promos and landing pages.  
+**Rebuilt from:** original (round 3, presentation slides)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** photo, 3d, nature, ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Why teams choose us"` | headline above the columns |
+| `subtitle` | `"Three reasons it sticks"` | line under the headline (empty to hide) |
+| `columns` | `[{"icon":"bolt","heading":"Fast by default","text":"Pages…` | array of {icon?, heading, text?, src?} — 2 to 4 entries; icon is one of bolt \| shield \| chart \| globe \| heart \| star \| gear \| lock \| spark \| users \| clock \| cloud \| target \| code \| check \| rocket; src overrides the icon with your own image |
+| `cardStyle` | `"cards"` | cards (filled cards) \| open (no card, thin dividers) |
+| `background` | `"#0F1A2A"` | frame colour, or "transparent" to overlay content |
+| `cardColor` | `"auto"` | card fill, or "auto" (tinted from the background) |
+| `ink` | `"#F1F5FB"` | text colour |
+| `accent` | `"#5EC8FF"` | icon and underline colour |
+| `fontFamily` | `"grotesk"` | headline font: sans \| serif \| display \| grotesk \| rounded \| instrument \| mono |
+| `stagger` | `4` | beat spacing between columns (frames x 3) |
+| `startAt` | `0` | frame the slide begins |
 
 ### `toast-stack-loop` — Toast stack loop
 
@@ -9956,6 +10459,38 @@ A cyan radar HUD scans while a contact closes in; at the climax a ring expands f
 | `alertNames` | `["LINK","HULL","POWER","SHIELD","THREAT"]` | left-panel gauge names after the alert (5) |
 | `contactNames` | `["RNG","BRG","VEL","ALT","ID"]` | right-panel gauge names (5) |
 
+### `blur-redact-region` — Blur / pixelate redact region
+
+Tutorial / privacy overlay: boxes over regions of the footage frost what is underneath (backdrop blur), pop in a scattered pixel mosaic or slide a solid censor bar across, each with corner ticks and a lock badge label; a region can drift to follow a moving element.
+
+**Use for:** Hide names, emails, keys or faces in a screen recording or screenshot walkthrough: pass `regions` (0-1 rects) with a `mode` and a label like "Hidden".  
+**Rebuilt from:** screen-recording tutorial annotation  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo, pixel  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `regions` | `[{"x":0.12000000000000001,"y":0.03,"w":0.2,"h":0.028,"mod…` | array of {x, y, w, h (0-1, x/y = top-left), mode?: blur\|pixelate\|bar, label?, toX?, toY? (drift to this top-left), at?} |
+| `blurPx` | `16` | backdrop blur radius in u (blur and pixelate modes) |
+| `pixelSize` | `15` | mosaic block size in u |
+| `tint` | `"#9AA3B5"` | frost / mosaic / bar colour |
+| `tintOpacity` | `0.45` | frost tint opacity (0-1) |
+| `radius` | `10` | corner radius in u |
+| `outline` | `"#FFFFFF"` | dashed outline and corner tick colour |
+| `showLabels` | `true` | show the lock badge label above each region |
+| `labelBg` | `"#12151C"` | badge fill |
+| `labelInk` | `"#FFFFFF"` | badge text and lock colour |
+| `fontFamily` | `"stub"` | CSS font-family for badges |
+| `startAt` | `10` | frame of the first region |
+| `stagger` | `34` | frames between regions |
+| `speed` | `1` | animation speed multiplier |
+| `exitAt` | `0` | frame everything fades at (0 = just before the end) |
+| `seed` | `7` | mosaic pattern seed |
+| `demoBackground` | `false` | true paints a neutral mock screen behind (previews); false = transparent overlay |
+| `demoTone` | `"light"` | light \| dark mock screen |
+
 ### `callout-labels` — Callout labels
 
 ![callout-labels](../gallery/callout-labels.jpg)
@@ -10007,6 +10542,37 @@ Per-feed labelling for split screens: a chip top-left (square sync dot, CAM code
 | `timecode` | `true` | show a running timecode with a REC dot per feed |
 | `startTime` | `"14:02:00"` | timecode start hh:mm:ss |
 | `accent` | `"#FF5B1F"` | accent colour (synced dot, LIVE badge) |
+
+### `click-ripple-markers` — Click ripple markers
+
+Tutorial overlay on a transparent background: concentric rings ripple out of each click point, a dot stays behind and a chip names the click (click, double click, right click) with its timestamp; earlier clicks dim and an optional dotted trail links them.
+
+**Use for:** Show exactly where and when something was clicked in a screen recording, UX test replay or bug report: pass `clicks` with x/y, the frame `at` and the `kind`.  
+**Rebuilt from:** screen-recording tutorial annotation  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `clicks` | `[{"x":0.8500000000000001,"y":0.044,"kind":"click","at":16…` | array of {x, y (0-1 point), at? (frame), kind?: click\|double\|right, label?, time?} |
+| `timestamps` | `true` | append the timestamp (m:ss.d from the video start) to each chip |
+| `keep` | `"all"` | all = earlier clicks stay dimmed \| last = only the latest \| none = rings only |
+| `trail` | `true` | dotted trail between consecutive clicks |
+| `cursor` | `false` | draw a small pointer arrow at each click |
+| `size` | `80` | ripple radius in u |
+| `color` | `"#FF3B6B"` | click colour |
+| `accent` | `"#1FD1A5"` | right-click colour |
+| `labelBg` | `"#12151C"` | chip fill |
+| `labelInk` | `"#FFFFFF"` | chip text colour |
+| `fontFamily` | `"stub"` | CSS font-family for chips |
+| `startAt` | `10` | default frame of the first click |
+| `stagger` | `44` | default frames between clicks |
+| `speed` | `1` | animation speed multiplier (ripple / pop timing) |
+| `exitAt` | `0` | frame everything fades at (0 = just before the end) |
+| `demoBackground` | `false` | true paints a neutral mock screen behind (previews); false = transparent overlay |
+| `demoTone` | `"light"` | light \| dark mock screen |
 
 ### `day-ring-dial` — Day ring dial
 
@@ -10141,6 +10707,36 @@ A video-game overlay: health, mana and xp bars that drain in eased steps with a 
 | `comboLabel` | `"COMBO"` | label under the combo multiplier |
 | `levelLabel` | `"LEVEL"` | word before the level number in the level-up banner |
 
+### `hand-drawn-arrow-callout` — Hand-drawn arrow callout
+
+Tutorial annotation overlay on a transparent background: a handwritten label pops, a sketchy double-pass pen arrow draws from it to a target point with a scribbled head and impact ticks. Several callouts run in sequence; positions are 0-1 fractions of the frame.
+
+**Use for:** Point at a button, field or number in any screen recording or tutorial ("click here", "watch this"): pass `callouts` with the target x/y and your own label text.  
+**Rebuilt from:** screen-recording tutorial annotation  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `callouts` | `[{"x":0.8500000000000001,"y":0.07200000000000001,"label":…` | array of {x, y, label, sublabel?, lx?, ly?, curve?, color?, at?}: x/y = target (0-1), lx/ly = label centre (0-1), at = start frame |
+| `color` | `"#FF4B3E"` | arrow colour |
+| `labelBg` | `"#FFE14D"` | sticker fill (or text colour for plain/underline) |
+| `labelInk` | `"#15171C"` | sticker text colour |
+| `labelStyle` | `"sticker"` | sticker \| underline \| plain |
+| `fontFamily` | `"stub"` | CSS font-family for labels (default handwriting) |
+| `labelSize` | `62` | label font size in u |
+| `strokeWidth` | `6` | pen width in u |
+| `boil` | `true` | redraw the wobble on threes (hand-drawn boil) |
+| `startAt` | `8` | frame of the first callout |
+| `stagger` | `48` | frames between callouts |
+| `speed` | `1` | animation speed multiplier |
+| `exitAt` | `0` | frame everything fades at (0 = just before the end) |
+| `seed` | `3` | wobble seed |
+| `demoBackground` | `false` | true paints a neutral mock screen behind (previews); false = transparent overlay |
+| `demoTone` | `"light"` | light \| dark mock screen |
+
 ### `hud-chrome` — HUD chrome overlay
 
 ![hud-chrome](../gallery/hud-chrome.jpg)
@@ -10264,6 +10860,36 @@ Attribution overlay: a top-left channel bug (accent square, channel, topic), a "
 | `sourceOutAt` | `104` | frame it slides out |
 | `backdrop` | `"footage"` | "footage" = procedural preview plate, "transparent" = overlay, or any CSS colour |
 
+### `numbered-step-badges` — Numbered step badges
+
+Tutorial overlay on a transparent background: numbered badges (1, 2, 3 ...) pop onto points of the footage one after another with a pulse ring and a caption chip, linked by a dotted path that draws on between them. Circle, map-pin or rounded-square badges.
+
+**Use for:** Number the steps of a how-to on top of a screen recording or screenshot ("1 pick a file, 2 choose a format, 3 export"): pass `steps` with x/y points and your own captions.  
+**Rebuilt from:** screen-recording tutorial annotation  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo, editorial  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `steps` | `[{"x":0.14,"y":0.044,"label":"Search for a file"},{"x":0.…` | array of {x, y (0-1 point), label?, n? (badge text), side?: auto\|left\|right\|top\|bottom, at?} |
+| `badgeStyle` | `"circle"` | circle \| pin \| square |
+| `size` | `64` | badge diameter in u |
+| `connect` | `true` | draw a dotted path between consecutive badges |
+| `accent` | `"#2F6BFF"` | badge fill and path colour |
+| `badgeInk` | `"#FFFFFF"` | number colour |
+| `labelBg` | `"#12151C"` | caption chip fill |
+| `labelInk` | `"#FFFFFF"` | caption chip text colour |
+| `fontFamily` | `"stub"` | CSS font-family for numbers and captions |
+| `firstNumber` | `1` | number of the first badge |
+| `startAt` | `8` | frame of the first badge |
+| `stagger` | `36` | frames between badges |
+| `speed` | `1` | animation speed multiplier |
+| `exitAt` | `0` | frame everything fades at (0 = just before the end) |
+| `demoBackground` | `false` | true paints a neutral mock screen behind (previews); false = transparent overlay |
+| `demoTone` | `"light"` | light \| dark mock screen |
+
 ### `powers-of-ten` — Powers-of-ten zoom
 
 ![powers-of-ten](../gallery/powers-of-ten.jpg)
@@ -10351,6 +10977,33 @@ Dark blueprint: a blue dot pings, the camera snaps back to a seeded circular lib
 | `labelColor` | `"#7FA2E6"` | category label colour |
 | `scanlines` | `true` | engraved scanline texture behind |
 
+### `scribble-circle-highlight` — Scribble circle highlight
+
+Tutorial annotation overlay on a transparent background: a marker pen draws a looping circle, a scribbled underline, a sketchy box or a translucent highlighter swath around chosen regions of the footage, each with an optional handwritten label.
+
+**Use for:** Circle the button, underline the setting, box the table or highlight the number in any screen recording: pass `marks` with the region (x, y, w, h in 0-1), the mark `type` and your own label.  
+**Rebuilt from:** screen-recording tutorial annotation  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, photo  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `marks` | `[{"type":"circle","x":0.79,"y":0.016,"w":0.12,"h":0.056,"…` | array of {type: circle\|underline\|box\|highlight, x, y, w, h (0-1 region, x/y = top-left), label?, color?, at?} |
+| `color` | `"#FF9F0A"` | marker colour (per-mark override with `color`) |
+| `fontFamily` | `"stub"` | CSS font-family for labels |
+| `strokeWidth` | `7` | marker width in u |
+| `passes` | `2` | loops drawn for circle marks (1-3) |
+| `boil` | `true` | redraw the wobble on threes |
+| `startAt` | `8` | frame of the first mark |
+| `stagger` | `36` | frames between marks |
+| `speed` | `1` | animation speed multiplier |
+| `exitAt` | `0` | frame everything fades at (0 = just before the end) |
+| `seed` | `5` | wobble seed |
+| `demoBackground` | `false` | true paints a neutral mock screen behind (previews); false = transparent overlay |
+| `demoTone` | `"light"` | light \| dark mock screen |
+
 ### `spec-chip-rail` — Spec chip rail
 
 ![spec-chip-rail](../gallery/spec-chip-rail.jpg)
@@ -10376,6 +11029,37 @@ Hologram spec sheet: each value rolls from garbage glyphs into the real number o
 | `background` | `"#020709"` | stage colour, or "transparent" for an overlay |
 | `hue` | `188` | line hue (188 cyan) |
 | `accent` | `38` | value hue (38 amber) |
+
+### `spotlight-dim-focus` — Spotlight dim focus
+
+Tutorial overlay: the frame dims except a soft-edged cut-out (rounded rectangle, ellipse or circle) that closes in on a region, glides to the next one with a caption chip on each, then opens back up. Everything outside the cut-out is just a dark veil, so it sits on any footage.
+
+**Use for:** Walk a viewer through parts of a screen recording one region at a time ("first the search bar, then the chart, then save"): pass `regions` (0-1 rects) with captions.  
+**Rebuilt from:** screen-recording tutorial annotation  
+**Default length:** 270 frames (9.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo, editorial, night  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `regions` | `[{"x":0.1,"y":0.018,"w":0.42,"h":0.052,"shape":"rounded",…` | array of {x, y, w, h (0-1, x/y = top-left), shape: rounded\|circle\|ellipse, label?, hold?} |
+| `dim` | `0.7` | veil opacity outside the cut-out (0-1) |
+| `dimColor` | `"#05070D"` | veil colour |
+| `feather` | `6` | edge softness of the cut-out in u |
+| `pad` | `14` | extra margin around each region in u |
+| `radius` | `26` | corner radius of rounded cut-outs in u |
+| `ring` | `true` | draw a thin ring around the cut-out |
+| `ringColor` | `"#FFFFFF"` | ring colour |
+| `labelBg` | `"#FFFFFF"` | caption chip fill |
+| `labelInk` | `"#12151C"` | caption chip text colour |
+| `fontFamily` | `"stub"` | CSS font-family for captions |
+| `hold` | `38` | frames to hold on each region |
+| `move` | `22` | frames to glide between regions (also the open / close time) |
+| `startAt` | `6` | frame the veil starts closing in |
+| `speed` | `1` | timing multiplier (2 = twice as fast) |
+| `demoBackground` | `false` | true paints a neutral mock screen behind (previews); false = transparent overlay (only the veil is drawn) |
+| `demoTone` | `"light"` | light \| dark mock screen |
 
 ### `sync-grid` — Sync grid (evidence on one clock)
 
@@ -10456,6 +11140,63 @@ Candidate boxes with ids and rising MATCH % appear over a scene half a second ap
 | `firstCandidate` | `12` | frame the first candidate appears |
 | `candidateEvery` | `15` | frames between candidates (15 = 0.5 s) |
 | `lockAt` | `112` | frame the brackets snap on (they start 13 frames earlier) |
+
+### `tooltip-pointer` — Tooltip pointer
+
+Tutorial overlay on a transparent background: a tooltip bubble with a title and wrapped text and a pointer touching a target point pops out of the pointer tip, with a pulsing beacon on the target. Tips replace each other one by one (with a "1 / 3" counter) or all stay stacked.
+
+**Use for:** Explain a control in a product tour, onboarding walkthrough or screen-recording tutorial: pass `tips` with the target x/y, a title and a sentence of text.  
+**Rebuilt from:** screen-recording tutorial annotation  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `tips` | `[{"x":0.30000000000000004,"y":0.06999999999999999,"title"…` | array of {x, y (0-1 target), title?, text, side?: auto\|top\|bottom\|left\|right, at?} |
+| `mode` | `"sequence"` | sequence = one tip at a time \| stack = all tips stay |
+| `theme` | `"dark"` | dark \| light \| accent bubble |
+| `accent` | `"#3D7BFF"` | beacon colour (and bubble colour for the accent theme) |
+| `beacon` | `true` | pulsing dot on the target |
+| `showCounter` | `true` | show "1 / 3" in sequence mode |
+| `maxWidth` | `440` | maximum bubble width in u |
+| `fontSize` | `30` | body text size in u |
+| `fontFamily` | `"stub"` | CSS font-family for the bubble |
+| `hold` | `76` | frames per tip (sequence mode, and the default spacing of `at`) |
+| `startAt` | `10` | frame of the first tip |
+| `speed` | `1` | animation speed multiplier |
+| `exitAt` | `0` | frame everything fades at (0 = just before the end) |
+| `demoBackground` | `false` | true paints a neutral mock screen behind (previews); false = transparent overlay |
+| `demoTone` | `"light"` | light \| dark mock screen |
+
+### `zoom-inset-box` — Zoom inset box
+
+Tutorial overlay: a dashed box marks a small region, connector lines run from its corners and a magnified inset (a crop of the same picture) grows out of it into a free corner with a zoom badge. Pass the footage frame as `src`; without one it magnifies a built-in mock screen.
+
+**Use for:** Show tiny UI detail legibly in a screen recording (a menu item, a number, a toggle): set `zooms` with the source region, the inset position and a still of the footage in `src`.  
+**Rebuilt from:** screen-recording tutorial annotation  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo  
+**Capabilities:** paints its own background · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `zooms` | `[{"region":{"x":0.43,"y":0.2,"w":0.14,"h":0.2},"inset":{"…` | array of {region:{x,y,w,h}, inset:{x,y,w}, label?, at?}: region = source box (0-1, x/y = top-left), inset = landing spot (x/y top-left, w = width fraction), label overrides the auto "2.5x" |
+| `src` | `""` | public/ path or URL of the frame to magnify (same picture as the footage); empty = mock screen |
+| `color` | `"#FFD60A"` | region box and connector colour |
+| `borderColor` | `"#FFFFFF"` | inset border colour |
+| `labelBg` | `"#FFD60A"` | zoom badge fill |
+| `labelInk` | `"#15171C"` | zoom badge text colour |
+| `fontFamily` | `"stub"` | CSS font-family for the badge |
+| `showZoomLabel` | `true` | show the zoom-factor badge under the inset |
+| `startAt` | `10` | frame of the first zoom |
+| `stagger` | `60` | frames between zooms |
+| `speed` | `1` | animation speed multiplier |
+| `exitAt` | `0` | frame everything fades at (0 = just before the end) |
+| `demoBackground` | `false` | true paints a neutral mock screen behind (previews); false = transparent overlay (the inset still shows its crop) |
+| `demoTone` | `"light"` | light \| dark mock screen |
 
 ### `zoom-tunnel` — Zoom-through tunnel
 
@@ -12512,6 +13253,8 @@ An open physics textbook on a sage desk under window-light shadows. The right-pa
 
 ### `achievement-unlock` — Achievement unlock toast
 
+![achievement-unlock](../gallery/achievement-unlock.jpg)
+
 A round badge pops with a drawn rim and spark burst, the toast unrolls from it with ACHIEVEMENT UNLOCKED, the title, a description and a points chip, a shine sweeps across, then it rolls back up; several achievements play in turn.
 
 **Use for:** Game and gamified-app reward pop-ups, trophy / badge unlocks in tutorials and courses, milestone "you earned" toasts, stream alerts. Replace the items (title, description, points, icon or your own iconSrc) and colours; use background "transparent" over gameplay.  
@@ -12569,6 +13312,8 @@ A painterly isometric battlefield with four faction armies of tiny unit sprites 
 | `statusLabel` | `"IDLE"` | small status text next to the selection label |
 
 ### `bracket-advance` — Bracket advance
+
+![bracket-advance](../gallery/bracket-advance.jpg)
 
 Single-elimination tournament bracket from your entrants and results: winners light up, connector lines draw on in the accent colour, names advance round by round, losers dim, and a champion card lands. Left-to-right in landscape, top-to-bottom in portrait.
 
@@ -12657,6 +13402,8 @@ A rope fuse along the bottom with one knot per beat; a sparkling spark spawning 
 
 ### `kill-streak-banner` — Streak banner (double / triple / ...)
 
+![kill-streak-banner](../gallery/kill-streak-banner.jpg)
+
 A slanted full-width banner slams in with shake, flash and speed lines: multiplier badge, tier word (DOUBLE, TRIPLE, QUAD...), lit pips and a counting points reward; each next tier hits harder and shifts colour.
 
 **Use for:** Multi-kill and combo callouts in gaming highlights, win streaks, quiz or sales streaks, "combo x3" moments in app demos. Rename labels, suffix, player and points; background "transparent" overlays gameplay footage.  
@@ -12682,6 +13429,8 @@ A slanted full-width banner slams in with shake, flash and speed lines: multipli
 | `fontFamily` | `"auto"` | CSS font family, or "auto" |
 
 ### `level-up-burst` — Level-up burst
+
+![level-up-burst](../gallery/level-up-burst.jpg)
 
 An XP bar fills with a counting reward and overflows in a flash: rays, shockwave rings and sparks burst from a hex level badge whose number ticks up, LEVEL UP slams in, the bar drains to the carry-over and perk chips pop.
 
@@ -12796,6 +13545,8 @@ Mobile-game reward moment: a wooden chest (or sealed card / medallion) drops in,
 | `seed` | `4` | particle seed |
 
 ### `match-scoreboard` — Match scoreboard
+
+![match-scoreboard](../gallery/match-scoreboard.jpg)
 
 Slanted two-team scoreboard with crests, score boxes that roll up point by point with a flash, a centre match clock, a stage label and a subtitle chip.
 
@@ -12928,6 +13679,8 @@ A native ~160x90 pixel night scene with dithered sky bands, twinkling stars, a p
 
 ### `player-stat-card` — Player stat card
 
+![player-stat-card](../gallery/player-stat-card.jpg)
+
 Profile card with an avatar panel, name, handle, role and team chips, an overall-rating hex badge and segmented stat bars that fill and count up in turn. Side-by-side in landscape, stacked in portrait.
 
 **Use for:** Esports roster and player-of-the-match cards, character or hero select, fantasy picks, athlete or team-member intros, product-spec "stat" cards. Set `src` to the avatar and `stats` to your own labelled numbers.  
@@ -13001,6 +13754,8 @@ Game systems as narration at native 320x180: FIGHT/ITEM/MAGIC/RUN with a bobbing
 | `background` | `"#05060F"` | letterbox colour |
 
 ### `stream-starting-soon` — Stream starting soon
+
+![stream-starting-soon](../gallery/stream-starting-soon.jpg)
 
 Looping "starting soon" screen: drifting stripes and orbs, a big layered title, a ring of ticks sweeping around a live mm:ss countdown, a message line and a ticker that rotates your social handles.
 
@@ -15013,6 +15768,8 @@ A deadpan music clock: a huge BPM readout, four bar squares that flash on each b
 
 ### `beat-pulse-rings` — Beat pulse rings (bpm grid)
 
+![beat-pulse-rings](../gallery/beat-pulse-rings.jpg)
+
 Concentric rings pulse out of a centre disc on every beat of a bpm grid: circles, polygons or squares in two colours, bigger echoing rings on every downbeat, the disc kicking with each hit and optionally printing the tempo. Rings are already in flight at frame 0, so a whole number of bars loops seamlessly.
 
 **Use for:** Beat-synced hooks and drops, DJ / club / radio promos, metronome and tempo explainers, heartbeat or sonar-style attention pulses behind a logo or title. Match bpm to the soundtrack.  
@@ -15067,6 +15824,8 @@ A white-line scratchboard engraving cuts itself on near-black: contour lines fol
 | `labels` | `true` | mono figure labels |
 
 ### `equalizer-bars-loop` — Equalizer bars (seamless loop)
+
+![equalizer-bars-loop](../gallery/equalizer-bars-loop.jpg)
 
 A seamlessly looping equalizer: rounded bars, LED segments, dot stacks or a mirrored centre-line spectrum, bar count, colours, bass profile and glow all adjustable. Heights are beat-locked sine harmonics with whole cycles per loop, so the last frame flows into the first. Text-free, transparent-capable.
 
@@ -15234,6 +15993,8 @@ Big lyric lines set left in a heavy variable grotesk; unsung words wait as hairl
 
 ### `mixer-faders` — Mixer faders (channel strips + meters)
 
+![mixer-faders](../gallery/mixer-faders.jpg)
+
 A mixing-desk panel: per-channel pan knobs that turn to position, segmented green / amber / red level meters that bounce, faders that slide to their level values with a staggered overshoot and then ride gently, mute buttons, labels and a wider stereo master strip. Fully driven by `channels`, `levels`, `pans` and `mutes` arrays.
 
 **Use for:** Music production and mixing tutorials, DAW / plugin promos, "the mix" explainers (levels = relative loudness of instruments or any 0-1 data as faders), studio and podcast-editing intros, audio-gear ads.  
@@ -15245,7 +16006,7 @@ A mixing-desk panel: per-channel pan knobs that turn to position, segmented gree
 
 | prop | default | notes |
 |---|---|---|
-| `title` | `"The Mix"` | heading above the desk, empty to hide |
+| `title` | `"The Mix"` | heading above the desk, empty to hide (auto-darkens on light backgrounds) |
 | `caption` | `"Session 04"` | small caps tag at the right of the heading |
 | `channels` | `["Kick","Bass","Synth","Vocal","FX","Perc"]` | channel labels (1-12 recommended, 7 characters shown) |
 | `levels` | `[0.74,0.62,0.5,0.82,0.34,0.56]` | fader position per channel 0-1 |
@@ -15268,6 +16029,8 @@ A mixing-desk panel: per-channel pan knobs that turn to position, segmented gree
 | `seed` | `6` | meter jitter seed |
 
 ### `now-playing-card` — Now playing card (album art + scrubber + controls)
+
+![now-playing-card](../gallery/now-playing-card.jpg)
 
 Streaming-app style now-playing card: album art, track / artist / album, a gradient scrubber with elapsed and remaining time, shuffle / previous / play-pause / next / repeat controls and a like heart. The play button is pressed (play becomes pause, scrubber starts) and the heart pops, with an equalizer glyph in the corner. Horizontal card on landscape and square, vertical card on portrait.
 
@@ -15302,6 +16065,8 @@ Streaming-app style now-playing card: album art, track / artist / album, a gradi
 | `seed` | `11` | procedural cover seed |
 
 ### `podcast-audiogram` — Podcast audiogram (cover + waveform + captions)
+
+![podcast-audiogram](../gallery/podcast-audiogram.jpg)
 
 Social audiogram clip: cover art that breathes with the beat, show / episode label, title, a seeded waveform whose bars fill with a gradient as a playhead sweeps (bars near the playhead bounce), elapsed / total time and word-by-word caption lines. Landscape = cover left / text right; square and portrait stack cover over text.
 
@@ -15482,6 +16247,8 @@ A sentence is generated token by token on the beat along a bright chosen path wh
 
 ### `tracklist-reveal` — Tracklist reveal (numbered tracks + durations)
 
+![tracklist-reveal](../gallery/tracklist-reveal.jpg)
+
 Album / EP / playlist tracklist: a header with cover art, title, artist and "8 tracks · 31:42" (computed from the durations), then numbered rows slide in one by one with ruled lines and right-aligned times, and a "now playing" band with an animated equalizer glyph steps down the list. Two columns on landscape, header-over-list on square and portrait.
 
 **Use for:** Album and EP announcements, playlist and mixtape reveals, setlists, podcast chapter lists, festival lineups (use the duration column for set times), "what is on the record" beats.  
@@ -15511,6 +16278,8 @@ Album / EP / playlist tracklist: a header with cover art, title, artist and "8 t
 | `seed` | `9` | procedural cover seed |
 
 ### `vinyl-spin-label` — Vinyl record spin with label + tonearm drop
+
+![vinyl-spin-label](../gallery/vinyl-spin-label.jpg)
 
 A vinyl record on a platter: grooves, track gaps, scratches and two fixed light sheens while it spins up to 33 rpm; the centre label shows your art (or a procedural side-A label), and a metal tonearm swings in, drops onto the groove and slowly tracks inward. Title, artist and caption sit beside it on landscape and below it on square / portrait.
 

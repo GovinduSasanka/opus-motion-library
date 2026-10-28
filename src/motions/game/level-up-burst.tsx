@@ -62,7 +62,8 @@ const LevelUpBurst: React.FC<Props> = (P) => {
   const tIdle = after ? 1 + 0.015 * Math.sin(burstT * 0.12) : 1;
 
   // badge
-  const bp = backOut(sseg(frame, tb + 2, tb + 22), 2.4);
+  const pre = backOut(sseg(frame, 4, 24), 2);
+  const bp = 1 + 0.35 * Math.sin(Math.PI * sseg(frame, tb, tb + 16)) * (after ? 1 : 0);
   const shownLevel = burstT >= 8 ? level : level - 1;
   const lvlFlip = sseg(frame, tb + 6, tb + 14);
 
@@ -79,7 +80,7 @@ const LevelUpBurst: React.FC<Props> = (P) => {
   const rayFade = 1 - 0.35 * sseg(frame, tb + 40, T - 20);
   const rot = burstT * 0.35;
   const NR = 16;
-  const RL = Math.hypot(w, h) * 0.75;
+  const RL = Math.hypot(w, h) * 0.6;
 
   // sparks
   const R = rng('level-up-burst');
@@ -95,8 +96,8 @@ const LevelUpBurst: React.FC<Props> = (P) => {
         <Svg>
           <defs>
             <radialGradient id="lub-ray" cx="50%" cy="50%" r="50%">
-              <stop offset="0" stopColor={P.accent} stopOpacity="0.85" />
-              <stop offset="0.55" stopColor={P.accent} stopOpacity="0.18" />
+              <stop offset="0" stopColor={P.accent} stopOpacity="0.7" />
+              <stop offset="0.5" stopColor={P.accent} stopOpacity="0.14" />
               <stop offset="1" stopColor={P.accent} stopOpacity="0" />
             </radialGradient>
             <radialGradient id="lub-glow" cx="50%" cy="50%" r="50%">
@@ -108,7 +109,7 @@ const LevelUpBurst: React.FC<Props> = (P) => {
             <g transform={`translate(${cx} ${by}) rotate(${rot})`} opacity={rayFade}>
               {Array.from({length: NR}).map((_, i) => {
                 const a0 = (i / NR) * Math.PI * 2;
-                const a1 = a0 + (Math.PI * 2) / NR * 0.42;
+                const a1 = a0 + (Math.PI * 2) / NR * 0.2;
                 const r = RL * rayGrow;
                 return <path key={i} d={`M0 0 L${Math.cos(a0) * r} ${Math.sin(a0) * r} L${Math.cos(a1) * r} ${Math.sin(a1) * r}Z`} fill="url(#lub-ray)" transform={`scale(1)`} />;
               })}
@@ -139,7 +140,7 @@ const LevelUpBurst: React.FC<Props> = (P) => {
         </Svg>
 
         {/* badge */}
-        <div style={{position: 'absolute', left: cx - badgeS / 2, top: by - badgeS / 2, width: badgeS, height: badgeS, transform: `scale(${after ? 0.25 + 0.75 * bp : 0})`, opacity: after ? Math.min(1, bp * 2) : 0}}>
+        <div style={{position: 'absolute', left: cx - badgeS / 2, top: by - badgeS / 2, width: badgeS, height: badgeS, transform: `scale(${(after ? bp : 0.82) * Math.min(1, pre)})`, opacity: after ? 1 : 0.5 * Math.min(1, pre * 1.5)}}>
           <div style={{position: 'absolute', inset: 0, background: P.accent, clipPath: 'polygon(25% 3%,75% 3%,100% 50%,75% 97%,25% 97%,0 50%)'}} />
           <div style={{position: 'absolute', inset: badgeS * 0.045, background: `linear-gradient(160deg, ${mixHex(dark, P.accent2, 0.4)}, ${mixHex(dark, '#000000', 0.2)})`, clipPath: 'polygon(25% 3%,75% 3%,100% 50%,75% 97%,25% 97%,0 50%)'}} />
           <div style={{position: 'absolute', inset: badgeS * 0.12, border: `${3 * u}px solid ${withAlpha(P.accent, 0.5)}`, clipPath: 'polygon(25% 3%,75% 3%,100% 50%,75% 97%,25% 97%,0 50%)'}} />
@@ -180,7 +181,7 @@ const LevelUpBurst: React.FC<Props> = (P) => {
             );
           })}
         </div>
-        <div style={{position: 'absolute', inset: 0, background: '#fff', opacity: flash * 0.55, pointerEvents: 'none'}} />
+        <div style={{position: 'absolute', inset: 0, background: '#fff', opacity: flash * 0.3, pointerEvents: 'none'}} />
       </AbsoluteFill>
       {bgCss(P.background) && <Vignette strength={0.5} />}
     </AbsoluteFill>

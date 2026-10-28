@@ -35,7 +35,11 @@ const BracketAdvance: React.FC<Props> = (P) => {
   const raw = (P.teams && P.teams.length >= 2 ? P.teams : ['A', 'B']).slice(0, 16).map((s) => String(s));
   let N = 2;
   while (N < raw.length) N *= 2;
-  const teams = [...raw, ...Array.from({length: N - raw.length}, () => BYE)];
+  // byes go to the top entrants: each of the first matches is [team, BYE], the rest are paired in order
+  const byes = N - raw.length;
+  const teams: string[] = [];
+  for (let i = 0; i < byes; i++) teams.push(raw[i], BYE);
+  for (let i = byes; i < raw.length; i++) teams.push(raw[i]);
   const R = Math.log2(N); // number of match rounds
   type Match = {a: string; b: string; win: 0 | 1};
   const rounds: Match[][] = [];
@@ -92,7 +96,8 @@ const BracketAdvance: React.FC<Props> = (P) => {
 
   const lineBase = withAlpha(P.ink, 0.2);
   const rowH = bh / 2;
-  const fs = Math.min(rowH * 0.5, portrait ? 34 * u : 30 * u);
+  const longest = Math.max(4, ...teams.filter((t) => t !== BYE).map((t) => t.length));
+  const fs = Math.min(rowH * 0.5, portrait ? 34 * u : 30 * u, (bw - rowH * 1.25) / (longest * 0.78));
 
   // ---- connectors
   const lines: React.ReactNode[] = [];
@@ -242,6 +247,7 @@ const BracketAdvance: React.FC<Props> = (P) => {
           color: mixHex(P.ink, P.accent, lit * 0.9),
           opacity: 0.5 + 0.5 * lit,
           textAlign: portrait ? 'left' : 'center',
+          textTransform: 'uppercase',
           whiteSpace: 'nowrap',
         }}
       >

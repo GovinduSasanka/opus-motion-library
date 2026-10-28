@@ -5,7 +5,7 @@ import {clamp, ease, lerp, prog} from '../../core/ease';
 import {fonts} from '../../core/fonts';
 import {Svg, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
-import {mix, rgbaStr, useAudioReactive} from '../../core/r2-pr3-kit';
+import {mix, rgb3, rgbaStr, useAudioReactive} from '../../core/r2-pr3-kit';
 import {rng} from '../../core/random';
 
 /**
@@ -61,6 +61,7 @@ const MixerFaders: React.FC<Props> = (P) => {
   const sw = (panelW - 44 * u) / stripsN;
   const labelFs = Math.min(24 * u, sw * 0.17);
   const enter = prog(frame, 0, 20, ease.out);
+  const lightBg = !clear && rgb3(P.background).reduce((a, b) => a + b, 0) > 384;
 
   const T = {
     knobY: panelY + panelH * 0.14,
@@ -134,7 +135,7 @@ const MixerFaders: React.FC<Props> = (P) => {
         <circle cx={cx} cy={T.knobY} r={kR * 1.28} fill="none" stroke={rgbaStr(P.ink, 0.12)} strokeWidth={2 * u} strokeDasharray={`${kR * 0.12} ${kR * 0.34}`} />
         <circle cx={cx} cy={T.knobY} r={kR} fill="#262a3a" stroke={rgbaStr('#ffffff', 0.16)} strokeWidth={2 * u} />
         <circle cx={cx} cy={T.knobY} r={kR * 0.78} fill="#171a27" />
-        <line x1={cx + Math.cos(ar + Math.PI / 2) * kR * 0.25} y1={T.knobY + Math.sin(ar + Math.PI / 2) * kR * 0.25} x2={cx + Math.cos(ar + Math.PI / 2) * kR * 0.88} y2={T.knobY + Math.sin(ar + Math.PI / 2) * kR * 0.88} stroke={chCol} strokeWidth={Math.max(3 * u, kR * 0.13)} strokeLinecap="round" />
+        <line x1={cx + Math.cos(ar - Math.PI / 2) * kR * 0.25} y1={T.knobY + Math.sin(ar - Math.PI / 2) * kR * 0.25} x2={cx + Math.cos(ar - Math.PI / 2) * kR * 0.88} y2={T.knobY + Math.sin(ar - Math.PI / 2) * kR * 0.88} stroke={chCol} strokeWidth={Math.max(3 * u, kR * 0.13)} strokeLinecap="round" />
       </g>,
     );
     // fader cap
@@ -192,7 +193,7 @@ const MixerFaders: React.FC<Props> = (P) => {
         </defs>
         {P.title && (
           <g opacity={prog(frame, 4, 24)}>
-            <text x={panelX} y={panelY - 26 * u} fontFamily={P.fontFamily || fonts.grotesk} fontWeight={700} fontSize={titleFs} fill={P.ink}>
+            <text x={panelX} y={panelY - 26 * u} fontFamily={P.fontFamily || fonts.grotesk} fontWeight={700} fontSize={titleFs} fill={lightBg ? mix(P.panel, '#000000', 0.4) : P.ink}>
               {P.title}
             </text>
             <text x={panelX + panelW} y={panelY - 30 * u} textAnchor="end" fontFamily={fonts.mono} fontWeight={700} fontSize={22 * u} letterSpacing={4 * u} fill={P.accent}>
@@ -248,7 +249,7 @@ export const mixerFaders = defineMotion<Props>({
     seed: 6,
   },
   propDocs: {
-    title: 'heading above the desk, empty to hide',
+    title: 'heading above the desk, empty to hide (auto-darkens on light backgrounds)',
     caption: 'small caps tag at the right of the heading',
     channels: 'channel labels (1-12 recommended, 7 characters shown)',
     levels: 'fader position per channel 0-1',

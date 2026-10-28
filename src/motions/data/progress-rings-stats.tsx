@@ -5,7 +5,7 @@ import {Header, Legend, fmt, itemColor, legendHeight, ramp, resolveFont, ringPat
 import {Svg, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
 
-type Ring = {label: string; value: number; max?: number; color?: string; prefix?: string; suffix?: string};
+type Ring = {label: string; value: number; max?: number; color?: string; prefix?: string; suffix?: string; decimals?: number};
 type Props = {
   rings: Ring[];
   layout: 'row' | 'concentric';
@@ -63,6 +63,7 @@ const ProgressRingsStats: React.FC<Props> = ({
     color: itemColor(r.color, colors, i),
     prefix: r.prefix ?? prefix,
     suffix: r.suffix ?? suffix,
+    decimals: r.decimals ?? decimals,
   }));
   const per = 14 / speed;
   const rt = (i: number) => prog(frame, startAt + i * per, startAt + i * per + 54 / speed, ease.out);
@@ -80,7 +81,7 @@ const ProgressRingsStats: React.FC<Props> = ({
     const plotW = legRight && showLegend ? box.w - legW - 50 * u : box.w;
     const plotH = !legRight && showLegend ? box.h - legH - 40 * u : box.h;
     const R = Math.max(80 * u, Math.min(plotW, plotH) / 2 - 8 * u);
-    const slot = (R * 0.9) / n;
+    const slot = Math.min((R * 0.9) / n, R * 0.2);
     const thick = Math.min(slot * 0.78, R * th * 1.1);
     const groupW = 2 * R + (legRight && showLegend ? legW + 70 * u : 0);
     const cx = legRight && showLegend ? box.x + (box.w - groupW) / 2 + R : box.x + box.w / 2;
@@ -116,7 +117,7 @@ const ProgressRingsStats: React.FC<Props> = ({
       nodes.push(
         <Legend
           key="leg"
-          items={rows.map((r, i) => ({label: r.label, color: r.color, value: fmt(r.value * rt(i), decimals, r.prefix, r.suffix)}))}
+          items={rows.map((r, i) => ({label: r.label, color: r.color, value: fmt(r.value * rt(i), r.decimals, r.prefix, r.suffix)}))}
           x={legRight ? cx + R + 70 * u : box.x}
           y={legRight ? cy - legH / 2 : box.y + plotH + 40 * u}
           w={legW}
@@ -150,7 +151,7 @@ const ProgressRingsStats: React.FC<Props> = ({
       const rr = (D - thick) / 2;
       const t = rt(i);
       const sweep = frac(i) * 360 * t;
-      const full = fmt(r.value, decimals, r.prefix, r.suffix);
+      const full = fmt(r.value, r.decimals, r.prefix, r.suffix);
       const numSize = Math.min(D * 0.26, (D * 0.66) / Math.max(2.4, full.length * 0.62));
       const labelLines = wrapLines(r.label, cellW * 0.9, labSize, 0.56, 2);
       nodes.push(
@@ -158,7 +159,7 @@ const ProgressRingsStats: React.FC<Props> = ({
           <circle cx={gx} cy={gy} r={rr} fill="none" stroke={r.color} strokeOpacity={0.18} strokeWidth={thick} />
           {sweep > 0.5 && <path d={ringPath(gx, gy, rr, 0, sweep)} fill="none" stroke={r.color} strokeWidth={thick} strokeLinecap="round" />}
           <text x={gx} y={gy + numSize * (showPercent ? 0.18 : 0.35)} textAnchor="middle" fontFamily={font} fontWeight={700} fontSize={numSize} fill={ink} opacity={clamp(t * 3)} style={{fontVariantNumeric: 'tabular-nums'}}>
-            {fmt(r.value * t, decimals, r.prefix, r.suffix)}
+            {fmt(r.value * t, r.decimals, r.prefix, r.suffix)}
           </text>
           {showPercent && (
             <text x={gx} y={gy + numSize * 0.9} textAnchor="middle" fontFamily={font} fontWeight={600} fontSize={numSize * 0.42} fill={r.color} opacity={clamp(t * 3)}>
@@ -214,7 +215,7 @@ export const progressRingsStats = defineMotion<Props>({
     speed: 1,
   },
   propDocs: {
-    rings: 'rings [{label, value, max?(default 100), color?, prefix?, suffix?}]; the fill is value / max',
+    rings: 'rings [{label, value, max?(default 100), color?, prefix?, suffix?, decimals?}]; the fill is value / max',
     layout: '"row" = separate rings in a row / grid, "concentric" = nested rings with a legend',
     title: 'headline (empty = none)',
     subtitle: 'small line under the headline (empty = none)',
