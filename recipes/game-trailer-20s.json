@@ -1,0 +1,195 @@
+{
+  "id": "game-trailer-20s",
+  "title": "Game trailer (20 s)",
+  "useFor": "A 20-second trailer or store teaser for a game: logo sting, gameplay shot with the in-game HUD, three impact hits, a loot reveal and a release date. Works for mobile, indie and arcade titles.",
+  "format": "landscape",
+  "background": "#0b0e1e",
+  "tags": [
+    "game",
+    "trailer",
+    "gameplay",
+    "hud",
+    "loot",
+    "reward",
+    "chest",
+    "launch",
+    "release date",
+    "indie",
+    "mobile game",
+    "arcade",
+    "esports",
+    "teaser",
+    "impact"
+  ],
+  "scenes": [
+    {
+      "duration": 100,
+      "transition": {
+        "type": "flash",
+        "variant": "plain",
+        "frames": 10
+      },
+      "layers": [
+        {
+          "motion": "chrome-title-slam",
+          "props": {
+            "text": "EMBERFALL",
+            "subtitle": "A NEW ADVENTURE",
+            "background": "#0b0e1e"
+          }
+        }
+      ]
+    },
+    {
+      "duration": 150,
+      "transition": {
+        "type": "glitch",
+        "frames": 12
+      },
+      "layers": [
+        {
+          "motion": "ken-burns",
+          "props": {
+            "src": "demo/desert.jpg",
+            "mode": "push",
+            "rate": 3,
+            "punchAt": -1,
+            "grain": 0.05,
+            "vignette": 0.45
+          }
+        },
+        {
+          "motion": "game-hud",
+          "props": {
+            "theme": "modern",
+            "background": "transparent",
+            "accent": "#ff7a3c",
+            "score": 48250,
+            "feed": [
+              "You>Raider",
+              "You>Brute 02",
+              "Kai>Sentry",
+              "You>Warden"
+            ],
+            "levelUp": "LEVEL UP!",
+            "scoreLabel": "SCORE",
+            "level": 7
+          }
+        }
+      ]
+    },
+    {
+      "duration": 110,
+      "transition": {
+        "type": "flash",
+        "variant": "plain",
+        "frames": 8
+      },
+      "layers": [
+        {
+          "motion": "impact-frame",
+          "props": {
+            "scene": true,
+            "at": [
+              16,
+              44,
+              72
+            ],
+            "words": [
+              "RUN",
+              "STRIKE",
+              "RISE"
+            ],
+            "colors": [
+              "#f4efe4",
+              "#ffd23f",
+              "#15151c"
+            ],
+            "accent": "#ff3b30",
+            "flash": "both"
+          }
+        }
+      ]
+    },
+    {
+      "duration": 150,
+      "transition": {
+        "type": "fade",
+        "frames": 12
+      },
+      "layers": [
+        {
+          "motion": "loot-reveal",
+          "props": {
+            "title": "Emberheart Gem",
+            "rarity": "legendary",
+            "container": "chest",
+            "foundLabel": "NEW RELIC",
+            "background": "#0b0e1e"
+          }
+        }
+      ]
+    },
+    {
+      "duration": 130,
+      "layers": [
+        {
+          "motion": "embers",
+          "props": {
+            "mode": "sparks",
+            "background": "#0b0e1e",
+            "backdrop": false,
+            "count": 40,
+            "opacity": 1
+          }
+        },
+        {
+          "motion": "mask-rise-title",
+          "from": 6,
+          "props": {
+            "variant": "stack",
+            "lines": [
+              {
+                "word": "COMING"
+              },
+              {
+                "word": "SPRING 2027."
+              }
+            ],
+            "sideCopy": [
+              "Wishlist now on every",
+              "major store."
+            ],
+            "sideMono": [
+              "EMBERFALL.EXAMPLE.COM"
+            ],
+            "backdrop": "none",
+            "background": "transparent",
+            "ink": "#F4EFE6",
+            "muted": "#9AA0AE",
+            "accent": "#ff7a3c",
+            "cropMarks": false,
+            "exit": false
+          }
+        }
+      ]
+    }
+  ],
+  "overlays": [
+    {
+      "motion": "film-look",
+      "from": 0,
+      "duration": 600,
+      "props": {
+        "overlay": true,
+        "grain": 0.05,
+        "vignette": 0.3,
+        "flare": false,
+        "letterbox": "off",
+        "bloom": 0,
+        "fringe": 0
+      }
+    }
+  ],
+  "notes": "Replace the game name and tagline (chrome-title-slam), pass your own gameplay still or footage frame to ken-burns.src and your HUD values (game-hud.bars, score, feed; theme arcade | modern | pixel), the three impact words, the loot-reveal item (title, rarity, container, image) and the release-date lines. Recolour chrome-title-slam.skyColors / sunColors / neon for your palette. For footage, replace ken-burns with a screen-recording clip and keep game-hud transparent on top."
+}

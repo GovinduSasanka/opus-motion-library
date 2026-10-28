@@ -113,7 +113,8 @@ const recipeSpec = (r) => {
   const scenes = r.scenes
     ? r.scenes.map((s) => ({...apply(s), ...(s.layers ? {layers: s.layers.map(apply)} : {})}))
     : [{layers: r.layers.map(apply), duration: opts.frames ? Number(opts.frames) : r.duration ?? 180}];
-  return {width, height, fps: r.fps ?? 30, background: r.background ?? '#000', scenes, overlays: r.overlays};
+  const style = typeof opts.style === 'string' ? opts.style : r.style;
+  return {width, height, fps: r.fps ?? 30, background: r.background ?? '#000', scenes, overlays: r.overlays, ...(style ? {style} : {})};
 };
 
 /** three frames side by side (gallery-style strip) */

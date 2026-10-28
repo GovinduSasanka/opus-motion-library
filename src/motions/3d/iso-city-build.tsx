@@ -214,7 +214,7 @@ export const isoCityBuild = defineMotion<Props>({
     drones: 3,
     clouds: true,
     pullback: true,
-    pullTo: 'top-right',
+    pullTo: 'center',
     speed: 1,
     zoom: 1,
     seed: 1,

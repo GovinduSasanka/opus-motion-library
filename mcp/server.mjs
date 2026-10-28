@@ -62,6 +62,7 @@ const target = async ({motion, recipe, layers, spec, props, style, format, frame
     const r = recipeList().find((x) => x.id === recipe);
     if (!r) throw new Error(`unknown recipe "${recipe}" — call list_recipes`);
     s = r.scenes ? {scenes: r.scenes, overlays: r.overlays} : {scenes: [{layers: r.layers, duration: r.duration ?? frames ?? 180}], overlays: r.overlays};
+    if (r.style) s.style = r.style;
   }
   if (layers) s = {scenes: [{layers, duration: frames ?? 180}]};
   if (!s) throw new Error('give one of: motion, recipe, layers, spec');

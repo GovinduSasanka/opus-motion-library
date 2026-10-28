@@ -1,0 +1,178 @@
+{
+  "id": "data-story-60s",
+  "title": "Data story (22 s cut)",
+  "useFor": "A short data-journalism beat: a question, the answer shown as one icon per person, a globe for 'where', and a single takeaway number. Replace the figures with your own; extend a scene or add a chart to reach 60 s.",
+  "format": "landscape",
+  "background": "#0B1020",
+  "tags": [
+    "data",
+    "story",
+    "statistics",
+    "infographic",
+    "journalism",
+    "chart",
+    "numbers",
+    "percent",
+    "population",
+    "isotype",
+    "globe",
+    "insight",
+    "explainer",
+    "report",
+    "takeaway"
+  ],
+  "scenes": [
+    {
+      "duration": 130,
+      "transition": {
+        "type": "wipe",
+        "direction": "from-right",
+        "frames": 14
+      },
+      "layers": [
+        {
+          "motion": "kinetic-type-slam",
+          "props": {
+            "lines": [
+              {
+                "text": "If the world",
+                "accent": "world"
+              },
+              {
+                "text": "were 100 people",
+                "accent": "100"
+              }
+            ],
+            "beatFrames": 10,
+            "holdBeats": 2,
+            "layout": "stack",
+            "capHeight": 0.2,
+            "background": "#0B1020",
+            "ink": "#F2F4FA",
+            "accent": "#FF7A3C",
+            "flash": false,
+            "showIndex": false,
+            "push": 0.03
+          }
+        }
+      ]
+    },
+    {
+      "duration": 210,
+      "transition": {
+        "type": "iris",
+        "frames": 16
+      },
+      "layers": [
+        {
+          "motion": "isotype-count",
+          "props": {
+            "title": "Where do they live?",
+            "count": 100,
+            "highlight": 57,
+            "unitValue": 1,
+            "unitLabel": "of 100 people",
+            "highlightLabel": "live in cities",
+            "icon": "person",
+            "arrangement": "grid",
+            "color": "#7CA6E8",
+            "accent": "#FF7A3C",
+            "background": "#0B1020",
+            "ink": "#F2F4FA",
+            "bpm": 120
+          }
+        }
+      ]
+    },
+    {
+      "duration": 200,
+      "transition": {
+        "type": "fade",
+        "frames": 14
+      },
+      "layers": [
+        {
+          "motion": "globe-3d",
+          "props": {
+            "background": "#0B1020",
+            "backgroundEdge": "#16264d",
+            "focus": {
+              "lat": 30,
+              "lon": 100,
+              "at": 90,
+              "label": "Asia",
+              "zoom": 1.35
+            },
+            "arcColor": "#FF7A3C",
+            "markerColor": "#FFE1C9",
+            "stars": true
+          }
+        },
+        {
+          "motion": "number-counter",
+          "props": {
+            "layout": "hud",
+            "keyframes": [
+              [
+                0,
+                0
+              ],
+              [
+                20,
+                0
+              ],
+              [
+                130,
+                57
+              ],
+              [
+                200,
+                57
+              ]
+            ],
+            "mode": "tick",
+            "label": "LIVE IN CITIES",
+            "unit": "%",
+            "readouts": [],
+            "backdrop": "none",
+            "numberColor": "#F2F4FA",
+            "labelColor": "#9FB0D6",
+            "accent": "#FF7A3C",
+            "size": 210
+          }
+        }
+      ]
+    },
+    {
+      "duration": 150,
+      "layers": [
+        {
+          "motion": "kinetic-type-slam",
+          "props": {
+            "lines": [
+              {
+                "text": "Most of us",
+                "accent": "Most"
+              },
+              {
+                "text": "live in cities",
+                "accent": "cities"
+              }
+            ],
+            "beatFrames": 10,
+            "holdBeats": 2.5,
+            "layout": "stack",
+            "capHeight": 0.2,
+            "background": "#0B1020",
+            "ink": "#F2F4FA",
+            "accent": "#FF7A3C",
+            "flash": false,
+            "showIndex": false,
+            "push": 0.03
+          }
+        }
+      ]
+    }
+  ],
+  "notes": "Illustrative figures (about 57 of every 100 people live in cities): replace them with your own sourced numbers and name the source on screen or in the narration. isotype-count: count, highlight, unitValue, unitLabel, icon (person | drop | house | cup | box | tree), arrangement (grid | bar | row | heart). globe-3d: points / arcs / focus for the geography; number-counter: keyframes, label, unit. For a 60-second version add scenes: dot-tally for a second comparison, axis-ratchet-rescale for a time series, painted-choropleth or map-route for the map."
+}

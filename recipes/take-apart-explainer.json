@@ -1,0 +1,119 @@
+{
+  "id": "take-apart-explainer",
+  "title": "Take-apart explainer (22 s)",
+  "useFor": "A hardware teardown / 'what is inside' film: a product turns on a studio turntable, a 3D assembly separates part by part with numbered labels, a cutaway slices it open, then a closing title. Dark graphite, one orange accent.",
+  "format": "landscape",
+  "background": "#0d0f14",
+  "tags": [
+    "teardown",
+    "take apart",
+    "exploded view",
+    "product",
+    "hardware",
+    "inside",
+    "engineering",
+    "3d",
+    "explainer",
+    "assembly",
+    "parts",
+    "labels",
+    "device",
+    "gadget",
+    "sim lab"
+  ],
+  "scenes": [
+    {
+      "duration": 150,
+      "transition": {
+        "type": "fade",
+        "frames": 14
+      },
+      "style": "teardown",
+      "layers": [
+        {
+          "motion": "product-turntable-3d",
+          "props": {
+            "shape": "can",
+            "bodyColor": "#d9dde2",
+            "colors": [
+              "#ff7a3c",
+              "#2b2f3a",
+              "#ff7a3c"
+            ],
+            "headline": "Inside the drive unit",
+            "subline": "Seven parts, one tube.",
+            "orbit": 30
+          }
+        }
+      ]
+    },
+    {
+      "duration": 240,
+      "transition": {
+        "type": "fade",
+        "frames": 14
+      },
+      "style": "teardown",
+      "layers": [
+        {
+          "motion": "exploded-view-3d",
+          "props": {
+            "variant": "explode",
+            "labels": true,
+            "accent": "#ff9a5c",
+            "explodeAt": 20,
+            "reassembleAt": 170,
+            "orbitSpeed": 5
+          }
+        }
+      ]
+    },
+    {
+      "duration": 200,
+      "transition": {
+        "type": "fade",
+        "frames": 16
+      },
+      "style": "teardown",
+      "layers": [
+        {
+          "motion": "exploded-view-3d",
+          "props": {
+            "variant": "cutaway",
+            "labels": true,
+            "accent": "#ff9a5c",
+            "explodeAt": 20,
+            "orbitSpeed": 6,
+            "scale": 1.15
+          }
+        }
+      ]
+    },
+    {
+      "duration": 110,
+      "layers": [
+        {
+          "motion": "blur-in-title",
+          "props": {
+            "title": "BUILT TO BE OPENED",
+            "subtitle": "Every part exactly where it belongs.",
+            "swapTo": null,
+            "backdrop": "ink",
+            "background": "#0d0f14",
+            "font": "sans",
+            "weight": 600,
+            "size": 72,
+            "tracking": 0.35,
+            "subtitleFont": "sans",
+            "subtitleItalic": false,
+            "subtitleColor": "#ff9a5c",
+            "fadeOut": false,
+            "glow": 0.15,
+            "kicker": "TEARDOWN"
+          }
+        }
+      ]
+    }
+  ],
+  "notes": "Swap the product: product-turntable-3d.shape (can | bottle | box | phone), colours and labelSrc, and the exploded-view-3d.parts table (name, spec, mesh, pos, size, dir, dist) to describe your own assembly, in the order the labels should number. Cutaway shows the shell sliced open; use explode for the full separation. Replace the headline, subline, title and subtitle. The teardown style gives the dark graphite studio with an orange index accent."
+}

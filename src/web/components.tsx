@@ -264,7 +264,7 @@ export const createWebComponents = (resolver: MotionResolver) => {
 
   const MotionMix: React.FC<MotionMixProps> = ({recipe: recipeArg, layers: layersArg, spec: specArg, background, withText = true, overrides, look, ...rest}) => {
     const recipe = findRecipe(recipeArg);
-    const spec: ComposeSpec | undefined = specArg ?? (recipe?.scenes ? {width: rest.width, height: rest.height, fps: recipe.fps, background: recipe.background, scenes: recipe.scenes, overlays: recipe.overlays} : undefined);
+    const spec: ComposeSpec | undefined = specArg ?? (recipe?.scenes ? {width: rest.width, height: rest.height, fps: recipe.fps, background: recipe.background, scenes: recipe.scenes, overlays: recipe.overlays, style: recipe.style} : undefined);
     const layers = useMemo(() => {
       const raw = (layersArg ?? recipe?.layers ?? []) as (LayerSpec & {role?: string})[];
       return raw.filter((l) => withText || l.role !== 'type').map((l) => (overrides?.[l.motion] ? {...l, props: {...(l.props ?? {}), ...overrides[l.motion]}} : l));

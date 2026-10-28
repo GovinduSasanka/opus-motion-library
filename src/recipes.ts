@@ -3,6 +3,152 @@ import type {Recipe} from './web/types';
 
 export const recipes: Recipe[] = [
  {
+  "id": "3d-flythrough-20s",
+  "title": "3D world flythrough (20 s)",
+  "useFor": "A cinematic 20-second flight over a procedurally built 3D world: a mountain valley assembles itself and the camera glides past the peak through low cloud, then skims a golden-hour sea, with a title card. Film-grade grade and slow camera.",
+  "format": "landscape",
+  "background": "#0b0f1a",
+  "tags": [
+   "3d",
+   "flythrough",
+   "fly-through",
+   "world",
+   "terrain",
+   "mountain",
+   "landscape",
+   "cinematic",
+   "drone",
+   "aerial",
+   "trailer",
+   "fantasy",
+   "golden hour",
+   "clouds",
+   "ocean",
+   "title"
+  ],
+  "scenes": [
+   {
+    "duration": 420,
+    "transition": {
+     "type": "fade",
+     "frames": 18
+    },
+    "style": "cinematic-3d",
+    "layers": [
+     {
+      "motion": "terrain-build-3d",
+      "props": {
+       "stageFrames": 6,
+       "flybyFrames": 360,
+       "showCode": false,
+       "showTitle": false,
+       "sunElevation": 7,
+       "seed": 3
+      }
+     },
+     {
+      "motion": "fog-clouds",
+      "blend": "screen",
+      "opacity": 0.45,
+      "props": {
+       "style": "mist",
+       "background": "transparent",
+       "sun": true,
+       "speed": 30,
+       "density": 0.5,
+       "ridge": false
+      }
+     },
+     {
+      "motion": "blur-in-title",
+      "from": 90,
+      "props": {
+       "kicker": "FLIGHT ONE",
+       "title": "THE HIGH COUNTRY",
+       "subtitle": "a valley that no one has walked",
+       "swapTo": null,
+       "backdrop": "none",
+       "background": "transparent",
+       "font": "serif",
+       "size": 88,
+       "tracking": 0.6,
+       "glow": 0.5,
+       "fadeOut": true
+      }
+     }
+    ]
+   },
+   {
+    "duration": 200,
+    "style": {
+     "id": "cinematic-3d",
+     "strength": 0.6
+    },
+    "layers": [
+     {
+      "motion": "ocean-surface-3d",
+      "props": {
+       "camera": "drift",
+       "sunElevation": 14,
+       "waveHeight": 0.9,
+       "fog": 0.4,
+       "title": "",
+       "subtitle": "",
+       "sunAzimuth": 20
+      }
+     },
+     {
+      "motion": "fog-clouds",
+      "blend": "screen",
+      "opacity": 0.3,
+      "props": {
+       "style": "cumulus",
+       "background": "transparent",
+       "sun": false,
+       "layers": 2,
+       "density": 0.35,
+       "speed": 14
+      }
+     },
+     {
+      "motion": "blur-in-title",
+      "from": 50,
+      "props": {
+       "title": "BEYOND THE COAST",
+       "subtitle": "to be continued",
+       "swapTo": null,
+       "backdrop": "none",
+       "background": "transparent",
+       "font": "serif",
+       "size": 80,
+       "tracking": 0.6,
+       "glow": 0.5,
+       "fadeOut": true,
+       "layout": "lower-left"
+      }
+     }
+    ]
+   }
+  ],
+  "overlays": [
+   {
+    "motion": "film-look",
+    "from": 0,
+    "duration": 604,
+    "props": {
+     "overlay": true,
+     "grain": 0.06,
+     "vignette": 0.3,
+     "flare": false,
+     "letterbox": "off",
+     "bloom": 0,
+     "fringe": 0.5
+    }
+   }
+  ],
+  "notes": "Replace the two titles and kicker / subtitle. terrain-build-3d: seed (different mountain), sunElevation / sunAzimuth, colors, camera (fly | dive), trail (a glowing route down the slope), look (natural | contours); raise stageFrames (up to 48) to show the world being built before the flight, with showCode / showTitle for the build overlay. ocean-surface-3d: camera (low | high | drift), sun, colours. For a stylised world swap in hex-island-grow, voxel-diorama or iso-city-build. The cinematic-3d style adds the golden-hour grade and 2.39:1 bars; the 3D motions are heavy, so export to mp4 / webm for mobile web."
+ },
+ {
   "id": "app-store-preview",
   "title": "App store preview (portrait)",
   "useFor": "A vertical 9:16 app preview / store video / story ad: hook title, the app conversation in a phone, then the rating.",
@@ -120,6 +266,184 @@ export const recipes: Recipe[] = [
    }
   ],
   "notes": "All three scenes are resolution independent; render with --format portrait (default for this recipe). Replace the hook title, sms-thread texts and the rating."
+ },
+ {
+  "id": "data-story-60s",
+  "title": "Data story (22 s cut)",
+  "useFor": "A short data-journalism beat: a question, the answer shown as one icon per person, a globe for 'where', and a single takeaway number. Replace the figures with your own; extend a scene or add a chart to reach 60 s.",
+  "format": "landscape",
+  "background": "#0B1020",
+  "tags": [
+   "data",
+   "story",
+   "statistics",
+   "infographic",
+   "journalism",
+   "chart",
+   "numbers",
+   "percent",
+   "population",
+   "isotype",
+   "globe",
+   "insight",
+   "explainer",
+   "report",
+   "takeaway"
+  ],
+  "scenes": [
+   {
+    "duration": 130,
+    "transition": {
+     "type": "wipe",
+     "direction": "from-right",
+     "frames": 14
+    },
+    "layers": [
+     {
+      "motion": "kinetic-type-slam",
+      "props": {
+       "lines": [
+        {
+         "text": "If the world",
+         "accent": "world"
+        },
+        {
+         "text": "were 100 people",
+         "accent": "100"
+        }
+       ],
+       "beatFrames": 10,
+       "holdBeats": 2,
+       "layout": "stack",
+       "capHeight": 0.2,
+       "background": "#0B1020",
+       "ink": "#F2F4FA",
+       "accent": "#FF7A3C",
+       "flash": false,
+       "showIndex": false,
+       "push": 0.03
+      }
+     }
+    ]
+   },
+   {
+    "duration": 210,
+    "transition": {
+     "type": "iris",
+     "frames": 16
+    },
+    "layers": [
+     {
+      "motion": "isotype-count",
+      "props": {
+       "title": "Where do they live?",
+       "count": 100,
+       "highlight": 57,
+       "unitValue": 1,
+       "unitLabel": "of 100 people",
+       "highlightLabel": "live in cities",
+       "icon": "person",
+       "arrangement": "grid",
+       "color": "#7CA6E8",
+       "accent": "#FF7A3C",
+       "background": "#0B1020",
+       "ink": "#F2F4FA",
+       "bpm": 120
+      }
+     }
+    ]
+   },
+   {
+    "duration": 200,
+    "transition": {
+     "type": "fade",
+     "frames": 14
+    },
+    "layers": [
+     {
+      "motion": "globe-3d",
+      "props": {
+       "background": "#0B1020",
+       "backgroundEdge": "#16264d",
+       "focus": {
+        "lat": 30,
+        "lon": 100,
+        "at": 90,
+        "label": "Asia",
+        "zoom": 1.35
+       },
+       "arcColor": "#FF7A3C",
+       "markerColor": "#FFE1C9",
+       "stars": true
+      }
+     },
+     {
+      "motion": "number-counter",
+      "props": {
+       "layout": "hud",
+       "keyframes": [
+        [
+         0,
+         0
+        ],
+        [
+         20,
+         0
+        ],
+        [
+         130,
+         57
+        ],
+        [
+         200,
+         57
+        ]
+       ],
+       "mode": "tick",
+       "label": "LIVE IN CITIES",
+       "unit": "%",
+       "readouts": [],
+       "backdrop": "none",
+       "numberColor": "#F2F4FA",
+       "labelColor": "#9FB0D6",
+       "accent": "#FF7A3C",
+       "size": 210
+      }
+     }
+    ]
+   },
+   {
+    "duration": 150,
+    "layers": [
+     {
+      "motion": "kinetic-type-slam",
+      "props": {
+       "lines": [
+        {
+         "text": "Most of us",
+         "accent": "Most"
+        },
+        {
+         "text": "live in cities",
+         "accent": "cities"
+        }
+       ],
+       "beatFrames": 10,
+       "holdBeats": 2.5,
+       "layout": "stack",
+       "capHeight": 0.2,
+       "background": "#0B1020",
+       "ink": "#F2F4FA",
+       "accent": "#FF7A3C",
+       "flash": false,
+       "showIndex": false,
+       "push": 0.03
+      }
+     }
+    ]
+   }
+  ],
+  "notes": "Illustrative figures (about 57 of every 100 people live in cities): replace them with your own sourced numbers and name the source on screen or in the narration. isotype-count: count, highlight, unitValue, unitLabel, icon (person | drop | house | cup | box | tree), arrangement (grid | bar | row | heart). globe-3d: points / arcs / focus for the geography; number-counter: keyframes, label, unit. For a 60-second version add scenes: dot-tally for a second comparison, axis-ratchet-rescale for a time series, painted-choropleth or map-route for the map."
  },
  {
   "id": "end-card",
@@ -303,6 +627,539 @@ export const recipes: Recipe[] = [
    }
   ],
   "notes": "number-counter.keyframes counts 10 → 0 over 8 s; change the values / frames for your countdown and label. For a real-time web countdown render the number in HTML and use only city-skyline + fireworks."
+ },
+ {
+  "id": "explainer-5-scene",
+  "title": "5-scene explainer (30 s)",
+  "useFor": "A 30-second explainer for a business, product or idea: the problem, what we do, how it works in three steps (animated flow diagram), one proof number, then your name and a call to action. Built to take captions and a narration track.",
+  "format": "landscape",
+  "background": "#F4EFE6",
+  "tags": [
+   "explainer",
+   "explain",
+   "how it works",
+   "process",
+   "steps",
+   "problem",
+   "solution",
+   "business",
+   "startup",
+   "pitch",
+   "30 second",
+   "narrated",
+   "tutorial",
+   "flat",
+   "education"
+  ],
+  "scenes": [
+   {
+    "duration": 210,
+    "transition": {
+     "type": "wipe",
+     "direction": "from-right",
+     "frames": 14
+    },
+    "layers": [
+     {
+      "motion": "panel-triptych",
+      "props": {
+       "title": "Feedback is scattered everywhere",
+       "caption": "and nobody sees all of it.",
+       "highlight": "all",
+       "bars": false,
+       "background": "#0b1018",
+       "panels": [
+        {
+         "src": "",
+         "label": "Inboxes",
+         "color": "#ad3f32"
+        },
+        {
+         "src": "",
+         "label": "Chat threads",
+         "color": "#cfa44d"
+        },
+        {
+         "src": "",
+         "label": "Spreadsheets",
+         "color": "#3f7fa3"
+        }
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "duration": 150,
+    "transition": {
+     "type": "slide",
+     "direction": "from-bottom",
+     "frames": 14
+    },
+    "layers": [
+     {
+      "motion": "kinetic-type-slam",
+      "props": {
+       "lines": [
+        {
+         "text": "Bring it together",
+         "accent": "together"
+        },
+        {
+         "text": "Make it clear",
+         "accent": "clear"
+        }
+       ],
+       "beatFrames": 10,
+       "holdBeats": 1.8,
+       "layout": "stack",
+       "capHeight": 0.26,
+       "background": "#F4EFE6",
+       "ink": "#1B1B1F",
+       "accent": "#E4572E",
+       "flash": false,
+       "showIndex": false,
+       "push": 0.03
+      }
+     }
+    ]
+   },
+   {
+    "duration": 270,
+    "transition": {
+     "type": "iris",
+     "frames": 16
+    },
+    "layers": [
+     {
+      "motion": "flow-diagram",
+      "props": {
+       "theme": "dark",
+       "title": "How it works",
+       "nodes": [
+        {
+         "id": "a",
+         "label": "Collect",
+         "icon": "mail"
+        },
+        {
+         "id": "b",
+         "label": "Sort",
+         "icon": "spark"
+        },
+        {
+         "id": "c",
+         "label": "Summarize",
+         "icon": "chart"
+        },
+        {
+         "id": "d",
+         "label": "Share",
+         "icon": "chat"
+        }
+       ],
+       "edges": [
+        {
+         "from": "a",
+         "to": "b",
+         "label": "every note"
+        },
+        {
+         "from": "b",
+         "to": "c",
+         "label": "by topic"
+        },
+        {
+         "from": "c",
+         "to": "d",
+         "label": "weekly"
+        }
+       ],
+       "accent": "#7DA2FF",
+       "stepFrames": 34
+      }
+     },
+     {
+      "motion": "kinetic-captions",
+      "from": 10,
+      "props": {
+       "variant": "premium",
+       "position": "bottom",
+       "background": "transparent",
+       "lines": [
+        "We collect every note,",
+        "sort it by topic,",
+        "and share a weekly summary."
+       ],
+       "framesPerLine": 80,
+       "size": 46,
+       "accent": "#FFB199"
+      }
+     }
+    ]
+   },
+   {
+    "duration": 150,
+    "transition": {
+     "type": "fade",
+     "frames": 14
+    },
+    "layers": [
+     {
+      "motion": "number-counter",
+      "props": {
+       "keyframes": [
+        [
+         0,
+         0
+        ],
+        [
+         8,
+         0
+        ],
+        [
+         90,
+         92
+        ],
+        [
+         150,
+         92
+        ]
+       ],
+       "mode": "roll",
+       "label": "OF TEAMS READ THEIR WEEKLY SUMMARY",
+       "unit": "%",
+       "readouts": [],
+       "backdrop": "none",
+       "numberColor": "#1B1B1F",
+       "labelColor": "#6b6b72",
+       "accent": "#E4572E",
+       "size": 300
+      }
+     }
+    ]
+   },
+   {
+    "duration": 180,
+    "layers": [
+     {
+      "motion": "logo-assemble",
+      "props": {
+       "text": "Fieldnote",
+       "tagline": "COLLECT � SORT � SHARE",
+       "background": "#15151a",
+       "color": "#F4EFE6",
+       "accent": "#E4572E",
+       "fontRole": "display",
+       "weight": 700
+      }
+     },
+     {
+      "motion": "end-card-credits",
+      "from": 100,
+      "props": {
+       "title": "",
+       "headline": "Try it free for 14 days.",
+       "lines": [
+        "fieldnote.example.com"
+       ],
+       "credit": "",
+       "backdrop": "none",
+       "cta": "Start now",
+       "ctaColor": "#E4572E",
+       "ctaAt": 10,
+       "headlineY": 0.78,
+       "scrimStrength": 0,
+       "fadeToBlack": false,
+       "startFrame": 4
+      }
+     }
+    ]
+   }
+  ],
+  "notes": "Replace every text: panel-triptych.title / panels / caption (pass src for real screenshots), the two kinetic-type-slam lines, flow-diagram nodes + edges (3-5 nodes; icons: bolt shield chart chat globe spark lock cog user db cloud star queue server mail), the captions, the number-counter keyframes + label, and the name, tagline and CTA of the last scene. Narrate it with the CLI voice command and use the caption lines as the script, one line per sentence; extend a scene's duration to fit each sentence. Scene 3 is the hero of the film: give it the longest line of narration."
+ },
+ {
+  "id": "game-trailer-20s",
+  "title": "Game trailer (20 s)",
+  "useFor": "A 20-second trailer or store teaser for a game: logo sting, gameplay shot with the in-game HUD, three impact hits, a loot reveal and a release date. Works for mobile, indie and arcade titles.",
+  "format": "landscape",
+  "background": "#0b0e1e",
+  "tags": [
+   "game",
+   "trailer",
+   "gameplay",
+   "hud",
+   "loot",
+   "reward",
+   "chest",
+   "launch",
+   "release date",
+   "indie",
+   "mobile game",
+   "arcade",
+   "esports",
+   "teaser",
+   "impact"
+  ],
+  "scenes": [
+   {
+    "duration": 100,
+    "transition": {
+     "type": "flash",
+     "variant": "plain",
+     "frames": 10
+    },
+    "layers": [
+     {
+      "motion": "chrome-title-slam",
+      "props": {
+       "text": "EMBERFALL",
+       "subtitle": "A NEW ADVENTURE",
+       "background": "#0b0e1e"
+      }
+     }
+    ]
+   },
+   {
+    "duration": 150,
+    "transition": {
+     "type": "glitch",
+     "frames": 12
+    },
+    "layers": [
+     {
+      "motion": "ken-burns",
+      "props": {
+       "src": "demo/desert.jpg",
+       "mode": "push",
+       "rate": 3,
+       "punchAt": -1,
+       "grain": 0.05,
+       "vignette": 0.45
+      }
+     },
+     {
+      "motion": "game-hud",
+      "props": {
+       "theme": "modern",
+       "background": "transparent",
+       "accent": "#ff7a3c",
+       "score": 48250,
+       "feed": [
+        "You>Raider",
+        "You>Brute 02",
+        "Kai>Sentry",
+        "You>Warden"
+       ],
+       "levelUp": "LEVEL UP!",
+       "scoreLabel": "SCORE",
+       "level": 7
+      }
+     }
+    ]
+   },
+   {
+    "duration": 110,
+    "transition": {
+     "type": "flash",
+     "variant": "plain",
+     "frames": 8
+    },
+    "layers": [
+     {
+      "motion": "impact-frame",
+      "props": {
+       "scene": true,
+       "at": [
+        16,
+        44,
+        72
+       ],
+       "words": [
+        "RUN",
+        "STRIKE",
+        "RISE"
+       ],
+       "colors": [
+        "#f4efe4",
+        "#ffd23f",
+        "#15151c"
+       ],
+       "accent": "#ff3b30",
+       "flash": "both"
+      }
+     }
+    ]
+   },
+   {
+    "duration": 150,
+    "transition": {
+     "type": "fade",
+     "frames": 12
+    },
+    "layers": [
+     {
+      "motion": "loot-reveal",
+      "props": {
+       "title": "Emberheart Gem",
+       "rarity": "legendary",
+       "container": "chest",
+       "foundLabel": "NEW RELIC",
+       "background": "#0b0e1e"
+      }
+     }
+    ]
+   },
+   {
+    "duration": 130,
+    "layers": [
+     {
+      "motion": "embers",
+      "props": {
+       "mode": "sparks",
+       "background": "#0b0e1e",
+       "backdrop": false,
+       "count": 40,
+       "opacity": 1
+      }
+     },
+     {
+      "motion": "mask-rise-title",
+      "from": 6,
+      "props": {
+       "variant": "stack",
+       "lines": [
+        {
+         "word": "COMING"
+        },
+        {
+         "word": "SPRING 2027."
+        }
+       ],
+       "sideCopy": [
+        "Wishlist now on every",
+        "major store."
+       ],
+       "sideMono": [
+        "EMBERFALL.EXAMPLE.COM"
+       ],
+       "backdrop": "none",
+       "background": "transparent",
+       "ink": "#F4EFE6",
+       "muted": "#9AA0AE",
+       "accent": "#ff7a3c",
+       "cropMarks": false,
+       "exit": false
+      }
+     }
+    ]
+   }
+  ],
+  "overlays": [
+   {
+    "motion": "film-look",
+    "from": 0,
+    "duration": 600,
+    "props": {
+     "overlay": true,
+     "grain": 0.05,
+     "vignette": 0.3,
+     "flare": false,
+     "letterbox": "off",
+     "bloom": 0,
+     "fringe": 0
+    }
+   }
+  ],
+  "notes": "Replace the game name and tagline (chrome-title-slam), pass your own gameplay still or footage frame to ken-burns.src and your HUD values (game-hud.bars, score, feed; theme arcade | modern | pixel), the three impact words, the loot-reveal item (title, rarity, container, image) and the release-date lines. Recolour chrome-title-slam.skyColors / sunColors / neon for your palette. For footage, replace ken-burns with a screen-recording clip and keep game-hud transparent on top."
+ },
+ {
+  "id": "generative-loop",
+  "title": "Generative loop (hero background)",
+  "useFor": "A 12-second looping generative backdrop for a website hero, app splash or live-visuals wall: a particle cloud morphs sphere, torus, ring and cube and back, glowing over drifting mesh-gradient light. Words go in HTML above it.",
+  "format": "landscape",
+  "duration": 360,
+  "background": "#07061c",
+  "tags": [
+   "generative",
+   "loop",
+   "hero",
+   "background",
+   "particles",
+   "mesh gradient",
+   "abstract",
+   "wow",
+   "immersive",
+   "website",
+   "landing page",
+   "splash",
+   "visuals",
+   "ambient",
+   "tech",
+   "seamless"
+  ],
+  "web": {
+   "loop": "crossfade"
+  },
+  "layers": [
+   {
+    "motion": "mesh-gradient-bg",
+    "role": "backdrop",
+    "opacity": 0.9,
+    "props": {
+     "colors": [
+      "#7c3aed",
+      "#2563eb",
+      "#06b6d4",
+      "#d946ef"
+     ],
+     "base": "#07061c",
+     "speed": 1.2,
+     "rippleAt": -1,
+     "grain": 0.1,
+     "motes": 10,
+     "seed": 4
+    }
+   },
+   {
+    "motion": "particle-shape-morph",
+    "role": "subject",
+    "blend": "screen",
+    "props": {
+     "text": "",
+     "shapes": [
+      "sphere",
+      "torus",
+      "ring",
+      "cube",
+      "sphere"
+     ],
+     "count": 3600,
+     "holdFrames": 48,
+     "morphFrames": 30,
+     "collapse": false,
+     "rotation": 30,
+     "colors": [
+      "#EEF0FF",
+      "#7DD3FC",
+      "#C4B5FD"
+     ],
+     "colorMix": [
+      70,
+      18,
+      12
+     ],
+     "background": "transparent",
+     "coreColor": "#7DD3FC",
+     "hud": false,
+     "captions": false,
+     "label": "",
+     "particleSize": 2.6
+    }
+   }
+  ],
+  "notes": "A 360-frame (12 s) loop: the cloud returns to the sphere it started as and the rotation completes one full turn, and the web player cross-fades the seam (web.loop: crossfade). Behind HTML text keep opacity at 0.7-0.9 and use <MotionBackground recipe=\"generative-loop\">. Recolour with mesh-gradient-bg.colors and particle-shape-morph.colors / coreColor; lower particle-shape-morph.count (1500-2500) for mobile. Reduced motion: export a poster frame (mgl export generative-loop --as poster --frame 100) and show it as a still."
  },
  {
   "id": "hero-aurora-night",
@@ -489,6 +1346,183 @@ export const recipes: Recipe[] = [
   "notes": "Replace handwrite-on.lines. Plays once and holds (writing should not loop). For a looping web background drop the type layer and keep the paper + wind lines."
  },
  {
+  "id": "history-film-90s",
+  "title": "History film (24 s cut)",
+  "useFor": "A short documentary-style history of anything: a title over an aged photo plate, a ruler of years gliding under a playhead with pinned event cards and a rolling year counter, then a closing 'today' card. Film-print finish. Extend the events for a longer cut.",
+  "format": "landscape",
+  "background": "#1a1612",
+  "tags": [
+   "history",
+   "documentary",
+   "timeline",
+   "years",
+   "eras",
+   "archive",
+   "film",
+   "heritage",
+   "company history",
+   "museum",
+   "narrated",
+   "chronology",
+   "milestones",
+   "retro",
+   "print"
+  ],
+  "scenes": [
+   {
+    "duration": 150,
+    "transition": {
+     "type": "fade",
+     "frames": 18
+    },
+    "layers": [
+     {
+      "motion": "ken-burns",
+      "props": {
+       "src": "demo/lighthouse.jpg",
+       "mode": "push",
+       "rate": 3,
+       "punchAt": -1,
+       "grain": 0.08,
+       "vignette": 0.5
+      },
+      "opacity": 0.5
+     },
+     {
+      "motion": "blur-in-title",
+      "from": 6,
+      "props": {
+       "kicker": "A SHORT HISTORY",
+       "title": "OF LIGHT",
+       "subtitle": "from the oil lamp to the LED",
+       "swapTo": null,
+       "backdrop": "none",
+       "background": "transparent",
+       "font": "serif",
+       "size": 110,
+       "tracking": 0.5,
+       "fadeOut": false,
+       "glow": 0.5,
+       "subtitleColor": "#E9E2D2"
+      }
+     }
+    ]
+   },
+   {
+    "duration": 500,
+    "transition": {
+     "type": "fade",
+     "frames": 18
+    },
+    "layers": [
+     {
+      "motion": "timeline-ruler",
+      "props": {
+       "events": [
+        {
+         "date": "1780",
+         "title": "The Argand lamp",
+         "body": "A hollow wick and a glass chimney make oil light bright and steady.",
+         "icon": "spark",
+         "image": "demo/lantern.jpg"
+        },
+        {
+         "date": "1807",
+         "title": "Gas lights the street",
+         "body": "Pall Mall in London is lit with coal gas.",
+         "icon": "bolt",
+         "image": "demo/lighthouse.jpg"
+        },
+        {
+         "date": "1879",
+         "title": "The practical bulb",
+         "body": "Edison's carbon-filament lamp burns for more than a day.",
+         "icon": "star"
+        },
+        {
+         "date": "1962",
+         "title": "The first visible LED",
+         "body": "A small red light that barely warms.",
+         "icon": "cog"
+        },
+        {
+         "date": "2014",
+         "title": "Blue LEDs win a Nobel",
+         "body": "Efficient white light now fits in everything.",
+         "icon": "globe",
+         "image": "demo/city.jpg"
+        }
+       ],
+       "scale": "even",
+       "cardStyle": "light",
+       "background": "#F1ECE2",
+       "ink": "#1A1A1F",
+       "accent": "#B5532E",
+       "panFrames": 26,
+       "holdFrames": 62
+      }
+     }
+    ]
+   },
+   {
+    "duration": 130,
+    "layers": [
+     {
+      "motion": "ken-burns",
+      "props": {
+       "src": "demo/city.jpg",
+       "mode": "pull",
+       "rate": 3,
+       "punchAt": -1,
+       "grain": 0.08,
+       "vignette": 0.5
+      },
+      "opacity": 0.5
+     },
+     {
+      "motion": "blur-in-title",
+      "from": 6,
+      "props": {
+       "title": "TODAY",
+       "subtitle": "a lamp in every pocket",
+       "swapTo": null,
+       "backdrop": "none",
+       "background": "transparent",
+       "font": "serif",
+       "size": 110,
+       "tracking": 0.6,
+       "fadeOut": true,
+       "glow": 0.5,
+       "subtitleColor": "#E9E2D2"
+      }
+     }
+    ]
+   }
+  ],
+  "overlays": [
+   {
+    "motion": "film-look",
+    "from": 0,
+    "duration": 762,
+    "props": {
+     "overlay": true,
+     "look": "print",
+     "grain": 0.1,
+     "vignette": 0.35,
+     "flare": false,
+     "letterbox": "off",
+     "bloom": 0,
+     "fringe": 0,
+     "sepia": 0.18,
+     "scratches": 0.35,
+     "dust": 0.6,
+     "flicker": 0.4
+    }
+   }
+  ],
+  "notes": "Replace the events (date as a 4-digit year, title, one line of body, optional image under public/, icon), the opening title / subtitle and the closing card. About 80 frames per event: add events and lengthen the second scene to match; scale 'even' gives equal gaps ('linear' spaces them by years). Swap ken-burns.src for your archive photos. The film-look print overlay adds dust, scratches and flicker; lower scratches / dust for a cleaner look. Narrate with the CLI voice command: one sentence per event."
+ },
+ {
   "id": "history-timeline",
   "title": "History timeline dial",
   "useFor": "A company history, product versions or \"how we got here\" timeline: a blueprint dial turns one notch per era while the year rolls.",
@@ -555,6 +1589,124 @@ export const recipes: Recipe[] = [
   "notes": "Replace era-dial.eras (label, year, icon: plan | press | book | computer | monitor | network). stepFrames × eras ≈ duration."
  },
  {
+  "id": "kinetic-type-film",
+  "title": "Kinetic type film (20 s)",
+  "useFor": "A 20-second kinetic-typography film for a speech, manifesto, brand belief or poem: huge phrases land one word per beat on a 120 BPM grid in one accent colour, then it ends on a wordmark.",
+  "format": "landscape",
+  "background": "#F1ECE2",
+  "tags": [
+   "kinetic",
+   "typography",
+   "type",
+   "manifesto",
+   "speech",
+   "poem",
+   "quote",
+   "lyric",
+   "words",
+   "brand film",
+   "title",
+   "beat",
+   "manifesto film",
+   "slam"
+  ],
+  "scenes": [
+   {
+    "duration": 290,
+    "transition": {
+     "type": "cut"
+    },
+    "layers": [
+     {
+      "motion": "kinetic-type-slam",
+      "props": {
+       "beatFrames": 15,
+       "holdBeats": 1.4,
+       "background": "#F1ECE2",
+       "ink": "#141414",
+       "accent": "#E8431A",
+       "flash": false,
+       "showIndex": true,
+       "font": "display",
+       "layout": "stack",
+       "lines": [
+        {
+         "text": "Say it plainly",
+         "accent": "plainly"
+        },
+        {
+         "text": "Then say it once",
+         "accent": "once"
+        },
+        {
+         "text": "Cut every extra word",
+         "accent": "extra"
+        },
+        {
+         "text": "Keep the idea",
+         "accent": "idea"
+        }
+       ],
+       "capHeight": 0.3
+      }
+     }
+    ]
+   },
+   {
+    "duration": 200,
+    "transition": {
+     "type": "cut"
+    },
+    "layers": [
+     {
+      "motion": "kinetic-type-slam",
+      "props": {
+       "beatFrames": 15,
+       "holdBeats": 1.4,
+       "background": "#F1ECE2",
+       "ink": "#141414",
+       "accent": "#E8431A",
+       "flash": false,
+       "showIndex": false,
+       "font": "display",
+       "layout": "center",
+       "lines": [
+        {
+         "text": "Let it land",
+         "accent": "land"
+        },
+        {
+         "text": "Make it matter",
+         "accent": "matter"
+        }
+       ],
+       "capHeight": 0.4
+      }
+     }
+    ]
+   },
+   {
+    "duration": 140,
+    "layers": [
+     {
+      "motion": "logo-assemble",
+      "props": {
+       "text": "Plainspeak",
+       "tagline": "SAY IT ONCE.",
+       "background": "#F1ECE2",
+       "color": "#141414",
+       "accent": "#E8431A",
+       "fontRole": "display",
+       "weight": 700,
+       "shardCount": 70
+      }
+     }
+    ]
+   }
+  ],
+  "notes": "Replace the lines with your own text: 2-4 words each, accent = the one word that takes the colour (an index also works). beatFrames sets the beat (15 = 120 BPM, 10 = 180 BPM); use the 'center' layout (one word at a time) for short punchy phrases and 'stack' for longer ones. Keep one accent colour. For a dark version: background \"#0E0E10\", ink \"#F3EFE6\". End scene: logo-assemble.text / tagline (or src for an SVG logo)."
+ },
+ {
   "id": "loading-loop",
   "title": "Loading loop",
   "useFor": "Seamless loading / waiting / processing loop for splash screens, empty states and \"generating…\" moments.",
@@ -587,6 +1739,153 @@ export const recipes: Recipe[] = [
    }
   ],
   "notes": "A 144-frame (3 × 48) sonar loop with no picture windows. Recolour with color and background. For dark UIs: background \"#0E1116\", color \"#7AA2FF\", paper false."
+ },
+ {
+  "id": "lyric-video-vertical",
+  "title": "Lyric video (vertical)",
+  "useFor": "A 9:16 lyric video for a song, hook or spoken-word track: big lyric lines that fill word by word on the beat over a dimmed audio spectrum, a beat-cut montage drop, then an end card. Swap in your timed lyrics and your track.",
+  "format": "portrait",
+  "background": "#0A0A0B",
+  "tags": [
+   "lyric",
+   "lyrics",
+   "music",
+   "song",
+   "video",
+   "vertical",
+   "portrait",
+   "reel",
+   "tiktok",
+   "shorts",
+   "karaoke",
+   "spectrum",
+   "beat",
+   "audio",
+   "artist",
+   "release"
+  ],
+  "scenes": [
+   {
+    "duration": 320,
+    "transition": {
+     "type": "cut"
+    },
+    "layers": [
+     {
+      "motion": "audio-spectrum",
+      "opacity": 0.6,
+      "props": {
+       "mode": "bars",
+       "colors": [
+        "#FF4D12",
+        "#FF8A3D",
+        "#FFD23F"
+       ],
+       "background": "#0A0A0B",
+       "title": "",
+       "caption": "",
+       "bpm": 120,
+       "mirror": true
+      },
+      "y": 0.3,
+      "scale": 0.85
+     },
+     {
+      "motion": "lyric-video",
+      "props": {
+       "lines": [
+        "Midnight on the wire",
+        "Hold the light a little longer",
+        "Every window knows my name",
+        "Turn it up and let it ring",
+        "Nobody has to sleep tonight"
+       ],
+       "bpm": 120,
+       "offsetSec": 0.25,
+       "beatsPerLine": 4,
+       "background": "transparent",
+       "ink": "#EEE9DF",
+       "accent": "#FF4D12",
+       "align": "left",
+       "size": 126,
+       "showGrid": true,
+       "beatReact": 1
+      }
+     }
+    ]
+   },
+   {
+    "duration": 132,
+    "transition": {
+     "type": "flash",
+     "variant": "plain",
+     "frames": 8
+    },
+    "layers": [
+     {
+      "motion": "beat-montage",
+      "props": {
+       "bpm": 150,
+       "counts": [
+        4,
+        6,
+        12
+       ],
+       "steps": [
+        12,
+        6,
+        3
+       ],
+       "dotColor": "#FF4D12",
+       "ringColor": "#FF8A3D",
+       "paper": "#ECE4D7",
+       "pingBeats": false
+      }
+     }
+    ]
+   },
+   {
+    "duration": 170,
+    "layers": [
+     {
+      "motion": "audio-spectrum",
+      "opacity": 0.45,
+      "props": {
+       "mode": "circle",
+       "colors": [
+        "#FF4D12",
+        "#FF8A3D",
+        "#FFD23F"
+       ],
+       "background": "#0A0A0B",
+       "title": "",
+       "caption": "",
+       "bpm": 120,
+       "mirror": true
+      },
+      "y": -0.2,
+      "scale": 0.9
+     },
+     {
+      "motion": "end-card-credits",
+      "props": {
+       "title": "NIGHT WIRE",
+       "headline": "The new single, out now.",
+       "lines": [
+        "listen everywhere",
+        "@nightwire.example"
+       ],
+       "credit": "",
+       "backdrop": "none",
+       "fadeToBlack": true,
+       "headlineY": 0.7,
+       "scrimStrength": 0.2
+      }
+     }
+    ]
+   }
+  ],
+  "notes": "Replace lyric-video.lines with your lyrics (or pass timed `lyrics` [{text, start, end, words}] from a transcription for exact sync) and set bpm / offsetSec to your song's grid (cli/beats.py finds them). Add your track as audio (spec.audio.music, or play it from the host) and pass its file to both audio-spectrum.src layers so the bars follow the real audio. beat-montage.images takes your artwork or stills; recolour with accent colours. Keep lyrics in the middle third, clear of the platform UI."
  },
  {
   "id": "music-neon-promo",
@@ -772,6 +2071,98 @@ export const recipes: Recipe[] = [
   "notes": "Replace chapter-header.stages (one per step) and stageFrames (= duration / steps). line-draw-on.paths can draw your own SVG icon / product outline."
  },
  {
+  "id": "pixel-short-loop",
+  "title": "Pixel short loop",
+  "useFor": "A looping pixel-art scene for a stream background, game page, retro greeting or festival card: a night sky with aurora and drifting pixel snow behind a wizard (or knight / cat) who idles, charges and casts, finished with a soft CRT / VHS pass.",
+  "format": "landscape",
+  "duration": 440,
+  "background": "#090C24",
+  "tags": [
+   "pixel",
+   "pixel art",
+   "retro",
+   "8-bit",
+   "loop",
+   "game",
+   "wizard",
+   "night",
+   "aurora",
+   "snow",
+   "crt",
+   "vhs",
+   "lofi",
+   "stream",
+   "background",
+   "cozy",
+   "seamless"
+  ],
+  "web": {
+   "loop": "crossfade"
+  },
+  "layers": [
+   {
+    "motion": "pixel-sprite-scene",
+    "role": "subject",
+    "props": {
+     "sprite": "wizard",
+     "particles": 26
+    }
+   },
+   {
+    "motion": "aurora",
+    "role": "accent",
+    "blend": "screen",
+    "opacity": 0.55,
+    "props": {
+     "backdrop": false,
+     "background": "transparent",
+     "pixelSize": 12,
+     "intensity": 0.8,
+     "height": 0.28,
+     "stars": 0
+    }
+   },
+   {
+    "motion": "snowfall",
+    "role": "accent",
+    "opacity": 0.8,
+    "props": {
+     "mode": "blizzard",
+     "backdrop": false,
+     "background": "transparent",
+     "density": 0.18,
+     "pixelSize": 12,
+     "wind": 0.3,
+     "color": "#EAF0FF"
+    }
+   },
+   {
+    "motion": "vhs-crt-pass",
+    "role": "frame",
+    "props": {
+     "overlay": true,
+     "powerOn": [
+      0,
+      0
+     ],
+     "tracking": [
+      [
+       200,
+       205
+      ]
+     ],
+     "scan": 0.14,
+     "grille": 0.05,
+     "glow": 0.25,
+     "noise": 0.012,
+     "title": "",
+     "subtitle": ""
+    }
+   }
+  ],
+  "notes": "Two 220-frame wizard cycles (idle, charge, cast, recover) make a 440-frame (14.7 s) loop; the web player cross-fades the seam. Change pixel-sprite-scene.sprite (wizard | knight | cat | custom), palette and states; keep aurora / snowfall pixelSize equal to pixel-sprite-scene.pixelFactor (12) so every pixel sits on one grid. For a festival scene change the palette and swap the aurora for fireworks or falling-petals. Drop vhs-crt-pass for crisp pixels, or add style \"pixel-8bit\" for an even chunkier look."
+ },
+ {
   "id": "product-launch",
   "title": "Product launch intro",
   "useFor": "A 12-second launch / announcement video: teaser title over night sky, the product (website mockup), then \"now available\" with fireworks.",
@@ -883,6 +2274,292 @@ export const recipes: Recipe[] = [
   "notes": "Replace the texts in all three scenes. browser-mockup.heroSrc can show your real screenshot. Swap the fireworks scene for confetti-burst for a lighter, daytime brand."
  },
  {
+  "id": "saas-launch-30s",
+  "title": "SaaS launch film (30 s)",
+  "useFor": "A slick 30-second product-launch video for a software startup: a hook question over a mesh-gradient, the product in a device, a cursor operating the UI, a feature bento, one proof number, then logo and call to action.",
+  "format": "landscape",
+  "tags": [
+   "saas",
+   "launch",
+   "startup",
+   "product",
+   "software",
+   "app",
+   "promo",
+   "ad",
+   "demo",
+   "30 second",
+   "modern",
+   "premium",
+   "slick",
+   "punchy"
+  ],
+  "background": "#07061c",
+  "scenes": [
+   {
+    "duration": 120,
+    "transition": {
+     "type": "push-blur",
+     "frames": 14
+    },
+    "layers": [
+     {
+      "motion": "mesh-gradient-bg",
+      "props": {
+       "rippleAt": 70
+      }
+     },
+     {
+      "motion": "kinetic-type-slam",
+      "props": {
+       "lines": [
+        {
+         "text": "Still chasing status?",
+         "accent": "chasing"
+        },
+        {
+         "text": "There is a calmer way",
+         "accent": "calmer"
+        }
+       ],
+       "layout": "stack",
+       "beatFrames": 9,
+       "holdBeats": 1.6,
+       "capHeight": 0.22,
+       "background": "transparent",
+       "ink": "#F5F3FF",
+       "accent": "#7DD3FC",
+       "flash": false,
+       "showIndex": false
+      }
+     }
+    ]
+   },
+   {
+    "duration": 170,
+    "transition": {
+     "type": "slide",
+     "direction": "from-right",
+     "frames": 16
+    },
+    "layers": [
+     {
+      "motion": "mesh-gradient-bg",
+      "props": {
+       "seed": 11,
+       "rippleAt": -1
+      },
+      "opacity": 0.55
+     },
+     {
+      "motion": "device-mockup",
+      "props": {
+       "device": "laptop",
+       "brand": "Harbor",
+       "headline": "Every project, one calm view",
+       "subline": "Plans, owners and deadlines that stay in sync.",
+       "background": "transparent",
+       "background2": "transparent",
+       "textColor": "#F5F3FF",
+       "bodyColor": "#2a2d3a",
+       "accent": "#7c6cff",
+       "flipAt": 100
+      }
+     }
+    ]
+   },
+   {
+    "duration": 150,
+    "transition": {
+     "type": "wipe",
+     "direction": "from-left",
+     "frames": 14
+    },
+    "layers": [
+     {
+      "motion": "mesh-gradient-bg",
+      "props": {
+       "seed": 3,
+       "rippleAt": -1,
+       "colors": [
+        "#2563eb",
+        "#06b6d4",
+        "#7c3aed",
+        "#0ea5e9"
+       ]
+      },
+      "opacity": 0.5
+     },
+     {
+      "motion": "cursor-driver",
+      "props": {
+       "dark": true,
+       "background": "transparent",
+       "demoText": "team@harbor.app",
+       "color": "#FFFFFF",
+       "accent": "#7c6cff",
+       "rippleColor": "#7DD3FC"
+      }
+     }
+    ]
+   },
+   {
+    "duration": 200,
+    "transition": {
+     "type": "iris",
+     "frames": 18
+    },
+    "layers": [
+     {
+      "motion": "mesh-gradient-bg",
+      "props": {
+       "seed": 5,
+       "rippleAt": -1
+      },
+      "opacity": 0.5
+     },
+     {
+      "motion": "card-stack-cascade",
+      "props": {
+       "dark": true,
+       "background": "transparent",
+       "accent": "#7c6cff",
+       "cards": [
+        {
+         "title": "Live roadmap",
+         "body": "Every change shows up for everyone at once.",
+         "icon": "bolt",
+         "span": "2x2"
+        },
+        {
+         "title": "Private by default",
+         "body": "Access follows the people on a project.",
+         "icon": "shield"
+        },
+        {
+         "title": "Clear insights",
+         "body": "Dashboards that explain themselves.",
+         "icon": "chart"
+        },
+        {
+         "title": "Team threads",
+         "body": "Talk next to the work.",
+         "icon": "chat"
+        },
+        {
+         "title": "Works everywhere",
+         "body": "Web, desktop and mobile.",
+         "icon": "globe"
+        },
+        {
+         "title": "Automations",
+         "body": "Hand the repeat tasks to a workflow.",
+         "icon": "spark",
+         "span": "2x1"
+        }
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "duration": 120,
+    "transition": {
+     "type": "fade",
+     "frames": 14
+    },
+    "layers": [
+     {
+      "motion": "mesh-gradient-bg",
+      "props": {
+       "seed": 9,
+       "rippleAt": 40
+      }
+     },
+     {
+      "motion": "number-counter",
+      "props": {
+       "keyframes": [
+        [
+         0,
+         0
+        ],
+        [
+         8,
+         0
+        ],
+        [
+         80,
+         12400
+        ],
+        [
+         120,
+         12400
+        ]
+       ],
+       "mode": "roll",
+       "label": "TEAMS SHIPPING CALMER",
+       "unit": "+",
+       "separator": ",",
+       "readouts": [],
+       "backdrop": "none",
+       "numberColor": "#F5F3FF",
+       "labelColor": "#A5B4FC",
+       "size": 280
+      }
+     }
+    ]
+   },
+   {
+    "duration": 190,
+    "layers": [
+     {
+      "motion": "logo-assemble",
+      "y": -0.1,
+      "props": {
+       "text": "Harbor",
+       "tagline": "PLAN CALMLY. SHIP OFTEN.",
+       "background": "#07061c",
+       "accent": "#7DD3FC",
+       "color": "#F5F3FF"
+      }
+     },
+     {
+      "motion": "mesh-gradient-bg",
+      "props": {
+       "seed": 7,
+       "rippleAt": -1,
+       "overlay": true
+      },
+      "blend": "screen",
+      "opacity": 0.55
+     },
+     {
+      "motion": "end-card-credits",
+      "from": 95,
+      "props": {
+       "title": "",
+       "headline": "Start free today.",
+       "lines": [
+        "harbor.example.com"
+       ],
+       "credit": "",
+       "backdrop": "none",
+       "cta": "Get started",
+       "ctaColor": "#7c6cff",
+       "ctaAt": 12,
+       "headlineY": 0.78,
+       "scrimStrength": 0,
+       "fadeToBlack": false,
+       "startFrame": 4
+      }
+     }
+    ]
+   }
+  ],
+  "notes": "Replace every text: the hook lines (2-4 words each, accent = the word that takes the colour), device-mockup.headline / brand (pass src for a real screenshot; fit:\"scroll\" for a tall one), cursor-driver.demoText, the six card-stack-cascade.cards, the number-counter label / keyframes, and the logo text, tagline and CTA. Recolour by passing your brand colours to mesh-gradient-bg.colors, accent and ctaColor. Swap logo-assemble.src for your SVG logo."
+ },
+ {
   "id": "section-divider",
   "title": "Section divider wipe",
   "useFor": "A soft, full-width animated band between website sections, or a quick chapter break in a video (pencil wave rows sweep across).",
@@ -938,6 +2615,271 @@ export const recipes: Recipe[] = [
    }
   ],
   "notes": "On the web, give MotionBackground a short height (e.g. 160–240 px) with fit cover — the waves read as a divider band; drop the type layer (default) and put your section title in HTML."
+ },
+ {
+  "id": "showreel-15s",
+  "title": "Motion showreel (15 s)",
+  "useFor": "A punchy 15-second showreel / portfolio opener / 'what we can make' sizzle: a hook word, five hard cuts of contrasting motions on a 120 BPM grid, then a logo lock-up. Dark tech-minimal.",
+  "format": "landscape",
+  "background": "#0A0A0B",
+  "tags": [
+   "showreel",
+   "reel",
+   "portfolio",
+   "sizzle",
+   "motion design",
+   "beat",
+   "cuts",
+   "montage",
+   "intro",
+   "tech",
+   "dark",
+   "minimal",
+   "studio reel",
+   "demo reel"
+  ],
+  "scenes": [
+   {
+    "duration": 72,
+    "transition": {
+     "type": "cut"
+    },
+    "layers": [
+     {
+      "motion": "kinetic-type-slam",
+      "props": {
+       "lines": [
+        {
+         "text": "Motion with intent",
+         "accent": "intent"
+        }
+       ],
+       "beatFrames": 9,
+       "holdBeats": 2,
+       "layout": "stack",
+       "capHeight": 0.28,
+       "background": "#0A0A0B",
+       "ink": "#F5F5F4",
+       "accent": "#FF5A1F",
+       "flash": false,
+       "showIndex": false,
+       "push": 0.03
+      }
+     }
+    ]
+   },
+   {
+    "duration": 45,
+    "transition": {
+     "type": "cut"
+    },
+    "layers": [
+     {
+      "motion": "ui-shape-morph",
+      "offset": 6,
+      "props": {
+       "states": [
+        {
+         "kind": "button",
+         "label": "Get started",
+         "width": 300,
+         "height": 96,
+         "radius": 48,
+         "color": "#FF5A1F"
+        },
+        {
+         "kind": "loader",
+         "label": "",
+         "width": 96,
+         "height": 96,
+         "radius": 48,
+         "color": "#FF5A1F"
+        },
+        {
+         "kind": "check",
+         "label": "",
+         "width": 96,
+         "height": 96,
+         "radius": 48,
+         "color": "#2A2A2E"
+        },
+        {
+         "kind": "player",
+         "label": "Now playing",
+         "width": 580,
+         "height": 132,
+         "radius": 38,
+         "color": "#17171B"
+        },
+        {
+         "kind": "chart",
+         "label": "This week",
+         "width": 520,
+         "height": 320,
+         "radius": 36,
+         "color": "#17171B"
+        },
+        {
+         "kind": "toast",
+         "label": "Saved",
+         "width": 420,
+         "height": 112,
+         "radius": 40,
+         "color": "#FF5A1F"
+        }
+       ],
+       "beatFrames": 8,
+       "startFrame": 4,
+       "background": "#0A0A0B",
+       "ink": "#EDEBE7",
+       "accent": "#FF5A1F",
+       "cursor": true,
+       "frameFill": 0.55
+      }
+     }
+    ]
+   },
+   {
+    "duration": 45,
+    "transition": {
+     "type": "cut"
+    },
+    "layers": [
+     {
+      "motion": "particle-shape-morph",
+      "props": {
+       "text": "MOVE",
+       "shapes": [
+        "glyph",
+        "sphere",
+        "torus"
+       ],
+       "holdFrames": 12,
+       "morphFrames": 12,
+       "collapse": false,
+       "background": "#0A0A0B",
+       "colors": [
+        "#F5F5F4",
+        "#FF5A1F",
+        "#8A8A8E"
+       ],
+       "coreColor": "#FF5A1F",
+       "label": "REEL",
+       "hud": false,
+       "count": 4200
+      }
+     }
+    ]
+   },
+   {
+    "duration": 45,
+    "transition": {
+     "type": "cut"
+    },
+    "layers": [
+     {
+      "motion": "line-draw-on",
+      "props": {
+       "background": "#0A0A0B",
+       "grid": false,
+       "strokeColor": "#F5F5F4",
+       "highlightColor": "#FF5A1F",
+       "drawFrames": 6,
+       "stagger": 2,
+       "startFrame": 2,
+       "caption": "",
+       "strokeWidth": 3
+      }
+     }
+    ]
+   },
+   {
+    "duration": 45,
+    "transition": {
+     "type": "cut"
+    },
+    "layers": [
+     {
+      "motion": "hex-island-grow",
+      "offset": 40
+     }
+    ]
+   },
+   {
+    "duration": 45,
+    "transition": {
+     "type": "cut"
+    },
+    "layers": [
+     {
+      "motion": "number-counter",
+      "props": {
+       "keyframes": [
+        [
+         0,
+         0
+        ],
+        [
+         4,
+         0
+        ],
+        [
+         40,
+         1280
+        ]
+       ],
+       "mode": "lock",
+       "label": "SHOTS DELIVERED",
+       "unit": "",
+       "readouts": [],
+       "backdrop": "ink",
+       "numberColor": "#F5F5F4",
+       "labelColor": "#8A8A8E",
+       "accent": "#FF5A1F",
+       "size": 300,
+       "lockStart": 2,
+       "lockStep": 4,
+       "accentOnLock": true
+      }
+     }
+    ]
+   },
+   {
+    "duration": 150,
+    "layers": [
+     {
+      "motion": "logo-assemble",
+      "props": {
+       "text": "Studio Nine",
+       "tagline": "MOTION � DESIGN � CODE",
+       "background": "#0A0A0B",
+       "color": "#F5F5F4",
+       "accent": "#FF5A1F",
+       "fontRole": "sans",
+       "weight": 600,
+       "shardCount": 80
+      }
+     }
+    ]
+   }
+  ],
+  "overlays": [
+   {
+    "motion": "film-look",
+    "from": 0,
+    "duration": 447,
+    "props": {
+     "overlay": true,
+     "grain": 0.05,
+     "vignette": 0.25,
+     "flare": false,
+     "letterbox": "off",
+     "bloom": 0,
+     "fringe": 0
+    }
+   }
+  ],
+  "notes": "Hook word, logo text and tagline are placeholders: replace them, and pass your accent colour to every accent / colors / highlightColor prop. Each cut is 45 frames = 3 beats at 120 BPM (15 frames per beat); keep cuts on multiples of your beat and swap any cut for another contrasting motion (iso-bar-chart, number-counter, voxel-diorama, ocean-surface-3d, pointcloud-orbit). Use offset to skip a motion's slow intro. Audio: lay a track with cli/beats.py analysis and keep the cuts on its grid."
  },
  {
   "id": "social-short-captions",
@@ -1130,6 +3072,180 @@ export const recipes: Recipe[] = [
   "notes": "Set number-counter.keyframes ([[frame, value], …]; two close keys = dwell), label, prefix (\"$\") and unit (\"%\"). Web: plays once on view and holds the final number."
  },
  {
+  "id": "story-short-30s",
+  "title": "Story short (30 s, portrait)",
+  "useFor": "A 30-second vertical story for Shorts / Reels / TikTok: a slow establishing shot, a flat-vector character acting a beat, a day-to-night turn, story captions and an emotional end card. Silent-film pacing, ready for a music bed.",
+  "format": "portrait",
+  "background": "#1b2236",
+  "tags": [
+   "story",
+   "short",
+   "character",
+   "narrative",
+   "vertical",
+   "portrait",
+   "reel",
+   "tiktok",
+   "fable",
+   "fairy tale",
+   "kids",
+   "emotional",
+   "storytelling",
+   "animation",
+   "silent film"
+  ],
+  "scenes": [
+   {
+    "duration": 250,
+    "transition": {
+     "type": "fade",
+     "frames": 20
+    },
+    "layers": [
+     {
+      "motion": "parallax-landscape",
+      "props": {
+       "mode": "truck",
+       "palette": "dusk",
+       "speed": 2,
+       "hero": "crane"
+      }
+     },
+     {
+      "motion": "story-caption-box",
+      "props": {
+       "variant": "box",
+       "items": [
+        {
+         "text": "Every evening, the valley goes quiet."
+        },
+        {
+         "text": "Only the little crane stays awake."
+        }
+       ],
+       "framesPerItem": 110,
+       "startFrame": 10,
+       "letterbox": false,
+       "backdrop": "none",
+       "size": 40
+      }
+     }
+    ]
+   },
+   {
+    "duration": 270,
+    "transition": {
+     "type": "fade",
+     "frames": 20
+    },
+    "layers": [
+     {
+      "motion": "character-rig-2d",
+      "props": {
+       "say": "I walked the long way home.",
+       "sayAt": 60,
+       "walkInFrames": 50,
+       "background": "#F4EBDD",
+       "floor": "#D9C9B2",
+       "shirt": "#C2553F",
+       "accent": "#F2C14E"
+      }
+     },
+     {
+      "motion": "story-caption-box",
+      "props": {
+       "variant": "box",
+       "items": [
+        {
+         "text": "Theo walked home the long way,"
+        },
+        {
+         "text": "just to wave at the crane."
+        }
+       ],
+       "framesPerItem": 110,
+       "startFrame": 40,
+       "letterbox": false,
+       "backdrop": "none",
+       "size": 40
+      }
+     }
+    ]
+   },
+   {
+    "duration": 240,
+    "transition": {
+     "type": "fade",
+     "frames": 24
+    },
+    "layers": [
+     {
+      "motion": "time-of-day-grade",
+      "props": {
+       "lights": true,
+       "season": "off"
+      }
+     },
+     {
+      "motion": "story-caption-box",
+      "props": {
+       "variant": "box",
+       "items": [
+        {
+         "text": "By night, every window in town"
+        },
+        {
+         "text": "was lit for him."
+        }
+       ],
+       "framesPerItem": 110,
+       "startFrame": 10,
+       "letterbox": false,
+       "backdrop": "none",
+       "size": 40
+      }
+     }
+    ]
+   },
+   {
+    "duration": 170,
+    "layers": [
+     {
+      "motion": "end-card-credits",
+      "props": {
+       "layout": "storybook",
+       "title": "THE LONG WAY HOME",
+       "headline": "Some roads are worth the walk.",
+       "lines": [],
+       "credit": "",
+       "backdrop": "dusk",
+       "pullBack": true,
+       "cta": "",
+       "fadeToBlack": true
+      }
+     }
+    ]
+   }
+  ],
+  "overlays": [
+   {
+    "motion": "film-look",
+    "from": 0,
+    "duration": 900,
+    "props": {
+     "overlay": true,
+     "grain": 0.05,
+     "vignette": 0.3,
+     "flare": false,
+     "letterbox": "off",
+     "bloom": 0,
+     "fringe": 0
+    }
+   }
+  ],
+  "notes": "Write your own story in four beats: place, character, turn, last line. Replace the story-caption-box items (one or two short lines each, kept in the lower third clear of the platform UI), character-rig-2d.say / cues / colours (swap parts for your own art), the end-card title and headline. Try style \"flat-vector\" or \"paper-diorama\" on any scene. Slow, quiet pacing works best: put a soft music bed under it."
+ },
+ {
   "id": "success-celebration",
   "title": "Success celebration",
   "useFor": "The \"done!\" moment: order placed, payment received, level complete, onboarding finished — a drawn check with a confetti burst.",
@@ -1184,6 +3300,125 @@ export const recipes: Recipe[] = [
    }
   ],
   "notes": "For an in-app overlay use just the confetti layer: <MotionPlayer motion=\"confetti-burst\" overlay loop={false}/> over your UI. icon can be check | heart | star | bolt."
+ },
+ {
+  "id": "take-apart-explainer",
+  "title": "Take-apart explainer (22 s)",
+  "useFor": "A hardware teardown / 'what is inside' film: a product turns on a studio turntable, a 3D assembly separates part by part with numbered labels, a cutaway slices it open, then a closing title. Dark graphite, one orange accent.",
+  "format": "landscape",
+  "background": "#0d0f14",
+  "tags": [
+   "teardown",
+   "take apart",
+   "exploded view",
+   "product",
+   "hardware",
+   "inside",
+   "engineering",
+   "3d",
+   "explainer",
+   "assembly",
+   "parts",
+   "labels",
+   "device",
+   "gadget",
+   "sim lab"
+  ],
+  "scenes": [
+   {
+    "duration": 150,
+    "transition": {
+     "type": "fade",
+     "frames": 14
+    },
+    "style": "teardown",
+    "layers": [
+     {
+      "motion": "product-turntable-3d",
+      "props": {
+       "shape": "can",
+       "bodyColor": "#d9dde2",
+       "colors": [
+        "#ff7a3c",
+        "#2b2f3a",
+        "#ff7a3c"
+       ],
+       "headline": "Inside the drive unit",
+       "subline": "Seven parts, one tube.",
+       "orbit": 30
+      }
+     }
+    ]
+   },
+   {
+    "duration": 240,
+    "transition": {
+     "type": "fade",
+     "frames": 14
+    },
+    "style": "teardown",
+    "layers": [
+     {
+      "motion": "exploded-view-3d",
+      "props": {
+       "variant": "explode",
+       "labels": true,
+       "accent": "#ff9a5c",
+       "explodeAt": 20,
+       "reassembleAt": 170,
+       "orbitSpeed": 5
+      }
+     }
+    ]
+   },
+   {
+    "duration": 200,
+    "transition": {
+     "type": "fade",
+     "frames": 16
+    },
+    "style": "teardown",
+    "layers": [
+     {
+      "motion": "exploded-view-3d",
+      "props": {
+       "variant": "cutaway",
+       "labels": true,
+       "accent": "#ff9a5c",
+       "explodeAt": 20,
+       "orbitSpeed": 6,
+       "scale": 1.15
+      }
+     }
+    ]
+   },
+   {
+    "duration": 110,
+    "layers": [
+     {
+      "motion": "blur-in-title",
+      "props": {
+       "title": "BUILT TO BE OPENED",
+       "subtitle": "Every part exactly where it belongs.",
+       "swapTo": null,
+       "backdrop": "ink",
+       "background": "#0d0f14",
+       "font": "sans",
+       "weight": 600,
+       "size": 72,
+       "tracking": 0.35,
+       "subtitleFont": "sans",
+       "subtitleItalic": false,
+       "subtitleColor": "#ff9a5c",
+       "fadeOut": false,
+       "glow": 0.15,
+       "kicker": "TEARDOWN"
+      }
+     }
+    ]
+   }
+  ],
+  "notes": "Swap the product: product-turntable-3d.shape (can | bottle | box | phone), colours and labelSrc, and the exploded-view-3d.parts table (name, spec, mesh, pos, size, dir, dist) to describe your own assembly, in the order the labels should number. Cutaway shows the shell sliced open; use explode for the full separation. Replace the headline, subline, title and subtitle. The teardown style gives the dark graphite studio with an orange index accent."
  },
  {
   "id": "testimonial-chat",
@@ -1317,5 +3552,464 @@ export const recipes: Recipe[] = [
    }
   ],
   "notes": "Set ken-burns.src to your photo (public/ path or https URL) and the story-caption-box.items to the quote and name."
+ },
+ {
+  "id": "ui-morph-loop",
+  "title": "UI morph loop (14 s)",
+  "useFor": "A seamless 14-second loop for a landing-page hero, app promo or showreel tile: one rounded rectangle morphs through a button, loader, check, player, slider, tabs, chart, search and toast on a 120 BPM beat while a cursor clicks every change.",
+  "format": "landscape",
+  "duration": 420,
+  "background": "#EDEBE7",
+  "tags": [
+   "ui",
+   "morph",
+   "loop",
+   "seamless",
+   "hero",
+   "button",
+   "toggle",
+   "slider",
+   "app",
+   "product",
+   "interface",
+   "ui motion",
+   "120 bpm",
+   "minimal",
+   "light"
+  ],
+  "web": {
+   "loop": "restart"
+  },
+  "layers": [
+   {
+    "motion": "ui-shape-morph",
+    "role": "subject",
+    "style": "light-editorial-minimal",
+    "props": {
+     "states": [
+      {
+       "kind": "button",
+       "label": "Get started",
+       "width": 300,
+       "height": 96,
+       "radius": 48,
+       "color": "#F2561D"
+      },
+      {
+       "kind": "loader",
+       "label": "",
+       "width": 96,
+       "height": 96,
+       "radius": 48,
+       "color": "#F2561D"
+      },
+      {
+       "kind": "check",
+       "label": "",
+       "width": 96,
+       "height": 96,
+       "radius": 48,
+       "color": "#17171B"
+      },
+      {
+       "kind": "pill",
+       "label": "Order confirmed",
+       "width": 360,
+       "height": 80,
+       "radius": 40,
+       "color": "#17171B"
+      },
+      {
+       "kind": "player",
+       "label": "Morning Radio",
+       "width": 580,
+       "height": 132,
+       "radius": 38,
+       "color": "#17171B"
+      },
+      {
+       "kind": "slider",
+       "label": "",
+       "width": 540,
+       "height": 96,
+       "radius": 48,
+       "color": "#FFFFFF"
+      },
+      {
+       "kind": "toggle",
+       "label": "",
+       "width": 180,
+       "height": 96,
+       "radius": 48,
+       "color": "#F2561D"
+      },
+      {
+       "kind": "tabs",
+       "label": "",
+       "width": 560,
+       "height": 96,
+       "radius": 48,
+       "color": "#DDD9D0"
+      },
+      {
+       "kind": "chart",
+       "label": "This week",
+       "width": 520,
+       "height": 320,
+       "radius": 36,
+       "color": "#FFFFFF"
+      },
+      {
+       "kind": "search",
+       "label": "Search anything",
+       "width": 600,
+       "height": 96,
+       "radius": 48,
+       "color": "#FFFFFF"
+      },
+      {
+       "kind": "toast",
+       "label": "Saved to your library",
+       "width": 580,
+       "height": 112,
+       "radius": 40,
+       "color": "#17171B"
+      },
+      {
+       "kind": "button",
+       "label": "Share",
+       "width": 240,
+       "height": 96,
+       "radius": 48,
+       "color": "#17171B"
+      },
+      {
+       "kind": "loader",
+       "label": "",
+       "width": 96,
+       "height": 96,
+       "radius": 48,
+       "color": "#17171B"
+      },
+      {
+       "kind": "check",
+       "label": "",
+       "width": 96,
+       "height": 96,
+       "radius": 48,
+       "color": "#F2561D"
+      },
+      {
+       "kind": "pill",
+       "label": "Invite sent",
+       "width": 320,
+       "height": 80,
+       "radius": 40,
+       "color": "#F2561D"
+      },
+      {
+       "kind": "toggle",
+       "label": "",
+       "width": 180,
+       "height": 96,
+       "radius": 48,
+       "color": "#17171B"
+      },
+      {
+       "kind": "player",
+       "label": "Evening Mix",
+       "width": 580,
+       "height": 132,
+       "radius": 38,
+       "color": "#F2561D"
+      },
+      {
+       "kind": "chart",
+       "label": "This month",
+       "width": 520,
+       "height": 320,
+       "radius": 36,
+       "color": "#FFFFFF"
+      },
+      {
+       "kind": "slider",
+       "label": "",
+       "width": 540,
+       "height": 96,
+       "radius": 48,
+       "color": "#FFFFFF"
+      },
+      {
+       "kind": "tabs",
+       "label": "",
+       "width": 560,
+       "height": 96,
+       "radius": 48,
+       "color": "#DDD9D0"
+      },
+      {
+       "kind": "search",
+       "label": "Find a file",
+       "width": 600,
+       "height": 96,
+       "radius": 48,
+       "color": "#FFFFFF"
+      },
+      {
+       "kind": "toast",
+       "label": "Link copied",
+       "width": 460,
+       "height": 112,
+       "radius": 40,
+       "color": "#17171B"
+      },
+      {
+       "kind": "pill",
+       "label": "Back in a moment",
+       "width": 400,
+       "height": 80,
+       "radius": 40,
+       "color": "#17171B"
+      },
+      {
+       "kind": "loader",
+       "label": "",
+       "width": 96,
+       "height": 96,
+       "radius": 48,
+       "color": "#F2561D"
+      },
+      {
+       "kind": "check",
+       "label": "",
+       "width": 96,
+       "height": 96,
+       "radius": 48,
+       "color": "#17171B"
+      },
+      {
+       "kind": "toggle",
+       "label": "",
+       "width": 180,
+       "height": 96,
+       "radius": 48,
+       "color": "#F2561D"
+      },
+      {
+       "kind": "slider",
+       "label": "",
+       "width": 540,
+       "height": 96,
+       "radius": 48,
+       "color": "#FFFFFF"
+      },
+      {
+       "kind": "button",
+       "label": "Get started",
+       "width": 300,
+       "height": 96,
+       "radius": 48,
+       "color": "#F2561D"
+      }
+     ],
+     "beatFrames": 15,
+     "startFrame": 0,
+     "cursor": false,
+     "accent": "#F2561D",
+     "background": "#EDEBE7",
+     "ink": "#17171B",
+     "frameFill": 0.5
+    }
+   },
+   {
+    "motion": "cursor-driver",
+    "role": "accent",
+    "props": {
+     "demo": false,
+     "background": "transparent",
+     "keys": [
+      {
+       "frame": 0,
+       "x": 62,
+       "y": 58,
+       "action": "move"
+      },
+      {
+       "frame": 24,
+       "x": 60,
+       "y": 54,
+       "action": "click"
+      },
+      {
+       "frame": 39,
+       "x": 46,
+       "y": 52,
+       "action": "click"
+      },
+      {
+       "frame": 54,
+       "x": 58,
+       "y": 48,
+       "action": "click"
+      },
+      {
+       "frame": 69,
+       "x": 50,
+       "y": 56,
+       "action": "click"
+      },
+      {
+       "frame": 84,
+       "x": 64,
+       "y": 50,
+       "action": "click"
+      },
+      {
+       "frame": 99,
+       "x": 44,
+       "y": 50,
+       "action": "click"
+      },
+      {
+       "frame": 114,
+       "x": 56,
+       "y": 52,
+       "action": "click"
+      },
+      {
+       "frame": 129,
+       "x": 52,
+       "y": 50,
+       "action": "click"
+      },
+      {
+       "frame": 144,
+       "x": 60,
+       "y": 54,
+       "action": "click"
+      },
+      {
+       "frame": 159,
+       "x": 46,
+       "y": 52,
+       "action": "click"
+      },
+      {
+       "frame": 174,
+       "x": 58,
+       "y": 48,
+       "action": "click"
+      },
+      {
+       "frame": 189,
+       "x": 50,
+       "y": 56,
+       "action": "click"
+      },
+      {
+       "frame": 204,
+       "x": 64,
+       "y": 50,
+       "action": "click"
+      },
+      {
+       "frame": 219,
+       "x": 44,
+       "y": 50,
+       "action": "click"
+      },
+      {
+       "frame": 234,
+       "x": 56,
+       "y": 52,
+       "action": "click"
+      },
+      {
+       "frame": 249,
+       "x": 52,
+       "y": 50,
+       "action": "click"
+      },
+      {
+       "frame": 264,
+       "x": 60,
+       "y": 54,
+       "action": "click"
+      },
+      {
+       "frame": 279,
+       "x": 46,
+       "y": 52,
+       "action": "click"
+      },
+      {
+       "frame": 294,
+       "x": 58,
+       "y": 48,
+       "action": "click"
+      },
+      {
+       "frame": 309,
+       "x": 50,
+       "y": 56,
+       "action": "click"
+      },
+      {
+       "frame": 324,
+       "x": 64,
+       "y": 50,
+       "action": "click"
+      },
+      {
+       "frame": 339,
+       "x": 44,
+       "y": 50,
+       "action": "click"
+      },
+      {
+       "frame": 354,
+       "x": 56,
+       "y": 52,
+       "action": "click"
+      },
+      {
+       "frame": 369,
+       "x": 52,
+       "y": 50,
+       "action": "click"
+      },
+      {
+       "frame": 384,
+       "x": 60,
+       "y": 54,
+       "action": "click"
+      },
+      {
+       "frame": 399,
+       "x": 46,
+       "y": 52,
+       "action": "click"
+      },
+      {
+       "frame": 402,
+       "x": 50,
+       "y": 50,
+       "action": "click"
+      },
+      {
+       "frame": 420,
+       "x": 62,
+       "y": 58,
+       "action": "move"
+      }
+     ],
+     "style": "arrow",
+     "color": "#111111",
+     "rippleColor": "#F2561D",
+     "size": 46
+    }
+   }
+  ],
+  "notes": "28 states x 15 frames = 420 frames (14 s at 30 fps, 120 BPM); the last state repeats the first so the loop is seamless: loop it for exactly 420 frames. Edit ui-shape-morph.states (kind, label, size, radius, colour), set accent and background to your brand, beatFrames to your tempo (15 = 120 BPM; keep states x beatFrames equal to the duration). cursor-driver.keys click once per change (frame, x/y in % of the frame); drop that layer and set ui-shape-morph.cursor true for the built-in pointer. The light-editorial-minimal style keeps one orange accent and drains other hues, so use a single accent colour. On a dark site use background \"#0E0E10\" with ink \"#EDEBE7\"."
  }
 ] as Recipe[];

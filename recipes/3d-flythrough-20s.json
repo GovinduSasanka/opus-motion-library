@@ -1,0 +1,146 @@
+{
+  "id": "3d-flythrough-20s",
+  "title": "3D world flythrough (20 s)",
+  "useFor": "A cinematic 20-second flight over a procedurally built 3D world: a mountain valley assembles itself and the camera glides past the peak through low cloud, then skims a golden-hour sea, with a title card. Film-grade grade and slow camera.",
+  "format": "landscape",
+  "background": "#0b0f1a",
+  "tags": [
+    "3d",
+    "flythrough",
+    "fly-through",
+    "world",
+    "terrain",
+    "mountain",
+    "landscape",
+    "cinematic",
+    "drone",
+    "aerial",
+    "trailer",
+    "fantasy",
+    "golden hour",
+    "clouds",
+    "ocean",
+    "title"
+  ],
+  "scenes": [
+    {
+      "duration": 420,
+      "transition": {
+        "type": "fade",
+        "frames": 18
+      },
+      "style": "cinematic-3d",
+      "layers": [
+        {
+          "motion": "terrain-build-3d",
+          "props": {
+            "stageFrames": 6,
+            "flybyFrames": 360,
+            "showCode": false,
+            "showTitle": false,
+            "sunElevation": 7,
+            "seed": 3
+          }
+        },
+        {
+          "motion": "fog-clouds",
+          "blend": "screen",
+          "opacity": 0.45,
+          "props": {
+            "style": "mist",
+            "background": "transparent",
+            "sun": true,
+            "speed": 30,
+            "density": 0.5,
+            "ridge": false
+          }
+        },
+        {
+          "motion": "blur-in-title",
+          "from": 90,
+          "props": {
+            "kicker": "FLIGHT ONE",
+            "title": "THE HIGH COUNTRY",
+            "subtitle": "a valley that no one has walked",
+            "swapTo": null,
+            "backdrop": "none",
+            "background": "transparent",
+            "font": "serif",
+            "size": 88,
+            "tracking": 0.6,
+            "glow": 0.5,
+            "fadeOut": true
+          }
+        }
+      ]
+    },
+    {
+      "duration": 200,
+      "style": {
+        "id": "cinematic-3d",
+        "strength": 0.6
+      },
+      "layers": [
+        {
+          "motion": "ocean-surface-3d",
+          "props": {
+            "camera": "drift",
+            "sunElevation": 14,
+            "waveHeight": 0.9,
+            "fog": 0.4,
+            "title": "",
+            "subtitle": "",
+            "sunAzimuth": 20
+          }
+        },
+        {
+          "motion": "fog-clouds",
+          "blend": "screen",
+          "opacity": 0.3,
+          "props": {
+            "style": "cumulus",
+            "background": "transparent",
+            "sun": false,
+            "layers": 2,
+            "density": 0.35,
+            "speed": 14
+          }
+        },
+        {
+          "motion": "blur-in-title",
+          "from": 50,
+          "props": {
+            "title": "BEYOND THE COAST",
+            "subtitle": "to be continued",
+            "swapTo": null,
+            "backdrop": "none",
+            "background": "transparent",
+            "font": "serif",
+            "size": 80,
+            "tracking": 0.6,
+            "glow": 0.5,
+            "fadeOut": true,
+            "layout": "lower-left"
+          }
+        }
+      ]
+    }
+  ],
+  "overlays": [
+    {
+      "motion": "film-look",
+      "from": 0,
+      "duration": 604,
+      "props": {
+        "overlay": true,
+        "grain": 0.06,
+        "vignette": 0.3,
+        "flare": false,
+        "letterbox": "off",
+        "bloom": 0,
+        "fringe": 0.5
+      }
+    }
+  ],
+  "notes": "Replace the two titles and kicker / subtitle. terrain-build-3d: seed (different mountain), sunElevation / sunAzimuth, colors, camera (fly | dive), trail (a glowing route down the slope), look (natural | contours); raise stageFrames (up to 48) to show the world being built before the flight, with showCode / showTitle for the build overlay. ocean-surface-3d: camera (low | high | drift), sun, colours. For a stylised world swap in hex-island-grow, voxel-diorama or iso-city-build. The cinematic-3d style adds the golden-hour grade and 2.39:1 bars; the 3D motions are heavy, so export to mp4 / webm for mobile web."
+}

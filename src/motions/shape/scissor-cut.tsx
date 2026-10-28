@@ -120,7 +120,7 @@ const ScissorCut: React.FC<Props> = ({title, subtitle, revealText, src, path, sn
   let botT = '';
   let backShow = false;
   if (separate === 'lift') {
-    topT = `translate(${sepT * W * 0.05} ${-sepT * H * 0.66}) rotate(${-sepT * 3.5} ${x0 + W / 2} ${cutY})`;
+    topT = `translate(${sepT * W * 0.05} ${-sepT * (y0 + H * 0.8)}) rotate(${-sepT * 3.5} ${x0 + W / 2} ${cutY})`;
   } else if (separate === 'flip') {
     const th = sepT * Math.PI;
     const sy = Math.cos(th);

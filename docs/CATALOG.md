@@ -40,6 +40,15 @@ Choosing: `node cli/mgl.mjs suggest "<what you need>"` and [CHOOSING.md](CHOOSIN
 
 Ready-made mixes in `recipes/` — render with `node cli/mgl.mjs recipe <id>`, play on the web with `<MotionBackground recipe="<id>">` / `<MotionMix recipe="<id>">` / `<opus-motion recipe="<id>">`.
 
+### `3d-flythrough-20s` — 3D world flythrough (20 s) (landscape)
+
+![3d-flythrough-20s](../recipes/previews/3d-flythrough-20s.jpg)
+
+A cinematic 20-second flight over a procedurally built 3D world: a mountain valley assembles itself and the camera glides past the peak through low cloud, then skims a golden-hour sea, with a title card. Film-grade grade and slow camera.
+
+**Mix:** `terrain-build-3d` + `fog-clouds` + `blur-in-title` → `ocean-surface-3d` + `fog-clouds` + `blur-in-title`  
+**Customise:** Replace the two titles and kicker / subtitle. terrain-build-3d: seed (different mountain), sunElevation / sunAzimuth, colors, camera (fly | dive), trail (a glowing route down the slope), look (natural | contours); raise stageFrames (up to 48) to show the world being built before the flight, with showCode / showTitle for the build overlay. ocean-surface-3d: camera (low | high | drift), sun, colours. For a stylised world swap in hex-island-grow, voxel-diorama or iso-city-build. The cinematic-3d style adds the golden-hour grade and 2.39:1 bars; the 3D motions are heavy, so export to mp4 / webm for mobile web.
+
 ### `app-store-preview` — App store preview (portrait) (portrait)
 
 ![app-store-preview](../recipes/previews/app-store-preview.jpg)
@@ -48,6 +57,15 @@ A vertical 9:16 app preview / store video / story ad: hook title, the app conver
 
 **Mix:** `aurora` + `blur-in-title` → `sms-thread` → `number-counter` + `sparkle-burst`  
 **Customise:** All three scenes are resolution independent; render with --format portrait (default for this recipe). Replace the hook title, sms-thread texts and the rating.
+
+### `data-story-60s` — Data story (22 s cut) (landscape)
+
+![data-story-60s](../recipes/previews/data-story-60s.jpg)
+
+A short data-journalism beat: a question, the answer shown as one icon per person, a globe for 'where', and a single takeaway number. Replace the figures with your own; extend a scene or add a chart to reach 60 s.
+
+**Mix:** `kinetic-type-slam` → `isotype-count` → `globe-3d` + `number-counter` → `kinetic-type-slam`  
+**Customise:** Illustrative figures (about 57 of every 100 people live in cities): replace them with your own sourced numbers and name the source on screen or in the narration. isotype-count: count, highlight, unitValue, unitLabel, icon (person | drop | house | cup | box | tree), arrangement (grid | bar | row | heart). globe-3d: points / arcs / focus for the geography; number-counter: keyframes, label, unit. For a 60-second version add scenes: dot-tally for a second comparison, axis-ratchet-rescale for a time series, painted-choropleth or map-route for the map.
 
 ### `end-card` — End card with call to action (landscape)
 
@@ -76,6 +94,33 @@ Countdown to a launch, live stream or event: a night city with a big counter tic
 **Mix:** `city-skyline` (backdrop) + `number-counter` (type) + `fireworks` (accent)  
 **Customise:** number-counter.keyframes counts 10 → 0 over 8 s; change the values / frames for your countdown and label. For a real-time web countdown render the number in HTML and use only city-skyline + fireworks.
 
+### `explainer-5-scene` — 5-scene explainer (30 s) (landscape)
+
+![explainer-5-scene](../recipes/previews/explainer-5-scene.jpg)
+
+A 30-second explainer for a business, product or idea: the problem, what we do, how it works in three steps (animated flow diagram), one proof number, then your name and a call to action. Built to take captions and a narration track.
+
+**Mix:** `panel-triptych` → `kinetic-type-slam` → `flow-diagram` + `kinetic-captions` → `number-counter` → `logo-assemble` + `end-card-credits`  
+**Customise:** Replace every text: panel-triptych.title / panels / caption (pass src for real screenshots), the two kinetic-type-slam lines, flow-diagram nodes + edges (3-5 nodes; icons: bolt shield chart chat globe spark lock cog user db cloud star queue server mail), the captions, the number-counter keyframes + label, and the name, tagline and CTA of the last scene. Narrate it with the CLI voice command and use the caption lines as the script, one line per sentence; extend a scene's duration to fit each sentence. Scene 3 is the hero of the film: give it the longest line of narration.
+
+### `game-trailer-20s` — Game trailer (20 s) (landscape)
+
+![game-trailer-20s](../recipes/previews/game-trailer-20s.jpg)
+
+A 20-second trailer or store teaser for a game: logo sting, gameplay shot with the in-game HUD, three impact hits, a loot reveal and a release date. Works for mobile, indie and arcade titles.
+
+**Mix:** `chrome-title-slam` → `ken-burns` + `game-hud` → `impact-frame` → `loot-reveal` → `embers` + `mask-rise-title`  
+**Customise:** Replace the game name and tagline (chrome-title-slam), pass your own gameplay still or footage frame to ken-burns.src and your HUD values (game-hud.bars, score, feed; theme arcade | modern | pixel), the three impact words, the loot-reveal item (title, rarity, container, image) and the release-date lines. Recolour chrome-title-slam.skyColors / sunColors / neon for your palette. For footage, replace ken-burns with a screen-recording clip and keep game-hud transparent on top.
+
+### `generative-loop` — Generative loop (hero background) (landscape)
+
+![generative-loop](../recipes/previews/generative-loop.jpg)
+
+A 12-second looping generative backdrop for a website hero, app splash or live-visuals wall: a particle cloud morphs sphere, torus, ring and cube and back, glowing over drifting mesh-gradient light. Words go in HTML above it.
+
+**Mix:** `mesh-gradient-bg` (backdrop) + `particle-shape-morph` (subject)  
+**Customise:** A 360-frame (12 s) loop: the cloud returns to the sphere it started as and the rotation completes one full turn, and the web player cross-fades the seam (web.loop: crossfade). Behind HTML text keep opacity at 0.7-0.9 and use <MotionBackground recipe="generative-loop">. Recolour with mesh-gradient-bg.colors and particle-shape-morph.colors / coreColor; lower particle-shape-morph.count (1500-2500) for mobile. Reduced motion: export a poster frame (mgl export generative-loop --as poster --frame 100) and show it as a still.
+
 ### `hero-aurora-night` — Aurora night hero (landscape)
 
 ![hero-aurora-night](../recipes/previews/hero-aurora-night.jpg)
@@ -103,6 +148,15 @@ Warm, human, hand-made hero for craft / education / indie brands: a headline han
 **Mix:** `handwrite-on` (type) + `flow-lines` (accent)  
 **Customise:** Replace handwrite-on.lines. Plays once and holds (writing should not loop). For a looping web background drop the type layer and keep the paper + wind lines.
 
+### `history-film-90s` — History film (24 s cut) (landscape)
+
+![history-film-90s](../recipes/previews/history-film-90s.jpg)
+
+A short documentary-style history of anything: a title over an aged photo plate, a ruler of years gliding under a playhead with pinned event cards and a rolling year counter, then a closing 'today' card. Film-print finish. Extend the events for a longer cut.
+
+**Mix:** `ken-burns` + `blur-in-title` → `timeline-ruler` → `ken-burns` + `blur-in-title`  
+**Customise:** Replace the events (date as a 4-digit year, title, one line of body, optional image under public/, icon), the opening title / subtitle and the closing card. About 80 frames per event: add events and lengthen the second scene to match; scale 'even' gives equal gaps ('linear' spaces them by years). Swap ken-burns.src for your archive photos. The film-look print overlay adds dust, scratches and flicker; lower scratches / dust for a cleaner look. Narrate with the CLI voice command: one sentence per event.
+
 ### `history-timeline` — History timeline dial (landscape)
 
 ![history-timeline](../recipes/previews/history-timeline.jpg)
@@ -112,6 +166,15 @@ A company history, product versions or "how we got here" timeline: a blueprint d
 **Mix:** `era-dial` (subject) + `film-look` (frame)  
 **Customise:** Replace era-dial.eras (label, year, icon: plan | press | book | computer | monitor | network). stepFrames × eras ≈ duration.
 
+### `kinetic-type-film` — Kinetic type film (20 s) (landscape)
+
+![kinetic-type-film](../recipes/previews/kinetic-type-film.jpg)
+
+A 20-second kinetic-typography film for a speech, manifesto, brand belief or poem: huge phrases land one word per beat on a 120 BPM grid in one accent colour, then it ends on a wordmark.
+
+**Mix:** `kinetic-type-slam` → `kinetic-type-slam` → `logo-assemble`  
+**Customise:** Replace the lines with your own text: 2-4 words each, accent = the one word that takes the colour (an index also works). beatFrames sets the beat (15 = 120 BPM, 10 = 180 BPM); use the 'center' layout (one word at a time) for short punchy phrases and 'stack' for longer ones. Keep one accent colour. For a dark version: background "#0E0E10", ink "#F3EFE6". End scene: logo-assemble.text / tagline (or src for an SVG logo).
+
 ### `loading-loop` — Loading loop (square)
 
 ![loading-loop](../recipes/previews/loading-loop.jpg)
@@ -120,6 +183,15 @@ Seamless loading / waiting / processing loop for splash screens, empty states an
 
 **Mix:** `sonar-ping` (subject)  
 **Customise:** A 144-frame (3 × 48) sonar loop with no picture windows. Recolour with color and background. For dark UIs: background "#0E1116", color "#7AA2FF", paper false.
+
+### `lyric-video-vertical` — Lyric video (vertical) (portrait)
+
+![lyric-video-vertical](../recipes/previews/lyric-video-vertical.jpg)
+
+A 9:16 lyric video for a song, hook or spoken-word track: big lyric lines that fill word by word on the beat over a dimmed audio spectrum, a beat-cut montage drop, then an end card. Swap in your timed lyrics and your track.
+
+**Mix:** `audio-spectrum` + `lyric-video` → `beat-montage` → `audio-spectrum` + `end-card-credits`  
+**Customise:** Replace lyric-video.lines with your lyrics (or pass timed `lyrics` [{text, start, end, words}] from a transcription for exact sync) and set bpm / offsetSec to your song's grid (cli/beats.py finds them). Add your track as audio (spec.audio.music, or play it from the host) and pass its file to both audio-spectrum.src layers so the bars follow the real audio. beat-montage.images takes your artwork or stills; recolour with accent colours. Keep lyrics in the middle third, clear of the platform UI.
 
 ### `music-neon-promo` — Neon music promo (landscape)
 
@@ -148,6 +220,15 @@ Explain a 3-step process or onboarding flow: a blueprint drawing builds while nu
 **Mix:** `line-draw-on` (subject) + `chapter-header` (type)  
 **Customise:** Replace chapter-header.stages (one per step) and stageFrames (= duration / steps). line-draw-on.paths can draw your own SVG icon / product outline.
 
+### `pixel-short-loop` — Pixel short loop (landscape)
+
+![pixel-short-loop](../recipes/previews/pixel-short-loop.jpg)
+
+A looping pixel-art scene for a stream background, game page, retro greeting or festival card: a night sky with aurora and drifting pixel snow behind a wizard (or knight / cat) who idles, charges and casts, finished with a soft CRT / VHS pass.
+
+**Mix:** `pixel-sprite-scene` (subject) + `aurora` (accent) + `snowfall` (accent) + `vhs-crt-pass` (frame)  
+**Customise:** Two 220-frame wizard cycles (idle, charge, cast, recover) make a 440-frame (14.7 s) loop; the web player cross-fades the seam. Change pixel-sprite-scene.sprite (wizard | knight | cat | custom), palette and states; keep aurora / snowfall pixelSize equal to pixel-sprite-scene.pixelFactor (12) so every pixel sits on one grid. For a festival scene change the palette and swap the aurora for fireworks or falling-petals. Drop vhs-crt-pass for crisp pixels, or add style "pixel-8bit" for an even chunkier look.
+
 ### `product-launch` — Product launch intro (landscape)
 
 ![product-launch](../recipes/previews/product-launch.jpg)
@@ -157,6 +238,15 @@ A 12-second launch / announcement video: teaser title over night sky, the produc
 **Mix:** `starfield-night` + `blur-in-title` → `browser-mockup` → `fireworks` + `mask-rise-title`  
 **Customise:** Replace the texts in all three scenes. browser-mockup.heroSrc can show your real screenshot. Swap the fireworks scene for confetti-burst for a lighter, daytime brand.
 
+### `saas-launch-30s` — SaaS launch film (30 s) (landscape)
+
+![saas-launch-30s](../recipes/previews/saas-launch-30s.jpg)
+
+A slick 30-second product-launch video for a software startup: a hook question over a mesh-gradient, the product in a device, a cursor operating the UI, a feature bento, one proof number, then logo and call to action.
+
+**Mix:** `mesh-gradient-bg` + `kinetic-type-slam` → `mesh-gradient-bg` + `device-mockup` → `mesh-gradient-bg` + `cursor-driver` → `mesh-gradient-bg` + `card-stack-cascade` → `mesh-gradient-bg` + `number-counter` → `logo-assemble` + `mesh-gradient-bg` + `end-card-credits`  
+**Customise:** Replace every text: the hook lines (2-4 words each, accent = the word that takes the colour), device-mockup.headline / brand (pass src for a real screenshot; fit:"scroll" for a tall one), cursor-driver.demoText, the six card-stack-cascade.cards, the number-counter label / keyframes, and the logo text, tagline and CTA. Recolour by passing your brand colours to mesh-gradient-bg.colors, accent and ctaColor. Swap logo-assemble.src for your SVG logo.
+
 ### `section-divider` — Section divider wipe (landscape)
 
 ![section-divider](../recipes/previews/section-divider.jpg)
@@ -165,6 +255,15 @@ A soft, full-width animated band between website sections, or a quick chapter br
 
 **Mix:** `flow-lines` (backdrop) + `chapter-header` (type)  
 **Customise:** On the web, give MotionBackground a short height (e.g. 160–240 px) with fit cover — the waves read as a divider band; drop the type layer (default) and put your section title in HTML.
+
+### `showreel-15s` — Motion showreel (15 s) (landscape)
+
+![showreel-15s](../recipes/previews/showreel-15s.jpg)
+
+A punchy 15-second showreel / portfolio opener / 'what we can make' sizzle: a hook word, five hard cuts of contrasting motions on a 120 BPM grid, then a logo lock-up. Dark tech-minimal.
+
+**Mix:** `kinetic-type-slam` → `ui-shape-morph` → `particle-shape-morph` → `line-draw-on` → `hex-island-grow` → `number-counter` → `logo-assemble`  
+**Customise:** Hook word, logo text and tagline are placeholders: replace them, and pass your accent colour to every accent / colors / highlightColor prop. Each cut is 45 frames = 3 beats at 120 BPM (15 frames per beat); keep cuts on multiples of your beat and swap any cut for another contrasting motion (iso-bar-chart, number-counter, voxel-diorama, ocean-surface-3d, pointcloud-orbit). Use offset to skip a motion's slow intro. Audio: lay a track with cli/beats.py analysis and keep the cuts on its grid.
 
 ### `social-short-captions` — Social short with captions (portrait) (portrait)
 
@@ -184,6 +283,15 @@ One big number with context — users, revenue, growth — for an "in numbers" w
 **Mix:** `number-counter` (type) + `flow-lines` (accent) + `star-glint` (accent)  
 **Customise:** Set number-counter.keyframes ([[frame, value], …]; two close keys = dwell), label, prefix ("$") and unit ("%"). Web: plays once on view and holds the final number.
 
+### `story-short-30s` — Story short (30 s, portrait) (portrait)
+
+![story-short-30s](../recipes/previews/story-short-30s.jpg)
+
+A 30-second vertical story for Shorts / Reels / TikTok: a slow establishing shot, a flat-vector character acting a beat, a day-to-night turn, story captions and an emotional end card. Silent-film pacing, ready for a music bed.
+
+**Mix:** `parallax-landscape` + `story-caption-box` → `character-rig-2d` + `story-caption-box` → `time-of-day-grade` + `story-caption-box` → `end-card-credits`  
+**Customise:** Write your own story in four beats: place, character, turn, last line. Replace the story-caption-box items (one or two short lines each, kept in the lower third clear of the platform UI), character-rig-2d.say / cues / colours (swap parts for your own art), the end-card title and headline. Try style "flat-vector" or "paper-diorama" on any scene. Slow, quiet pacing works best: put a soft music bed under it.
+
 ### `success-celebration` — Success celebration (square)
 
 ![success-celebration](../recipes/previews/success-celebration.jpg)
@@ -192,6 +300,15 @@ The "done!" moment: order placed, payment received, level complete, onboarding f
 
 **Mix:** `heart-draw-fill` (subject) + `confetti-burst` (accent)  
 **Customise:** For an in-app overlay use just the confetti layer: <MotionPlayer motion="confetti-burst" overlay loop={false}/> over your UI. icon can be check | heart | star | bolt.
+
+### `take-apart-explainer` — Take-apart explainer (22 s) (landscape)
+
+![take-apart-explainer](../recipes/previews/take-apart-explainer.jpg)
+
+A hardware teardown / 'what is inside' film: a product turns on a studio turntable, a 3D assembly separates part by part with numbered labels, a cutaway slices it open, then a closing title. Dark graphite, one orange accent.
+
+**Mix:** `product-turntable-3d` → `exploded-view-3d` → `exploded-view-3d` → `blur-in-title`  
+**Customise:** Swap the product: product-turntable-3d.shape (can | bottle | box | phone), colours and labelSrc, and the exploded-view-3d.parts table (name, spec, mesh, pos, size, dir, dist) to describe your own assembly, in the order the labels should number. Cutaway shows the shell sliced open; use explode for the full separation. Replace the headline, subline, title and subtitle. The teardown style gives the dark graphite studio with an orange index accent.
 
 ### `testimonial-chat` — Customer message testimonial (landscape)
 
@@ -210,6 +327,15 @@ A customer quote typed in a cinematic caption box over a slowly pushed-in photo 
 
 **Mix:** `ken-burns` (backdrop) + `film-look` (frame) + `story-caption-box` (type)  
 **Customise:** Set ken-burns.src to your photo (public/ path or https URL) and the story-caption-box.items to the quote and name.
+
+### `ui-morph-loop` — UI morph loop (14 s) (landscape)
+
+![ui-morph-loop](../recipes/previews/ui-morph-loop.jpg)
+
+A seamless 14-second loop for a landing-page hero, app promo or showreel tile: one rounded rectangle morphs through a button, loader, check, player, slider, tabs, chart, search and toast on a 120 BPM beat while a cursor clicks every change.
+
+**Mix:** `ui-shape-morph` (subject) + `cursor-driver` (accent)  
+**Customise:** 28 states x 15 frames = 420 frames (14 s at 30 fps, 120 BPM); the last state repeats the first so the loop is seamless: loop it for exactly 420 frames. Edit ui-shape-morph.states (kind, label, size, radius, colour), set accent and background to your brand, beatFrames to your tempo (15 = 120 BPM; keep states x beatFrames equal to the duration). cursor-driver.keys click once per change (frame, x/y in % of the frame); drop that layer and set ui-shape-morph.cursor true for the built-in pointer. The light-editorial-minimal style keeps one orange accent and drains other hues, so use a single accent colour. On a dark site use background "#0E0E10" with ink "#EDEBE7".
 
 ## motions by category
 
@@ -1336,6 +1462,8 @@ Each letter sits on its own scrap of paper (newsprint, red, black, white) with a
 
 ### `rundown-board` — Rundown board (today in this video)
 
+![rundown-board](../gallery/rundown-board.jpg)
+
 News rundown: a date block (huge numerals, lemon month, mono week, title) pushes up out of masks while ink story rows with lemon number blocks flip open one per beat with a light sweep; the first row pulses; in recap a lemon tick disc pops onto each row.
 
 **Use for:** "Today in this video" agendas, episode chapter lists, top-N intros and tick-off recaps at the end.  
@@ -1401,6 +1529,8 @@ Small glass pill in a corner with an index number, a hairline and a name; slides
 | `twitchAt` | `[50,90]` | badge: frames at which an ear twitches |
 
 ### `slice-assemble-glyph` — Slice-assemble glyph
+
+![slice-assemble-glyph](../gallery/slice-assemble-glyph.jpg)
 
 On black, a big word cut into 8–10 horizontal slices of different heights flies in from both sides at different speeds (some overshoot or sit misaligned like a glitch) and locks into place; a mono caption decodes under it and a red dot pops on at its top-right.
 
@@ -1473,6 +1603,8 @@ A rotated vermilion label slams down from 1.3x like a rubber stamp over the scen
 
 ### `sting-bug` — News sting → channel bug
 
+![sting-bug](../gallery/sting-bug.jpg)
+
 Broadcast sting: lemon slashes zip across a dark studio, a sheared lemon name plate slams in with overshoot as its letters drop in, an ellipse ring and a shake land the hit, the wordmark and mono dateline open from the centre, a glint sweeps, then the plate flies to the corner and stays as the channel bug.
 
 **Use for:** Intros for weekly updates, newsletters-as-video, YouTube news channels — opening and persistent branding in one object.  
@@ -1537,6 +1669,8 @@ Double-ruled black narrative caption box under a letterboxed scene (RPG-style ty
 
 ### `type-architecture` — Type architecture (credits as a set)
 
+![type-architecture](../gallery/type-architecture.jpg)
+
 One line of credits fills the frame as a set: letters stand as black cut-paper pillars, words ride as train carriages on wheels (or colonnade bays) on a flat red ground with telegraph wires behind, while a silhouette agent runs the rooftops, leaps the word gaps and ducks behind the line; the camera opens wide, trucks with the chase and pulls back.
 
 **Use for:** Conference programmes, team rosters, festival line-ups, feature lists: "credits as a set" for any short named list; a very distinctive opener.  
@@ -1560,6 +1694,8 @@ One line of credits fills the frame as a set: letters stand as black cut-paper p
 | `seed` | `3` | letter re-cut seed |
 
 ### `type-marquee-field` — Type marquee field
+
+![type-marquee-field](../gallery/type-marquee-field.jpg)
 
 A heavy grotesk word rises letter by letter from a baseline mask (a red dot replaces one letter), then outline and solid rows of the word fill the frame, marquee-scrolling in alternating directions while the whole field rolls ≈ −8° and pushes in.
 
@@ -1668,6 +1804,8 @@ Small lowercase credit typed into a corner two frames per character, no cursor; 
 ## transition
 
 ### `match-cut` — Match cut (shape continues)
+
+![match-cut](../gallery/match-cut.jpg)
 
 A record button in an app screen becomes a sun in a sunrise scene at exactly the same position and size: the shape is held 3 frames across the cut (scaled 1 -> 1.6 first), then scene B opens through a clip-path that grows from that shape to the full frame while the sun drifts to its rest position.
 
@@ -2221,7 +2359,7 @@ A cream sheet rules its module grid from the centre outward; Bauhaus primitives 
 
 **Use for:** Beat-synced kinetic posters, music promos, logo builds from primitives and Swiss / rational explainer intros.  
 **Rebuilt from:** mg-styles-15 demos/09-bauhaus/film.js (MIT, gridProg / target / groupAngle) + cues.json; video 0-6 s  
-**Default length:** 210 frames (7.0 s @ 30 fps)
+**Default length:** 240 frames (8.0 s @ 30 fps)
 
 **Roles:** subject · **Mood:** —  
 **Capabilities:** paints its own background · text: `title`, `subtitle` · weight: light  
@@ -3553,7 +3691,7 @@ A framed woodblock-style print sits on a tan mount; the red koi inside grows, le
 
 **Use for:** Thumbnail-style "pop out of the frame" moments for any framed media: a product leaving a phone screen, a character leaping from a comic panel, a chart line breaking its axis box; dramatic climaxes.  
 **Rebuilt from:** lemo-opuscar styles/ukiyoe/DEMO.md climax beats; STYLE.md §6 §8 (MIT, LemoLab) — original koi + print  
-**Default length:** 240 frames (8.0 s @ 30 fps)
+**Default length:** 200 frames (6.7 s @ 30 fps)
 
 **Roles:** subject · **Mood:** paper, photo, playful  
 **Capabilities:** paints its own background · image: `src` · weight: light  
@@ -7074,6 +7212,8 @@ A thick gradient tube arches out of one glowing ink-line jar and draws itself in
 
 ### `agent-log-panel` — Agent log panel
 
+![agent-log-panel](../gallery/agent-log-panel.jpg)
+
 A dark translucent side panel with a white hairline frame and a turn header, scrolling an agent conversation log: avatar dots, coloured name chips, typed mono messages with highlighted @mentions, reply rows, collapsible report rows and communication-phase dividers.
 
 **Use for:** Showing agent reasoning or chat history next to the action; multi-agent demos, customer-support and simulation promos; overlay-capable.  
@@ -7098,6 +7238,8 @@ A dark translucent side panel with a white hairline frame and a turn header, scr
 | `seed` | `12` | scene seed |
 
 ### `board-print-drop` — Board print drop
+
+![board-print-drop](../gallery/board-print-drop.jpg)
 
 Cut-out photo prints are lowered onto an enamel whiteboard from the camera side, land with a tiny bounce and spin settle while their soft shadows tighten, get pinned by two clacking magnets, and marker captions write themselves under each.
 
@@ -7194,6 +7336,8 @@ Cards deal from a pile into a fanned hand, one is hovered, played to centre and 
 
 ### `card-stack-cascade` — Card stack cascade (bento + focus)
 
+![card-stack-cascade](../gallery/card-stack-cascade.jpg)
+
 Feature cards scale in from 30 % with a fade, staggered 4 f apart, into a bento grid (or a row, or a fanned deck) with a gentle idle float; then one card flies to the centre and grows to ~60 % of the frame while the rest dim to 40 % and defocus, and everything settles back.
 
 **Use for:** Feature overviews in launch videos, website sections, pricing / plan reveals: pass `cards` (title, body, icon, span "2x1"), choose `layout`, set `focusIndex`.  
@@ -7217,6 +7361,8 @@ Feature cards scale in from 30 % with a fade, staggered 4 f apart, into a bento 
 | `background` | `""` | background colour (empty = theme default) |
 
 ### `carousel-3d` — Carousel 3D
+
+![carousel-3d](../gallery/carousel-3d.jpg)
 
 Cards or clips on a 3D ring rotate past the camera over a glossy floor with mirrored reflections; a motion-blurred whip lands the hero card face-on, which pushes forward while the others dim.
 
@@ -7271,6 +7417,8 @@ Chat bubbles and comment / prompt chips pop in one by one around a box-bot, a sp
 
 ### `circuit-rebuild` — Circuit rebuild
 
+![circuit-rebuild](../gallery/circuit-rebuild.jpg)
+
 Isometric hardware assembly on drafting paper that rebuilds itself on every step: old parts and cables pop off and retract, the camera re-frames, then base pieces slide in, small parts drop with a tiny bounce, large props grow from a floor tile and cables grow last. Step card and header stay fixed.
 
 **Use for:** Step-by-step product / hardware / architecture explainers ("add a database, then a cache"), onboarding tours, kit unboxing, any "here is step N" sequence.  
@@ -7296,6 +7444,8 @@ Isometric hardware assembly on drafting paper that rebuilds itself on every step
 | `margin` | `0.08` | auto-frame margin as a fraction of the viewport |
 
 ### `clock-calendar` — Clock and calendar time-lapse
+
+![clock-calendar](../gallery/clock-calendar.jpg)
 
 An analog clock whose hands sweep from one time to another over a night-dawn-day-dusk sky tint with a digital readout, beside a wall calendar whose pages flip (or tear off) day by day while the date rolls, ending with a pulse ring and a circled final date.
 
@@ -7328,6 +7478,8 @@ An analog clock whose hands sweep from one time to another over a night-dawn-day
 
 ### `command-palette-type` — Command palette typing
 
+![command-palette-type](../gallery/command-palette-type.jpg)
+
 A dot grows into a search / prompt bar, a caret types the query with jittered keystrokes while matching suggestions stagger in and filter themselves, Enter presses the bar (scale 0.97 plus an accent glow), the list collapses and a result card slides in and streams its answer with tag chips.
 
 **Use for:** AI products, search tools and SaaS demos: the "user types a prompt and gets an answer" shot. Pairs with cursor-driver and ui-shape-morph.  
@@ -7355,6 +7507,8 @@ A dot grows into a search / prompt bar, a caret types the query with jittered ke
 
 ### `cursor-driver` — Cursor driver (operated UI)
 
+![cursor-driver](../gallery/cursor-driver.jpg)
+
 A pointer glides on bowed ease-in-out hops, presses with a 0.88x squash and a ripple ring, drags a slider and types into a field, so UI demos look operated. With the demo card on, the settings UI reacts to it (field text, slider, toggle, save button); with `demo:false` and a transparent background it is a pure overlay for your own keys.
 
 **Use for:** Every UI demo, SaaS launch, tutorial and app preview: lay it over browser-mockup / device-mockup / ui-shape-morph with keys in % of the frame; key host reactions off `cursorEvents(keys)`.  
@@ -7378,6 +7532,8 @@ A pointer glides on bowed ease-in-out hops, presses with a 0.88x squash and a ri
 | `dark` | `false` | dark demo card |
 
 ### `device-mockup` — Device mockup (phone, tablet, laptop, watch)
+
+![device-mockup](../gallery/device-mockup.jpg)
 
 A CSS-built phone, android, tablet, laptop or watch with your screen content (a picture, a tall screenshot that scrolls, or a built-in app UI): it tilts in from 25 degrees and settles on a soft floor shadow, sways gently, then flips over to show a second panel while an optional headline fades in beside it.
 
@@ -7410,6 +7566,8 @@ A CSS-built phone, android, tablet, laptop or watch with your screen content (a 
 
 ### `glass-lesson-card` — Glass lesson cards
 
+![glass-lesson-card](../gallery/glass-lesson-card.jpg)
+
 Frosted-glass lesson cards float top-left over an open textbook on a felt desk — red-brown letter-spaced eyebrow, serif heading, body / key-word list / ticked checklist — and swap LESSON → EQUATION → KEY WORDS → PREDICT → WHY? with a crossfade and an 8 px upward drift. Backdrop "none" turns it into a transparent overlay.
 
 **Use for:** Lesson, step and definition overlays for educational explainers, product tours and course trailers; the card system of an "interactive lesson" video.  
@@ -7436,6 +7594,8 @@ Frosted-glass lesson cards float top-left over an open textbook on a felt desk �
 
 ### `glass-ui-cards` — Glass UI cards
 
+![glass-ui-cards](../gallery/glass-ui-cards.jpg)
+
 Frosted glass cards float in 3D with parallax over a drifting mesh-gradient: blurred saturated backdrop, faint white fill, 1px rim highlight, a broad diagonal sheen and a catch-light circling the edge; inside, a chat with a streamed reply, a voice waveform with a glowing orb, and toggle / slider / chips.
 
 **Use for:** AI-assistant demos, app feature films and website heroes that want a translucent, premium UI look.  
@@ -7461,6 +7621,8 @@ Frosted glass cards float in 3D with parallax over a drifting mesh-gradient: blu
 
 ### `icon-grid-burst` — Icon grid burst
 
+![icon-grid-burst](../gallery/icon-grid-burst.jpg)
+
 A 2x2 grid of flat colour cells with numbered small-caps labels; on every beat one cell bursts alive (bars grow, a check draws, a heart pops, a coin flips) while a hero dot hops onto the active icon; then the cells round to circles, merge to the centre and become a logo lockup.
 
 **Use for:** Four benefits in four beats for product promos, feature recaps and slides; ends on a brand lockup.  
@@ -7482,6 +7644,8 @@ A 2x2 grid of flat colour cells with numbered small-caps labels; on every beat o
 | `logoText` | `"Lumen"` | wordmark under the logo ring |
 
 ### `inspector-popover` — Inspector popover
+
+![inspector-popover](../gallery/inspector-popover.jpg)
 
 A floating property card next to a selected isometric object: title with close ×, one-line description, segmented chips (active chip navy), a teal slider whose knob and value move with the dragged object, a toggle, and a "+ ZOOM TO IT" button with a hint. It scales/fades in on click, swaps chips in one frame and fades out on step change.
 
@@ -7520,6 +7684,8 @@ A floating property card next to a selected isometric object: title with close �
 
 ### `iso-actuators` — Iso actuators
 
+![iso-actuators](../gallery/iso-actuators.jpg)
+
 Small isometric hardware tiles that come alive when running: an LED blinking with a glow, a DC-motor fan ramping its PWM until the blades blur into a disc, a servo horn sweeping with a live degree pill, a traffic light switching green / yellow / red by a distance reading, and a toy car driving back and forth with its ground ring following.
 
 **Use for:** IoT / maker / robotics content, "the code drives the hardware" explanations, playful product UIs; pair with circuit-rebuild or code-run-sync.  
@@ -7544,6 +7710,8 @@ Small isometric hardware tiles that come alive when running: an LED blinking wit
 
 ### `keystroke-hud` — Keystroke HUD
 
+![keystroke-hud](../gallery/keystroke-hud.jpg)
+
 KeyCastr-style frosted-glass key caps (shift, cmd, a letter, return, esc ...) pop in at the bottom as each shortcut is pressed, the last key dips like a real press, the combo holds about a second, stacks beside the next one and fades. Over a soft demo editor by default; backdrop none = transparent overlay.
 
 **Use for:** Tutorials, dev-tool and productivity-app demos, screen recordings that need the shortcuts shown; lay over a real recording with backdrop none.  
@@ -7566,6 +7734,8 @@ KeyCastr-style frosted-glass key caps (shift, cmd, a letter, return, esc ...) po
 | `seed` | `4` | demo backdrop seed |
 
 ### `lesson-carousel` — Lesson carousel
+
+![lesson-carousel](../gallery/lesson-carousel.jpg)
 
 Course / playlist navigation: a bottom strip of lesson cards with isometric part thumbnails and labels like "3. READ A SENSOR ›", teal check badges popping on completed lessons, a teal outline on the active card, arrow buttons that slide the strip by three cards, and a cursor that clicks the next card. A big preview of the active lesson sits above the strip.
 
@@ -7592,6 +7762,8 @@ Course / playlist navigation: a bottom strip of lesson cards with isometric part
 | `visible` | `0` | cards visible in the strip (0 = auto: 5 landscape, 3 portrait) |
 
 ### `liquid-glass-lens` — Liquid glass lens
+
+![liquid-glass-lens](../gallery/liquid-glass-lens.jpg)
 
 A capsule of clear thick glass (iOS-26 "Liquid Glass") is born from a UI toggle knob, glides over a product page magnifying it, bends the picture at its rounded bezel, splits colours into thin rainbow fringes, casts a soft shadow with a caustic glow, and ends as the "O" ring of a wordmark.
 
@@ -7624,6 +7796,8 @@ A capsule of clear thick glass (iOS-26 "Liquid Glass") is born from a UI toggle 
 
 ### `magnet-pin` — Magnet pin (board token)
 
+![magnet-pin](../gallery/magnet-pin.jpg)
+
 A glossy round magnet (an orange map pin with a white dot and a specular highlight) drops onto a board with a shrinking blurred shadow and a click ripple, slides between labelled spots with a small lift, then sinks (tilts and drops) or lifts off.
 
 **Use for:** The hero token on any board or map: you-are-here, a delivery truck, a player piece, a "we are here" marker; pairs with map-route and board-camera.  
@@ -7642,9 +7816,11 @@ A glossy round magnet (an orange map pin with a white dot and a specular highlig
 | `keys` | `[{"frame":24,"x":0.22,"y":0.64,"action":"drop"},{"frame":…` | [{frame, x, y (0-1 fractions), action:'drop'\|'slide'\|'lift'\|'sink'}] in order |
 | `spots` | `[{"x":0.22,"y":0.64,"label":"Start"},{"x":0.5,"y":0.36,"l…` | [{x, y, label}] labelled places on the board (replace the sample labels) |
 | `showRoute` | `true` | dotted route between keyed positions |
-| `size` | `150` | pin size in px |
+| `size` | `210` | pin size in px |
 
 ### `notification-stack` — Notification stack (iOS / macOS / Android / toast)
+
+![notification-stack](../gallery/notification-stack.jpg)
 
 System notifications slide in on a 10-frame spring and stack — newest on top, older ones compress behind (7 px offset, 0.96 scale per level, max 4 visible) or list in full — with a red counter badge that pops on each arrival. iOS lock-screen banners with a clock, macOS corner cards, Android heads-up cards or a plain toast pill; light or dark, or transparent as an overlay.
 
@@ -7670,6 +7846,8 @@ System notifications slide in on a 10-frame spring and stack — newest on top, 
 
 ### `planned-vs-heard-checklist` — Planned vs heard checklist
 
+![planned-vs-heard-checklist](../gallery/planned-vs-heard-checklist.jpg)
+
 A dark milestone checklist with planned T− times: each row ticks with an accent check as the running clock passes it, and a red "heard −32.1" tag with a tiny waveform pops when the call is actually heard — schedule vs reality in one box.
 
 **Use for:** Launch checklists, project timelines, run-of-show vs reality, onboarding steps, release-day minute-by-minute; overlay-capable (background transparent).  
@@ -7693,6 +7871,8 @@ A dark milestone checklist with planned T− times: each row ticks with an accen
 | `clock` | `true` | show the running T− clock above the list |
 
 ### `player-toolbar` — Lesson player toolbar
+
+![player-toolbar](../gallery/player-toolbar.jpg)
 
 Frosted glass pill toolbar centred at the bottom like a lesson / media player — menu, back, play→pause, a serif step caption that swaps with a quick fade, a dot pager whose active dash slides along, next, mute, contrast and course icons — over an open textbook on a felt desk. Backdrop "none" = transparent caption-bar overlay.
 
@@ -7719,6 +7899,8 @@ Frosted glass pill toolbar centred at the bottom like a lesson / media player �
 
 ### `remix-thumbnail-shelf` — Remix thumbnail shelf
 
+![remix-thumbnail-shelf](../gallery/remix-thumbnail-shelf.jpg)
+
 Each finished item plays centre stage then shrinks to x0.27 into the next slot of a shelf along the bottom while a month ribbon on top tracks it; at the end the title lands and all thumbnails bounce together on the beat.
 
 **Use for:** Year-in-review, release recaps, "everything we shipped" montages and portfolio roundups.  
@@ -7739,6 +7921,8 @@ Each finished item plays centre stage then shrinks to x0.27 into the next slot o
 | `background` | `"#0B0E24"` | stage colour |
 
 ### `screen-recorder-camera` — Screen recorder camera
+
+![screen-recorder-camera](../gallery/screen-recorder-camera.jpg)
 
 Screen-Studio-style camera inside a mock app recording: eased auto-zoom pushes in to the cursor and caret, a slow drift at rest, whip-pans between panes with directional motion blur, zoom never below 1 and the viewport clamped inside the content. A cursor glides on arcs and clicks (ripple + dip) while the app reacts: search types, a chart tooltip appears, a publish toast slides in.
 
@@ -7801,6 +7985,8 @@ A phone rises in beside a headline; a missed-call alert, typing dots and SMS bub
 
 ### `snap-grid-collapse` — Snap grid collapse
 
+![snap-grid-collapse](../gallery/snap-grid-collapse.jpg)
+
 Hundreds of scattered file icons, photo tiles and app icons drift, then fly in one beat along curved typed paths with coloured trails into a perfect grid — each type to its own rows, back-overshoot along the final tangent, spring-settled rotation — and only then the container, hairline grid and a lime light sweep appear, with a caption.
 
 **Use for:** The "we organise it all" promise for SaaS, CMS, schedulers, file managers and inbox tools; the effect after ui-accumulation-storm.  
@@ -7862,6 +8048,8 @@ Presentation layout: headline, two perfectly synced panels (line-art vs colour b
 
 ### `talking-head-pip` — Talking head PiP
 
+![talking-head-pip](../gallery/talking-head-pip.jpg)
+
 The speaker (your video, or a built-in presenter stand-in) starts full-frame then shrinks into a circular or rounded picture-in-picture in a corner with an accent ring, while B-roll cards slide through the main frame and captions stay clear of the window.
 
 **Use for:** Course videos, creator explainers, product walkthroughs with a host; pair with caption-style motions for subtitles.  
@@ -7892,6 +8080,8 @@ The speaker (your video, or a built-in presenter stand-in) starts full-frame the
 
 ### `tv-wall-switch-on` — TV wall switch-on
 
+![tv-wall-switch-on](../gallery/tv-wall-switch-on.jpg)
+
 A cosy wooden shelf wall of five retro CRT TVs (3 over 2) switches on one by one — bright line, grey-white flash with a slight bulge, picture fading up — each playing its own looping clip behind scanlines, vignette and a warm cast; later one screen cuts to a new clip.
 
 **Use for:** Showcasing many outputs (videos, testimonials, products, social proof) in one warm composition; pass up to five `images`.  
@@ -7917,6 +8107,8 @@ A cosy wooden shelf wall of five retro CRT TVs (3 over 2) switches on one by one
 
 ### `ui-accumulation-storm` — UI accumulation storm
 
+![ui-accumulation-storm](../gallery/ui-accumulation-storm.jpg)
+
 Dark keynote stage: notification cards, file icons, landscape photo tiles, app icons and red badges spawn faster and faster (drop+bounce, fling, slide-in, pop) with 2.5D depth and parallax, burying a quiet note with a lime caret; a red unread counter races, the pile trembles, light dims — the "too much" problem act.
 
 **Use for:** The problem act of SaaS ads and explainers (inbox overload, file chaos, notification fatigue); pair with snap-grid-collapse as cause → effect.  
@@ -7941,6 +8133,8 @@ Dark keynote stage: notification cards, file icons, landscape photo tiles, app i
 
 ### `ui-shape-morph` — UI shape morph (one shape, many states)
 
+![ui-shape-morph](../gallery/ui-shape-morph.jpg)
+
 One rounded rectangle never cuts: it grows from a button into a loader, a check, a pill, a player, a slider, a toggle, tabs, a chart, a search box and a toast and back, one change per beat on spring physics (leading edges stiffer than trailing edges so it stretches), content cross-blurring inside while the camera keeps the active state framed; the last frame equals the first.
 
 **Use for:** Product promos, app-store previews, onboarding heroes and "what our app does" loops: edit the `states` table (kind, label, size, radius, colour), set `accent` and `beatFrames` to your music; pairs with cursor-driver.  
@@ -7963,6 +8157,8 @@ One rounded rectangle never cuts: it grows from a button into a loader, a check,
 | `cursor` | `true` | show a small cursor that operates each state |
 
 ### `versus-roster` — Versus roster
+
+![versus-roster](../gallery/versus-roster.jpg)
 
 A row of square contender portraits separated by "vs", each in white corner brackets with a small name above; cards cut in from black, then each one in turn scales up while a mono bio types in below it, on a Klein-blue terminal screen with a scramble-decoded header and blackletter call to action.
 
@@ -8677,6 +8873,8 @@ Explains and demonstrates the punctuation-hold clock: two balls on a track, one 
 
 ### `hide-carve-patterns` — Hide-carve patterns (openwork library)
 
+![hide-carve-patterns](../gallery/hide-carve-patterns.jpg)
+
 The openwork vocabulary of shadow theatre on lit cloth: crescent fish-scale holes, diamond lattice, coin holes, cloud scrolls, meander bands, bead lines, tapered rain slits and leaf holes, each hide piece pressed on and cut by a sweeping knife.
 
 **Use for:** Makes generated silhouettes (animals, buildings, logos) read as crafted lace instead of clip-art; the carve.* path generators (scales, lattice, coins, cloud, meander, taper, beads) in r2-lb2-kit are reusable for papercut and folk looks.  
@@ -9245,7 +9443,7 @@ A pastel isometric island builds itself in true orthographic 3D: floor tiles fal
 | `drones` | `3` | drones carrying packets from the tower |
 | `clouds` | `true` | floating clouds |
 | `pullback` | `true` | camera pulls back at 7.75 s to leave room for a title |
-| `pullTo` | `"top-right"` | where the island floats after the pull-back: top-right \| center \| top-left |
+| `pullTo` | `"center"` | where the island floats after the pull-back: top-right \| center \| top-left |
 | `speed` | `1` | timeline speed multiplier |
 | `zoom` | `1` | camera zoom multiplier |
 | `seed` | `1` | building heights / colours seed |
@@ -9398,6 +9596,8 @@ A handheld camcorder walks an endless, empty office of mustard wallpaper partiti
 | `date` | `"SEP.27.1996"` | OSD date text |
 
 ### `ocean-surface-3d` — Ocean surface 3D
+
+![ocean-surface-3d](../gallery/ocean-surface-3d.jpg)
 
 A perspective sea built from Gerstner waves with analytic normals, fresnel sky reflection, sparkling sun glitter, crest foam and horizon fog under a gradient sky and sun glow; low-skim, high or drifting camera.
 
@@ -9782,13 +9982,13 @@ A procedural mountain heightmap rebuilds itself in labelled stages — flat, noi
 
 ![voxel-burst-swirl](../gallery/voxel-burst-swirl.jpg)
 
-Clay-studio three.js scene: an original voxel creature on a round plinth shatters into ~1.1 k tumbling cubes that fly into a thick ring, orbit the plinth with the black eye voxels still readable, then lift top-first out of frame while the notch ring drains, leaving the empty stage (or fall / scatter / reassemble).
+Clay-studio three.js scene: an original voxel creature on a round plinth shatters into ~1.1 k tumbling cubes that fly into a thick ring, orbit the plinth with the black eye voxels still readable, then fly back and reassemble into the creature so the clip ends on a finished, loopable frame (exit=lift sends the cloud up and out leaving the empty stage; also fall / scatter).
 
 **Use for:** A dramatic "disrupt / transform / remix" beat, data turning into particles, or a loop outro that returns to the empty stage; reverse it for a gather-in intro.  
 **Rebuilt from:** video x1 0:07.2-0:11.1 (burst, swirl, lift)  
 **Default length:** 135 frames (4.5 s @ 30 fps)
 
-**Roles:** subject · **Mood:** 3d, nature, playful  
+**Roles:** subject · **Mood:** 3d, playful  
 **Capabilities:** paints its own background · text: `unit` · weight: heavy  
 
 | prop | default | notes |
@@ -9808,7 +10008,7 @@ Clay-studio three.js scene: an original voxel creature on a round plinth shatter
 | `ringRadius` | `15` | mean ring radius in voxels (plinth radius = 14) |
 | `ringHeight` | `1` | vertical thickness multiplier of the cloud |
 | `tumble` | `1` | cube tumble speed multiplier (90–360 °/s at 1) |
-| `exit` | `"lift"` | 'lift' \| 'fall' \| 'scatter' \| 'reassemble' |
+| `exit` | `"reassemble"` | 'lift' \| 'fall' \| 'scatter' \| 'reassemble' |
 | `reverse` | `false` | play backwards: the cloud gathers into the creature (intro) |
 | `seed` | `11` | cloud layout seed |
 | `hud` | `true` | show the mono counter + phase badge HUD |
@@ -9816,6 +10016,8 @@ Clay-studio three.js scene: an original voxel creature on a round plinth shatter
 | `subline` | `"VOXEL STUDIO / BURST / 4.5 S"` | grey HUD sub-line |
 
 ### `voxel-diorama` — Voxel diorama
+
+![voxel-diorama](../gallery/voxel-diorama.jpg)
 
 A voxel island with beach, grass, rock, block trees and a little hut builds itself as cubes drop in waves (low and central first, decorations last) in a sea of bobbing water cubes on a slab, under drifting cube clouds, with a slow orbiting camera, soft shadows and a cube-count caption.
 
@@ -10334,6 +10536,8 @@ A dark rounded toon panel (ink outline, hard shadow) with hero-head icons: on a 
 | `seed` | `2` | shard seed |
 
 ### `loot-reveal` — Loot reveal
+
+![loot-reveal](../gallery/loot-reveal.jpg)
 
 Mobile-game reward moment: a wooden chest (or sealed card / medallion) drops in, shakes in three escalating beats while rarity-coloured light leaks out, bursts with a 2-frame flash, shockwave, god rays and particles, then an item card rises, flips to a faceted gem (or your image), stars pop in and a title banner stamps on.
 
@@ -12440,7 +12644,7 @@ A thin prompt field in a dark void types a phrase token by token on the beat (or
 
 **Use for:** AI-product videos, “how an LLM picks the next word” explainers, prompt demos; feed `lyrics` to type exactly on the vocal.  
 **Rebuilt from:** pdoom-video app/src/scenes/prompt.ts + prompt-data.ts (MIT): candidate flicker ~0.16 s ahead, camera zoom 1.25–2.7 with ±0.03 rad roll  
-**Default length:** 270 frames (9.0 s @ 30 fps)
+**Default length:** 210 frames (7.0 s @ 30 fps)
 
 **Roles:** subject · **Mood:** nature, night  
 **Capabilities:** overlay (`{"background":"transparent"}`) · text: `text` · weight: light  
@@ -12634,6 +12838,8 @@ A flat isometric building: a dashed cut line draws across its near wall, the ski
 | `accent` | `"#CF5140"` | cut line + title rule colour |
 
 ### `liquid-pour-fill` — Liquid pour fill
+
+![liquid-pour-fill](../gallery/liquid-pour-fill.jpg)
 
 Four ingredients pour into a tall glass one after another as a stream with a splash, each layer rising with an eased level and a decaying sine meniscus while a panel counts every amount up in ml, shows STEP 01 / 04 and ends on the finished-drink title.
 

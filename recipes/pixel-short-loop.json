@@ -1,0 +1,92 @@
+{
+  "id": "pixel-short-loop",
+  "title": "Pixel short loop",
+  "useFor": "A looping pixel-art scene for a stream background, game page, retro greeting or festival card: a night sky with aurora and drifting pixel snow behind a wizard (or knight / cat) who idles, charges and casts, finished with a soft CRT / VHS pass.",
+  "format": "landscape",
+  "duration": 440,
+  "background": "#090C24",
+  "tags": [
+    "pixel",
+    "pixel art",
+    "retro",
+    "8-bit",
+    "loop",
+    "game",
+    "wizard",
+    "night",
+    "aurora",
+    "snow",
+    "crt",
+    "vhs",
+    "lofi",
+    "stream",
+    "background",
+    "cozy",
+    "seamless"
+  ],
+  "web": {
+    "loop": "crossfade"
+  },
+  "layers": [
+    {
+      "motion": "pixel-sprite-scene",
+      "role": "subject",
+      "props": {
+        "sprite": "wizard",
+        "particles": 26
+      }
+    },
+    {
+      "motion": "aurora",
+      "role": "accent",
+      "blend": "screen",
+      "opacity": 0.55,
+      "props": {
+        "backdrop": false,
+        "background": "transparent",
+        "pixelSize": 12,
+        "intensity": 0.8,
+        "height": 0.28,
+        "stars": 0
+      }
+    },
+    {
+      "motion": "snowfall",
+      "role": "accent",
+      "opacity": 0.8,
+      "props": {
+        "mode": "blizzard",
+        "backdrop": false,
+        "background": "transparent",
+        "density": 0.18,
+        "pixelSize": 12,
+        "wind": 0.3,
+        "color": "#EAF0FF"
+      }
+    },
+    {
+      "motion": "vhs-crt-pass",
+      "role": "frame",
+      "props": {
+        "overlay": true,
+        "powerOn": [
+          0,
+          0
+        ],
+        "tracking": [
+          [
+            200,
+            205
+          ]
+        ],
+        "scan": 0.14,
+        "grille": 0.05,
+        "glow": 0.25,
+        "noise": 0.012,
+        "title": "",
+        "subtitle": ""
+      }
+    }
+  ],
+  "notes": "Two 220-frame wizard cycles (idle, charge, cast, recover) make a 440-frame (14.7 s) loop; the web player cross-fades the seam. Change pixel-sprite-scene.sprite (wizard | knight | cat | custom), palette and states; keep aurora / snowfall pixelSize equal to pixel-sprite-scene.pixelFactor (12) so every pixel sits on one grid. For a festival scene change the palette and swap the aurora for fireworks or falling-petals. Drop vhs-crt-pass for crisp pixels, or add style \"pixel-8bit\" for an even chunkier look."
+}

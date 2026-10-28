@@ -1,0 +1,87 @@
+{
+  "id": "generative-loop",
+  "title": "Generative loop (hero background)",
+  "useFor": "A 12-second looping generative backdrop for a website hero, app splash or live-visuals wall: a particle cloud morphs sphere, torus, ring and cube and back, glowing over drifting mesh-gradient light. Words go in HTML above it.",
+  "format": "landscape",
+  "duration": 360,
+  "background": "#07061c",
+  "tags": [
+    "generative",
+    "loop",
+    "hero",
+    "background",
+    "particles",
+    "mesh gradient",
+    "abstract",
+    "wow",
+    "immersive",
+    "website",
+    "landing page",
+    "splash",
+    "visuals",
+    "ambient",
+    "tech",
+    "seamless"
+  ],
+  "web": {
+    "loop": "crossfade"
+  },
+  "layers": [
+    {
+      "motion": "mesh-gradient-bg",
+      "role": "backdrop",
+      "opacity": 0.9,
+      "props": {
+        "colors": [
+          "#7c3aed",
+          "#2563eb",
+          "#06b6d4",
+          "#d946ef"
+        ],
+        "base": "#07061c",
+        "speed": 1.2,
+        "rippleAt": -1,
+        "grain": 0.1,
+        "motes": 10,
+        "seed": 4
+      }
+    },
+    {
+      "motion": "particle-shape-morph",
+      "role": "subject",
+      "blend": "screen",
+      "props": {
+        "text": "",
+        "shapes": [
+          "sphere",
+          "torus",
+          "ring",
+          "cube",
+          "sphere"
+        ],
+        "count": 3600,
+        "holdFrames": 48,
+        "morphFrames": 30,
+        "collapse": false,
+        "rotation": 30,
+        "colors": [
+          "#EEF0FF",
+          "#7DD3FC",
+          "#C4B5FD"
+        ],
+        "colorMix": [
+          70,
+          18,
+          12
+        ],
+        "background": "transparent",
+        "coreColor": "#7DD3FC",
+        "hud": false,
+        "captions": false,
+        "label": "",
+        "particleSize": 2.6
+      }
+    }
+  ],
+  "notes": "A 360-frame (12 s) loop: the cloud returns to the sphere it started as and the rotation completes one full turn, and the web player cross-fades the seam (web.loop: crossfade). Behind HTML text keep opacity at 0.7-0.9 and use <MotionBackground recipe=\"generative-loop\">. Recolour with mesh-gradient-bg.colors and particle-shape-morph.colors / coreColor; lower particle-shape-morph.count (1500-2500) for mobile. Reduced motion: export a poster frame (mgl export generative-loop --as poster --frame 100) and show it as a still."
+}

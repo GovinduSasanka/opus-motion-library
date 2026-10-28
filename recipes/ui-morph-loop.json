@@ -1,0 +1,459 @@
+{
+  "id": "ui-morph-loop",
+  "title": "UI morph loop (14 s)",
+  "useFor": "A seamless 14-second loop for a landing-page hero, app promo or showreel tile: one rounded rectangle morphs through a button, loader, check, player, slider, tabs, chart, search and toast on a 120 BPM beat while a cursor clicks every change.",
+  "format": "landscape",
+  "duration": 420,
+  "background": "#EDEBE7",
+  "tags": [
+    "ui",
+    "morph",
+    "loop",
+    "seamless",
+    "hero",
+    "button",
+    "toggle",
+    "slider",
+    "app",
+    "product",
+    "interface",
+    "ui motion",
+    "120 bpm",
+    "minimal",
+    "light"
+  ],
+  "web": {
+    "loop": "restart"
+  },
+  "layers": [
+    {
+      "motion": "ui-shape-morph",
+      "role": "subject",
+      "style": "light-editorial-minimal",
+      "props": {
+        "states": [
+          {
+            "kind": "button",
+            "label": "Get started",
+            "width": 300,
+            "height": 96,
+            "radius": 48,
+            "color": "#F2561D"
+          },
+          {
+            "kind": "loader",
+            "label": "",
+            "width": 96,
+            "height": 96,
+            "radius": 48,
+            "color": "#F2561D"
+          },
+          {
+            "kind": "check",
+            "label": "",
+            "width": 96,
+            "height": 96,
+            "radius": 48,
+            "color": "#17171B"
+          },
+          {
+            "kind": "pill",
+            "label": "Order confirmed",
+            "width": 360,
+            "height": 80,
+            "radius": 40,
+            "color": "#17171B"
+          },
+          {
+            "kind": "player",
+            "label": "Morning Radio",
+            "width": 580,
+            "height": 132,
+            "radius": 38,
+            "color": "#17171B"
+          },
+          {
+            "kind": "slider",
+            "label": "",
+            "width": 540,
+            "height": 96,
+            "radius": 48,
+            "color": "#FFFFFF"
+          },
+          {
+            "kind": "toggle",
+            "label": "",
+            "width": 180,
+            "height": 96,
+            "radius": 48,
+            "color": "#F2561D"
+          },
+          {
+            "kind": "tabs",
+            "label": "",
+            "width": 560,
+            "height": 96,
+            "radius": 48,
+            "color": "#DDD9D0"
+          },
+          {
+            "kind": "chart",
+            "label": "This week",
+            "width": 520,
+            "height": 320,
+            "radius": 36,
+            "color": "#FFFFFF"
+          },
+          {
+            "kind": "search",
+            "label": "Search anything",
+            "width": 600,
+            "height": 96,
+            "radius": 48,
+            "color": "#FFFFFF"
+          },
+          {
+            "kind": "toast",
+            "label": "Saved to your library",
+            "width": 580,
+            "height": 112,
+            "radius": 40,
+            "color": "#17171B"
+          },
+          {
+            "kind": "button",
+            "label": "Share",
+            "width": 240,
+            "height": 96,
+            "radius": 48,
+            "color": "#17171B"
+          },
+          {
+            "kind": "loader",
+            "label": "",
+            "width": 96,
+            "height": 96,
+            "radius": 48,
+            "color": "#17171B"
+          },
+          {
+            "kind": "check",
+            "label": "",
+            "width": 96,
+            "height": 96,
+            "radius": 48,
+            "color": "#F2561D"
+          },
+          {
+            "kind": "pill",
+            "label": "Invite sent",
+            "width": 320,
+            "height": 80,
+            "radius": 40,
+            "color": "#F2561D"
+          },
+          {
+            "kind": "toggle",
+            "label": "",
+            "width": 180,
+            "height": 96,
+            "radius": 48,
+            "color": "#17171B"
+          },
+          {
+            "kind": "player",
+            "label": "Evening Mix",
+            "width": 580,
+            "height": 132,
+            "radius": 38,
+            "color": "#F2561D"
+          },
+          {
+            "kind": "chart",
+            "label": "This month",
+            "width": 520,
+            "height": 320,
+            "radius": 36,
+            "color": "#FFFFFF"
+          },
+          {
+            "kind": "slider",
+            "label": "",
+            "width": 540,
+            "height": 96,
+            "radius": 48,
+            "color": "#FFFFFF"
+          },
+          {
+            "kind": "tabs",
+            "label": "",
+            "width": 560,
+            "height": 96,
+            "radius": 48,
+            "color": "#DDD9D0"
+          },
+          {
+            "kind": "search",
+            "label": "Find a file",
+            "width": 600,
+            "height": 96,
+            "radius": 48,
+            "color": "#FFFFFF"
+          },
+          {
+            "kind": "toast",
+            "label": "Link copied",
+            "width": 460,
+            "height": 112,
+            "radius": 40,
+            "color": "#17171B"
+          },
+          {
+            "kind": "pill",
+            "label": "Back in a moment",
+            "width": 400,
+            "height": 80,
+            "radius": 40,
+            "color": "#17171B"
+          },
+          {
+            "kind": "loader",
+            "label": "",
+            "width": 96,
+            "height": 96,
+            "radius": 48,
+            "color": "#F2561D"
+          },
+          {
+            "kind": "check",
+            "label": "",
+            "width": 96,
+            "height": 96,
+            "radius": 48,
+            "color": "#17171B"
+          },
+          {
+            "kind": "toggle",
+            "label": "",
+            "width": 180,
+            "height": 96,
+            "radius": 48,
+            "color": "#F2561D"
+          },
+          {
+            "kind": "slider",
+            "label": "",
+            "width": 540,
+            "height": 96,
+            "radius": 48,
+            "color": "#FFFFFF"
+          },
+          {
+            "kind": "button",
+            "label": "Get started",
+            "width": 300,
+            "height": 96,
+            "radius": 48,
+            "color": "#F2561D"
+          }
+        ],
+        "beatFrames": 15,
+        "startFrame": 0,
+        "cursor": false,
+        "accent": "#F2561D",
+        "background": "#EDEBE7",
+        "ink": "#17171B",
+        "frameFill": 0.5
+      }
+    },
+    {
+      "motion": "cursor-driver",
+      "role": "accent",
+      "props": {
+        "demo": false,
+        "background": "transparent",
+        "keys": [
+          {
+            "frame": 0,
+            "x": 62,
+            "y": 58,
+            "action": "move"
+          },
+          {
+            "frame": 24,
+            "x": 60,
+            "y": 54,
+            "action": "click"
+          },
+          {
+            "frame": 39,
+            "x": 46,
+            "y": 52,
+            "action": "click"
+          },
+          {
+            "frame": 54,
+            "x": 58,
+            "y": 48,
+            "action": "click"
+          },
+          {
+            "frame": 69,
+            "x": 50,
+            "y": 56,
+            "action": "click"
+          },
+          {
+            "frame": 84,
+            "x": 64,
+            "y": 50,
+            "action": "click"
+          },
+          {
+            "frame": 99,
+            "x": 44,
+            "y": 50,
+            "action": "click"
+          },
+          {
+            "frame": 114,
+            "x": 56,
+            "y": 52,
+            "action": "click"
+          },
+          {
+            "frame": 129,
+            "x": 52,
+            "y": 50,
+            "action": "click"
+          },
+          {
+            "frame": 144,
+            "x": 60,
+            "y": 54,
+            "action": "click"
+          },
+          {
+            "frame": 159,
+            "x": 46,
+            "y": 52,
+            "action": "click"
+          },
+          {
+            "frame": 174,
+            "x": 58,
+            "y": 48,
+            "action": "click"
+          },
+          {
+            "frame": 189,
+            "x": 50,
+            "y": 56,
+            "action": "click"
+          },
+          {
+            "frame": 204,
+            "x": 64,
+            "y": 50,
+            "action": "click"
+          },
+          {
+            "frame": 219,
+            "x": 44,
+            "y": 50,
+            "action": "click"
+          },
+          {
+            "frame": 234,
+            "x": 56,
+            "y": 52,
+            "action": "click"
+          },
+          {
+            "frame": 249,
+            "x": 52,
+            "y": 50,
+            "action": "click"
+          },
+          {
+            "frame": 264,
+            "x": 60,
+            "y": 54,
+            "action": "click"
+          },
+          {
+            "frame": 279,
+            "x": 46,
+            "y": 52,
+            "action": "click"
+          },
+          {
+            "frame": 294,
+            "x": 58,
+            "y": 48,
+            "action": "click"
+          },
+          {
+            "frame": 309,
+            "x": 50,
+            "y": 56,
+            "action": "click"
+          },
+          {
+            "frame": 324,
+            "x": 64,
+            "y": 50,
+            "action": "click"
+          },
+          {
+            "frame": 339,
+            "x": 44,
+            "y": 50,
+            "action": "click"
+          },
+          {
+            "frame": 354,
+            "x": 56,
+            "y": 52,
+            "action": "click"
+          },
+          {
+            "frame": 369,
+            "x": 52,
+            "y": 50,
+            "action": "click"
+          },
+          {
+            "frame": 384,
+            "x": 60,
+            "y": 54,
+            "action": "click"
+          },
+          {
+            "frame": 399,
+            "x": 46,
+            "y": 52,
+            "action": "click"
+          },
+          {
+            "frame": 402,
+            "x": 50,
+            "y": 50,
+            "action": "click"
+          },
+          {
+            "frame": 420,
+            "x": 62,
+            "y": 58,
+            "action": "move"
+          }
+        ],
+        "style": "arrow",
+        "color": "#111111",
+        "rippleColor": "#F2561D",
+        "size": 46
+      }
+    }
+  ],
+  "notes": "28 states x 15 frames = 420 frames (14 s at 30 fps, 120 BPM); the last state repeats the first so the loop is seamless: loop it for exactly 420 frames. Edit ui-shape-morph.states (kind, label, size, radius, colour), set accent and background to your brand, beatFrames to your tempo (15 = 120 BPM; keep states x beatFrames equal to the duration). cursor-driver.keys click once per change (frame, x/y in % of the frame); drop that layer and set ui-shape-morph.cursor true for the built-in pointer. The light-editorial-minimal style keeps one orange accent and drains other hues, so use a single accent colour. On a dark site use background \"#0E0E10\" with ink \"#EDEBE7\"."
+}

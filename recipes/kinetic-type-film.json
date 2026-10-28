@@ -1,0 +1,118 @@
+{
+  "id": "kinetic-type-film",
+  "title": "Kinetic type film (20 s)",
+  "useFor": "A 20-second kinetic-typography film for a speech, manifesto, brand belief or poem: huge phrases land one word per beat on a 120 BPM grid in one accent colour, then it ends on a wordmark.",
+  "format": "landscape",
+  "background": "#F1ECE2",
+  "tags": [
+    "kinetic",
+    "typography",
+    "type",
+    "manifesto",
+    "speech",
+    "poem",
+    "quote",
+    "lyric",
+    "words",
+    "brand film",
+    "title",
+    "beat",
+    "manifesto film",
+    "slam"
+  ],
+  "scenes": [
+    {
+      "duration": 290,
+      "transition": {
+        "type": "cut"
+      },
+      "layers": [
+        {
+          "motion": "kinetic-type-slam",
+          "props": {
+            "beatFrames": 15,
+            "holdBeats": 1.4,
+            "background": "#F1ECE2",
+            "ink": "#141414",
+            "accent": "#E8431A",
+            "flash": false,
+            "showIndex": true,
+            "font": "display",
+            "layout": "stack",
+            "lines": [
+              {
+                "text": "Say it plainly",
+                "accent": "plainly"
+              },
+              {
+                "text": "Then say it once",
+                "accent": "once"
+              },
+              {
+                "text": "Cut every extra word",
+                "accent": "extra"
+              },
+              {
+                "text": "Keep the idea",
+                "accent": "idea"
+              }
+            ],
+            "capHeight": 0.3
+          }
+        }
+      ]
+    },
+    {
+      "duration": 200,
+      "transition": {
+        "type": "cut"
+      },
+      "layers": [
+        {
+          "motion": "kinetic-type-slam",
+          "props": {
+            "beatFrames": 15,
+            "holdBeats": 1.4,
+            "background": "#F1ECE2",
+            "ink": "#141414",
+            "accent": "#E8431A",
+            "flash": false,
+            "showIndex": false,
+            "font": "display",
+            "layout": "center",
+            "lines": [
+              {
+                "text": "Let it land",
+                "accent": "land"
+              },
+              {
+                "text": "Make it matter",
+                "accent": "matter"
+              }
+            ],
+            "capHeight": 0.4
+          }
+        }
+      ]
+    },
+    {
+      "duration": 140,
+      "layers": [
+        {
+          "motion": "logo-assemble",
+          "props": {
+            "text": "Plainspeak",
+            "tagline": "SAY IT ONCE.",
+            "background": "#F1ECE2",
+            "color": "#141414",
+            "accent": "#E8431A",
+            "fontRole": "display",
+            "weight": 700,
+            "shardCount": 70
+          }
+        }
+      ]
+    }
+  ],
+  "notes": "Replace the lines with your own text: 2-4 words each, accent = the one word that takes the colour (an index also works). beatFrames sets the beat (15 = 120 BPM, 10 = 180 BPM); use the 'center' layout (one word at a time) for short punchy phrases and 'stack' for longer ones. Keep one accent colour. For a dark version: background \"#0E0E10\", ink \"#F3EFE6\". End scene: logo-assemble.text / tagline (or src for an SVG logo)."
+}

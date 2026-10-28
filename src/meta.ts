@@ -1660,7 +1660,7 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "overlay": false,
   "overlayProps": null,
   "loopable": false,
-  "bestLength": 240,
+  "bestLength": 200,
   "roles": [
    "subject"
   ],
@@ -3046,7 +3046,7 @@ export const motionMeta: Record<string, MotionMetaLite> = {
    "background": "transparent"
   },
   "loopable": false,
-  "bestLength": 270,
+  "bestLength": 210,
   "roles": [
    "subject"
   ],
@@ -3305,7 +3305,7 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "overlay": false,
   "overlayProps": null,
   "loopable": false,
-  "bestLength": 210,
+  "bestLength": 240,
   "roles": [
    "subject"
   ],

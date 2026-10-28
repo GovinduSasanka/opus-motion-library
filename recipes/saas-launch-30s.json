@@ -1,0 +1,286 @@
+{
+  "id": "saas-launch-30s",
+  "title": "SaaS launch film (30 s)",
+  "useFor": "A slick 30-second product-launch video for a software startup: a hook question over a mesh-gradient, the product in a device, a cursor operating the UI, a feature bento, one proof number, then logo and call to action.",
+  "format": "landscape",
+  "tags": [
+    "saas",
+    "launch",
+    "startup",
+    "product",
+    "software",
+    "app",
+    "promo",
+    "ad",
+    "demo",
+    "30 second",
+    "modern",
+    "premium",
+    "slick",
+    "punchy"
+  ],
+  "background": "#07061c",
+  "scenes": [
+    {
+      "duration": 120,
+      "transition": {
+        "type": "push-blur",
+        "frames": 14
+      },
+      "layers": [
+        {
+          "motion": "mesh-gradient-bg",
+          "props": {
+            "rippleAt": 70
+          }
+        },
+        {
+          "motion": "kinetic-type-slam",
+          "props": {
+            "lines": [
+              {
+                "text": "Still chasing status?",
+                "accent": "chasing"
+              },
+              {
+                "text": "There is a calmer way",
+                "accent": "calmer"
+              }
+            ],
+            "layout": "stack",
+            "beatFrames": 9,
+            "holdBeats": 1.6,
+            "capHeight": 0.22,
+            "background": "transparent",
+            "ink": "#F5F3FF",
+            "accent": "#7DD3FC",
+            "flash": false,
+            "showIndex": false
+          }
+        }
+      ]
+    },
+    {
+      "duration": 170,
+      "transition": {
+        "type": "slide",
+        "direction": "from-right",
+        "frames": 16
+      },
+      "layers": [
+        {
+          "motion": "mesh-gradient-bg",
+          "props": {
+            "seed": 11,
+            "rippleAt": -1
+          },
+          "opacity": 0.55
+        },
+        {
+          "motion": "device-mockup",
+          "props": {
+            "device": "laptop",
+            "brand": "Harbor",
+            "headline": "Every project, one calm view",
+            "subline": "Plans, owners and deadlines that stay in sync.",
+            "background": "transparent",
+            "background2": "transparent",
+            "textColor": "#F5F3FF",
+            "bodyColor": "#2a2d3a",
+            "accent": "#7c6cff",
+            "flipAt": 100
+          }
+        }
+      ]
+    },
+    {
+      "duration": 150,
+      "transition": {
+        "type": "wipe",
+        "direction": "from-left",
+        "frames": 14
+      },
+      "layers": [
+        {
+          "motion": "mesh-gradient-bg",
+          "props": {
+            "seed": 3,
+            "rippleAt": -1,
+            "colors": [
+              "#2563eb",
+              "#06b6d4",
+              "#7c3aed",
+              "#0ea5e9"
+            ]
+          },
+          "opacity": 0.5
+        },
+        {
+          "motion": "cursor-driver",
+          "props": {
+            "dark": true,
+            "background": "transparent",
+            "demoText": "team@harbor.app",
+            "color": "#FFFFFF",
+            "accent": "#7c6cff",
+            "rippleColor": "#7DD3FC"
+          }
+        }
+      ]
+    },
+    {
+      "duration": 200,
+      "transition": {
+        "type": "iris",
+        "frames": 18
+      },
+      "layers": [
+        {
+          "motion": "mesh-gradient-bg",
+          "props": {
+            "seed": 5,
+            "rippleAt": -1
+          },
+          "opacity": 0.5
+        },
+        {
+          "motion": "card-stack-cascade",
+          "props": {
+            "dark": true,
+            "background": "transparent",
+            "accent": "#7c6cff",
+            "cards": [
+              {
+                "title": "Live roadmap",
+                "body": "Every change shows up for everyone at once.",
+                "icon": "bolt",
+                "span": "2x2"
+              },
+              {
+                "title": "Private by default",
+                "body": "Access follows the people on a project.",
+                "icon": "shield"
+              },
+              {
+                "title": "Clear insights",
+                "body": "Dashboards that explain themselves.",
+                "icon": "chart"
+              },
+              {
+                "title": "Team threads",
+                "body": "Talk next to the work.",
+                "icon": "chat"
+              },
+              {
+                "title": "Works everywhere",
+                "body": "Web, desktop and mobile.",
+                "icon": "globe"
+              },
+              {
+                "title": "Automations",
+                "body": "Hand the repeat tasks to a workflow.",
+                "icon": "spark",
+                "span": "2x1"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "duration": 120,
+      "transition": {
+        "type": "fade",
+        "frames": 14
+      },
+      "layers": [
+        {
+          "motion": "mesh-gradient-bg",
+          "props": {
+            "seed": 9,
+            "rippleAt": 40
+          }
+        },
+        {
+          "motion": "number-counter",
+          "props": {
+            "keyframes": [
+              [
+                0,
+                0
+              ],
+              [
+                8,
+                0
+              ],
+              [
+                80,
+                12400
+              ],
+              [
+                120,
+                12400
+              ]
+            ],
+            "mode": "roll",
+            "label": "TEAMS SHIPPING CALMER",
+            "unit": "+",
+            "separator": ",",
+            "readouts": [],
+            "backdrop": "none",
+            "numberColor": "#F5F3FF",
+            "labelColor": "#A5B4FC",
+            "size": 280
+          }
+        }
+      ]
+    },
+    {
+      "duration": 190,
+      "layers": [
+        {
+          "motion": "logo-assemble",
+          "y": -0.1,
+          "props": {
+            "text": "Harbor",
+            "tagline": "PLAN CALMLY. SHIP OFTEN.",
+            "background": "#07061c",
+            "accent": "#7DD3FC",
+            "color": "#F5F3FF"
+          }
+        },
+        {
+          "motion": "mesh-gradient-bg",
+          "props": {
+            "seed": 7,
+            "rippleAt": -1,
+            "overlay": true
+          },
+          "blend": "screen",
+          "opacity": 0.55
+        },
+        {
+          "motion": "end-card-credits",
+          "from": 95,
+          "props": {
+            "title": "",
+            "headline": "Start free today.",
+            "lines": [
+              "harbor.example.com"
+            ],
+            "credit": "",
+            "backdrop": "none",
+            "cta": "Get started",
+            "ctaColor": "#7c6cff",
+            "ctaAt": 12,
+            "headlineY": 0.78,
+            "scrimStrength": 0,
+            "fadeToBlack": false,
+            "startFrame": 4
+          }
+        }
+      ]
+    }
+  ],
+  "notes": "Replace every text: the hook lines (2-4 words each, accent = the word that takes the colour), device-mockup.headline / brand (pass src for a real screenshot; fit:\"scroll\" for a tall one), cursor-driver.demoText, the six card-stack-cascade.cards, the number-counter label / keyframes, and the logo text, tagline and CTA. Recolour by passing your brand colours to mesh-gradient-bg.colors, accent and ctaColor. Swap logo-assemble.src for your SVG logo."
+}

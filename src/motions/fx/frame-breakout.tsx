@@ -208,7 +208,7 @@ export const frameBreakout = defineMotion<Props>({
     'A framed woodblock-style print sits on a tan mount; the red koi inside grows, leaps and pushes out past the top border while the rest of the picture stays clipped to the frame — the camera tilts up into the mount and widens to follow, holds the almost-frozen crest outside the frame, then falls toward the lens with a camera push and small roll, bursts into foam that fills the screen and fades to bare paper. Clip is bound left/right/bottom but open on the break edge.',
   source: ['lemo-opuscar styles/ukiyoe/DEMO.md climax beats; STYLE.md §6 §8 (MIT, LemoLab) — original koi + print'],
   useFor: 'Thumbnail-style "pop out of the frame" moments for any framed media: a product leaving a phone screen, a character leaping from a comic panel, a chart line breaking its axis box; dramatic climaxes.',
-  durationInFrames: 240,
+  durationInFrames: 200,
   defaultProps: {
     src: '', breakEdge: 'top', growAt: 14, riseAt: 52, hangAt: 112, fallAt: 150, foamAt: 188, jitter: 1, endWash: true,
     subjectColor: '#E4572A', mount: '#C9B690', paper: '#EEE2C6', ink: '#231F1C', sea: '#1D3A66', sun: '#B8412F', seed: 3,

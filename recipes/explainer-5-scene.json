@@ -1,0 +1,251 @@
+{
+  "id": "explainer-5-scene",
+  "title": "5-scene explainer (30 s)",
+  "useFor": "A 30-second explainer for a business, product or idea: the problem, what we do, how it works in three steps (animated flow diagram), one proof number, then your name and a call to action. Built to take captions and a narration track.",
+  "format": "landscape",
+  "background": "#F4EFE6",
+  "tags": [
+    "explainer",
+    "explain",
+    "how it works",
+    "process",
+    "steps",
+    "problem",
+    "solution",
+    "business",
+    "startup",
+    "pitch",
+    "30 second",
+    "narrated",
+    "tutorial",
+    "flat",
+    "education"
+  ],
+  "scenes": [
+    {
+      "duration": 210,
+      "transition": {
+        "type": "wipe",
+        "direction": "from-right",
+        "frames": 14
+      },
+      "layers": [
+        {
+          "motion": "panel-triptych",
+          "props": {
+            "title": "Feedback is scattered everywhere",
+            "caption": "and nobody sees all of it.",
+            "highlight": "all",
+            "bars": false,
+            "background": "#0b1018",
+            "panels": [
+              {
+                "src": "",
+                "label": "Inboxes",
+                "color": "#ad3f32"
+              },
+              {
+                "src": "",
+                "label": "Chat threads",
+                "color": "#cfa44d"
+              },
+              {
+                "src": "",
+                "label": "Spreadsheets",
+                "color": "#3f7fa3"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "duration": 150,
+      "transition": {
+        "type": "slide",
+        "direction": "from-bottom",
+        "frames": 14
+      },
+      "layers": [
+        {
+          "motion": "kinetic-type-slam",
+          "props": {
+            "lines": [
+              {
+                "text": "Bring it together",
+                "accent": "together"
+              },
+              {
+                "text": "Make it clear",
+                "accent": "clear"
+              }
+            ],
+            "beatFrames": 10,
+            "holdBeats": 1.8,
+            "layout": "stack",
+            "capHeight": 0.26,
+            "background": "#F4EFE6",
+            "ink": "#1B1B1F",
+            "accent": "#E4572E",
+            "flash": false,
+            "showIndex": false,
+            "push": 0.03
+          }
+        }
+      ]
+    },
+    {
+      "duration": 270,
+      "transition": {
+        "type": "iris",
+        "frames": 16
+      },
+      "layers": [
+        {
+          "motion": "flow-diagram",
+          "props": {
+            "theme": "dark",
+            "title": "How it works",
+            "nodes": [
+              {
+                "id": "a",
+                "label": "Collect",
+                "icon": "mail"
+              },
+              {
+                "id": "b",
+                "label": "Sort",
+                "icon": "spark"
+              },
+              {
+                "id": "c",
+                "label": "Summarize",
+                "icon": "chart"
+              },
+              {
+                "id": "d",
+                "label": "Share",
+                "icon": "chat"
+              }
+            ],
+            "edges": [
+              {
+                "from": "a",
+                "to": "b",
+                "label": "every note"
+              },
+              {
+                "from": "b",
+                "to": "c",
+                "label": "by topic"
+              },
+              {
+                "from": "c",
+                "to": "d",
+                "label": "weekly"
+              }
+            ],
+            "accent": "#7DA2FF",
+            "stepFrames": 34
+          }
+        },
+        {
+          "motion": "kinetic-captions",
+          "from": 10,
+          "props": {
+            "variant": "premium",
+            "position": "bottom",
+            "background": "transparent",
+            "lines": [
+              "We collect every note,",
+              "sort it by topic,",
+              "and share a weekly summary."
+            ],
+            "framesPerLine": 80,
+            "size": 46,
+            "accent": "#FFB199"
+          }
+        }
+      ]
+    },
+    {
+      "duration": 150,
+      "transition": {
+        "type": "fade",
+        "frames": 14
+      },
+      "layers": [
+        {
+          "motion": "number-counter",
+          "props": {
+            "keyframes": [
+              [
+                0,
+                0
+              ],
+              [
+                8,
+                0
+              ],
+              [
+                90,
+                92
+              ],
+              [
+                150,
+                92
+              ]
+            ],
+            "mode": "roll",
+            "label": "OF TEAMS READ THEIR WEEKLY SUMMARY",
+            "unit": "%",
+            "readouts": [],
+            "backdrop": "none",
+            "numberColor": "#1B1B1F",
+            "labelColor": "#6b6b72",
+            "accent": "#E4572E",
+            "size": 300
+          }
+        }
+      ]
+    },
+    {
+      "duration": 180,
+      "layers": [
+        {
+          "motion": "logo-assemble",
+          "props": {
+            "text": "Fieldnote",
+            "tagline": "COLLECT · SORT · SHARE",
+            "background": "#15151a",
+            "color": "#F4EFE6",
+            "accent": "#E4572E",
+            "fontRole": "display",
+            "weight": 700
+          }
+        },
+        {
+          "motion": "end-card-credits",
+          "from": 100,
+          "props": {
+            "title": "",
+            "headline": "Try it free for 14 days.",
+            "lines": [
+              "fieldnote.example.com"
+            ],
+            "credit": "",
+            "backdrop": "none",
+            "cta": "Start now",
+            "ctaColor": "#E4572E",
+            "ctaAt": 10,
+            "headlineY": 0.78,
+            "scrimStrength": 0,
+            "fadeToBlack": false,
+            "startFrame": 4
+          }
+        }
+      ]
+    }
+  ],
+  "notes": "Replace every text: panel-triptych.title / panels / caption (pass src for real screenshots), the two kinetic-type-slam lines, flow-diagram nodes + edges (3-5 nodes; icons: bolt shield chart chat globe spark lock cog user db cloud star queue server mail), the captions, the number-counter keyframes + label, and the name, tagline and CTA of the last scene. Narrate it with the CLI voice command and use the caption lines as the script, one line per sentence; extend a scene's duration to fit each sentence. Scene 3 is the hero of the film: give it the longest line of narration."
+}

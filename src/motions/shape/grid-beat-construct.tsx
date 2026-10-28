@@ -185,7 +185,7 @@ export const gridBeatConstruct = defineMotion<Props>({
   description: 'A cream sheet rules its module grid from the centre outward; Bauhaus primitives (disc, bar, triangle, square, semicircle, quarter-disc) land, slide, flip, scale and rotate in one per beat, each preceded by a crosshair target; the finished composition then turns upright in a clock-escapement of 7.5 degree ticks and locks into a poster with title, subtitle and folio.',
   source: ['mg-styles-15 demos/09-bauhaus/film.js (MIT, gridProg / target / groupAngle) + cues.json; video 0-6 s'],
   useFor: 'Beat-synced kinetic posters, music promos, logo builds from primitives and Swiss / rational explainer intros.',
-  durationInFrames: 210,
+  durationInFrames: 240,
   defaultProps: {
     module: 0,
     bpm: 120,

@@ -1,0 +1,174 @@
+{
+  "id": "story-short-30s",
+  "title": "Story short (30 s, portrait)",
+  "useFor": "A 30-second vertical story for Shorts / Reels / TikTok: a slow establishing shot, a flat-vector character acting a beat, a day-to-night turn, story captions and an emotional end card. Silent-film pacing, ready for a music bed.",
+  "format": "portrait",
+  "background": "#1b2236",
+  "tags": [
+    "story",
+    "short",
+    "character",
+    "narrative",
+    "vertical",
+    "portrait",
+    "reel",
+    "tiktok",
+    "fable",
+    "fairy tale",
+    "kids",
+    "emotional",
+    "storytelling",
+    "animation",
+    "silent film"
+  ],
+  "scenes": [
+    {
+      "duration": 250,
+      "transition": {
+        "type": "fade",
+        "frames": 20
+      },
+      "layers": [
+        {
+          "motion": "parallax-landscape",
+          "props": {
+            "mode": "truck",
+            "palette": "dusk",
+            "speed": 2,
+            "hero": "crane"
+          }
+        },
+        {
+          "motion": "story-caption-box",
+          "props": {
+            "variant": "box",
+            "items": [
+              {
+                "text": "Every evening, the valley goes quiet."
+              },
+              {
+                "text": "Only the little crane stays awake."
+              }
+            ],
+            "framesPerItem": 110,
+            "startFrame": 10,
+            "letterbox": false,
+            "backdrop": "none",
+            "size": 40
+          }
+        }
+      ]
+    },
+    {
+      "duration": 270,
+      "transition": {
+        "type": "fade",
+        "frames": 20
+      },
+      "layers": [
+        {
+          "motion": "character-rig-2d",
+          "props": {
+            "say": "I walked the long way home.",
+            "sayAt": 60,
+            "walkInFrames": 50,
+            "background": "#F4EBDD",
+            "floor": "#D9C9B2",
+            "shirt": "#C2553F",
+            "accent": "#F2C14E"
+          }
+        },
+        {
+          "motion": "story-caption-box",
+          "props": {
+            "variant": "box",
+            "items": [
+              {
+                "text": "Theo walked home the long way,"
+              },
+              {
+                "text": "just to wave at the crane."
+              }
+            ],
+            "framesPerItem": 110,
+            "startFrame": 40,
+            "letterbox": false,
+            "backdrop": "none",
+            "size": 40
+          }
+        }
+      ]
+    },
+    {
+      "duration": 240,
+      "transition": {
+        "type": "fade",
+        "frames": 24
+      },
+      "layers": [
+        {
+          "motion": "time-of-day-grade",
+          "props": {
+            "lights": true,
+            "season": "off"
+          }
+        },
+        {
+          "motion": "story-caption-box",
+          "props": {
+            "variant": "box",
+            "items": [
+              {
+                "text": "By night, every window in town"
+              },
+              {
+                "text": "was lit for him."
+              }
+            ],
+            "framesPerItem": 110,
+            "startFrame": 10,
+            "letterbox": false,
+            "backdrop": "none",
+            "size": 40
+          }
+        }
+      ]
+    },
+    {
+      "duration": 170,
+      "layers": [
+        {
+          "motion": "end-card-credits",
+          "props": {
+            "layout": "storybook",
+            "title": "THE LONG WAY HOME",
+            "headline": "Some roads are worth the walk.",
+            "lines": [],
+            "credit": "",
+            "backdrop": "dusk",
+            "pullBack": true,
+            "cta": "",
+            "fadeToBlack": true
+          }
+        }
+      ]
+    }
+  ],
+  "overlays": [
+    {
+      "motion": "film-look",
+      "from": 0,
+      "duration": 900,
+      "props": {
+        "overlay": true,
+        "grain": 0.05,
+        "vignette": 0.3,
+        "flare": false,
+        "letterbox": "off",
+        "bloom": 0,
+        "fringe": 0
+      }
+    }
+  ],
+  "notes": "Write your own story in four beats: place, character, turn, last line. Replace the story-caption-box items (one or two short lines each, kept in the lower third clear of the platform UI), character-rig-2d.say / cues / colours (swap parts for your own art), the end-card title and headline. Try style \"flat-vector\" or \"paper-diorama\" on any scene. Slow, quiet pacing works best: put a soft music bed under it."
+}

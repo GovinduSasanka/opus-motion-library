@@ -1,5 +1,47 @@
 # Decisions
 
+## Summary (2026-10-28) — round 2: the large library
+
+**What was built** (on top of the 109-motion v1.1 library)
+- **415 motions** (+306): ported/re-derived from lemo-opuscar, mg-styles-15, pdoom-video, ClaudeAnimationBase (MIT, file
+  headers + THIRD_PARTY_NOTICES.md), the 8 attached reference videos, and the 1,138-case prompt corpus (ideas only from
+  the unlicensed repos). New families: game, music, document, product, map, mascot.
+- **147 styles** (+96) through the style engine: `--style <id>` on any render, `style` in compose specs, recipes and layers,
+  `look` on web players. styles.json now carries signature / avoid / confusableWith / motionRules for agents.
+- **97 transitions** (types + variants) plus new options (iris shapes / hold / bloom, wipe brush / mist, page-turn curl3d,
+  tear peel, …). Defaults unchanged.
+- **New variants / props on 64 existing motions** (captions, HUD, charts, counters, film look, line draw, …). Default renders
+  were re-rendered and diffed against gallery/ — all identical (max mean diff 0.87/255).
+- **33 recipes** (+14 from the prompt research: saas-launch-30s, explainer-5-scene, showreel-15s, game-trailer-20s, …);
+  recipes may now set one `style` for the whole film (CLI, MCP and web players).
+- Docs: AGENTS.md / README sections for styles and the MCP server, counts updated everywhere (README, AGENTS, package.json,
+  skill, site).
+
+**How to run**: `npm install`; `node cli/mgl.mjs suggest "<brief>"`, `node cli/mgl.mjs recipe <id>`,
+`node cli/mgl.mjs render <motion> --style <style>`; MCP: `npm run mcp` (see AGENTS.md §7).
+
+**Verified**: `gen-registry`, `tsc --noEmit`, `gen-docs`, site build, `npm run build:lib`; every motion has a gallery strip;
+all 306 new motions were looked at on contact sheets (7 dead-end / framing fixes); each builder checked a landscape sheet
+and a portrait still per motion; default-regression diff for all extended motions.
+
+**How the work was split** (to save usage): Sonnet builders per batch of ~10 ids, one Opus agent for the style engine, Haiku
+for docs; at most 4–7 agents at once after the usage-limit stop.
+
+**Known limits** (from the builders; fine to ship, worth polishing later)
+- Some "3D" ideas are 2D/SVG approximations: exploded-view-snap, frost-to-clear, holo-globe, outrun-grid, white-model-
+  projection, sdf-liquid-shade, crayon-pressure-pass (SVG filter, not shader).
+- Untested optional inputs: video `src` (telestrator-freeze, talking-head-pip, frame-blend-timelapse), audio `src`
+  (audio-spectrum), custom images on a few image motions (knife-*, woodblock-print-reveal, wash-arrival).
+- Weak styles: typewriter-art (faint at 720p), soft-pastel (subtle), stained-glass (square panes), letterpress-newsprint.
+- Not built: style EXTENDS items (11, mostly covered by the improved core styles); plan-tilt 3D popup; transition-reel
+  has no labels for the new transition variants.
+- data-story-60s / history-film-90s recipes contain illustrative numbers and events — replace with sourced data.
+
+**Needs you**: nothing blocking. Files from your other projects were left uncommitted on purpose: `public/{dmd-charleston,
+dpp-pete,govindu,jamsession,leadlatch,sites}`, `public/voice/{jamsession,leadlatch}-promo`, `specs/leadlatch-*.json`,
+`cli/mgl-hk.mjs`, `cli/mgl-lc.mjs`.
+
+
 ## Summary (2026-10-21) — premium demo + "use it from any project"
 
 **What was built**
@@ -211,3 +253,11 @@ Regenerate: `python -I out/prompt-research/parse_cases.py <opus_sources/repos> <
   (deterministic); `door`, `burn`, `layer-swap` render a scene 2–4×, documented in docs/TRANSITIONS.md notes.
 - Did not run cli/gen-docs.mjs (parallel agents were still adding motions; the main agent should run it once at
   the end).
+
+## 14 missing recipes (prompts.md section 4)
+
+- Added recipes/{3d-flythrough-20s, explainer-5-scene, saas-launch-30s, game-trailer-20s, story-short-30s, lyric-video-vertical, generative-loop, showreel-15s, take-apart-explainer, history-film-90s, ui-morph-loop, data-story-60s, pixel-short-loop, kinetic-type-film}.json plus previews in recipes/previews/.
+- Ids kept as proposed, but history-film-90s (24 s) and data-story-60s (22 s) are shortened cuts because recipes are capped at 30 s; their notes say how to extend.
+- Motions that did not exist were substituted: cinematic-camera-3d / iso-diorama -> terrain-build-3d fly-by + ocean-surface-3d; lyric-sync-type -> lyric-video; particle-morph -> particle-shape-morph; unit-marbles / bar-chart-race -> isotype-count; crt-vhs-overlay -> vhs-crt-pass. callout-labels is not used in take-apart-explainer because exploded-view-3d draws its own numbered labels.
+- Styles: recipeSpec ignores a top-level `style`, so styles are set per scene or per layer (teardown, cinematic-3d, light-editorial-minimal). Several proposed style ids (dark-tech-minimal, grainy-gradient) do not exist; swiss-reel looked bad on light backgrounds and was dropped.
+- Example figures in data-story-60s and the history events are illustrative; replace with sourced data.

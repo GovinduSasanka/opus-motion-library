@@ -165,7 +165,7 @@ export const voxelBurstSwirl = defineMotion<Props>({
   title: 'Voxel burst swirl',
   category: '3d',
   description:
-    'Clay-studio three.js scene: an original voxel creature on a round plinth shatters into ~1.1 k tumbling cubes that fly into a thick ring, orbit the plinth with the black eye voxels still readable, then lift top-first out of frame while the notch ring drains, leaving the empty stage (or fall / scatter / reassemble).',
+    'Clay-studio three.js scene: an original voxel creature on a round plinth shatters into ~1.1 k tumbling cubes that fly into a thick ring, orbit the plinth with the black eye voxels still readable, then fly back and reassemble into the creature so the clip ends on a finished, loopable frame (exit=lift sends the cloud up and out leaving the empty stage; also fall / scatter).',
   source: ['video x1 0:07.2-0:11.1 (burst, swirl, lift)'],
   useFor: 'A dramatic "disrupt / transform / remix" beat, data turning into particles, or a loop outro that returns to the empty stage; reverse it for a gather-in intro.',
   durationInFrames: 135,
@@ -185,7 +185,7 @@ export const voxelBurstSwirl = defineMotion<Props>({
     ringRadius: 15,
     ringHeight: 1,
     tumble: 1,
-    exit: 'lift',
+    exit: 'reassemble',
     reverse: false,
     seed: 11,
     hud: true,

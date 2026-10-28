@@ -2608,7 +2608,7 @@
     "doc": "camera pulls back at 7.75 s to leave room for a title"
    },
    "pullTo": {
-    "default": "top-right",
+    "default": "center",
     "doc": "where the island floats after the pull-back: top-right | center | top-left"
    },
    "speed": {
@@ -5176,7 +5176,7 @@
   "id": "voxel-burst-swirl",
   "title": "Voxel burst swirl",
   "category": "3d",
-  "description": "Clay-studio three.js scene: an original voxel creature on a round plinth shatters into ~1.1 k tumbling cubes that fly into a thick ring, orbit the plinth with the black eye voxels still readable, then lift top-first out of frame while the notch ring drains, leaving the empty stage (or fall / scatter / reassemble).",
+  "description": "Clay-studio three.js scene: an original voxel creature on a round plinth shatters into ~1.1 k tumbling cubes that fly into a thick ring, orbit the plinth with the black eye voxels still readable, then fly back and reassemble into the creature so the clip ends on a finished, loopable frame (exit=lift sends the cloud up and out leaving the empty stage; also fall / scatter).",
   "useFor": "A dramatic \"disrupt / transform / remix\" beat, data turning into particles, or a loop outro that returns to the empty stage; reverse it for a gather-in intro.",
   "source": [
    "video x1 0:07.2-0:11.1 (burst, swirl, lift)"
@@ -5225,7 +5225,6 @@
   "bestLength": 135,
   "mood": [
    "3d",
-   "nature",
    "playful"
   ],
   "roles": [
@@ -5300,7 +5299,7 @@
     "doc": "cube tumble speed multiplier (90–360 °/s at 1)"
    },
    "exit": {
-    "default": "lift",
+    "default": "reassemble",
     "doc": "'lift' | 'fall' | 'scatter' | 'reassemble'"
    },
    "reverse": {
@@ -21622,7 +21621,7 @@
   "source": [
    "lemo-opuscar styles/ukiyoe/DEMO.md climax beats; STYLE.md §6 §8 (MIT, LemoLab) — original koi + print"
   ],
-  "durationInFrames": 240,
+  "durationInFrames": 200,
   "tags": [
    "frame",
    "breakout",
@@ -21657,7 +21656,7 @@
    "sun"
   ],
   "loopable": false,
-  "bestLength": 240,
+  "bestLength": 200,
   "mood": [
    "paper",
    "photo",
@@ -38269,7 +38268,7 @@
   "source": [
    "pdoom-video app/src/scenes/prompt.ts + prompt-data.ts (MIT): candidate flicker ~0.16 s ahead, camera zoom 1.25–2.7 with ±0.03 rad roll"
   ],
-  "durationInFrames": 270,
+  "durationInFrames": 210,
   "tags": [
    "llm",
    "token",
@@ -38304,7 +38303,7 @@
    "accent"
   ],
   "loopable": false,
-  "bestLength": 270,
+  "bestLength": 210,
   "mood": [
    "nature",
    "night"
@@ -41510,7 +41509,7 @@
   "source": [
    "mg-styles-15 demos/09-bauhaus/film.js (MIT, gridProg / target / groupAngle) + cues.json; video 0-6 s"
   ],
-  "durationInFrames": 210,
+  "durationInFrames": 240,
   "tags": [
    "bauhaus",
    "swiss",
@@ -41544,7 +41543,7 @@
    "ink"
   ],
   "loopable": false,
-  "bestLength": 210,
+  "bestLength": 240,
   "mood": [],
   "roles": [
    "subject"
@@ -54908,7 +54907,7 @@
     "doc": "dotted route between keyed positions"
    },
    "size": {
-    "default": 150,
+    "default": 210,
     "doc": "pin size in px"
    }
   }

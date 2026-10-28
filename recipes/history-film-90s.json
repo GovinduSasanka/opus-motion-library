@@ -1,0 +1,177 @@
+{
+  "id": "history-film-90s",
+  "title": "History film (24 s cut)",
+  "useFor": "A short documentary-style history of anything: a title over an aged photo plate, a ruler of years gliding under a playhead with pinned event cards and a rolling year counter, then a closing 'today' card. Film-print finish. Extend the events for a longer cut.",
+  "format": "landscape",
+  "background": "#1a1612",
+  "tags": [
+    "history",
+    "documentary",
+    "timeline",
+    "years",
+    "eras",
+    "archive",
+    "film",
+    "heritage",
+    "company history",
+    "museum",
+    "narrated",
+    "chronology",
+    "milestones",
+    "retro",
+    "print"
+  ],
+  "scenes": [
+    {
+      "duration": 150,
+      "transition": {
+        "type": "fade",
+        "frames": 18
+      },
+      "layers": [
+        {
+          "motion": "ken-burns",
+          "props": {
+            "src": "demo/lighthouse.jpg",
+            "mode": "push",
+            "rate": 3,
+            "punchAt": -1,
+            "grain": 0.08,
+            "vignette": 0.5
+          },
+          "opacity": 0.5
+        },
+        {
+          "motion": "blur-in-title",
+          "from": 6,
+          "props": {
+            "kicker": "A SHORT HISTORY",
+            "title": "OF LIGHT",
+            "subtitle": "from the oil lamp to the LED",
+            "swapTo": null,
+            "backdrop": "none",
+            "background": "transparent",
+            "font": "serif",
+            "size": 110,
+            "tracking": 0.5,
+            "fadeOut": false,
+            "glow": 0.5,
+            "subtitleColor": "#E9E2D2"
+          }
+        }
+      ]
+    },
+    {
+      "duration": 500,
+      "transition": {
+        "type": "fade",
+        "frames": 18
+      },
+      "layers": [
+        {
+          "motion": "timeline-ruler",
+          "props": {
+            "events": [
+              {
+                "date": "1780",
+                "title": "The Argand lamp",
+                "body": "A hollow wick and a glass chimney make oil light bright and steady.",
+                "icon": "spark",
+                "image": "demo/lantern.jpg"
+              },
+              {
+                "date": "1807",
+                "title": "Gas lights the street",
+                "body": "Pall Mall in London is lit with coal gas.",
+                "icon": "bolt",
+                "image": "demo/lighthouse.jpg"
+              },
+              {
+                "date": "1879",
+                "title": "The practical bulb",
+                "body": "Edison's carbon-filament lamp burns for more than a day.",
+                "icon": "star"
+              },
+              {
+                "date": "1962",
+                "title": "The first visible LED",
+                "body": "A small red light that barely warms.",
+                "icon": "cog"
+              },
+              {
+                "date": "2014",
+                "title": "Blue LEDs win a Nobel",
+                "body": "Efficient white light now fits in everything.",
+                "icon": "globe",
+                "image": "demo/city.jpg"
+              }
+            ],
+            "scale": "even",
+            "cardStyle": "light",
+            "background": "#F1ECE2",
+            "ink": "#1A1A1F",
+            "accent": "#B5532E",
+            "panFrames": 26,
+            "holdFrames": 62
+          }
+        }
+      ]
+    },
+    {
+      "duration": 130,
+      "layers": [
+        {
+          "motion": "ken-burns",
+          "props": {
+            "src": "demo/city.jpg",
+            "mode": "pull",
+            "rate": 3,
+            "punchAt": -1,
+            "grain": 0.08,
+            "vignette": 0.5
+          },
+          "opacity": 0.5
+        },
+        {
+          "motion": "blur-in-title",
+          "from": 6,
+          "props": {
+            "title": "TODAY",
+            "subtitle": "a lamp in every pocket",
+            "swapTo": null,
+            "backdrop": "none",
+            "background": "transparent",
+            "font": "serif",
+            "size": 110,
+            "tracking": 0.6,
+            "fadeOut": true,
+            "glow": 0.5,
+            "subtitleColor": "#E9E2D2"
+          }
+        }
+      ]
+    }
+  ],
+  "overlays": [
+    {
+      "motion": "film-look",
+      "from": 0,
+      "duration": 762,
+      "props": {
+        "overlay": true,
+        "look": "print",
+        "grain": 0.1,
+        "vignette": 0.35,
+        "flare": false,
+        "letterbox": "off",
+        "bloom": 0,
+        "fringe": 0,
+        "sepia": 0.18,
+        "scratches": 0.35,
+        "dust": 0.6,
+        "flicker": 0.4
+      }
+    }
+  ],
+  "notes": "Replace the events (date as a 4-digit year, title, one line of body, optional image under public/, icon), the opening title / subtitle and the closing card. About 80 frames per event: add events and lengthen the second scene to match; scale 'even' gives equal gaps ('linear' spaces them by years). Swap ken-burns.src for your archive photos. The film-look print overlay adds dust, scratches and flicker; lower scratches / dust for a cleaner look. Narrate with the CLI voice command: one sentence per event."
+}

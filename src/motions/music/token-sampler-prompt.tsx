@@ -206,7 +206,7 @@ export const tokenSamplerPrompt = defineMotion<Props>({
     'A thin prompt field in a dark void types a phrase token by token on the beat (or on sung-word starts): just before each token a tiny next-token distribution flickers above the caret and the sampled candidate lights orange, the camera re-frames between caret, text and field with a hair of kick per token, and ⏎ fires a flash-zoom on the closing downbeat.',
   source: ['pdoom-video app/src/scenes/prompt.ts + prompt-data.ts (MIT): candidate flicker ~0.16 s ahead, camera zoom 1.25–2.7 with ±0.03 rad roll'],
   useFor: 'AI-product videos, “how an LLM picks the next word” explainers, prompt demos; feed `lyrics` to type exactly on the vocal.',
-  durationInFrames: 270,
+  durationInFrames: 210,
   defaultProps: {
     text: 'turn the city lights up one more time',
     tokens: [],

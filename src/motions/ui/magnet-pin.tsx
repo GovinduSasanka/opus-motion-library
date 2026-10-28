@@ -171,7 +171,7 @@ export const magnetPin = defineMotion<Props>({
       {x: 0.78, y: 0.62, label: 'Customer'},
     ],
     showRoute: true,
-    size: 150,
+    size: 210,
   },
   propDocs: {
     background: 'board colour',

@@ -50,6 +50,8 @@ export interface Recipe {
   layers?: RecipeLayer[];
   scenes?: MixSpec['scenes'];
   overlays?: MixSpec['overlays'];
+  /** one look for the whole recipe (style id, see styles.json); scenes / layers can still set their own */
+  style?: string | {id: string; strength?: number};
   /** what to change for your project, and how it behaves on the web */
   notes?: string;
   tags?: string[];
