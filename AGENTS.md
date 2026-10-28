@@ -6,8 +6,8 @@ something like *"choose proper motions from this repo and build something"*. Thi
 
 ## What this library is
 
-- **415 parameterised motion graphics** (titles, backdrops, weather, particles, characters, data, UI mockups, HUDs,
-  image looks, 3D) + **97 scene transitions** + **147 styles** (one-line restyle of any motion), written as Remotion components (React + SVG + three.js).
+- **424 parameterised motion graphics** (titles, backdrops, weather, particles, characters, data, UI mockups, HUDs,
+  image looks, 3D) + **97 scene transitions** + **148 styles** (one-line restyle of any motion), written as Remotion components (React + SVG + three.js).
   Every motion takes JSON props (your text, colours, images, timing), renders at 16:9, 1:1 and 9:16, and is deterministic.
 - **33 recipes** (`recipes/*.json`): ready-made, tested mixes for common needs — hero backgrounds, launch intro,
   stats, testimonial, loading loop, divider, success / error states, onboarding, countdown, neon promo, explainer,

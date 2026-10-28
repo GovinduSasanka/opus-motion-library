@@ -1,9 +1,42 @@
 # Decisions
 
+## Update (2026-10-28, 10:30–11:00 session) — coverage gap, 5 new reference videos, polish
+
+**Coverage check of the 8 repos**: every planned motion from the repo analyses was built (the "(T)" items as transition
+types/variants; a handful under nearby ids such as `tilt-shift-diorama`, `doc-highlight-evidence`, `vhs-crt-pass`,
+`particle-shape-morph`, `mesh-gradient-bg`; some as styles: `clay-3d`, `iso-diorama`, `shape-morph`). All 15 mg-styles-15
+looks exist under renamed ids. **One gap found**: lemo-opuscar `styles/microscope` had never been analysed → added the
+`microscope` style and the `microscope-dive` motion. 68 of 70 planned EXTENDS targets were done; this session added the
+`comic-halftone` ones (registrationKick / registrationDrift / tint / spotInks / offsetShadow / cutout, helper
+`src/core/r2-up-kit.tsx`). `plan-tilt` popup mode is still not built.
+
+**Added this session** (424 motions, 148 styles; tsc clean at 10:51; the 5 video motions compiled but were NOT visually checked before commit — review their stills): `microscope` style, `microscope-dive`, `dna-helix-unzip`,
+`order-book-depth`, `pythagoras-rearrange`, transition-reel `include: 'all' | 'extra'` (labels for every variant), stronger
+weak styles (typewriter-art, soft-pastel, letterpress-newsprint, stained-glass) if their agent finished in time.
+
+**5 new reference videos (Downloads, 2026-10-28)** — contact sheets in git-ignored `analysis/sheets/r3/v1–v5.jpg`; one
+motion each was started at 10:48 with a 10:56 deadline:
+- v1 periodic table in 3D (lab room, element columns by property, atom cloud, alkali-in-water, flame test, spectrum) → `element-columns-3d`
+- v2 mechanical segmented worm breaching a line-art desert, x-ray pass → `segmented-worm-breach`
+- v3 flat-vector "iron in your blood came from a star" (body vessels glow, blood cells, star fusion shells H→Fe, supernova) → `star-fusion-shells`
+- v4 static physics textbook turned interactive (open book, line-art apparatus, energy beakers) → `textbook-energy-lab`
+- v5 pastel gallery app with cards on a 3D ring, giant "Top 10" serif, detail panel → `card-helix-gallery`
+Whichever were unfinished at 10:57 were left out of the commit. **Next session**: finish the missing ones, plus
+follow-ups from these videos: atom electron cloud (click adds a proton), alkali metal in water bowl, flame-test colours,
+emission spectrum bars, body-vessel glow, masonry gallery switch.
+
+**Portrait QA (9:16)** was started for all motions but the machine was overloaded by ~16 parallel renders; partial reports
+in `out/qa/portrait-*.md`. Found so far: hud-chrome and mission-clock sparse/small in portrait, powers-of-ten tick ring
+cropped, prompt-wall low-contrast text, line-draw-on caption truncated. Resume with `node out/qa/p3-run.mjs` (skips done ids).
+
+**Known**: `gallery/transition-reel.jpg` is stale (33-transition version) — regenerate it; the comic-halftone default
+regression could not be rendered under load (code path unchanged when props are off) — re-run
+`node cli/mgl.mjs gallery --only comic-halftone --force --dir out/regress && python cli/regress.py comic-halftone`.
+
 ## Summary (2026-10-28) — round 2: the large library
 
 **What was built** (on top of the 109-motion v1.1 library)
-- **415 motions** (+306): ported/re-derived from lemo-opuscar, mg-styles-15, pdoom-video, ClaudeAnimationBase (MIT, file
+- **424 motions** (+306): ported/re-derived from lemo-opuscar, mg-styles-15, pdoom-video, ClaudeAnimationBase (MIT, file
   headers + THIRD_PARTY_NOTICES.md), the 8 attached reference videos, and the 1,138-case prompt corpus (ideas only from
   the unlicensed repos). New families: game, music, document, product, map, mascot.
 - **147 styles** (+96) through the style engine: `--style <id>` on any render, `style` in compose specs, recipes and layers,

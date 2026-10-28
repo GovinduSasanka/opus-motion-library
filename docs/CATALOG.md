@@ -1,6 +1,6 @@
 # Motion catalog
 
-415 motions. Generated from `catalog.json` by `cli/gen-docs.mjs` — do not edit by hand.
+424 motions. Generated from `catalog.json` by `cli/gen-docs.mjs` — do not edit by hand.
 
 Render any of them: `node cli/mgl.mjs render <id> [--props '{...}'] [--format landscape|square|portrait]`. Previews live in `gallery/`.
 
@@ -10,15 +10,15 @@ Choosing: `node cli/mgl.mjs suggest "<what you need>"` and [CHOOSING.md](CHOOSIN
 - [transition](#transition) (2)
 - [shape](#shape) (41)
 - [fx](#fx) (49)
-- [environment](#environment) (38)
+- [environment](#environment) (39)
 - [character](#character) (16)
-- [data](#data) (31)
-- [ui](#ui) (34)
+- [data](#data) (37)
+- [ui](#ui) (35)
 - [hud](#hud) (21)
 - [camera](#camera) (4)
 - [texture](#texture) (1)
 - [3d](#3d) (41)
-- [document](#document) (8)
+- [document](#document) (9)
 - [game](#game) (14)
 - [image](#image) (34)
 - [map](#map) (6)
@@ -33,7 +33,7 @@ Choosing: `node cli/mgl.mjs suggest "<what you need>"` and [CHOOSING.md](CHOOSIN
 |---|---|
 | overlay (transparent background — put it on top of other motions or your page) | `globe-3d`, `holo-solid-ignite`, `light-beam-ribbon`, `popup-spread`, `creator-hand`, `paper-critter-rig`, `pictogram-figure`, `aurora`, `bubbles`, `caustics-godrays`, `curl-flow`, `embers`, `falling-petals`, `fireworks`, `flow-lines`, `fog-clouds`, `insect-flight`, `lightning-flash`, `mesh-gradient-bg`, `rain`, `snowfall`, `starfield-night`, `window-glow-sequence`, `backlit-cutout`, `circuit-traces`, `confetti-burst`, `electric-arcs`, `emote-pop`, `eyes-blink`, `fire-flames`, `giant-eye-reveal`, `grease-pencil-mark`, `impact-frame`, `ink-blot-stop`, `long-exposure-trails`, `magnifier-loupe`, `marker-ring-arrow`, `scribble-ball`, `smear-frame`, `smoke-puffs`, `sparkle-burst`, `star-glint`, `sticker-cutout`, `swirl-portal`, `vhs-crt-pass`, `candy-set-backdrop`, `agent-roster`, `cam-chip-sync-badge`, `day-ring-dial`, `event-feed`, `fight-hud`, `game-hud`, `hud-chrome`, `mission-clock`, `news-bug-source-tag`, `prompt-wall`, `spec-chip-rail`, `target-lock-box`, `target-lock`, `film-look`, `sticker-slap`, `coverage-route`, `beat-dance`, `chomp-lid`, `emotion-idle-beat`, `emotion-sheet`, `emotion-timeline`, `mascot-nib`, `smear-trail`, `beat-camera`, `beat-grid`, `engraving-hatch`, `guilloche-note`, `lyric-on-path`, `lyric-timing`, `lyric-video`, `shutter-blur`, `stage-curtain`, `time-stutter`, `token-sampler-prompt`, `token-tree`, `width-pressure-type`, `sunburst-hero`, `comet-pulse-guide`, `ink-brush-stroke`, `motif-grid-pattern`, `nib-follow-camera`, `papercut-rosette`, `toon-cel-shape`, `blur-in-title`, `chapter-header`, `comic-burst`, `end-card-credits`, `glyph-orbit-logo`, `kinetic-captions`, `mask-rise-title`, `news-strap`, `number-counter`, `paper-strip-title`, `rundown-board`, `scene-tag`, `stamp-slam`, `sting-bug`, `story-caption-box`, `typewriter-code`, `typewriter-signature`, `agent-log-panel`, `cursor-driver`, `glass-lesson-card`, `keystroke-hud`, `liquid-glass-lens`, `notification-stack`, `planned-vs-heard-checklist`, `player-toolbar` |
 | seamless loop | `iso-bar-chart`, `embers`, `sonar-ping` |
-| takes your image (`src` / `images` / `heroSrc`) | `pointcloud-orbit`, `beat-montage`, `crowd-tracks`, `ground-plane-ruler`, `map-route`, `science-reticle`, `thumbnail-mosaic`, `mugshot-height-chart`, `depth-descent`, `lamp-screen`, `paper-diorama`, `studio-sweep`, `topdown-terrain`, `window-glow-sequence`, `beat-punch-zoom`, `crayon-wax-shader`, `focus-desaturate`, `frame-blend-timelapse`, `frame-breakout`, `freeze-frame-brackets`, `giant-eye-reveal`, `glass-crack-mend`, `long-exposure-trails`, `loupe-magnify`, `magnifier-loupe`, `swirl-portal`, `theatre-gate`, `vhs-crt-pass`, `loot-reveal`, `rocket-to-moon`, `callout-labels`, `cam-chip-sync-badge`, `target-lock-box`, `target-lock`, `ascii-image-grid`, `autofocus-hunt`, `brush-stroke-reveal`, `comic-halftone`, `dot-matrix`, `duotone`, `film-look`, `glass-pane-grid`, `glitch-image`, `grid-multiply`, `handscroll-reveal`, `ken-burns`, `knife-colour-relay`, `knife-paint-plate`, `light-sweep`, `negative-develop-reveal`, `perspective-flatten`, `photomontage-tower`, `pixel-dither`, `press-lift`, `proportion-sweep`, `riso-plate-reveal`, `spinning-headline`, `split-grid-countdown`, `sticker-cutout-burst`, `telestrator-freeze`, `tilt-shift-diorama`, `woodblock-print-reveal`, `woodcut-carve`, `xray-scan`, `map-mask-reveal`, `audio-spectrum`, `guilloche-note`, `frost-to-clear`, `sunburst-hero`, `scissor-cut`, `sonar-ping`, `blur-in-title`, `bouncing-ball-singalong`, `chapter-header`, `comic-burst`, `diagonal-band-title`, `end-card-credits`, `flipbook-riffle-outro`, `glyph-orbit-logo`, `halftone-exhibit-numeral`, `hanazi-caption`, `letters-become-image`, `logo-assemble`, `mask-rise-title`, `number-counter`, `stamp-slam`, `story-caption-box`, `typewriter-code`, `browser-mockup`, `device-mockup`, `sms-thread`, `split-compare`, `tv-wall-switch-on`, `versus-roster` |
+| takes your image (`src` / `images` / `heroSrc`) | `pointcloud-orbit`, `beat-montage`, `crowd-tracks`, `ground-plane-ruler`, `map-route`, `microscope-dive`, `science-reticle`, `thumbnail-mosaic`, `mugshot-height-chart`, `depth-descent`, `lamp-screen`, `paper-diorama`, `studio-sweep`, `topdown-terrain`, `window-glow-sequence`, `beat-punch-zoom`, `crayon-wax-shader`, `focus-desaturate`, `frame-blend-timelapse`, `frame-breakout`, `freeze-frame-brackets`, `giant-eye-reveal`, `glass-crack-mend`, `long-exposure-trails`, `loupe-magnify`, `magnifier-loupe`, `swirl-portal`, `theatre-gate`, `vhs-crt-pass`, `loot-reveal`, `rocket-to-moon`, `callout-labels`, `cam-chip-sync-badge`, `target-lock-box`, `target-lock`, `ascii-image-grid`, `autofocus-hunt`, `brush-stroke-reveal`, `comic-halftone`, `dot-matrix`, `duotone`, `film-look`, `glass-pane-grid`, `glitch-image`, `grid-multiply`, `handscroll-reveal`, `ken-burns`, `knife-colour-relay`, `knife-paint-plate`, `light-sweep`, `negative-develop-reveal`, `perspective-flatten`, `photomontage-tower`, `pixel-dither`, `press-lift`, `proportion-sweep`, `riso-plate-reveal`, `spinning-headline`, `split-grid-countdown`, `sticker-cutout-burst`, `telestrator-freeze`, `tilt-shift-diorama`, `woodblock-print-reveal`, `woodcut-carve`, `xray-scan`, `map-mask-reveal`, `audio-spectrum`, `guilloche-note`, `frost-to-clear`, `sunburst-hero`, `scissor-cut`, `sonar-ping`, `blur-in-title`, `bouncing-ball-singalong`, `chapter-header`, `comic-burst`, `diagonal-band-title`, `end-card-credits`, `flipbook-riffle-outro`, `glyph-orbit-logo`, `halftone-exhibit-numeral`, `hanazi-caption`, `letters-become-image`, `logo-assemble`, `mask-rise-title`, `number-counter`, `stamp-slam`, `story-caption-box`, `typewriter-code`, `browser-mockup`, `device-mockup`, `sms-thread`, `split-compare`, `tv-wall-switch-on`, `versus-roster` |
 | heavy (three.js / WebGL — prefer an exported video on mobile web) | `accum-render-3d`, `brick-collapse-physics`, `brick-fx-fire-smoke`, `brick-rebuild-morph`, `brick-snap-build`, `chart-to-installation`, `cloner-bed-ripple`, `colour-ignition-wave`, `exploded-stack`, `exploded-view-3d`, `glass-strip-sweep`, `globe-3d`, `iso-blocks-3d`, `iso-city-build`, `jelly-type-drop`, `last-object-drop`, `liminal-corridor-3d`, `ocean-surface-3d`, `particle-shape-morph`, `plan-tilt`, `pointcloud-orbit`, `product-turntable-3d`, `shockwave-flip-field`, `stack-plates-3d`, `terrain-build-3d`, `voxel-burst-swirl`, `voxel-diorama`, `wireframe-build`, `dash-flow-field` |
 
 ## recipes
@@ -1849,6 +1849,7 @@ Every scene transition in the library, one after another, between contrasting la
 | prop | default | notes |
 |---|---|---|
 | `types` | `["fade","slide","wipe","clock","flip","iris","blob","tear…` | transition entries to show in order, "type" or "type:variant" (e.g. "page-turn:roll") |
+| `include` | `"default"` | "default" = just `types`; "all" = `types` plus every other transition and variant in transitions.json (each labelled); "extra" = only the ones `types` lacks. The default render length covers only the default list: for "all"/"extra" pass a longer duration (render --frames N, N = reelDuration) |
 | `holdFrames` | `36` | frames each panel holds between transitions |
 | `transitionFrames` | `0` | length of every transition in frames; 0 = each type's recommended length |
 | `title` | `"Transitions"` | label on the opening panel |
@@ -5506,6 +5507,33 @@ Countdown on a dusk launch pad, ignition with billowing ground smoke and a flick
 | `smoke` | `1` | ground smoke amount (0.3-1.5) |
 | `shake` | `1` | pre-lift vibration strength (0 = steady) |
 
+### `segmented-worm-breach` — Segmented worm breach
+
+A giant panelled mechanical worm with a toothed circular mouth bursts out of a cream line-art desert in a dust plume, arcs toward camera and dives back; optional translucent cyan x-ray pass.
+
+**Use for:** Hero reveal of a colossal machine/creature, desert or sand worlds, sci-fi cold opens, product-as-monster metaphors.  
+**Rebuilt from:** analysis/sheets/r3/v2.jpg  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** blueprint, 3d  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `background` | `"#e9e6df"` | sky colour |
+| `sand` | `"#f2e9cf"` | desert ground colour |
+| `ink` | `"#2b2a27"` | line-art ink colour |
+| `body` | `"#8f8a78"` | worm ring base colour |
+| `bodyDark` | `"#4a4739"` | panel / shadow colour |
+| `accent` | `"#d9a42a"` | gold ring accents |
+| `dust` | `"#c4a981"` | dust puff colour |
+| `xrayColor` | `"#4fc3d0"` | cyan used in the x-ray pass |
+| `xray` | `false` | turn the worm translucent cyan x-ray for the middle of the clip |
+| `segments` | `34` | number of ring segments |
+| `size` | `1` | worm girth multiplier |
+| `dustAmount` | `1` | dust puff density (0 = none) |
+| `seed` | `5` | seed for panels, dunes and dust |
+
 ### `snowfall` — Snowfall
 
 ![snowfall](../gallery/snowfall.jpg)
@@ -6360,6 +6388,35 @@ A locked-off concourse plate darkens and desaturates while every walker becomes 
 | `src` | `""` | optional public/ crowd still used as the plate (procedural concourse otherwise) |
 | `seed` | `7` | walker layout seed |
 
+### `dna-helix-unzip` — DNA helix unzip
+
+A rotating DNA double helix draws on, coloured A-T / G-C base-pair rungs fill in, then a zipper point runs along the axis and the two strands peel apart into half-rungs with letter tags.
+
+**Use for:** Biology / genetics explainers, "copying the code" or "unlocking" metaphors, biotech and health intros.  
+**Rebuilt from:** original  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud  
+**Capabilities:** paints its own background · text: `title`, `caption` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"REPLICATION"` | heading above the helix |
+| `caption` | `"EACH STRAND BECOMES A TEMPLATE"` | line shown once the strands have separated |
+| `sequence` | `"ATGCGTACCGATTAGC"` | bases for strand A (A/T/G/C); complements are derived; repeats if shorter than pairs |
+| `background` | `"#0E1726"` | scene background colour |
+| `strandA` | `"#4FC3F7"` | colour of the first backbone |
+| `strandB` | `"#F48FB1"` | colour of the second backbone |
+| `inkColor` | `"#E8EEF6"` | text and guide colour |
+| `baseColors` | `{"A":"#FFB74D","T":"#81C784","G":"#BA68C8","C":"#FFF176"}` | colour per base {A,T,G,C} |
+| `pairs` | `16` | number of base-pair rungs |
+| `turns` | `2` | helix turns along the axis |
+| `spin` | `1` | rotation speed multiplier (0 = still) |
+| `unzipAt` | `70` | frame the unzip starts |
+| `unzipFrames` | `80` | length of the unzip in frames |
+| `letters` | `true` | show base letters on the separated half-rungs |
+| `seed` | `3` | seed for bases when sequence is empty |
+
 ### `dot-tally` — Dot tally (people as dots)
 
 ![dot-tally](../gallery/dot-tally.jpg)
@@ -6418,6 +6475,33 @@ A hand-drawn pencil dot chart on cream paper sweeps mark by mark into a full-hei
 | `note` | `"the hottest yet"` | handwritten note text (empty = none) |
 | `seed` | `5` | pencil wobble seed |
 | `background` | `"#F6F3EC"` | paper colour |
+
+### `element-columns-3d` — Element columns 3D
+
+A periodic table of 3D tiles on a wooden bench in a dark lab: the columns rise from the floor to heights set by a property (melting point), the camera drifts round, the tallest column is tagged with a label and a caption pill sits at the bottom. Sample values are illustrative.
+
+**Use for:** Show a property across the periodic table (or any 118-item grid dataset) and call out the extreme; science explainers.  
+**Rebuilt from:** analysis/sheets/r3/v1.jpg  
+**Default length:** 270 frames (9.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, hud, playful, editorial, night  
+**Capabilities:** paints its own background · text: `unit`, `caption` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `values` | `[14,1,454,1560,2349,3800,63,54,53,25,371,923,933,1687,317…` | 118 numbers in atomic-number order (default: illustrative melting points in K); sets column heights |
+| `unit` | `"K"` | unit shown in the auto label |
+| `caption` | `"The taller the column, the higher its melting point."` | bottom caption pill text |
+| `highlightLabel` | `""` | text for the tallest-column label (empty = element name + value) |
+| `highlightIndex` | `-1` | zero-based element index to highlight (-1 = the tallest) |
+| `colors` | `["#F28C38","#2FB8B0","#8A6FD8","#5FA8F0","#E87FA8","#E6C3…` | six group colours: alkali, transition, post-transition, nonmetal, noble gas, f-block |
+| `background` | `"#0b1522"` | room colour |
+| `floorColor` | `"#8a5a33"` | wooden bench colour |
+| `maxHeight` | `4` | tallest column height in tile widths |
+| `orbitDeg` | `38` | camera orbit over the clip, degrees |
+| `startYaw` | `-22` | starting camera yaw, degrees |
+| `pitch` | `52` | camera elevation, degrees |
+| `showCaption` | `true` | show the caption pill |
 
 ### `empty-next-cell` — Empty next cell
 
@@ -6785,6 +6869,32 @@ Top-down illustrated paper map (fields, river, trees, blossoms) with a marker fl
 | `labelA` | `"A"` | range: label of the start marker |
 | `labelB` | `"B"` | range: label of the end marker |
 
+### `microscope-dive` — Microscope dive
+
+![microscope-dive](../gallery/microscope-dive.jpg)
+
+One continuous powers-of-ten zoom from a glass slide on a graphite bench through a procedural stained tissue section and cell field to a single nucleus; focus racks in, breathes at each magnification step and sweeps a focal plane on landing; frosted instrument panel (1-2-5 scale bar, rolling field of view, magnification and turning turret glyph) and a measurement ring with leader to a reading panel.
+
+**Use for:** Scale reveals from object to cell, "one measured number" beats, science / medical / materials explainers, powers-of-ten transitions.  
+**Rebuilt from:** lemo-opuscar styles/microscope (LemoLab, MIT code / CC BY 4.0 docs) — idea only, re-implemented  
+**Default length:** 300 frames (10.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud, ui  
+**Capabilities:** paints its own background · text: `label`, `unit`, `title` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `label` | `"Nucleus diameter"` | small label above the reading |
+| `value` | `8.4` | the measured number (also sets the nucleus size, and so the final field of view) |
+| `unit` | `"µm"` | unit of the reading ('µm', 'nm' or 'mm') |
+| `method` | `"least-squares circle · 72 rays"` | mono method line under the reading |
+| `stain` | `"he"` | 'he' (pink / purple) or 'trichrome' (red / blue) |
+| `accent` | `"rgb(120,240,205)"` | measurement ring and reading colour |
+| `bench` | `"#0B0D0F"` | bench colour at the dark end of the graphite gradient |
+| `seed` | `4` | seed for the procedural specimen |
+| `title` | `""` | optional small title written on the slide label at the start |
+| `src` | `""` | optional public/ image used as the specimen (zoom range is shortened so it stays sharp; give value/unit that match the circled region) |
+
 ### `neural-net-layers` — Neural net layers
 
 ![neural-net-layers](../gallery/neural-net-layers.jpg)
@@ -6879,6 +6989,34 @@ A glowing star and five bodies (one ringed, one with a moon) on dashed elliptica
 | `counter` | `true` | show the elapsed-time readout |
 | `stars` | `90` | background star count |
 | `seed` | `5` | start angles / star field seed |
+
+### `order-book-depth` — Order-book depth chart
+
+Stepped cumulative bid (left) and ask (right) depth curves grow out from a dashed mid line, then breathe as levels refill; a ticking mid price, spread readout and trade pings sit on a dark trading-desk panel.
+
+**Use for:** Finance and trading explainers: liquidity, spread, supply vs demand, market depth, fintech product heroes (sample data only).  
+**Rebuilt from:** original  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud, night  
+**Capabilities:** paints its own background · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Market depth"` | headline above the chart |
+| `subtitle` | `"SAMPLE ORDER BOOK"` | small caps label above the headline (keep it saying sample data unless you pass real numbers) |
+| `pair` | `"ABC / XYZ"` | instrument label shown next to the spread (fictional by default) |
+| `midPrice` | `100` | centre price the book drifts around |
+| `tick` | `0.05` | price step between levels |
+| `levels` | `24` | number of price levels per side (6+) |
+| `decimals` | `2` | decimals in price readouts |
+| `bidColor` | `"#2FD39A"` | buy side colour |
+| `askColor` | `"#FF5C6C"` | sell side colour |
+| `background` | `"#0E1320"` | panel background |
+| `ink` | `"#E9EEF7"` | text and mid-line colour |
+| `gridColor` | `"#222B3D"` | horizontal grid line colour |
+| `seed` | `7` | changes the sample book shape |
+| `liveliness` | `1` | 0 = frozen book, 1 = normal churn, 2 = frantic |
 
 ### `overhead-trail-mandala` — Overhead trail mandala
 
@@ -6996,6 +7134,30 @@ Pen strokes draw a perspective trapezoid board, coloured-pencil hatch fills squa
 | `pullback` | `1.35` | starting zoom of the camera pull-back (1 = none) |
 | `seed` | `2` |  |
 
+### `pythagoras-rearrange` — Pythagoras proof by rearrangement
+
+A square of side a+b draws on; four right triangles pop in around a tilted c-square, then three of them slide into two rectangles, uncovering the a-square and the b-square, and a² + b² = c² writes itself below.
+
+**Use for:** Maths lessons, geometry explainers, "the proof in 7 seconds" shorts, and any "same pieces, new arrangement" idea.  
+**Rebuilt from:** original design: classic rearrangement proof of the Pythagorean theorem  
+**Default length:** 220 frames (7.3 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d  
+**Capabilities:** paints its own background · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `a` | `3` | short leg length (relative) |
+| `b` | `4` | long leg length (relative) |
+| `title` | `"Why a² + b² = c²"` | caption above the square |
+| `showLabels` | `true` | side and area labels (a, b, c, a², b², c²) |
+| `background` | `"#F4EFE6"` | background colour |
+| `ink` | `"#1F2A44"` | outline and text colour |
+| `triangleColor` | `"#F2B33D"` | fill of the four right triangles |
+| `cColor` | `"#5B8DEF"` | c² square / equation colour |
+| `aColor` | `"#E2584D"` | a² square / equation colour |
+| `bColor` | `"#43A57A"` | b² square / equation colour |
+
 ### `ride-dimension-line` — Ride the dimension line
 
 ![ride-dimension-line](../gallery/ride-dimension-line.jpg)
@@ -7085,6 +7247,33 @@ A vertical plane slices one feature of a raking-lit survey surface; its profile 
 | `seed` | `8` | terrain seed |
 | `background` | `"#07090B"` | backdrop colour |
 | `surface` | `"#2A2D2F"` | low-ground colour of the lit surface |
+
+### `star-fusion-shells` — Star fusion shells
+
+A glowing orange star grows on a purple starfield, a pie wedge opens onto labelled concentric fusion shells (H to Fe), the iron core swells, the star collapses and bursts as a supernova of coloured dashes that settles into a nebula.
+
+**Use for:** Explaining stellar nucleosynthesis, layered structures with a growing core, or any build-up then collapse-and-burst reveal.  
+**Rebuilt from:** analysis/sheets/r3/v3  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `shells` | `["H","He","C","O","Si","Fe"]` | shell labels from outer to core (the last one is the growing core) |
+| `shellColors` | `["#FFD98A","#FFB65E","#FF8C45","#E5553E","#A93654","#B9C2…` | fill per shell, outer to core |
+| `background` | `"#120A2B"` | deep space colour |
+| `starColor` | `"#FF9F3C"` | star body colour |
+| `glowColor` | `"#FF8A2A"` | bloom colour around the star |
+| `burstColors` | `["#FFC857","#FF7A59","#7FD6FF","#B28DFF","#6EE7B7","#FFFF…` | colours of the supernova dashes |
+| `chipColor` | `"#1B1230"` | label chip fill |
+| `chipText` | `"#FFE9B0"` | label chip text colour |
+| `wedgeCenterDeg` | `-35` | direction of the cut-away wedge in degrees (0 = right, -90 = up) |
+| `wedgeWidthDeg` | `80` | opening angle of the wedge |
+| `starSize` | `0.9` | star diameter as a fraction of the short side |
+| `dashes` | `320` | number of supernova dashes |
+| `seed` | `11` | random seed for stars and dashes |
 
 ### `thumbnail-mosaic` — Thumbnail mosaic (disc / grid / recap)
 
@@ -7333,6 +7522,32 @@ Cards deal from a pile into a fanned hand, one is hovered, played to centre and 
 | `background` | `"#0b0815"` |  |
 | `labels` | `["CONNECT","REASON"]` | connect mode: [first label, final label] |
 | `accent` | `"#4777D2"` | connect mode rail / capsule colour |
+
+### `card-helix-gallery` — Card helix gallery
+
+Preview cards float on a rotating 3D ring over a pastel aurora with a giant serif rank text behind; the front card swells and an info panel with counting stats slides in each beat.
+
+**Use for:** Showcasing a top-N list of works, templates or products in a gallery or app promo.  
+**Rebuilt from:** analysis/sheets/r3/v5.jpg  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, nature, editorial, ui  
+**Capabilities:** paints its own background · text: `items` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `items` | `[{"title":"Neon pour typography reel","handle":"@studio.n…` | cards: title, handle, tag, color, optional src image, stats [a,b,c] |
+| `rankLabel` | `"Top 10"` | giant serif text behind the ring |
+| `statLabels` | `["Likes","Views","Saves"]` | three stat captions |
+| `holdFrames` | `44` | frames the focused card rests |
+| `turnFrames` | `26` | frames of each ring turn |
+| `radius` | `820` | ring radius in u |
+| `cardAspect` | `1.3` | card width / height |
+| `background` | `"#F4F0FA"` | base colour |
+| `blobs` | `["#B9C6FF","#FFC1DC","#D6C4FF","#FFE2B8","#BFEFE0"]` | aurora blob colours |
+| `ink` | `"#2A2440"` | text colour |
+| `accent` | `"#6A57D6"` | tag / index colour |
+| `rankColor` | `"#E3B6EA"` | colour of the giant rank text |
 
 ### `card-stack-cascade` — Card stack cascade (bento + focus)
 
@@ -10395,6 +10610,34 @@ A portrait poster builds one ink at a time under a squeegee on the beat: stepped
 | `misregister` | `1` | layer offset strength (0 = perfect register) |
 | `seed` | `3` | landscape seed (ridge, pines, glints) |
 
+### `textbook-energy-lab` — Textbook energy lab
+
+An open physics textbook on a sage desk under window-light shadows. The right-page pencil apparatus stands up: a ball rolls a U-track while three beakers (gravitational, kinetic, thermal) trade liquid levels, joined by glowing transfer arcs.
+
+**Use for:** Explaining energy conservation, or any interactive-textbook look: a lesson page with a live diagram beside the formula.  
+**Rebuilt from:** analysis/sheets/r3/v4.jpg  
+**Default length:** 300 frames (10.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, 3d  
+**Capabilities:** paints its own background · text: `caption`, `labels` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `heading` | `"Up and down"` | left-page title |
+| `formula` | `"E = m g h"` | formula line under the heading |
+| `bodyLines` | `["A ball high on a track stores energy","in its height. L…` | lines of body text on the left page |
+| `caption` | `"Lift the flap to see the answer."` | handwritten note in the answer box |
+| `labels` | `["GRAVITY","MOTION","HEAT"]` | three beaker labels (potential, kinetic, thermal) |
+| `liquidColors` | `["#8a4fe0","#3f8cf0","#f08a3a"]` | three liquid colours |
+| `desk` | `"#9db3a6"` | desk colour |
+| `paper` | `"#f7f4ec"` | page colour |
+| `ink` | `"#3a3a40"` | pencil line colour |
+| `accent` | `"#6b4fb0"` | handwriting colour |
+| `releaseFrame` | `70` | frame the ball is released |
+| `speed` | `1` | rolling speed multiplier |
+| `friction` | `0.006` | energy lost to heat per frame (0 = none) |
+| `startAt` | `0.06` | start position along the track, 0..1 |
+
 ## game
 
 ### `army-formation` — Army formation
@@ -10884,6 +11127,20 @@ Print-comic finish over an image: posterised toon colour, 45° halftone ink dots
 | `pan` | `-12` | lateral drift in px/s |
 | `vignette` | `0.35` | corner darkening |
 | `grain` | `0.06` | grain amount |
+| `registrationKick` | `0` | opt-in: colour plates jolt apart and ring back into register on each kick frame; amplitude in px (8-14 typical, 0 = off) |
+| `kickFrames` | `[30,75,120]` | frames the registration kicks land on (e.g. on the beats) |
+| `registrationDrift` | `0` | opt-in: plates slowly drift apart up to N px (about 25) over driftRange, then snap back with a click (0 = off) |
+| `driftRange` | `[30,110]` | [from, to] frames of the drift; the snap lands on `to` |
+| `tint` | `""` | opt-in mono mode: paper tint colour (e.g. #efe3c2); picture becomes ink-to-paper tones under the halftone dots (empty = full colour) |
+| `spotInks` | `[]` | opt-in flat spot inks, dark to light (e.g. ["#1b2a6b","#e8452c"]); picture split into flat bands of these inks plus the paper tint |
+| `offsetShadow` | `0` | opt-in misregistered offset shadow: outlines and deep shadows re-printed in shadowInk, shifted N px, multiplied (0 = off) |
+| `shadowInk` | `"#2b49c4"` | colour of the offset shadow ink |
+| `shadowAngle` | `45` | direction of the offset shadow in degrees (0 = right, 90 = down) |
+| `cutout` | `false` | opt-in scissor cut-out: a transparent-PNG src gets a faceted paper rim + drop shadow on a flat background; opaque images are cut to a hand-cut ellipse |
+| `rim` | `14` | cut-out rim width in px at 1080p |
+| `facets` | `5` | cut-out polygon tolerance in px (higher = fewer, more angular scissor facets) |
+| `rimColor` | `"#f6f1e4"` | cut-out rim paper colour |
+| `cutoutBg` | `"#f2c230"` | flat background colour behind the cut-out |
 
 ### `crayon-pressure-pass` — Crayon pressure pass
 

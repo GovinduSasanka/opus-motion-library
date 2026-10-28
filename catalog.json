@@ -9441,6 +9441,123 @@
   }
  },
  {
+  "id": "dna-helix-unzip",
+  "title": "DNA helix unzip",
+  "category": "data",
+  "description": "A rotating DNA double helix draws on, coloured A-T / G-C base-pair rungs fill in, then a zipper point runs along the axis and the two strands peel apart into half-rungs with letter tags.",
+  "useFor": "Biology / genetics explainers, \"copying the code\" or \"unlocking\" metaphors, biotech and health intros.",
+  "source": [
+   "original"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "science",
+   "biology",
+   "dna",
+   "helix",
+   "genetics",
+   "unzip"
+  ],
+  "file": "src/motions/data/dna-helix-unzip.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "caption"
+  ],
+  "colorProps": [
+   "background",
+   "strandA",
+   "strandB",
+   "inkColor"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "hud"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "REPLICATION",
+    "doc": "heading above the helix"
+   },
+   "caption": {
+    "default": "EACH STRAND BECOMES A TEMPLATE",
+    "doc": "line shown once the strands have separated"
+   },
+   "sequence": {
+    "default": "ATGCGTACCGATTAGC",
+    "doc": "bases for strand A (A/T/G/C); complements are derived; repeats if shorter than pairs"
+   },
+   "background": {
+    "default": "#0E1726",
+    "doc": "scene background colour"
+   },
+   "strandA": {
+    "default": "#4FC3F7",
+    "doc": "colour of the first backbone"
+   },
+   "strandB": {
+    "default": "#F48FB1",
+    "doc": "colour of the second backbone"
+   },
+   "inkColor": {
+    "default": "#E8EEF6",
+    "doc": "text and guide colour"
+   },
+   "baseColors": {
+    "default": {
+     "A": "#FFB74D",
+     "T": "#81C784",
+     "G": "#BA68C8",
+     "C": "#FFF176"
+    },
+    "doc": "colour per base {A,T,G,C}"
+   },
+   "pairs": {
+    "default": 16,
+    "doc": "number of base-pair rungs"
+   },
+   "turns": {
+    "default": 2,
+    "doc": "helix turns along the axis"
+   },
+   "spin": {
+    "default": 1,
+    "doc": "rotation speed multiplier (0 = still)"
+   },
+   "unzipAt": {
+    "default": 70,
+    "doc": "frame the unzip starts"
+   },
+   "unzipFrames": {
+    "default": 80,
+    "doc": "length of the unzip in frames"
+   },
+   "letters": {
+    "default": true,
+    "doc": "show base letters on the separated half-rungs"
+   },
+   "seed": {
+    "default": 3,
+    "doc": "seed for bases when sequence is empty"
+   }
+  }
+ },
+ {
   "id": "dot-tally",
   "title": "Dot tally (people as dots)",
   "category": "data",
@@ -9721,6 +9838,239 @@
    "background": {
     "default": "#F6F3EC",
     "doc": "paper colour"
+   }
+  }
+ },
+ {
+  "id": "element-columns-3d",
+  "title": "Element columns 3D",
+  "category": "data",
+  "description": "A periodic table of 3D tiles on a wooden bench in a dark lab: the columns rise from the floor to heights set by a property (melting point), the camera drifts round, the tallest column is tagged with a label and a caption pill sits at the bottom. Sample values are illustrative.",
+  "useFor": "Show a property across the periodic table (or any 118-item grid dataset) and call out the extreme; science explainers.",
+  "source": [
+   "analysis/sheets/r3/v1.jpg"
+  ],
+  "durationInFrames": 270,
+  "tags": [
+   "periodic-table",
+   "chemistry",
+   "3d",
+   "data",
+   "bars",
+   "science"
+  ],
+  "file": "src/motions/data/element-columns-3d.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "unit",
+   "caption"
+  ],
+  "colorProps": [
+   "colors",
+   "background",
+   "floorColor"
+  ],
+  "loopable": false,
+  "bestLength": 270,
+  "mood": [
+   "3d",
+   "hud",
+   "playful",
+   "editorial",
+   "night"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "values": {
+    "default": [
+     14,
+     1,
+     454,
+     1560,
+     2349,
+     3800,
+     63,
+     54,
+     53,
+     25,
+     371,
+     923,
+     933,
+     1687,
+     317,
+     388,
+     172,
+     84,
+     337,
+     1115,
+     1814,
+     1941,
+     2183,
+     2180,
+     1519,
+     1811,
+     1768,
+     1728,
+     1358,
+     693,
+     303,
+     1211,
+     1090,
+     494,
+     266,
+     116,
+     312,
+     1050,
+     1799,
+     2128,
+     2750,
+     2896,
+     2430,
+     2607,
+     2237,
+     1828,
+     1235,
+     594,
+     430,
+     505,
+     904,
+     723,
+     387,
+     161,
+     302,
+     1000,
+     1193,
+     1068,
+     1208,
+     1297,
+     1315,
+     1345,
+     1099,
+     1585,
+     1629,
+     1680,
+     1734,
+     1802,
+     1818,
+     1097,
+     1925,
+     2506,
+     3290,
+     3695,
+     3459,
+     3306,
+     2739,
+     2041,
+     1337,
+     234,
+     577,
+     601,
+     544,
+     527,
+     575,
+     202,
+     300,
+     973,
+     1323,
+     2115,
+     1841,
+     1405,
+     917,
+     913,
+     1449,
+     1613,
+     1259,
+     1173,
+     1133,
+     1800,
+     1100,
+     1100,
+     1900,
+     600,
+     600,
+     600,
+     600,
+     600,
+     600,
+     600,
+     600,
+     283,
+     700,
+     340,
+     670,
+     700,
+     720,
+     325
+    ],
+    "doc": "118 numbers in atomic-number order (default: illustrative melting points in K); sets column heights"
+   },
+   "unit": {
+    "default": "K",
+    "doc": "unit shown in the auto label"
+   },
+   "caption": {
+    "default": "The taller the column, the higher its melting point.",
+    "doc": "bottom caption pill text"
+   },
+   "highlightLabel": {
+    "default": "",
+    "doc": "text for the tallest-column label (empty = element name + value)"
+   },
+   "highlightIndex": {
+    "default": -1,
+    "doc": "zero-based element index to highlight (-1 = the tallest)"
+   },
+   "colors": {
+    "default": [
+     "#F28C38",
+     "#2FB8B0",
+     "#8A6FD8",
+     "#5FA8F0",
+     "#E87FA8",
+     "#E6C34A"
+    ],
+    "doc": "six group colours: alkali, transition, post-transition, nonmetal, noble gas, f-block"
+   },
+   "background": {
+    "default": "#0b1522",
+    "doc": "room colour"
+   },
+   "floorColor": {
+    "default": "#8a5a33",
+    "doc": "wooden bench colour"
+   },
+   "maxHeight": {
+    "default": 4,
+    "doc": "tallest column height in tile widths"
+   },
+   "orbitDeg": {
+    "default": 38,
+    "doc": "camera orbit over the clip, degrees"
+   },
+   "startYaw": {
+    "default": -22,
+    "doc": "starting camera yaw, degrees"
+   },
+   "pitch": {
+    "default": 52,
+    "doc": "camera elevation, degrees"
+   },
+   "showCaption": {
+    "default": true,
+    "doc": "show the caption pill"
    }
   }
  },
@@ -11569,6 +11919,109 @@
   }
  },
  {
+  "id": "microscope-dive",
+  "title": "Microscope dive",
+  "category": "data",
+  "description": "One continuous powers-of-ten zoom from a glass slide on a graphite bench through a procedural stained tissue section and cell field to a single nucleus; focus racks in, breathes at each magnification step and sweeps a focal plane on landing; frosted instrument panel (1-2-5 scale bar, rolling field of view, magnification and turning turret glyph) and a measurement ring with leader to a reading panel.",
+  "useFor": "Scale reveals from object to cell, \"one measured number\" beats, science / medical / materials explainers, powers-of-ten transitions.",
+  "source": [
+   "lemo-opuscar styles/microscope (LemoLab, MIT code / CC BY 4.0 docs) — idea only, re-implemented"
+  ],
+  "durationInFrames": 300,
+  "tags": [
+   "microscope",
+   "zoom",
+   "powers of ten",
+   "scale",
+   "cell",
+   "nucleus",
+   "slide",
+   "histology",
+   "science",
+   "measurement",
+   "scale bar",
+   "instrument",
+   "focus",
+   "data",
+   "biology",
+   "lab"
+  ],
+  "file": "src/motions/data/microscope-dive.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": true,
+  "textProps": [
+   "label",
+   "unit",
+   "title"
+  ],
+  "colorProps": [
+   "bench"
+  ],
+  "loopable": false,
+  "bestLength": 300,
+  "mood": [
+   "hud",
+   "ui"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "label": {
+    "default": "Nucleus diameter",
+    "doc": "small label above the reading"
+   },
+   "value": {
+    "default": 8.4,
+    "doc": "the measured number (also sets the nucleus size, and so the final field of view)"
+   },
+   "unit": {
+    "default": "µm",
+    "doc": "unit of the reading ('µm', 'nm' or 'mm')"
+   },
+   "method": {
+    "default": "least-squares circle · 72 rays",
+    "doc": "mono method line under the reading"
+   },
+   "stain": {
+    "default": "he",
+    "doc": "'he' (pink / purple) or 'trichrome' (red / blue)"
+   },
+   "accent": {
+    "default": "rgb(120,240,205)",
+    "doc": "measurement ring and reading colour"
+   },
+   "bench": {
+    "default": "#0B0D0F",
+    "doc": "bench colour at the dark end of the graphite gradient"
+   },
+   "seed": {
+    "default": 4,
+    "doc": "seed for the procedural specimen"
+   },
+   "title": {
+    "default": "",
+    "doc": "optional small title written on the slide label at the start"
+   },
+   "src": {
+    "default": "",
+    "doc": "optional public/ image used as the specimen (zoom range is shortened so it stays sharp; give value/unit that match the circled region)"
+   }
+  }
+ },
+ {
   "id": "neural-net-layers",
   "title": "Neural net layers",
   "category": "data",
@@ -12005,6 +12458,109 @@
    "seed": {
     "default": 5,
     "doc": "start angles / star field seed"
+   }
+  }
+ },
+ {
+  "id": "order-book-depth",
+  "title": "Order-book depth chart",
+  "category": "data",
+  "description": "Stepped cumulative bid (left) and ask (right) depth curves grow out from a dashed mid line, then breathe as levels refill; a ticking mid price, spread readout and trade pings sit on a dark trading-desk panel.",
+  "useFor": "Finance and trading explainers: liquidity, spread, supply vs demand, market depth, fintech product heroes (sample data only).",
+  "source": [
+   "original"
+  ],
+  "durationInFrames": 180,
+  "tags": [],
+  "file": "src/motions/data/order-book-depth.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "bidColor",
+   "askColor",
+   "background",
+   "ink",
+   "gridColor"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "hud",
+   "night"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Market depth",
+    "doc": "headline above the chart"
+   },
+   "subtitle": {
+    "default": "SAMPLE ORDER BOOK",
+    "doc": "small caps label above the headline (keep it saying sample data unless you pass real numbers)"
+   },
+   "pair": {
+    "default": "ABC / XYZ",
+    "doc": "instrument label shown next to the spread (fictional by default)"
+   },
+   "midPrice": {
+    "default": 100,
+    "doc": "centre price the book drifts around"
+   },
+   "tick": {
+    "default": 0.05,
+    "doc": "price step between levels"
+   },
+   "levels": {
+    "default": 24,
+    "doc": "number of price levels per side (6+)"
+   },
+   "decimals": {
+    "default": 2,
+    "doc": "decimals in price readouts"
+   },
+   "bidColor": {
+    "default": "#2FD39A",
+    "doc": "buy side colour"
+   },
+   "askColor": {
+    "default": "#FF5C6C",
+    "doc": "sell side colour"
+   },
+   "background": {
+    "default": "#0E1320",
+    "doc": "panel background"
+   },
+   "ink": {
+    "default": "#E9EEF7",
+    "doc": "text and mid-line colour"
+   },
+   "gridColor": {
+    "default": "#222B3D",
+    "doc": "horizontal grid line colour"
+   },
+   "seed": {
+    "default": 7,
+    "doc": "changes the sample book shape"
+   },
+   "liveliness": {
+    "default": 1,
+    "doc": "0 = frozen book, 1 = normal churn, 2 = frantic"
    }
   }
  },
@@ -12473,6 +13029,106 @@
   }
  },
  {
+  "id": "pythagoras-rearrange",
+  "title": "Pythagoras proof by rearrangement",
+  "category": "data",
+  "description": "A square of side a+b draws on; four right triangles pop in around a tilted c-square, then three of them slide into two rectangles, uncovering the a-square and the b-square, and a² + b² = c² writes itself below.",
+  "useFor": "Maths lessons, geometry explainers, \"the proof in 7 seconds\" shorts, and any \"same pieces, new arrangement\" idea.",
+  "source": [
+   "original design: classic rearrangement proof of the Pythagorean theorem"
+  ],
+  "durationInFrames": 220,
+  "tags": [
+   "math",
+   "maths",
+   "geometry",
+   "pythagoras",
+   "pythagorean theorem",
+   "proof",
+   "triangle",
+   "square",
+   "education",
+   "explainer",
+   "rearrange",
+   "area",
+   "teaching"
+  ],
+  "file": "src/motions/data/pythagoras-rearrange.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "triangleColor",
+   "cColor",
+   "aColor",
+   "bColor"
+  ],
+  "loopable": false,
+  "bestLength": 220,
+  "mood": [
+   "3d"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "a": {
+    "default": 3,
+    "doc": "short leg length (relative)"
+   },
+   "b": {
+    "default": 4,
+    "doc": "long leg length (relative)"
+   },
+   "title": {
+    "default": "Why a² + b² = c²",
+    "doc": "caption above the square"
+   },
+   "showLabels": {
+    "default": true,
+    "doc": "side and area labels (a, b, c, a², b², c²)"
+   },
+   "background": {
+    "default": "#F4EFE6",
+    "doc": "background colour"
+   },
+   "ink": {
+    "default": "#1F2A44",
+    "doc": "outline and text colour"
+   },
+   "triangleColor": {
+    "default": "#F2B33D",
+    "doc": "fill of the four right triangles"
+   },
+   "cColor": {
+    "default": "#5B8DEF",
+    "doc": "c² square / equation colour"
+   },
+   "aColor": {
+    "default": "#E2584D",
+    "doc": "a² square / equation colour"
+   },
+   "bColor": {
+    "default": "#43A57A",
+    "doc": "b² square / equation colour"
+   }
+  }
+ },
+ {
   "id": "ride-dimension-line",
   "title": "Ride the dimension line",
   "category": "data",
@@ -12851,6 +13507,131 @@
    "surface": {
     "default": "#2A2D2F",
     "doc": "low-ground colour of the lit surface"
+   }
+  }
+ },
+ {
+  "id": "star-fusion-shells",
+  "title": "Star fusion shells",
+  "category": "data",
+  "description": "A glowing orange star grows on a purple starfield, a pie wedge opens onto labelled concentric fusion shells (H to Fe), the iron core swells, the star collapses and bursts as a supernova of coloured dashes that settles into a nebula.",
+  "useFor": "Explaining stellar nucleosynthesis, layered structures with a growing core, or any build-up then collapse-and-burst reveal.",
+  "source": [
+   "analysis/sheets/r3/v3"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "star",
+   "supernova",
+   "shells",
+   "fusion",
+   "science",
+   "explainer"
+  ],
+  "file": "src/motions/data/star-fusion-shells.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "shellColors",
+   "background",
+   "starColor",
+   "glowColor",
+   "burstColors",
+   "chipColor",
+   "chipText"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "hud"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "shells": {
+    "default": [
+     "H",
+     "He",
+     "C",
+     "O",
+     "Si",
+     "Fe"
+    ],
+    "doc": "shell labels from outer to core (the last one is the growing core)"
+   },
+   "shellColors": {
+    "default": [
+     "#FFD98A",
+     "#FFB65E",
+     "#FF8C45",
+     "#E5553E",
+     "#A93654",
+     "#B9C2F0"
+    ],
+    "doc": "fill per shell, outer to core"
+   },
+   "background": {
+    "default": "#120A2B",
+    "doc": "deep space colour"
+   },
+   "starColor": {
+    "default": "#FF9F3C",
+    "doc": "star body colour"
+   },
+   "glowColor": {
+    "default": "#FF8A2A",
+    "doc": "bloom colour around the star"
+   },
+   "burstColors": {
+    "default": [
+     "#FFC857",
+     "#FF7A59",
+     "#7FD6FF",
+     "#B28DFF",
+     "#6EE7B7",
+     "#FFFFFF"
+    ],
+    "doc": "colours of the supernova dashes"
+   },
+   "chipColor": {
+    "default": "#1B1230",
+    "doc": "label chip fill"
+   },
+   "chipText": {
+    "default": "#FFE9B0",
+    "doc": "label chip text colour"
+   },
+   "wedgeCenterDeg": {
+    "default": -35,
+    "doc": "direction of the cut-away wedge in degrees (0 = right, -90 = up)"
+   },
+   "wedgeWidthDeg": {
+    "default": 80,
+    "doc": "opening angle of the wedge"
+   },
+   "starSize": {
+    "default": 0.9,
+    "doc": "star diameter as a fraction of the short side"
+   },
+   "dashes": {
+    "default": 320,
+    "doc": "number of supernova dashes"
+   },
+   "seed": {
+    "default": 11,
+    "doc": "random seed for stars and dashes"
    }
   }
  },
@@ -14506,6 +15287,129 @@
    "seed": {
     "default": 3,
     "doc": "landscape seed (ridge, pines, glints)"
+   }
+  }
+ },
+ {
+  "id": "textbook-energy-lab",
+  "title": "Textbook energy lab",
+  "category": "document",
+  "description": "An open physics textbook on a sage desk under window-light shadows. The right-page pencil apparatus stands up: a ball rolls a U-track while three beakers (gravitational, kinetic, thermal) trade liquid levels, joined by glowing transfer arcs.",
+  "useFor": "Explaining energy conservation, or any interactive-textbook look: a lesson page with a live diagram beside the formula.",
+  "source": [
+   "analysis/sheets/r3/v4.jpg"
+  ],
+  "durationInFrames": 300,
+  "tags": [
+   "physics",
+   "book",
+   "education",
+   "energy",
+   "diagram"
+  ],
+  "file": "src/motions/document/textbook-energy-lab.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "caption",
+   "labels"
+  ],
+  "colorProps": [
+   "liquidColors",
+   "desk",
+   "paper",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 300,
+  "mood": [
+   "paper",
+   "3d"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "heading": {
+    "default": "Up and down",
+    "doc": "left-page title"
+   },
+   "formula": {
+    "default": "E = m g h",
+    "doc": "formula line under the heading"
+   },
+   "bodyLines": {
+    "default": [
+     "A ball high on a track stores energy",
+     "in its height. Let it go, and that store",
+     "drains into motion at the bottom.",
+     "Climbing again, motion refills the store.",
+     "A little is always lost as heat."
+    ],
+    "doc": "lines of body text on the left page"
+   },
+   "caption": {
+    "default": "Lift the flap to see the answer.",
+    "doc": "handwritten note in the answer box"
+   },
+   "labels": {
+    "default": [
+     "GRAVITY",
+     "MOTION",
+     "HEAT"
+    ],
+    "doc": "three beaker labels (potential, kinetic, thermal)"
+   },
+   "liquidColors": {
+    "default": [
+     "#8a4fe0",
+     "#3f8cf0",
+     "#f08a3a"
+    ],
+    "doc": "three liquid colours"
+   },
+   "desk": {
+    "default": "#9db3a6",
+    "doc": "desk colour"
+   },
+   "paper": {
+    "default": "#f7f4ec",
+    "doc": "page colour"
+   },
+   "ink": {
+    "default": "#3a3a40",
+    "doc": "pencil line colour"
+   },
+   "accent": {
+    "default": "#6b4fb0",
+    "doc": "handwriting colour"
+   },
+   "releaseFrame": {
+    "default": 70,
+    "doc": "frame the ball is released"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "rolling speed multiplier"
+   },
+   "friction": {
+    "default": 0.0012,
+    "doc": "energy lost to heat per frame (0 = none)"
+   },
+   "startAt": {
+    "default": 0.06,
+    "doc": "start position along the track, 0..1"
    }
   }
  },
@@ -18310,6 +19214,113 @@
    "shake": {
     "default": 1,
     "doc": "pre-lift vibration strength (0 = steady)"
+   }
+  }
+ },
+ {
+  "id": "segmented-worm-breach",
+  "title": "Segmented worm breach",
+  "category": "environment",
+  "description": "A giant panelled mechanical worm with a toothed circular mouth bursts out of a cream line-art desert in a dust plume, arcs toward camera and dives back; optional translucent cyan x-ray pass.",
+  "useFor": "Hero reveal of a colossal machine/creature, desert or sand worlds, sci-fi cold opens, product-as-monster metaphors.",
+  "source": [
+   "analysis/sheets/r3/v2.jpg"
+  ],
+  "durationInFrames": 150,
+  "tags": [
+   "worm",
+   "desert",
+   "dust",
+   "machine",
+   "3d",
+   "xray",
+   "reveal"
+  ],
+  "file": "src/motions/environment/segmented-worm-breach.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "sand",
+   "ink",
+   "body",
+   "bodyDark",
+   "accent",
+   "dust",
+   "xrayColor"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "blueprint",
+   "3d"
+  ],
+  "roles": [
+   "backdrop"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "background": {
+    "default": "#e9e6df",
+    "doc": "sky colour"
+   },
+   "sand": {
+    "default": "#f2e9cf",
+    "doc": "desert ground colour"
+   },
+   "ink": {
+    "default": "#2b2a27",
+    "doc": "line-art ink colour"
+   },
+   "body": {
+    "default": "#8f8a78",
+    "doc": "worm ring base colour"
+   },
+   "bodyDark": {
+    "default": "#4a4739",
+    "doc": "panel / shadow colour"
+   },
+   "accent": {
+    "default": "#d9a42a",
+    "doc": "gold ring accents"
+   },
+   "dust": {
+    "default": "#c4a981",
+    "doc": "dust puff colour"
+   },
+   "xrayColor": {
+    "default": "#4fc3d0",
+    "doc": "cyan used in the x-ray pass"
+   },
+   "xray": {
+    "default": false,
+    "doc": "turn the worm translucent cyan x-ray for the middle of the clip"
+   },
+   "segments": {
+    "default": 34,
+    "doc": "number of ring segments"
+   },
+   "size": {
+    "default": 1,
+    "doc": "worm girth multiplier"
+   },
+   "dustAmount": {
+    "default": 1,
+    "doc": "dust puff density (0 = none)"
+   },
+   "seed": {
+    "default": 5,
+    "doc": "seed for panels, dunes and dust"
    }
   }
  },
@@ -30286,7 +31297,16 @@
    "toon",
    "outline",
    "on-twos",
-   "post"
+   "post",
+   "registration-kick",
+   "misregistration",
+   "spot-ink",
+   "offset-shadow",
+   "cutout",
+   "scissor",
+   "dossier",
+   "riso",
+   "beat-sync"
   ],
   "file": "src/motions/image/comic-halftone.tsx",
   "overlay": false,
@@ -30297,7 +31317,11 @@
   ],
   "takesText": false,
   "textProps": [],
-  "colorProps": [],
+  "colorProps": [
+   "shadowInk",
+   "rimColor",
+   "cutoutBg"
+  ],
   "loopable": false,
   "bestLength": 150,
   "mood": [
@@ -30386,6 +31410,69 @@
    "grain": {
     "default": 0.06,
     "doc": "grain amount"
+   },
+   "registrationKick": {
+    "default": 0,
+    "doc": "opt-in: colour plates jolt apart and ring back into register on each kick frame; amplitude in px (8-14 typical, 0 = off)"
+   },
+   "kickFrames": {
+    "default": [
+     30,
+     75,
+     120
+    ],
+    "doc": "frames the registration kicks land on (e.g. on the beats)"
+   },
+   "registrationDrift": {
+    "default": 0,
+    "doc": "opt-in: plates slowly drift apart up to N px (about 25) over driftRange, then snap back with a click (0 = off)"
+   },
+   "driftRange": {
+    "default": [
+     30,
+     110
+    ],
+    "doc": "[from, to] frames of the drift; the snap lands on `to`"
+   },
+   "tint": {
+    "default": "",
+    "doc": "opt-in mono mode: paper tint colour (e.g. #efe3c2); picture becomes ink-to-paper tones under the halftone dots (empty = full colour)"
+   },
+   "spotInks": {
+    "default": [],
+    "doc": "opt-in flat spot inks, dark to light (e.g. [\"#1b2a6b\",\"#e8452c\"]); picture split into flat bands of these inks plus the paper tint"
+   },
+   "offsetShadow": {
+    "default": 0,
+    "doc": "opt-in misregistered offset shadow: outlines and deep shadows re-printed in shadowInk, shifted N px, multiplied (0 = off)"
+   },
+   "shadowInk": {
+    "default": "#2b49c4",
+    "doc": "colour of the offset shadow ink"
+   },
+   "shadowAngle": {
+    "default": 45,
+    "doc": "direction of the offset shadow in degrees (0 = right, 90 = down)"
+   },
+   "cutout": {
+    "default": false,
+    "doc": "opt-in scissor cut-out: a transparent-PNG src gets a faceted paper rim + drop shadow on a flat background; opaque images are cut to a hand-cut ellipse"
+   },
+   "rim": {
+    "default": 14,
+    "doc": "cut-out rim width in px at 1080p"
+   },
+   "facets": {
+    "default": 5,
+    "doc": "cut-out polygon tolerance in px (higher = fewer, more angular scissor facets)"
+   },
+   "rimColor": {
+    "default": "#f6f1e4",
+    "doc": "cut-out rim paper colour"
+   },
+   "cutoutBg": {
+    "default": "#f2c230",
+    "doc": "flat background colour behind the cut-out"
    }
   }
  },
@@ -51929,6 +53016,10 @@
     ],
     "doc": "transition entries to show in order, \"type\" or \"type:variant\" (e.g. \"page-turn:roll\")"
    },
+   "include": {
+    "default": "default",
+    "doc": "\"default\" = just `types`; \"all\" = `types` plus every other transition and variant in transitions.json (each labelled); \"extra\" = only the ones `types` lacks. The default render length covers only the default list: for \"all\"/\"extra\" pass a longer duration (render --frames N, N = reelDuration)"
+   },
    "holdFrames": {
     "default": 36,
     "doc": "frames each panel holds between transitions"
@@ -52575,6 +53666,207 @@
    "accent": {
     "default": "#4777D2",
     "doc": "connect mode rail / capsule colour"
+   }
+  }
+ },
+ {
+  "id": "card-helix-gallery",
+  "title": "Card helix gallery",
+  "category": "ui",
+  "description": "Preview cards float on a rotating 3D ring over a pastel aurora with a giant serif rank text behind; the front card swells and an info panel with counting stats slides in each beat.",
+  "useFor": "Showcasing a top-N list of works, templates or products in a gallery or app promo.",
+  "source": [
+   "analysis/sheets/r3/v5.jpg"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "gallery",
+   "carousel",
+   "3d",
+   "ranking",
+   "pastel"
+  ],
+  "file": "src/motions/ui/card-helix-gallery.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "items"
+  ],
+  "colorProps": [
+   "background",
+   "blobs",
+   "ink",
+   "accent",
+   "rankColor"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "3d",
+   "nature",
+   "editorial",
+   "ui"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "items": {
+    "default": [
+     {
+      "title": "Neon pour typography reel",
+      "handle": "@studio.north",
+      "tag": "MOTION",
+      "color": "#9B8CFF",
+      "stats": [
+       12700,
+       326500,
+       763
+      ]
+     },
+     {
+      "title": "Paper fold product teaser",
+      "handle": "@fold.club",
+      "tag": "PRODUCT",
+      "color": "#FF9EC0",
+      "stats": [
+       8400,
+       91200,
+       412
+      ]
+     },
+     {
+      "title": "Glass dashboard walkthrough",
+      "handle": "@pixelhaus",
+      "tag": "UI",
+      "color": "#7FD8E8",
+      "stats": [
+       15200,
+       204800,
+       1190
+      ]
+     },
+     {
+      "title": "Liquid logo sting",
+      "handle": "@wave.lab",
+      "tag": "BRAND",
+      "color": "#FFC98A",
+      "stats": [
+       6100,
+       58300,
+       305
+      ]
+     },
+     {
+      "title": "Orbit data explainer",
+      "handle": "@datadrift",
+      "tag": "DATA",
+      "color": "#A5E6B0",
+      "stats": [
+       9900,
+       133400,
+       640
+      ]
+     },
+     {
+      "title": "Soft 3D icon loop",
+      "handle": "@iconfarm",
+      "tag": "3D",
+      "color": "#C4A8FF",
+      "stats": [
+       11300,
+       177000,
+       880
+      ]
+     },
+     {
+      "title": "Kinetic poster series",
+      "handle": "@type.room",
+      "tag": "TYPE",
+      "color": "#FF8E8E",
+      "stats": [
+       7200,
+       70500,
+       350
+      ]
+     },
+     {
+      "title": "Ambient scroll hero",
+      "handle": "@hero.works",
+      "tag": "WEB",
+      "color": "#8EB4FF",
+      "stats": [
+       5400,
+       49800,
+       260
+      ]
+     }
+    ],
+    "doc": "cards: title, handle, tag, color, optional src image, stats [a,b,c]"
+   },
+   "rankLabel": {
+    "default": "Top 10",
+    "doc": "giant serif text behind the ring"
+   },
+   "statLabels": {
+    "default": [
+     "Likes",
+     "Views",
+     "Saves"
+    ],
+    "doc": "three stat captions"
+   },
+   "holdFrames": {
+    "default": 44,
+    "doc": "frames the focused card rests"
+   },
+   "turnFrames": {
+    "default": 26,
+    "doc": "frames of each ring turn"
+   },
+   "radius": {
+    "default": 820,
+    "doc": "ring radius in u"
+   },
+   "cardAspect": {
+    "default": 1.3,
+    "doc": "card width / height"
+   },
+   "background": {
+    "default": "#F4F0FA",
+    "doc": "base colour"
+   },
+   "blobs": {
+    "default": [
+     "#B9C6FF",
+     "#FFC1DC",
+     "#D6C4FF",
+     "#FFE2B8",
+     "#BFEFE0"
+    ],
+    "doc": "aurora blob colours"
+   },
+   "ink": {
+    "default": "#2A2440",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#6A57D6",
+    "doc": "tag / index colour"
+   },
+   "rankColor": {
+    "default": "#E3B6EA",
+    "doc": "colour of the giant rank text"
    }
   }
  },

@@ -5,6 +5,30 @@ import {defineStyle} from '../types';
 // (risograph, watercolor and woodcut from the same part are upgraded in place in core.ts.)
 const SRC = (id: string) => `after lemo-opuscar styles/${id} (MIT code, CC BY 4.0 docs, LemoLab) — rebuilt with our engine`;
 
+export const microscope = defineStyle({
+  id: 'microscope',
+  name: 'Microscope story',
+  family: 'technical',
+  description: 'Evidence microscopy: the stain keeps its true colour, glass normalised to a warm paper white with a little density and chroma, gentle local contrast and a light illumination vignette — no false colour, no film look; one cool mint accent for measured readings.',
+  useFor: 'Biomedicine, materials science, skincare science, lab and instrument launches, "zoom in to the cell" explainers.',
+  palette: {bg: '#0B0D0F', paper: '#F4F1EC', ink: '#181B1F', accent: '#78F0CD', accent2: '#007A63', swatches: ['#0B0D0F', '#2A3036', '#F4F1EC', '#181B1F', '#C2477A', '#5B3A8C', '#2E5FA8', '#78F0CD']},
+  steps: [
+    {type: 'accentKeep', color: '#78F0CD', range: 22, minSat: 0.35},
+    {type: 'grade', temp: 0.03, gamma: 0.97, sat: 1.08},
+    {type: 'clarity', radius: 18, amount: 0.22},
+    {type: 'curve', amount: 0.12},
+    {type: 'accentRestore'},
+  ],
+  overlays: {vignette: {amount: 0.24, color: 'rgba(11,13,15,1)'}, filmGrain: 0.01},
+  fonts: {display: 'Barlow Condensed', body: 'Barlow', mono: 'IBM Plex Mono'},
+  tags: ['microscope', 'microscopy', 'science', 'biomedical', 'specimen', 'stain', 'lab', 'evidence', 'measurement', 'scale-bar'],
+  signature: ['microscope-dive', 'science-reticle', 'powers-of-ten', 'callout-labels', 'number-counter'],
+  avoid: ['false-colour ramps', 'glowing sci-fi HUD wireframes and crosshairs', 'cuts or crossfades between different samples', 'generated images posed as real specimens'],
+  confusableWith: ['satellite-briefing', 'hologram-hud', 'dataviz'],
+  motionRules: 'One continuous log-space dive; focus breathes on each magnification step; 2–5 % creep on holds; marks arrive by being drawn; readings land with a small spring.',
+  source: SRC('microscope'),
+});
+
 export const midcenturyToon = defineStyle({
   id: 'midcentury-toon',
   name: 'Mid-century cartoon',
@@ -407,7 +431,8 @@ export const stainedGlass = defineStyle({
   steps: [
     {type: 'saturate', value: 1.5},
     {type: 'toon', levels: 4, smooth: 3, outline: '#1D1F23', width: 4, strength: 12},
-    {type: 'tiles', size: 96, grout: 4, color: '#1D1F23', jitter: 0.1, bevel: 3, keep: true},
+    {type: 'posterize', levels: 6},
+    {type: 'crackle', scale: 90, amount: 1.4, color: '#1D1F23', width: 0.045, mode: 'multiply', seed: 12},
     {type: 'texture', freq: [0.02, 0.3], amount: 0.1, mode: 'multiply', octaves: 2, seed: 8},
     {type: 'bloom', radius: 8, threshold: 0.6, amount: 0.6},
   ],

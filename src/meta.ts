@@ -670,6 +670,16 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "dna-helix-unzip": {
+  "overlay": false,
+  "overlayProps": null,
+  "loopable": false,
+  "bestLength": 180,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
  "dot-tally": {
   "overlay": false,
   "overlayProps": null,
@@ -685,6 +695,16 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "overlayProps": null,
   "loopable": false,
   "bestLength": 210,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "element-columns-3d": {
+  "overlay": false,
+  "overlayProps": null,
+  "loopable": false,
+  "bestLength": 270,
   "roles": [
    "subject"
   ],
@@ -800,6 +820,16 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "microscope-dive": {
+  "overlay": false,
+  "overlayProps": null,
+  "loopable": false,
+  "bestLength": 300,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
  "neural-net-layers": {
   "overlay": false,
   "overlayProps": null,
@@ -825,6 +855,16 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "overlayProps": null,
   "loopable": false,
   "bestLength": 240,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "order-book-depth": {
+  "overlay": false,
+  "overlayProps": null,
+  "loopable": false,
+  "bestLength": 180,
   "roles": [
    "subject"
   ],
@@ -870,6 +910,16 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "pythagoras-rearrange": {
+  "overlay": false,
+  "overlayProps": null,
+  "loopable": false,
+  "bestLength": 220,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
  "ride-dimension-line": {
   "overlay": false,
   "overlayProps": null,
@@ -895,6 +945,16 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "overlayProps": null,
   "loopable": false,
   "bestLength": 180,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "star-fusion-shells": {
+  "overlay": false,
+  "overlayProps": null,
+  "loopable": false,
+  "bestLength": 240,
   "roles": [
    "subject"
   ],
@@ -1015,6 +1075,16 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "overlayProps": null,
   "loopable": false,
   "bestLength": 240,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "textbook-energy-lab": {
+  "overlay": false,
+  "overlayProps": null,
+  "loopable": false,
+  "bestLength": 300,
   "roles": [
    "subject"
   ],
@@ -1362,6 +1432,16 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "overlayProps": null,
   "loopable": false,
   "bestLength": 300,
+  "roles": [
+   "backdrop"
+  ],
+  "weight": "light"
+ },
+ "segmented-worm-breach": {
+  "overlay": false,
+  "overlayProps": null,
+  "loopable": false,
+  "bestLength": 150,
   "roles": [
    "backdrop"
   ],
@@ -4136,6 +4216,16 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "overlayProps": null,
   "loopable": false,
   "bestLength": 210,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "card-helix-gallery": {
+  "overlay": false,
+  "overlayProps": null,
+  "loopable": false,
+  "bestLength": 240,
   "roles": [
    "subject"
   ],

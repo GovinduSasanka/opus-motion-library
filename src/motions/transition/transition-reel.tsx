@@ -4,7 +4,7 @@ import {TransitionSeries, linearTiming} from '@remotion/transitions';
 import {ease, prog} from '../../core/ease';
 import {fonts} from '../../core/fonts';
 import {defineMotion} from '../../core/types';
-import {presentationFor, transitionFrames, TransitionSpec} from '../../transitions';
+import {DEFAULTS, presentationFor, transitionFrames, TransitionSpec} from '../../transitions';
 
 /**
  * Demo reel of every scene transition in src/transitions.tsx. Contrasting procedural colour panels,
@@ -12,6 +12,8 @@ import {presentationFor, transitionFrames, TransitionSpec} from '../../transitio
  */
 type Props = {
   types: string[];
+  /** 'default' = `types` as given; 'all' = `types` + every other type/variant in transitions.json; 'extra' = only the ones `types` lacks */
+  include: 'default' | 'all' | 'extra';
   holdFrames: number;
   /** 0 = each type's recommended length */
   transitionFrames: number;
@@ -48,6 +50,29 @@ const SOURCES: Record<string, string> = {
   'whiteout:blizzard': 'v21 blizzard-whiteout-dissolve',
   bar: 'v19 bar-slide-wipe',
   'bar:black': 'v19 bar-slide-wipe (bar on black)',
+  'iris:ring': 'iris variant · expanding ring edge',
+  'iris:medallion': 'iris variant · medallion reveal',
+  'iris:marker': 'iris variant · marker-drawn circle',
+  'iris:bloom': 'iris variant · soft bloom',
+  'blob:fog': 'blob variant · fog bank',
+  'blob:ink': 'blob variant · ink spread',
+  'blob:bubble': 'blob variant · bubbles',
+  'strip:shutter': 'strip variant · shutter',
+  'page-turn:curl3d': 'page turn variant · 3D curl',
+  'dots:halftone': 'dots variant · halftone',
+  'wipe:brush': 'wipe variant · brush edge',
+  'wipe:soft': 'wipe variant · soft edge',
+  'wipe:mist': 'wipe variant · mist edge',
+  'wipe:band': 'wipe variant · band edge',
+  'diagonal:band': 'diagonal variant · band',
+  'diagonal:strips': 'diagonal variant · strips',
+  'bands:rows': 'bands variant · rows',
+  'bands:cols': 'bands variant · columns',
+  'bands:quarter': 'bands variant · quarters',
+  'slide:scroll': 'slide variant · scroll',
+  'tear:peel': 'tear variant · peel',
+  'zoom:snap': 'zoom variant · snap',
+  'push-blur:whip': 'push-blur variant · whip pan',
   strip: 'v21 eye-strip-slam',
   dots: 'v18 dot-zoom-punch',
   'dots:bokeh': 'v18 particle-burst-zoom',
@@ -114,6 +139,12 @@ const parse = (s: string): TransitionSpec => {
 
 const framesOf = (spec: TransitionSpec, tf: number) => (spec.type === 'cut' ? 0 : tf > 0 ? tf : transitionFrames(spec));
 
+/** every type / variant known to src/transitions.tsx, minus the ones already in `base` ('cut' excluded) */
+export const extraTypes = (base: string[]): string[] => Object.keys(DEFAULTS).filter((k) => k !== 'cut' && !base.includes(k));
+
+const resolveTypes = (types: string[], include: Props['include']): string[] =>
+  include === 'all' ? [...types, ...extraTypes(types)] : include === 'extra' ? extraTypes(types) : types;
+
 export const reelDuration = (types: string[], hold: number, tf: number) =>
   (types.length + 1) * hold + types.map(parse).reduce((a, s) => a + framesOf(s, tf), 0);
 
@@ -175,8 +206,9 @@ const Panel: React.FC<{index: number; total: number; name: string; variant?: str
   );
 };
 
-const TransitionReel: React.FC<Props> = ({types, holdFrames, transitionFrames: tf, title}) => {
+const TransitionReel: React.FC<Props> = ({types: typesIn, include = 'default', holdFrames, transitionFrames: tf, title}) => {
   const {width, height} = useVideoConfig();
+  const types = resolveTypes(typesIn, include);
   const specs = types.map(parse);
   const tfs = specs.map((s) => framesOf(s, tf));
   const n = specs.length;
@@ -189,7 +221,7 @@ const TransitionReel: React.FC<Props> = ({types, holdFrames, transitionFrames: t
         {i === 0 ? (
           <Panel index={0} total={n} name={title} note={`${n} scene transitions · src/transitions.tsx`} />
         ) : (
-          <Panel index={i} total={n} name={specs[i - 1].type} variant={specs[i - 1].variant} note={SOURCES[key] ?? SOURCES[specs[i - 1].type] ?? ''} />
+          <Panel index={i} total={n} name={specs[i - 1].type} variant={specs[i - 1].variant} note={SOURCES[key] ?? SOURCES[specs[i - 1].type] ?? `${key} · ${framesOf(specs[i - 1], tf)} frames`} />
         )}
       </TransitionSeries.Sequence>,
     );
@@ -225,9 +257,10 @@ export const transitionReel = defineMotion<Props>({
   source: ['video1', 'video4', 'video6', 'video8', 'video9', 'video10', 'video11', 'video14', 'video16', 'video17', 'video18', 'video19', 'video20', 'video21'],
   useFor: 'Previewing and choosing transitions; each panel names the transition (and variant) that revealed it.',
   durationInFrames: reelDuration(DEFAULT_TYPES, DEFAULT_HOLD, 0),
-  defaultProps: {types: DEFAULT_TYPES, holdFrames: DEFAULT_HOLD, transitionFrames: 0, title: 'Transitions'},
+  defaultProps: {types: DEFAULT_TYPES, include: 'default', holdFrames: DEFAULT_HOLD, transitionFrames: 0, title: 'Transitions'},
   propDocs: {
     types: 'transition entries to show in order, "type" or "type:variant" (e.g. "page-turn:roll")',
+    include: '"default" = just `types`; "all" = `types` plus every other transition and variant in transitions.json (each labelled); "extra" = only the ones `types` lacks. The default render length covers only the default list: for "all"/"extra" pass a longer duration (render --frames N, N = reelDuration)',
     holdFrames: 'frames each panel holds between transitions',
     transitionFrames: 'length of every transition in frames; 0 = each type\'s recommended length',
     title: 'label on the opening panel',

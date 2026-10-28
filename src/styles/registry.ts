@@ -2,7 +2,7 @@
 import type {StyleDef} from './engine';
 import {woodcut, risograph, inkWash, blueprint, pixel8, comicHalftone, watercolor, newsprint, neonNoir, crtTerminal, pencilSketch, cyanotype, filmNoir} from './defs/core';
 import {archiveLighttable, artDeco, asciiCrt, backrooms, brickToy, briefingBoard, captionNews, celAnime80s, citySymphony, countdown, crayonBook, darkKeynote, dataPhysical, dataviz, engraving, gameShow, glassProduct, halftoneDossier, hd2d, hologramHud, impasto, isoInfographic, kinoMontage, lidarSurvey, livingScreencast, lowpolyIsland, microgame} from './defs/lemo-a';
-import {midcenturyToon, newsPackage, newsreel, oneLine, paperLantern, paperPopup, papercutRed, pictogramMotion, pixelRpg, rubberHose, satelliteBriefing, scifiToon, shadowPuppet, silentFilm, silkscreenPoster, spyTitles, stainedGlass, swissMotion, teardown, telestrator, tiltShift, ukiyoe, urbanSketch, visualInvestigation, whiteModel, whiteboard} from './defs/lemo-b';
+import {microscope, midcenturyToon, newsPackage, newsreel, oneLine, paperLantern, paperPopup, papercutRed, pictogramMotion, pixelRpg, rubberHose, satelliteBriefing, scifiToon, shadowPuppet, silentFilm, silkscreenPoster, spyTitles, stainedGlass, swissMotion, teardown, telestrator, tiltShift, ukiyoe, urbanSketch, visualInvestigation, whiteModel, whiteboard} from './defs/lemo-b';
 import {celBoil, isoDiorama, flatVectorPop, goldLineLuxe, soft3dCandy, shapeMorph, stickerExplainer, cyberHudFui, collageCutout, auroraGlass, bauhausKinetic, synthwaveVhs, pixelQuest, liquidCandy, varietyHanazi} from './defs/mg';
 import {orthoTint, albumenPrint, artNouveauLitho, seaChart, letterpressNewsprint, charcoalErasure, stoneLithoPoster, glamourStillBw, typewriterArt, pictureMagazine, woodTypePoster, offsetWash, highKeyBw, kinescopeTv, paintedFilmPoster, satiricalPrint, fashionInkWash, oldMasterGlaze, toyTheatre, popSilkscreen, pushed16mm, stillLight, eggTempera, blockPrintTextile, fadedSnapshot, rococoSilhouette, gongbiSilk, airbrushChrome, selectiveColorBw, illuminatedManuscript, dvCamcorder, floorMosaic, chalkboard, silhouetteStage, sodiumNight, stencilGraffiti, techManual, goldenAgeComic, daguerreotype, moonlightOil, underwaterTeal, linenPostcard, softPastel, belleEpoqueLitho} from './defs/opuscar';
 import {engravedTreatise, inkWashCartoon, watercolorStorybook} from './defs/pdoom';
@@ -50,6 +50,7 @@ export const styleList: StyleDef[] = [
   livingScreencast,
   lowpolyIsland,
   microgame,
+  microscope,
   midcenturyToon,
   newsPackage,
   newsreel,

@@ -4,7 +4,8 @@ import {onTwos} from '../../core/ease';
 import {n2} from '../../core/random';
 import {FilmGrain, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
-import {FilterDefs, Plate, PlatePaletteName, useSafeId} from '../../core/image-kit';
+import {FilterDefs, Plate, PlatePaletteName, hexRgb, mixRgb, usePlatePixels, useSafeId} from '../../core/image-kit';
+import {buildCutout, plateKick} from '../../core/r2-up-kit';
 
 /**
  * video12 comic-halftone-postfx + render-on-twos: print-comic finish over an image.
@@ -33,6 +34,43 @@ type Props = {
   pan: number;
   vignette: number;
   grain: number;
+  registrationKick?: number;
+  kickFrames?: number[];
+  registrationDrift?: number;
+  driftRange?: number[];
+  tint?: string;
+  spotInks?: string[];
+  offsetShadow?: number;
+  shadowInk?: string;
+  shadowAngle?: number;
+  cutout?: boolean;
+  rim?: number;
+  facets?: number;
+  rimColor?: string;
+  cutoutBg?: string;
+};
+
+/** paper rim + faceted scissor outline, then the image (clipped to a hand-cut ellipse when it is opaque) */
+const CutoutLayer: React.FC<{p: Props; W: number; H: number; u: number}> = ({p, W, H, u}) => {
+  const px = usePlatePixels({src: p.src, seed: p.seed, palette: p.palette}, 240);
+  const cut = React.useMemo(() => {
+    if (!px) return null;
+    const cells = (px.w / (W / 1.5)) * u;
+    return buildCutout(px, (p.rim ?? 14) * cells, (p.facets ?? 5) * cells, p.seed);
+  }, [px, p.rim, p.facets, p.seed, u, W]);
+  const path = (poly: [number, number][]) => poly.map(([x, y], i) => `${i ? 'L' : 'M'}${(x * W).toFixed(1)} ${(y * H).toFixed(1)}`).join(' ') + 'Z';
+  const clip = cut?.inner ? `polygon(${cut.inner.map(([x, y]) => `${(x * 100).toFixed(2)}% ${(y * 100).toFixed(2)}%`).join(',')})` : undefined;
+  return (
+    <>
+      {cut && (
+        <svg width={W} height={H} style={{position: 'absolute', left: 0, top: 0}}>
+          <path d={path(cut.outer)} transform={`translate(${5 * u} ${7 * u})`} fill="#000" opacity={0.3} />
+          <path d={path(cut.outer)} fill={p.rimColor ?? '#f6f1e4'} />
+        </svg>
+      )}
+      <Plate src={p.src} seed={p.seed} palette={p.palette} width={W} height={H} style={clip ? {clipPath: clip} : undefined} />
+    </>
+  );
 };
 
 const ComicHalftone: React.FC<Props> = (p) => {
@@ -54,6 +92,30 @@ const ComicHalftone: React.FC<Props> = (p) => {
   }).join(' ');
   const levels = Math.max(2, Math.round(p.levels));
   const post = Array.from({length: levels}, (_, i) => (0.04 + (0.96 * i) / (levels - 1)).toFixed(3)).join(' ');
+  const kick = plateKick(frame, fps, u, {
+    amp: p.registrationKick ?? 0,
+    frames: p.kickFrames ?? [30, 75, 120],
+    drift: p.registrationDrift ?? 0,
+    driftRange: [p.driftRange?.[0] ?? 30, p.driftRange?.[1] ?? 110],
+    seed: p.seed,
+  });
+  // spot-ink / paper-tint tone map (replaces the posterised colour when set)
+  const spot = (p.spotInks ?? []).filter(Boolean);
+  const tone = (() => {
+    if (!spot.length && !p.tint) return null;
+    const paper = hexRgb(p.tint || '#f3ecd8');
+    const cols = spot.length ? [...spot.map((c) => hexRgb(c)), paper] : Array.from({length: levels}, (_, i) => mixRgb(hexRgb('#16081C'), paper, i / (levels - 1)));
+    const t = (ch: number) => cols.map((c) => (c[ch] / 255).toFixed(3)).join(' ');
+    return [t(0), t(1), t(2)];
+  })();
+  const sh = p.offsetShadow ?? 0;
+  const sAng = ((p.shadowAngle ?? 45) * Math.PI) / 180;
+  const la = (-p.dotAngle * Math.PI) / 180;
+  const svx = Math.cos(sAng) * sh * u;
+  const svy = Math.sin(sAng) * sh * u;
+  const sdx = svx * Math.cos(la) - svy * Math.sin(la);
+  const sdy = svx * Math.sin(la) + svy * Math.cos(la);
+  const shRgb = hexRgb(p.shadowInk ?? '#2b49c4');
   const mr = p.misregister * u * (0.8 + 0.4 * (0.5 + 0.5 * n2('mr' + p.seed, frame * 0.05, 0)));
   const ang = (p.dotAngle * Math.PI) / 180;
   const ca = Math.abs(Math.cos(ang));
@@ -74,12 +136,25 @@ const ComicHalftone: React.FC<Props> = (p) => {
       <FilterDefs>
         <filter id={id} x="0" y="0" width="100%" height="100%" colorInterpolationFilters="sRGB" primitiveUnits="userSpaceOnUse">
           {/* toon colour */}
-          <feColorMatrix in="SourceGraphic" type="saturate" values="1.25" result="sat" />
-          <feComponentTransfer in="sat" result="post">
-            <feFuncR type="discrete" tableValues={post} />
-            <feFuncG type="discrete" tableValues={post} />
-            <feFuncB type="discrete" tableValues={post} />
-          </feComponentTransfer>
+          {tone ? (
+            <>
+              <feColorMatrix in="SourceGraphic" type="matrix" values="0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0" result="lumT" />
+              <feComponentTransfer in="lumT" result="post">
+                <feFuncR type="discrete" tableValues={tone[0]} />
+                <feFuncG type="discrete" tableValues={tone[1]} />
+                <feFuncB type="discrete" tableValues={tone[2]} />
+              </feComponentTransfer>
+            </>
+          ) : (
+            <>
+              <feColorMatrix in="SourceGraphic" type="saturate" values="1.25" result="sat" />
+              <feComponentTransfer in="sat" result="post">
+                <feFuncR type="discrete" tableValues={post} />
+                <feFuncG type="discrete" tableValues={post} />
+                <feFuncB type="discrete" tableValues={post} />
+              </feComponentTransfer>
+            </>
+          )}
           {/* luminance */}
           <feColorMatrix in="SourceGraphic" type="matrix" values="0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0" result="lum0" />
           <feGaussianBlur in="lum0" stdDeviation={Math.max(0.6, pitch * 0.25)} result="lum" />
@@ -121,12 +196,31 @@ const ComicHalftone: React.FC<Props> = (p) => {
             <feFuncB type="linear" slope="-0.92" intercept="1" />
           </feComponentTransfer>
           <feComposite in="dotted" in2="keepE" operator="arithmetic" k1="1" k2="0" k3="0" k4="0" result="inked" />
+          {/* offset spot-ink shadow: outlines + deep shadows re-printed in a second ink, shifted, multiplied */}
+          {sh > 0 && (
+            <>
+              <feComponentTransfer in="lum0" result="deepM">
+                <feFuncR type="discrete" tableValues="1 1 1 0 0 0 0 0 0 0" />
+                <feFuncG type="discrete" tableValues="1 1 1 0 0 0 0 0 0 0" />
+                <feFuncB type="discrete" tableValues="1 1 1 0 0 0 0 0 0 0" />
+              </feComponentTransfer>
+              <feComposite in="edge" in2="deepM" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="shSrc" />
+              <feOffset in="shSrc" dx={sdx + (kick ? kick.g[0] : 0)} dy={sdy + (kick ? kick.g[1] : 0)} result="shOff" />
+              <feComponentTransfer in="shOff" result="shKeep">
+                <feFuncR type="linear" slope={-(1 - shRgb[0] / 255)} intercept="1" />
+                <feFuncG type="linear" slope={-(1 - shRgb[1] / 255)} intercept="1" />
+                <feFuncB type="linear" slope={-(1 - shRgb[2] / 255)} intercept="1" />
+              </feComponentTransfer>
+              <feComposite in="inked" in2="shKeep" operator="arithmetic" k1="1" k2="0" k3="0" k4="0" result="inkedS" />
+            </>
+          )}
           {/* misregistration: R one way, B the other */}
-          <feColorMatrix in="inked" type="matrix" values="1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0" result="rC" />
-          <feOffset in="rC" dx={mr} dy={-mr * 0.4} result="rO" />
-          <feColorMatrix in="inked" type="matrix" values="0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0" result="gC" />
-          <feColorMatrix in="inked" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0" result="bC" />
-          <feOffset in="bC" dx={-mr} dy={mr * 0.4} result="bO" />
+          <feColorMatrix in={sh > 0 ? 'inkedS' : 'inked'} type="matrix" values="1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0" result="rC" />
+          <feOffset in="rC" dx={mr + (kick ? kick.r[0] : 0)} dy={-mr * 0.4 + (kick ? kick.r[1] : 0)} result="rO" />
+          <feColorMatrix in={sh > 0 ? 'inkedS' : 'inked'} type="matrix" values="0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0" result={kick ? 'gC0' : 'gC'} />
+          {kick && <feOffset in="gC0" dx={kick.g[0]} dy={kick.g[1]} result="gC" />}
+          <feColorMatrix in={sh > 0 ? 'inkedS' : 'inked'} type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0" result="bC" />
+          <feOffset in="bC" dx={-mr + (kick ? kick.b[0] : 0)} dy={mr * 0.4 + (kick ? kick.b[1] : 0)} result="bO" />
           <feComposite in="rO" in2="gC" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="rg" />
           <feComposite in="rg" in2="bO" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" />
         </filter>
@@ -141,13 +235,13 @@ const ComicHalftone: React.FC<Props> = (p) => {
           height: RH,
           transform: `rotate(${p.dotAngle}deg)`,
           filter: `url(#${id})`,
-          background: '#000',
+          background: p.cutout ? p.cutoutBg ?? '#f2c230' : '#000',
           overflow: 'hidden',
         }}
       >
         <div style={{position: 'absolute', left: (RW - w) / 2, top: (RH - h) / 2, width: w, height: h, transform: `rotate(${-p.dotAngle}deg)`}}>
           <div style={{position: 'absolute', left: -w * 0.25, top: -h * 0.25, width: w * 1.5, height: h * 1.5, transform: `translate(${panX}px, 0px) scale(${zoom / 1.5})`, transformOrigin: '50% 50%'}}>
-            <Plate src={p.src} seed={p.seed} palette={p.palette} width={w * 1.5} height={h * 1.5} />
+            {p.cutout ? <CutoutLayer p={p} W={w * 1.5} H={h * 1.5} u={u} /> : <Plate src={p.src} seed={p.seed} palette={p.palette} width={w * 1.5} height={h * 1.5} />}
           </div>
         </div>
       </div>
@@ -183,6 +277,20 @@ export const comicHalftone = defineMotion<Props>({
     pan: -12,
     vignette: 0.35,
     grain: 0.06,
+    registrationKick: 0,
+    kickFrames: [30, 75, 120],
+    registrationDrift: 0,
+    driftRange: [30, 110],
+    tint: '',
+    spotInks: [],
+    offsetShadow: 0,
+    shadowInk: '#2b49c4',
+    shadowAngle: 45,
+    cutout: false,
+    rim: 14,
+    facets: 5,
+    rimColor: '#f6f1e4',
+    cutoutBg: '#f2c230',
   },
   propDocs: {
     src: 'public/ image path; empty = procedural plate',
@@ -201,7 +309,21 @@ export const comicHalftone = defineMotion<Props>({
     pan: 'lateral drift in px/s',
     vignette: 'corner darkening',
     grain: 'grain amount',
+    registrationKick: 'opt-in: colour plates jolt apart and ring back into register on each kick frame; amplitude in px (8-14 typical, 0 = off)',
+    kickFrames: 'frames the registration kicks land on (e.g. on the beats)',
+    registrationDrift: 'opt-in: plates slowly drift apart up to N px (about 25) over driftRange, then snap back with a click (0 = off)',
+    driftRange: '[from, to] frames of the drift; the snap lands on `to`',
+    tint: 'opt-in mono mode: paper tint colour (e.g. #efe3c2); picture becomes ink-to-paper tones under the halftone dots (empty = full colour)',
+    spotInks: 'opt-in flat spot inks, dark to light (e.g. ["#1b2a6b","#e8452c"]); picture split into flat bands of these inks plus the paper tint',
+    offsetShadow: 'opt-in misregistered offset shadow: outlines and deep shadows re-printed in shadowInk, shifted N px, multiplied (0 = off)',
+    shadowInk: 'colour of the offset shadow ink',
+    shadowAngle: 'direction of the offset shadow in degrees (0 = right, 90 = down)',
+    cutout: 'opt-in scissor cut-out: a transparent-PNG src gets a faceted paper rim + drop shadow on a flat background; opaque images are cut to a hand-cut ellipse',
+    rim: 'cut-out rim width in px at 1080p',
+    facets: 'cut-out polygon tolerance in px (higher = fewer, more angular scissor facets)',
+    rimColor: 'cut-out rim paper colour',
+    cutoutBg: 'flat background colour behind the cut-out',
   },
   component: ComicHalftone,
-  tags: ['image', 'comic', 'halftone', 'pop-art', 'toon', 'outline', 'on-twos', 'post'],
+  tags: ['image', 'comic', 'halftone', 'pop-art', 'toon', 'outline', 'on-twos', 'post', 'registration-kick', 'misregistration', 'spot-ink', 'offset-shadow', 'cutout', 'scissor', 'dossier', 'riso', 'beat-sync'],
 });

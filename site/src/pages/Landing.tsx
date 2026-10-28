@@ -27,7 +27,7 @@ const HERO_LAYERS = [
 ];
 
 const WHY: [string, string][] = [
-  ['Video', 'Render mp4 with Remotion, or compose multi-scene films with 97 transitions, 147 styles, captions and music.'],
+  ['Video', 'Render mp4 with Remotion, or compose multi-scene films with 97 transitions, 148 styles, captions and music.'],
   ['Web', 'MotionPlayer, MotionBackground and a no-build <opus-motion> element. Plays live, pauses off-screen.'],
   ['Apps', 'Export mp4, webm with alpha, ProRes 4444, GIF or PNG for iOS, Android, Flutter and editors.'],
   ['AI-agent ready', 'AGENTS.md, a measured catalog.json and `mgl suggest` let an agent choose and wire motions for you.'],
@@ -134,7 +134,7 @@ export const Landing: React.FC = () => (
         <br />
         <em>by name.</em>
       </h1>
-      <p className="lede">415 motion graphics you can drop into videos, websites and apps — by name, with your own words and colours.</p>
+      <p className="lede">424 motion graphics you can drop into videos, websites and apps — by name, with your own words and colours.</p>
       <div className="cta-row">
         <a className="btn btn-gold" href={REPO} target="_blank" rel="noreferrer">
           <GitHubIcon size={16} /> Star on GitHub

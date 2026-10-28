@@ -65,8 +65,10 @@ import {axisRatchetRescale} from './motions/data/axis-ratchet-rescale';
 import {beatMontage} from './motions/data/beat-montage';
 import {chipStackBars} from './motions/data/chip-stack-bars';
 import {crowdTracks} from './motions/data/crowd-tracks';
+import {dnaHelixUnzip} from './motions/data/dna-helix-unzip';
 import {dotTally} from './motions/data/dot-tally';
 import {dotToStripesMorph} from './motions/data/dot-to-stripes-morph';
+import {elementColumns3d} from './motions/data/element-columns-3d';
 import {emptyNextCell} from './motions/data/empty-next-cell';
 import {energyJarFill} from './motions/data/energy-jar-fill';
 import {flowDiagram} from './motions/data/flow-diagram';
@@ -78,16 +80,20 @@ import {isoBarChart} from './motions/data/iso-bar-chart';
 import {isotypeCount} from './motions/data/isotype-count';
 import {liveChart} from './motions/data/live-chart';
 import {mapRoute} from './motions/data/map-route';
+import {microscopeDive} from './motions/data/microscope-dive';
 import {neuralNetLayers} from './motions/data/neural-net-layers';
 import {nodeNetwork} from './motions/data/node-network';
 import {orbitSystem} from './motions/data/orbit-system';
+import {orderBookDepth} from './motions/data/order-book-depth';
 import {overheadTrailMandala} from './motions/data/overhead-trail-mandala';
 import {panelTriptych} from './motions/data/panel-triptych';
 import {periodicTableLightup} from './motions/data/periodic-table-lightup';
 import {perspectiveGrid} from './motions/data/perspective-grid';
+import {pythagorasRearrange} from './motions/data/pythagoras-rearrange';
 import {rideDimensionLine} from './motions/data/ride-dimension-line';
 import {scienceReticle} from './motions/data/science-reticle';
 import {sectionProfileChart} from './motions/data/section-profile-chart';
+import {starFusionShells} from './motions/data/star-fusion-shells';
 import {thumbnailMosaic} from './motions/data/thumbnail-mosaic';
 import {timelineRuler} from './motions/data/timeline-ruler';
 import {tokenPipeline} from './motions/data/token-pipeline';
@@ -100,6 +106,7 @@ import {lineLightUp} from './motions/document/line-light-up';
 import {mugshotHeightChart} from './motions/document/mugshot-height-chart';
 import {redactionBars} from './motions/document/redaction-bars';
 import {screenprintPoster} from './motions/document/screenprint-poster';
+import {textbookEnergyLab} from './motions/document/textbook-energy-lab';
 import {aurora} from './motions/environment/aurora';
 import {bubbles} from './motions/environment/bubbles';
 import {causticsGodrays} from './motions/environment/caustics-godrays';
@@ -130,6 +137,7 @@ import {popupLayerRise} from './motions/environment/popup-layer-rise';
 import {printWave} from './motions/environment/print-wave';
 import {rain} from './motions/environment/rain';
 import {rocketLaunch} from './motions/environment/rocket-launch';
+import {segmentedWormBreach} from './motions/environment/segmented-worm-breach';
 import {snowfall} from './motions/environment/snowfall';
 import {starfieldNight} from './motions/environment/starfield-night';
 import {studioSweep} from './motions/environment/studio-sweep';
@@ -385,6 +393,7 @@ import {agentLogPanel} from './motions/ui/agent-log-panel';
 import {boardPrintDrop} from './motions/ui/board-print-drop';
 import {browserMockup} from './motions/ui/browser-mockup';
 import {cardFan} from './motions/ui/card-fan';
+import {cardHelixGallery} from './motions/ui/card-helix-gallery';
 import {cardStackCascade} from './motions/ui/card-stack-cascade';
 import {carousel3d} from './motions/ui/carousel-3d';
 import {chatBubbles} from './motions/ui/chat-bubbles';
@@ -482,8 +491,10 @@ export const motions: MotionDef<any>[] = [
   beatMontage,
   chipStackBars,
   crowdTracks,
+  dnaHelixUnzip,
   dotTally,
   dotToStripesMorph,
+  elementColumns3d,
   emptyNextCell,
   energyJarFill,
   flowDiagram,
@@ -495,16 +506,20 @@ export const motions: MotionDef<any>[] = [
   isotypeCount,
   liveChart,
   mapRoute,
+  microscopeDive,
   neuralNetLayers,
   nodeNetwork,
   orbitSystem,
+  orderBookDepth,
   overheadTrailMandala,
   panelTriptych,
   periodicTableLightup,
   perspectiveGrid,
+  pythagorasRearrange,
   rideDimensionLine,
   scienceReticle,
   sectionProfileChart,
+  starFusionShells,
   thumbnailMosaic,
   timelineRuler,
   tokenPipeline,
@@ -517,6 +532,7 @@ export const motions: MotionDef<any>[] = [
   mugshotHeightChart,
   redactionBars,
   screenprintPoster,
+  textbookEnergyLab,
   aurora,
   bubbles,
   causticsGodrays,
@@ -547,6 +563,7 @@ export const motions: MotionDef<any>[] = [
   printWave,
   rain,
   rocketLaunch,
+  segmentedWormBreach,
   snowfall,
   starfieldNight,
   studioSweep,
@@ -802,6 +819,7 @@ export const motions: MotionDef<any>[] = [
   boardPrintDrop,
   browserMockup,
   cardFan,
+  cardHelixGallery,
   cardStackCascade,
   carousel3d,
   chatBubbles,

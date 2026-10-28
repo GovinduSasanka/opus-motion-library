@@ -1,7 +1,7 @@
 {
   "name": "opus-motion-library",
   "version": "1.1.0",
-  "description": "415 parameterised motion graphics for videos, websites and apps — titles, transitions, weather, characters, data, HUDs, image looks, 3D and 147 one-line styles. Remotion + React + SVG + three.js. AI-agent ready.",
+  "description": "424 parameterised motion graphics for videos, websites and apps — titles, transitions, weather, characters, data, HUDs, image looks, 3D and 147 one-line styles. Remotion + React + SVG + three.js. AI-agent ready.",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",

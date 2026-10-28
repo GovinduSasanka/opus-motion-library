@@ -2,7 +2,7 @@
 
 # Opus Motion Library
 
-**415 motion graphics you can drop into videos, websites and apps — by name, with your own words, colours and images.**
+**424 motion graphics you can drop into videos, websites and apps — by name, with your own words, colours and images.**
 
 Titles · transitions · weather · characters · data · HUDs · image looks · real 3D — for Remotion, React, plain HTML and native apps.<br/>
 Built so an AI agent can pick, mix and ship them for you.
@@ -30,7 +30,7 @@ Good motion design is slow to make and hard to reuse. Every motion here is a **p
 props**: give it your text, palette and pictures and it renders the same way every time, at **16:9, 1:1 or 9:16**, in a
 **video**, on a **web page**, or as an **exported clip** for an app.
 
-- **415 motions, 97 transitions, 147 styles, 33 recipes**: from a sonar ping, an origami crane and a deep-sea dive to iso bar charts,
+- **424 motions, 97 transitions, 148 styles, 33 recipes**: from a sonar ping, an origami crane and a deep-sea dive to iso bar charts,
   chat bubbles, glitch looks and a terrain that builds itself in real 3D.
 - **Mix anything**: stack a backdrop, a subject, type and an accent in one shot (`layers`), with blend modes.
 - **Use it anywhere**: Remotion video · `<MotionPlayer>` / `<MotionBackground>` in React or Next.js ·
@@ -51,7 +51,7 @@ git clone https://github.com/GovinduSasanka/opus-motion-library.git
 cd opus-motion-library && npm install
 node cli/gen-registry.mjs
 
-node cli/mgl.mjs list                                          # all 415 motions
+node cli/mgl.mjs list                                          # all 424 motions
 node cli/mgl.mjs suggest "dark hero for a launch with stats"   # what should I use?
 node cli/mgl.mjs render stamp-slam --props '{"lines":["HELLO","2026"],"keyword":"LAUNCH"}' --format portrait
 npm run studio                                                 # browse everything in Remotion Studio
@@ -345,7 +345,7 @@ the mix is mastered to −16 LUFS. The showreel is built this way: `python story
 
 </details>
 
-<details><summary><b>Worlds & weather</b> (38)</summary>
+<details><summary><b>Worlds & weather</b> (39)</summary>
 
 | preview | motion | what it does |
 |---|---|---|
@@ -379,6 +379,7 @@ the mix is mastered to −16 LUFS. The showreel is built this way: `python story
 | <img src="gallery/print-wave.jpg" width="260" alt="print-wave"/> | **`print-wave`**<br/>Print wave  | An original woodblock-style wave: a tall wall of water in bokashi blues (pale crest → Prussian → deep trough) with offset banding and grouped broken white flow lines along the back slope, a hollow shaded under the curling lip, a scalloped foam rim, fractal claws (each splits into three fingers that split again, tips hooking inward) over a pale back layer, spray in clusters, and a background sea of banded curls. It swells, curls and hangs with jitter ×0.25; nature steps at 8 fps. Paper, double border, ink outlines. |
 | <img src="gallery/rain.jpg" width="260" alt="rain"/> | **`rain`**<br/>Rain `overlay` | Night street in the rain: 3 parallax layers of slanted streaks, lamp-lit cone, ground ripples; optional glass droplets and trickles. Works as a transparent overlay. |
 | <img src="gallery/rocket-launch.jpg" width="260" alt="rocket-launch"/> | **`rocket-launch`**<br/>Rocket launch  | Countdown on a dusk launch pad, ignition with billowing ground smoke and a flickering plume, an ease-in lift-off and a camera that tilts up to follow the rocket as the sky turns to space, leaving a smoke trail. |
+|  | **`segmented-worm-breach`**<br/>Segmented worm breach  | A giant panelled mechanical worm with a toothed circular mouth bursts out of a cream line-art desert in a dust plume, arcs toward camera and dives back; optional translucent cyan x-ray pass. |
 | <img src="gallery/snowfall.jpg" width="260" alt="snowfall"/> | **`snowfall`**<br/>Snowfall `overlay` | Layered snow drifting diagonally over a dusk snowy landscape; blizzard mode streams pixel snow and streaks sideways through a blue-grey white-out. Overlay-capable. |
 | <img src="gallery/starfield-night.jpg" width="260" alt="starfield-night"/> | **`starfield-night`**<br/>Starfield night `overlay` | Dark teal night sky with twinkling cream stars, a grainy crescent moon that fades in, swaying teal grass and a shooting star. Overlay-capable. |
 | <img src="gallery/studio-sweep.jpg" width="260" alt="studio-sweep"/> | **`studio-sweep`**<br/>Studio sweep (graphite seamless backdrop) `your image` | A dark graphite photographic seamless: a soft radial gradient with the floor implied only by a blurred contact shadow beneath a glossy subject, and a slow narrow softbox light sweep gliding across the set. |
@@ -413,7 +414,7 @@ the mix is mastered to −16 LUFS. The showreel is built this way: `python story
 
 </details>
 
-<details><summary><b>Data</b> (31)</summary>
+<details><summary><b>Data</b> (37)</summary>
 
 | preview | motion | what it does |
 |---|---|---|
@@ -421,8 +422,10 @@ the mix is mastered to −16 LUFS. The showreel is built this way: `python story
 | <img src="gallery/beat-montage.jpg" width="260" alt="beat-montage"/> | **`beat-montage`**<br/>Accelerating beat montage `your image` | Hard-cut image montage whose cuts accelerate 12 f -> 6 f -> 3 f, a persistent centre dot, breathing sonar rings on the beat, per-shot micro push and beat-synced style swaps. |
 | <img src="gallery/chip-stack-bars.jpg" width="260" alt="chip-stack-bars"/> | **`chip-stack-bars`**<br/>Chip stack bars  | Horizontal bars built from labelled unit chips, one chip per item: each row has a tiny tracked label above and a rolling count at the end, rows grow left to right chip by chip (about one chip per frame), and the highlighted row uses the accent colour with a gentle wave once complete. |
 | <img src="gallery/crowd-tracks.jpg" width="260" alt="crowd-tracks"/> | **`crowd-tracks`**<br/>Crowd tracks `your image` | A locked-off concourse plate darkens and desaturates while every walker becomes a glowing sodium-orange dot trailing a decaying polyline of where it just was, linked to its nearest neighbour — people as data — with a lock-digit footfall count. |
+|  | **`dna-helix-unzip`**<br/>DNA helix unzip  | A rotating DNA double helix draws on, coloured A-T / G-C base-pair rungs fill in, then a zipper point runs along the axis and the two strands peel apart into half-rungs with letter tags. |
 | <img src="gallery/dot-tally.jpg" width="260" alt="dot-tally"/> | **`dot-tally`**<br/>Dot tally (people as dots)  | One dot per person in labelled groups; selected dots turn one by one from filled cream discs into open red rings while a huge counter runs; the total and a two-symbol legend land at the end. |
 | <img src="gallery/dot-to-stripes-morph.jpg" width="260" alt="dot-to-stripes-morph"/> | **`dot-to-stripes-morph`**<br/>Dot-to-stripes morph  | A hand-drawn pencil dot chart on cream paper sweeps mark by mark into a full-height warming-stripes band: each dot falls to the band centre, stretches into its coloured stripe and loses its ink ring, while the graphite line fades and a handwritten note returns as a tiny pencil tick. |
+|  | **`element-columns-3d`**<br/>Element columns 3D  | A periodic table of 3D tiles on a wooden bench in a dark lab: the columns rise from the floor to heights set by a property (melting point), the camera drifts round, the tallest column is tagged with a label and a caption pill sits at the bottom. Sample values are illustrative. |
 | <img src="gallery/empty-next-cell.jpg" width="260" alt="empty-next-cell"/> | **`empty-next-cell`**<br/>Empty next cell  | After a short run of pencil data marks, a dashed red rectangle draws itself around the next empty slot with a handwritten "?", holds, then widens into a frame-within-frame end card for the value nobody knows yet. |
 | <img src="gallery/energy-jar-fill.jpg" width="260" alt="energy-jar-fill"/> | **`energy-jar-fill`**<br/>Energy jar fill  | Ink-line glass jars on a clay shelf rack light up one by one: saturated self-lit liquid rises with a meniscus, its glow spills onto the shelf, panels and label cards, and handwritten values count up, then everything drains. |
 | <img src="gallery/flow-diagram.jpg" width="260" alt="flow-diagram"/> | **`flow-diagram`**<br/>Flow diagram (packets on edges)  | Rounded boxes with icons joined by arrows that draw on in sequence (14 f each, 5 f stagger); glowing packets or labelled chips travel the edges, each receiving node pulses 1 -> 1.08 -> 1 and a highlight ring follows the active step. Auto-lays out left-to-right (top-to-bottom on portrait) from the edge graph; blueprint / paper / dark themes. |
@@ -434,16 +437,20 @@ the mix is mastered to −16 LUFS. The showreel is built this way: `python story
 | <img src="gallery/isotype-count.jpg" width="260" alt="isotype-count"/> | **`isotype-count`**<br/>Isotype count  | Isotype statistic: identical flat icons pop in with a back-ease overshoot into a grid, bar, row or heart silhouette, accelerating from quarter notes to 16ths while a big count-up number runs in sync; a highlighted subset turns accent and a legend reads "icon = N". |
 | <img src="gallery/live-chart.jpg" width="260" alt="live-chart"/> | **`live-chart`**<br/>Live chart / ECG traces  | Line charts that draw live with a glowing head dot: growth curve + synapse curve + scrolling ECG ('trace'), two heartbeats drifting into sync ('sync'), or a quality line turning red and falling while a gauge needle swings down ('decline'). |
 | <img src="gallery/map-route.jpg" width="260" alt="map-route"/> | **`map-route`**<br/>Map route `your image` | Top-down illustrated paper map (fields, river, trees, blossoms) with a marker flying a curved dotted route, a red bearing vector with angle arc and distance ticks, a dashed line to the sun; hop style hops leg by leg leaving popping dots. |
+| <img src="gallery/microscope-dive.jpg" width="260" alt="microscope-dive"/> | **`microscope-dive`**<br/>Microscope dive `your image` | One continuous powers-of-ten zoom from a glass slide on a graphite bench through a procedural stained tissue section and cell field to a single nucleus; focus racks in, breathes at each magnification step and sweeps a focal plane on landing; frosted instrument panel (1-2-5 scale bar, rolling field of view, magnification and turning turret glyph) and a measurement ring with leader to a reading panel. |
 | <img src="gallery/neural-net-layers.jpg" width="260" alt="neural-net-layers"/> | **`neural-net-layers`**<br/>Neural net layers  | Columns of neuron circles joined by weighted connections: an activation wave flows layer by layer as glowing pulses (blue to yellow), line widths show the weights, and an output bar chart (softmax) updates; it repeats with fresh inputs. |
 | <img src="gallery/node-network.jpg" width="260" alt="node-network"/> | **`node-network`**<br/>Node network  | A force-laid community graph grows: nodes pop in and glow, links draw between them, clusters take their colours, and counters tick as connections outgrow members (network effect); a shortest path then lights up hop by hop. |
 | <img src="gallery/orbit-system.jpg" width="260" alt="orbit-system"/> | **`orbit-system`**<br/>Orbit system  | A glowing star and five bodies (one ringed, one with a moon) on dashed elliptical orbits moving at Kepler-ish speeds with name labels and orbit counters and an elapsed-years readout, then a smooth zoom into one body with a spec card. |
+|  | **`order-book-depth`**<br/>Order-book depth chart  | Stepped cumulative bid (left) and ask (right) depth curves grow out from a dashed mid line, then breathe as levels refill; a ticking mid price, spread readout and trade pings sit on a dark trading-desk panel. |
 | <img src="gallery/overhead-trail-mandala.jpg" width="260" alt="overhead-trail-mandala"/> | **`overhead-trail-mandala`**<br/>Overhead trail mandala  | Top-down 8-panel umbrellas dance in counter-rotating rings on grey cobbles, swelling on every downbeat of a waltz, while each drips its colour as dashed dabs along its path; the camera rotates and cranes out until the trails read as a coloured mandala. |
 | <img src="gallery/panel-triptych.jpg" width="260" alt="panel-triptych"/> | **`panel-triptych`**<br/>Panel triptych collide  | Navy grid backdrop; three coloured panel outlines draw on clockwise, pictures slide into them with numbered labels, the panels slam together with doubled misprint outlines, then prison bars drop. |
 | <img src="gallery/periodic-table-lightup.jpg" width="260" alt="periodic-table-lightup"/> | **`periodic-table-lightup`**<br/>Periodic table light-up  | The 118-element periodic table as rounded tiles; the chosen elements light up one per frame in ink with a pop, a second group lights in the accent colour, a big count-up "N /118" ticks beside the table, and a soft shimmer sweeps the lit tiles. Switch to a custom grid for any category matrix. |
 | <img src="gallery/perspective-grid.jpg" width="260" alt="perspective-grid"/> | **`perspective-grid`**<br/>Hand-drawn perspective board  | Pen strokes draw a perspective trapezoid board, coloured-pencil hatch fills squares, doodle pieces pop in (outline -> blob -> sprite) during a pull-back that reveals margin doodles, then move-hint rings and "your move". |
+|  | **`pythagoras-rearrange`**<br/>Pythagoras proof by rearrangement  | A square of side a+b draws on; four right triangles pop in around a tilted c-square, then three of them slide into two rectangles, uncovering the a-square and the b-square, and a² + b² = c² writes itself below. |
 | <img src="gallery/ride-dimension-line.jpg" width="260" alt="ride-dimension-line"/> | **`ride-dimension-line`**<br/>Ride the dimension line  | Quantities drawn as real lengths to one scale on a whiteboard: blue dimension arrows shoot from a shared start line while the camera rides their tips, arrowheads tap on landing, items short of the red limit line get struck through with a dashed shortfall, then the camera pulls back to the whole judgement frame and a verdict lands. |
 | <img src="gallery/science-reticle.jpg" width="260" alt="science-reticle"/> | **`science-reticle`**<br/>Science HUD reticle `your image` | Instrument overlay (rings, spokes, tick ring, axis, scale bar) builds around a procedural cell or planet that is drawn by a clockwise comet sweep; typed mono labels on leader lines, comet laps the outlines. |
 | <img src="gallery/section-profile-chart.jpg" width="260" alt="section-profile-chart"/> | **`section-profile-chart`**<br/>Section profile chart  | A vertical plane slices one feature of a raking-lit survey surface; its profile glows on the ground while a dimensioned 2D chart of the real returns (scattered points, a fitted line, height and width dimension lines) appears in the right third, joined by a dashed leader, and the measured reading pops in the accent colour. |
+|  | **`star-fusion-shells`**<br/>Star fusion shells  | A glowing orange star grows on a purple starfield, a pie wedge opens onto labelled concentric fusion shells (H to Fe), the iron core swells, the star collapses and bursts as a supernova of coloured dashes that settles into a nebula. |
 | <img src="gallery/thumbnail-mosaic.jpg" width="260" alt="thumbnail-mosaic"/> | **`thumbnail-mosaic`**<br/>Thumbnail mosaic (disc / grid / recap) `your image` | Dozens of thumbnails as a tilted glowing disc of rings, a gapless wall you zoom out into, or a recap grid springing onto a monitor; all end in a staggered pop-out to a single dot. |
 | <img src="gallery/timeline-ruler.jpg" width="260" alt="timeline-ruler"/> | **`timeline-ruler`**<br/>Timeline ruler with event cards  | A ruler of years glides under a fixed playhead dot; every event pins a card (date, image or gradient, title, one line) with a spring pop while the camera pans between events and the big odometer year counter rolls through the years in between. Horizontal on 16:9/1:1, vertical on 9:16. |
 | <img src="gallery/token-pipeline.jpg" width="260" alt="token-pipeline"/> | **`token-pipeline`**<br/>Token pipeline  | A glass-lab pipeline: glowing cubes swirl in a source bulb, stream one by one through an arched tube, spiral down a gold-ringed glass coil and reach a dropper that swells a drop, glints and drips it into a labelled flask, while the camera follows the flow and pulls back to reveal the whole lab. |
@@ -451,7 +458,7 @@ the mix is mastered to −16 LUFS. The showreel is built this way: `python story
 
 </details>
 
-<details><summary><b>Interfaces</b> (34)</summary>
+<details><summary><b>Interfaces</b> (35)</summary>
 
 | preview | motion | what it does |
 |---|---|---|
@@ -459,6 +466,7 @@ the mix is mastered to −16 LUFS. The showreel is built this way: `python story
 | <img src="gallery/board-print-drop.jpg" width="260" alt="board-print-drop"/> | **`board-print-drop`**<br/>Board print drop  | Cut-out photo prints are lowered onto an enamel whiteboard from the camera side, land with a tiny bounce and spin settle while their soft shadows tighten, get pinned by two clacking magnets, and marker captions write themselves under each. |
 | <img src="gallery/browser-mockup.jpg" width="260" alt="browser-mockup"/> | **`browser-mockup`**<br/>Browser mockup with living hero `your image` | Rounded, shadowed browser window on a blue-grey backdrop showing a landing page whose hero illustration is a living cinemagraph; cursor clicks the CTA, page scrolls. |
 | <img src="gallery/card-fan.jpg" width="260" alt="card-fan"/> | **`card-fan`**<br/>Card fan: deal & play / connect  | Cards deal from a pile into a fanned hand, one is hovered, played to centre and hits an enemy (white flash, slash, damage pop, HP drain); 'connect' mode links three glass cards' icons and merges them. |
+|  | **`card-helix-gallery`**<br/>Card helix gallery  | Preview cards float on a rotating 3D ring over a pastel aurora with a giant serif rank text behind; the front card swells and an info panel with counting stats slides in each beat. |
 | <img src="gallery/card-stack-cascade.jpg" width="260" alt="card-stack-cascade"/> | **`card-stack-cascade`**<br/>Card stack cascade (bento + focus)  | Feature cards scale in from 30 % with a fade, staggered 4 f apart, into a bento grid (or a row, or a fanned deck) with a gentle idle float; then one card flies to the centre and grows to ~60 % of the frame while the rest dim to 40 % and defocus, and everything settles back. |
 | <img src="gallery/carousel-3d.jpg" width="260" alt="carousel-3d"/> | **`carousel-3d`**<br/>Carousel 3D  | Cards or clips on a 3D ring rotate past the camera over a glossy floor with mirrored reflections; a motion-blurred whip lands the hero card face-on, which pushes forward while the others dim. |
 | <img src="gallery/chat-bubbles.jpg" width="260" alt="chat-bubbles"/> | **`chat-bubbles`**<br/>Chat bubbles, chips & thought bubble  | Chat bubbles and comment / prompt chips pop in one by one around a box-bot, a speech balloon snaps on, then a thought bubble rises (dots -> cloud -> icons -> caption) and a green verdict chip drops in. |

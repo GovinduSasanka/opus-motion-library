@@ -1,6 +1,6 @@
 ---
 name: opus-motion
-description: Choose, mix and integrate motion graphics from the Opus Motion Library — ~415 parameterised Remotion motions (titles, backdrops, weather, particles, characters, data/HUD, UI mockups, image looks, 3D), 97 transitions, 147 styles and 33 ready-made recipes. Use when the user wants a specific motion ("do the sonar ping", "a stamp slam that says X"), several motions mixed into a shot or video, a narrated explainer, OR animated backgrounds / heroes / stats / loaders / celebration states in a website, web app (React, Next.js, Vite, plain HTML, WordPress), native app (exported mp4/webm-alpha/ProRes) or slides — including when the library has been copied or linked into another project.
+description: Choose, mix and integrate motion graphics from the Opus Motion Library — ~424 parameterised Remotion motions (titles, backdrops, weather, particles, characters, data/HUD, UI mockups, image looks, 3D), 97 transitions, 148 styles and 33 ready-made recipes. Use when the user wants a specific motion ("do the sonar ping", "a stamp slam that says X"), several motions mixed into a shot or video, a narrated explainer, OR animated backgrounds / heroes / stats / loaders / celebration states in a website, web app (React, Next.js, Vite, plain HTML, WordPress), native app (exported mp4/webm-alpha/ProRes) or slides — including when the library has been copied or linked into another project.
 ---
 
 # Opus Motion Library
