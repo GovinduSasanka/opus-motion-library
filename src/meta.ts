@@ -746,6 +746,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "budget-envelope-split": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 210,
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light"
+ },
  "cause-effect-chain": {
   "overlay": true,
   "overlayProps": {
@@ -874,12 +887,38 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "fitness-activity-rings": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 180,
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light"
+ },
  "flame-test-colors": {
   "overlay": false,
   "overlayProps": null,
   "loopable": false,
   "bestLength": 390,
   "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "floorplan-draw": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 210,
+  "roles": [
+   "accent",
    "subject"
   ],
   "weight": "light"
@@ -968,6 +1007,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "loopable": false,
   "bestLength": 150,
   "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "heart-rate-monitor": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 240,
+  "roles": [
+   "accent",
    "subject"
   ],
   "weight": "light"
@@ -1212,6 +1264,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "savings-goal-jar": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 210,
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light"
+ },
  "science-reticle": {
   "overlay": false,
   "overlayProps": null,
@@ -1333,6 +1398,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "weight": "light"
  },
  "waterfall-bridge": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 180,
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "weather-forecast-strip": {
   "overlay": true,
   "overlayProps": {
    "background": "transparent"
@@ -3915,7 +3993,43 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "add-to-cart-fly": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 150,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
  "colorway-swap": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 210,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "coupon-scratch-reveal": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 170,
+  "roles": [
+   "accent"
+  ],
+  "weight": "light"
+ },
+ "delivery-tracker": {
   "overlay": true,
   "overlayProps": {
    "background": "transparent"
@@ -3949,6 +4063,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "flash-deal-timer-card": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 180,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
  "frost-to-clear": {
   "overlay": false,
   "overlayProps": null,
@@ -3979,6 +4105,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "order-confirmation": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 170,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
  "price-tag-drop": {
   "overlay": true,
   "overlayProps": {
@@ -3988,6 +4126,30 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "bestLength": 150,
   "roles": [
    "accent"
+  ],
+  "weight": "light"
+ },
+ "product-grid-filter": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 210,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "size-color-picker": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 150,
+  "roles": [
+   "subject"
   ],
   "weight": "light"
  },
@@ -5363,6 +5525,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "appointment-booking-calendar": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 240,
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light"
+ },
  "board-print-drop": {
   "overlay": false,
   "overlayProps": null,
@@ -5426,6 +5601,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
  "chat-bubbles": {
   "overlay": false,
   "overlayProps": null,
+  "loopable": false,
+  "bestLength": 240,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "checkout-steps": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
   "loopable": false,
   "bestLength": 240,
   "roles": [
@@ -5706,6 +5893,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   },
   "loopable": false,
   "bestLength": 240,
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "property-listing-card": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 180,
   "roles": [
    "accent",
    "subject"

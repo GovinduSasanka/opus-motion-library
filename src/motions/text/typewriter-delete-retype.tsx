@@ -178,7 +178,7 @@ export const typewriterDeleteRetype = defineMotion<Props>({
     cursor: 'bar',
     align: 'left',
     font: 'mono',
-    size: 110,
+    size: 120,
     weight: 700,
     tracking: 0,
     seed: 5,

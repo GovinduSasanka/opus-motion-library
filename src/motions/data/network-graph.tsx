@@ -192,7 +192,9 @@ const NetworkGraph: React.FC<Props> = ({nodes, edges, seed, title, subtitle, sho
       y0 = Math.min(y0, q.y);
       y1 = Math.max(y1, q.y);
     });
-    return p.map((q) => ({x: (q.x - x0) / Math.max(1e-6, x1 - x0), y: (q.y - y0) / Math.max(1e-6, y1 - y0)}));
+    // few nodes: keep the layout compact instead of stretching it over the whole frame
+    const f = clamp(Math.sqrt(Math.max(1, p.length)) / 4, 0.5, 1);
+    return p.map((q) => ({x: 0.5 + ((q.x - x0) / Math.max(1e-6, x1 - x0) - 0.5) * f, y: 0.5 + ((q.y - y0) / Math.max(1e-6, y1 - y0) - 0.5) * f}));
   }, [n, JSON.stringify(es), seed, Math.round(aspect * 20)]);
 
   const hubIdx = hub && ids.includes(hub) ? ids.indexOf(hub) : deg.length ? deg.indexOf(Math.max(...deg)) : -1;
@@ -365,7 +367,7 @@ export const networkGraph = defineMotion<Props>({
     title: 'How the pieces connect',
     subtitle: 'Services, clients and data stores around one core',
     showLabels: true,
-    hub: '',
+    hub: 'Core',
     hubPulse: true,
     minRadius: 14,
     maxRadius: 40,

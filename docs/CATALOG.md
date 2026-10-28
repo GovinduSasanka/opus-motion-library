@@ -1,6 +1,6 @@
 # Motion catalog
 
-539 motions. Generated from `catalog.json` by `cli/gen-docs.mjs` — do not edit by hand.
+555 motions. Generated from `catalog.json` by `cli/gen-docs.mjs` — do not edit by hand.
 
 Render any of them: `node cli/mgl.mjs render <id> [--props '{...}'] [--format landscape|square|portrait]`. Previews live in `gallery/`.
 
@@ -12,8 +12,8 @@ Choosing: `node cli/mgl.mjs suggest "<what you need>"` and [CHOOSING.md](CHOOSIN
 - [fx](#fx) (49)
 - [environment](#environment) (39)
 - [character](#character) (17)
-- [data](#data) (60)
-- [ui](#ui) (54)
+- [data](#data) (66)
+- [ui](#ui) (57)
 - [hud](#hud) (29)
 - [camera](#camera) (9)
 - [texture](#texture) (4)
@@ -24,16 +24,16 @@ Choosing: `node cli/mgl.mjs suggest "<what you need>"` and [CHOOSING.md](CHOOSIN
 - [map](#map) (11)
 - [mascot](#mascot) (11)
 - [music](#music) (23)
-- [product](#product) (10)
+- [product](#product) (17)
 - [recipes](#recipes) (ready-made mixes)
 
 ## Capability index
 
 | capability | motions |
 |---|---|
-| overlay (transparent background — put it on top of other motions or your page) | `globe-3d`, `holo-solid-ignite`, `light-beam-ribbon`, `popup-spread`, `creator-hand`, `paper-critter-rig`, `pictogram-figure`, `bar-race`, `bubble-scatter-grow`, `cause-effect-chain`, `comparison-dumbbell`, `donut-breakdown`, `funnel-conversion`, `gantt-timeline`, `gauge-kpi-dial`, `heatmap-calendar`, `network-graph`, `org-chart-tree`, `progress-rings-stats`, `pros-cons-columns`, `radar-compare`, `sankey-flow`, `stacked-area-flow`, `step-process-numbered`, `treemap-split`, `venn-diagram-overlap`, `waterfall-bridge`, `certificate-seal`, `form-fill-submit`, `receipt-print`, `aurora`, `bubbles`, `caustics-godrays`, `curl-flow`, `embers`, `falling-petals`, `fireworks`, `flow-lines`, `fog-clouds`, `insect-flight`, `lightning-flash`, `mesh-gradient-bg`, `rain`, `snowfall`, `starfield-night`, `window-glow-sequence`, `backlit-cutout`, `circuit-traces`, `confetti-burst`, `electric-arcs`, `emote-pop`, `eyes-blink`, `fire-flames`, `giant-eye-reveal`, `grease-pencil-mark`, `impact-frame`, `ink-blot-stop`, `long-exposure-trails`, `magnifier-loupe`, `marker-ring-arrow`, `scribble-ball`, `smear-frame`, `smoke-puffs`, `sparkle-burst`, `star-glint`, `sticker-cutout`, `swirl-portal`, `vhs-crt-pass`, `achievement-unlock`, `bracket-advance`, `candy-set-backdrop`, `kill-streak-banner`, `level-up-burst`, `match-scoreboard`, `player-stat-card`, `stream-starting-soon`, `agent-roster`, `blur-redact-region`, `cam-chip-sync-badge`, `click-ripple-markers`, `day-ring-dial`, `event-feed`, `fight-hud`, `game-hud`, `hand-drawn-arrow-callout`, `hud-chrome`, `mission-clock`, `news-bug-source-tag`, `numbered-step-badges`, `prompt-wall`, `scribble-circle-highlight`, `spec-chip-rail`, `spotlight-dim-focus`, `target-lock-box`, `target-lock`, `tooltip-pointer`, `zoom-inset-box`, `film-look`, `sticker-slap`, `choropleth-fill`, `city-zoom-label`, `coverage-route`, `elevation-profile`, `flight-arcs`, `pin-drop-cluster`, `beat-dance`, `chomp-lid`, `emotion-idle-beat`, `emotion-sheet`, `emotion-timeline`, `mascot-nib`, `mascot-thinking`, `mascot-thumbs-up`, `mascot-wave-hello`, `smear-trail`, `beat-camera`, `beat-grid`, `beat-pulse-rings`, `engraving-hatch`, `equalizer-bars-loop`, `guilloche-note`, `lyric-on-path`, `lyric-timing`, `lyric-video`, `mixer-faders`, `now-playing-card`, `podcast-audiogram`, `shutter-blur`, `stage-curtain`, `time-stutter`, `token-sampler-prompt`, `token-tree`, `tracklist-reveal`, `vinyl-spin-label`, `width-pressure-type`, `colorway-swap`, `feature-callout-orbit`, `price-tag-drop`, `spec-compare-table`, `sunburst-hero`, `unbox-lid-lift`, `comet-pulse-guide`, `ink-brush-stroke`, `logo-reveal-liquid`, `motif-grid-pattern`, `nib-follow-camera`, `papercut-rosette`, `toon-cel-shape`, `agenda-list-slide`, `big-stat-slide`, `blur-in-title`, `channel-intro-sting`, `chapter-countdown`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `definition-card`, `end-card-credits`, `end-screen-cards`, `follower-milestone`, `glyph-orbit-logo`, `key-takeaway-highlight`, `kinetic-captions`, `logo-reveal-lines`, `mask-rise-title`, `myth-vs-fact`, `news-strap`, `number-counter`, `outline-to-fill-text`, `paper-strip-title`, `per-letter-wave`, `qa-slide`, `quiz-question-reveal`, `quote-slide`, `rolling-credits`, `rundown-board`, `sale-countdown-banner`, `scene-tag`, `split-flap-board`, `sponsor-slate`, `stacked-repeat-echo`, `stamp-slam`, `sting-bug`, `story-caption-box`, `text-on-circle-spin`, `text-scramble-decode`, `typewriter-code`, `typewriter-delete-retype`, `typewriter-signature`, `word-carousel-rotator`, `bokeh-drift`, `light-leak-wash`, `pattern-scroll`, `agent-log-panel`, `comment-bubble-stream`, `cursor-driver`, `empty-state-illustration`, `glass-lesson-card`, `hero-gradient-orbs`, `keystroke-hud`, `liquid-glass-lens`, `loader-spinner-set`, `logo-wall-grid`, `notification-stack`, `planned-vs-heard-checklist`, `player-toolbar`, `poll-results-bars`, `review-stars-rating`, `roadmap-swimlanes`, `skeleton-shimmer`, `story-progress-frames`, `subscribe-like-bell`, `success-check-burst`, `team-grid-photos`, `testimonial-card-carousel`, `three-column-features`, `toast-stack-loop`, `typing-indicator-chat`, `upload-progress` |
+| overlay (transparent background — put it on top of other motions or your page) | `globe-3d`, `holo-solid-ignite`, `light-beam-ribbon`, `popup-spread`, `creator-hand`, `paper-critter-rig`, `pictogram-figure`, `bar-race`, `bubble-scatter-grow`, `budget-envelope-split`, `cause-effect-chain`, `comparison-dumbbell`, `donut-breakdown`, `fitness-activity-rings`, `floorplan-draw`, `funnel-conversion`, `gantt-timeline`, `gauge-kpi-dial`, `heart-rate-monitor`, `heatmap-calendar`, `network-graph`, `org-chart-tree`, `progress-rings-stats`, `pros-cons-columns`, `radar-compare`, `sankey-flow`, `savings-goal-jar`, `stacked-area-flow`, `step-process-numbered`, `treemap-split`, `venn-diagram-overlap`, `waterfall-bridge`, `weather-forecast-strip`, `certificate-seal`, `form-fill-submit`, `receipt-print`, `aurora`, `bubbles`, `caustics-godrays`, `curl-flow`, `embers`, `falling-petals`, `fireworks`, `flow-lines`, `fog-clouds`, `insect-flight`, `lightning-flash`, `mesh-gradient-bg`, `rain`, `snowfall`, `starfield-night`, `window-glow-sequence`, `backlit-cutout`, `circuit-traces`, `confetti-burst`, `electric-arcs`, `emote-pop`, `eyes-blink`, `fire-flames`, `giant-eye-reveal`, `grease-pencil-mark`, `impact-frame`, `ink-blot-stop`, `long-exposure-trails`, `magnifier-loupe`, `marker-ring-arrow`, `scribble-ball`, `smear-frame`, `smoke-puffs`, `sparkle-burst`, `star-glint`, `sticker-cutout`, `swirl-portal`, `vhs-crt-pass`, `achievement-unlock`, `bracket-advance`, `candy-set-backdrop`, `kill-streak-banner`, `level-up-burst`, `match-scoreboard`, `player-stat-card`, `stream-starting-soon`, `agent-roster`, `blur-redact-region`, `cam-chip-sync-badge`, `click-ripple-markers`, `day-ring-dial`, `event-feed`, `fight-hud`, `game-hud`, `hand-drawn-arrow-callout`, `hud-chrome`, `mission-clock`, `news-bug-source-tag`, `numbered-step-badges`, `prompt-wall`, `scribble-circle-highlight`, `spec-chip-rail`, `spotlight-dim-focus`, `target-lock-box`, `target-lock`, `tooltip-pointer`, `zoom-inset-box`, `film-look`, `sticker-slap`, `choropleth-fill`, `city-zoom-label`, `coverage-route`, `elevation-profile`, `flight-arcs`, `pin-drop-cluster`, `beat-dance`, `chomp-lid`, `emotion-idle-beat`, `emotion-sheet`, `emotion-timeline`, `mascot-nib`, `mascot-thinking`, `mascot-thumbs-up`, `mascot-wave-hello`, `smear-trail`, `beat-camera`, `beat-grid`, `beat-pulse-rings`, `engraving-hatch`, `equalizer-bars-loop`, `guilloche-note`, `lyric-on-path`, `lyric-timing`, `lyric-video`, `mixer-faders`, `now-playing-card`, `podcast-audiogram`, `shutter-blur`, `stage-curtain`, `time-stutter`, `token-sampler-prompt`, `token-tree`, `tracklist-reveal`, `vinyl-spin-label`, `width-pressure-type`, `add-to-cart-fly`, `colorway-swap`, `coupon-scratch-reveal`, `delivery-tracker`, `feature-callout-orbit`, `flash-deal-timer-card`, `order-confirmation`, `price-tag-drop`, `product-grid-filter`, `size-color-picker`, `spec-compare-table`, `sunburst-hero`, `unbox-lid-lift`, `comet-pulse-guide`, `ink-brush-stroke`, `logo-reveal-liquid`, `motif-grid-pattern`, `nib-follow-camera`, `papercut-rosette`, `toon-cel-shape`, `agenda-list-slide`, `big-stat-slide`, `blur-in-title`, `channel-intro-sting`, `chapter-countdown`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `definition-card`, `end-card-credits`, `end-screen-cards`, `follower-milestone`, `glyph-orbit-logo`, `key-takeaway-highlight`, `kinetic-captions`, `logo-reveal-lines`, `mask-rise-title`, `myth-vs-fact`, `news-strap`, `number-counter`, `outline-to-fill-text`, `paper-strip-title`, `per-letter-wave`, `qa-slide`, `quiz-question-reveal`, `quote-slide`, `rolling-credits`, `rundown-board`, `sale-countdown-banner`, `scene-tag`, `split-flap-board`, `sponsor-slate`, `stacked-repeat-echo`, `stamp-slam`, `sting-bug`, `story-caption-box`, `text-on-circle-spin`, `text-scramble-decode`, `typewriter-code`, `typewriter-delete-retype`, `typewriter-signature`, `word-carousel-rotator`, `bokeh-drift`, `light-leak-wash`, `pattern-scroll`, `agent-log-panel`, `appointment-booking-calendar`, `checkout-steps`, `comment-bubble-stream`, `cursor-driver`, `empty-state-illustration`, `glass-lesson-card`, `hero-gradient-orbs`, `keystroke-hud`, `liquid-glass-lens`, `loader-spinner-set`, `logo-wall-grid`, `notification-stack`, `planned-vs-heard-checklist`, `player-toolbar`, `poll-results-bars`, `property-listing-card`, `review-stars-rating`, `roadmap-swimlanes`, `skeleton-shimmer`, `story-progress-frames`, `subscribe-like-bell`, `success-check-burst`, `team-grid-photos`, `testimonial-card-carousel`, `three-column-features`, `toast-stack-loop`, `typing-indicator-chat`, `upload-progress` |
 | seamless loop | `iso-bar-chart`, `embers`, `sonar-ping`, `empty-state-illustration`, `hero-gradient-orbs`, `loader-spinner-set`, `skeleton-shimmer`, `success-check-burst`, `toast-stack-loop`, `typing-indicator-chat`, `upload-progress` |
-| takes your image (`src` / `images` / `heroSrc`) | `pointcloud-orbit`, `crash-zoom`, `dolly-zoom`, `orbit-parallax`, `whip-pan`, `beat-montage`, `crowd-tracks`, `ground-plane-ruler`, `map-route`, `microscope-dive`, `science-reticle`, `thumbnail-mosaic`, `mugshot-height-chart`, `depth-descent`, `lamp-screen`, `paper-diorama`, `studio-sweep`, `topdown-terrain`, `window-glow-sequence`, `beat-punch-zoom`, `crayon-wax-shader`, `focus-desaturate`, `frame-blend-timelapse`, `frame-breakout`, `freeze-frame-brackets`, `giant-eye-reveal`, `glass-crack-mend`, `long-exposure-trails`, `loupe-magnify`, `magnifier-loupe`, `swirl-portal`, `theatre-gate`, `vhs-crt-pass`, `loot-reveal`, `player-stat-card`, `rocket-to-moon`, `callout-labels`, `cam-chip-sync-badge`, `target-lock-box`, `target-lock`, `zoom-inset-box`, `ascii-image-grid`, `autofocus-hunt`, `brush-stroke-reveal`, `comic-halftone`, `dot-matrix`, `duotone`, `film-look`, `glass-pane-grid`, `glitch-image`, `grid-multiply`, `handscroll-reveal`, `ken-burns`, `knife-colour-relay`, `knife-paint-plate`, `light-sweep`, `negative-develop-reveal`, `perspective-flatten`, `photomontage-tower`, `pixel-dither`, `press-lift`, `proportion-sweep`, `riso-plate-reveal`, `spinning-headline`, `split-grid-countdown`, `sticker-cutout-burst`, `telestrator-freeze`, `tilt-shift-diorama`, `woodblock-print-reveal`, `woodcut-carve`, `xray-scan`, `map-mask-reveal`, `audio-spectrum`, `guilloche-note`, `colorway-swap`, `feature-callout-orbit`, `frost-to-clear`, `sunburst-hero`, `unbox-lid-lift`, `logo-reveal-liquid`, `scissor-cut`, `sonar-ping`, `blur-in-title`, `bouncing-ball-singalong`, `channel-intro-sting`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `diagonal-band-title`, `end-card-credits`, `flipbook-riffle-outro`, `glyph-orbit-logo`, `halftone-exhibit-numeral`, `hanazi-caption`, `letters-become-image`, `logo-assemble`, `logo-reveal-lines`, `mask-rise-title`, `number-counter`, `quote-slide`, `sponsor-slate`, `stamp-slam`, `story-caption-box`, `typewriter-code`, `browser-mockup`, `device-mockup`, `sms-thread`, `split-compare`, `story-progress-frames`, `tv-wall-switch-on`, `versus-roster` |
+| takes your image (`src` / `images` / `heroSrc`) | `pointcloud-orbit`, `crash-zoom`, `dolly-zoom`, `orbit-parallax`, `whip-pan`, `beat-montage`, `crowd-tracks`, `ground-plane-ruler`, `map-route`, `microscope-dive`, `science-reticle`, `thumbnail-mosaic`, `mugshot-height-chart`, `depth-descent`, `lamp-screen`, `paper-diorama`, `studio-sweep`, `topdown-terrain`, `window-glow-sequence`, `beat-punch-zoom`, `crayon-wax-shader`, `focus-desaturate`, `frame-blend-timelapse`, `frame-breakout`, `freeze-frame-brackets`, `giant-eye-reveal`, `glass-crack-mend`, `long-exposure-trails`, `loupe-magnify`, `magnifier-loupe`, `swirl-portal`, `theatre-gate`, `vhs-crt-pass`, `loot-reveal`, `player-stat-card`, `rocket-to-moon`, `callout-labels`, `cam-chip-sync-badge`, `target-lock-box`, `target-lock`, `zoom-inset-box`, `ascii-image-grid`, `autofocus-hunt`, `brush-stroke-reveal`, `comic-halftone`, `dot-matrix`, `duotone`, `film-look`, `glass-pane-grid`, `glitch-image`, `grid-multiply`, `handscroll-reveal`, `ken-burns`, `knife-colour-relay`, `knife-paint-plate`, `light-sweep`, `negative-develop-reveal`, `perspective-flatten`, `photomontage-tower`, `pixel-dither`, `press-lift`, `proportion-sweep`, `riso-plate-reveal`, `spinning-headline`, `split-grid-countdown`, `sticker-cutout-burst`, `telestrator-freeze`, `tilt-shift-diorama`, `woodblock-print-reveal`, `woodcut-carve`, `xray-scan`, `map-mask-reveal`, `audio-spectrum`, `guilloche-note`, `add-to-cart-fly`, `colorway-swap`, `feature-callout-orbit`, `flash-deal-timer-card`, `frost-to-clear`, `size-color-picker`, `sunburst-hero`, `unbox-lid-lift`, `logo-reveal-liquid`, `scissor-cut`, `sonar-ping`, `blur-in-title`, `bouncing-ball-singalong`, `channel-intro-sting`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `diagonal-band-title`, `end-card-credits`, `flipbook-riffle-outro`, `glyph-orbit-logo`, `halftone-exhibit-numeral`, `hanazi-caption`, `letters-become-image`, `logo-assemble`, `logo-reveal-lines`, `mask-rise-title`, `number-counter`, `quote-slide`, `sponsor-slate`, `stamp-slam`, `story-caption-box`, `typewriter-code`, `browser-mockup`, `device-mockup`, `property-listing-card`, `sms-thread`, `split-compare`, `story-progress-frames`, `tv-wall-switch-on`, `versus-roster` |
 | heavy (three.js / WebGL — prefer an exported video on mobile web) | `accum-render-3d`, `brick-collapse-physics`, `brick-fx-fire-smoke`, `brick-rebuild-morph`, `brick-snap-build`, `chart-to-installation`, `cloner-bed-ripple`, `colour-ignition-wave`, `exploded-stack`, `exploded-view-3d`, `glass-strip-sweep`, `globe-3d`, `iso-blocks-3d`, `iso-city-build`, `jelly-type-drop`, `last-object-drop`, `liminal-corridor-3d`, `ocean-surface-3d`, `particle-shape-morph`, `plan-tilt`, `pointcloud-orbit`, `product-turntable-3d`, `shockwave-flip-field`, `stack-plates-3d`, `terrain-build-3d`, `voxel-burst-swirl`, `voxel-diorama`, `wireframe-build`, `dash-flow-field` |
 
 ## recipes
@@ -1696,6 +1696,8 @@ Huge thin-mono counter that ticks or odometer-rolls through dwell keyframes, wit
 
 ### `outline-to-fill-text` — Outline to fill text
 
+![outline-to-fill-text](../gallery/outline-to-fill-text.jpg)
+
 A headline appears as hollow outlined letters, then each letter floods with solid colour one after another — rising like liquid with a wavy surface or wiping up, down, left or right (optional top-to-bottom gradient) — and can drain back to an outline; long text wraps and shrinks to fit.
 
 **Use for:** Bold website hero words, section titles, poster-style stat words, title cards and reel openers; works as a looping brand headline.  
@@ -1761,6 +1763,8 @@ Vertical columns of brush calligraphy on cut gold-paper strips unroll from their
 
 ### `per-letter-wave` — Per-letter wave
 
+![per-letter-wave](../gallery/per-letter-wave.jpg)
+
 Every letter rides a travelling wave: it lifts, scales, rocks or all three, so a crest runs through the words — smooth sine, bouncing hops, a single ripple or a swing — with crest letters shifting to the accent colour; letters pop in on a stagger, long text wraps, and the clip loops seamlessly.
 
 **Use for:** Playful titles, loading and waiting states, "hello" greetings, party / music / kids content, website hero words, looping caption accents; replace the text.  
@@ -1785,7 +1789,7 @@ Every letter rides a travelling wave: it lifts, scales, rocks or all three, so a
 | `font` | `"display"` | font role |
 | `size` | `200` | max font size in u; shrinks to fit |
 | `weight` | `400` | font weight |
-| `tracking` | `0.01` | letter spacing in em |
+| `tracking` | `0.03` | letter spacing in em |
 | `textCase` | `"upper"` | upper \| none |
 | `background` | `"#FFF4E0"` | background colour; "transparent" for an overlay |
 | `ink` | `"#1D1B3A"` | base letter colour |
@@ -2087,6 +2091,8 @@ On black, a big word cut into 8–10 horizontal slices of different heights flie
 
 ### `split-flap-board` — Split-flap board
 
+![split-flap-board](../gallery/split-flap-board.jpg)
+
 A mechanical split-flap (Solari) departure board: a grid of two-half flap cells clatters through the alphabet, the upper flap folding down and the lower flap of the new letter dropping in, rippling across the board to spell each message in turn — auto-sized to the text, wrapped to the board width.
 
 **Use for:** Announcements, schedules, countdown/updates, retro tech titles, "coming soon" reveals, scoreboards and price boards; give it messages[] with \n for rows.  
@@ -2148,6 +2154,8 @@ A "presented by" label flanked by drawing rules, a rounded panel that scales up 
 | `fontFamily` | `""` | optional CSS font-family |
 
 ### `stacked-repeat-echo` — Stacked repeat echo
+
+![stacked-repeat-echo](../gallery/stacked-repeat-echo.jpg)
 
 A headline repeated again and again behind itself: copies peel off the crisp front word one after another as offset outlines marching up or down (or alternating solid and hollow, a zooming tunnel, a diagonal trail or a fan), fading from one accent to a second, then breathing slowly.
 
@@ -2293,6 +2301,8 @@ Double-ruled black narrative caption box under a letterboxed scene (RPG-style ty
 
 ### `text-on-circle-spin` — Text on a circle, spinning
 
+![text-on-circle-spin](../gallery/text-on-circle-spin.jpg)
+
 Concentric rings of text that wrap a circle exactly — a phrase repeating with a separator, seam closed by adjusting the letter spacing — each spinning at its own speed and direction, solid or outlined, reading outward or inward, around a centre word that pops in; rings spin up on a stagger.
 
 **Use for:** Badge / seal / stamp logos, rotating "coming soon" or "limited edition" rings, music and podcast discs, circular text backdrops, loaders, website decorations; set rings[] and centerText.  
@@ -2322,6 +2332,8 @@ Concentric rings of text that wrap a circle exactly — a phrase repeating with 
 | `accent` | `"#FF6B3D"` | accent colour (glow) |
 
 ### `text-scramble-decode` — Text scramble decode
+
+![text-scramble-decode](../gallery/text-scramble-decode.jpg)
 
 A headline starts as flickering random glyphs (blocks, symbols, binary or your own charset) and each character locks onto its real letter in turn — left to right, centre out, edges in or random — flashing the accent colour as it lands, with an optional "decoding 64%" status line and bar; wraps and shrinks for long text, optional scramble-out.
 
@@ -2452,6 +2464,8 @@ macOS-style code editor or terminal window that types syntax-coloured code with 
 
 ### `typewriter-delete-retype` — Typewriter delete & retype
 
+![typewriter-delete-retype](../gallery/typewriter-delete-retype.jpg)
+
 A lead-in line is typed once, then phrases are typed after it with an uneven keystroke rhythm, held, then deleted — backspacing with accelerating speed or select-all-and-delete — and replaced by the next phrase, with an optional typo that is noticed and corrected and a blinking bar, block or underscore caret.
 
 **Use for:** Hero taglines that cycle ("Built to be fast / secure / simple"), search-box and prompt demos, "we help X do Y" rotators, chat/AI typing intros, coding-themed titles; set prefix and phrases[].  
@@ -2475,7 +2489,7 @@ A lead-in line is typed once, then phrases are typed after it with an uneven key
 | `cursor` | `"bar"` | bar \| block \| underscore |
 | `align` | `"left"` | left (anchored, block centred on screen) \| center |
 | `font` | `"mono"` | font role (mono looks most typed) |
-| `size` | `110` | max font size in u; shrinks so the longest line fits |
+| `size` | `120` | max font size in u; shrinks so the longest line fits |
 | `weight` | `700` | font weight |
 | `tracking` | `0` | letter spacing in em |
 | `seed` | `5` | keystroke-rhythm seed |
@@ -2525,6 +2539,8 @@ Small lowercase credit typed into a corner two frames per character, no cursor; 
 | `decodeOut` | `8` | decode: frames the break-back-to-symbols exit takes at scrambleAt (0 = no decode exit) |
 
 ### `word-carousel-rotator` — Word carousel rotator
+
+![word-carousel-rotator](../gallery/word-carousel-rotator.jpg)
 
 A fixed sentence with one swapping word — "We build [fast | safe | beautiful | scalable] apps": the word rolls like a slot machine (or blurs, flips, slides) inside an accent pill whose width glides to each new word while the rest re-centres; stacks into three lines on narrow frames.
 
@@ -7284,6 +7300,8 @@ Hard-cut image montage whose cuts accelerate 12 f -> 6 f -> 3 f, a persistent ce
 
 ### `bubble-scatter-grow` — Bubble scatter grow
 
+![bubble-scatter-grow](../gallery/bubble-scatter-grow.jpg)
+
 A bubble chart: axes and grid fade in, then bubbles grow in from left to right at their x / y position with area proportional to size, coloured per group, with collision-aware labels and an optional highlighted bubble with a ring.
 
 **Use for:** Three-variable comparisons: markets by size, growth and margin, countries, products, campaigns, startups. Pass points as [{label, x, y, size, group?, color?}], axis titles and number formats; works on a transparent background.  
@@ -7318,6 +7336,37 @@ A bubble chart: axes and grid fade in, then bubbles grow in from left to right a
 | `ink` | `"#18212B"` | text and grid colour |
 | `fontFamily` | `""` | CSS font family (empty = Space Grotesk) |
 | `startAt` | `10` | frame the axes start to appear |
+| `speed` | `1` | animation speed multiplier |
+
+### `budget-envelope-split` — Budget envelope split
+
+An income bar at the top splits into coins that travel down dashed lines to a grid of paper envelopes; each envelope pops in, opens its flap and lifts a slip showing the amount and share, while the "left to assign" counter on the bar runs down to zero.
+
+**Use for:** Personal-finance and budgeting apps, envelope / zero-based budgeting explainers, salary or revenue allocation stories, "where does my money go" reels. Pass the income and a list of labelled envelopes with amounts and colours.  
+**Rebuilt from:** original round-3 vertical motion  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** paper  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle`, `prefix` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Every dollar gets a job"` | headline (empty = none) |
+| `subtitle` | `"Monthly income split into envelopes"` | line under the headline (empty = none) |
+| `income` | `4200` | total income on the bar; envelopes are scaled to add up to it (0 = sum of the envelopes) |
+| `incomeLabel` | `"Monthly income"` | caption over the income amount |
+| `leftLabel` | `"Left to assign"` | caption over the running "left to assign" amount |
+| `envelopes` | `[{"label":"Rent","amount":1500},{"label":"Bills","amount"…` | envelopes [{label, amount, color?}] up to 9; amounts are shares of the income |
+| `prefix` | `"$"` | text before amounts (currency symbol) |
+| `suffix` | `""` | text after amounts |
+| `showPercent` | `true` | show each envelope's percentage share on its slip |
+| `colors` | `["#4C8DF6","#F2994A","#27AE8F","#EB5B8C","#8E6CF0","#F2C9…` | palette for envelopes without their own colour |
+| `background` | `"#101826"` | page colour, or "transparent" |
+| `panel` | `"#1B2638"` | income bar colour |
+| `ink` | `"#EEF3FA"` | text colour |
+| `accent` | `"#7BE0A8"` | "left to assign" amount colour |
+| `fontFamily` | `""` | CSS font family (empty = Space Grotesk) |
+| `startAt` | `6` | frame the income bar starts |
 | `speed` | `1` | animation speed multiplier |
 
 ### `cause-effect-chain` — Cause and effect chain
@@ -7374,6 +7423,8 @@ Horizontal bars built from labelled unit chips, one chip per item: each row has 
 | `chipFrames` | `1.2` | frames per chip (1 = one chip per frame) |
 
 ### `comparison-dumbbell` — Comparison dumbbell
+
+![comparison-dumbbell](../gallery/comparison-dumbbell.jpg)
 
 A dumbbell (before / after) chart: for each category a "before" dot appears on a shared axis, then the "after" dot slides away from it, stretching a connector coloured green for improvement and red for decline, with value labels and a change pill at the right.
 
@@ -7682,6 +7733,35 @@ Ink-line glass jars on a clay shelf rack light up one by one: saturated self-lit
 | `yaw` | `-20` | 3/4 view yaw in degrees (drifts +7° over the clip) |
 | `pitch` | `28` | camera elevation in degrees |
 
+### `fitness-activity-rings` — Fitness activity rings
+
+A fitness-app daily summary: three thick concentric activity rings close clockwise (a ring above its goal laps a second, lighter turn) while a count-up list shows each value against its goal with a check when closed, and a streak card with a flame and seven weekly mini rings fills in beneath.
+
+**Use for:** Fitness, wellness and habit apps and promos: daily steps / calories / active minutes, closing-your-rings moments, streak and weekly-consistency stories. Each ring has its own label, value, goal, unit and colour; the week row and streak count are props.  
+**Rebuilt from:** original round-3 vertical motion  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** 3d  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle`, `centerLabel` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Daily activity"` | headline (empty = none) |
+| `subtitle` | `"Two of three goals closed, keep the streak alive"` | line under the headline (empty = none) |
+| `rings` | `[{"label":"Move","value":540,"goal":500,"unit":"kcal"},{"…` | rings [{label, value, goal, unit?, color?, decimals?}] up to 5, outermost first; value above goal laps twice |
+| `week` | `[{"label":"M","value":1},{"label":"T","value":1},{"label"…` | weekly mini rings [{label, value 0-1}] up to 7; 1 = closed day (check mark) |
+| `streak` | `12` | streak length shown with the flame (counts up) |
+| `streakLabel` | `"day streak"` | text after the streak number |
+| `centerLabel` | `"GOALS"` | caption under the closed-goals count in the middle of the rings |
+| `colors` | `["#FF4D6D","#8BE04E","#34C9F5","#B07CFF","#F2B134"]` | palette for rings without their own colour |
+| `background` | `"#0E1216"` | page colour, or "transparent" |
+| `panel` | `"#1A2027"` | streak card colour |
+| `ink` | `"#F2F5F8"` | text colour |
+| `accent` | `"#FF9F2E"` | flame / weekly ring colour |
+| `fontFamily` | `""` | CSS font family (empty = Space Grotesk) |
+| `startAt` | `6` | frame the first ring starts |
+| `speed` | `1` | animation speed multiplier |
+
 ### `flame-test-colors` — Flame test colours
 
 ![flame-test-colors](../gallery/flame-test-colors.jpg)
@@ -7708,6 +7788,37 @@ A Bunsen-style burner on a lab bench: a wire loop dips into the flame, which tur
 | `startFrame` | `22` | frame of the first dip |
 | `sparks` | `26` | spark particles per dip |
 | `seed` | `3` | spark seed |
+
+### `floorplan-draw` — Floor plan draw
+
+A top-down floor plan draws itself room by room: walls trace on, each room tints and gets its name and a counting area figure, door swings appear, dimension lines measure the whole footprint and a total-area chip counts up.
+
+**Use for:** Real-estate listings and new-build promos, interior design and renovation reveals, office or store layouts, venue plans. Describe the layout with a rooms list of {label, x, y, w, h} in your own units (metres, feet); areas are computed or given.  
+**Rebuilt from:** original round-3 vertical motion  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** blueprint  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle`, `unit` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Open-plan apartment"` | headline (empty = none) |
+| `subtitle` | `"Seven rooms on one level"` | line under the headline (empty = none) |
+| `rooms` | `[{"label":"Living room","x":0,"y":0,"w":7,"h":5},{"label"…` | rooms [{label, x, y, w, h, color?, area?}] in your own units, top-left origin, up to 16; area defaults to w x h |
+| `doors` | `[{"x":1.2,"y":0,"size":1.1,"orient":"h","swing":1},{"x":7…` | doors [{x, y, size?, orient?("h" on a horizontal wall / "v"), swing?(1 or -1)}] placed on walls in the same units |
+| `unit` | `"m"` | length unit for the dimension lines |
+| `areaUnit` | `"m²"` | area unit written after the numbers |
+| `totalLabel` | `"Total area"` | caption on the total-area chip |
+| `showTotal` | `true` | show the total-area chip |
+| `showDimensions` | `true` | show the overall width / depth dimension lines |
+| `colors` | `["#F2A65A","#6CC5B0","#7FA8F2","#E88FB2","#B79BE8","#F2D1…` | palette for rooms without their own colour |
+| `background` | `"#EEF1F4"` | page colour, or "transparent" |
+| `ink` | `"#1C2733"` | wall and text colour |
+| `paper` | `"#FBFCFD"` | drawing sheet colour |
+| `accent` | `"#2F6FED"` | dimension, door and chip colour |
+| `fontFamily` | `""` | CSS font family (empty = Space Grotesk) |
+| `startAt` | `6` | frame the first room starts drawing |
+| `speed` | `1` | animation speed multiplier |
 
 ### `flow-diagram` — Flow diagram (packets on edges)
 
@@ -7804,6 +7915,8 @@ A conversion funnel: stage bars narrow in proportion to their value and grow in 
 | `speed` | `1` | animation speed multiplier |
 
 ### `gantt-timeline` — Gantt timeline
+
+![gantt-timeline](../gallery/gantt-timeline.jpg)
 
 A project Gantt chart: a time axis with grid, task rows whose bars grow from their start to their end with a progress fill and duration, diamond milestones dropping in on a lane above, and a red "today" marker sweeping down and bobbing on the timeline; bars coloured by group with a legend.
 
@@ -7976,7 +8089,39 @@ A measuring tape is laid on the ground of a photograph in true one-point perspec
 | `accent` | `"#FF5A1F"` | tape / signal colour |
 | `mono` | `true` | grade a supplied photo to silver-gelatin greys |
 
+### `heart-rate-monitor` — Heart rate monitor
+
+A glowing ECG trace sweeps across a gridded monitor with the classic P-QRS-T beat while a large BPM number and a pulsing heart follow the rate as it climbs from rest to a peak and recovers; a zone list (rest / fat burn / cardio / peak) highlights the current zone and the trace colour follows it.
+
+**Use for:** Fitness trackers, smartwatch and health-app promos, workout recaps, medical or wellness explainers: show a live heart rate with training zones. Set the resting, peak and recovery BPM and your own zone names, ranges and colours.  
+**Rebuilt from:** original round-3 vertical motion  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** hud  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle`, `unit` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Live heart rate"` | headline (empty = none) |
+| `subtitle` | `"Warm-up to peak effort and recovery"` | line under the headline (empty = none) |
+| `unit` | `"BPM"` | unit text next to the zone name under the number |
+| `bpmStart` | `68` | resting beats per minute at the start |
+| `bpmPeak` | `168` | highest beats per minute (reached around the middle) |
+| `bpmEnd` | `104` | beats per minute after recovery at the end |
+| `zones` | `[{"label":"Rest","min":0,"max":99,"color":"#5AA9FF"},{"la…` | zones [{label, min, max, color?}] low to high; the one containing the live BPM is highlighted and tints the trace |
+| `zonesTitle` | `"Heart rate zones"` | small caption over the zone list (empty = none) |
+| `showGrid` | `true` | draw the ECG-paper grid |
+| `background` | `"#0B1117"` | page colour, or "transparent" |
+| `panel` | `"#131C25"` | monitor / zone chip colour |
+| `ink` | `"#EAF1F7"` | text colour |
+| `accent` | `"#3DDC97"` | colour when a zone has none |
+| `fontFamily` | `""` | CSS font family (empty = Space Grotesk) |
+| `startAt` | `4` | frame the interface fades in |
+| `speed` | `1` | speed multiplier for the BPM ramp |
+
 ### `heatmap-calendar` — Heatmap calendar
+
+![heatmap-calendar](../gallery/heatmap-calendar.jpg)
 
 A GitHub-style contribution calendar: one rounded square per day, shaded in levels of the accent colour, popping in left to right with month and weekday labels, count-up stats and a less / more legend; the best day gets a pulsing ring. Reflows to a grid of mini-month calendars in square and vertical frames.
 
@@ -8190,6 +8335,8 @@ One continuous powers-of-ten zoom from a glass slide on a graphite bench through
 
 ### `network-graph` — Network graph (your nodes and edges)
 
+![network-graph](../gallery/network-graph.jpg)
+
 A labelled node-link diagram built from your own nodes and edges: a seeded force layout (computed once, fully deterministic) is revealed outward from the hub, nodes pop in coloured by group and sized by importance, edges draw between them, and the hub pulses with expanding rings; nodes drift slightly after.
 
 **Use for:** Explicit relationship maps: system architecture, supply chains, org or contact networks, dependency graphs, knowledge graphs, social graphs with named members. Pass nodes [{id, label?, group?, size?}] and edges [{from, to, weight?}]; for a random generated growth effect use node-network instead.  
@@ -8207,7 +8354,7 @@ A labelled node-link diagram built from your own nodes and edges: a seeded force
 | `title` | `"How the pieces connect"` | headline (empty = none) |
 | `subtitle` | `"Services, clients and data stores around one core"` | small line under the headline (empty = none) |
 | `showLabels` | `true` | print node names under the nodes |
-| `hub` | `""` | id of the node that reveals first and pulses (empty = the most connected node) |
+| `hub` | `"Core"` | id of the node that reveals first and pulses (empty = the most connected node) |
 | `hubPulse` | `true` | expanding rings around the hub |
 | `minRadius` | `14` | smallest node radius in u |
 | `maxRadius` | `40` | largest node radius in u |
@@ -8351,6 +8498,8 @@ Stepped cumulative bid (left) and ask (right) depth curves grow out from a dashe
 | `liveliness` | `1` | 0 = frozen book, 1 = normal churn, 2 = frantic |
 
 ### `org-chart-tree` — Org chart tree
+
+![org-chart-tree](../gallery/org-chart-tree.jpg)
 
 A hierarchy diagram from one nested tree prop: the root card pops in, then elbow connectors draw down (or across, in vertical frames) and each level of cards pops in, with branches colour-coded and an optional highlighted node that spotlights its chain of command.
 
@@ -8648,6 +8797,8 @@ Quantities drawn as real lengths to one scale on a whiteboard: blue dimension ar
 
 ### `sankey-flow` — Sankey flow
 
+![sankey-flow](../gallery/sankey-flow.jpg)
+
 A Sankey diagram built from a list of weighted links: node bars grow column by column and curved ribbons, sized by value and coloured source-to-target, sweep across between them with labels and values; an optional highlighted node dims everything not connected to it.
 
 **Use for:** Where things go: traffic to conversions, budget to departments, energy or cash flows, funnels with leaks, user journeys. Pass links as [{from, to, value}], set prefix / suffix and brand colours; works on a transparent background over footage.  
@@ -8678,6 +8829,40 @@ A Sankey diagram built from a list of weighted links: node bars grow column by c
 | `ink` | `"#18212B"` | text colour |
 | `fontFamily` | `""` | CSS font family (empty = Space Grotesk) |
 | `startAt` | `8` | frame the first column appears |
+| `speed` | `1` | animation speed multiplier |
+
+### `savings-goal-jar` — Savings goal jar
+
+A glass savings jar fills with a wavy liquid as coins drop in, a big saved-amount counter runs up beside it, tick marks on the glass and a milestone checklist light up as each milestone is passed, and a "to go" line turns into a sparkle "goal reached" celebration when the target is hit.
+
+**Use for:** Savings, fundraising and crowdfunding progress, goal-tracker and fintech app promos, "save for X" explainers. Set the goal, the amount saved, your own milestones, currency and colours.  
+**Rebuilt from:** original round-3 vertical motion  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** playful  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle`, `prefix` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Saving for the trip"` | headline (empty = none) |
+| `subtitle` | `"Every deposit gets us closer"` | line under the headline (empty = none) |
+| `goal` | `5000` | target amount (the jar is full at this value) |
+| `saved` | `3200` | amount saved; if it reaches the goal the jar celebrates |
+| `goalLabel` | `"of"` | word before the goal amount ("of $5,000") |
+| `savedLabel` | `"Saved so far"` | caption over the big amount |
+| `reachedLabel` | `"Goal reached!"` | message shown when saved >= goal |
+| `toGoLabel` | `"to go"` | text after the remaining amount |
+| `milestones` | `[{"label":"First step","value":1000},{"label":"Halfway th…` | milestones [{label, value}] up to 6; ticks on the jar and a checklist light up when passed |
+| `prefix` | `"$"` | text before amounts (currency symbol) |
+| `suffix` | `""` | text after amounts |
+| `coins` | `8` | number of coins that drop into the jar (0 = none) |
+| `background` | `"#101A24"` | page colour, or "transparent" |
+| `liquid` | `"#34C3A0"` | colour of the liquid |
+| `glass` | `"#CFE6F2"` | colour of the jar glass and rim |
+| `ink` | `"#EDF4FA"` | text colour |
+| `accent` | `"#F5C451"` | coins, ticks, checks and highlight colour |
+| `fontFamily` | `""` | CSS font family (empty = Space Grotesk) |
+| `startAt` | `6` | frame the jar fades in |
 | `speed` | `1` | animation speed multiplier |
 
 ### `science-reticle` — Science HUD reticle
@@ -8956,6 +9141,8 @@ A thick gradient tube arches out of one glowing ink-line jar and draws itself in
 
 ### `treemap-split` — Treemap split
 
+![treemap-split](../gallery/treemap-split.jpg)
+
 A squarified treemap: one block fills the chart area, splits into strips and then into value-sized rectangles, each labelled with its name, a count-up value and share; colour by palette or by value, with an optional highlighted tile.
 
 **Use for:** Part-to-whole with many items: portfolio or budget breakdowns, disk usage, market caps, revenue by product, survey categories, file sizes. Pass data as [{label, value, color?}], set prefix / suffix and colours; works on a transparent background.  
@@ -9054,6 +9241,35 @@ A waterfall / bridge chart: an opening total, then floating increase and decreas
 | `startAt` | `10` | frame the first bar starts |
 | `speed` | `1` | animation speed multiplier |
 
+### `weather-forecast-strip` — Weather forecast strip
+
+A week-ahead forecast: a row of cards (a stacked list in 1:1 and 9:16) rises in one after another, each with the day, a live animated weather icon (spinning sun, drifting cloud, falling rain / snow, flashing storm, fog bands), a chance-of-rain figure, counting high and low temperatures and a warm-to-cool range bar; today is highlighted.
+
+**Use for:** Weather apps and bulletins, travel and event planning, outdoor-business "what to expect" reels, smart-home widgets. Pass your own days with a day name, icon (sun, moon, partly, cloud, rain, storm, snow, fog, wind), high and low temperatures and optional chance of rain.  
+**Rebuilt from:** original round-3 vertical motion  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** nature, ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle`, `unit` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Week ahead"` | headline (empty = none) |
+| `subtitle` | `"Seven-day forecast"` | line under the headline (empty = none) |
+| `days` | `[{"day":"Today","icon":"sun","hi":24,"lo":15,"precip":0},…` | days [{day, icon(sun\|moon\|partly\|cloud\|rain\|storm\|snow\|fog\|wind), hi, lo, label?, precip?(0-100)}] up to 8 |
+| `unit` | `"°"` | text after temperatures (degree sign, "C", ...) |
+| `highlightIndex` | `0` | index of the highlighted card (-1 = none) |
+| `showPrecip` | `true` | show chance of rain when a day has precip |
+| `background` | `"#0D1B2A"` | page colour, or "transparent" |
+| `card` | `"#162B42"` | card colour |
+| `ink` | `"#EAF2FA"` | text colour (icon clouds are tinted from it) |
+| `accent` | `"#FFB347"` | warm end of the temperature bar and highlight colour |
+| `accent2` | `"#5CB8FF"` | cool end of the temperature bar, rain and precipitation colour |
+| `sunColor` | `"#FFC83D"` | sun / moon / lightning colour |
+| `fontFamily` | `""` | CSS font family (empty = Space Grotesk) |
+| `startAt` | `6` | frame the first card starts |
+| `speed` | `1` | animation speed multiplier |
+
 ## ui
 
 ### `agent-log-panel` — Agent log panel
@@ -9084,6 +9300,44 @@ A dark translucent side panel with a white hairline frame and a turn header, scr
 | `seed` | `12` | scene seed |
 | `repliesLabel` | `"replies"` | word after the reply count under a message |
 | `viewLabel` | `"View conversation"` | underlined link text under a message |
+
+### `appointment-booking-calendar` — Appointment booking calendar
+
+A booking widget plays itself: a month calendar fades in, a cursor picks a date (ripple, filled circle), time-slot chips appear for that day, the cursor picks a slot and presses a Confirm button, and a confirmation card with an animated check and the chosen date, time and service pops over the panel.
+
+**Use for:** Booking, scheduling and reservation products: clinics, salons, restaurants, consultants, tutors, coworking and event tools; "book in 3 clicks" promos and onboarding. Set the month / year, the day and slot to pick, the slot list, unavailable days and your own wording.  
+**Rebuilt from:** original round-3 vertical motion  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Book in three clicks"` | headline (empty = none) |
+| `subtitle` | `"Pick a day, choose a time, done"` | line under the headline (empty = none) |
+| `year` | `2026` | calendar year (leap years handled) |
+| `month` | `6` | calendar month 1-12 |
+| `weekStartsOn` | `0` | first weekday column: 0 = Sunday, 1 = Monday |
+| `selectedDay` | `17` | day of the month the cursor picks |
+| `unavailableDays` | `[1,2,8,9]` | days of the month that are greyed out |
+| `disableWeekends` | `true` | grey out Saturdays and Sundays too |
+| `slots` | `["09:00","09:30","10:30","11:00","13:30","14:00","15:30",…` | time-slot labels (up to 12) |
+| `selectedSlot` | `2` | index of the slot the cursor picks |
+| `bookedSlots` | `[1,5]` | indices of slots shown as already taken |
+| `serviceTitle` | `"Consultation - 30 min"` | service / appointment name on the confirmation card |
+| `slotsTitle` | `"Available times"` | caption over the slot grid |
+| `confirmLabel` | `"Confirm booking"` | text on the confirm button |
+| `confirmedTitle` | `"You're booked!"` | headline on the confirmation card |
+| `confirmedNote` | `"A confirmation was sent to your inbox"` | small line under the confirmation details (empty = none) |
+| `showCursor` | `true` | draw the mouse cursor that drives the demo |
+| `background` | `"#EAF0F6"` | page colour, or "transparent" |
+| `panel` | `"#FFFFFF"` | widget card colour |
+| `ink` | `"#15202B"` | text colour |
+| `accent` | `"#2F6FED"` | selection, button and check colour |
+| `fontFamily` | `""` | CSS font family (empty = Space Grotesk) |
+| `startAt` | `4` | frame the widget starts entering |
+| `speed` | `1` | animation speed multiplier |
 
 ### `board-print-drop` — Board print drop
 
@@ -9293,6 +9547,36 @@ Chat bubbles and comment / prompt chips pop in one by one around a box-bot, a sp
 | `verdictColor` | `"#7DFDB0"` | verdict chip colour |
 | `showBot` | `true` | draw the orange box-bot speaker |
 | `background` | `"#12031f"` |  |
+
+### `checkout-steps` — Checkout steps (cart → shipping → payment → done)
+
+A four-step checkout flow: the stepper line fills, the cart lines slide in, shipping fields type themselves, payment shows masked placeholder values, and the last step is a confirmation with a check burst.
+
+**Use for:** E-commerce / SaaS checkout explainers, "buy in 4 steps" videos, store onboarding — set the step names, items, fields, currency and brand colours.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `items` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `steps` | `["Cart","Shipping","Payment","Done"]` | step names (2+). First = cart review, last = confirmation, the ones between are forms |
+| `items` | `[{"name":"Canvas Tote Bag","price":24,"qty":1},{"name":"C…` | cart lines [{name, price, qty?, src?, color?}] (first 5 shown) |
+| `shippingFields` | `[{"label":"Full name","value":"Alex Morgan"},{"label":"St…` | form fields for the shipping step [{label, value}] |
+| `paymentFields` | `[{"label":"Card number","value":"•••• •••• •••• ••••"},{"…` | form fields for the payment step — keep these masked, never real card data |
+| `buttonLabels` | `["Continue to shipping","Continue to payment","Place order"]` | primary button text per step |
+| `currency` | `"$"` | currency prefix |
+| `cartTitle` | `"Your cart"` | heading of the cart step |
+| `totalLabel` | `"Total"` | label before the cart total |
+| `doneTitle` | `"Order placed"` | headline on the last step |
+| `doneText` | `"A confirmation is on its way to your inbox."` | sub-line on the last step |
+| `hold` | `54` | frames each step stays on screen |
+| `background` | `"#EEF0F6"` | page colour or 'transparent' |
+| `card` | `"#FFFFFF"` | panel colour |
+| `ink` | `"#1B2233"` | text colour |
+| `accent` | `"#2F6BFF"` | stepper, button and check colour |
+| `startAt` | `0` | frame the flow starts |
 
 ### `circuit-rebuild` — Circuit rebuild
 
@@ -10016,6 +10300,42 @@ A poll card: the question types in, option bars fill one after another to their 
 | `cardColor` | `"auto"` | card fill, or "auto" (a lighter tone of the background) |
 | `stagger` | `12` | frames between bars starting |
 | `startAt` | `0` | frame the sequence begins |
+
+### `property-listing-card` — Property listing card
+
+A real-estate listing card rises in: the photo (or a drawn house) wipes in with a slow push-in and light sweep under a status badge and a favourite heart, then the price counts up, the title and a location pin appear, bed / bath / area icon stats pop in one by one and feature tags pop below.
+
+**Use for:** Real-estate, rental and hospitality listings, property-site hero animations, agent promo reels, marketplace item cards. Pass a photo src, the price, beds / baths / area, the location and feature tags; horizontal card in 16:9, vertical in 1:1 and 9:16.  
+**Rebuilt from:** original round-3 vertical motion  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** photo  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `src` | `""` | photo path in public/ or URL (empty = a drawn house in the accent colour) |
+| `price` | `485000` | price number (counts up) |
+| `pricePrefix` | `"$"` | text before the price (currency symbol) |
+| `priceSuffix` | `""` | text after the price, e.g. "/mo" |
+| `status` | `"FOR SALE"` | badge over the photo (empty = none) |
+| `title` | `"Modern family home"` | listing title |
+| `location` | `"24 Garden Lane, Greenfield"` | address / area line next to the pin |
+| `beds` | `4` | number of bedrooms |
+| `baths` | `3` | number of bathrooms |
+| `area` | `2150` | floor area number |
+| `areaUnit` | `"sq ft"` | unit label under the area number |
+| `bedsLabel` | `"Beds"` | label under the bedroom count |
+| `bathsLabel` | `"Baths"` | label under the bathroom count |
+| `tags` | `["Garden","Garage","Pool","Pet friendly"]` | feature chips (up to 6) |
+| `favorite` | `true` | the heart button gets tapped and fills |
+| `background` | `"#E7EDF3"` | page colour, or "transparent" |
+| `cardColor` | `"#FFFFFF"` | card background colour |
+| `ink` | `"#16202B"` | text colour |
+| `accent` | `"#2F6FED"` | price, badge, icon and drawn-house colour |
+| `fontFamily` | `""` | CSS font family (empty = Space Grotesk) |
+| `startAt` | `6` | frame the card starts entering |
+| `speed` | `1` | animation speed multiplier |
 
 ### `remix-thumbnail-shelf` — Remix thumbnail shelf
 
@@ -16698,6 +17018,38 @@ A hook phrase plays one giant word per beat: each word slams in full-frame in he
 
 ## product
 
+### `add-to-cart-fly` — Add to cart (thumbnail flies into cart)
+
+A store header with a cart icon and a product card: the button is pressed, a copy of the product picture flies in an arc into the cart, the cart wiggles and its badge count bumps with a +1.
+
+**Use for:** E-commerce explainers, store promos, app-store videos, "add to cart" UX demos — set the product picture, name, price, currency and labels.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo, ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `storeName` | `"SHOPLY"` | wordmark in the header |
+| `productName` | `"Canvas Tote Bag"` | product title on the card |
+| `price` | `24` | price number (no currency) |
+| `currency` | `"$"` | currency prefix, e.g. $, €, £, Rs. |
+| `buttonLabel` | `"Add to cart"` | button text before the press |
+| `addedLabel` | `"Added"` | button text after the press |
+| `cartLabel` | `"Cart"` | small label next to the cart icon |
+| `startCount` | `0` | items already in the cart (badge starts here) |
+| `adds` | `2` | how many times the button is pressed (0-4) |
+| `gap` | `40` | frames between presses |
+| `src` | `""` | product image (public/ path or https URL); empty = procedural drawing |
+| `productKind` | `0` | procedural drawing when no src: 0 bag, 1 mug, 2 headphones, 3 box, 4 bottle, 5 watch, 6 lamp, 7 t-shirt |
+| `productColor` | `"#E07A5F"` | procedural product colour |
+| `background` | `"#F3EFE8"` | page colour or 'transparent' |
+| `card` | `"#FFFFFF"` | card colour |
+| `ink` | `"#1D1B24"` | text and icon colour |
+| `accent` | `"#E8553A"` | price, button and badge colour |
+| `startAt` | `0` | frame the card starts entering |
+
 ### `colorway-swap` — Colourway swap
 
 ![colorway-swap](../gallery/colorway-swap.jpg)
@@ -16722,6 +17074,65 @@ A product cycles through a list of colourways: the image is recoloured (luminanc
 | `hold` | `34` | frames each colourway is held |
 | `swap` | `14` | frames the colour blend takes |
 | `startAt` | `16` | frame the cycle starts |
+
+### `coupon-scratch-reveal` — Coupon scratch card reveal
+
+A coupon ticket with a foil window: a coin scratches back and forth with flying flakes until the discount code is revealed with a pop and confetti, then a "Copy code" button is tapped and turns to "Copied".
+
+**Use for:** Promo codes, giveaways, loyalty rewards, black-friday teasers, app-store discount beats — set the headline, discount, code and colours.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 170 frames (5.7 s @ 30 fps)
+
+**Roles:** accent · **Mood:** playful  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `caption` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Your reward"` | small caps line on the top band |
+| `discountLabel` | `"20% OFF"` | big offer text on the top band |
+| `code` | `"SAVE20"` | the hidden coupon code |
+| `hint` | `"SCRATCH HERE"` | text printed on the foil |
+| `caption` | `"On your next order"` | line under the window |
+| `terms` | `"Minimum spend applies. One use per customer."` | fine print under the caption |
+| `copyLabel` | `"Copy code"` | button text before the tap |
+| `copiedLabel` | `"Copied"` | button text after the tap |
+| `rows` | `5` | how many scratch sweeps (2-8) |
+| `background` | `"#F1ECE3"` | page colour or 'transparent' |
+| `card` | `"#FFFFFF"` | ticket body colour |
+| `ink` | `"#1D1B24"` | text colour |
+| `accent` | `"#E8553A"` | top band and confetti colour |
+| `foil` | `"#B8BCC8"` | scratch foil base colour |
+| `startAt` | `0` | frame the ticket starts entering |
+| `speed` | `1` | timing multiplier (1 = default) |
+
+### `delivery-tracker` — Delivery tracker (timeline + van on a route)
+
+A map with a street grid and a route from shop to home, a delivery van driving along it with a growing trail, a status timeline that ticks through the stages and an ETA countdown that ends in a Delivered check.
+
+**Use for:** Delivery / logistics / food-delivery explainers, order-tracking UI demos, shipping-notification beats — set the stages, times, ETA and colours.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `stages` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Your order is on the way"` | headline while the van is driving |
+| `doneTitle` | `"Your order has arrived"` | headline after arrival |
+| `orderLabel` | `"Order tracking"` | small caps line above the headline (e.g. an order number) |
+| `stages` | `["Order placed","Packed","Out for delivery","Delivered"]` | timeline stage names (2-6); the van drives between the second-to-last and last |
+| `times` | `["10:02","10:20","11:05","11:40"]` | clock times per stage (same order, optional) |
+| `etaLabel` | `"Arriving in"` | text next to the countdown |
+| `etaMinutes` | `18` | countdown start (minutes); reaches 0 when the van arrives |
+| `etaUnit` | `"minutes"` | unit line under the ETA label |
+| `doneLabel` | `"Delivered"` | text in the ETA box once delivered |
+| `travelFrames` | `96` | frames the van takes to drive the route |
+| `background` | `"#EEF1F5"` | page colour or 'transparent' |
+| `card` | `"#FFFFFF"` | map / panel colour |
+| `ink` | `"#18202E"` | text and street colour |
+| `accent` | `"#FF6B2C"` | route trail, van and highlight colour |
+| `startAt` | `0` | frame the scene starts |
 
 ### `exploded-view-snap` — Exploded view snap
 
@@ -16775,6 +17186,44 @@ A product image floats in the centre with a dashed orbit ring; feature labels po
 | `startAt` | `8` | frame the first callout begins |
 | `stagger` | `18` | frames between callouts |
 | `speed` | `1` | overall tempo multiplier |
+
+### `flash-deal-timer-card` — Flash deal card (countdown + draining stock bar)
+
+A product card with a FLASH DEAL ribbon, discount badge, struck-through old price, a ticking HH:MM:SS countdown and a stock bar that drains and turns red as units run out, with a pulsing call-to-action.
+
+**Use for:** Flash sales, limited drops, black-friday countdowns, urgency / scarcity beats in store promos — set the product, prices, timer start, stock numbers and colours.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** nature  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `badge` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `ribbon` | `"Flash deal"` | text in the ribbon chip |
+| `productName` | `"Studio Headset"` | product title |
+| `oldPrice` | `149` | original price number (struck through) |
+| `newPrice` | `89` | deal price number |
+| `currency` | `"$"` | currency prefix |
+| `badge` | `""` | discount badge text; empty = automatic -NN% from the two prices |
+| `timer` | `"02:14:37"` | countdown start as HH:MM:SS |
+| `timerLabel` | `"Ends in"` | small caps line above the countdown |
+| `timerSpeed` | `6` | timer seconds that pass per real second (1 = real time; higher ticks faster) |
+| `stockTotal` | `60` | total stock (bar full = this many) |
+| `stockStart` | `44` | units left at the start |
+| `stockEnd` | `7` | units left at the end of the drain |
+| `stockText` | `"Only {n} left"` | stock sentence; {n} is replaced by the units left |
+| `claimedText` | `"{p}% claimed"` | right-hand note; {p} is replaced by the % claimed |
+| `buttonLabel` | `"Grab the deal"` | call-to-action text |
+| `src` | `""` | product image (public/ path or https URL); empty = procedural drawing |
+| `productKind` | `2` | procedural drawing: 0 bag, 1 mug, 2 headphones, 3 box, 4 bottle, 5 watch, 6 lamp, 7 t-shirt |
+| `productColor` | `"#E8553A"` | procedural product colour |
+| `background` | `"#17141F"` | page colour or 'transparent' |
+| `card` | `"#FFFFFF"` | card colour |
+| `ink` | `"#1D1B24"` | text colour (card text, digit boxes) |
+| `accent` | `"#E8553A"` | price, badge, bar and button colour |
+| `danger` | `"#D62839"` | bar colour when stock is almost gone |
+| `startAt` | `0` | frame the card starts entering |
 
 ### `frost-to-clear` — Frost to clear
 
@@ -16855,6 +17304,39 @@ Four ingredients pour into a tall glass one after another as a stream with a spl
 | `fill` | `0.96` | how full the glass ends up 0-1 |
 | `seed` | `3` | ice / bubble seed |
 
+### `order-confirmation` — Order confirmation receipt
+
+A check burst and headline beside a receipt card with a zig-zag edge: item lines slide in, subtotal / shipping / tax appear, the total counts up, then a barcode and a delivery-note chip.
+
+**Use for:** Checkout success beats, "thanks for your order" emails turned into video, e-commerce app explainers, receipt / invoice reveals — set the items, currency, labels and colours.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 170 frames (5.7 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle`, `items` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Order confirmed"` | headline |
+| `subtitle` | `"Thanks for shopping with us. A receipt is on its way to …` | sentence under the headline |
+| `orderLabel` | `"Order"` | small caps label before the order number |
+| `orderNumber` | `"#100428"` | order number text |
+| `items` | `[{"name":"Canvas Tote Bag","price":24,"qty":1},{"name":"C…` | receipt lines [{name, price, qty?}] (first 5 shown) |
+| `currency` | `"$"` | currency prefix |
+| `shipping` | `0` | shipping cost (0 shows the free label) |
+| `tax` | `8.32` | tax amount |
+| `subtotalLabel` | `"Subtotal"` | label of the subtotal line |
+| `shippingLabel` | `"Shipping"` | label of the shipping line |
+| `taxLabel` | `"Tax"` | label of the tax line |
+| `totalLabel` | `"Total"` | label of the total line |
+| `freeLabel` | `"Free"` | text shown when shipping is 0 |
+| `deliveryNote` | `"Estimated delivery: 3-5 days"` | text in the delivery chip |
+| `background` | `"#EEF1F6"` | page colour or 'transparent' |
+| `card` | `"#FFFFFF"` | receipt colour |
+| `ink` | `"#18202E"` | text colour |
+| `accent` | `"#18B26B"` | check burst and total colour |
+| `startAt` | `0` | frame the scene starts |
+
 ### `price-tag-drop` — Price tag drop
 
 ![price-tag-drop](../gallery/price-tag-drop.jpg)
@@ -16882,6 +17364,64 @@ A price tag hangs on a string, drops in and swings to rest; the old price is str
 | `accent` | `"#E8412A"` | label, strike, badge colour |
 | `swing` | `16` | initial swing angle in degrees |
 | `startAt` | `6` | frame the tag starts dropping |
+
+### `product-grid-filter` — Product grid with filter chips (re-flow)
+
+A grid of product cards with filter chips on top; as the active chip changes the matching cards glide to new slots, the others shrink away and the count updates, then it returns to All.
+
+**Use for:** Catalogue / store / marketplace UI demos, "shop by category" beats, filter and search feature explainers — set the products, categories, prices and images.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `filters` | `["All","Bags","Mugs","Audio"]` | chip labels; index 0 is the "show all" chip |
+| `products` | `[{"name":"Canvas Tote","price":24,"category":"Bags","colo…` | cards [{name, price, category, color?, src?, kind?}] — category matches a chip label (case-insensitive) |
+| `sequence` | `[0,1,2,3,0]` | which chip (index) is active over time; first entry is the starting state |
+| `currency` | `"$"` | currency prefix |
+| `countLabel` | `"products"` | word after the result count (top right) |
+| `columns` | `0` | grid columns; 0 = automatic (4 landscape / 3 portrait) |
+| `hold` | `36` | frames each filter state lasts |
+| `background` | `"#F2F0EB"` | page colour or 'transparent' |
+| `card` | `"#FFFFFF"` | card and inactive chip colour |
+| `ink` | `"#1D1B24"` | text colour |
+| `accent` | `"#E8553A"` | price and active chip colour |
+| `startAt` | `0` | frame the grid starts entering |
+
+### `size-color-picker` — Size & colour variant picker
+
+A product picture with colour swatches and size chips that are tapped in turn: the picture re-tints, the chosen chip fills, the price rolls to the new value and the add button wakes up.
+
+**Use for:** Product-page UI demos, variant selection explainers, fashion / merch store promos — set the swatches, sizes, surcharges, price and optional per-colour images.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo, ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · image: `images` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `productName` | `"Everyday Tee"` | product title |
+| `currency` | `"$"` | currency prefix |
+| `basePrice` | `28` | price before size surcharges |
+| `colors` | `[{"name":"Coral","hex":"#E07A5F"},{"name":"Sage","hex":"#…` | swatches [{name, hex}] (the procedural product takes the swatch colour) |
+| `sizes` | `[{"label":"S"},{"label":"M"},{"label":"L","delta":2},{"la…` | size chips [{label, delta?}] — delta = price surcharge |
+| `colorPicks` | `[1,3]` | swatch indexes tapped over time (one every ~1.5 s) |
+| `sizePicks` | `[1,3]` | size indexes tapped over time |
+| `images` | `[]` | optional per-colour product images (public/ path or https URL, same order as colors); empty = procedural |
+| `productKind` | `7` | procedural drawing: 0 bag, 1 mug, 2 headphones, 3 box, 4 bottle, 5 watch, 6 lamp, 7 t-shirt |
+| `colorLabel` | `"Colour"` | label before the colour name |
+| `sizeLabel` | `"Size"` | label before the size |
+| `buttonLabel` | `"Add to cart"` | button text once a size is chosen |
+| `selectLabel` | `"Select a size"` | button text before a size is chosen |
+| `background` | `"#F2F0EB"` | page colour or 'transparent' |
+| `card` | `"#FFFFFF"` | panel and chip colour |
+| `ink` | `"#1D1B24"` | text colour |
+| `accent` | `"#E8553A"` | price and button colour |
+| `startAt` | `0` | frame the scene starts |
 
 ### `spec-compare-table` — Spec comparison table
 

@@ -72,6 +72,7 @@ import {axisRatchetRescale} from './motions/data/axis-ratchet-rescale';
 import {barRace} from './motions/data/bar-race';
 import {beatMontage} from './motions/data/beat-montage';
 import {bubbleScatterGrow} from './motions/data/bubble-scatter-grow';
+import {budgetEnvelopeSplit} from './motions/data/budget-envelope-split';
 import {causeEffectChain} from './motions/data/cause-effect-chain';
 import {chipStackBars} from './motions/data/chip-stack-bars';
 import {comparisonDumbbell} from './motions/data/comparison-dumbbell';
@@ -84,7 +85,9 @@ import {elementColumns3d} from './motions/data/element-columns-3d';
 import {emissionSpectrumLines} from './motions/data/emission-spectrum-lines';
 import {emptyNextCell} from './motions/data/empty-next-cell';
 import {energyJarFill} from './motions/data/energy-jar-fill';
+import {fitnessActivityRings} from './motions/data/fitness-activity-rings';
 import {flameTestColors} from './motions/data/flame-test-colors';
+import {floorplanDraw} from './motions/data/floorplan-draw';
 import {flowDiagram} from './motions/data/flow-diagram';
 import {functionPlot} from './motions/data/function-plot';
 import {funnelConversion} from './motions/data/funnel-conversion';
@@ -93,6 +96,7 @@ import {gaugeKpiDial} from './motions/data/gauge-kpi-dial';
 import {gridException} from './motions/data/grid-exception';
 import {gridScore} from './motions/data/grid-score';
 import {groundPlaneRuler} from './motions/data/ground-plane-ruler';
+import {heartRateMonitor} from './motions/data/heart-rate-monitor';
 import {heatmapCalendar} from './motions/data/heatmap-calendar';
 import {isoBarChart} from './motions/data/iso-bar-chart';
 import {isotypeCount} from './motions/data/isotype-count';
@@ -115,6 +119,7 @@ import {pythagorasRearrange} from './motions/data/pythagoras-rearrange';
 import {radarCompare} from './motions/data/radar-compare';
 import {rideDimensionLine} from './motions/data/ride-dimension-line';
 import {sankeyFlow} from './motions/data/sankey-flow';
+import {savingsGoalJar} from './motions/data/savings-goal-jar';
 import {scienceReticle} from './motions/data/science-reticle';
 import {sectionProfileChart} from './motions/data/section-profile-chart';
 import {stackedAreaFlow} from './motions/data/stacked-area-flow';
@@ -127,6 +132,7 @@ import {transferArc} from './motions/data/transfer-arc';
 import {treemapSplit} from './motions/data/treemap-split';
 import {vennDiagramOverlap} from './motions/data/venn-diagram-overlap';
 import {waterfallBridge} from './motions/data/waterfall-bridge';
+import {weatherForecastStrip} from './motions/data/weather-forecast-strip';
 import {certificateSeal} from './motions/document/certificate-seal';
 import {docHighlightEvidence} from './motions/document/doc-highlight-evidence';
 import {documentMarkerHighlight} from './motions/document/document-marker-highlight';
@@ -356,13 +362,20 @@ import {tracklistReveal} from './motions/music/tracklist-reveal';
 import {vinylSpinLabel} from './motions/music/vinyl-spin-label';
 import {widthPressureType} from './motions/music/width-pressure-type';
 import {wordSlamHook} from './motions/music/word-slam-hook';
+import {addToCartFly} from './motions/product/add-to-cart-fly';
 import {colorwaySwap} from './motions/product/colorway-swap';
+import {couponScratchReveal} from './motions/product/coupon-scratch-reveal';
+import {deliveryTracker} from './motions/product/delivery-tracker';
 import {explodedViewSnap} from './motions/product/exploded-view-snap';
 import {featureCalloutOrbit} from './motions/product/feature-callout-orbit';
+import {flashDealTimerCard} from './motions/product/flash-deal-timer-card';
 import {frostToClear} from './motions/product/frost-to-clear';
 import {isoCutaway} from './motions/product/iso-cutaway';
 import {liquidPourFill} from './motions/product/liquid-pour-fill';
+import {orderConfirmation} from './motions/product/order-confirmation';
 import {priceTagDrop} from './motions/product/price-tag-drop';
+import {productGridFilter} from './motions/product/product-grid-filter';
+import {sizeColorPicker} from './motions/product/size-color-picker';
 import {specCompareTable} from './motions/product/spec-compare-table';
 import {sunburstHero} from './motions/product/sunburst-hero';
 import {unboxLidLift} from './motions/product/unbox-lid-lift';
@@ -486,6 +499,7 @@ import {patternScroll} from './motions/texture/pattern-scroll';
 import {matchCut} from './motions/transition/match-cut';
 import {transitionReel} from './motions/transition/transition-reel';
 import {agentLogPanel} from './motions/ui/agent-log-panel';
+import {appointmentBookingCalendar} from './motions/ui/appointment-booking-calendar';
 import {boardPrintDrop} from './motions/ui/board-print-drop';
 import {browserMockup} from './motions/ui/browser-mockup';
 import {cardFan} from './motions/ui/card-fan';
@@ -493,6 +507,7 @@ import {cardHelixGallery} from './motions/ui/card-helix-gallery';
 import {cardStackCascade} from './motions/ui/card-stack-cascade';
 import {carousel3d} from './motions/ui/carousel-3d';
 import {chatBubbles} from './motions/ui/chat-bubbles';
+import {checkoutSteps} from './motions/ui/checkout-steps';
 import {circuitRebuild} from './motions/ui/circuit-rebuild';
 import {clockCalendar} from './motions/ui/clock-calendar';
 import {commandPaletteType} from './motions/ui/command-palette-type';
@@ -517,6 +532,7 @@ import {notificationStack} from './motions/ui/notification-stack';
 import {plannedVsHeardChecklist} from './motions/ui/planned-vs-heard-checklist';
 import {playerToolbar} from './motions/ui/player-toolbar';
 import {pollResultsBars} from './motions/ui/poll-results-bars';
+import {propertyListingCard} from './motions/ui/property-listing-card';
 import {remixThumbnailShelf} from './motions/ui/remix-thumbnail-shelf';
 import {reviewStarsRating} from './motions/ui/review-stars-rating';
 import {roadmapSwimlanes} from './motions/ui/roadmap-swimlanes';
@@ -613,6 +629,7 @@ export const motions: MotionDef<any>[] = [
   barRace,
   beatMontage,
   bubbleScatterGrow,
+  budgetEnvelopeSplit,
   causeEffectChain,
   chipStackBars,
   comparisonDumbbell,
@@ -625,7 +642,9 @@ export const motions: MotionDef<any>[] = [
   emissionSpectrumLines,
   emptyNextCell,
   energyJarFill,
+  fitnessActivityRings,
   flameTestColors,
+  floorplanDraw,
   flowDiagram,
   functionPlot,
   funnelConversion,
@@ -634,6 +653,7 @@ export const motions: MotionDef<any>[] = [
   gridException,
   gridScore,
   groundPlaneRuler,
+  heartRateMonitor,
   heatmapCalendar,
   isoBarChart,
   isotypeCount,
@@ -656,6 +676,7 @@ export const motions: MotionDef<any>[] = [
   radarCompare,
   rideDimensionLine,
   sankeyFlow,
+  savingsGoalJar,
   scienceReticle,
   sectionProfileChart,
   stackedAreaFlow,
@@ -668,6 +689,7 @@ export const motions: MotionDef<any>[] = [
   treemapSplit,
   vennDiagramOverlap,
   waterfallBridge,
+  weatherForecastStrip,
   certificateSeal,
   docHighlightEvidence,
   documentMarkerHighlight,
@@ -897,13 +919,20 @@ export const motions: MotionDef<any>[] = [
   vinylSpinLabel,
   widthPressureType,
   wordSlamHook,
+  addToCartFly,
   colorwaySwap,
+  couponScratchReveal,
+  deliveryTracker,
   explodedViewSnap,
   featureCalloutOrbit,
+  flashDealTimerCard,
   frostToClear,
   isoCutaway,
   liquidPourFill,
+  orderConfirmation,
   priceTagDrop,
+  productGridFilter,
+  sizeColorPicker,
   specCompareTable,
   sunburstHero,
   unboxLidLift,
@@ -1027,6 +1056,7 @@ export const motions: MotionDef<any>[] = [
   matchCut,
   transitionReel,
   agentLogPanel,
+  appointmentBookingCalendar,
   boardPrintDrop,
   browserMockup,
   cardFan,
@@ -1034,6 +1064,7 @@ export const motions: MotionDef<any>[] = [
   cardStackCascade,
   carousel3d,
   chatBubbles,
+  checkoutSteps,
   circuitRebuild,
   clockCalendar,
   commandPaletteType,
@@ -1058,6 +1089,7 @@ export const motions: MotionDef<any>[] = [
   plannedVsHeardChecklist,
   playerToolbar,
   pollResultsBars,
+  propertyListingCard,
   remixThumbnailShelf,
   reviewStarsRating,
   roadmapSwimlanes,

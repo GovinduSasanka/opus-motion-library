@@ -88,7 +88,7 @@ const Wave: React.FC<Props> = (p) => {
                 const inT = p.entrance === 'none' ? 1 : prog(frame, sIn, sIn + 16, p.entrance === 'pop' ? ease.back : ease.out);
                 const v = waveV(c.g) * ramp;
                 const lift = p.effect === 'lift' || p.effect === 'lift-scale' ? -v * amp : 0;
-                const sc = p.effect === 'scale' || p.effect === 'lift-scale' ? 1 + v * 0.28 : 1;
+                const sc = p.effect === 'scale' || p.effect === 'lift-scale' ? 1 + v * (p.effect === 'scale' ? 0.2 : 0.12) : 1;
                 const rot = p.effect === 'rotate' ? v * 13 : 0;
                 const enterY = p.entrance === 'rise' ? (1 - inT) * size * 0.6 : 0;
                 const enterS = p.entrance === 'pop' ? 0.2 + 0.8 * inT : 1;
@@ -140,7 +140,7 @@ export const perLetterWave = defineMotion<Props>({
     font: 'display',
     size: 200,
     weight: 400,
-    tracking: 0.01,
+    tracking: 0.03,
     textCase: 'upper',
     background: '#FFF4E0',
     ink: '#1D1B3A',

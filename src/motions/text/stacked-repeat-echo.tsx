@@ -42,8 +42,9 @@ const Echo: React.FC<Props> = (p) => {
   const text = p.textCase === 'upper' ? p.text.toUpperCase() : p.text;
   const maxW = w * (w < h ? 0.88 : 0.82);
   const stackK = p.mode === 'stack' ? p.spread * n : p.mode === 'diagonal' ? p.spread * 0.6 * n : 0;
-  const fit0 = fitBlock(text, p.size * u, maxW * 0.97, h * 0.5, p.font, 1.0, p.tracking);
-  const cap = (h * 0.86) / (fit0.lines.length * 1.0 + stackK);
+  const tunK = p.mode === 'tunnel' ? 1 + n * 0.06 : 1;
+  const fit0 = fitBlock(text, p.size * u, (maxW * 0.97) / tunK, h * 0.5, p.font, 1.0, p.tracking);
+  const cap = (h * 0.72) / (fit0.lines.length * 1.0 + stackK);
   const size = Math.min(fit0.size, cap);
   const {lines} = fitBlock(text, size, maxW * 0.97, h * 0.6, p.font, 1.0, p.tracking);
   const lh = size * 1.0;
@@ -61,12 +62,12 @@ const Echo: React.FC<Props> = (p) => {
     const k = front ? 0 : i;
     const s0 = p.startAt + 6 + (i - 1) * p.stagger;
     const e = front ? 1 : prog(frame, s0, s0 + 34, ease.out);
-    const breathe = 1 + p.float * 0.18 * Math.sin(2 * Math.PI * (t * 0.5 - i * 0.07));
+    const breathe = 1 + p.float * 0.1 * Math.sin(2 * Math.PI * (t * 0.5 - i * 0.07));
     const dist = k * spread * e * breathe;
     let tf = '';
     if (p.mode === 'stack') tf = `translateY(${dirOf(i) * dist + shift}px)`;
     else if (p.mode === 'diagonal') tf = `translate(${dist * 0.55}px, ${-dist * 0.55}px)`;
-    else if (p.mode === 'tunnel') tf = `scale(${1 + k * 0.1 * e * breathe})`;
+    else if (p.mode === 'tunnel') tf = `scale(${1 + k * 0.06 * e * breathe})`;
     else tf = `rotate(${k * 4.5 * e * breathe * (i % 2 === 0 ? 1 : -1)}deg)`;
     const t01 = n > 1 ? (k - 1) / (n - 1) : 0;
     const col = front ? p.ink : mixCol(p.accent, p.accent2, t01);

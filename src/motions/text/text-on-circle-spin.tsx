@@ -86,7 +86,7 @@ const RingLayer: React.FC<{ring: Ring; idx: number; R: number; props: Props; fra
             style={{fontFamily: tfonts[font], fontSize: fs, fontWeight: weight, letterSpacing: spacing, whiteSpace: 'pre'}}
             fill={outline ? 'none' : ring.color}
             stroke={outline ? ring.color : 'none'}
-            strokeWidth={outline ? Math.max(1.5 * u, fs * 0.028) : 0}
+            strokeWidth={outline ? Math.max(1.5 * u, fs * 0.045) : 0}
             strokeLinejoin="round"
           >
             <textPath href={`#${id}`} startOffset="0">
@@ -151,7 +151,7 @@ export const textOnCircleSpin = defineMotion<Props>({
   defaultProps: {
     rings: [
       {text: 'Round and round we go', separator: '  ✦  ', radius: 0.98, size: 76, speed: 24, color: '#F7F2E7', style: 'solid', weight: 800, font: 'display'},
-      {text: 'Your words here', separator: '  •  ', radius: 0.68, size: 54, speed: -36, color: '#FF6B3D', style: 'outline', weight: 800, font: 'display'},
+      {text: 'Your words here', separator: '  •  ', radius: 0.68, size: 54, speed: -36, color: '#FF6B3D', style: 'solid', weight: 800, font: 'display'},
     ],
     centerText: 'Hello',
     centerFont: 'display',

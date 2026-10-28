@@ -10735,6 +10735,174 @@
   }
  },
  {
+  "id": "budget-envelope-split",
+  "title": "Budget envelope split",
+  "category": "data",
+  "description": "An income bar at the top splits into coins that travel down dashed lines to a grid of paper envelopes; each envelope pops in, opens its flap and lifts a slip showing the amount and share, while the \"left to assign\" counter on the bar runs down to zero.",
+  "useFor": "Personal-finance and budgeting apps, envelope / zero-based budgeting explainers, salary or revenue allocation stories, \"where does my money go\" reels. Pass the income and a list of labelled envelopes with amounts and colours.",
+  "source": [
+   "original round-3 vertical motion"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "budget",
+   "envelope",
+   "finance",
+   "money",
+   "income",
+   "salary",
+   "allocation",
+   "split",
+   "savings",
+   "personal finance",
+   "zero-based",
+   "breakdown",
+   "fintech",
+   "overlay"
+  ],
+  "file": "src/motions/data/budget-envelope-split.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle",
+   "prefix"
+  ],
+  "colorProps": [
+   "colors",
+   "background",
+   "panel",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "paper"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Every dollar gets a job",
+    "doc": "headline (empty = none)"
+   },
+   "subtitle": {
+    "default": "Monthly income split into envelopes",
+    "doc": "line under the headline (empty = none)"
+   },
+   "income": {
+    "default": 4200,
+    "doc": "total income on the bar; envelopes are scaled to add up to it (0 = sum of the envelopes)"
+   },
+   "incomeLabel": {
+    "default": "Monthly income",
+    "doc": "caption over the income amount"
+   },
+   "leftLabel": {
+    "default": "Left to assign",
+    "doc": "caption over the running \"left to assign\" amount"
+   },
+   "envelopes": {
+    "default": [
+     {
+      "label": "Rent",
+      "amount": 1500
+     },
+     {
+      "label": "Bills",
+      "amount": 600
+     },
+     {
+      "label": "Groceries",
+      "amount": 700
+     },
+     {
+      "label": "Transport",
+      "amount": 300
+     },
+     {
+      "label": "Savings",
+      "amount": 800
+     },
+     {
+      "label": "Fun",
+      "amount": 300
+     }
+    ],
+    "doc": "envelopes [{label, amount, color?}] up to 9; amounts are shares of the income"
+   },
+   "prefix": {
+    "default": "$",
+    "doc": "text before amounts (currency symbol)"
+   },
+   "suffix": {
+    "default": "",
+    "doc": "text after amounts"
+   },
+   "showPercent": {
+    "default": true,
+    "doc": "show each envelope's percentage share on its slip"
+   },
+   "colors": {
+    "default": [
+     "#4C8DF6",
+     "#F2994A",
+     "#27AE8F",
+     "#EB5B8C",
+     "#8E6CF0",
+     "#F2C94C",
+     "#56CCF2",
+     "#9B9B9B",
+     "#7BC043"
+    ],
+    "doc": "palette for envelopes without their own colour"
+   },
+   "background": {
+    "default": "#101826",
+    "doc": "page colour, or \"transparent\""
+   },
+   "panel": {
+    "default": "#1B2638",
+    "doc": "income bar colour"
+   },
+   "ink": {
+    "default": "#EEF3FA",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#7BE0A8",
+    "doc": "\"left to assign\" amount colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "CSS font family (empty = Space Grotesk)"
+   },
+   "startAt": {
+    "default": 6,
+    "doc": "frame the income bar starts"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed multiplier"
+   }
+  }
+ },
+ {
   "id": "cause-effect-chain",
   "title": "Cause and effect chain",
   "category": "data",
@@ -12593,6 +12761,185 @@
   }
  },
  {
+  "id": "fitness-activity-rings",
+  "title": "Fitness activity rings",
+  "category": "data",
+  "description": "A fitness-app daily summary: three thick concentric activity rings close clockwise (a ring above its goal laps a second, lighter turn) while a count-up list shows each value against its goal with a check when closed, and a streak card with a flame and seven weekly mini rings fills in beneath.",
+  "useFor": "Fitness, wellness and habit apps and promos: daily steps / calories / active minutes, closing-your-rings moments, streak and weekly-consistency stories. Each ring has its own label, value, goal, unit and colour; the week row and streak count are props.",
+  "source": [
+   "original round-3 vertical motion"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "fitness",
+   "activity rings",
+   "steps",
+   "calories",
+   "workout",
+   "health",
+   "wellness",
+   "streak",
+   "habit",
+   "goal",
+   "progress ring",
+   "tracker",
+   "app",
+   "overlay"
+  ],
+  "file": "src/motions/data/fitness-activity-rings.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle",
+   "centerLabel"
+  ],
+  "colorProps": [
+   "colors",
+   "background",
+   "panel",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "3d"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Daily activity",
+    "doc": "headline (empty = none)"
+   },
+   "subtitle": {
+    "default": "Two of three goals closed, keep the streak alive",
+    "doc": "line under the headline (empty = none)"
+   },
+   "rings": {
+    "default": [
+     {
+      "label": "Move",
+      "value": 540,
+      "goal": 500,
+      "unit": "kcal"
+     },
+     {
+      "label": "Exercise",
+      "value": 32,
+      "goal": 30,
+      "unit": "min"
+     },
+     {
+      "label": "Steps",
+      "value": 9200,
+      "goal": 10000,
+      "unit": "steps"
+     }
+    ],
+    "doc": "rings [{label, value, goal, unit?, color?, decimals?}] up to 5, outermost first; value above goal laps twice"
+   },
+   "week": {
+    "default": [
+     {
+      "label": "M",
+      "value": 1
+     },
+     {
+      "label": "T",
+      "value": 1
+     },
+     {
+      "label": "W",
+      "value": 1
+     },
+     {
+      "label": "T",
+      "value": 1
+     },
+     {
+      "label": "F",
+      "value": 1
+     },
+     {
+      "label": "S",
+      "value": 1
+     },
+     {
+      "label": "S",
+      "value": 0.72
+     }
+    ],
+    "doc": "weekly mini rings [{label, value 0-1}] up to 7; 1 = closed day (check mark)"
+   },
+   "streak": {
+    "default": 12,
+    "doc": "streak length shown with the flame (counts up)"
+   },
+   "streakLabel": {
+    "default": "day streak",
+    "doc": "text after the streak number"
+   },
+   "centerLabel": {
+    "default": "GOALS",
+    "doc": "caption under the closed-goals count in the middle of the rings"
+   },
+   "colors": {
+    "default": [
+     "#FF4D6D",
+     "#8BE04E",
+     "#34C9F5",
+     "#B07CFF",
+     "#F2B134"
+    ],
+    "doc": "palette for rings without their own colour"
+   },
+   "background": {
+    "default": "#0E1216",
+    "doc": "page colour, or \"transparent\""
+   },
+   "panel": {
+    "default": "#1A2027",
+    "doc": "streak card colour"
+   },
+   "ink": {
+    "default": "#F2F5F8",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#FF9F2E",
+    "doc": "flame / weekly ring colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "CSS font family (empty = Space Grotesk)"
+   },
+   "startAt": {
+    "default": 6,
+    "doc": "frame the first ring starts"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed multiplier"
+   }
+  }
+ },
+ {
   "id": "flame-test-colors",
   "title": "Flame test colours",
   "category": "data",
@@ -12730,6 +13077,240 @@
    "seed": {
     "default": 3,
     "doc": "spark seed"
+   }
+  }
+ },
+ {
+  "id": "floorplan-draw",
+  "title": "Floor plan draw",
+  "category": "data",
+  "description": "A top-down floor plan draws itself room by room: walls trace on, each room tints and gets its name and a counting area figure, door swings appear, dimension lines measure the whole footprint and a total-area chip counts up.",
+  "useFor": "Real-estate listings and new-build promos, interior design and renovation reveals, office or store layouts, venue plans. Describe the layout with a rooms list of {label, x, y, w, h} in your own units (metres, feet); areas are computed or given.",
+  "source": [
+   "original round-3 vertical motion"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "floor plan",
+   "floorplan",
+   "blueprint",
+   "rooms",
+   "architecture",
+   "real estate",
+   "interior",
+   "layout",
+   "property",
+   "area",
+   "dimensions",
+   "draw on",
+   "plan view",
+   "overlay"
+  ],
+  "file": "src/motions/data/floorplan-draw.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle",
+   "unit"
+  ],
+  "colorProps": [
+   "colors",
+   "background",
+   "ink",
+   "paper",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "blueprint"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Open-plan apartment",
+    "doc": "headline (empty = none)"
+   },
+   "subtitle": {
+    "default": "Seven rooms on one level",
+    "doc": "line under the headline (empty = none)"
+   },
+   "rooms": {
+    "default": [
+     {
+      "label": "Living room",
+      "x": 0,
+      "y": 0,
+      "w": 7,
+      "h": 5
+     },
+     {
+      "label": "Kitchen",
+      "x": 7,
+      "y": 0,
+      "w": 5,
+      "h": 3
+     },
+     {
+      "label": "Bath",
+      "x": 7,
+      "y": 3,
+      "w": 2.5,
+      "h": 2
+     },
+     {
+      "label": "Storage",
+      "x": 9.5,
+      "y": 3,
+      "w": 2.5,
+      "h": 2
+     },
+     {
+      "label": "Bedroom",
+      "x": 0,
+      "y": 5,
+      "w": 5,
+      "h": 3
+     },
+     {
+      "label": "Bedroom 2",
+      "x": 5,
+      "y": 5,
+      "w": 4,
+      "h": 3
+     },
+     {
+      "label": "Study",
+      "x": 9,
+      "y": 5,
+      "w": 3,
+      "h": 3
+     }
+    ],
+    "doc": "rooms [{label, x, y, w, h, color?, area?}] in your own units, top-left origin, up to 16; area defaults to w x h"
+   },
+   "doors": {
+    "default": [
+     {
+      "x": 1.2,
+      "y": 0,
+      "size": 1.1,
+      "orient": "h",
+      "swing": 1
+     },
+     {
+      "x": 7,
+      "y": 1,
+      "size": 1,
+      "orient": "v",
+      "swing": 1
+     },
+     {
+      "x": 7,
+      "y": 3.5,
+      "size": 0.9,
+      "orient": "v",
+      "swing": 1
+     },
+     {
+      "x": 1.2,
+      "y": 5,
+      "size": 1,
+      "orient": "h",
+      "swing": 1
+     },
+     {
+      "x": 5.6,
+      "y": 5,
+      "size": 1,
+      "orient": "h",
+      "swing": 1
+     },
+     {
+      "x": 10,
+      "y": 5,
+      "size": 0.9,
+      "orient": "h",
+      "swing": 1
+     }
+    ],
+    "doc": "doors [{x, y, size?, orient?(\"h\" on a horizontal wall / \"v\"), swing?(1 or -1)}] placed on walls in the same units"
+   },
+   "unit": {
+    "default": "m",
+    "doc": "length unit for the dimension lines"
+   },
+   "areaUnit": {
+    "default": "m²",
+    "doc": "area unit written after the numbers"
+   },
+   "totalLabel": {
+    "default": "Total area",
+    "doc": "caption on the total-area chip"
+   },
+   "showTotal": {
+    "default": true,
+    "doc": "show the total-area chip"
+   },
+   "showDimensions": {
+    "default": true,
+    "doc": "show the overall width / depth dimension lines"
+   },
+   "colors": {
+    "default": [
+     "#F2A65A",
+     "#6CC5B0",
+     "#7FA8F2",
+     "#E88FB2",
+     "#B79BE8",
+     "#F2D16B",
+     "#8BCB7A"
+    ],
+    "doc": "palette for rooms without their own colour"
+   },
+   "background": {
+    "default": "#EEF1F4",
+    "doc": "page colour, or \"transparent\""
+   },
+   "ink": {
+    "default": "#1C2733",
+    "doc": "wall and text colour"
+   },
+   "paper": {
+    "default": "#FBFCFD",
+    "doc": "drawing sheet colour"
+   },
+   "accent": {
+    "default": "#2F6FED",
+    "doc": "dimension, door and chip colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "CSS font family (empty = Space Grotesk)"
+   },
+   "startAt": {
+    "default": 6,
+    "doc": "frame the first room starts drawing"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed multiplier"
    }
   }
  },
@@ -14139,6 +14720,161 @@
   }
  },
  {
+  "id": "heart-rate-monitor",
+  "title": "Heart rate monitor",
+  "category": "data",
+  "description": "A glowing ECG trace sweeps across a gridded monitor with the classic P-QRS-T beat while a large BPM number and a pulsing heart follow the rate as it climbs from rest to a peak and recovers; a zone list (rest / fat burn / cardio / peak) highlights the current zone and the trace colour follows it.",
+  "useFor": "Fitness trackers, smartwatch and health-app promos, workout recaps, medical or wellness explainers: show a live heart rate with training zones. Set the resting, peak and recovery BPM and your own zone names, ranges and colours.",
+  "source": [
+   "original round-3 vertical motion"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "heart rate",
+   "ecg",
+   "ekg",
+   "bpm",
+   "pulse",
+   "heartbeat",
+   "monitor",
+   "health",
+   "fitness",
+   "wearable",
+   "smartwatch",
+   "zones",
+   "medical",
+   "vital signs",
+   "hud",
+   "overlay"
+  ],
+  "file": "src/motions/data/heart-rate-monitor.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle",
+   "unit"
+  ],
+  "colorProps": [
+   "background",
+   "panel",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "hud"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Live heart rate",
+    "doc": "headline (empty = none)"
+   },
+   "subtitle": {
+    "default": "Warm-up to peak effort and recovery",
+    "doc": "line under the headline (empty = none)"
+   },
+   "unit": {
+    "default": "BPM",
+    "doc": "unit text next to the zone name under the number"
+   },
+   "bpmStart": {
+    "default": 68,
+    "doc": "resting beats per minute at the start"
+   },
+   "bpmPeak": {
+    "default": 168,
+    "doc": "highest beats per minute (reached around the middle)"
+   },
+   "bpmEnd": {
+    "default": 104,
+    "doc": "beats per minute after recovery at the end"
+   },
+   "zones": {
+    "default": [
+     {
+      "label": "Rest",
+      "min": 0,
+      "max": 99,
+      "color": "#5AA9FF"
+     },
+     {
+      "label": "Fat burn",
+      "min": 100,
+      "max": 129,
+      "color": "#3DDC97"
+     },
+     {
+      "label": "Cardio",
+      "min": 130,
+      "max": 159,
+      "color": "#FFB020"
+     },
+     {
+      "label": "Peak",
+      "min": 160,
+      "max": 220,
+      "color": "#FF4D5E"
+     }
+    ],
+    "doc": "zones [{label, min, max, color?}] low to high; the one containing the live BPM is highlighted and tints the trace"
+   },
+   "zonesTitle": {
+    "default": "Heart rate zones",
+    "doc": "small caption over the zone list (empty = none)"
+   },
+   "showGrid": {
+    "default": true,
+    "doc": "draw the ECG-paper grid"
+   },
+   "background": {
+    "default": "#0B1117",
+    "doc": "page colour, or \"transparent\""
+   },
+   "panel": {
+    "default": "#131C25",
+    "doc": "monitor / zone chip colour"
+   },
+   "ink": {
+    "default": "#EAF1F7",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#3DDC97",
+    "doc": "colour when a zone has none"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "CSS font family (empty = Space Grotesk)"
+   },
+   "startAt": {
+    "default": 4,
+    "doc": "frame the interface fades in"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "speed multiplier for the BPM ramp"
+   }
+  }
+ },
+ {
   "id": "heatmap-calendar",
   "title": "Heatmap calendar",
   "category": "data",
@@ -15279,7 +16015,7 @@
     "doc": "print node names under the nodes"
    },
    "hub": {
-    "default": "",
+    "default": "Core",
     "doc": "id of the node that reveals first and pulses (empty = the most connected node)"
    },
    "hubPulse": {
@@ -17449,6 +18185,168 @@
   }
  },
  {
+  "id": "savings-goal-jar",
+  "title": "Savings goal jar",
+  "category": "data",
+  "description": "A glass savings jar fills with a wavy liquid as coins drop in, a big saved-amount counter runs up beside it, tick marks on the glass and a milestone checklist light up as each milestone is passed, and a \"to go\" line turns into a sparkle \"goal reached\" celebration when the target is hit.",
+  "useFor": "Savings, fundraising and crowdfunding progress, goal-tracker and fintech app promos, \"save for X\" explainers. Set the goal, the amount saved, your own milestones, currency and colours.",
+  "source": [
+   "original round-3 vertical motion"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "savings",
+   "goal",
+   "jar",
+   "piggy bank",
+   "fundraising",
+   "crowdfunding",
+   "milestone",
+   "progress",
+   "money",
+   "finance",
+   "fintech",
+   "coins",
+   "target",
+   "overlay"
+  ],
+  "file": "src/motions/data/savings-goal-jar.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle",
+   "prefix"
+  ],
+  "colorProps": [
+   "background",
+   "liquid",
+   "glass",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "playful"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Saving for the trip",
+    "doc": "headline (empty = none)"
+   },
+   "subtitle": {
+    "default": "Every deposit gets us closer",
+    "doc": "line under the headline (empty = none)"
+   },
+   "goal": {
+    "default": 5000,
+    "doc": "target amount (the jar is full at this value)"
+   },
+   "saved": {
+    "default": 3200,
+    "doc": "amount saved; if it reaches the goal the jar celebrates"
+   },
+   "goalLabel": {
+    "default": "of",
+    "doc": "word before the goal amount (\"of $5,000\")"
+   },
+   "savedLabel": {
+    "default": "Saved so far",
+    "doc": "caption over the big amount"
+   },
+   "reachedLabel": {
+    "default": "Goal reached!",
+    "doc": "message shown when saved >= goal"
+   },
+   "toGoLabel": {
+    "default": "to go",
+    "doc": "text after the remaining amount"
+   },
+   "milestones": {
+    "default": [
+     {
+      "label": "First step",
+      "value": 1000
+     },
+     {
+      "label": "Halfway there",
+      "value": 2500
+     },
+     {
+      "label": "Almost done",
+      "value": 4000
+     },
+     {
+      "label": "Goal",
+      "value": 5000
+     }
+    ],
+    "doc": "milestones [{label, value}] up to 6; ticks on the jar and a checklist light up when passed"
+   },
+   "prefix": {
+    "default": "$",
+    "doc": "text before amounts (currency symbol)"
+   },
+   "suffix": {
+    "default": "",
+    "doc": "text after amounts"
+   },
+   "coins": {
+    "default": 8,
+    "doc": "number of coins that drop into the jar (0 = none)"
+   },
+   "background": {
+    "default": "#101A24",
+    "doc": "page colour, or \"transparent\""
+   },
+   "liquid": {
+    "default": "#34C3A0",
+    "doc": "colour of the liquid"
+   },
+   "glass": {
+    "default": "#CFE6F2",
+    "doc": "colour of the jar glass and rim"
+   },
+   "ink": {
+    "default": "#EDF4FA",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#F5C451",
+    "doc": "coins, ticks, checks and highlight colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "CSS font family (empty = Space Grotesk)"
+   },
+   "startAt": {
+    "default": 6,
+    "doc": "frame the jar fades in"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed multiplier"
+   }
+  }
+ },
+ {
   "id": "science-reticle",
   "title": "Science HUD reticle",
   "category": "data",
@@ -19203,6 +20101,183 @@
    "startAt": {
     "default": 10,
     "doc": "frame the first bar starts"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed multiplier"
+   }
+  }
+ },
+ {
+  "id": "weather-forecast-strip",
+  "title": "Weather forecast strip",
+  "category": "data",
+  "description": "A week-ahead forecast: a row of cards (a stacked list in 1:1 and 9:16) rises in one after another, each with the day, a live animated weather icon (spinning sun, drifting cloud, falling rain / snow, flashing storm, fog bands), a chance-of-rain figure, counting high and low temperatures and a warm-to-cool range bar; today is highlighted.",
+  "useFor": "Weather apps and bulletins, travel and event planning, outdoor-business \"what to expect\" reels, smart-home widgets. Pass your own days with a day name, icon (sun, moon, partly, cloud, rain, storm, snow, fog, wind), high and low temperatures and optional chance of rain.",
+  "source": [
+   "original round-3 vertical motion"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "weather",
+   "forecast",
+   "week",
+   "temperature",
+   "icons",
+   "sun",
+   "rain",
+   "cards",
+   "travel",
+   "app",
+   "widget",
+   "climate",
+   "bulletin",
+   "overlay"
+  ],
+  "file": "src/motions/data/weather-forecast-strip.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle",
+   "unit"
+  ],
+  "colorProps": [
+   "background",
+   "card",
+   "ink",
+   "accent",
+   "accent2",
+   "sunColor"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "nature",
+   "ui"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Week ahead",
+    "doc": "headline (empty = none)"
+   },
+   "subtitle": {
+    "default": "Seven-day forecast",
+    "doc": "line under the headline (empty = none)"
+   },
+   "days": {
+    "default": [
+     {
+      "day": "Today",
+      "icon": "sun",
+      "hi": 24,
+      "lo": 15,
+      "precip": 0
+     },
+     {
+      "day": "Tue",
+      "icon": "partly",
+      "hi": 23,
+      "lo": 14,
+      "precip": 10
+     },
+     {
+      "day": "Wed",
+      "icon": "cloud",
+      "hi": 20,
+      "lo": 13,
+      "precip": 30
+     },
+     {
+      "day": "Thu",
+      "icon": "rain",
+      "hi": 17,
+      "lo": 11,
+      "precip": 70
+     },
+     {
+      "day": "Fri",
+      "icon": "storm",
+      "hi": 16,
+      "lo": 10,
+      "precip": 85
+     },
+     {
+      "day": "Sat",
+      "icon": "partly",
+      "hi": 21,
+      "lo": 12,
+      "precip": 20
+     },
+     {
+      "day": "Sun",
+      "icon": "sun",
+      "hi": 25,
+      "lo": 14,
+      "precip": 0
+     }
+    ],
+    "doc": "days [{day, icon(sun|moon|partly|cloud|rain|storm|snow|fog|wind), hi, lo, label?, precip?(0-100)}] up to 8"
+   },
+   "unit": {
+    "default": "°",
+    "doc": "text after temperatures (degree sign, \"C\", ...)"
+   },
+   "highlightIndex": {
+    "default": 0,
+    "doc": "index of the highlighted card (-1 = none)"
+   },
+   "showPrecip": {
+    "default": true,
+    "doc": "show chance of rain when a day has precip"
+   },
+   "background": {
+    "default": "#0D1B2A",
+    "doc": "page colour, or \"transparent\""
+   },
+   "card": {
+    "default": "#162B42",
+    "doc": "card colour"
+   },
+   "ink": {
+    "default": "#EAF2FA",
+    "doc": "text colour (icon clouds are tinted from it)"
+   },
+   "accent": {
+    "default": "#FFB347",
+    "doc": "warm end of the temperature bar and highlight colour"
+   },
+   "accent2": {
+    "default": "#5CB8FF",
+    "doc": "cool end of the temperature bar, rain and precipitation colour"
+   },
+   "sunColor": {
+    "default": "#FFC83D",
+    "doc": "sun / moon / lightning colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "CSS font family (empty = Space Grotesk)"
+   },
+   "startAt": {
+    "default": 6,
+    "doc": "frame the first card starts"
    },
    "speed": {
     "default": 1,
@@ -50246,6 +51321,138 @@
   }
  },
  {
+  "id": "add-to-cart-fly",
+  "title": "Add to cart (thumbnail flies into cart)",
+  "category": "product",
+  "description": "A store header with a cart icon and a product card: the button is pressed, a copy of the product picture flies in an arc into the cart, the cart wiggles and its badge count bumps with a +1.",
+  "useFor": "E-commerce explainers, store promos, app-store videos, \"add to cart\" UX demos — set the product picture, name, price, currency and labels.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 150,
+  "tags": [
+   "ecommerce",
+   "cart",
+   "add to cart",
+   "shop",
+   "store",
+   "retail",
+   "product",
+   "checkout",
+   "ui",
+   "badge",
+   "flight"
+  ],
+  "file": "src/motions/product/add-to-cart-fly.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "productColor",
+   "background",
+   "card",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "photo",
+   "ui"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "storeName": {
+    "default": "SHOPLY",
+    "doc": "wordmark in the header"
+   },
+   "productName": {
+    "default": "Canvas Tote Bag",
+    "doc": "product title on the card"
+   },
+   "price": {
+    "default": 24,
+    "doc": "price number (no currency)"
+   },
+   "currency": {
+    "default": "$",
+    "doc": "currency prefix, e.g. $, €, £, Rs."
+   },
+   "buttonLabel": {
+    "default": "Add to cart",
+    "doc": "button text before the press"
+   },
+   "addedLabel": {
+    "default": "Added",
+    "doc": "button text after the press"
+   },
+   "cartLabel": {
+    "default": "Cart",
+    "doc": "small label next to the cart icon"
+   },
+   "startCount": {
+    "default": 0,
+    "doc": "items already in the cart (badge starts here)"
+   },
+   "adds": {
+    "default": 2,
+    "doc": "how many times the button is pressed (0-4)"
+   },
+   "gap": {
+    "default": 40,
+    "doc": "frames between presses"
+   },
+   "src": {
+    "default": "",
+    "doc": "product image (public/ path or https URL); empty = procedural drawing"
+   },
+   "productKind": {
+    "default": 0,
+    "doc": "procedural drawing when no src: 0 bag, 1 mug, 2 headphones, 3 box, 4 bottle, 5 watch, 6 lamp, 7 t-shirt"
+   },
+   "productColor": {
+    "default": "#E07A5F",
+    "doc": "procedural product colour"
+   },
+   "background": {
+    "default": "#F3EFE8",
+    "doc": "page colour or 'transparent'"
+   },
+   "card": {
+    "default": "#FFFFFF",
+    "doc": "card colour"
+   },
+   "ink": {
+    "default": "#1D1B24",
+    "doc": "text and icon colour"
+   },
+   "accent": {
+    "default": "#E8553A",
+    "doc": "price, button and badge colour"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the card starts entering"
+   }
+  }
+ },
+ {
   "id": "colorway-swap",
   "title": "Colourway swap",
   "category": "product",
@@ -50353,6 +51560,262 @@
    "startAt": {
     "default": 16,
     "doc": "frame the cycle starts"
+   }
+  }
+ },
+ {
+  "id": "coupon-scratch-reveal",
+  "title": "Coupon scratch card reveal",
+  "category": "product",
+  "description": "A coupon ticket with a foil window: a coin scratches back and forth with flying flakes until the discount code is revealed with a pop and confetti, then a \"Copy code\" button is tapped and turns to \"Copied\".",
+  "useFor": "Promo codes, giveaways, loyalty rewards, black-friday teasers, app-store discount beats — set the headline, discount, code and colours.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 170,
+  "tags": [
+   "coupon",
+   "scratch",
+   "promo code",
+   "discount",
+   "voucher",
+   "reward",
+   "ecommerce",
+   "retail",
+   "sale",
+   "reveal",
+   "giveaway",
+   "ticket"
+  ],
+  "file": "src/motions/product/coupon-scratch-reveal.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "caption"
+  ],
+  "colorProps": [
+   "background",
+   "card",
+   "ink",
+   "accent",
+   "foil"
+  ],
+  "loopable": false,
+  "bestLength": 170,
+  "mood": [
+   "playful"
+  ],
+  "roles": [
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Your reward",
+    "doc": "small caps line on the top band"
+   },
+   "discountLabel": {
+    "default": "20% OFF",
+    "doc": "big offer text on the top band"
+   },
+   "code": {
+    "default": "SAVE20",
+    "doc": "the hidden coupon code"
+   },
+   "hint": {
+    "default": "SCRATCH HERE",
+    "doc": "text printed on the foil"
+   },
+   "caption": {
+    "default": "On your next order",
+    "doc": "line under the window"
+   },
+   "terms": {
+    "default": "Minimum spend applies. One use per customer.",
+    "doc": "fine print under the caption"
+   },
+   "copyLabel": {
+    "default": "Copy code",
+    "doc": "button text before the tap"
+   },
+   "copiedLabel": {
+    "default": "Copied",
+    "doc": "button text after the tap"
+   },
+   "rows": {
+    "default": 5,
+    "doc": "how many scratch sweeps (2-8)"
+   },
+   "background": {
+    "default": "#F1ECE3",
+    "doc": "page colour or 'transparent'"
+   },
+   "card": {
+    "default": "#FFFFFF",
+    "doc": "ticket body colour"
+   },
+   "ink": {
+    "default": "#1D1B24",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#E8553A",
+    "doc": "top band and confetti colour"
+   },
+   "foil": {
+    "default": "#B8BCC8",
+    "doc": "scratch foil base colour"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the ticket starts entering"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "timing multiplier (1 = default)"
+   }
+  }
+ },
+ {
+  "id": "delivery-tracker",
+  "title": "Delivery tracker (timeline + van on a route)",
+  "category": "product",
+  "description": "A map with a street grid and a route from shop to home, a delivery van driving along it with a growing trail, a status timeline that ticks through the stages and an ETA countdown that ends in a Delivered check.",
+  "useFor": "Delivery / logistics / food-delivery explainers, order-tracking UI demos, shipping-notification beats — set the stages, times, ETA and colours.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "delivery",
+   "tracking",
+   "order",
+   "shipping",
+   "logistics",
+   "van",
+   "map",
+   "route",
+   "timeline",
+   "eta",
+   "ecommerce",
+   "ui",
+   "food delivery"
+  ],
+  "file": "src/motions/product/delivery-tracker.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "stages"
+  ],
+  "colorProps": [
+   "background",
+   "card",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "ui"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Your order is on the way",
+    "doc": "headline while the van is driving"
+   },
+   "doneTitle": {
+    "default": "Your order has arrived",
+    "doc": "headline after arrival"
+   },
+   "orderLabel": {
+    "default": "Order tracking",
+    "doc": "small caps line above the headline (e.g. an order number)"
+   },
+   "stages": {
+    "default": [
+     "Order placed",
+     "Packed",
+     "Out for delivery",
+     "Delivered"
+    ],
+    "doc": "timeline stage names (2-6); the van drives between the second-to-last and last"
+   },
+   "times": {
+    "default": [
+     "10:02",
+     "10:20",
+     "11:05",
+     "11:40"
+    ],
+    "doc": "clock times per stage (same order, optional)"
+   },
+   "etaLabel": {
+    "default": "Arriving in",
+    "doc": "text next to the countdown"
+   },
+   "etaMinutes": {
+    "default": 18,
+    "doc": "countdown start (minutes); reaches 0 when the van arrives"
+   },
+   "etaUnit": {
+    "default": "minutes",
+    "doc": "unit line under the ETA label"
+   },
+   "doneLabel": {
+    "default": "Delivered",
+    "doc": "text in the ETA box once delivered"
+   },
+   "travelFrames": {
+    "default": 96,
+    "doc": "frames the van takes to drive the route"
+   },
+   "background": {
+    "default": "#EEF1F5",
+    "doc": "page colour or 'transparent'"
+   },
+   "card": {
+    "default": "#FFFFFF",
+    "doc": "map / panel colour"
+   },
+   "ink": {
+    "default": "#18202E",
+    "doc": "text and street colour"
+   },
+   "accent": {
+    "default": "#FF6B2C",
+    "doc": "route trail, van and highlight colour"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the scene starts"
    }
   }
  },
@@ -50587,6 +52050,166 @@
    "speed": {
     "default": 1,
     "doc": "overall tempo multiplier"
+   }
+  }
+ },
+ {
+  "id": "flash-deal-timer-card",
+  "title": "Flash deal card (countdown + draining stock bar)",
+  "category": "product",
+  "description": "A product card with a FLASH DEAL ribbon, discount badge, struck-through old price, a ticking HH:MM:SS countdown and a stock bar that drains and turns red as units run out, with a pulsing call-to-action.",
+  "useFor": "Flash sales, limited drops, black-friday countdowns, urgency / scarcity beats in store promos — set the product, prices, timer start, stock numbers and colours.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "flash sale",
+   "countdown",
+   "timer",
+   "stock",
+   "scarcity",
+   "deal",
+   "discount",
+   "ecommerce",
+   "retail",
+   "product",
+   "limited",
+   "urgency",
+   "sale"
+  ],
+  "file": "src/motions/product/flash-deal-timer-card.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": true,
+  "textProps": [
+   "badge"
+  ],
+  "colorProps": [
+   "productColor",
+   "background",
+   "card",
+   "ink",
+   "accent",
+   "danger"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "nature"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "ribbon": {
+    "default": "Flash deal",
+    "doc": "text in the ribbon chip"
+   },
+   "productName": {
+    "default": "Studio Headset",
+    "doc": "product title"
+   },
+   "oldPrice": {
+    "default": 149,
+    "doc": "original price number (struck through)"
+   },
+   "newPrice": {
+    "default": 89,
+    "doc": "deal price number"
+   },
+   "currency": {
+    "default": "$",
+    "doc": "currency prefix"
+   },
+   "badge": {
+    "default": "",
+    "doc": "discount badge text; empty = automatic -NN% from the two prices"
+   },
+   "timer": {
+    "default": "02:14:37",
+    "doc": "countdown start as HH:MM:SS"
+   },
+   "timerLabel": {
+    "default": "Ends in",
+    "doc": "small caps line above the countdown"
+   },
+   "timerSpeed": {
+    "default": 6,
+    "doc": "timer seconds that pass per real second (1 = real time; higher ticks faster)"
+   },
+   "stockTotal": {
+    "default": 60,
+    "doc": "total stock (bar full = this many)"
+   },
+   "stockStart": {
+    "default": 44,
+    "doc": "units left at the start"
+   },
+   "stockEnd": {
+    "default": 7,
+    "doc": "units left at the end of the drain"
+   },
+   "stockText": {
+    "default": "Only {n} left",
+    "doc": "stock sentence; {n} is replaced by the units left"
+   },
+   "claimedText": {
+    "default": "{p}% claimed",
+    "doc": "right-hand note; {p} is replaced by the % claimed"
+   },
+   "buttonLabel": {
+    "default": "Grab the deal",
+    "doc": "call-to-action text"
+   },
+   "src": {
+    "default": "",
+    "doc": "product image (public/ path or https URL); empty = procedural drawing"
+   },
+   "productKind": {
+    "default": 2,
+    "doc": "procedural drawing: 0 bag, 1 mug, 2 headphones, 3 box, 4 bottle, 5 watch, 6 lamp, 7 t-shirt"
+   },
+   "productColor": {
+    "default": "#E8553A",
+    "doc": "procedural product colour"
+   },
+   "background": {
+    "default": "#17141F",
+    "doc": "page colour or 'transparent'"
+   },
+   "card": {
+    "default": "#FFFFFF",
+    "doc": "card colour"
+   },
+   "ink": {
+    "default": "#1D1B24",
+    "doc": "text colour (card text, digit boxes)"
+   },
+   "accent": {
+    "default": "#E8553A",
+    "doc": "price, badge, bar and button colour"
+   },
+   "danger": {
+    "default": "#D62839",
+    "doc": "bar colour when stock is almost gone"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the card starts entering"
    }
   }
  },
@@ -50930,6 +52553,157 @@
   }
  },
  {
+  "id": "order-confirmation",
+  "title": "Order confirmation receipt",
+  "category": "product",
+  "description": "A check burst and headline beside a receipt card with a zig-zag edge: item lines slide in, subtotal / shipping / tax appear, the total counts up, then a barcode and a delivery-note chip.",
+  "useFor": "Checkout success beats, \"thanks for your order\" emails turned into video, e-commerce app explainers, receipt / invoice reveals — set the items, currency, labels and colours.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 170,
+  "tags": [
+   "order",
+   "confirmation",
+   "receipt",
+   "checkout",
+   "ecommerce",
+   "success",
+   "thank you",
+   "invoice",
+   "retail",
+   "store",
+   "check"
+  ],
+  "file": "src/motions/product/order-confirmation.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle",
+   "items"
+  ],
+  "colorProps": [
+   "orderNumber",
+   "background",
+   "card",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 170,
+  "mood": [],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Order confirmed",
+    "doc": "headline"
+   },
+   "subtitle": {
+    "default": "Thanks for shopping with us. A receipt is on its way to your inbox.",
+    "doc": "sentence under the headline"
+   },
+   "orderLabel": {
+    "default": "Order",
+    "doc": "small caps label before the order number"
+   },
+   "orderNumber": {
+    "default": "#100428",
+    "doc": "order number text"
+   },
+   "items": {
+    "default": [
+     {
+      "name": "Canvas Tote Bag",
+      "price": 24,
+      "qty": 1
+     },
+     {
+      "name": "Ceramic Mug",
+      "price": 16,
+      "qty": 2
+     },
+     {
+      "name": "Desk Lamp",
+      "price": 48,
+      "qty": 1
+     }
+    ],
+    "doc": "receipt lines [{name, price, qty?}] (first 5 shown)"
+   },
+   "currency": {
+    "default": "$",
+    "doc": "currency prefix"
+   },
+   "shipping": {
+    "default": 0,
+    "doc": "shipping cost (0 shows the free label)"
+   },
+   "tax": {
+    "default": 8.32,
+    "doc": "tax amount"
+   },
+   "subtotalLabel": {
+    "default": "Subtotal",
+    "doc": "label of the subtotal line"
+   },
+   "shippingLabel": {
+    "default": "Shipping",
+    "doc": "label of the shipping line"
+   },
+   "taxLabel": {
+    "default": "Tax",
+    "doc": "label of the tax line"
+   },
+   "totalLabel": {
+    "default": "Total",
+    "doc": "label of the total line"
+   },
+   "freeLabel": {
+    "default": "Free",
+    "doc": "text shown when shipping is 0"
+   },
+   "deliveryNote": {
+    "default": "Estimated delivery: 3-5 days",
+    "doc": "text in the delivery chip"
+   },
+   "background": {
+    "default": "#EEF1F6",
+    "doc": "page colour or 'transparent'"
+   },
+   "card": {
+    "default": "#FFFFFF",
+    "doc": "receipt colour"
+   },
+   "ink": {
+    "default": "#18202E",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#18B26B",
+    "doc": "check burst and total colour"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the scene starts"
+   }
+  }
+ },
+ {
   "id": "price-tag-drop",
   "title": "Price tag drop",
   "category": "product",
@@ -51031,6 +52805,349 @@
    "startAt": {
     "default": 6,
     "doc": "frame the tag starts dropping"
+   }
+  }
+ },
+ {
+  "id": "product-grid-filter",
+  "title": "Product grid with filter chips (re-flow)",
+  "category": "product",
+  "description": "A grid of product cards with filter chips on top; as the active chip changes the matching cards glide to new slots, the others shrink away and the count updates, then it returns to All.",
+  "useFor": "Catalogue / store / marketplace UI demos, \"shop by category\" beats, filter and search feature explainers — set the products, categories, prices and images.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "ecommerce",
+   "product grid",
+   "filter",
+   "chips",
+   "catalogue",
+   "store",
+   "shop",
+   "retail",
+   "ui",
+   "marketplace",
+   "category"
+  ],
+  "file": "src/motions/product/product-grid-filter.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "card",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "ui"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "filters": {
+    "default": [
+     "All",
+     "Bags",
+     "Mugs",
+     "Audio"
+    ],
+    "doc": "chip labels; index 0 is the \"show all\" chip"
+   },
+   "products": {
+    "default": [
+     {
+      "name": "Canvas Tote",
+      "price": 24,
+      "category": "Bags",
+      "color": "#E07A5F",
+      "kind": 0
+     },
+     {
+      "name": "Stone Mug",
+      "price": 16,
+      "category": "Mugs",
+      "color": "#3D85C6",
+      "kind": 1
+     },
+     {
+      "name": "Studio Headset",
+      "price": 89,
+      "category": "Audio",
+      "color": "#2F4858",
+      "kind": 2
+     },
+     {
+      "name": "Daypack",
+      "price": 52,
+      "category": "Bags",
+      "color": "#81B29A",
+      "kind": 0
+     },
+     {
+      "name": "Enamel Mug",
+      "price": 14,
+      "category": "Mugs",
+      "color": "#E9A23B",
+      "kind": 1
+     },
+     {
+      "name": "Pocket Buds",
+      "price": 59,
+      "category": "Audio",
+      "color": "#9B7EDE",
+      "kind": 2
+     },
+     {
+      "name": "Weekender",
+      "price": 74,
+      "category": "Bags",
+      "color": "#C0626F",
+      "kind": 0
+     },
+     {
+      "name": "Travel Mug",
+      "price": 21,
+      "category": "Mugs",
+      "color": "#5BA8A0",
+      "kind": 1
+     }
+    ],
+    "doc": "cards [{name, price, category, color?, src?, kind?}] — category matches a chip label (case-insensitive)"
+   },
+   "sequence": {
+    "default": [
+     0,
+     1,
+     2,
+     3,
+     0
+    ],
+    "doc": "which chip (index) is active over time; first entry is the starting state"
+   },
+   "currency": {
+    "default": "$",
+    "doc": "currency prefix"
+   },
+   "countLabel": {
+    "default": "products",
+    "doc": "word after the result count (top right)"
+   },
+   "columns": {
+    "default": 0,
+    "doc": "grid columns; 0 = automatic (4 landscape / 3 portrait)"
+   },
+   "hold": {
+    "default": 36,
+    "doc": "frames each filter state lasts"
+   },
+   "background": {
+    "default": "#F2F0EB",
+    "doc": "page colour or 'transparent'"
+   },
+   "card": {
+    "default": "#FFFFFF",
+    "doc": "card and inactive chip colour"
+   },
+   "ink": {
+    "default": "#1D1B24",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#E8553A",
+    "doc": "price and active chip colour"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the grid starts entering"
+   }
+  }
+ },
+ {
+  "id": "size-color-picker",
+  "title": "Size & colour variant picker",
+  "category": "product",
+  "description": "A product picture with colour swatches and size chips that are tapped in turn: the picture re-tints, the chosen chip fills, the price rolls to the new value and the add button wakes up.",
+  "useFor": "Product-page UI demos, variant selection explainers, fashion / merch store promos — set the swatches, sizes, surcharges, price and optional per-colour images.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 150,
+  "tags": [
+   "ecommerce",
+   "variant",
+   "size",
+   "color",
+   "swatch",
+   "picker",
+   "product page",
+   "price",
+   "fashion",
+   "store",
+   "retail",
+   "ui",
+   "configurator"
+  ],
+  "file": "src/motions/product/size-color-picker.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "images"
+  ],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "card",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "photo",
+   "ui"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "productName": {
+    "default": "Everyday Tee",
+    "doc": "product title"
+   },
+   "currency": {
+    "default": "$",
+    "doc": "currency prefix"
+   },
+   "basePrice": {
+    "default": 28,
+    "doc": "price before size surcharges"
+   },
+   "colors": {
+    "default": [
+     {
+      "name": "Coral",
+      "hex": "#E07A5F"
+     },
+     {
+      "name": "Sage",
+      "hex": "#81B29A"
+     },
+     {
+      "name": "Ocean",
+      "hex": "#3D85C6"
+     },
+     {
+      "name": "Ink",
+      "hex": "#2F4858"
+     }
+    ],
+    "doc": "swatches [{name, hex}] (the procedural product takes the swatch colour)"
+   },
+   "sizes": {
+    "default": [
+     {
+      "label": "S"
+     },
+     {
+      "label": "M"
+     },
+     {
+      "label": "L",
+      "delta": 2
+     },
+     {
+      "label": "XL",
+      "delta": 4
+     }
+    ],
+    "doc": "size chips [{label, delta?}] — delta = price surcharge"
+   },
+   "colorPicks": {
+    "default": [
+     1,
+     3
+    ],
+    "doc": "swatch indexes tapped over time (one every ~1.5 s)"
+   },
+   "sizePicks": {
+    "default": [
+     1,
+     3
+    ],
+    "doc": "size indexes tapped over time"
+   },
+   "images": {
+    "default": [],
+    "doc": "optional per-colour product images (public/ path or https URL, same order as colors); empty = procedural"
+   },
+   "productKind": {
+    "default": 7,
+    "doc": "procedural drawing: 0 bag, 1 mug, 2 headphones, 3 box, 4 bottle, 5 watch, 6 lamp, 7 t-shirt"
+   },
+   "colorLabel": {
+    "default": "Colour",
+    "doc": "label before the colour name"
+   },
+   "sizeLabel": {
+    "default": "Size",
+    "doc": "label before the size"
+   },
+   "buttonLabel": {
+    "default": "Add to cart",
+    "doc": "button text once a size is chosen"
+   },
+   "selectLabel": {
+    "default": "Select a size",
+    "doc": "button text before a size is chosen"
+   },
+   "background": {
+    "default": "#F2F0EB",
+    "doc": "page colour or 'transparent'"
+   },
+   "card": {
+    "default": "#FFFFFF",
+    "doc": "panel and chip colour"
+   },
+   "ink": {
+    "default": "#1D1B24",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#E8553A",
+    "doc": "price and button colour"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the scene starts"
    }
   }
  },
@@ -63635,7 +65752,7 @@
     "doc": "font weight"
    },
    "tracking": {
-    "default": 0.01,
+    "default": 0.03,
     "doc": "letter spacing in em"
    },
    "textCase": {
@@ -65837,7 +67954,7 @@
       "size": 54,
       "speed": -36,
       "color": "#FF6B3D",
-      "style": "outline",
+      "style": "solid",
       "weight": 800,
       "font": "display"
      }
@@ -66547,7 +68664,7 @@
     "doc": "font role (mono looks most typed)"
    },
    "size": {
-    "default": 110,
+    "default": 120,
     "doc": "max font size in u; shrinks so the longest line fits"
    },
    "weight": {
@@ -67789,6 +69906,180 @@
   }
  },
  {
+  "id": "appointment-booking-calendar",
+  "title": "Appointment booking calendar",
+  "category": "ui",
+  "description": "A booking widget plays itself: a month calendar fades in, a cursor picks a date (ripple, filled circle), time-slot chips appear for that day, the cursor picks a slot and presses a Confirm button, and a confirmation card with an animated check and the chosen date, time and service pops over the panel.",
+  "useFor": "Booking, scheduling and reservation products: clinics, salons, restaurants, consultants, tutors, coworking and event tools; \"book in 3 clicks\" promos and onboarding. Set the month / year, the day and slot to pick, the slot list, unavailable days and your own wording.",
+  "source": [
+   "original round-3 vertical motion"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "booking",
+   "appointment",
+   "calendar",
+   "scheduling",
+   "reservation",
+   "time slots",
+   "date picker",
+   "confirmation",
+   "clinic",
+   "salon",
+   "saas",
+   "app demo",
+   "cursor",
+   "overlay"
+  ],
+  "file": "src/motions/ui/appointment-booking-calendar.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "background",
+   "panel",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Book in three clicks",
+    "doc": "headline (empty = none)"
+   },
+   "subtitle": {
+    "default": "Pick a day, choose a time, done",
+    "doc": "line under the headline (empty = none)"
+   },
+   "year": {
+    "default": 2026,
+    "doc": "calendar year (leap years handled)"
+   },
+   "month": {
+    "default": 6,
+    "doc": "calendar month 1-12"
+   },
+   "weekStartsOn": {
+    "default": 0,
+    "doc": "first weekday column: 0 = Sunday, 1 = Monday"
+   },
+   "selectedDay": {
+    "default": 17,
+    "doc": "day of the month the cursor picks"
+   },
+   "unavailableDays": {
+    "default": [
+     1,
+     2,
+     8,
+     9
+    ],
+    "doc": "days of the month that are greyed out"
+   },
+   "disableWeekends": {
+    "default": true,
+    "doc": "grey out Saturdays and Sundays too"
+   },
+   "slots": {
+    "default": [
+     "09:00",
+     "09:30",
+     "10:30",
+     "11:00",
+     "13:30",
+     "14:00",
+     "15:30",
+     "16:00"
+    ],
+    "doc": "time-slot labels (up to 12)"
+   },
+   "selectedSlot": {
+    "default": 2,
+    "doc": "index of the slot the cursor picks"
+   },
+   "bookedSlots": {
+    "default": [
+     1,
+     5
+    ],
+    "doc": "indices of slots shown as already taken"
+   },
+   "serviceTitle": {
+    "default": "Consultation - 30 min",
+    "doc": "service / appointment name on the confirmation card"
+   },
+   "slotsTitle": {
+    "default": "Available times",
+    "doc": "caption over the slot grid"
+   },
+   "confirmLabel": {
+    "default": "Confirm booking",
+    "doc": "text on the confirm button"
+   },
+   "confirmedTitle": {
+    "default": "You're booked!",
+    "doc": "headline on the confirmation card"
+   },
+   "confirmedNote": {
+    "default": "A confirmation was sent to your inbox",
+    "doc": "small line under the confirmation details (empty = none)"
+   },
+   "showCursor": {
+    "default": true,
+    "doc": "draw the mouse cursor that drives the demo"
+   },
+   "background": {
+    "default": "#EAF0F6",
+    "doc": "page colour, or \"transparent\""
+   },
+   "panel": {
+    "default": "#FFFFFF",
+    "doc": "widget card colour"
+   },
+   "ink": {
+    "default": "#15202B",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#2F6FED",
+    "doc": "selection, button and check colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "CSS font family (empty = Space Grotesk)"
+   },
+   "startAt": {
+    "default": 4,
+    "doc": "frame the widget starts entering"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed multiplier"
+   }
+  }
+ },
+ {
   "id": "board-print-drop",
   "title": "Board print drop",
   "category": "ui",
@@ -68902,6 +71193,180 @@
    "background": {
     "default": "#12031f",
     "doc": ""
+   }
+  }
+ },
+ {
+  "id": "checkout-steps",
+  "title": "Checkout steps (cart → shipping → payment → done)",
+  "category": "ui",
+  "description": "A four-step checkout flow: the stepper line fills, the cart lines slide in, shipping fields type themselves, payment shows masked placeholder values, and the last step is a confirmation with a check burst.",
+  "useFor": "E-commerce / SaaS checkout explainers, \"buy in 4 steps\" videos, store onboarding — set the step names, items, fields, currency and brand colours.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "checkout",
+   "ecommerce",
+   "stepper",
+   "payment",
+   "shipping",
+   "cart",
+   "form",
+   "ui",
+   "steps",
+   "store",
+   "retail",
+   "order"
+  ],
+  "file": "src/motions/ui/checkout-steps.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "items"
+  ],
+  "colorProps": [
+   "background",
+   "card",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "ui"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "steps": {
+    "default": [
+     "Cart",
+     "Shipping",
+     "Payment",
+     "Done"
+    ],
+    "doc": "step names (2+). First = cart review, last = confirmation, the ones between are forms"
+   },
+   "items": {
+    "default": [
+     {
+      "name": "Canvas Tote Bag",
+      "price": 24,
+      "qty": 1
+     },
+     {
+      "name": "Ceramic Mug",
+      "price": 16,
+      "qty": 2
+     },
+     {
+      "name": "Desk Lamp",
+      "price": 48,
+      "qty": 1
+     }
+    ],
+    "doc": "cart lines [{name, price, qty?, src?, color?}] (first 5 shown)"
+   },
+   "shippingFields": {
+    "default": [
+     {
+      "label": "Full name",
+      "value": "Alex Morgan"
+     },
+     {
+      "label": "Street address",
+      "value": "12 Sample Street"
+     },
+     {
+      "label": "City / postcode",
+      "value": "Springfield 00000"
+     }
+    ],
+    "doc": "form fields for the shipping step [{label, value}]"
+   },
+   "paymentFields": {
+    "default": [
+     {
+      "label": "Card number",
+      "value": "•••• •••• •••• ••••"
+     },
+     {
+      "label": "Expiry",
+      "value": "••/••"
+     },
+     {
+      "label": "Security code",
+      "value": "•••"
+     }
+    ],
+    "doc": "form fields for the payment step — keep these masked, never real card data"
+   },
+   "buttonLabels": {
+    "default": [
+     "Continue to shipping",
+     "Continue to payment",
+     "Place order"
+    ],
+    "doc": "primary button text per step"
+   },
+   "currency": {
+    "default": "$",
+    "doc": "currency prefix"
+   },
+   "cartTitle": {
+    "default": "Your cart",
+    "doc": "heading of the cart step"
+   },
+   "totalLabel": {
+    "default": "Total",
+    "doc": "label before the cart total"
+   },
+   "doneTitle": {
+    "default": "Order placed",
+    "doc": "headline on the last step"
+   },
+   "doneText": {
+    "default": "A confirmation is on its way to your inbox.",
+    "doc": "sub-line on the last step"
+   },
+   "hold": {
+    "default": 54,
+    "doc": "frames each step stays on screen"
+   },
+   "background": {
+    "default": "#EEF0F6",
+    "doc": "page colour or 'transparent'"
+   },
+   "card": {
+    "default": "#FFFFFF",
+    "doc": "panel colour"
+   },
+   "ink": {
+    "default": "#1B2233",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#2F6BFF",
+    "doc": "stepper, button and check colour"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the flow starts"
    }
   }
  },
@@ -72450,6 +74915,163 @@
    "startAt": {
     "default": 0,
     "doc": "frame the sequence begins"
+   }
+  }
+ },
+ {
+  "id": "property-listing-card",
+  "title": "Property listing card",
+  "category": "ui",
+  "description": "A real-estate listing card rises in: the photo (or a drawn house) wipes in with a slow push-in and light sweep under a status badge and a favourite heart, then the price counts up, the title and a location pin appear, bed / bath / area icon stats pop in one by one and feature tags pop below.",
+  "useFor": "Real-estate, rental and hospitality listings, property-site hero animations, agent promo reels, marketplace item cards. Pass a photo src, the price, beds / baths / area, the location and feature tags; horizontal card in 16:9, vertical in 1:1 and 9:16.",
+  "source": [
+   "original round-3 vertical motion"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "real estate",
+   "property",
+   "listing",
+   "house",
+   "home",
+   "rental",
+   "for sale",
+   "price",
+   "beds",
+   "baths",
+   "location pin",
+   "card",
+   "agent",
+   "overlay"
+  ],
+  "file": "src/motions/ui/property-listing-card.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": true,
+  "textProps": [
+   "title"
+  ],
+  "colorProps": [
+   "background",
+   "cardColor",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "photo"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "src": {
+    "default": "",
+    "doc": "photo path in public/ or URL (empty = a drawn house in the accent colour)"
+   },
+   "price": {
+    "default": 485000,
+    "doc": "price number (counts up)"
+   },
+   "pricePrefix": {
+    "default": "$",
+    "doc": "text before the price (currency symbol)"
+   },
+   "priceSuffix": {
+    "default": "",
+    "doc": "text after the price, e.g. \"/mo\""
+   },
+   "status": {
+    "default": "FOR SALE",
+    "doc": "badge over the photo (empty = none)"
+   },
+   "title": {
+    "default": "Modern family home",
+    "doc": "listing title"
+   },
+   "location": {
+    "default": "24 Garden Lane, Greenfield",
+    "doc": "address / area line next to the pin"
+   },
+   "beds": {
+    "default": 4,
+    "doc": "number of bedrooms"
+   },
+   "baths": {
+    "default": 3,
+    "doc": "number of bathrooms"
+   },
+   "area": {
+    "default": 2150,
+    "doc": "floor area number"
+   },
+   "areaUnit": {
+    "default": "sq ft",
+    "doc": "unit label under the area number"
+   },
+   "bedsLabel": {
+    "default": "Beds",
+    "doc": "label under the bedroom count"
+   },
+   "bathsLabel": {
+    "default": "Baths",
+    "doc": "label under the bathroom count"
+   },
+   "tags": {
+    "default": [
+     "Garden",
+     "Garage",
+     "Pool",
+     "Pet friendly"
+    ],
+    "doc": "feature chips (up to 6)"
+   },
+   "favorite": {
+    "default": true,
+    "doc": "the heart button gets tapped and fills"
+   },
+   "background": {
+    "default": "#E7EDF3",
+    "doc": "page colour, or \"transparent\""
+   },
+   "cardColor": {
+    "default": "#FFFFFF",
+    "doc": "card background colour"
+   },
+   "ink": {
+    "default": "#16202B",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#2F6FED",
+    "doc": "price, badge, icon and drawn-house colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "CSS font family (empty = Space Grotesk)"
+   },
+   "startAt": {
+    "default": 6,
+    "doc": "frame the card starts entering"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed multiplier"
    }
   }
  },

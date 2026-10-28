@@ -2,7 +2,7 @@ import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {clamp, ease, prog} from '../../core/ease';
 import {n2, rng} from '../../core/random';
-import {Header, clip, fmt, ramp, resolveFont, tw, useChartBox} from '../../core/r3-chart-kit';
+import {Header, fmt, ramp, resolveFont, tw, useChartBox} from '../../core/r3-chart-kit';
 import {Svg, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
 
@@ -136,7 +136,7 @@ const HeatmapCalendar: React.FC<Props> = ({
     const lab = (portrait ? 24 : 21) * u;
     const dayW = showWeekdays ? tw('Wed', lab, 0.58) + 16 * u : 0;
     const monH = lab * 1.9;
-    cell = Math.min((box.w - dayW) / cols, (chartH - monH) / 7);
+    cell = Math.min((box.w - dayW) / cols, (chartH - monH) / 7, 64 * u);
     gridW = cell * cols;
     gridH = cell * 7;
     originX = box.x + (box.w - gridW - dayW) / 2 + dayW;
@@ -177,7 +177,7 @@ const HeatmapCalendar: React.FC<Props> = ({
     const titleH = lab * 1.9;
     const bw = (box.w - (mcols - 1) * blockGap) / mcols;
     const rowsNeeded = 6;
-    cell = Math.min(bw / 7, (chartH - (mrows - 1) * blockGap - mrows * titleH) / (mrows * rowsNeeded));
+    cell = Math.min(bw / 7, (chartH - (mrows - 1) * blockGap - mrows * titleH) / (mrows * rowsNeeded), 64 * u);
     const blockW = cell * 7;
     const blockH = titleH + cell * rowsNeeded;
     const totalW = mcols * blockW + (mcols - 1) * blockGap;
@@ -214,12 +214,16 @@ const HeatmapCalendar: React.FC<Props> = ({
 
   const footY = originY + gridH + footGap;
   const statY = footY + statBig * 0.85;
+  const fullStats = [fmt(total, 0, prefix, suffix), fmt(maxV, 0, prefix, suffix), fmt(active, 0)];
+  const statLabels = [totalLabel, bestLabel, activeLabel];
+  const statWs = fullStats.map((b, k) => Math.max(tw(b, statBig, 0.62), tw(statLabels[k], statSmall, 0.56)) + 56 * u);
+  const statScale = Math.min(1, box.w / Math.max(1, statWs.reduce((a, b) => a + b, 0)));
+  const statXs = statWs.map((_, k) => box.x + statWs.slice(0, k).reduce((a, b) => a + b, 0) * statScale);
   const stats = [
     {big: fmt(total * countT, 0, prefix, suffix), small: totalLabel},
     {big: fmt(maxV * clamp(countT * 1.0), 0, prefix, suffix), small: bestLabel},
     {big: fmt(active * countT, 0), small: activeLabel},
   ];
-  const statW = stacked ? box.w / 3 : Math.min(300 * u, box.w * 0.2);
   const legY = stacked && showStats ? statY + statSmall * 1.5 + 62 * u : footY + statBig * 0.4;
   const legSw = (portrait ? 26 : 22) * u;
   const legText = (portrait ? 24 : 21) * u;
@@ -280,11 +284,11 @@ const HeatmapCalendar: React.FC<Props> = ({
         {showStats &&
           stats.map((s, k) => (
             <g key={k} opacity={statT(k)} transform={`translate(0 ${(1 - statT(k)) * 12 * u})`}>
-              <text x={box.x + k * statW} y={statY} fontFamily={font} fontWeight={700} fontSize={statBig} fill={ink} style={{fontVariantNumeric: 'tabular-nums'}}>
-                {clip(s.big, statW - 14 * u, statBig, 0.6)}
+              <text x={statXs[k]} y={statY} fontFamily={font} fontWeight={700} fontSize={statBig} fill={ink} style={{fontVariantNumeric: 'tabular-nums'}}>
+                {s.big}
               </text>
-              <text x={box.x + k * statW} y={statY + statSmall * 1.5} fontFamily={font} fontWeight={500} fontSize={statSmall} fill={ink} fillOpacity={0.6}>
-                {clip(s.small, statW - 14 * u, statSmall)}
+              <text x={statXs[k]} y={statY + statSmall * 1.5} fontFamily={font} fontWeight={500} fontSize={statSmall} fill={ink} fillOpacity={0.6}>
+                {s.small}
               </text>
             </g>
           ))}

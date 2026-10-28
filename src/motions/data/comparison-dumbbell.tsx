@@ -92,9 +92,9 @@ const ComparisonDumbbell: React.FC<Props> = ({
   const gx1 = box.x + box.w - deltaW - (showValues ? 70 * u : 24 * u);
   const gy0 = box.y + legH + 14 * u;
   const gy1 = box.y + box.h - axisH;
-  const rowH = Math.min((portrait ? 118 : 96) * u, (gy1 - gy0) / Math.max(1, rows.length));
+  const rowH = Math.min((portrait ? 170 : 96) * u, (gy1 - gy0) / Math.max(1, rows.length));
   const gh = rowH * rows.length;
-  const top = gy0 + Math.max(0, (gy1 - gy0 - gh) / 2);
+  const top = gy0;
   const sx = (v: number) => gx0 + ((v - sc.min) / (sc.max - sc.min || 1)) * (gx1 - gx0);
   const dotR = Math.min(15 * u, rowH * 0.2);
 
