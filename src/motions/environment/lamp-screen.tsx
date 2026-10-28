@@ -50,7 +50,7 @@ const roof = (cx: number, y: number, hw: number, hh: number) =>
 
 const LampScreen: React.FC<Props> = (p) => {
   const frame = useCurrentFrame();
-  const {w, h, u, fps} = useStage();
+  const {w, h, u, fps, portrait} = useStage();
   const id = useUid('lmp');
   const lampsPx = p.lamps.map((l) => ({x: l.x * w, y: l.y * h}));
   // per-lamp ignition level: flare overshoot on ignite, 0.35 s gutter on snuff
@@ -69,7 +69,7 @@ const LampScreen: React.FC<Props> = (p) => {
   // subject geometry in a 1000 x 640 design box, fitted into the cloth
   const bw = 1000;
   const bh = 640;
-  const k = Math.min((w * 0.62) / bw, (h * 0.58) / bh);
+  const k = Math.min((w * (portrait ? 0.8 : 0.62)) / bw, (h * 0.58) / bh);
   const ox = w / 2 - (bw * k) / 2;
   const oy = h * 0.5 - (bh * k) / 2 + h * 0.04;
   const tr = tremor(frame, p.seed, p.tremor);

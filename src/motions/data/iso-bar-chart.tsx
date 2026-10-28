@@ -162,7 +162,7 @@ const IsoBarChart: React.FC<Props> = ({values, beatFrames, showCharacter, loop, 
     add(-1, 0, -1);
     return {x0, x1, y0, y1};
   }, [H, N]);
-  const Cclose = 103 * u * zoom * (portrait ? 1.08 : 1);
+  const Cclose = 103 * u * zoom * (portrait ? 0.8 : 1);
   const fit = Math.min((w * 0.86) / (bb.x1 - bb.x0), (h * (portrait ? 0.55 : 0.8)) / (bb.y1 - bb.y0));
   const Cwide = Math.min(Cclose * Math.max(0.62, Math.min(0.9, 9 / N)), fit);
   const wideW = (t: number) => {

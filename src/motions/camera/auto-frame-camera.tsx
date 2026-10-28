@@ -82,7 +82,7 @@ const AutoFrameCamera: React.FC<Props> = ({steps, stepAt, margin, frames, minSca
   const gx1 = bnds.x1 * cam.scale + cam.tx;
   const gy0 = bnds.y0 * cam.scale + cam.ty;
   const gy1 = bnds.y1 * cam.scale + cam.ty;
-  const fs = k * 0.5;
+  const fs = k * (portrait ? 0.85 : 0.5);
   const zoom = cam.scale;
 
   return (

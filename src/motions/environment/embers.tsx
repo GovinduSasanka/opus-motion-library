@@ -110,12 +110,13 @@ const Backdrop: React.FC<{mode: Props['mode']; t: number; glow: boolean}> = ({mo
 
 const Embers: React.FC<Props> = ({mode, background, backdrop, color, count, speed, life, size, wind, glow, seed, tail, blink, band}) => {
   const frame = useCurrentFrame();
-  const {w, h, u, fps} = useStage();
+  const {w, h, u, fps, portrait} = useStage();
   const t = frame / fps;
   const overlay = isTransparent(background);
   const scene = backdrop && !overlay;
   const col = color || DEFAULT_COLOR[mode];
-  const n = Math.round((count > 0 ? count : DEFAULT_COUNT[mode]) * areaK(w, h));
+  const n = Math.round((count > 0 ? count : DEFAULT_COUNT[mode]) * areaK(w, h) * (portrait ? 1.5 : 1));
+  const sz = size * (portrait ? 1.7 : 1);
   const els: React.ReactNode[] = [];
   const glows: React.ReactNode[] = [];
 
@@ -139,7 +140,7 @@ const Embers: React.FC<Props> = ({mode, background, backdrop, color, count, spee
       const tw = 0.6 + 0.4 * n2('spk' + seed, i * 0.37, t * 9);
       const o = env * tw;
       if (o < 0.03) continue;
-      const r = (1.1 + 1.9 * Math.pow(hash01(seed, i, 9), 1.5)) * u * size;
+      const r = (1.1 + 1.9 * Math.pow(hash01(seed, i, 9), 1.5)) * u * sz;
       const heat = age / L;
       const sc = mixHex('#FFF4D8', col, Math.min(1, heat * 1.6));
       const fc = heat > 0.65 ? mixHex(sc, '#FF7A2E', (heat - 0.65) / 0.35) : sc;
@@ -161,7 +162,7 @@ const Embers: React.FC<Props> = ({mode, background, backdrop, color, count, spee
       const pulse = 0.5 + 0.5 * Math.sin((TAU * t) / per + ph);
       const o = 0.12 + 0.88 * Math.pow(pulse, 1.4);
       const [x, y] = posAt(t);
-      const r = (3 + 3 * hash01(seed, i, 6)) * u * size;
+      const r = (3 + 3 * hash01(seed, i, 6)) * u * sz;
       for (let k = nt; k >= 1; k--) {
         const [tx, ty] = posAt(t - k * (2 / fps));
         els.push(<circle key={`t${i}-${k}`} cx={tx} cy={ty} r={r * (1 - k / (nt + 2)) * 0.8} fill={col} opacity={o * 0.35 * (1 - k / (nt + 1))} />);
@@ -175,7 +176,7 @@ const Embers: React.FC<Props> = ({mode, background, backdrop, color, count, spee
       const span = h + 60 * u;
       const y = wrap(hash01(seed, i, 2) * span - rise * t, span) - 30 * u;
       const x = hash01(seed, i, 3) * w + 8 * u * 1.5 * Math.sin((TAU * t) / 3 + hash01(seed, i, 4) * TAU) + wind * 20 * u * t;
-      const r = (3 + 3 * hash01(seed, i, 5)) * u * size * 2.2;
+      const r = (3 + 3 * hash01(seed, i, 5)) * u * sz * 2.2;
       const o = 0.7 + 0.3 * Math.sin(t * (1.5 + 2 * hash01(seed, i, 6)) + i);
       const xx = wrap(x, w + 40 * u) - 20 * u;
       els.push(<circle key={i} cx={xx} cy={y} r={r} fill="url(#emb-mote)" opacity={Math.max(0.4, o)} />);
@@ -188,7 +189,7 @@ const Embers: React.FC<Props> = ({mode, background, backdrop, color, count, spee
       const y = wrap(hash01(seed, i, 2) * span - rise * t, span) - 40 * u;
       const x = wrap(hash01(seed, i, 3) * w + 10 * u * Math.sin(t * 0.8 + i) + wind * 20 * u * t, w + 40 * u) - 20 * u;
       const kind = hash01(seed, i, 4);
-      const s = (8 + 16 * Math.pow(hash01(seed, i, 5), 1.4)) * u * size;
+      const s = (8 + 16 * Math.pow(hash01(seed, i, 5), 1.4)) * u * sz;
       const rot = (hash01(seed, i, 6) - 0.5) * 240 * t + hash01(seed, i, 7) * 360;
       const flip = Math.cos(t * (1 + 2 * hash01(seed, i, 8)) + i);
       const shade = mixHex(col, flip > 0 ? '#FFF0B8' : '#8A6420', Math.abs(flip) * 0.45);

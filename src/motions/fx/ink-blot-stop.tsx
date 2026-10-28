@@ -26,7 +26,7 @@ type Props = {
 
 const InkBlotStop: React.FC<Props> = (p) => {
   const frame = useCurrentFrame();
-  const {w, h, u} = useStage();
+  const {w, h, u, portrait} = useStage();
   const id = 'ink-blot-stop';
   const [r, g, b] = hexRgb(p.color);
   const transparent = p.background === 'transparent';
@@ -45,7 +45,7 @@ const InkBlotStop: React.FC<Props> = (p) => {
           const uK = seg(frame, bl.start, bl.start + dur);
           if (uK <= 0) return null;
           const gK = 1 - Math.pow(1 - uK, 2.2);
-          const size = (bl.size ?? 1) * 2.6 * u;
+          const size = (bl.size ?? 1) * 2.6 * u * (portrait ? 1.7 : 1);
           const bp = blotPath(bl.x * w, bl.y * h, gK, p.lineWidth * u, size, p.seed + i * 7);
           const rimId = `${id}-rim${i}`;
           const lk = bl.label ? ss(seg(frame, bl.start + dur * 0.7, bl.start + dur * 0.7 + 14)) : 0;
@@ -63,7 +63,7 @@ const InkBlotStop: React.FC<Props> = (p) => {
               {/* the contact dot at the original nib point stays darkest */}
               <circle cx={bl.x * w} cy={bl.y * h} r={Math.max(1.5 * u, p.lineWidth * 0.8 * u)} fill={p.color} />
               {lk > 0 && (
-                <text x={bl.x * w} y={bp.cy + bp.R + 52 * u} textAnchor="middle" fontFamily={lbf('caveat')} fontWeight={500} fontSize={42 * u} fill={p.labelColor} opacity={lk * 0.9} filter="none">
+                <text x={bl.x * w} y={bp.cy + bp.R + 52 * u} textAnchor="middle" fontFamily={lbf('caveat')} fontWeight={500} fontSize={(portrait ? 58 : 42) * u} fill={p.labelColor} opacity={lk * 0.9} filter="none">
                   {bl.label}
                 </text>
               )}

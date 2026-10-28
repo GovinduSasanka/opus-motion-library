@@ -140,7 +140,7 @@ const CellDivision: React.FC<Props> = ({background, outlineColor, nucleusColors,
   const count = g < G && split > 0.5 ? Math.pow(2, g + 1) : Math.pow(2, g);
 
   // binary tree (top-right)
-  const tw = (portrait ? 0.34 : 0.19) * w;
+  const tw = (portrait ? 0.4 : 0.19) * w;
   const tx0 = w - tw - 0.04 * w;
   const ty0 = 0.05 * h;
   const tdy = (portrait ? 26 : 24) * u * (8 / Math.max(G, 6));
@@ -248,17 +248,17 @@ const CellDivision: React.FC<Props> = ({background, outlineColor, nucleusColors,
           style={{
             position: 'absolute',
             right: 0.04 * w,
-            top: ty0 + G * tdy + 26 * u,
+            top: ty0 + G * tdy + (portrait ? 36 : 26) * u,
             width: tw,
             textAlign: 'center',
             fontFamily: fonts.mono,
-            fontSize: 30 * u,
+            fontSize: (portrait ? 46 : 30) * u,
             letterSpacing: 2 * u,
             color: outlineColor,
             opacity: 0.85,
           }}
         >
-          {count.toLocaleString('en-US')} <span style={{opacity: 0.55, fontSize: 20 * u}}>CELLS</span>
+          {count.toLocaleString('en-US')} <span style={{opacity: 0.55, fontSize: (portrait ? 30 : 20) * u}}>CELLS</span>
         </div>
       )}
     </AbsoluteFill>

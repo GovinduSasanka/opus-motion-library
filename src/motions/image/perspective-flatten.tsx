@@ -78,11 +78,14 @@ const PerspectiveFlatten: React.FC<Props> = (p) => {
   const B = React.useMemo(() => makeBoard(p.board), [p.board]);
 
   // board → screen (flat) affine, contain-fitted
-  const ks = Math.min((w * 0.9) / B.W, (h * 0.84) / B.H);
-  const ox = (w - B.W * ks) / 2;
-  const oy = (h - B.H * ks) / 2 + h * 0.015;
-  const B2S: M3 = [ks, 0, ox, 0, ks, oy, 0, 0, 1];
-  const toS = (b: Pt): Pt => [ox + b[0] * ks, oy + b[1] * ks];
+  // portrait: the board is turned a quarter turn (long side vertical) so it fills the tall frame
+  const portrait = h > w;
+  const ks = portrait ? Math.min((w * 0.88) / B.H, (h * 0.84) / B.W) : Math.min((w * 0.9) / B.W, (h * 0.84) / B.H);
+  const ox = portrait ? w / 2 - (B.H * ks) / 2 : (w - B.W * ks) / 2;
+  const oy = portrait ? h / 2 + h * 0.015 - (B.W * ks) / 2 : (h - B.H * ks) / 2 + h * 0.015;
+  const B2S: M3 = portrait ? [0, -ks, ox + B.H * ks, ks, 0, oy, 0, 0, 1] : [ks, 0, ox, 0, ks, oy, 0, 0, 1];
+  const toS = (b: Pt): Pt => (portrait ? [ox + (B.H - b[1]) * ks, oy + b[0] * ks] : [ox + b[0] * ks, oy + b[1] * ks]);
+  const q = portrait ? 1.6 : 1; // portrait: bigger labels
 
   // oblique camera: board corners → screen trapezoid (the procedural photo)
   const T = React.useMemo(
@@ -198,7 +201,7 @@ const PerspectiveFlatten: React.FC<Props> = (p) => {
         <circle cx={s[0]} cy={s[1] + drop + bounce} r={r} fill={c} stroke="#0C1411" strokeWidth={2.5 * u} />
         <circle cx={s[0] - r * 0.3} cy={s[1] + drop + bounce - r * 0.3} r={r * 0.28} fill="#fff" opacity={0.55} />
         {m.label && (
-          <text x={s[0] + r + 8 * u} y={s[1] + drop + bounce + 5 * u} fontFamily={fonts.mono} fontSize={17 * u} fill={p.chalk} opacity={0.9}>
+          <text x={s[0] + r + 8 * u} y={s[1] + drop + bounce + 5 * u} fontFamily={fonts.mono} fontSize={17 * u * q} fill={p.chalk} opacity={0.9}>
             {m.label}
           </text>
         )}
@@ -223,7 +226,7 @@ const PerspectiveFlatten: React.FC<Props> = (p) => {
                 const s = toS(pos(pl, f0));
                 return <circle key={i} cx={s[0]} cy={s[1]} r={ks * 0.9} fill="none" stroke={p.chalk} strokeOpacity={0.45} strokeWidth={1.8 * u} />;
               })}
-            <text x={ox} y={oy - 20 * u} fontFamily={fonts.mono} fontSize={19 * u} letterSpacing={3 * u} fill={p.chalk} opacity={0.7}>
+            <text x={ox} y={oy - 20 * u} fontFamily={fonts.mono} fontSize={19 * u * q} letterSpacing={3 * u} fill={p.chalk} opacity={0.7}>
               {(p.label || B.label).toUpperCase()}
             </text>
           </g>

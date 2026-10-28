@@ -817,9 +817,10 @@ const WalkerWorldScroll: React.FC<Props> = ({eras, speed, stopFrames, eraWidth, 
   const cf = clamp((frame - lastB) / 9);
   const prev = list[Math.max(0, eraNow - 1)];
   const cur = list[eraNow];
-  const yearSize = 44 * u;
-  const subSize = 22 * u;
-  const cardW = (e: Era) => Math.max(e.year.length * yearSize * 0.62, e.label.length * subSize * 0.56) + 50 * u;
+  const bs = portrait ? 1.45 : 1;
+  const yearSize = 44 * u * bs;
+  const subSize = 22 * u * bs;
+  const cardW = (e: Era) => Math.max(e.year.length * yearSize * 0.62, e.label.length * subSize * 0.56) + 50 * u * bs;
   const bw = eraNow > 0 ? interpolate(cf, [0, 1], [cardW(prev), cardW(cur)], {easing: ease.inOut}) : cardW(cur);
 
   return (
@@ -867,18 +868,18 @@ const WalkerWorldScroll: React.FC<Props> = ({eras, speed, stopFrames, eraWidth, 
         ))}
         {confetti}
         {badge && (
-          <g transform={`translate(${w - 30 * u - bw},${50 * u})`}>
-            <rect x={0} y={0} width={bw} height={112 * u} rx={14 * u} fill="#F8F3EA" opacity={0.86} />
+          <g transform={`translate(${w - 30 * u - bw},${50 * u * bs})`}>
+            <rect x={0} y={0} width={bw} height={112 * u * bs} rx={14 * u} fill="#F8F3EA" opacity={0.86} />
             {[
               {e: prev, o: eraNow > 0 ? 1 - cf : 0},
               {e: cur, o: eraNow > 0 ? cf : 1},
             ].map(({e, o}, j) =>
               o > 0.001 ? (
                 <g key={j} opacity={o}>
-                  <text x={bw - 25 * u} y={56 * u} textAnchor="end" fontFamily={fonts.sans} fontWeight={800} fontSize={yearSize} fill="#1F2018">
+                  <text x={bw - 25 * u * bs} y={56 * u * bs} textAnchor="end" fontFamily={fonts.sans} fontWeight={800} fontSize={yearSize} fill="#1F2018">
                     {e.year}
                   </text>
-                  <text x={bw - 25 * u} y={90 * u} textAnchor="end" fontFamily={fonts.sans} fontWeight={600} fontSize={subSize} fill="#1F2018" opacity={0.75}>
+                  <text x={bw - 25 * u * bs} y={90 * u * bs} textAnchor="end" fontFamily={fonts.sans} fontWeight={600} fontSize={subSize} fill="#1F2018" opacity={0.75}>
                     {e.label}
                   </text>
                 </g>

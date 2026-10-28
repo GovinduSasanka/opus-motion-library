@@ -58,7 +58,7 @@ const LyricTiming: React.FC<Props> = ({lines, lyrics, bpm, offsetSec, beats, win
   }, [JSON.stringify(lyrics), JSON.stringify(lines), g]);
   const t = frame / fps;
   const clear = background === 'transparent';
-  const P = portrait ? 1.3 : 1;
+  const P = portrait ? 1.9 : 1;
   const mono = 14 * u * P;
   const x0 = w * 0.05;
   const x1 = w * 0.95;

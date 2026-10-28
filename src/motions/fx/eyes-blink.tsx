@@ -268,7 +268,7 @@ const EyesBlink: React.FC<Props> = (p) => {
   return (
     <FxRoot background={background}>
       <Svg>
-        {variant === 'watching' ? <Watching {...p} f={f} frame={frame} u={u} w={w} h={h} clear={clear} /> : <Character {...p} f={f} frame={frame} u={u} px={px} py={py} clear={clear} />}
+        {variant === 'watching' ? <Watching {...p} f={f} frame={frame} u={u} w={w} h={h} clear={clear} /> : <Character {...p} size={p.size * (h > w ? 1.7 : 1)} f={f} frame={frame} u={u} px={px} py={py} clear={clear} />}
       </Svg>
     </FxRoot>
   );

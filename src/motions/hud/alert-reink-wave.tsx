@@ -66,26 +66,27 @@ const Hud: React.FC<HudArgs> = ({pal, alert, frame, w, h, u, ox, oy, rr, portrai
   const names = alert ? ['LINK', 'HULL', 'POWER', 'SHIELD', 'THREAT'] : ['SIGNAL', 'LOAD', 'POWER', 'LINK', 'THREAT'];
   const panel = (px: number, py: number, pw: number, ph: number, k: number) => {
     const rows = bars.length;
-    const rh = (ph - 74 * u) / rows;
+    const q = portrait ? 1.5 : 1;
+    const rh = (ph - 74 * u * q) / rows;
     return (
       <g opacity={boot}>
         <rect x={px} y={py} width={pw} height={ph} fill={pal.main} opacity={0.05} />
         <path d={`M${px} ${py + 24 * u}V${py}H${px + 24 * u}M${px + pw - 24 * u} ${py + ph}H${px + pw}V${py + ph - 24 * u}`} stroke={pal.main} strokeWidth={2.4 * u} fill="none" />
-        <text x={px + 16 * u} y={py + 40 * u} fontFamily={mg1Fonts.tech} fontWeight={700} fontSize={22 * u} letterSpacing={4 * u} fill={pal.main}>
+        <text x={px + 16 * u} y={py + 40 * u * q} fontFamily={mg1Fonts.tech} fontWeight={700} fontSize={22 * u * q} letterSpacing={4 * u * q} fill={pal.main}>
           {k === 0 ? `0${1 + (alert ? 1 : 0)} // SYSTEM` : `0${3 + (alert ? 1 : 0)} // CONTACT`}
         </text>
         {bars.map((v, i) => {
-          const yy = py + 60 * u + i * rh;
+          const yy = py + 60 * u * q + i * rh;
           const vv = k === 0 ? v : cl(1 - v * 0.8 + (alert ? 0.15 : 0));
           const hot = i === 4;
           return (
             <g key={i}>
-              <text x={px + 16 * u} y={yy + rh * 0.42} fontFamily={fonts.mono} fontSize={17 * u} fill={pal.main} opacity={0.8}>
+              <text x={px + 16 * u} y={yy + rh * (portrait ? 0.45 : 0.42)} fontFamily={fonts.mono} fontSize={17 * u * q} fill={pal.main} opacity={0.8}>
                 {k === 0 ? names[i] : ['RNG', 'BRG', 'VEL', 'ALT', 'ID'][i]}
               </text>
-              <rect x={px + 16 * u} y={yy + rh * 0.52} width={pw - 90 * u} height={7 * u} fill={pal.dim} opacity={0.5} />
-              <rect x={px + 16 * u} y={yy + rh * 0.52} width={(pw - 90 * u) * vv} height={7 * u} fill={hot && alert ? pal.hot : pal.main} />
-              <text x={px + pw - 16 * u} y={yy + rh * 0.42} textAnchor="end" fontFamily={fonts.mono} fontWeight={700} fontSize={19 * u} fill={hot && alert ? pal.hot : pal.main}>
+              <rect x={px + 16 * u} y={yy + rh * (portrait ? 0.62 : 0.52)} width={pw - 90 * u} height={7 * u} fill={pal.dim} opacity={0.5} />
+              <rect x={px + 16 * u} y={yy + rh * (portrait ? 0.62 : 0.52)} width={(pw - 90 * u) * vv} height={7 * u} fill={hot && alert ? pal.hot : pal.main} />
+              <text x={px + pw - 16 * u} y={yy + rh * (portrait ? 0.45 : 0.42)} textAnchor="end" fontFamily={fonts.mono} fontWeight={700} fontSize={19 * u * q} fill={hot && alert ? pal.hot : pal.main}>
                 {Math.round(vv * 100)}
               </text>
             </g>
@@ -95,11 +96,11 @@ const Hud: React.FC<HudArgs> = ({pal, alert, frame, w, h, u, ox, oy, rr, portrai
     );
   };
   const pw = portrait ? w * 0.84 : w * 0.24;
-  const ph = portrait ? h * 0.15 : h * 0.4;
+  const ph = portrait ? h * 0.19 : h * 0.4;
   const lx = portrait ? (w - pw) / 2 : w * 0.05;
-  const ly = portrait ? h * 0.09 : h * 0.3;
+  const ly = portrait ? h * 0.1 : h * 0.3;
   const rx = portrait ? (w - pw) / 2 : w * 0.95 - pw;
-  const ry = portrait ? h * 0.76 : h * 0.3;
+  const ry = portrait ? h * 0.775 : h * 0.3;
   const blink = alert ? (Math.floor(frame / 8) % 2 === 0 ? 1 : 0.35) : 1;
   return (
     <g>
@@ -131,10 +132,10 @@ const Hud: React.FC<HudArgs> = ({pal, alert, frame, w, h, u, ox, oy, rr, portrai
       </g>
       {/* header + panels */}
       <g opacity={boot}>
-        <text x={w * 0.05} y={h * 0.075} fontFamily={mg1Fonts.tech} fontWeight={700} fontSize={(portrait ? 30 : 34) * u} letterSpacing={6 * u} fill={pal.main}>
+        <text x={w * 0.05} y={h * 0.075} fontFamily={mg1Fonts.tech} fontWeight={700} fontSize={(portrait ? 42 : 34) * u} letterSpacing={6 * u} fill={pal.main}>
           {callSign}
         </text>
-        <text x={w * 0.95} y={h * 0.075} textAnchor="end" fontFamily={fonts.mono} fontSize={26 * u} fill={pal.main} opacity={0.9}>
+        <text x={w * 0.95} y={h * 0.075} textAnchor="end" fontFamily={fonts.mono} fontSize={(portrait ? 36 : 26) * u} fill={pal.main} opacity={0.9}>
           {tc(frame)}
         </text>
         <text x={cx0(w)} y={portrait ? h * 0.72 : h * 0.9} textAnchor="middle" fontFamily={mg1Fonts.tech} fontWeight={700} fontSize={(portrait ? 58 : 66) * u} letterSpacing={9 * u} fill={alert ? pal.hot : pal.main} opacity={blink}>

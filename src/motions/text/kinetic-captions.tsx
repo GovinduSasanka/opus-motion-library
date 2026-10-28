@@ -174,8 +174,12 @@ export const CaptionTrack: React.FC<{cues: CaptionCue[]} & Style> = ({cues, ...s
   return <AbsoluteFill style={{pointerEvents: 'none'}}>{cue && <Line cue={cue} {...style} />}</AbsoluteFill>;
 };
 
-const Demo: React.FC<{lines: string[]; secondLines?: string[]; framesPerLine: number; background: string} & Style> = ({lines, secondLines, framesPerLine, background, ...style}) => {
+const Demo: React.FC<{lines: string[]; secondLines?: string[]; framesPerLine: number; background: string} & Style> = ({lines, secondLines, framesPerLine, background, ...style0}) => {
+  let style = style0;
   // a cue's start/end are absolute frames; demo spreads lines evenly
+  const {portrait} = useStage();
+  const boost = portrait && (!style.variant || style.variant === 'kinetic' || style.variant === 'premium');
+  if (boost && typeof style.size === 'number') style = {...style, size: style.size * 1.5};
   const cues = lines.map((text, i) => ({text, from: i * framesPerLine, to: (i + 1) * framesPerLine, ...(secondLines?.[i] ? {sub: secondLines[i]} : {})}));
   return (
     <AbsoluteFill style={{background}}>

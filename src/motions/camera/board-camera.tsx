@@ -95,7 +95,7 @@ const Doodle: React.FC<{kind: string; p: number; ink: string; accent: string; w:
 
 const BoardCamera: React.FC<Props> = (p) => {
   const frame = useCurrentFrame();
-  const {w, h, u, durationInFrames} = useStage();
+  const {w, h, u, durationInFrames, portrait} = useStage();
   const keys = p.camera.map((k) => [Number(k[0]), Number(k[1]), Number(k[2]), Number(k[3]), Number(k[4]), String(k[5] || 'inOut')] as CamKey);
   const cam = camAt(frame, keys);
   const prev = camAt(frame - 1, keys);
@@ -125,7 +125,7 @@ const BoardCamera: React.FC<Props> = (p) => {
           width: p.boardW,
           height: p.boardH,
           transformOrigin: '0 0',
-          transform: `translate(${w / 2}px, ${h / 2}px) rotate(${cam.roll}deg) scale(${cam.z * u}) translate(${-cam.x}px, ${-cam.y}px)`,
+          transform: `translate(${w / 2}px, ${h / 2}px) rotate(${cam.roll}deg) scale(${cam.z * u * (portrait ? 0.7 : 1)}) translate(${-cam.x}px, ${-cam.y}px)`,
           filter: blur > 0.3 ? 'url(#bc-blur)' : undefined,
         }}
       >

@@ -30,9 +30,11 @@ type Props = {
 
 const LETTER_FONT = fonts.display;
 
-const layout = (P: Props, w: number, h: number, u: number, frames: number) => {
+const layout = (P0: Props, w: number, h: number, u: number, frames: number) => {
   const cx = w / 2;
   const portrait = h > w;
+  // portrait: a much taller heap (more bodies, faster spawn) so the tall frame is not mostly empty
+  const P: Props = portrait && !P0.text.trim() ? {...P0, count: Math.round(P0.count * 2.6), spawnEvery: P0.spawnEvery * 0.5} : P0;
   const floorY = h * (portrait ? 0.86 : 0.88);
   const bw = Math.min(w * 0.46, 620 * u);
   const wr = 22 * u;

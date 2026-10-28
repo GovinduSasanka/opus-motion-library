@@ -27,10 +27,11 @@ type Props = {
 
 const Balls: React.FC<{frame: number; w: number; h: number; u: number; colors: string[]; count: number; speed: number; seed: number}> = ({frame, w, h, u, colors, count, speed, seed}) => {
   const cx = w / 2;
-  const cy = h * 0.5;
   const portrait = h > w;
+  const cy = h * (portrait ? 0.45 : 0.5);
   const rx = (portrait ? 0.2 : 0.2) * w;
-  const ry = (portrait ? 0.14 : 0.2) * h;
+  const ry = (portrait ? 0.15 : 0.2) * h;
+  const k = portrait ? 1.3 : 1;
   return (
     <g>
       {Array.from({length: count}, (_, i) => {
@@ -38,7 +39,7 @@ const Balls: React.FC<{frame: number; w: number; h: number; u: number; colors: s
         const om = (0.55 + hash(seed * 7 + i + 3) * 0.7) * speed * 0.035 * (i % 2 ? -1 : 1);
         const x = cx + rx * (0.45 + hash(i + seed) * 0.7) * Math.sin(frame * om + ph);
         const y = cy + ry * (0.45 + hash(i + seed + 9) * 0.7) * Math.cos(frame * om * 1.23 + ph * 1.7);
-        const r = (125 + 85 * hash(seed + i * 5)) * u * (1 + 0.06 * Math.sin(frame * 0.09 + i));
+        const r = (125 + 85 * hash(seed + i * 5)) * u * k * (1 + 0.06 * Math.sin(frame * 0.09 + i));
         return <circle key={i} cx={x} cy={y} r={r} fill={colors[i % colors.length]} />;
       })}
     </g>

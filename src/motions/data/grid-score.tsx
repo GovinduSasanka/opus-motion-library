@@ -39,7 +39,7 @@ const PH = 1008;
 
 const GridScore: React.FC<Props> = ({cols, rows, notes, pitchLabels, circle, title, caption, gridStart, barsStart, rotateAt, rotateFrames, labelsAt, playFrom, playFrames, page, paper, ink, second, signal}) => {
   const frame = useCurrentFrame();
-  const {w, h, cx, cy} = useStage();
+  const {w, h, cx, cy, portrait} = useStage();
   const fArch = lf('archivo');
   const fMono = lf('plex');
   const cw = 40;
@@ -48,8 +48,8 @@ const GridScore: React.FC<Props> = ({cols, rows, notes, pitchLabels, circle, tit
   const gh = rows * ch;
   const x0 = -gw / 2;
   const y0 = -gh / 2 + 22;
-  const rotE = precise(seg(frame, rotateAt, rotateAt + rotateFrames));
-  const S0 = (h * 0.86) / PH;
+  const rotE = portrait ? 0 : precise(seg(frame, rotateAt, rotateAt + rotateFrames));
+  const S0 = portrait ? Math.min((w * 0.92) / PW, (h * 0.9) / PH) : (h * 0.86) / PH;
   const S1 = Math.min((w * 0.9) / PH, (h * 0.8) / PW);
   const S = lerp(S0, S1, rotE);
   const enter = eo3(seg(frame, 0, 14));
@@ -91,7 +91,7 @@ const GridScore: React.FC<Props> = ({cols, rows, notes, pitchLabels, circle, tit
           <text x={-PW / 2 + 30} y={-PH / 2 + 56} fontFamily={fArch} fontWeight={800} fontSize={30} letterSpacing={3} fill={ink}>
             {title}
           </text>
-          <text x={-PW / 2 + 30} y={PH / 2 - 28} fontFamily={fMono} fontWeight={500} fontSize={15} letterSpacing={1.5} fill={ink} opacity={0.7}>
+          <text x={-PW / 2 + 30} y={PH / 2 - 28} fontFamily={fMono} fontWeight={500} fontSize={portrait ? 20 : 15} letterSpacing={1.5} fill={ink} opacity={0.7}>
             {caption}
           </text>
           <g stroke={ink} strokeWidth={1.1} opacity={0.4}>
@@ -122,7 +122,7 @@ const GridScore: React.FC<Props> = ({cols, rows, notes, pitchLabels, circle, tit
               const o = lab(r * 0.5);
               return (
                 <g key={'sl' + r} opacity={o} transform={`translate(${fx(x0 + gw + 14 + (1 - o) * 10)},${fx(y0 + (r + 0.5) * ch)}) rotate(90)`}>
-                  <text textAnchor="middle" y={-2} fontFamily={fMono} fontWeight={500} fontSize={15} fill={ink} opacity={0.75}>
+                  <text textAnchor="middle" y={-2} fontFamily={fMono} fontWeight={500} fontSize={portrait ? 20 : 15} fill={ink} opacity={0.75}>
                     {String(r + 1).padStart(2, '0')}
                   </text>
                 </g>

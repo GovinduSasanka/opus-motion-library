@@ -155,7 +155,7 @@ const Collapse: React.FC<Props> = (p) => {
   const impactFrame = p.pushAt + (sim.impact * fps) / 30;
   // camera on ones: slow push, shake after impact
   const towerH = p.height * 1.2;
-  const dist = (portrait ? 3.1 : 2.0) * Math.max(p.width, towerH) + 7;
+  const dist = (portrait ? 2.2 : 2.0) * Math.max(p.width, towerH) + 7;
   const k = prog(frame, 0, 150, ease.sine);
   const sh = frame >= impactFrame ? Math.exp(-(frame - impactFrame) / 9) * Math.min(1, (frame - impactFrame + 4) / 6) : 0;
   const shx = Math.sin(frame * 2.1) * sh * 0.5;

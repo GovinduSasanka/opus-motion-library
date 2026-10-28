@@ -73,7 +73,7 @@ const MagnifierLoupe: React.FC<Props> = ({src, backdrop, path, zoom, bulge, size
   const frame = useCurrentFrame();
   const {w, h, u, fps, durationInFrames, portrait} = useStage();
   const glassOnly = !src && backdrop === 'none';
-  const camZoom = 1 + drift * clamp(frame / Math.max(1, durationInFrames));
+  const camZoom = (1 + drift * clamp(frame / Math.max(1, durationInFrames))) * (portrait && !src && !glassOnly ? 1.1 : 1);
   const track = useMemo(() => followTrack(path, durationInFrames + 1, fps, lag), [JSON.stringify(path), durationInFrames, fps, lag]);
   const p = track[Math.min(track.length - 1, Math.max(0, frame))];
 

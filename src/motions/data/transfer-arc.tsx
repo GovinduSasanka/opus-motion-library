@@ -76,10 +76,10 @@ const TransferArc: React.FC<Props> = ({jars, startJar, startLevel, chain, drawFr
   const yawNow = yaw + 6 * ease.sine(clamp(tt));
   const rackW = 2 * L.hw + 0.3;
   const rackH = L.panelH + 1.6;
-  const sFit = portrait ? Math.min((w * 0.9) / rackW, (h * 0.34) / rackH) : Math.min((w * (w > h ? 0.62 : 0.86)) / rackW, (h * 0.6) / rackH);
+  const sFit = portrait ? Math.min((w * 0.9) / rackW, (h * 0.4) / rackH) : Math.min((w * (w > h ? 0.62 : 0.86)) / rackW, (h * 0.6) / rackH);
   const s = sFit * (1 + 0.04 * ease.sine(clamp(tt)));
   const rcx = portrait ? w * 0.5 : w > h ? w * 0.57 : w * 0.5;
-  const rcy = portrait ? h * 0.56 : w > h ? h * 0.56 : h * 0.6;
+  const rcy = portrait ? h * 0.52 : w > h ? h * 0.56 : h * 0.6;
   const cosP = Math.cos((pitch * Math.PI) / 180);
   const pr = makeProj(rcx, rcy + (rackH / 2 - 0.3) * cosP * s, s, yawNow, pitch);
   const [sx, sy] = pr.P(L.hw + 0.6, L.panelH + 1.25, -0.4);
@@ -100,7 +100,7 @@ const TransferArc: React.FC<Props> = ({jars, startJar, startLevel, chain, drawFr
         {title ? <div style={{fontFamily: x14Fonts.bookSerif, fontStyle: 'italic', fontWeight: 600, fontSize: fs, lineHeight: 1.1}}>{title}</div> : null}
       </div>
       {caption ? (
-        <div style={{position: 'absolute', left: tx, bottom: portrait ? h * 0.1 : h * 0.08, opacity: tIn * 0.85, fontFamily: x14Fonts.bookSerif, fontStyle: 'italic', fontSize: fs * 0.48, color: ink, maxWidth: w * 0.84}}>{caption}</div>
+        <div style={{position: 'absolute', left: tx, bottom: portrait ? h * 0.1 : h * 0.08, opacity: tIn * 0.85, fontFamily: x14Fonts.bookSerif, fontStyle: 'italic', fontSize: fs * (portrait ? 0.64 : 0.48), color: ink, maxWidth: w * 0.84}}>{caption}</div>
       ) : null}
     </AbsoluteFill>
   );

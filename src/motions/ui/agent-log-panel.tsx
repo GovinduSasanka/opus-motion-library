@@ -28,7 +28,7 @@ type Props = {
 const AgentLogPanel: React.FC<Props> = ({background, messages, colors, chipText, header, headerRight, typeSpeed, every, width, demoScene, seed}) => {
   const frame = useCurrentFrame();
   const {w, h, u, fps, portrait} = useStage();
-  const fs = 12.5 * u * (portrait ? 1.3 : 1);
+  const fs = 12.5 * u * (portrait ? 1.9 : 1);
   const lh = fs * 1.5;
   const pw = (portrait ? 0.92 : width) * w;
   const ph = h * (portrait ? 0.6 : 0.78);

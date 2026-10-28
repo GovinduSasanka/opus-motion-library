@@ -178,7 +178,7 @@ const ChartToInstallation: React.FC<Props> = (p) => {
   const thA = (i: number) => a0 + i * step;
   const mid = Math.floor((N - 1) / 2);
   // portrait/square: pull further back so the whole dial fits at the top view
-  const fit = Math.max(1.12, 1.62 / aspect);
+  const fit = aspect < 0.8 ? 2.9 / aspect : Math.max(1.12, 1.62 / aspect);
   // top view target sits off-centre so an end card fits beside (left in landscape, above in portrait)
   const endTgt = aspect >= 1.2 ? cylV3(-Math.PI / 2, 1.9, 0.2) : ([0, 0.2, -1.5] as V3);
   const keys: [number, number[]][] = [

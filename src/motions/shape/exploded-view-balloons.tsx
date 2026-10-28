@@ -63,7 +63,8 @@ const ExplodedBalloons: React.FC<Props> = (p) => {
   };
   const balloonR = Math.max(16 * u, 2.6 * S);
   const listX = portrait ? 60 * u : w * 0.72;
-  const listY = portrait ? h * 0.66 : h * 0.2;
+  const listY = portrait ? h * 0.715 : h * 0.2;
+  const lk = portrait ? 1.45 : 1;
   const listIn = (i: number) => prog(frame, p.explodeAt + i * p.beatFrames + 6, p.explodeAt + i * p.beatFrames + 16, ease.out);
   const listFade = 1 - 0.65 * eio3(seg(frame, p.returnAt + n * p.beatFrames, p.returnAt + n * p.beatFrames + 16));
   const titleIn = prog(frame, 8, 26, ease.out);
@@ -109,26 +110,26 @@ const ExplodedBalloons: React.FC<Props> = (p) => {
           })}
           {/* parts list */}
           <g opacity={listFade}>
-            <text x={listX} y={listY - 18 * u} fontFamily={lf.plex} fontSize={21 * u} letterSpacing={3 * u} fill={p.lineColor} opacity={0.8 * prog(frame, p.explodeAt, p.explodeAt + 10, ease.out)}>
+            <text x={listX} y={listY - 18 * u * lk} fontFamily={lf.plex} fontSize={(portrait ? 30 : 21) * u} letterSpacing={3 * u} fill={p.lineColor} opacity={0.8 * prog(frame, p.explodeAt, p.explodeAt + 10, ease.out)}>
               PARTS LIST
             </text>
             {parts.map((part, i) => {
               const k = listIn(i);
               if (k <= 0) return null;
-              const y = listY + i * 42 * u;
+              const y = listY + i * (portrait ? 54 : 42) * u;
               return (
                 <g key={i} opacity={k} transform={`translate(${(1 - k) * 18 * u} 0)`}>
-                  <circle cx={listX + 14 * u} cy={y + 10 * u} r={14 * u} fill="none" stroke={p.accent} strokeWidth={1.8 * u} />
-                  <text x={listX + 14 * u} y={y + 16 * u} textAnchor="middle" fontFamily={lf.plex} fontSize={17 * u} fill={p.lineColor}>
+                  <circle cx={listX + 14 * u * lk} cy={y + 10 * u * lk} r={14 * u * lk} fill="none" stroke={p.accent} strokeWidth={1.8 * u} />
+                  <text x={listX + 14 * u * lk} y={y + 16 * u * lk} textAnchor="middle" fontFamily={lf.plex} fontSize={17 * u * lk} fill={p.lineColor}>
                     {i + 1}
                   </text>
-                  <text x={listX + 42 * u} y={y + 17 * u} fontFamily={lf.hand} fontSize={27 * u} fill={p.lineColor}>
+                  <text x={listX + 42 * u * lk} y={y + 17 * u * lk} fontFamily={lf.hand} fontSize={27 * u * lk} fill={p.lineColor}>
                     {part.label}
                   </text>
-                  <text x={listX + (portrait ? w - 180 * u : w * 0.25)} y={y + 16 * u} textAnchor="end" fontFamily={lf.plex} fontSize={19 * u} fill={p.lineColor} opacity={0.85}>
+                  <text x={listX + (portrait ? w - 180 * u : w * 0.25)} y={y + 16 * u * lk} textAnchor="end" fontFamily={lf.plex} fontSize={19 * u * lk} fill={p.lineColor} opacity={0.85}>
                     ×{part.qty}
                   </text>
-                  <line x1={listX + 42 * u} y1={y + 26 * u} x2={listX + (portrait ? w - 180 * u : w * 0.25)} y2={y + 26 * u} stroke={p.lineColor} strokeWidth={0.8 * u} opacity={0.25} />
+                  <line x1={listX + 42 * u * lk} y1={y + 26 * u * lk} x2={listX + (portrait ? w - 180 * u : w * 0.25)} y2={y + 26 * u * lk} stroke={p.lineColor} strokeWidth={0.8 * u} opacity={0.25} />
                 </g>
               );
             })}

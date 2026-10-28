@@ -73,8 +73,8 @@ const ExplodedViewSnap: React.FC<Props> = (p) => {
   const sy = Math.sin(yaw);
   const cp = Math.cos(pitch);
   const sp = Math.sin(pitch);
-  const S = (portrait ? w * 0.33 : Math.min(h * 0.33, w * 0.2)) * pushK;
-  const ox = w / 2;
+  const S = (portrait ? w * 0.36 : Math.min(h * 0.33, w * 0.2)) * pushK;
+  const ox = portrait ? w * 0.38 : w / 2; // portrait: shift left so the leader labels stay inside the frame
   const oy = h * (portrait ? 0.5 : 0.5) + (frame > tEnd ? 12 * u * (pushK - 1) : 0);
   const cam = (x: number, y: number, z: number): V => {
     const X1 = x * cy + z * sy;
@@ -186,9 +186,9 @@ const ExplodedViewSnap: React.FC<Props> = (p) => {
     const lab = (<g key={'l' + i}>
         {p.labels && E > 0.6 && (
           <g opacity={clamp((E - 0.6) / 0.3) * (1 - snap)}>
-            <line x1={rightPt[0]} y1={rightPt[1]} x2={rightPt[0] + 54 * u} y2={rightPt[1] - 10 * u} stroke={p.accent} strokeWidth={2 * u} />
+            <line x1={rightPt[0]} y1={rightPt[1]} x2={rightPt[0] + (portrait ? 40 : 54) * u} y2={rightPt[1] - 10 * u} stroke={p.accent} strokeWidth={2 * u} />
             <circle cx={rightPt[0]} cy={rightPt[1]} r={4 * u} fill={p.accent} />
-            <text x={rightPt[0] + 62 * u} y={rightPt[1] - 4 * u} fontFamily={s1f.barlow} fontWeight={600} fontSize={22 * u} letterSpacing={2 * u} fill={mixHex(p.background, '#000000', 0.7)}>
+            <text x={rightPt[0] + (portrait ? 48 : 62) * u} y={rightPt[1] - 4 * u} fontFamily={s1f.barlow} fontWeight={600} fontSize={(portrait ? 30 : 22) * u} letterSpacing={2 * u} fill={mixHex(p.background, '#000000', 0.7)}>
               {part.label.toUpperCase()}
             </text>
           </g>

@@ -172,19 +172,19 @@ const BounceScene: React.FC<Props & {fg: string}> = ({color, radius, restitution
           <Mono x={dx0 + 240 * u} y={dy0 - 12 * u} size={20} color={fg} anchor="center" opacity={clamp(diag * 3 - 1)}>
             =
           </Mono>
-          <Mono x={dx0 + 175 * u} y={dy0 + 62 * u} size={11} color={P17.hudGrey} anchor="center" opacity={diag}>
+          <Mono x={dx0 + 175 * u} y={dy0 + 62 * u} size={portrait ? 22 : 11} color={P17.hudGrey} anchor="center" opacity={diag}>
             CIRCLE = ELLIPSE = ELLIPSE
           </Mono>
         </>
       )}
-      <Mono x={rx} y={ry - 46 * u} size={11} color={P17.hudGrey} anchor="right" opacity={readIn}>
+      <Mono x={rx} y={ry - 46 * u} size={portrait ? 22 : 11} color={P17.hudGrey} anchor="right" opacity={readIn}>
         SCALE · LIVE
       </Mono>
       <div style={{position: 'absolute', left: rx, top: ry - 20 * u, transform: 'translateX(-100%)', display: 'flex', gap: 34 * u, opacity: readIn}}>
         {vals.map(([k, v], i) => (
           <div key={k} style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-end'}}>
-            <div style={{fontFamily: serifItalic, fontStyle: 'italic', fontSize: 64 * u, lineHeight: 1, color: i === 2 ? P17.red : fg, fontVariantNumeric: 'tabular-nums'}}>{v}</div>
-            <div style={{fontFamily: fonts.mono, fontSize: 10 * u, letterSpacing: '0.15em', color: P17.hudGrey, marginTop: 6 * u}}>{k}</div>
+            <div style={{fontFamily: serifItalic, fontStyle: 'italic', fontSize: (portrait ? 92 : 64) * u, lineHeight: 1, color: i === 2 ? P17.red : fg, fontVariantNumeric: 'tabular-nums'}}>{v}</div>
+            <div style={{fontFamily: fonts.mono, fontSize: (portrait ? 21 : 10) * u, letterSpacing: '0.15em', color: P17.hudGrey, marginTop: 6 * u}}>{k}</div>
           </div>
         ))}
       </div>
@@ -303,7 +303,7 @@ const AnticipationScene: React.FC<Props & {fg: string}> = ({color, radius, fg}) 
       {bars.map(([label, n], i) => {
         const x0 = bx0 + (barW * bars.slice(0, i).reduce((a, b) => a + b[1], 0)) / tot;
         return (
-          <Mono key={label} x={x0} y={by - 22 * u} size={10} color={i === 0 ? P17.red : P17.hudGrey}>
+          <Mono key={label} x={x0} y={by - 22 * u} size={portrait ? 16 : 10} color={i === 0 ? P17.red : P17.hudGrey}>
             {`${label} ${n}F`}
           </Mono>
         );
@@ -315,7 +315,7 @@ const AnticipationScene: React.FC<Props & {fg: string}> = ({color, radius, fg}) 
         </div>
       )}
       {gaugeOn > 0 && (
-        <Mono x={x} y={gy + 14 * u} size={10} color={P17.hudGrey} anchor="center" opacity={gaugeOn}>
+        <Mono x={x} y={gy + 14 * u} size={portrait ? 22 : 10} color={P17.hudGrey} anchor="center" opacity={gaugeOn}>
           LOADED · {frame < 40 ? 'CHARGING' : 'RELEASE'}
         </Mono>
       )}
@@ -647,7 +647,7 @@ const BouncingBall: React.FC<Props> = (props) => {
         <BounceScene {...props} fg={fg} />
       )}
       {hud && (mode !== 'slime' && mode !== 'impact' || !!props.title) && !(mode === 'crack' && frame >= 18 && frame < 20) && (
-        <PrinciplesHud bg={dark ? P17.ink : P17.paper} numeral={props.numeral || auto.numeral} title={props.title || auto.title} subtitle={props.subtitle || auto.subtitle} code={props.code || auto.code} bpm={props.bpm} />
+        <PrinciplesHud boost={2.15} bg={dark ? P17.ink : P17.paper} numeral={props.numeral || auto.numeral} title={props.title || auto.title} subtitle={props.subtitle || auto.subtitle} code={props.code || auto.code} bpm={props.bpm} />
       )}
     </AbsoluteFill>
   );

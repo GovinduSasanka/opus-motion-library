@@ -150,7 +150,7 @@ const NibFollowCamera: React.FC<Props> = (p) => {
   const WLD_W = 1920;
   const WLD_H = 1080;
   const fitZ = Math.min(w / WLD_W, h / WLD_H) * (portrait ? 1.12 : 0.98);
-  const travelZ = p.travelZoom * fitZ * (portrait ? 1.5 : 1);
+  const travelZ = p.travelZoom * fitZ * (portrait ? 1.0 : 1);
   const keys: CamKey[] = [
     {f: 0, x: prep.pts[0][0], y: prep.pts[0][1], z: p.openZoom * fitZ * (portrait ? 1.4 : 1), follow: 0.85},
     {f: drawEndF * 0.35, x: WLD_W * 0.5, y: WLD_H * 0.62, z: travelZ, follow: 0.75},

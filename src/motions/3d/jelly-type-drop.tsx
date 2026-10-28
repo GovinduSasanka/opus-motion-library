@@ -35,7 +35,7 @@ const JellyTypeDrop: React.FC<Props> = (p) => {
   const font = React.useMemo(() => new Font(helvBold as never), []);
   const text = (p.text || 'soft').slice(0, 10);
   const letters = React.useMemo(() => {
-    const size = 2.1 * p.size * (portrait ? 0.82 : 1);
+    const size = 2.1 * p.size * (portrait ? 0.56 * Math.min(1, 4 / Math.max(1, text.length)) : 1);
     const geos = [...text].map((ch) => {
       const g = new TextGeometry(ch, {
         font,

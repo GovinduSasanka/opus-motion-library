@@ -41,17 +41,21 @@ const SpinningHeadline: React.FC<Props> = (p) => {
   const frame = useCurrentFrame();
   const {w, h, u, portrait} = useStage();
   const id = 'spinning-headline';
+  // portrait: no 1.37:1 gate (it left black bars) and a gentler punch-in so the headline stays inside the frame width
+  const gateA = portrait ? 0 : p.gate;
+  const punchScaleA = portrait ? Math.min(p.punchScale, 1) : p.punchScale;
+  const pushAmt = portrait ? 0.05 : 0.18;
   // gate rect
   let gx = 0;
   let gy = 0;
   let gw = w;
   let gh = h;
-  if (p.gate > 0) {
-    if (w / h > p.gate) {
-      gw = h * p.gate;
+  if (gateA > 0) {
+    if (w / h > gateA) {
+      gw = h * gateA;
       gx = (w - gw) / 2;
     } else {
-      gh = w / p.gate;
+      gh = w / gateA;
       gy = (h - gh) / 2;
     }
   }
@@ -70,7 +74,7 @@ const SpinningHeadline: React.FC<Props> = (p) => {
   const pushK = ss(seg(frame, T + 6, p.punchAt - 2));
   const punchK = eo(seg(frame, p.punchAt, p.punchAt + 4));
   const creep = seg(frame, p.punchAt + 4, p.punchAt + 80) * 0.05;
-  const zoom = (1 + 0.18 * pushK) * lerp(1, p.punchScale, punchK) * (1 + creep * punchK);
+  const zoom = (1 + pushAmt * pushK) * lerp(1, punchScaleA, punchK) * (1 + creep * punchK);
   const focus: [number, number] = [lerp(0.5, lerp(p.focus[0], p.punchFocus[0], punchK), Math.max(pushK * 0.7, punchK)), lerp(0.5, lerp(p.focus[1], p.punchFocus[1], punchK), Math.max(pushK * 0.7, punchK))];
   const cx = gx + gw / 2;
   const cy = gy + gh / 2 + slam;
@@ -142,7 +146,7 @@ const SpinningHeadline: React.FC<Props> = (p) => {
           </g>
         </g>
       </svg>
-      <OldFilm id={id} frame={frame} w={w} h={h} u={u} gate={p.gate} flicker={0.035 * p.damage} scratches={Math.round(3 * p.damage)} dust={Math.round(4 * p.damage)} hair={p.damage > 0.5} vignette={0.55 * p.damage + 0.15} />
+      <OldFilm id={id} frame={frame} w={w} h={h} u={u} gate={gateA} flicker={0.035 * p.damage} scratches={Math.round(3 * p.damage)} dust={Math.round(4 * p.damage)} hair={p.damage > 0.5} vignette={0.55 * p.damage + 0.15} />
       <FilmGrain opacity={0.07 * p.damage} />
     </AbsoluteFill>
   );

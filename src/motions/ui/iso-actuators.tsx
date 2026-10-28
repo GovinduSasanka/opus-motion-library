@@ -154,7 +154,7 @@ const IsoActuators: React.FC<Props> = ({kinds, labels, speed, values, background
             return (
               <g key={i}>
                 {around(bx, by, Math.max(0.01, 0.15 + 0.85 * e), Math.min(1, e * 2), node)}
-                <text x={lx} y={ly} textAnchor="middle" fontFamily={x58Fonts.barlowSC} fontWeight={700} fontSize={k * 0.42} letterSpacing={k * 0.04} fill={ISO.muted} opacity={Math.min(1, e)}>
+                <text x={lx} y={ly} textAnchor="middle" fontFamily={x58Fonts.barlowSC} fontWeight={700} fontSize={k * 0.42 * (portrait ? 1.6 : 1)} letterSpacing={k * 0.04} fill={ISO.muted} opacity={Math.min(1, e)}>
                   {label.toUpperCase()}
                 </text>
               </g>
@@ -162,8 +162,8 @@ const IsoActuators: React.FC<Props> = ({kinds, labels, speed, values, background
           })}
         </g>
         <g transform={`translate(${w * 0.03} ${h * 0.045})`}>
-          <circle r={7 * u} cx={0} cy={0} fill={running ? mixHex('#E0352C', '#FF8A7A', 0.5 + 0.5 * Math.sin(frame * 0.35)) : '#9C9488'} />
-          <text x={16 * u} y={6 * u} fontFamily={x58Fonts.mono} fontSize={16 * u} fill={ISO.text} letterSpacing={2 * u}>
+          <circle r={(portrait ? 11 : 7) * u} cx={0} cy={0} fill={running ? mixHex('#E0352C', '#FF8A7A', 0.5 + 0.5 * Math.sin(frame * 0.35)) : '#9C9488'} />
+          <text x={(portrait ? 26 : 16) * u} y={(portrait ? 9 : 6) * u} fontFamily={x58Fonts.mono} fontSize={(portrait ? 26 : 16) * u} fill={ISO.text} letterSpacing={2 * u}>
             {running ? 'RUNNING' : 'READY'}
           </text>
         </g>

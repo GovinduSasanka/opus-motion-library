@@ -222,10 +222,10 @@ const LightBandWindow: React.FC<Props> = ({panes, schedule, bandWidth, soft, ros
           {beam}
           {title && (
             <g opacity={titleIn}>
-              <text x={cx} y={h * 0.055 + 2 * u} textAnchor="middle" fontFamily={fSerif} fontWeight={600} fontSize={Math.max(18, h * 0.034)} letterSpacing={h * 0.012} fill="#000" opacity={0.7}>
+              <text x={cx} y={h * (portrait ? 0.068 : 0.055) + 2 * u} textAnchor="middle" fontFamily={fSerif} fontWeight={600} fontSize={Math.max(18, h * 0.034)} letterSpacing={h * 0.012} fill="#000" opacity={0.7}>
                 {title}
               </text>
-              <text x={cx} y={h * 0.055} textAnchor="middle" fontFamily={fSerif} fontWeight={600} fontSize={Math.max(18, h * 0.034)} letterSpacing={h * 0.012} fill={mixHex('#55525e', sun.color, 0.35)}>
+              <text x={cx} y={h * (portrait ? 0.068 : 0.055)} textAnchor="middle" fontFamily={fSerif} fontWeight={600} fontSize={Math.max(18, h * 0.034)} letterSpacing={h * 0.012} fill={mixHex('#55525e', sun.color, 0.35)}>
                 {title}
               </text>
             </g>

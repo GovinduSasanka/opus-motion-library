@@ -120,7 +120,7 @@ const DotToStripesMorph: React.FC<Props> = (p) => {
           <text x={x0} y={h * (portrait ? 0.1 : 0.12)} fontFamily={la2Fonts.newsreader} fontWeight={500} fontSize={fsT} fill={DV.ink}>
             {p.title}
           </text>
-          <text x={x0} y={h * (portrait ? 0.1 : 0.12) + 34 * u} fontFamily={la2Fonts.plex} fontSize={17 * u} fill={DV.inkSoft} letterSpacing={1 * u}>
+          <text x={x0} y={h * (portrait ? 0.1 : 0.12) + (portrait ? 44 : 34) * u} fontFamily={la2Fonts.plex} fontSize={(portrait ? 26 : 17) * u} fill={DV.inkSoft} letterSpacing={1 * u}>
             {p.subtitle}
           </text>
         </g>
@@ -133,11 +133,11 @@ const DotToStripesMorph: React.FC<Props> = (p) => {
         {/* marks / stripes */}
         {marks}
         {/* x labels */}
-        <g opacity={labA} fontFamily={la2Fonts.plex} fontSize={17 * u} fill={DV.inkSoft}>
-          <text x={x0} y={by1 + 34 * u} textAnchor="middle">
+        <g opacity={labA} fontFamily={la2Fonts.plex} fontSize={(portrait ? 28 : 17) * u} fill={DV.inkSoft}>
+          <text x={x0} y={by1 + (portrait ? 44 : 34) * u} textAnchor="middle">
             {p.startLabel}
           </text>
-          <text x={x1} y={by1 + 34 * u} textAnchor="middle">
+          <text x={x1} y={by1 + (portrait ? 44 : 34) * u} textAnchor="middle">
             {p.endLabel}
           </text>
         </g>
@@ -153,7 +153,7 @@ const DotToStripesMorph: React.FC<Props> = (p) => {
               x={Math.min(tickX, x1 - 40 * u)}
               y={(started ? by0 : Y(vals[ni]) - r * 3.2) - 16 * u}
               fontFamily={la2Fonts.caveat}
-              fontSize={30 * u}
+              fontSize={(portrait ? 40 : 30) * u}
               fill={noteCol}
               textAnchor={ni > n * 0.7 ? 'end' : 'start'}
               opacity={Math.max(ringFade * smooth(seg(ringP, 0.3, 1)), tickIn)}
@@ -169,7 +169,7 @@ const DotToStripesMorph: React.FC<Props> = (p) => {
             const uu2 = (i / 23) * 2 - 1;
             return <rect key={i} x={x0 + ((x1 - x0 - 120 * u) * i) / 24} y={by1 + 48 * u} width={(x1 - x0 - 120 * u) / 24 + 1} height={10 * u} fill={rampHex(uu2)} />;
           })}
-          <text x={x1} y={by1 + 58 * u} fontFamily={la2Fonts.plex} fontSize={15 * u} fill={DV.inkSoft} textAnchor="end">
+          <text x={x1} y={by1 + 58 * u} fontFamily={la2Fonts.plex} fontSize={(portrait ? 26 : 15) * u} fill={DV.inkSoft} textAnchor="end">
             ±{p.half.toFixed(2)}
           </text>
         </g>

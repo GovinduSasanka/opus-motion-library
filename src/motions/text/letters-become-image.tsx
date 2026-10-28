@@ -37,7 +37,7 @@ const LettersBecomeImage: React.FC<Props> = (p) => {
   const id = useSafeId('l2img');
   const px = usePlatePixels({src: p.src, seed: p.seed, palette: p.palette}, 360);
   const sentence = p.sentence.toUpperCase();
-  const cols = Math.max(16, Math.round(portrait ? p.cols * 0.6 : p.cols));
+  const cols = Math.max(16, Math.round(portrait ? p.cols * 0.8 : p.cols));
   const cw = w / cols;
   const chh = cw * 2;
   const rows = Math.floor(h / chh);

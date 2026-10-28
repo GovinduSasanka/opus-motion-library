@@ -29,7 +29,8 @@ const Subject: React.FC<{title: string; caption: string; ink: string; accent: st
   const {w, h, u, portrait} = useStage();
   const cols = portrait ? 5 : 9;
   const baseY = h * 0.72;
-  const fs = Math.min(150 * u * (portrait ? 1.1 : 1), (w * 0.86) / Math.max(4, title.length * 0.62));
+  const fs = Math.min(150 * u * (portrait ? 1.1 : 1), (w * (portrait ? 0.78 : 0.86)) / Math.max(4, title.length * (portrait ? 0.8 : 0.62)));
+  const pm = portrait ? 2.4 : 1; // portrait: taller plinths
   return (
     <AbsoluteFill>
       <svg width={w} height={h} style={{position: 'absolute', inset: 0}}>
@@ -40,7 +41,7 @@ const Subject: React.FC<{title: string; caption: string; ink: string; accent: st
         {/* plinths stepping on the beat */}
         {Array.from({length: cols}, (_, i) => {
           const x = (w / cols) * (i + 0.5);
-          const hh = (30 + 70 * hash(i, 5)) * u * (1 + 0.25 * kick * (i % 2 ? 1 : -0.4)) + 26 * u * Math.max(0, Math.sin(t * 2 + i));
+          const hh = ((30 + 70 * hash(i, 5)) * u * (1 + 0.25 * kick * (i % 2 ? 1 : -0.4)) + 26 * u * Math.max(0, Math.sin(t * 2 + i))) * pm;
           const bw = (w / cols) * 0.46;
           const hot = i === Math.floor(t * 2) % cols;
           return (
@@ -56,7 +57,7 @@ const Subject: React.FC<{title: string; caption: string; ink: string; accent: st
       <div style={{position: 'absolute', left: w * 0.07, top: h * 0.2, ...vf(80, 880), fontSize: fs, lineHeight: 0.96, color: ink, textTransform: 'uppercase', transform: `scale(${1 + 0.02 * pulse})`, transformOrigin: '0 50%'}}>
         {title}
       </div>
-      <div style={{position: 'absolute', left: w * 0.075, top: h * 0.2 + fs * 1.15, fontFamily: plexMono, fontSize: 15 * u, color: accent, letterSpacing: 3}}>{caption}</div>
+      <div style={{position: 'absolute', left: w * 0.075, top: h * 0.2 + fs * 1.15, fontFamily: plexMono, fontSize: (portrait ? 26 : 15) * u, color: accent, letterSpacing: 3}}>{caption}</div>
     </AbsoluteFill>
   );
 };
@@ -70,11 +71,11 @@ const BeatCameraMotion: React.FC<Props> = ({title, caption, bpm, offsetSec, beat
   const clear = background === 'transparent';
   return (
     <AbsoluteFill style={{background: clear ? 'transparent' : background}}>
-      <BeatCamera beats={Array.isArray(beats) ? beats : {bpm, offsetSec, ...(beats ?? {})}} moves={moves.length ? moves : undefined} on={on} intensity={intensity} punch={punch} shake={shake} seed={seed}>
+      <BeatCamera beats={Array.isArray(beats) ? beats : {bpm, offsetSec, ...(beats ?? {})}} moves={moves.length ? moves : undefined} on={on} intensity={portrait ? intensity * 0.55 : intensity} punch={punch} shake={shake} seed={seed}>
         {showSubject ? <Subject title={title} caption={caption} ink={ink} accent={accent} t={t} pulse={b.pulse} kick={b.kick} /> : null}
       </BeatCamera>
       {hud ? (
-        <div style={{position: 'absolute', left: w * 0.05, bottom: h * 0.05, fontFamily: plexMono, fontSize: 13 * u * (portrait ? 1.25 : 1), color: ink, opacity: 0.6, letterSpacing: 2}}>
+        <div style={{position: 'absolute', left: w * 0.05, bottom: h * 0.05, fontFamily: plexMono, fontSize: 13 * u * (portrait ? 2 : 1), color: ink, opacity: 0.6, letterSpacing: 2}}>
           {`BEAT-CAMERA · ${on.toUpperCase()} · BAR ${Math.max(0, b.barIndex) + 1} · ${b.beatInBar + 1}/${g.beatsPerBar}`}
         </div>
       ) : null}

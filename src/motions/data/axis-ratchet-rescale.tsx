@@ -35,8 +35,8 @@ const AxisRatchetRescale: React.FC<Props> = (p) => {
   // layout
   const x0 = w * (portrait ? 0.14 : 0.14);
   const x1 = w * (portrait ? 0.93 : 0.9);
-  const y0 = h * (portrait ? 0.3 : 0.24);
-  const y1 = h * (portrait ? 0.66 : 0.72);
+  const y0 = h * (portrait ? 0.22 : 0.24);
+  const y1 = h * (portrait ? 0.78 : 0.72);
   const X = (i: number) => x0 + ((x1 - x0) * i) / (n - 1);
 
   // timing: marks land on an accelerating beat grid; the spike lands, holds pierced ≥ half a beat, then 4 ratchet clicks
@@ -112,7 +112,7 @@ const AxisRatchetRescale: React.FC<Props> = (p) => {
             <text x={x0 - 24 * u} y={h * (portrait ? 0.12 : 0.13)} fontFamily={la2Fonts.newsreader} fontWeight={500} fontSize={fsT} fill={DV.ink}>
               {p.title}
             </text>
-            <text x={x0 - 24 * u} y={h * (portrait ? 0.12 : 0.13) + 32 * u} fontFamily={la2Fonts.plex} fontSize={16 * u} fill={DV.inkSoft} letterSpacing={1 * u}>
+            <text x={x0 - 24 * u} y={h * (portrait ? 0.12 : 0.13) + (portrait ? 44 : 32) * u} fontFamily={la2Fonts.plex} fontSize={(portrait ? 28 : 16) * u} fill={DV.inkSoft} letterSpacing={1 * u}>
               {p.subtitle}
             </text>
           </g>
@@ -139,13 +139,13 @@ const AxisRatchetRescale: React.FC<Props> = (p) => {
               <g key={i} opacity={boxP * 0.9}>
                 <line x1={x0 - 26 * u} y1={ty} x2={x0 - 14 * u} y2={ty} stroke={DV.inkSoft} strokeWidth={1.3 * u} />
                 <line x1={x0 - 14 * u} y1={ty} x2={x1 + 10 * u} y2={ty} stroke={DV.rule} strokeWidth={1 * u} opacity={0.7} />
-                <text x={x0 - 34 * u} y={ty + 6 * u} fontFamily={la2Fonts.plex} fontSize={17 * u} fill={DV.inkSoft} textAnchor="end">
+                <text x={x0 - 34 * u} y={ty + 6 * u} fontFamily={la2Fonts.plex} fontSize={(portrait ? 28 : 17) * u} fill={DV.inkSoft} textAnchor="end">
                   {Math.round(tv)}
                 </text>
               </g>
             );
           })}
-          <text x={x0 - 34 * u} y={topY - 12 * u} fontFamily={la2Fonts.plex} fontSize={15 * u} fill={DV.inkSoft} textAnchor="end" opacity={boxP}>
+          <text x={x0 - 34 * u} y={topY - 12 * u} fontFamily={la2Fonts.plex} fontSize={(portrait ? 26 : 15) * u} fill={DV.inkSoft} textAnchor="end" opacity={boxP}>
             {p.unit}
           </text>
           {/* series */}
@@ -153,7 +153,7 @@ const AxisRatchetRescale: React.FC<Props> = (p) => {
           {marks}
           {/* handwritten note on the spike */}
           <g opacity={noteA}>
-            <text x={Math.min(pierceX, x1 - 60 * u)} y={Y(vals[si]) - 26 * u} fontFamily={la2Fonts.caveat} fontSize={32 * u} fill={DV.red} textAnchor={si > n * 0.6 ? 'end' : 'start'}>
+            <text x={Math.min(pierceX, x1 - 60 * u)} y={Y(vals[si]) - 26 * u} fontFamily={la2Fonts.caveat} fontSize={(portrait ? 44 : 32) * u} fill={DV.red} textAnchor={si > n * 0.6 ? 'end' : 'start'}>
               {p.note}
             </text>
           </g>

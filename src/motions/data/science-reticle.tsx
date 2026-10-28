@@ -68,7 +68,7 @@ const Label: React.FC<{x: number; y: number; text: string; start: number; frame:
   if (n <= 0) return null;
   const done = start + text.length / 1.5;
   const showCursor = frame < done + 12 && (n < text.length || blinkOn(frame));
-  const fs = 24 * u;
+  const fs = (useStage().portrait ? 36 : 24) * u;
   const tw = n * fs * 0.6;
   const x0 = anchor === 'end' ? x - tw - (showCursor ? fs * 0.6 : 0) : x;
   return (
@@ -305,7 +305,7 @@ const ScienceReticle: React.FC<Props> = (p) => {
                   {Array.from({length: 21}, (_, i) => (
                     <line key={i} x1={cx - bw / 2 + i * 17 * u} x2={cx - bw / 2 + i * 17 * u} y1={by} y2={by - (i % 5 === 0 ? 12 : 6) * u} />
                   ))}
-                  <text x={cx} y={by + 32 * u} textAnchor="middle" fontFamily={fonts.mono} fontSize={20 * u} fill="#A2A2C7" stroke="none">
+                  <text x={cx} y={by + 32 * u} textAnchor="middle" fontFamily={fonts.mono} fontSize={(portrait ? 30 : 20) * u} fill="#A2A2C7" stroke="none">
                     {p.scaleLabel}
                   </text>
                 </>

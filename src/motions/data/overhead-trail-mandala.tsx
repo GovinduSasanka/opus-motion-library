@@ -22,7 +22,7 @@ const mod = (a: number, n: number) => ((a % n) + n) % n;
 
 const OverheadTrailMandala: React.FC<Props> = ({count, rings, bpm, palette, ground, umbrellaR, dabEvery, zoomFrom, zoomTo, seed}) => {
   const frame = useCurrentFrame();
-  const {w, h, u, durationInFrames} = useStage();
+  const {w, h, u, durationInFrames, portrait} = useStage();
   const t = frame / 30;
   const beat = 60 / bpm;
   const R = umbrellaR * u;
@@ -49,7 +49,7 @@ const OverheadTrailMandala: React.FC<Props> = ({count, rings, bpm, palette, grou
   };
   const tIn = (d: {ring: number; k: number}) => 0.2 + d.ring * 0.55 + d.k * 0.09;
 
-  const zoom = lerp(zoomFrom, zoomTo, eio3(seg(frame, 6, durationInFrames - 20)));
+  const zoom = lerp(zoomFrom, zoomTo, eio3(seg(frame, 6, durationInFrames - 20))) * (portrait ? 0.72 : 1);
   const rot = lerp(0, 38, eio3(seg(frame, 6, durationInFrames - 20))) + t * 1.2;
   const step = (beat * dabEvery) as number;
   const col = (i: number) => palette[i % palette.length] ?? '#E8503A';

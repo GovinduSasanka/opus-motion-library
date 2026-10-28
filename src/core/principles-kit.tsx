@@ -74,6 +74,8 @@ export const Mono: React.FC<{x: number; y: number; size?: number; color: string;
   );
 };
 
+const MonoBase = (props: React.ComponentProps<typeof Mono>) => <Mono {...props} />;
+
 export type HudProps = {
   /** background the HUD sits on (text colour flips on dark) */
   bg: string;
@@ -86,15 +88,19 @@ export type HudProps = {
   /** frame at which the title block rises in */
   titleAt?: number;
   bpm?: number;
+  /** portrait-only text size multiplier (default 1 = unchanged) */
+  boost?: number;
 };
 
 /**
  * Persistent dev/broadcast HUD (video17 hud-chrome-overlay) + bottom-left chapter title block.
  * Crop marks, header, live timecode, typed code comment with red block cursor, beat squares, progress hairline.
  */
-export const PrinciplesHud: React.FC<HudProps> = ({bg, numeral = '', title = '', subtitle = '', code = '', header = 'THE 12 PRINCIPLES OF ANIMATION', showTitle = true, titleAt = 4, bpm = 160}) => {
+export const PrinciplesHud: React.FC<HudProps> = ({bg, numeral = '', title = '', subtitle = '', code = '', header = 'THE 12 PRINCIPLES OF ANIMATION', showTitle = true, titleAt = 4, bpm = 160, boost = 1}) => {
   const frame = useCurrentFrame();
   const {w, h, u, durationInFrames, portrait} = useStage();
+  const bz = portrait ? boost : 1;
+  const Mono: typeof MonoBase = (p) => <MonoBase {...p} size={(p.size ?? 13) * bz} />;
   const dark = isDarkColor(bg);
   const fg = dark ? P17.paper : P17.ink;
   const dim = dark ? P17.hudDim : '#C9C5B6';
@@ -193,7 +199,7 @@ export const PrinciplesHud: React.FC<HudProps> = ({bg, numeral = '', title = '',
               );
             })}
             {subtitle && (
-              <div style={{fontFamily: fonts.mono, fontSize: 13 * u, letterSpacing: '0.08em', color: sub, marginTop: 8 * u, opacity: prog(frame, titleAt + 10, titleAt + 20)}}>
+              <div style={{fontFamily: fonts.mono, fontSize: 13 * bz * u, letterSpacing: '0.08em', color: sub, marginTop: 8 * u, opacity: prog(frame, titleAt + 10, titleAt + 20)}}>
                 {subtitle}
               </div>
             )}

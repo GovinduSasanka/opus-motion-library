@@ -4,6 +4,7 @@ import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {ease, prog} from '../../core/ease';
 import {fonts} from '../../core/fonts';
 import {useStage} from '../../core/stage';
+import {withPortraitFit} from '../../core/portrait3';
 import {defineMotion} from '../../core/types';
 
 type Key = {frame: number; x?: number; y?: number; action: 'drop' | 'slide' | 'lift' | 'sink'};
@@ -183,6 +184,6 @@ export const magnetPin = defineMotion<Props>({
     showRoute: 'dotted route between keyed positions',
     size: 'pin size in px',
   },
-  component: MagnetPin,
+  component: withPortraitFit(MagnetPin, {s: 1.4}),
   tags: ['pin', 'magnet', 'token', 'map', 'whiteboard', 'marker', 'location', 'you are here', 'drop', 'slide'],
 });

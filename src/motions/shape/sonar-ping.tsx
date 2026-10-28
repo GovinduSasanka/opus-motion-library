@@ -5,6 +5,7 @@ import {clamp, ease, prog} from '../../core/ease';
 import {rng} from '../../core/random';
 import {GlossySphere} from '../../core/shapes';
 import {PaperTexture, Svg, Vignette, useStage} from '../../core/stage';
+import {withPortraitFit} from '../../core/portrait3';
 import {defineMotion} from '../../core/types';
 
 /**
@@ -218,6 +219,6 @@ export const sonarPing = defineMotion<Props>({
     echoColor: 'measure: echo arc colour',
     pillColor: 'measure: label pill colour',
   },
-  component: SonarPing,
+  component: withPortraitFit(SonarPing, {s: 1.6}),
   tags: ['radar', 'pulse', 'signal', 'reveal', 'iso', 'isometric', 'measure', 'distance', 'range', 'sensor', 'ultrasonic', 'echo'],
 });

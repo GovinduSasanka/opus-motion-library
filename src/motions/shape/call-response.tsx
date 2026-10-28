@@ -5,6 +5,7 @@ import {rng} from '../../core/random';
 import {GlossySphere, Sparkle} from '../../core/shapes';
 import {Lotus, circleIntersections, ringAt, shade} from '../../core/shape-kit';
 import {PaperTexture, Svg, Vignette, useStage} from '../../core/stage';
+import {withPortraitFit} from '../../core/portrait3';
 import {defineMotion} from '../../core/types';
 
 /**
@@ -262,6 +263,6 @@ export const callResponse = defineMotion<Props>({
     sparkles: 'sparkles at pink/blue ring intersections',
     paper: 'paper grain + vignette',
   },
-  component: CallResponse,
+  component: withPortraitFit(CallResponse, {s: 1.5}),
   tags: ['sonar', 'dialogue', 'handshake', 'sync', 'perspective', 'bloom'],
 });

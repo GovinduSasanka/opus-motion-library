@@ -37,7 +37,7 @@ type Props = {
 
 const SceneTag: React.FC<Props> = ({index, name, family, corner, tone, accent, accentDark, inAt, outBefore, background, variant, color, side, drift, subDelay, charsPerSecond, episode, ears, idleBob, twitchAt}) => {
   const frame = useCurrentFrame();
-  const {u, w, h, fps, durationInFrames} = useStage();
+  const {u, w, h, fps, durationInFrames, portrait} = useStage();
   const enter = prog(frame, inAt, inAt + 12, ease.out);
   const exit = prog(frame, durationInFrames - outBefore - 8, durationInFrames - outBefore, ease.in);
   const right = corner.endsWith('right');
@@ -67,7 +67,8 @@ const SceneTag: React.FC<Props> = ({index, name, family, corner, tone, accent, a
           backdropFilter: `blur(${10 * u}px)`,
           border: `${1 * u}px solid ${dark ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.12)'}`,
           opacity: enter * (1 - exit),
-          transform: `translateX(${(right ? 1 : -1) * (1 - enter) * 18 * u}px)`,
+          transform: `translateX(${(right ? 1 : -1) * (1 - enter) * 18 * u}px)${portrait ? ' scale(1.8)' : ''}`,
+          transformOrigin: portrait ? `${right ? 'right' : 'left'} ${top ? 'top' : 'bottom'}` : undefined,
         }}
       >
         <span style={{fontFamily: fonts.mono, fontSize: 15 * u, letterSpacing: '0.12em', color: dark ? accentDark : accent, fontWeight: 700}}>{index}</span>

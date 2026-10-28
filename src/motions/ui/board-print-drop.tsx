@@ -67,10 +67,11 @@ const BoardPrintDrop: React.FC<Props> = (p) => {
           else z = Z0 * 0.035 * Math.sin(Math.PI * clamp((t - 0.55) / 0.45)) * Math.max(0, 1 - (t - 0.55) * 1.2);
           const spin = pr.rot + 2 * (1 - clamp(t / 1.1)) * Math.cos(t * 7);
           const sc = 1 + z / 420;
-          const pw = pr.w * w;
+          const zig = portrait && prints.length > 1;
+          const pw = pr.w * w * (portrait ? 1.6 : 1);
           const ph = pw * 0.72;
-          const px = pr.x * w - pw / 2;
-          const py = pr.y * h - ph / 2;
+          const px = (zig ? (i % 2 ? 0.68 : 0.32) : pr.x) * w - pw / 2;
+          const py = (zig ? 0.3 + (0.42 * i) / (prints.length - 1) : pr.y) * h - ph / 2;
           const sAlpha = clamp(0.36 - (z - 10) * 0.0018, 0.1, 0.36);
           const sx = p.light[0] * z * u * 0.7 + 4 * u;
           const sy = p.light[1] * z * u * 0.7 + 6 * u;
@@ -135,13 +136,13 @@ const BoardPrintDrop: React.FC<Props> = (p) => {
               })}
               {/* marker caption */}
               {pr.label && labelK > 0 && (
-                <svg style={{position: 'absolute', left: px, top: py + ph * sc + 16 * u, width: pw * 1.4, height: 70 * u, overflow: 'visible'}}>
+                <svg style={{position: 'absolute', left: portrait ? Math.max(24 * u, Math.min(px, w - (pr.label.length * 0.5 * 56 + 60) * u)) : px, top: py + ph * sc + 16 * u, width: pw * 1.4, height: 70 * u, overflow: 'visible'}}>
                   <defs>
                     <clipPath id={`${id}-lc${i}`}>
                       <rect x={0} y={-20 * u} width={pw * 1.4 * labelK} height={110 * u} />
                     </clipPath>
                   </defs>
-                  <text x={6 * u} y={44 * u} clipPath={`url(#${id}-lc${i})`} fontFamily={lf.hand} fontWeight={700} fontSize={(portrait ? 46 : 42) * u} fill={i === prints.length - 1 ? p.accent : p.ink} transform={`rotate(${-1 + (i % 2) * 1.5})`} style={{mixBlendMode: 'multiply'}}>
+                  <text x={6 * u} y={44 * u} clipPath={`url(#${id}-lc${i})`} fontFamily={lf.hand} fontWeight={700} fontSize={(portrait ? 56 : 42) * u} fill={i === prints.length - 1 ? p.accent : p.ink} transform={`rotate(${-1 + (i % 2) * 1.5})`} style={{mixBlendMode: 'multiply'}}>
                     {pr.label}
                   </text>
                 </svg>

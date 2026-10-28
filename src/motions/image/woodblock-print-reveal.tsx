@@ -49,7 +49,7 @@ const WoodblockReveal: React.FC<Props> = (p) => {
 
   // frame placement
   const fw = portrait ? w * 0.88 : w * 0.82;
-  const fh = portrait ? Math.min(h * 0.62, fw * 1.05) : h * 0.8;
+  const fh = portrait ? Math.min(h * 0.7, fw * 1.28) : h * 0.8;
   const fx = (w - fw) / 2;
   const fy = (h - fh) / 2 - (portrait ? h * 0.03 : 0);
 
@@ -271,8 +271,9 @@ const WoodblockReveal: React.FC<Props> = (p) => {
   const cartIn = eo3(seg(frame, 108 / p.speed + p.start * FPS, 122 / p.speed + p.start * FPS));
   const sealT = (frame - (128 / p.speed + p.start * FPS)) / 6;
   const sealK = sealT < 0 ? 0 : lerp(1.35, 1, eo3(sealT));
-  const cartW = Math.min(fw * 0.62, Math.max(p.title.length * 17 * u + 110 * u, 300 * u));
-  const cartH = 78 * u;
+  const cq = portrait ? 1.5 : 1; // portrait: bigger cartouche text
+  const cartW = Math.min(fw * (portrait ? 0.8 : 0.62), Math.max(p.title.length * 17 * u * cq + 110 * u, 300 * u));
+  const cartH = 78 * u * cq;
   const cartX = fx + 22 * u;
   const cartY = fy + 22 * u;
   const seal = 66 * u;
@@ -325,10 +326,10 @@ const WoodblockReveal: React.FC<Props> = (p) => {
             <g opacity={cartIn} transform={`translate(0 ${(1 - cartIn) * -14 * u})`}>
               <rect x={cartX} y={cartY} width={cartW} height={cartH} fill="#F3E7C6" stroke={p.ink} strokeWidth={2.6 * u} />
               <rect x={cartX + 5 * u} y={cartY + 5 * u} width={cartW - 10 * u} height={cartH - 10 * u} fill="none" stroke={p.ink} strokeWidth={1 * u} />
-              <text x={cartX + 24 * u} y={cartY + cartH * 0.5} fontFamily={fonts.serif} fontWeight={700} fontSize={Math.min(26 * u, ((cartW - 48 * u) / Math.max(8, p.title.length)) * 1.65)} fill={p.ink} letterSpacing={2 * u}>
+              <text x={cartX + 24 * u} y={cartY + cartH * 0.5} fontFamily={fonts.serif} fontWeight={700} fontSize={Math.min(26 * u * cq, ((cartW - 48 * u) / Math.max(8, p.title.length)) * 1.65)} fill={p.ink} letterSpacing={2 * u}>
                 {p.title.toUpperCase()}
               </text>
-              <text x={cartX + 24 * u} y={cartY + cartH * 0.8} fontFamily={fonts.serif} fontSize={15 * u} fill={mixC(p.ink, p.paper, 0.2)} letterSpacing={3 * u}>
+              <text x={cartX + 24 * u} y={cartY + cartH * 0.8} fontFamily={fonts.serif} fontSize={15 * u * cq} fill={mixC(p.ink, p.paper, 0.2)} letterSpacing={3 * u}>
                 {p.subtitle.toUpperCase()}
               </text>
             </g>

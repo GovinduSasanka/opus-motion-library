@@ -37,6 +37,8 @@ const dealEase = bez(0.2, 0.9, 0.3, 1.2);
 
 // ------------------------------------------------------------------------------------------- hand mode
 const CardFace: React.FC<{c: Card; cw: number; ch: number; u: number; id: string; back?: boolean}> = ({c, cw, ch, u, id, back}) => {
+  const {portrait} = useStage();
+  const fk = portrait ? 1.5 : 1;
   const r = 12 * u;
   if (back)
     return (
@@ -47,7 +49,7 @@ const CardFace: React.FC<{c: Card; cw: number; ch: number; u: number; id: string
         <circle r={cw * 0.07} fill="#c9a25a" />
       </g>
     );
-  const artY = -ch / 2 + 46 * u;
+  const artY = -ch / 2 + (portrait ? 58 : 46) * u;
   const artH = ch * 0.4;
   return (
     <g>
@@ -59,18 +61,18 @@ const CardFace: React.FC<{c: Card; cw: number; ch: number; u: number; id: string
       </defs>
       <rect x={-cw / 2} y={-ch / 2} width={cw} height={ch} rx={r} fill="#2a2236" stroke="#c9a25a" strokeWidth={3 * u} />
       <rect x={-cw / 2 + 7 * u} y={-ch / 2 + 7 * u} width={cw - 14 * u} height={ch - 14 * u} rx={r * 0.7} fill="none" stroke="#6b5737" strokeWidth={1.2 * u} />
-      <text x={6 * u} y={-ch / 2 + 32 * u} textAnchor="middle" fontFamily={fonts.sans} fontWeight={800} fontSize={15 * u} fill="#f3e6c8">
+      <text x={6 * u} y={-ch / 2 + 32 * u} textAnchor="middle" fontFamily={fonts.sans} fontWeight={800} fontSize={15 * u * fk} fill="#f3e6c8">
         {c.title}
       </text>
       <rect x={-cw / 2 + 13 * u} y={artY} width={cw - 26 * u} height={artH} rx={6 * u} fill={`url(#${id}-art)`} stroke="#6b5737" strokeWidth={1.5 * u} />
       <FlatIcon kind={c.icon} x={0} y={artY + artH / 2} s={artH * 0.72} ink="#1a1426" />
       {wrap(c.text, 20).map((ln, i) => (
-        <text key={i} x={0} y={artY + artH + 30 * u + i * 19 * u} textAnchor="middle" fontFamily={fonts.sans} fontWeight={600} fontSize={13.5 * u} fill="#e6dcc8">
+        <text key={i} x={0} y={artY + artH + 30 * u * fk + i * 19 * u * fk} textAnchor="middle" fontFamily={fonts.sans} fontWeight={600} fontSize={13.5 * u * fk} fill="#e6dcc8">
           {ln}
         </text>
       ))}
       <circle cx={-cw / 2 + 8 * u} cy={-ch / 2 + 8 * u} r={18 * u} fill="#3b6fd0" stroke="#e8d29a" strokeWidth={2.5 * u} />
-      <text x={-cw / 2 + 8 * u} y={-ch / 2 + 15 * u} textAnchor="middle" fontFamily={fonts.sans} fontWeight={800} fontSize={20 * u} fill="#fff">
+      <text x={-cw / 2 + 8 * u} y={-ch / 2 + 15 * u} textAnchor="middle" fontFamily={fonts.sans} fontWeight={800} fontSize={20 * u * fk} fill="#fff">
         {c.cost}
       </text>
     </g>
@@ -134,14 +136,14 @@ const HandMode: React.FC<Props> = (p) => {
   const frame = useCurrentFrame();
   const {w, h, u, cx, portrait} = useStage();
   const n = p.cards.length;
-  const cs = portrait ? 1.3 : 1.2;
+  const cs = portrait ? 1.5 : 1.2;
   const cw = 175 * u * cs;
   const ch = 250 * u * cs;
   const pi = Math.min(n - 1, Math.max(0, p.playIndex));
   const spacing = portrait ? Math.min(230 * u, (w - 160 * u) / n) : 190 * u * cs;
   const baseY = h - ch * 0.5 - (portrait ? 90 : 40) * u;
   const pile = portrait ? {x: 110 * u, y: h - ch - 330 * u} : {x: 150 * u, y: h - 120 * u};
-  const enemy = portrait ? {x: cx, y: h * 0.27, s: 440 * u} : {x: cx + w * 0.17, y: h * 0.33, s: 360 * u};
+  const enemy = portrait ? {x: cx, y: h * 0.28, s: 540 * u} : {x: cx + w * 0.17, y: h * 0.33, s: 360 * u};
   const play = portrait ? {x: cx, y: h * 0.53} : {x: cx - w * 0.14, y: h * 0.38};
   const orb = portrait ? {x: w - 110 * u, y: h - ch - 330 * u} : {x: w - 150 * u, y: h - 320 * u};
 
@@ -252,7 +254,7 @@ const HandMode: React.FC<Props> = (p) => {
           <rect x={barX} y={barY} width={barW} height={14 * u} rx={7 * u} fill="#1a1222" stroke="#000" strokeWidth={2 * u} />
           <rect x={barX + 2 * u} y={barY + 2 * u} width={(barW - 4 * u) * (hpGhost / hpMax)} height={10 * u} rx={5 * u} fill="#ffffff" opacity={0.85} />
           <rect x={barX + 2 * u} y={barY + 2 * u} width={(barW - 4 * u) * (hpNow / hpMax)} height={10 * u} rx={5 * u} fill="#c8343e" />
-          <text x={enemy.x} y={barY + 38 * u} textAnchor="middle" fontFamily={fonts.sans} fontWeight={700} fontSize={18 * u} fill="#e9dff5">
+          <text x={enemy.x} y={barY + 38 * u} textAnchor="middle" fontFamily={fonts.sans} fontWeight={700} fontSize={(portrait ? 30 : 18) * u} fill="#e9dff5">
             {Math.round(hpNow)}/{hpMax}
           </text>
           {/* slash */}
@@ -269,7 +271,7 @@ const HandMode: React.FC<Props> = (p) => {
           </g>
         ))}
         <circle cx={pile.x + 50 * u} cy={pile.y + 55 * u} r={18 * u} fill="#141020" stroke="#c9a25a" strokeWidth={2 * u} />
-        <text x={pile.x + 50 * u} y={pile.y + 62 * u} textAnchor="middle" fontFamily={fonts.sans} fontWeight={800} fontSize={18 * u} fill="#f3e6c8">
+        <text x={pile.x + 50 * u} y={pile.y + 62 * u} textAnchor="middle" fontFamily={fonts.sans} fontWeight={800} fontSize={(portrait ? 26 : 18) * u} fill="#f3e6c8">
           {Math.max(0, 12 - cards.filter((c) => c.op > 0).length - (newCard ? 1 : 0))}
         </text>
         {/* energy orb */}
@@ -309,15 +311,15 @@ const HandMode: React.FC<Props> = (p) => {
           (() => {
             const k = cards[hoverIdx];
             const a = prog(frame, hoverIdx === pi ? T.hover2 + 2 : T.hover1 + 2, (hoverIdx === pi ? T.hover2 : T.hover1) + 7, ease.out);
-            const tx = Math.min(k.x + cw * 0.62, w - 250 * u);
+            const tx = Math.min(k.x + cw * 0.62, w - (portrait ? 380 : 250) * u);
             const ty = k.y - ch * 0.62;
             return (
               <g opacity={a}>
-                <rect x={tx} y={ty} width={230 * u} height={70 * u} rx={8 * u} fill="#141020" stroke="#c9a25a" strokeWidth={1.5 * u} opacity={0.94} />
-                <text x={tx + 14 * u} y={ty + 28 * u} fontFamily={fonts.sans} fontWeight={800} fontSize={16 * u} fill="#f3d28a">
+                <rect x={tx} y={ty} width={(portrait ? 360 : 230) * u} height={(portrait ? 84 : 70) * u} rx={8 * u} fill="#141020" stroke="#c9a25a" strokeWidth={1.5 * u} opacity={0.94} />
+                <text x={tx + 14 * u} y={ty + (portrait ? 34 : 28) * u} fontFamily={fonts.sans} fontWeight={800} fontSize={(portrait ? 24 : 16) * u} fill="#f3d28a">
                   {k.c.title}
                 </text>
-                <text x={tx + 14 * u} y={ty + 52 * u} fontFamily={fonts.sans} fontWeight={500} fontSize={13 * u} fill="#e6dcc8">
+                <text x={tx + 14 * u} y={ty + (portrait ? 66 : 52) * u} fontFamily={fonts.sans} fontWeight={500} fontSize={(portrait ? 20 : 13) * u} fill="#e6dcc8">
                   {wrap(k.c.text, 30)[0]}
                 </text>
               </g>

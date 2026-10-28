@@ -68,7 +68,8 @@ const CircuitRebuild: React.FC<Props> = ({steps, stepAt, teardownFrames: T, stag
   const prev = step > 0 ? steps[step - 1] : null;
 
   // viewport for the scene (UI never moves)
-  const hdr = Math.max(46 * u, h * 0.065);
+  const hh = portrait ? h * 1.25 : h;
+  const hdr = Math.max(46 * u, hh * 0.065);
   const cardH = card ? (portrait ? h * 0.15 : h * 0.17) : 0;
   const vx = w * 0.02;
   const vy = hdr + h * 0.02;
@@ -228,7 +229,7 @@ const CircuitRebuild: React.FC<Props> = ({steps, stepAt, teardownFrames: T, stag
           {/* cables on top of parts */}
           {cableNodes}
         </g>
-        <IsoHeader w={w} h={h} u={u} title={header} index={step + 1} total={nSteps} right={headerRight} />
+        <IsoHeader w={w} h={hh} u={u} title={header} index={step + 1} total={nSteps} right={headerRight} />
         {card ? <IsoInfoCard x={(w - bw) / 2} y={h - cardH - h * 0.025} w={bw} h={cardH} u={u} step={step + 1} title={cur.title} text={cur.text} fade={textFade} maxChars={portrait ? 40 : 54} /> : null}
       </svg>
     </AbsoluteFill>

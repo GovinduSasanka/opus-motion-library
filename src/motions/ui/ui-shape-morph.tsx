@@ -212,7 +212,7 @@ const UiShapeMorph: React.FC<Props> = ({states, accent, background, ink, fontFam
   const col = `rgb(${rgb.map((v) => Math.round(clamp01(v / 255) * 255)).join(',')})`;
 
   // camera: active state fills frameFill of the frame (capped)
-  const camTarget = list.map((s) => Math.min(3.2, Math.max(0.75, (frameFill * Math.min(w / (s.width * u), h / (s.height * u))))));
+  const camTarget = list.map((s) => Math.min(h > w ? 5 : 3.2, Math.max(0.75, (frameFill * (h > w ? 1.3 : 1) * Math.min(w / (s.width * u), h / (s.height * u))))));
   const cam = springSum(frame, fps, times, camTarget, {damping: 26, stiffness: 110, mass: 1});
 
   // active state + age

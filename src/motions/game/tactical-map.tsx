@@ -39,6 +39,12 @@ const TacticalMap: React.FC<Props> = ({background, factions, unitsPerArmy, march
   const k = portrait ? w * 0.052 : w * 0.034;
   const ox = w / 2;
   const oy = h * 0.48;
+  // portrait: stretch the layout vertically so the clusters use the tall frame
+  const sy = portrait ? 1.75 : 1;
+  const isoP = (gx: number, gy: number, z: number, kk: number, x0: number, y0: number): [number, number] => {
+    const [a, b] = iso2(gx, gy, z, kk, x0, y0);
+    return [a, y0 + (b - y0) * sy];
+  };
   const fs = factions.slice(0, 4);
   const gs = k * 0.013 * 600;
   void gs;
@@ -61,17 +67,17 @@ const TacticalMap: React.FC<Props> = ({background, factions, unitsPerArmy, march
     const col = f.chip === '#141227' ? '#8D8AB8' : f.chip;
     units.forEach((un, ui) => {
       const drift = 0.15 * Math.sin(t * 0.8 + un.ph);
-      const [sx, sy] = iso2(bx + un.gx + drift * 0.3, by + un.gy + drift, 0, k, ox, oy);
+      const [sx, sy] = isoP(bx + un.gx + drift * 0.3, by + un.gy + drift, 0, k, ox, oy);
       const r = k * (0.1 + 0.05 * h01(ui, fi, 3));
       const op = 0.85;
       if (un.type === 1) glyphs.push(<path key={`g${fi}-${ui}`} d={`M${sx} ${sy - r * 1.2} L${sx + r} ${sy + r * 0.8} L${sx - r} ${sy + r * 0.8}Z`} fill={col} opacity={op} />);
       else if (un.type === 2) glyphs.push(<path key={`g${fi}-${ui}`} d={hexPath(r * 1.2)} transform={`translate(${sx} ${sy})`} fill={col} opacity={op} />);
       else glyphs.push(<circle key={`g${fi}-${ui}`} cx={sx} cy={sy} r={r} fill={col} opacity={op} />);
     });
-    const [hx, hy] = iso2(bx, by, 0, k, ox, oy);
+    const [hx, hy] = isoP(bx, by, 0, k, ox, oy);
     cmdPts.push([hx, hy, col]);
   });
-  const fsz = 11 * u * (portrait ? 1.4 : 1);
+  const fsz = 11 * u * (portrait ? 2.3 : 1);
   return (
     <AbsoluteFill style={{background, overflow: 'hidden'}}>
       <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} style={{position: 'absolute', inset: 0}}>
@@ -81,7 +87,7 @@ const TacticalMap: React.FC<Props> = ({background, factions, unitsPerArmy, march
         </filter>
         <rect width={w} height={h} filter={`url(#tm-noise-${seed})`} />
         <g transform={glitch > 0 ? `translate(${bandShift(oy)} 0)` : undefined}>
-          {grid ? <IsoGrid w={w} h={h} k={k * 1.2} ox={ox} oy={oy} color="#1A1A2A" sw={1 * u} n={24} /> : null}
+          {grid ? <g transform={portrait ? `translate(0 ${oy}) scale(1 ${sy}) translate(0 ${-oy})` : undefined}><IsoGrid w={w} h={h} k={k * 1.2} ox={ox} oy={oy} color="#1A1A2A" sw={1 * u} n={24} /></g> : null}
           {glyphs}
           {/* selection rectangles, resampled every 4 frames */}
           {Array.from({length: selections}, (_, i) => {
@@ -90,7 +96,7 @@ const TacticalMap: React.FC<Props> = ({background, factions, unitsPerArmy, march
             const [cx0, cy0] = ARMY_CENTERS[fi % 4];
             const len = Math.hypot(cx0, cy0);
             const adv = Math.min(2.2, march * t);
-            const [sx, sy] = iso2(cx0 - (cx0 / len) * adv + (h01(i, step, 1) - 0.5) * 2, cy0 - (cy0 / len) * adv + (h01(i, step, 2) - 0.5) * 2, 0, k, ox, oy);
+            const [sx, sy] = isoP(cx0 - (cx0 / len) * adv + (h01(i, step, 1) - 0.5) * 2, cy0 - (cy0 / len) * adv + (h01(i, step, 2) - 0.5) * 2, 0, k, ox, oy);
             const bw = k * (1.5 + 2 * h01(i, step, 3));
             const bh = k * (1 + 1.4 * h01(i, step, 4));
             return <rect key={`s${i}`} x={sx - bw / 2} y={sy - bh / 2} width={bw} height={bh} fill="none" stroke="#fff" strokeWidth={1 * u} opacity={0.7} />;

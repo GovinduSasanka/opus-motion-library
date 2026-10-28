@@ -40,13 +40,13 @@ const fmtClock = (sec: number, base: string) => {
   return `${f(Math.floor(t / 3600) % 24)}:${f(Math.floor(t / 60) % 60)}:${f(t % 60)}`;
 };
 
-const Panel: React.FC<{col: Col; local: number; span: number; frozen: boolean; u: number; ink: string; accent: string; fw: number; fh: number}> = ({col, local, span, frozen, u, ink, accent, fw, fh}) => {
+const Panel: React.FC<{col: Col; local: number; span: number; frozen: boolean; u: number; ink: string; accent: string; fw: number; fh: number; portrait?: boolean}> = ({col, local, span, frozen, u, ink, accent, fw, fh, portrait}) => {
   const k = col.kind;
   if ((k === 'image' || k === 'dashcam') && col.src) return <Img src={resolveSrc(col.src)} style={{width: fw, height: fh, objectFit: 'cover'}} />;
   if (k === 'text') {
     const lines = (col.text || '').split('\n');
     return (
-      <div style={{width: fw, height: fh, background: '#13151A', padding: 22 * u, boxSizing: 'border-box', fontFamily: fonts.mono, color: '#C9CCD3', fontSize: Math.min(26 * u, fh / 11), overflow: 'hidden'}}>
+      <div style={{width: fw, height: fh, background: '#13151A', padding: 22 * u, boxSizing: 'border-box', fontFamily: fonts.mono, color: '#C9CCD3', fontSize: portrait ? Math.min(34 * u, fh / 9) : Math.min(26 * u, fh / 11), overflow: 'hidden'}}>
         {lines.map((ln, i) => {
           const at = i * 2.4;
           if (local < at) return null;
@@ -176,7 +176,7 @@ const SyncGrid: React.FC<Props> = (p) => {
                     )}
                   </Sequence>
                 ) : (
-                  <Panel col={c} local={local} span={span} frozen={frozen} u={u} ink={p.ink} accent={p.accent} fw={cw} fh={ch} />
+                  <Panel col={c} local={local} span={span} frozen={frozen} u={u} ink={p.ink} accent={p.accent} fw={cw} fh={ch} portrait={portrait} />
                 )}
                 <div style={{position: 'absolute', inset: 0, background: '#fff', opacity: flash * 0.85}} />
                 {frozen && isSync ? (

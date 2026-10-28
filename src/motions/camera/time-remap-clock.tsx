@@ -20,6 +20,7 @@ type Props = {
 const TimeRemapClock: React.FC<Props> = ({holds, easeIn, release, length, background, color, remapColor, title}) => {
   const frame = useCurrentFrame();
   const {w, h, u, fps, portrait} = useStage();
+  const ps = portrait ? 1.5 : 1;
   const key = JSON.stringify([holds, easeIn, release, length]);
   const M = useMemo(() => {
     const rm = buildTimeRemap(holds, {easeIn, release, total: length + 2});
@@ -58,12 +59,23 @@ const TimeRemapClock: React.FC<Props> = ({holds, easeIn, release, length, backgr
   return (
     <AbsoluteFill style={{background, opacity: intro}}>
       <Svg>
-        <text x={x0} y={h * (portrait ? 0.2 : 0.2)} fill="#fff" fontFamily={fonts.grotesk} fontWeight={700} fontSize={54 * u}>
+        <text x={x0} y={h * (portrait ? 0.2 : 0.2)} fill="#fff" fontFamily={fonts.grotesk} fontWeight={700} fontSize={54 * u * ps}>
           {title}
         </text>
-        <text x={x0} y={h * 0.2 + 42 * u} fill="#8a93b8" fontFamily={mono} fontSize={22 * u} letterSpacing={3 * u}>
-          STOP ON THE HOLD · CATCH UP TO ~2x · BACK ON THE TIMELINE
-        </text>
+        {portrait ? (
+          <>
+            <text x={x0} y={h * 0.2 + 64 * u} fill="#8a93b8" fontFamily={mono} fontSize={26 * u} letterSpacing={2 * u}>
+              STOP ON THE HOLD · CATCH UP TO ~2x
+            </text>
+            <text x={x0} y={h * 0.2 + 100 * u} fill="#8a93b8" fontFamily={mono} fontSize={26 * u} letterSpacing={2 * u}>
+              BACK ON THE TIMELINE
+            </text>
+          </>
+        ) : (
+          <text x={x0} y={h * 0.2 + 42 * u} fill="#8a93b8" fontFamily={mono} fontSize={22 * u * ps} letterSpacing={3 * u}>
+            STOP ON THE HOLD · CATCH UP TO ~2x · BACK ON THE TIMELINE
+          </text>
+        )}
 
         {/* tracks */}
         {[
@@ -71,7 +83,7 @@ const TimeRemapClock: React.FC<Props> = ({holds, easeIn, release, length, backgr
           {y: y2, label: 'REMAPPED', c: remapColor, val: clockT},
         ].map((tr) => (
           <g key={tr.label}>
-            <text x={x0} y={tr.y - 30 * u} fill={tr.c} fontFamily={mono} fontSize={20 * u} letterSpacing={4 * u}>
+            <text x={x0} y={tr.y - 30 * u} fill={tr.c} fontFamily={mono} fontSize={20 * u * ps} letterSpacing={4 * u}>
               {tr.label}
             </text>
             <line x1={x0} x2={x0 + tw} y1={tr.y} y2={tr.y} stroke="#2a3050" strokeWidth={6 * u} strokeLinecap="round" />
@@ -87,7 +99,7 @@ const TimeRemapClock: React.FC<Props> = ({holds, easeIn, release, length, backgr
         <line x1={px(t)} x2={px(clockT)} y1={y1 + 24 * u} y2={y2 - 24 * u} stroke="#ffffff" strokeWidth={2 * u} strokeDasharray={`${6 * u} ${6 * u}`} opacity={0.35} />
 
         {/* speed graph */}
-        <text x={x0} y={gy0 - 16 * u} fill="#8a93b8" fontFamily={mono} fontSize={20 * u} letterSpacing={4 * u}>
+        <text x={x0} y={gy0 - 16 * u} fill="#8a93b8" fontFamily={mono} fontSize={20 * u * ps} letterSpacing={4 * u}>
           CLOCK SPEED
         </text>
         <rect x={x0} y={gy0} width={tw} height={gh} fill="#ffffff" opacity={0.03} rx={8 * u} />
@@ -95,7 +107,7 @@ const TimeRemapClock: React.FC<Props> = ({holds, easeIn, release, length, backgr
           <rect key={i} x={px(wd.b)} y={gy0} width={px(wd.c) - px(wd.b)} height={gh} fill="#ff6b81" opacity={0.14} />
         ))}
         <line x1={x0} x2={x0 + tw} y1={gv(1)} y2={gv(1)} stroke="#ffffff" strokeWidth={1.5 * u} strokeDasharray={`${5 * u} ${7 * u}`} opacity={0.35} />
-        <text x={x0 + tw + 10 * u} y={gv(1) + 7 * u} fill="#8a93b8" fontFamily={mono} fontSize={18 * u}>
+        <text x={x0 + tw + 10 * u} y={gv(1) + 7 * u} fill="#8a93b8" fontFamily={mono} fontSize={18 * u * ps}>
           1x
         </text>
         <polyline points={line} fill="none" stroke="#ffffff" strokeWidth={2 * u} opacity={0.22} />
@@ -104,7 +116,7 @@ const TimeRemapClock: React.FC<Props> = ({holds, easeIn, release, length, backgr
         <circle cx={gx(t)} cy={gv(v)} r={7 * u} fill={remapColor} />
 
         {/* readout */}
-        <g fontFamily={mono} fontSize={26 * u}>
+        <g fontFamily={mono} fontSize={26 * u * ps}>
           <text x={x0} y={gy0 + gh + 56 * u} fill={color}>
             t {t.toFixed(2)}s
           </text>

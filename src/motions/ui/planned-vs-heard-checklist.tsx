@@ -32,7 +32,7 @@ const PlannedVsHeardChecklist: React.FC<Props> = (p) => {
   const {w: W, h: H, u, fps, portrait, durationInFrames: D} = useStage();
   const id = useIdA('pvh');
   const M = frame / fps + p.startSeconds;
-  const s = u * (portrait ? 1.08 : 1.25);
+  const s = u * (portrait ? 1.4 : 1.25);
   const pw = Math.min(W - 48 * u, (portrait ? 980 : 900) * s);
   const items = p.items;
   const rh = Math.min(72 * s, (H * 0.62) / Math.max(1, items.length));

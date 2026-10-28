@@ -41,6 +41,7 @@ const EvidenceBoard: React.FC<Props> = (p) => {
   const tileBg = '#1D2127';
   const line = '#3A3F46';
   const mono = fonts.mono;
+  const F = portrait ? 1.8 : 1;
 
   /* layout */
   let schem: R;
@@ -109,7 +110,7 @@ const EvidenceBoard: React.FC<Props> = (p) => {
     const tag = s.tag ?? s.kind.toUpperCase();
     const cx = r.x + r.w / 2;
     const cy = r.y + r.h / 2;
-    const inner: R = {x: r.x + pad, y: r.y + pad + 20 * u, w: r.w - pad * 2, h: r.h - pad * 2 - 20 * u};
+    const inner: R = {x: r.x + pad, y: r.y + pad + 20 * F * u, w: r.w - pad * 2, h: r.h - pad * 2 - 20 * F * u};
     let body: React.ReactNode = null;
     const ring = s.ring ?? [0.62, 0.5, 0.16];
 
@@ -178,7 +179,7 @@ const EvidenceBoard: React.FC<Props> = (p) => {
               </g>
             );
           })()}
-          {dark && <text x={inner.x + 6 * u} y={inner.y + inner.h - 6 * u} fontFamily={mono} fontSize={11 * u} fill="#ECEAE4" opacity={0.85}>REC ● 14:02:{String(11 + Math.floor(frame / 30)).padStart(2, '0')}</text>}
+          {dark && <text x={inner.x + 6 * u} y={inner.y + inner.h - 6 * u} fontFamily={mono} fontSize={11 * F * u} fill="#ECEAE4" opacity={0.85}>REC ● 14:02:{String(11 + Math.floor(frame / 30)).padStart(2, '0')}</text>}
         </g>
       );
     } else if (s.kind === 'audio') {
@@ -195,8 +196,8 @@ const EvidenceBoard: React.FC<Props> = (p) => {
             return <rect key={j} x={wave.x + j * bw + bw * 0.2} y={wave.y + wave.h / 2 - hh / 2} width={bw * 0.6} height={hh} rx={bw * 0.3} fill={played ? '#ECEAE4' : '#4A4F57'} />;
           })}
           <rect x={wave.x + play * wave.w - 1 * u} y={wave.y + wave.h / 2 - wave.h / 2 - 6 * u} width={2 * u} height={wave.h + 12 * u} fill={p.accent} />
-          {wrap(q, Math.max(14, Math.floor((r.w > r.h * 3 ? inner.w * 0.4 : inner.w) / (8.6 * u)))).slice(0, 3).map((ln, j) => (
-            <text key={j} x={r.w > r.h * 3 ? inner.x + inner.w * 0.6 : inner.x} y={(r.w > r.h * 3 ? inner.y + inner.h * 0.3 : inner.y + inner.h * 0.72) + j * 16 * u} fontFamily={fonts.serif} fontSize={14 * u} fill={p.text}>{ln}</text>
+          {wrap(q, Math.max(14, Math.floor((r.w > r.h * 3 ? inner.w * 0.4 : inner.w) / (8.6 * F * u)))).slice(0, portrait ? 2 : 3).map((ln, j) => (
+            <text key={j} x={r.w > r.h * 3 ? inner.x + inner.w * 0.6 : inner.x} y={(r.w > r.h * 3 ? inner.y + inner.h * 0.3 : inner.y + inner.h * 0.72) + j * 16 * F * u} fontFamily={fonts.serif} fontSize={14 * F * u} fill={p.text}>{ln}</text>
           ))}
         </g>
       );
@@ -204,9 +205,9 @@ const EvidenceBoard: React.FC<Props> = (p) => {
       const q = s.quote ?? 'Findings are consistent with the stated cause.';
       body = (
         <g>
-          <text x={inner.x} y={inner.y + 34 * u} fontFamily={fonts.serif} fontSize={54 * u} fill={p.accent} opacity={0.9}>“</text>
-          {wrap(q, Math.max(12, Math.floor(inner.w / (9.2 * u)))).slice(0, 5).map((ln, j) => (
-            <text key={j} x={inner.x + 4 * u} y={inner.y + 54 * u + j * 18 * u} fontFamily={fonts.serif} fontSize={15 * u} fill={p.text}>{ln}</text>
+          <text x={inner.x} y={inner.y + 34 * F * u} fontFamily={fonts.serif} fontSize={54 * F * u} fill={p.accent} opacity={0.9}>“</text>
+          {wrap(q, Math.max(12, Math.floor(inner.w / (9.2 * F * u)))).slice(0, 5).map((ln, j) => (
+            <text key={j} x={inner.x + 4 * u} y={inner.y + 54 * F * u + j * 18 * F * u} fontFamily={fonts.serif} fontSize={15 * F * u} fill={p.text}>{ln}</text>
           ))}
         </g>
       );
@@ -214,7 +215,7 @@ const EvidenceBoard: React.FC<Props> = (p) => {
     return (
       <g transform={`translate(${cx} ${cy}) scale(${sc}) translate(${-cx} ${-cy})`} opacity={cl(k * 2)}>
         <rect x={r.x} y={r.y} width={r.w} height={r.h} fill={tileBg} stroke={line} strokeWidth={1.4 * u} rx={3 * u} />
-        <text x={r.x + pad} y={r.y + 20 * u} fontFamily={mono} fontSize={11.5 * u} letterSpacing={1.6 * u} fill={dim}>{tag.toUpperCase()}</text>
+        <text x={r.x + pad} y={r.y + 20 * F * u} fontFamily={mono} fontSize={11.5 * F * u} letterSpacing={1.6 * u} fill={dim}>{tag.toUpperCase()}</text>
         {body}
         <rect x={r.x} y={r.y} width={r.w} height={r.h} fill="#fff" opacity={flash * 0.45} rx={3 * u} />
       </g>
@@ -252,7 +253,7 @@ const EvidenceBoard: React.FC<Props> = (p) => {
             </mask>
           ))}
         </defs>
-        <text x={w * 0.04} y={h * 0.075} fontFamily={mono} fontSize={15 * u} letterSpacing={3 * u} fill={dim} opacity={seg(frame, 0, 12)}>{p.title.toUpperCase()}</text>
+        <text x={w * 0.04} y={h * 0.075} fontFamily={mono} fontSize={15 * F * u} letterSpacing={3 * u} fill={dim} opacity={seg(frame, 0, 12)}>{p.title.toUpperCase()}</text>
         {/* schematic */}
         <g opacity={seg(frame, 0, 14)}>
           <rect x={zone.x} y={zone.y} width={zone.w} height={zone.h} fill={zoneColor} opacity={zoneA / 0.5 * 0.5} />
@@ -266,13 +267,13 @@ const EvidenceBoard: React.FC<Props> = (p) => {
               const cx2 = i % T.cols;
               const cy2 = Math.floor(i / T.cols);
               const inZ = cx2 >= T.zone.x && cx2 < T.zone.x + T.zone.w && cy2 >= T.zone.y && cy2 < T.zone.y + T.zone.h;
-              return <text key={i} x={schem.x + cx2 * cw + 6 * u} y={schem.y + cy2 * chh + 14 * u} fontFamily={mono} fontSize={10.5 * u} fill={inZ ? p.text : '#5B616A'}>{String(i + 1).padStart(2, '0')}</text>;
+              return <text key={i} x={schem.x + cx2 * cw + 6 * u} y={schem.y + cy2 * chh + 14 * u} fontFamily={mono} fontSize={10.5 * F * u} fill={inZ ? p.text : '#5B616A'}>{String(i + 1).padStart(2, '0')}</text>;
             })}
           <g fill="none" stroke={p.text} strokeWidth={1.2 * u} opacity={0.6}>
             <path d={`M${schem.x + cw * 2} ${schem.y + schem.h}a${cw * 0.4} ${cw * 0.4} 0 0 1 ${cw * 0.4} ${-cw * 0.4}`} />
             <path d={`M${schem.x + schem.w} ${schem.y + chh * 1.5}a${cw * 0.4} ${cw * 0.4} 0 0 0 ${-cw * 0.4} ${cw * 0.4}`} />
           </g>
-          <text x={schem.x} y={schem.y - 12 * u} fontFamily={mono} fontSize={12 * u} letterSpacing={2 * u} fill={dim}>{T.label.toUpperCase()}</text>
+          <text x={schem.x} y={schem.y - 12 * u} fontFamily={mono} fontSize={12 * F * u} letterSpacing={2 * u} fill={dim}>{T.label.toUpperCase()}</text>
         </g>
         {/* links */}
         {linkPaths.map((l, i) => (

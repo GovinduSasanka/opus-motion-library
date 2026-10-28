@@ -56,7 +56,7 @@ const FacetedSea: React.FC<Props> = (p) => {
   const tod = todMix(p.timeStart, p.timeEnd, k * k * (3 - 2 * k));
   const az = lerp(p.azimuthStart, p.azimuthEnd, k);
   const el = p.elevation;
-  const fh = lpFrustum(p.zoom, w / h);
+  const fh = lpFrustum(p.zoom * (h > w ? 0.45 : 1), w / h);
   const V = lpView(az, el);
   const s2 = Math.sin((el * Math.PI) / 180) ** 2;
   const shift = (fh * 0.17) / Math.max(0.1, s2);

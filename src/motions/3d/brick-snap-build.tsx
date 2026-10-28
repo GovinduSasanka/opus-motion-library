@@ -53,7 +53,7 @@ const SnapBuild: React.FC<Props> = (p) => {
 
   // camera on ones: slow glide + pull back as the build grows
   const k = prog(frame, 0, total + 20, ease.sine);
-  const dist = lerp(spanX * 1.5 + 6, spanX * (portrait ? 3.4 : 2.1) + 8, k);
+  const dist = lerp(spanX * (portrait ? 4.4 : 1.5) + 6, spanX * (portrait ? 5.4 : 2.1) + 8, k);
   const ang = lerp(0.3, 0.08, k);
   const elev = lerp(0.3, 0.17, k);
   const tgtY = lerp(1.4, spanY * 0.52, k);

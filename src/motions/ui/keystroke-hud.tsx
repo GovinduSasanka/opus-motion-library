@@ -61,7 +61,8 @@ const parse = (combo: string): Cap[] =>
 const KeystrokeHud: React.FC<Props> = (p) => {
   const frame = useCurrentFrame();
   const {w, h, u, portrait} = useStage();
-  const H = 66 * u * p.size * (portrait ? 1.15 : 1);
+  const H = 66 * u * p.size * (portrait ? 1.45 : 1);
+  const pk = portrait ? 1.5 : 1;
   const gapCap = 8 * u * p.size;
   const gapCombo = 30 * u * p.size;
   const holdF = p.hold * 30;
@@ -95,20 +96,20 @@ const KeystrokeHud: React.FC<Props> = (p) => {
   return (
     <AbsoluteFill style={{background: demo ? 'linear-gradient(135deg,#3B5BDB 0%,#7048E8 55%,#C2255C 100%)' : 'transparent', fontFamily: lf.inter}}>
       {demo && (
-        <div style={{position: 'absolute', left: w * 0.11, right: w * 0.11, top: h * 0.06, height: h * 0.8, borderRadius: 18 * u, background: '#1E2030', boxShadow: `0 ${30 * u}px ${80 * u}px rgba(0,0,0,0.35)`, overflow: 'hidden'}}>
-          <div style={{height: 46 * u, background: '#252A3F', display: 'flex', alignItems: 'center', gap: 10 * u, paddingLeft: 18 * u}}>
+        <div style={{position: 'absolute', left: w * (portrait ? 0.05 : 0.11), right: w * (portrait ? 0.05 : 0.11), top: h * 0.06, height: h * 0.8, borderRadius: 18 * u, background: '#1E2030', boxShadow: `0 ${30 * u}px ${80 * u}px rgba(0,0,0,0.35)`, overflow: 'hidden'}}>
+          <div style={{height: 46 * u * pk, background: '#252A3F', display: 'flex', alignItems: 'center', gap: 10 * u, paddingLeft: 18 * u}}>
             {['#FF5F57', '#FEBC2E', '#28C840'].map((c) => (
               <div key={c} style={{width: 14 * u, height: 14 * u, borderRadius: '50%', background: c}} />
             ))}
-            <div style={{marginLeft: 20 * u, color: '#8A90B0', fontSize: 17 * u, fontFamily: lf.jbm}}>main.ts</div>
+            <div style={{marginLeft: 20 * u, color: '#8A90B0', fontSize: 17 * u * pk, fontFamily: lf.jbm}}>main.ts</div>
           </div>
           <div style={{padding: `${22 * u}px ${30 * u}px`}}>
             {code.map((l, i) => (
-              <div key={i} style={{display: 'flex', alignItems: 'center', height: 34 * u, opacity: i < lineCount ? 1 : 0}}>
-                <div style={{width: 40 * u, color: '#4B5170', fontSize: 15 * u, fontFamily: lf.jbm}}>{i + 1}</div>
-                <div style={{width: l.ind * 18 * u}} />
-                <div style={{height: 12 * u, width: l.len * (w * 0.4) * 0.5, borderRadius: 6 * u, background: l.col, opacity: 0.85}} />
-                {l.two && <div style={{marginLeft: 12 * u, height: 12 * u, width: l.len * w * 0.12, borderRadius: 6 * u, background: '#6B7399'}} />}
+              <div key={i} style={{display: 'flex', alignItems: 'center', height: 34 * u * pk, opacity: i < lineCount ? 1 : 0}}>
+                <div style={{width: 40 * u * pk, color: '#4B5170', fontSize: 15 * u * pk, fontFamily: lf.jbm}}>{i + 1}</div>
+                <div style={{width: l.ind * 18 * u * pk}} />
+                <div style={{height: 12 * u * pk, width: l.len * (w * 0.4) * 0.5 * pk, borderRadius: 6 * u * pk, background: l.col, opacity: 0.85}} />
+                {l.two && <div style={{marginLeft: 12 * u * pk, height: 12 * u * pk, width: l.len * w * 0.12 * pk, borderRadius: 6 * u * pk, background: '#6B7399'}} />}
                 {i === lineCount - 1 && Math.floor(frame / 8) % 2 === 0 && <div style={{marginLeft: 8 * u, height: 22 * u, width: 3 * u, background: '#C0CAF5'}} />}
               </div>
             ))}

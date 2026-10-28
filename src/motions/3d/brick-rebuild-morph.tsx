@@ -68,7 +68,7 @@ const RebuildMorph: React.FC<Props> = (p) => {
   const n = pairs.length;
   const morphEnd = p.morphAt + n * p.stagger * 0.25 + p.flightFrames;
   const k = prog(frame, 0, morphEnd + 30, ease.sine);
-  const dist = spanX * (portrait ? 3.4 : 2.1) + 8;
+  const dist = spanX * (portrait ? 4.7 : 2.1) + 8;
   const pos: V3 = [Math.sin(lerp(0.26, 0.06, k)) * dist, dist * lerp(0.26, 0.16, k) + spanY * 0.5, Math.cos(lerp(0.26, 0.06, k)) * dist];
   const tgt: V3 = [0, spanY * 0.5, 0];
   const capK = prog(frame, p.morphAt - 20, p.morphAt + 30, ease.inOut);

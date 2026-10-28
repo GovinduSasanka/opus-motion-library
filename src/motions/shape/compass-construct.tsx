@@ -5,6 +5,7 @@ import {rng} from '../../core/random';
 import {Sparkle} from '../../core/shapes';
 import {TipDot, dash1} from '../../core/shape-kit';
 import {Svg, useStage} from '../../core/stage';
+import {withPortraitFit} from '../../core/portrait3';
 import {defineMotion} from '../../core/types';
 
 /**
@@ -232,6 +233,6 @@ export const compassConstruct = defineMotion<Props>({
     vesica: 'add the vertical vesica lens and two gold nodes',
     implode: 'end by spinning -60 deg, shrinking and un-drawing into a point',
   },
-  component: CompassConstruct,
+  component: withPortraitFit(CompassConstruct, {s: 1.5}),
   tags: ['geometry', 'compass', 'construction', 'hexagon', 'sacred', 'outro'],
 });

@@ -137,7 +137,7 @@ const ExplodedStack: React.FC<Props> = ({layers, openAt, closeAt, stagger, wave,
     const outP = seg(frame, closeAt - 12, closeAt - 2);
     return {L, k, p, colX, ly, inP, lp, outP};
   });
-  const fs = (portrait ? 24 : 30) * u;
+  const fs = (portrait ? 38 : 30) * u;
   return (
     <AbsoluteFill style={{background: `radial-gradient(120% 90% at 50% 42%, ${background} 0%, ${edge} 80%)`}}>
       <Stage3D shadows="soft" transparent>
@@ -173,13 +173,13 @@ const ExplodedStack: React.FC<Props> = ({layers, openAt, closeAt, stagger, wave,
                 <circle cx={p.x} cy={p.y} r={(3.2 + 6 * lp) * u} fill="none" stroke="#fff" strokeWidth={1.2 * u} opacity={1 - lp * 0.6} />
                 <path d={d} fill="none" stroke="#fff" strokeOpacity={0.5} strokeWidth={1.3 * u} pathLength={1} strokeDasharray={1} strokeDashoffset={1 - lp} />
                 <g transform={`translate(${fx(colX)},${fx(ly)})`} opacity={lp}>
-                  <text x={0} y={-6 * u} fontFamily={fMono} fontSize={15 * u} fill={accent} fontWeight={500}>
+                  <text x={0} y={-6 * u} fontFamily={fMono} fontSize={(portrait ? 22 : 15) * u} fill={accent} fontWeight={500}>
                     {String(k + 1).padStart(2, '0')}
                   </text>
                   <text x={0} y={fs * 0.2} fontFamily={fSans} fontSize={fs} fontWeight={600} fill="#f1f1ee">
                     {L.name}
                   </text>
-                  <text x={0} y={fs * 0.2 + 26 * u} fontFamily={fMono} fontSize={17 * u * (portrait ? 0.9 : 1)} fill="#f1f1ee" opacity={0.6}>
+                  <text x={0} y={fs * 0.2 + (portrait ? 36 : 26) * u} fontFamily={fMono} fontSize={(portrait ? 26 : 17) * u} fill="#f1f1ee" opacity={0.6}>
                     {L.spec}
                   </text>
                 </g>

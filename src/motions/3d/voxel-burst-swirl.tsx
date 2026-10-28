@@ -142,7 +142,7 @@ const VoxelBurstSwirl: React.FC<Props> = (p) => {
 
   return (
     <AbsoluteFill>
-      <PlinthStudio bg={background} plinthColor={plinthColor} ringColor={accent} progress={progress}>
+      <PlinthStudio bg={background} plinthColor={plinthColor} ringColor={accent} progress={progress} portraitFit={0.6}>
         <VoxelInstances poses={poses} colors={[voxelColor, eyeColor]} />
       </PlinthStudio>
       {hud && (

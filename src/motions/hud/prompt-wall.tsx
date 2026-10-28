@@ -40,11 +40,13 @@ const DEFAULT_SNIPPETS = [
 
 type Box = {x: number; y: number; w: number; h: number; tier: number; born: number; life: number; head: string; body: string};
 
-const PromptWall: React.FC<Props> = ({background, ink, frameColor, snippets, density, every, title, titleColor, scanlines, seed}) => {
+const PromptWall: React.FC<Props> = ({background, ink: inkIn, frameColor, snippets, density, every, title, titleColor, scanlines, seed}) => {
   const frame = useCurrentFrame();
   const {w, h, u, fps, portrait} = useStage();
   const list = snippets.length ? snippets : DEFAULT_SNIPPETS;
-  const fs = 15 * u * (portrait ? 1.2 : 1);
+  // portrait: brighter default ghost ink and bigger text so the wall stays legible
+  const ink = portrait && inkIn === KLEIN.ghost ? '#B9B6F4' : inkIn;
+  const fs = 15 * u * (portrait ? 1.75 : 1);
   const lh = fs * 1.35;
   // boxes are spawned on a fixed schedule (one every `every` frames), including some born before frame 0
   const boxes: Box[] = [];
@@ -54,11 +56,11 @@ const PromptWall: React.FC<Props> = ({background, ink, frameColor, snippets, den
   for (let k = first; k <= last; k++) {
     const r = (n: number) => h01(k, n, seed);
     const tier = r(1) < 0.45 ? 0 : r(1) < 0.85 ? 1 : 2;
-    const bw = w * (portrait ? 0.38 : 0.16) * (0.8 + 0.6 * r(2));
-    const bh = h * (portrait ? 0.1 : 0.17) * (0.7 + 0.8 * r(3));
+    const bw = w * (portrait ? 0.46 : 0.16) * (0.8 + 0.6 * r(2));
+    const bh = h * (portrait ? 0.12 : 0.17) * (0.7 + 0.8 * r(3));
     const snip = list[Math.floor(r(4) * list.length)];
     const [head, body] = snip.includes('|') ? snip.split('|') : ['', snip];
-    for (let d = 0; d < density; d++) {
+    for (let d = 0; d < (portrait ? Math.min(density, 1) : density); d++) {
       if (d > 0 && h01(k, d, 77) > density - d) continue;
       boxes.push({
         x: (w - bw) * h01(k, d, 5) - w * 0.02,
@@ -73,7 +75,7 @@ const PromptWall: React.FC<Props> = ({background, ink, frameColor, snippets, den
       });
     }
   }
-  const tierOp = [0.45, 0.65, 0.95];
+  const tierOp = portrait ? [0.6, 0.8, 1] : [0.45, 0.65, 0.95];
   const tierSc = [0.9, 1, 1.05];
   const titleText = title ? `[ ${title} ]` : '';
   const shown = scramble(titleText, frame, 10, Math.max(12, titleText.length * 0.6), seed);

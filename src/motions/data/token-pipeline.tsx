@@ -88,7 +88,7 @@ const TokenPipeline: React.FC<Props> = ({background, cubeColor, outputColor, gla
   const B = anchors[ci + 1];
   const ck = easeInOutSine(lin(frame, A.f, B.f));
   const cam = {x: A.x + (B.x - A.x) * ck, y: A.y + (B.y - A.y) * ck, z: A.z + (B.z - A.z) * ck};
-  const sc = S * cam.z;
+  const sc = S * cam.z * (portrait ? 0.78 : 1);
   const X = (x: number) => w / 2 + (x - cam.x) * sc;
   const Y = (y: number) => h / 2 + (y - cam.y) * sc;
   const L = (v: number) => v * sc;

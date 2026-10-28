@@ -25,8 +25,8 @@ const IsoCutaway: React.FC<Props> = ({title, floors, wallColor, roofColor, cutAt
   const FH = 18;
   const H = nF * FH;
   const totalH = H + 10;
-  const k = Math.min((w * (portrait ? 0.46 : 0.4)) / ((W + Dp) * 0.866), (h * (portrait ? 0.5 : 0.7)) / ((W + Dp) / 2 + totalH));
-  const ctx: IsoCtx = {k, cx: portrait ? w * 0.38 : w * 0.42, cy: (portrait ? h * 0.46 : h * 0.53) + (totalH * k) / 2, polys: []};
+  const k = Math.min((w * (portrait ? 0.52 : 0.4)) / ((W + Dp) * 0.866), (h * (portrait ? 0.6 : 0.7)) / ((W + Dp) / 2 + totalH));
+  const ctx: IsoCtx = {k, cx: portrait ? w * 0.36 : w * 0.42, cy: (portrait ? h * 0.46 : h * 0.53) + (totalH * k) / 2, polys: []};
   const x0 = -W / 2;
   const x1 = W / 2;
   const y0 = -Dp / 2;
@@ -164,9 +164,9 @@ const IsoCutaway: React.FC<Props> = ({title, floors, wallColor, roofColor, cutAt
     const kk = eo3(seg(frame, t0, t0 + 8));
     if (kk <= 0) return null;
     const [ax, ay] = isoP(ctx, x1 - 4, y0 + 11.5, f * FH + 9 + rise);
-    const lx = portrait ? Math.max(ax + 60 * u, w * 0.66) : Math.max(ax + 160 * u, w * 0.72);
+    const lx = portrait ? Math.max(ax + 50 * u, w * 0.67) : Math.max(ax + 160 * u, w * 0.72);
     const ex = lerp(ax, lx, kk);
-    const fs = 28 * u;
+    const fs = (portrait ? 36 : 28) * u;
     return (
       <g key={'lb' + f} opacity={kk}>
         <circle cx={ax} cy={ay} r={5 * u} fill={ISO.ink} stroke={ISO.boardTop} strokeWidth={2 * u} />

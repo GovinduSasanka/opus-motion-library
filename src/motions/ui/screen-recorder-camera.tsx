@@ -55,7 +55,8 @@ const ScreenCam: React.FC<Props> = (p) => {
       if (q < 1) break;
       prev = target;
     }
-    const z = Math.max(1, cur.z);
+    const z0 = Math.max(1, cur.z);
+    const z = h > w ? 1 + (z0 - 1) * 0.6 : z0;
     const dx = (Math.sin(t * 0.9) * 14 * p.drift) / DW;
     const dy = (Math.cos(t * 0.7 + 1) * 10 * p.drift) / DH;
     let sx = wx0 + (cur.x + dx) * DW * ws;

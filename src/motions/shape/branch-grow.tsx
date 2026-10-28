@@ -60,7 +60,7 @@ const BranchGrow: React.FC<Props> = ({layout, depth, angleSpread, lengthDecay, f
   const {w, h, u, cx, cy, portrait} = useStage();
   const fpl = framesPerLevel;
   const D = Math.max(2, Math.min(8, Math.round(depth)));
-  const R = Math.min(w, h) * 0.42;
+  const R = Math.min(w, h) * (portrait ? 0.44 : 0.42);
   const branches = useMemo(() => {
     const r = rng(seed);
     const out: Br[] = [];
@@ -71,8 +71,8 @@ const BranchGrow: React.FC<Props> = ({layout, depth, angleSpread, lengthDecay, f
       const base = portrait ? h * 0.8 : h * 0.86;
       grow(cx, base, -Math.PI / 2, (portrait ? h * 0.16 : h * 0.2), 0, D, startAt, fpl, angleSpread, lengthDecay, r, out, 9 * u);
     } else {
-      grow(cx, cy + R * 0.18, -Math.PI / 2, R * 0.24, 0, D, startAt, fpl, angleSpread, lengthDecay * 1.04, r, out, 6 * u);
-      grow(cx, cy + R * 0.18, Math.PI / 2, R * 0.15, 0, Math.max(2, D - 2), startAt + fpl * 0.5, fpl, angleSpread * 1.15, lengthDecay * 0.95, r, out, 4 * u);
+      grow(cx, cy + R * 0.18, -Math.PI / 2, R * (portrait ? 0.3 : 0.24), 0, D, startAt, fpl, angleSpread, lengthDecay * 1.04, r, out, 6 * u);
+      grow(cx, cy + R * 0.18, Math.PI / 2, R * (portrait ? 0.19 : 0.15), 0, Math.max(2, D - 2), startAt + fpl * 0.5, fpl, angleSpread * 1.15, lengthDecay * 0.95, r, out, 4 * u);
     }
     return out;
   }, [layout, D, angleSpread, lengthDecay, fpl, startAt, seed, cx, cy, R, u, h, portrait]);
@@ -159,10 +159,10 @@ const BranchGrow: React.FC<Props> = ({layout, depth, angleSpread, lengthDecay, f
         {diagram && <circle cx={dg.x + dg.w / 2} cy={dg.y - 4 * u} r={4 * u * prog(frame, startAt - 2, startAt + 2)} fill="none" stroke="#A09FC2" strokeWidth={1.5 * u} />}
       </Svg>
       {diagram && (
-        <TypedLabel x={dg.x} y={dg.y + dg.h + 14 * u} text={`n = ${Math.pow(2, Math.max(0, Math.min(levels - 1, Math.floor(((frame - startAt) / Math.max(1, lastT - startAt)) * levels))))}`} start={startAt} size={18} />
+        <TypedLabel x={dg.x} y={dg.y + dg.h + 14 * u} text={`n = ${Math.pow(2, Math.max(0, Math.min(levels - 1, Math.floor(((frame - startAt) / Math.max(1, lastT - startAt)) * levels))))}`} start={startAt} size={portrait ? 28 : 18} />
       )}
-      {label && <TypedLabel x={portrait ? cx : w * 0.06} y={portrait ? cy + R * 1.3 : h * 0.8} text={label} sub={sublabel} start={Math.round(lastT * 0.6)} size={26} anchor={portrait ? 'center' : 'left'} />}
-      <TypedLabel x={portrait ? w * 0.9 : w - 70 * u} y={portrait ? h * 0.08 : h * 0.1} text={`tips ${String(leafCount).padStart(3, '0')}`} start={startAt + 4} size={18} anchor="right" />
+      {label && <TypedLabel x={portrait ? cx : w * 0.06} y={portrait ? cy + R * 1.2 : h * 0.8} text={label} sub={sublabel} start={Math.round(lastT * 0.6)} size={portrait ? 34 : 26} anchor={portrait ? 'center' : 'left'} />}
+      <TypedLabel x={portrait ? w * 0.9 : w - 70 * u} y={portrait ? h * 0.08 : h * 0.1} text={`tips ${String(leafCount).padStart(3, '0')}`} start={startAt + 4} size={portrait ? 28 : 18} anchor="right" />
     </AbsoluteFill>
   );
 };

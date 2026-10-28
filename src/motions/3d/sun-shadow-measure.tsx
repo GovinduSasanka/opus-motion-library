@@ -227,9 +227,9 @@ const SunShadowMeasure: React.FC<Props> = (p) => {
         </div>
       ) : null}
       <div style={{position: 'absolute', left: (portrait ? 56 : 96) * u, top: (portrait ? 80 : 90) * u, opacity: clockIn, color: '#EDE7DA', fontFamily: fonts.mono}}>
-        <div style={{fontSize: 18 * u, letterSpacing: 4 * u, color: '#9FB0E8'}}>{p.label.toUpperCase()}</div>
-        <div style={{fontSize: 104 * u, fontWeight: 700, lineHeight: 1.05, marginTop: 8 * u}}>{fmtClock(minutes)}</div>
-        <div style={{fontSize: 22 * u, color: '#8d94a6', marginTop: 4 * u}}>
+        <div style={{fontSize: (portrait ? 30 : 18) * u, letterSpacing: 4 * u, color: '#9FB0E8'}}>{p.label.toUpperCase()}</div>
+        <div style={{fontSize: (portrait ? 128 : 104) * u, fontWeight: 700, lineHeight: 1.05, marginTop: 8 * u}}>{fmtClock(minutes)}</div>
+        <div style={{fontSize: (portrait ? 32 : 22) * u, color: '#8d94a6', marginTop: 4 * u}}>
           {p.date} · sun {Math.round((sp.el * 180) / Math.PI)}° up
         </div>
       </div>

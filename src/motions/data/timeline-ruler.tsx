@@ -95,8 +95,8 @@ const TimelineRuler: React.FC<Props> = ({events, orientation, scale, cardStyle, 
   const cardMute = dark ? 'rgba(241,238,230,0.62)' : 'rgba(26,26,31,0.62)';
 
   const cardW = vertical ? w * 0.7 : Math.min(560 * u, w * 0.3);
-  const cardH = vertical ? h * 0.2 : h * 0.29;
-  const imgH = vertical ? cardH * 0.4 : cardH * 0.44;
+  const cardH = vertical ? h * 0.27 : h * 0.29;
+  const imgH = vertical ? cardH * 0.3 : cardH * 0.44;
 
   const digits = String(Math.round(Math.max(...years))).length;
   const lineH = 118 * u;
@@ -134,7 +134,7 @@ const TimelineRuler: React.FC<Props> = ({events, orientation, scale, cardStyle, 
             <g key={i} opacity={intro0}>
               <line x1={x1} y1={y1} x2={x2} y2={y2} stroke={ink} strokeOpacity={t.major ? 0.6 : 0.3} strokeWidth={2 * u} strokeLinecap="round" />
               {t.major ? (
-                <text x={lx} y={ly} fill={ink} fillOpacity={0.5} fontFamily={fonts.mono} fontSize={19 * u} textAnchor={vertical ? 'end' : 'middle'} dominantBaseline={vertical ? 'middle' : 'auto'}>
+                <text x={lx} y={ly} fill={ink} fillOpacity={0.5} fontFamily={fonts.mono} fontSize={(vertical ? 27 : 19) * u} textAnchor={vertical ? 'end' : 'middle'} dominantBaseline={vertical ? 'middle' : 'auto'}>
                   {t.yr}
                 </text>
               ) : null}
@@ -211,9 +211,9 @@ const TimelineRuler: React.FC<Props> = ({events, orientation, scale, cardStyle, 
               </div>
             </div>
             <div style={{padding: `${14 * u}px ${20 * u}px`, display: 'flex', flexDirection: 'column', gap: 4 * u, flex: 1, minHeight: 0}}>
-              <div style={{fontFamily: fonts.mono, fontSize: 18 * u, letterSpacing: '0.12em', color: accent, fontWeight: 700}}>{e.date}</div>
-              <div style={{fontFamily: fonts.sans, fontWeight: 800, fontSize: 30 * u, lineHeight: 1.1, color: cardInk, letterSpacing: '-0.02em'}}>{e.title}</div>
-              {e.body ? <div style={{fontFamily: fonts.sans, fontSize: 20 * u, lineHeight: 1.3, color: cardMute}}>{e.body}</div> : null}
+              <div style={{fontFamily: fonts.mono, fontSize: (vertical ? 26 : 18) * u, letterSpacing: '0.12em', color: accent, fontWeight: 700}}>{e.date}</div>
+              <div style={{fontFamily: fonts.sans, fontWeight: 800, fontSize: (vertical ? 44 : 30) * u, lineHeight: 1.1, color: cardInk, letterSpacing: '-0.02em'}}>{e.title}</div>
+              {e.body ? <div style={{fontFamily: fonts.sans, fontSize: (vertical ? 30 : 20) * u, lineHeight: 1.3, color: cardMute}}>{e.body}</div> : null}
             </div>
           </div>
         );
@@ -226,7 +226,7 @@ const TimelineRuler: React.FC<Props> = ({events, orientation, scale, cardStyle, 
             position: 'absolute',
             left: vertical ? w * 0.34 : 0,
             right: vertical ? 40 * u : 0,
-            top: vertical ? h * 0.035 : h * 0.045,
+            top: vertical ? h * 0.075 : h * 0.045,
             display: 'flex',
             justifyContent: vertical ? 'flex-start' : 'center',
             opacity: intro0,

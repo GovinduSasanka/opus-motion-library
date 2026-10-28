@@ -69,8 +69,8 @@ const LidarCanopyPeel: React.FC<Props> = ({trees, seed, cutKeys, stepFrames, sta
 
   const yaw = 0.55 + (frame / 30) * orbit;
   const el = (38 * Math.PI) / 180;
-  const k = Math.min((w * (portrait ? 0.86 : 0.54)) / (size * 1.38), (h * (portrait ? 0.62 : 0.82)) / (size * 0.62 * Math.sin(el) + ZMAX * Math.cos(el)));
-  const cx = rulerSide === 'left' ? w * (portrait ? 0.54 : 0.56) : w * (portrait ? 0.46 : 0.42);
+  const k = Math.min((w * (portrait ? 0.98 : 0.54)) / (size * 1.38), (h * (portrait ? 0.62 : 0.82)) / (size * 0.62 * Math.sin(el) + ZMAX * Math.cos(el)));
+  const cx = rulerSide === 'left' ? w * (portrait ? 0.5 : 0.56) : w * (portrait ? 0.5 : 0.42);
   const cam: RelCam = {yaw, el, k, cx, cy: h * (portrait ? 0.62 : 0.6), };
 
   const rampAt = (q: number) => {
@@ -132,7 +132,7 @@ const LidarCanopyPeel: React.FC<Props> = ({trees, seed, cutKeys, stepFrames, sta
   const rBot = h * 0.86;
   const zy = (m: number) => rBot - (m / ZMAX) * (rBot - rTop);
   const maxH = Math.max(...histAll, 1);
-  const hw = (portrait ? 70 : 150) * u;
+  const hw = (portrait ? 80 : 150) * u;
   const dir = left ? 1 : -1;
 
   return (
@@ -160,7 +160,7 @@ const LidarCanopyPeel: React.FC<Props> = ({trees, seed, cutKeys, stepFrames, sta
         {Array.from({length: Math.floor(ZMAX / 5) + 1}, (_, i) => i * 5).map((m) => (
           <g key={m}>
             <path d={`M${rx} ${zy(m)}h${dir * 12 * u}`} stroke="#E2F3DC" strokeOpacity="0.6" strokeWidth={1.5 * u} />
-            <text x={rx + dir * 20 * u} y={zy(m) + 6 * u} fill="#E2F3DC" fillOpacity="0.6" fontFamily={lf.techMono} fontSize={17 * u} textAnchor={left ? 'start' : 'end'}>
+            <text x={rx + dir * 20 * u} y={zy(m) + 6 * u} fill="#E2F3DC" fillOpacity="0.6" fontFamily={lf.techMono} fontSize={(portrait ? 28 : 17) * u} textAnchor={left ? 'start' : 'end'}>
               {m}
             </text>
           </g>
@@ -179,11 +179,11 @@ const LidarCanopyPeel: React.FC<Props> = ({trees, seed, cutKeys, stepFrames, sta
         <g transform={`translate(${rx} ${zy(cut)})`}>
           <path d={`M0 0L${dir * 14 * u} ${-8 * u}V${8 * u}Z`} fill="#EFFFF0" />
           <path d={`M${dir * 14 * u} 0H${dir * (portrait ? 150 : 240) * u}`} stroke="#EFFFF0" strokeOpacity="0.35" strokeWidth={1 * u} strokeDasharray={`${4 * u} ${6 * u}`} />
-          <text x={dir * 130 * u + (left ? 0 : 0)} y={-12 * u} fill="#EFFFF0" fontFamily={lf.barlowC} fontWeight={300} fontSize={34 * u} textAnchor={left ? 'start' : 'end'} style={{letterSpacing: 1 * u}}>
+          <text x={dir * 130 * u + (left ? 0 : 0)} y={-12 * u} fill="#EFFFF0" fontFamily={lf.barlowC} fontWeight={300} fontSize={(portrait ? 46 : 34) * u} textAnchor={left ? 'start' : 'end'} style={{letterSpacing: 1 * u}}>
             {cut.toFixed(1)} m
           </text>
         </g>
-        <text x={left ? w - 64 * u : 64 * u} y={h - 56 * u} fill="#E2F3DC" fillOpacity="0.7" fontFamily={lf.barlowC} fontWeight={300} fontSize={26 * u} textAnchor={left ? 'end' : 'start'} style={{letterSpacing: 5 * u}}>
+        <text x={left ? w - 64 * u : 64 * u} y={h - 56 * u} fill="#E2F3DC" fillOpacity="0.7" fontFamily={lf.barlowC} fontWeight={300} fontSize={(portrait ? 32 : 26) * u} textAnchor={left ? 'end' : 'start'} style={{letterSpacing: 5 * u}}>
           {label.toUpperCase()}
         </text>
       </svg>

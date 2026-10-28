@@ -117,7 +117,7 @@ const ParticleShapeMorph: React.FC<Props> = ({
   seed,
 }) => {
   const frame = useCurrentFrame();
-  const {w, h, u, cx, cy, fps} = useStage();
+  const {w, h, u, cx, cy, fps, portrait} = useStage();
   const N = Math.max(200, Math.min(12000, Math.round(count)));
   const word = text || 'FLOW';
   const glyph = useGlyphPoints(word, fonts.display, 400, N, seed);
@@ -278,7 +278,7 @@ const ParticleShapeMorph: React.FC<Props> = ({
   const coreR = 0.0125 * s * (1 + flash * 0.8 + collapseU * 0.6);
   const bloomA = after >= 0 ? 0.55 : 0.35 + 0.4 * collapseU;
   const [cr, cg, cb] = hexRgb(coreColor);
-  const capFs = 12 * u;
+  const capFs = (portrait ? 26 : 12) * u;
 
   return (
     <AbsoluteFill style={{background, overflow: 'hidden'}}>
@@ -309,7 +309,7 @@ const ParticleShapeMorph: React.FC<Props> = ({
         ) : null}
       </svg>
       <FilmGrain opacity={0.05} />
-      {hud ? <ReelHud ink={SWISS.cream} label={label} footer={`MOTION REEL / ${w}×${h} / ${fps} FPS`} active={4} progress={frame / (collapseEnd + 20)} beat={!!seg && frame >= seg.a && frame < seg.b} opacity={0.42} /> : null}
+      {hud ? <ReelHud ink={SWISS.cream} label={label} footer={`MOTION REEL / ${w}×${h} / ${fps} FPS`} active={4} progress={frame / (collapseEnd + 20)} beat={!!seg && frame >= seg.a && frame < seg.b} opacity={0.42} scale={portrait ? 2 : 1} /> : null}
     </AbsoluteFill>
   );
 };

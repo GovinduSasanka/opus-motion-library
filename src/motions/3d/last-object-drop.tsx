@@ -190,7 +190,7 @@ const LastObjectDrop: React.FC<Props> = (p) => {
 
   // camera: high 3/4, slow creep; pushes toward the puck after it lands
   const push = eo(seg(frame, land, land + 50));
-  const fit = Math.max(1, 1.15 / aspect);
+  const fit = aspect < 0.8 ? 1.9 / aspect : Math.max(1, 1.15 / aspect);
   const camR = (6.0 - 1.4 * push - frame * 0.002) * fit;
   const camH = (6.6 - 2.2 * push) * fit;
   const az = 0.25 - frame * 0.0012;

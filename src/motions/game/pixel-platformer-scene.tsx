@@ -233,14 +233,16 @@ const PixelPlatformer: React.FC<Props> = ({events, scrollSpeed, heroColor, palet
     p.text(pp.text, Math.round(pp.x), Math.round(pp.y), SL.hud);
   }
   if (hud) {
+    const mx = bh > bw ? 8 : 4; // portrait: keep the HUD inside a safe margin
+    const my = bh > bw ? 12 : 4;
     const sc6 = String(score).padStart(6, '0');
-    p.text('SCORE ' + sc6, 5, 5, SL.ink);
-    p.text('SCORE ' + sc6, 4, 4, SL.hud);
+    p.text('SCORE ' + sc6, mx + 1, my + 1, SL.ink);
+    p.text('SCORE ' + sc6, mx, my, SL.hud);
     const ct = 'X' + String(coins).padStart(2, '0');
-    const cxp = bw - 4 - ct.length * 6;
-    p.text(ct, cxp + 1, 5, SL.ink);
-    p.text(ct, cxp, 4, SL.hud);
-    p.blit(coinLayer(0), cxp - 11, 3);
+    const cxp = bw - mx - ct.length * 6;
+    p.text(ct, cxp + 1, my + 1, SL.ink);
+    p.text(ct, cxp, my, SL.hud);
+    p.blit(coinLayer(0), cxp - 11, my - 1);
   }
   const rgba = pixRgba(p, pal);
   return (

@@ -6,6 +6,7 @@ import {hexA, mixHex, useUid} from '../../core/r2-pr4-kit';
 import {n2, rng} from '../../core/random';
 import {Svg, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
+import {PortraitFit} from '../../core/portrait';
 
 /**
  * Flame test: a Bunsen-style burner on a lab bench. A wire loop dips into the flame, the flame turns the colour of
@@ -124,6 +125,7 @@ const FlameTestColors: React.FC<Props> = (p) => {
 
   return (
     <AbsoluteFill style={{background: p.background}}>
+      <PortraitFit s={1.1} oy={0.4}>
       <Svg>
         <defs>
           <linearGradient id={uid + 'wall'} x1="0" y1="0" x2="0" y2="1">
@@ -192,7 +194,7 @@ const FlameTestColors: React.FC<Props> = (p) => {
               <text x={x} y={by - bh * 0.18} textAnchor="middle" fontFamily={fonts.display} fontSize={26 * u} fill="#0b1220" opacity={0.85}>
                 {e.symbol}
               </text>
-              <text x={x} y={benchY + 52 * u} textAnchor="middle" fontFamily={fonts.mono} fontSize={17 * u} fill={hexA(ink, active ? 0.95 : 0.55)}>
+              <text x={x} y={benchY + 52 * u} textAnchor="middle" fontFamily={fonts.mono} fontSize={(portrait ? 22 : 17) * u} fill={hexA(ink, active ? 0.95 : 0.55)}>
                 {e.name.toUpperCase().slice(0, 9)}
               </text>
             </g>
@@ -261,6 +263,7 @@ const FlameTestColors: React.FC<Props> = (p) => {
             );
           })()}
       </Svg>
+      </PortraitFit>
     </AbsoluteFill>
   );
 };

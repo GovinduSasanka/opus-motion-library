@@ -157,15 +157,16 @@ const ArmyFormation: React.FC<Props> = ({factions, unitsPerArmy, spawnAt, march,
                 const [rx, ry] = iso2(bp.gx, bp.gy, 0, k, ox, oy);
                 const lx = rx + (rx > w / 2 ? -1 : 1) * k * 0.5;
                 const ly = ry - k * 1.6;
-                const lw = k * 3.4;
+                const lq = portrait ? 1.9 : 1;
+                const lw = k * 3.4 * (portrait ? 1.5 : 1);
                 return (
                   <g opacity={ringK}>
                     <line x1={rx} y1={ry - k * 0.6} x2={lx} y2={ly} stroke="#fff" strokeWidth={1.2 * u} />
-                    <rect x={lx} y={ly - 14 * u} width={lw * ringK} height={2 * u} fill="#fff" />
-                    <text x={lx} y={ly - 20 * u} fontFamily={x58Fonts.mono} fontSize={12 * u} fill="#fff" letterSpacing={1 * u}>
+                    <rect x={lx} y={ly - 14 * u * lq} width={lw * ringK} height={2 * u} fill="#fff" />
+                    <text x={lx} y={ly - 20 * u * lq} fontFamily={x58Fonts.mono} fontSize={12 * u * lq} fill="#fff" letterSpacing={1 * u}>
                       {selectLabel}
                     </text>
-                    <text x={lx + lw * 0.78} y={ly - 20 * u} fontFamily={x58Fonts.mono} fontSize={10 * u} fill="#BFE6F0">
+                    <text x={lx + lw * 0.78} y={ly - 20 * u * lq} fontFamily={x58Fonts.mono} fontSize={10 * u * lq} fill="#BFE6F0">
                       IDLE
                     </text>
                   </g>

@@ -189,12 +189,12 @@ export const VoxelInstances: X1FC<{poses: VoxelPose[]; colors: string[]; size?: 
 export const PLINTH = {R: 14, H: 1.7, bevel: 0.35};
 
 /** studio camera: ≈ 20° above the plinth plane, long lens, framing the plinth at 47 % W (wider in portrait) */
-export const useStudioCamera = (yaw = 0, elevationDeg = 20, frameTop = 18) => {
+export const useStudioCamera = (yaw = 0, elevationDeg = 20, frameTop = 18, portraitFit = 0.86) => {
   const {w, h} = x1UseStage();
   const fov = 30;
   const aspect = w / h;
   const hTan = Math.tan(((fov / 2) * Math.PI) / 180);
-  const wantW = (PLINTH.R * 2) / (aspect >= 1.2 ? 0.47 : aspect >= 0.9 ? 0.66 : 0.86);
+  const wantW = (PLINTH.R * 2) / (aspect >= 1.2 ? 0.47 : aspect >= 0.9 ? 0.66 : portraitFit);
   const wantH = frameTop + 10; // keep the model + plinth in frame vertically
   const d = Math.max(wantW / (2 * hTan * aspect), wantH / (2 * hTan));
   const el = (elevationDeg * Math.PI) / 180;
@@ -263,8 +263,9 @@ export const PlinthStudio: X1FC<{
   elevation?: number;
   plinthLift?: number;
   plinthOpacity?: number;
-}> = ({children, bg = VOXEL.bg, bgEdge = VOXEL.bgEdge, plinthColor = VOXEL.plinth, ringCount = 120, progress = 0, ringColor = VOXEL.accent, ringIdle = VOXEL.notch, showRing = true, yaw = 0, elevation = 20, plinthLift = 0}) => {
-  const cam = useStudioCamera(yaw, elevation);
+  portraitFit?: number;
+}> = ({children, bg = VOXEL.bg, bgEdge = VOXEL.bgEdge, plinthColor = VOXEL.plinth, ringCount = 120, progress = 0, ringColor = VOXEL.accent, ringIdle = VOXEL.notch, showRing = true, yaw = 0, elevation = 20, plinthLift = 0, portraitFit = 0.86}) => {
+  const cam = useStudioCamera(yaw, elevation, 18, portraitFit);
   const geo = x1UseMemo(plinthGeo, []);
   return (
     <X1Fill style={{background: `radial-gradient(ellipse 75% 85% at 50% 35%, ${bg} 0%, ${bg} 35%, ${bgEdge} 100%)`}}>
@@ -322,7 +323,7 @@ export const VoxelHud: X1FC<{value: number; total: number; unit: string; subline
   muted = VOXEL.muted,
 }) => {
   const {w, h, u, portrait} = x1UseStage();
-  const s = portrait ? 1.25 : 1;
+  const s = portrait ? 1.7 : 1;
   const fs = 22 * u * s;
   const mx = Math.max(0.042 * w, 40 * u);
   const my = Math.max(0.072 * h * (portrait ? 0.6 : 1), 56 * u);
@@ -407,7 +408,7 @@ export const smpte = (frame: number, fps = 30) => {
  * Persistent studio HUD of the x2 reel: corner crop marks, chapter label top-left, beat-dot timecode top-right,
  * footer specs bottom-left, a 7-segment progress bar bottom-right. Ink at ≈ 55 % opacity so it never competes.
  */
-export const ReelHud: X2FC<{ink: string; label?: string; footer?: string; segments?: number; active?: number; progress?: number; beat?: boolean; dot?: string; opacity?: number}> = ({
+export const ReelHud: X2FC<{ink: string; label?: string; footer?: string; segments?: number; active?: number; progress?: number; beat?: boolean; dot?: string; opacity?: number; scale?: number}> = ({
   ink,
   label = '',
   footer = '',
@@ -417,12 +418,13 @@ export const ReelHud: X2FC<{ink: string; label?: string; footer?: string; segmen
   beat = false,
   dot = SWISS.red,
   opacity = 0.6,
+  scale = 1,
 }) => {
   const frame = x2UseFrame();
   const {w, h, u, fps} = x2UseStage();
   const m = 40 * u;
   const arm = 26 * u;
-  const fs = 13 * u;
+  const fs = 13 * u * scale;
   const font = `500 ${fs}px ${x2Fonts.mono}`;
   const segW = 52 * u;
   const gap = 6 * u;
@@ -450,7 +452,7 @@ export const ReelHud: X2FC<{ink: string; label?: string; footer?: string; segmen
         ) : null}
       </g>
       <circle cx={w - 78 * u - measureTextPx(tc, font) - tc.length * 0.25 * fs - 12 * u} cy={85 * u} r={3.5 * u} fill={beat ? dot : ink} opacity={beat ? 1 : opacity} />
-      {segments > 0 && w / u > 900
+      {segments > 0 && w / u > 900 && scale === 1
         ? Array.from({length: segments}, (_, i) => (
             <g key={i}>
               <rect x={barX + i * (segW + gap)} y={barY - 1.5 * u} width={segW} height={3 * u} fill={ink} opacity={opacity * 0.35} />

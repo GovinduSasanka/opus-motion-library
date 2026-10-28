@@ -45,7 +45,8 @@ const NotificationStack: React.FC<Props> = (P) => {
 
   // geometry per platform
   const cw = plat === 'macos' ? (portrait ? w * 0.92 : 580 * u) : plat === 'toast' ? Math.min(w * 0.86, 720 * u) : plat === 'android' ? w * (portrait ? 0.94 : 0.5) : Math.min(w * 0.92, (portrait ? 960 : 780) * u);
-  const ch = (plat === 'macos' ? 124 : plat === 'toast' ? 100 : plat === 'android' ? 176 : 148) * u;
+  const uq = portrait ? u * 1.3 : u;
+  const ch = (plat === 'macos' ? 124 : plat === 'toast' ? 100 : plat === 'android' ? 176 : 148) * uq;
   const left = plat === 'macos' && !portrait ? w - cw - 40 * u : (w - cw) / 2;
   const showClock = plat === 'ios' && !!P.clock;
   const topBase = plat === 'macos' ? 44 * u : plat === 'android' ? h * 0.06 : showClock ? h * (portrait ? 0.27 : 0.3) : h * 0.08;
@@ -82,46 +83,46 @@ const NotificationStack: React.FC<Props> = (P) => {
     const op = alphaIn * (stack ? clamp(1 - level * 0.12, 0, 1) : 1) * fade;
     const z = 100 - Math.round(level * 10) - (items.length - i);
     const key = `n${i}`;
-    const iconSize = (plat === 'macos' ? 62 : plat === 'toast' ? 56 : plat === 'android' ? 30 : 78) * u;
+    const iconSize = (plat === 'macos' ? 62 : plat === 'toast' ? 56 : plat === 'android' ? 30 : 78) * uq;
     const iconEl = <NotifIcon name={it.icon} size={iconSize} color={it.color} radius={plat === 'toast' ? iconSize / 2 : undefined} />;
     const clampLines = (n: number): React.CSSProperties => ({display: '-webkit-box', WebkitLineClamp: n, WebkitBoxOrient: 'vertical', overflow: 'hidden'});
     let inner: React.ReactNode;
     if (plat === 'android') {
       inner = (
-        <div style={{padding: `${18 * u}px ${26 * u}px`, display: 'flex', flexDirection: 'column', gap: 6 * u, height: '100%', boxSizing: 'border-box', justifyContent: 'center'}}>
-          <div style={{display: 'flex', alignItems: 'center', gap: 12 * u, fontSize: 24 * u, color: sub, fontWeight: 600}}>
+        <div style={{padding: `${18 * uq}px ${26 * uq}px`, display: 'flex', flexDirection: 'column', gap: 6 * uq, height: '100%', boxSizing: 'border-box', justifyContent: 'center'}}>
+          <div style={{display: 'flex', alignItems: 'center', gap: 12 * uq, fontSize: 24 * uq, color: sub, fontWeight: 600}}>
             {iconEl}
             <span>{it.app}</span>
             <span>·</span>
             <span>{it.time}</span>
-            <span style={{marginLeft: 'auto', fontSize: 28 * u}}>⌄</span>
+            <span style={{marginLeft: 'auto', fontSize: 28 * uq}}>⌄</span>
           </div>
-          <div style={{fontSize: 32 * u, fontWeight: 600, color: fg}}>{it.title}</div>
-          <div style={{fontSize: 27 * u, color: sub, ...clampLines(1)}}>{it.body}</div>
+          <div style={{fontSize: 32 * uq, fontWeight: 600, color: fg}}>{it.title}</div>
+          <div style={{fontSize: 27 * uq, color: sub, ...clampLines(1)}}>{it.body}</div>
         </div>
       );
     } else if (plat === 'toast') {
       inner = (
-        <div style={{display: 'flex', alignItems: 'center', gap: 20 * u, padding: `0 ${28 * u}px`, height: '100%', boxSizing: 'border-box'}}>
+        <div style={{display: 'flex', alignItems: 'center', gap: 20 * uq, padding: `0 ${28 * uq}px`, height: '100%', boxSizing: 'border-box'}}>
           {iconEl}
           <div style={{minWidth: 0}}>
-            <div style={{fontSize: 30 * u, fontWeight: 700, color: fg, ...clampLines(1)}}>{it.title}</div>
-            <div style={{fontSize: 24 * u, color: sub, ...clampLines(1)}}>{it.body}</div>
+            <div style={{fontSize: 30 * uq, fontWeight: 700, color: fg, ...clampLines(1)}}>{it.title}</div>
+            <div style={{fontSize: 24 * uq, color: sub, ...clampLines(1)}}>{it.body}</div>
           </div>
         </div>
       );
     } else {
       const mac = plat === 'macos';
       inner = (
-        <div style={{display: 'flex', alignItems: 'center', gap: (mac ? 18 : 22) * u, padding: `0 ${(mac ? 22 : 26) * u}px`, height: '100%', boxSizing: 'border-box'}}>
+        <div style={{display: 'flex', alignItems: 'center', gap: (mac ? 18 : 22) * uq, padding: `0 ${(mac ? 22 : 26) * uq}px`, height: '100%', boxSizing: 'border-box'}}>
           {iconEl}
           <div style={{minWidth: 0, flex: 1}}>
-            <div style={{display: 'flex', alignItems: 'baseline', gap: 10 * u}}>
-              <span style={{fontSize: (mac ? 26 : 31) * u, fontWeight: 700, color: fg, ...clampLines(1), flex: 1}}>{it.title}</span>
-              {!mac && <span style={{fontSize: 23 * u, color: sub}}>{it.time}</span>}
+            <div style={{display: 'flex', alignItems: 'baseline', gap: 10 * uq}}>
+              <span style={{fontSize: (mac ? 26 : 31) * uq, fontWeight: 700, color: fg, ...clampLines(1), flex: 1}}>{it.title}</span>
+              {!mac && <span style={{fontSize: 23 * uq, color: sub}}>{it.time}</span>}
             </div>
-            {mac && <div style={{fontSize: 19 * u, color: sub, fontWeight: 600, letterSpacing: 0.4 * u, marginBottom: 1 * u}}>{it.app.toUpperCase()}</div>}
-            <div style={{fontSize: (mac ? 23 : 28) * u, color: fg, opacity: 0.86, lineHeight: 1.22, ...clampLines(2)}}>{it.body}</div>
+            {mac && <div style={{fontSize: 19 * uq, color: sub, fontWeight: 600, letterSpacing: 0.4 * uq, marginBottom: 1 * uq}}>{it.app.toUpperCase()}</div>}
+            <div style={{fontSize: (mac ? 23 : 28) * uq, color: fg, opacity: 0.86, lineHeight: 1.22, ...clampLines(2)}}>{it.body}</div>
           </div>
         </div>
       );

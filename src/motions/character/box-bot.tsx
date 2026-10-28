@@ -179,7 +179,7 @@ const BoxBotMotion: React.FC<Props> = ({style, script, startX, size, bodyColor, 
   const {w, h, u, portrait} = useStage();
   const cf = twos ? onTwos(frame) : frame;
   const S = SCENE[style];
-  const W = size * Math.min(w, h) * (portrait ? 1.15 : 1);
+  const W = size * Math.min(w, h) * (portrait ? 1.6 : 1);
   const fy = (floorY > 0 ? floorY : portrait ? 0.66 : 0.76) * h;
   const segs = React.useMemo(() => buildBotSegments(script.map((a) => ((a.action as string) === 'hop-spin' ? ({...a, action: 'hop'} as BotAction) : a)), startX), [script, startX]);
   const st = evalBotScript(segs, cf);

@@ -65,8 +65,8 @@ const FunctionPlot: React.FC<Props> = ({fn, points, domain, range, tangentMode, 
   // plot rectangle
   const L = (portrait ? 0.12 : 0.09) * w;
   const R = w - (portrait ? 0.07 : 0.07) * w;
-  const T = h * (portrait ? 0.27 : 0.2);
-  const B = h * (portrait ? 0.78 : 0.86);
+  const T = h * (portrait ? 0.24 : 0.2);
+  const B = h * (portrait ? 0.82 : 0.86);
   const X = (x: number) => L + ((x - x0) / (x1 - x0)) * (R - L);
   const Y = (y: number) => B - ((y - y0) / (y1 - y0)) * (B - T);
   const axX = Y(clamp0(0, y0, y1));
@@ -157,7 +157,7 @@ const FunctionPlot: React.FC<Props> = ({fn, points, domain, range, tangentMode, 
   const ystep = yspan > 14 ? 2 : yspan > 6 ? 1 : yspan > 3 ? 0.5 : 0.25;
   const yt: number[] = [];
   for (let v = Math.ceil(y0 / ystep) * ystep; v <= y1 + 1e-6; v += ystep) yt.push(Math.round(v * 100) / 100);
-  const fs = 24 * u;
+  const fs = (portrait ? 36 : 24) * u;
   const num = (v: number) => (Math.abs(v) < 1e-9 ? '0' : Number.isInteger(v) ? String(v) : v.toFixed(2).replace(/0$/, ''));
   const uid = 'fplot';
   const titleIn = prog(frame, 10, 36, ease.out);
@@ -188,7 +188,7 @@ const FunctionPlot: React.FC<Props> = ({fn, points, domain, range, tangentMode, 
           <g key={`tx${v}`} opacity={axisT}>
             <line x1={X(v)} x2={X(v)} y1={axX - 6 * u} y2={axX + 6 * u} stroke={rgbaStr(ink, 0.7)} strokeWidth={2 * u} />
             {Math.abs(v) > 1e-9 && (
-              <text x={X(v)} y={axX + 34 * u} fontSize={fs * 0.8} fill={rgbaStr(ink, 0.6)} textAnchor="middle" fontFamily={fonts.mono}>
+              <text x={X(v)} y={axX + (portrait ? 44 : 34) * u} fontSize={fs * 0.8} fill={rgbaStr(ink, 0.6)} textAnchor="middle" fontFamily={fonts.mono}>
                 {num(v)}
               </text>
             )}

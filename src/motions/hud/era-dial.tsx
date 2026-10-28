@@ -111,7 +111,7 @@ const EraDial: React.FC<Props> = ({background, eras, stepFrames, stepAngle, acce
               const a = (i / GLYPHS.length) * Math.PI * 2 + 0.26;
               const rr = Rd * 0.81;
               return (
-                <text key={i} x={Math.cos(a) * rr} y={Math.sin(a) * rr} transform={`rotate(${(a * 180) / Math.PI + 90},${Math.cos(a) * rr},${Math.sin(a) * rr})`} textAnchor="middle" dominantBaseline="central" fill={line} fontFamily={fonts.mono} fontSize={26 * u} opacity={0.85 * prog(frame, 8 + i, 14 + i)}>
+                <text key={i} x={Math.cos(a) * rr} y={Math.sin(a) * rr} transform={`rotate(${(a * 180) / Math.PI + 90},${Math.cos(a) * rr},${Math.sin(a) * rr})`} textAnchor="middle" dominantBaseline="central" fill={line} fontFamily={fonts.mono} fontSize={(portrait ? 36 : 26) * u} opacity={0.85 * prog(frame, 8 + i, 14 + i)}>
                   {g}
                 </text>
               );
@@ -160,7 +160,7 @@ const EraDial: React.FC<Props> = ({background, eras, stepFrames, stepAngle, acce
           </g>
           {/* era label inside the band */}
           {showLabels && (
-            <text x={cx + 0.15 * 17 * u} y={cy - Rw - 28 * u} textAnchor="middle" fill={line} fillOpacity={0.75 * (idx > 0 ? clamp(stepT * 2) : prog(frame, 14, 22))} fontFamily={fonts.mono} fontSize={17 * u} letterSpacing={17 * u * 0.3}>
+            <text x={cx + 0.15 * 17 * u} y={cy - Rw - 28 * u} textAnchor="middle" fill={line} fillOpacity={0.75 * (idx > 0 ? clamp(stepT * 2) : prog(frame, 14, 22))} fontFamily={fonts.mono} fontSize={(portrait ? 26 : 17) * u} letterSpacing={(portrait ? 26 : 17) * u * 0.3}>
               {era.label.toUpperCase()}
             </text>
           )}

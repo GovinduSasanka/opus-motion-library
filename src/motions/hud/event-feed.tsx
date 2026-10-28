@@ -40,7 +40,7 @@ const EventFeed: React.FC<Props> = ({background, events, colors, chipText, maxLi
           b: names[Math.floor(h01(i, 4, seed) * names.length)],
         }));
   const live = list.filter((e) => frame >= e.t && frame < e.t + ttlFrames).slice(-maxLines);
-  const fs = 13 * u * (portrait ? 1.35 : 1);
+  const fs = 13 * u * (portrait ? 2.3 : 1);
   const lineH = fs * 2.0;
   const m = (portrait ? 0.05 : 0.025) * w;
   const chipW = (s: string) => s.length * fs * 0.62 + fs * 1.1;

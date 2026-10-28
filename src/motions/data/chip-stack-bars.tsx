@@ -35,9 +35,12 @@ const ChipStackBars: React.FC<Props> = ({rows, title, subtitle, background, chip
   const availW = w * (portrait ? 0.86 : 0.78);
   const gap = 4 * u;
   const numW = 96 * u;
-  const chip = Math.min(76 * u, (availW - numW) / M - gap);
+  const cols = portrait ? 8 : M;
+  const chip = Math.min((portrait ? 104 : 76) * u, (availW - numW) / Math.min(M, cols) - gap);
+  const lines = (n: number) => (portrait ? Math.max(1, Math.ceil(n / cols)) : 1);
   const rowH = chip + 64 * u;
-  const blockH = rows.length * rowH;
+  const rowTop = (ri: number) => rows.slice(0, ri).reduce((a, r) => a + rowH + (lines(r.items.length) - 1) * (chip + gap), 0);
+  const blockH = rows.reduce((a, r) => a + rowH + (lines(r.items.length) - 1) * (chip + gap), 0);
   const x0 = (w - availW) / 2;
   const titleY = portrait ? h * 0.12 : h * 0.14;
   const y0 = Math.max(titleY + 120 * u, (h - blockH) / 2 + (portrait ? 40 * u : 60 * u));
@@ -55,7 +58,7 @@ const ChipStackBars: React.FC<Props> = ({rows, title, subtitle, background, chip
         </g>
         {rows.map((r, ri) => {
           const rowStart = startAt + ri * rowGap;
-          const y = y0 + ri * rowH;
+          const y = y0 + rowTop(ri);
           const labIn = prog(frame, rowStart - 4, rowStart + 8, ease.out);
           const visible = Math.min(r.items.length, Math.max(0, Math.floor((frame - rowStart) / chipFrames) + 1));
           const done = visible >= r.items.length;
@@ -71,11 +74,13 @@ const ChipStackBars: React.FC<Props> = ({rows, title, subtitle, background, chip
                 if (frame < born) return null;
                 const p = prog(frame, born, born + 6, ease.back);
                 const wave = done && r.accent ? 1 + 0.05 * Math.sin((frame - fin) * 0.22 - k * 0.7) : 1;
-                const cxk = x0 + k * (chip + gap) + chip / 2;
-                const cyk = y + 30 * u + chip / 2;
+                const kc = portrait ? k % cols : k;
+                const kl = portrait ? Math.floor(k / cols) : 0;
+                const cxk = x0 + kc * (chip + gap) + chip / 2;
+                const cyk = y + 30 * u + kl * (chip + gap) + chip / 2;
                 return (
                   <g key={k} transform={`translate(${cxk} ${cyk}) scale(${(0.55 + 0.45 * p) * wave}) translate(${-cxk} ${-cyk})`} opacity={cl(p * 2)}>
-                    <rect x={x0 + k * (chip + gap)} y={y + 30 * u} width={chip} height={chip} rx={4 * u} fill={col} />
+                    <rect x={cxk - chip / 2} y={cyk - chip / 2} width={chip} height={chip} rx={4 * u} fill={col} />
                     <text x={cxk} y={cyk + chip * 0.14} textAnchor="middle" fontFamily={fonts.sans} fontWeight={800} fontSize={chip * 0.38} fill="#fff">
                       {it}
                     </text>
@@ -84,8 +89,8 @@ const ChipStackBars: React.FC<Props> = ({rows, title, subtitle, background, chip
               })}
               {visible > 0 && (
                 <text
-                  x={x0 + visible * (chip + gap) + 14 * u}
-                  y={y + 30 * u + chip * 0.74}
+                  x={x0 + (portrait ? ((visible - 1) % cols) + 1 : visible) * (chip + gap) + 14 * u}
+                  y={y + 30 * u + (portrait ? Math.floor((visible - 1) / cols) * (chip + gap) : 0) + chip * 0.74}
                   fontFamily={fonts.grotesk}
                   fontWeight={700}
                   fontSize={chip * 0.72}

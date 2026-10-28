@@ -110,8 +110,8 @@ const TokenSamplerPrompt: React.FC<Props> = ({text, tokens, lyrics, bpm, offsetS
     const r = hash(i, seed, 21);
     const kind = Math.floor(hash(i, seed, 33) * 3);
     if (!camera) return {zoom: 1, fx: 0.5, fy: 0.5, roll: 0};
-    if (kind === 0) return {zoom: 2.1 + 0.6 * r, fx: clamp01(caretX / w), fy: fieldY / h + 0.02, roll: (r - 0.5) * 0.05};
-    if (kind === 1) return {zoom: 1.5 + 0.4 * r, fx: 0.42 + 0.1 * r, fy: fieldY / h - 0.06, roll: (r - 0.5) * 0.04};
+    if (kind === 0) return {zoom: portrait ? 1.3 + 0.2 * r : 2.1 + 0.6 * r, fx: clamp01(caretX / w), fy: fieldY / h + 0.02, roll: (r - 0.5) * 0.05};
+    if (kind === 1) return {zoom: portrait ? 1.2 + 0.15 * r : 1.5 + 0.4 * r, fx: 0.42 + 0.1 * r, fy: fieldY / h - 0.06, roll: (r - 0.5) * 0.04};
     return {zoom: 1.12 + 0.12 * r, fx: 0.5, fy: 0.52, roll: (r - 0.5) * 0.03};
   }
   const kick = last ? 0.02 * pulseHL(t, last.at, 0.07) : 0;
@@ -120,7 +120,7 @@ const TokenSamplerPrompt: React.FC<Props> = ({text, tokens, lyrics, bpm, offsetS
   const fy = lerpN(prevShot.fy, curShot.fy, shotK) * h;
   const roll = lerpN(prevShot.roll, curShot.roll, shotK);
   const flash = entered && t - enterT < 2 / fps;
-  const mono = 13 * u * P;
+  const mono = 13 * u * (portrait ? 2 : 1);
   const clear = background === 'transparent';
   return (
     <AbsoluteFill style={{background: clear ? 'transparent' : background, overflow: 'hidden'}}>

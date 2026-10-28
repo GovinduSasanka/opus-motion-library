@@ -85,8 +85,10 @@ const PaletteLutGrade: React.FC<Props> = ({stagesAt, nightWave, lightPool, label
   if (label) {
     const name = (STAGES[Math.min(5, Math.round(stage))] ?? 'night').toUpperCase();
     const nm = nightWave && frame >= at[4] ? 'NIGHT' : name;
-    p.text(nm, 5, 5, SL.ink);
-    p.text(nm, 4, 4, SL.hud);
+    const mx = bh > bw ? 8 : 4;
+    const my = bh > bw ? 12 : 4;
+    p.text(nm, mx + 1, my + 1, SL.ink);
+    p.text(nm, mx, my, SL.hud);
   }
 
   // palettes: current stage, night, and the warm re-lit day materials

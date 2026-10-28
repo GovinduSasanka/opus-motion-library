@@ -32,8 +32,9 @@ const BeamClash: React.FC<Props> = ({leftColor, rightColor, contact, jitter, spa
   const id = `bc-${seed}`;
   const floorY = h * (portrait ? 0.62 : 0.7);
   const beamY = floorY - h * (portrait ? 0.08 : 0.15);
-  const lx = w * (portrait ? 0.18 : 0.2);
-  const rx = w * (portrait ? 0.82 : 0.78);
+  const lx = w * (portrait ? 0.23 : 0.2);
+  const rx = w * (portrait ? 0.77 : 0.78);
+  const cs = portrait ? w : h; // character size basis
   const fire = easeOutCubic(lin(frame, 8, 16));
   const cxBase = lx + (rx - lx) * contact;
   const cxp = cxBase + n2Safe(`bc${seed}`, t * 4) * jitter * w;
@@ -70,8 +71,8 @@ const BeamClash: React.FC<Props> = ({leftColor, rightColor, contact, jitter, spa
         <ArcadeStage id={`${id}-st`} w={w} h={h} u={u} frame={frame} floorY={floorY} />
         {fighters ? (
           <>
-            <SparkCritter id={`${id}-cr`} x={lx - h * 0.04} y={floorY} s={h * 0.2} color={leftColor} shade={shadeHex(leftColor, -0.35)} eyes="angry" lean={-6} />
-            <SlimeOrb id={`${id}-sl`} x={rx + h * 0.05} y={floorY} r={h * 0.1} color={rightColor} shade={shadeHex(rightColor, -0.3)} eyes="ii" look={-0.6} />
+            <SparkCritter id={`${id}-cr`} x={lx - cs * 0.04} y={floorY} s={cs * 0.2} color={leftColor} shade={shadeHex(leftColor, -0.35)} eyes="angry" lean={-6} />
+            <SlimeOrb id={`${id}-sl`} x={rx + cs * 0.05} y={floorY} r={cs * 0.1} color={rightColor} shade={shadeHex(rightColor, -0.3)} eyes="ii" look={-0.6} />
           </>
         ) : null}
         {/* floor reflection */}

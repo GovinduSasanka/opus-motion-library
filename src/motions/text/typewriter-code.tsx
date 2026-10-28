@@ -127,7 +127,7 @@ const TypewriterCode: React.FC<Props> = (p) => {
   const typing = frame >= p.startFrame && frame < doneAt;
 
   const big = p.position === 'center';
-  const fs = p.fontSize * u * (big ? 1.25 : 1);
+  const fs = p.fontSize * u * (big ? 1.25 : 1) * (portrait ? 1.4 : 1);
   const pitch = fs * 1.55;
   const header = 50 * u * (big ? 1.15 : 1);
   const margin = (portrait ? 54 : 72) * u;
@@ -147,7 +147,7 @@ const TypewriterCode: React.FC<Props> = (p) => {
   const panelH = header + bodyPad * 2 + rows * pitch + consoleH;
   const appear = prog(frame, p.startFrame - 6, p.startFrame - 2);
   const left = big ? (w - panelW) / 2 : margin;
-  const bottom = big ? (h - panelH) / 2 : portrait ? h * 0.12 : margin;
+  const bottom = big ? (h - panelH) / 2 : portrait ? h * 0.25 : margin;
 
   const backdrop: BackdropKind = p.backdrop === 'auto' ? (p.mode === 'terminal' ? 'warm' : 'dunes') : p.backdrop;
   const radius = 14 * u;

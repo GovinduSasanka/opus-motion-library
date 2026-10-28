@@ -39,7 +39,7 @@ const CamChipSyncBadge: React.FC<Props> = (p) => {
   const id = useIdA('ccsb');
   const clear = isClear(p.background);
   const demo = p.background === 'demo';
-  const M = 24 * u;
+  const M = (portrait ? 56 : 24) * u;
   const G = 9 * u;
   const cams = p.cams.length ? p.cams : [{code: 'CAM 1', name: 'Feed', sub: '', sync: 'live' as SyncKind}];
   const single = p.layout === 'single';
@@ -65,7 +65,7 @@ const CamChipSyncBadge: React.FC<Props> = (p) => {
           const t0 = 8 + i * 5;
           const resynced = i === p.resyncIndex && frame >= p.resyncAt;
           const kind: SyncKind = resynced ? 'live' : cam.sync;
-          const s = u * (single ? (portrait ? 1.35 : 1.6) : Math.max(0.7, Math.min(1.15, r[2] / (640 * u))));
+          const s = u * (single ? (portrait ? 1.35 : 1.6) : Math.max(0.7, Math.min(1.15, r[2] / (640 * u))) * (portrait ? 1.4 : 1));
           const cwid = chipWidth(cam.code, cam.name, cam.sub, s);
           const bw = badgeWidth(kind, s);
           const fits = cwid + bw + 40 * s < r[2];

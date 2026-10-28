@@ -117,7 +117,7 @@ const Oblique: React.FC<Props> = (p) => {
             const px0 = m ? +m[1] : 50;
             const py0 = m ? +m[2] : 50;
             const lx = portrait ? w / 2 + (k2 % 2 === 0 ? -1 : 1) * w * 0.33 : ox + 118 * S;
-            const ly = portrait ? oy + 100 * S + (Math.floor(k2 / 2) + 1) * 42 * u : oy + (12 + k2 * 12) * S;
+            const ly = portrait ? oy + 100 * S + (Math.floor(k2 / 2) + 1) * 54 * u : oy + (12 + k2 * 12) * S;
             const offL = (part.explode ?? 0) * explode * explodeDist * (kNow / Math.max(1e-6, p.k)) * 0.5;
             const ax = ox + (px0 + Math.cos(a) * offL) * S;
             const ay = oy + (py0 - Math.sin(a) * offL) * S;
@@ -125,7 +125,7 @@ const Oblique: React.FC<Props> = (p) => {
               <g key={k2} opacity={Math.min(1, (on - 0.8) * 5)}>
                 <circle cx={ax} cy={ay} r={2.5 * u} fill="none" stroke={p.lineColor} strokeWidth={1.2 * u} />
                 <line x1={ax} y1={ay} x2={lx} y2={ly - 6 * u} stroke={p.lineColor} strokeWidth={1 * u} opacity={0.6} />
-                <text x={lx} y={ly + 10 * u} textAnchor={portrait ? 'middle' : 'start'} fontFamily={lf.hand} fontSize={22 * u} fill={p.lineColor}>
+                <text x={lx} y={ly + 10 * u} textAnchor={portrait ? 'middle' : 'start'} fontFamily={lf.hand} fontSize={(portrait ? 36 : 22) * u} fill={p.lineColor}>
                   {name}
                 </text>
               </g>
@@ -135,23 +135,23 @@ const Oblique: React.FC<Props> = (p) => {
           {dim > 0 && (
             <g stroke={p.lineColor} fill={p.lineColor} opacity={dim}>
               <line x1={ox + 58 * S} y1={oy + 92 * S + 16 * u} x2={ox + 58 * S + Math.cos(a) * 7 * S} y2={oy + 92 * S - Math.sin(a) * 7 * S + 16 * u} strokeWidth={1.4 * u} markerEnd="none" />
-              <text x={ox + 58 * S + Math.cos(a) * 4 * S + 8 * u} y={oy + 92 * S + 42 * u} fontFamily={lf.plex} fontSize={20 * u} stroke="none">
+              <text x={ox + 58 * S + Math.cos(a) * 4 * S + 8 * u} y={oy + 92 * S + 42 * u} fontFamily={lf.plex} fontSize={(portrait ? 30 : 20) * u} stroke="none">
                 d = 7
               </text>
             </g>
           )}
           {/* title block */}
           <g opacity={titleIn} transform={`translate(0 ${(1 - titleIn) * 12 * u})`}>
-            <rect x={w - (portrait ? w * 0.84 : 560 * u) - 50 * u} y={h - 170 * u} width={portrait ? w * 0.84 : 560 * u} height={110 * u} fill="rgba(12,28,62,0.58)" stroke={p.lineColor} strokeWidth={1.6 * u} />
-            <text x={w - (portrait ? w * 0.84 : 560 * u) - 26 * u} y={h - 118 * u} fontFamily={lf.hand} fontWeight={700} fontSize={40 * u} fill={p.lineColor}>
+            <rect x={w - (portrait ? w * 0.84 : 560 * u) - 50 * u} y={h - (portrait ? 200 : 170) * u} width={portrait ? w * 0.84 : 560 * u} height={(portrait ? 140 : 110) * u} fill="rgba(12,28,62,0.58)" stroke={p.lineColor} strokeWidth={1.6 * u} />
+            <text x={w - (portrait ? w * 0.84 : 560 * u) - 26 * u} y={h - (portrait ? 128 : 118) * u} fontFamily={lf.hand} fontWeight={700} fontSize={(portrait ? 52 : 40) * u} fill={p.lineColor}>
               {p.title}
             </text>
-            <text x={w - (portrait ? w * 0.84 : 560 * u) - 26 * u} y={h - 82 * u} fontFamily={lf.plex} fontSize={20 * u} letterSpacing={2 * u} fill={p.lineColor} opacity={0.85}>
+            <text x={w - (portrait ? w * 0.84 : 560 * u) - 26 * u} y={h - (portrait ? 84 : 82) * u} fontFamily={lf.plex} fontSize={(portrait ? 28 : 20) * u} letterSpacing={2 * u} fill={p.lineColor} opacity={0.85}>
               {p.subtitle}
             </text>
           </g>
           {p.note && (
-            <text x={50 * u} y={h - 92 * u} fontFamily={lf.hand} fontSize={26 * u} fill={p.lineColor} opacity={noteIn * 0.9}>
+            <text x={50 * u} y={h - 92 * u} fontFamily={lf.hand} fontSize={(portrait ? 36 : 26) * u} fill={p.lineColor} opacity={noteIn * 0.9}>
               {p.note}
             </text>
           )}

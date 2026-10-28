@@ -241,9 +241,9 @@ const WhiteModelProjection: React.FC<Props> = (p) => {
             width: portrait ? w - 128 * u : w * 0.3,
           }}
         >
-          <div style={{fontFamily: fonts.mono, fontSize: 18 * u, letterSpacing: 4 * u, color: '#B7AE9C'}}>{readout.name.toUpperCase()}</div>
+          <div style={{fontFamily: fonts.mono, fontSize: (portrait ? 30 : 18) * u, letterSpacing: 4 * u, color: '#B7AE9C'}}>{readout.name.toUpperCase()}</div>
           <div style={{fontSize: (portrait ? 150 : 170) * u, fontWeight: 400, lineHeight: 1.02, marginTop: 14 * u, transform: `translateX(${(1 - ro) * -30 * u}px)`}}>{figureText}</div>
-          <div style={{fontSize: 26 * u, color: '#B7AE9C', marginTop: 6 * u}}>{readout.label}</div>
+          <div style={{fontSize: (portrait ? 38 : 26) * u, color: '#B7AE9C', marginTop: 6 * u}}>{readout.label}</div>
         </div>
       ) : null}
     </AbsoluteFill>

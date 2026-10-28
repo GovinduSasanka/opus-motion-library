@@ -54,6 +54,7 @@ const nmColor = (nm: number) => {
 const EmissionSpectrumLines: React.FC<Props> = (p) => {
   const frame = useCurrentFrame();
   const {w, h, u, cx, portrait} = useStage();
+  const PT = portrait ? 1.5 : 1;
   const uid = useUid('esl');
   const gases = p.gases.length ? p.gases : GASES;
   const n = gases.length;
@@ -76,8 +77,8 @@ const EmissionSpectrumLines: React.FC<Props> = (p) => {
   // layout
   const y1 = h * (portrait ? 0.26 : tall ? 0.22 : 0.27);
   const beamY = y1 - 17 * u;
-  const panelY = h * (portrait ? 0.52 : tall ? 0.46 : 0.5);
-  const panelH = (portrait ? 230 : tall ? 190 : 190) * u;
+  const panelY = h * (portrait ? 0.5 : tall ? 0.46 : 0.5);
+  const panelH = (portrait ? 330 : tall ? 190 : 190) * u;
   const px0 = w * 0.07;
   const px1 = w * 0.93;
   const xOf = (nm: number) => px0 + ((nm - p.minNm) / (p.maxNm - p.minNm)) * (px1 - px0);
@@ -149,7 +150,7 @@ const EmissionSpectrumLines: React.FC<Props> = (p) => {
         <text x={px0} y={h * (portrait ? 0.07 : 0.095)} fontFamily={fonts.grotesk} fontWeight={700} fontSize={(portrait ? 46 : 48) * u} fill={ink} opacity={prog(frame, 0, 16)}>
           {p.title}
         </text>
-        <text x={px0} y={h * (portrait ? 0.07 : 0.095) + 38 * u} fontFamily={fonts.mono} fontSize={21 * u} fill={hexA(ink, 0.6)} opacity={prog(frame, 6, 22)}>
+        <text x={px0} y={h * (portrait ? 0.07 : 0.095) + 38 * u} fontFamily={fonts.mono} fontSize={21 * PT * u} fill={hexA(ink, 0.6)} opacity={prog(frame, 6, 22)}>
           {p.subtitle}
         </text>
 
@@ -162,7 +163,7 @@ const EmissionSpectrumLines: React.FC<Props> = (p) => {
           <rect x={tubeX0 + 10 * u} y={beamY - tubeH / 2 + 5 * u} width={tubeL - 20 * u} height={tubeH - 10 * u} rx={tubeH / 2 - 5 * u} fill={`url(#${uid}tube)`} opacity={tubeOn * flick} />
           <rect x={tubeX0 + 10 * u} y={beamY - tubeH / 2} width={tubeL - 20 * u} height={tubeH} rx={tubeH / 2} fill={`url(#${uid}glass)`} stroke={hexA('#cfe0ff', 0.5)} strokeWidth={2 * u} />
           <rect x={tubeEnd - 16 * u} y={beamY - tubeH * 0.62} width={30 * u} height={tubeH * 1.24} rx={8 * u} fill="#3b4558" />
-          <text x={tubeX0 + tubeL / 2} y={beamY + tubeH / 2 + 38 * u} textAnchor="middle" fontFamily={fonts.mono} fontSize={19 * u} fill={hexA(ink, 0.6)}>
+          <text x={tubeX0 + tubeL / 2} y={beamY + tubeH / 2 + 38 * u} textAnchor="middle" fontFamily={fonts.mono} fontSize={19 * PT * u} fill={hexA(ink, 0.6)}>
             {`GAS TUBE: ${g.name.toUpperCase()}`}
           </text>
         </g>
@@ -207,7 +208,7 @@ const EmissionSpectrumLines: React.FC<Props> = (p) => {
           <rect x={px0 - 14 * u} y={panelY - 14 * u} width={px1 - px0 + 28 * u} height={panelH + 28 * u} rx={22 * u} fill="#05070f" stroke={hexA(ink, 0.18)} strokeWidth={2 * u} />
           <rect x={px0} y={panelY} width={px1 - px0} height={panelH} rx={10 * u} fill="#020309" />
           <rect x={px0} y={panelY} width={px1 - px0} height={panelH} rx={10 * u} fill={`url(#${uid}rb)`} opacity={0.07} />
-          <text x={px1 - 16 * u} y={panelY - 26 * u} textAnchor="end" fontFamily={fonts.mono} fontSize={18 * u} fill={hexA(ink, 0.55)}>
+          <text x={px1 - 16 * u} y={panelY - 26 * u} textAnchor="end" fontFamily={fonts.mono} fontSize={18 * PT * u} fill={hexA(ink, 0.55)}>
             {`${g.name.toUpperCase()} EMISSION SPECTRUM`}
           </text>
           {/* lines */}
@@ -236,7 +237,7 @@ const EmissionSpectrumLines: React.FC<Props> = (p) => {
               const a = live ? clamp((scanX - xi) / (28 * u) - 0.4, 0, 1) : 0;
               if (a <= 0) return null;
               return (
-                <text key={i} x={xi} y={panelY + panelH - 12 * u - lifted[i] * 22 * u} textAnchor="middle" fontFamily={fonts.mono} fontSize={16 * u} fill={nmColor(nm)} opacity={a * lineVis}>
+                <text key={i} x={xi} y={panelY + panelH - 12 * u - lifted[i] * 22 * u} textAnchor="middle" fontFamily={fonts.mono} fontSize={16 * PT * u} fill={nmColor(nm)} opacity={a * lineVis}>
                   {nm}
                 </text>
               );
@@ -253,12 +254,12 @@ const EmissionSpectrumLines: React.FC<Props> = (p) => {
           {ticks.map((nm) => (
             <g key={nm}>
               <line x1={xOf(nm)} y1={panelY + panelH + 14 * u} x2={xOf(nm)} y2={panelY + panelH + 26 * u} stroke={hexA(ink, 0.6)} strokeWidth={2 * u} />
-              <text x={xOf(nm)} y={panelY + panelH + 54 * u} textAnchor="middle" fontFamily={fonts.mono} fontSize={19 * u} fill={hexA(ink, 0.7)}>
+              <text x={xOf(nm)} y={panelY + panelH + 54 * u} textAnchor="middle" fontFamily={fonts.mono} fontSize={19 * PT * u} fill={hexA(ink, 0.7)}>
                 {nm}
               </text>
             </g>
           ))}
-          <text x={px1} y={panelY + panelH + 86 * u} textAnchor="end" fontFamily={fonts.mono} fontSize={18 * u} fill={hexA(ink, 0.5)}>
+          <text x={px1} y={panelY + panelH + 86 * u} textAnchor="end" fontFamily={fonts.mono} fontSize={18 * PT * u} fill={hexA(ink, 0.5)}>
             wavelength (nm)
           </text>
         </g>

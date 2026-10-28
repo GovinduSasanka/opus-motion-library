@@ -84,9 +84,9 @@ const HandscrollReveal: React.FC<Props> = ({images, panels, title, sealGlyph, di
   const {w, h, u, portrait, durationInFrames: D} = useStage();
   const n = Math.max(2, panels);
   // painting band
-  const bandH = portrait ? h * 0.44 : h * 0.84;
+  const bandH = portrait ? h * 0.46 : h * 0.84;
   const bandY = portrait ? (h - bandH) / 2 : h * 0.08;
-  const panelW = portrait ? w * 1.5 : w * 0.92;
+  const panelW = portrait ? w * 0.5 : w * 0.92; // portrait: narrow tall panels so the mounted scroll is not a thin strip
   const totalW = panelW * n;
   const dir = direction >= 0 ? 1 : -1;
 
@@ -98,7 +98,7 @@ const HandscrollReveal: React.FC<Props> = ({images, panels, title, sealGlyph, di
   const pk = eio3(seg(frame, pullbackAt, pullbackAt + 100));
   const rollerW = 26 * u;
   const silk = 30 * u;
-  const fitK = Math.min((w * 0.82) / (totalW + (silk + rollerW) * 2), (h * 0.5) / bandH);
+  const fitK = Math.min((w * (portrait ? 0.9 : 0.82)) / (totalW + (silk + rollerW) * 2), (h * 0.5) / bandH);
   const S = lerp(1, fitK, pk);
   // during pan the band's left edge sits at (w-panelW)/2 - px ; pulled back it centres the whole scroll
   const panLeft = (w - panelW) / 2 - px;

@@ -79,7 +79,8 @@ const PeriodicTableLightup: React.FC<Props> = ({grid, cells, lit, accent, order,
   const minRow = Math.min(...all.map((c) => c.row));
   const nCols = maxCol;
   const nRows = maxRow - minRow + 1;
-  const tile = Math.min((w * 0.95) / nCols, (h * (portrait ? 0.62 : 0.9)) / nRows);
+  const tile = Math.min((w * 0.95) / nCols, (h * (portrait ? 0.62 : 0.9)) / (nRows * (portrait ? 1.7 : 1)));
+  const tileY = portrait ? tile * 1.7 : tile;
   const x0 = cx - (nCols * tile) / 2;
   const topPad = portrait ? h * 0.3 : (h - nRows * tile) / 2;
   const y0 = topPad;
@@ -101,7 +102,7 @@ const PeriodicTableLightup: React.FC<Props> = ({grid, cells, lit, accent, order,
       <Svg>
         {all.map((c, i) => {
           const x = x0 + (c.col - 1) * tile;
-          const y = y0 + (c.row - minRow) * tile;
+          const y = y0 + (c.row - minRow) * tileY;
           const wn = plan.when.get(i);
           const on = !!wn && frame >= wn.f;
           const pop = wn ? prog(frame, wn.f, wn.f + 6, ease.out) : 0;
@@ -115,24 +116,24 @@ const PeriodicTableLightup: React.FC<Props> = ({grid, cells, lit, accent, order,
           }
           const pad = tile * 0.045;
           const tx = x + tile / 2;
-          const ty = y + tile / 2;
+          const ty = y + tileY / 2;
           return (
             <g key={i} transform={`translate(${tx} ${ty}) scale(${s}) translate(${-tx} ${-ty})`}>
-              <rect x={x + pad} y={y + pad} width={tile - pad * 2} height={tile - pad * 2} rx={tile * 0.13} fill={fill} />
-              {!on && <rect x={x + pad + u} y={y + pad + u} width={tile - pad * 2 - 2 * u} height={tile - pad * 2 - 2 * u} rx={tile * 0.12} fill="none" stroke="#CDD6DE" strokeWidth={2 * u} />}
+              <rect x={x + pad} y={y + pad} width={tile - pad * 2} height={tileY - pad * 2} rx={tile * 0.13} fill={fill} />
+              {!on && <rect x={x + pad + u} y={y + pad + u} width={tile - pad * 2 - 2 * u} height={tileY - pad * 2 - 2 * u} rx={tile * 0.12} fill="none" stroke="#CDD6DE" strokeWidth={2 * u} />}
               <text
                 x={tx}
                 y={ty + tile * 0.13}
                 textAnchor="middle"
                 fontFamily={fonts.sans}
                 fontWeight={on ? 800 : 600}
-                fontSize={tile * (c.label.length > 2 ? 0.3 : 0.38)}
+                fontSize={tile * (c.label.length > 2 ? 0.3 : 0.38) * (portrait ? 1.3 : 1)}
                 fill={on ? '#fff' : '#9AA7B3'}
               >
                 {c.label}
               </text>
               {grid === 'periodic' && tile > 46 && (
-                <text x={x + pad + tile * 0.1} y={y + pad + tile * 0.24} fontFamily={fonts.mono} fontSize={tile * 0.15} fill={on ? '#fff' : '#9AA7B3'} opacity={on ? 0.75 : 0.8}>
+                <text x={x + pad + tile * 0.1} y={y + pad + tile * 0.24} fontFamily={fonts.mono} fontSize={tile * 0.15 * (portrait ? 1.3 : 1)} fill={on ? '#fff' : '#9AA7B3'} opacity={on ? 0.75 : 0.8}>
                   {i + 1}
                 </text>
               )}

@@ -133,7 +133,7 @@ const HexIslandGrow: React.FC<Props> = (p) => {
     return {cells, tops, items, end: tt};
   }, [R, p.buildings, p.trees, p.windmill, p.lamps, p.seed, slot, pal.walls, pal.roofs]);
 
-  const fh = lpFrustum(p.zoom, w / h);
+  const fh = lpFrustum(p.zoom * (h > w ? 0.6 : 1), w / h);
   const az = lerp(p.azimuthStart, p.azimuthEnd, k * k * (3 - 2 * k));
   const el = p.elevation;
   const V = lpView(az, el);

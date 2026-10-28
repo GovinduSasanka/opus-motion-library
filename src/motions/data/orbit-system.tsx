@@ -45,15 +45,16 @@ const BODIES: Body[] = [
 const OrbitSystem: React.FC<Props> = (p) => {
   const frame = useCurrentFrame();
   const {w, h, u, cx, cy, portrait} = useStage();
+  const PT = portrait ? 1.75 : 1;
   const uid = useUid('orb');
   const bodies = p.bodies.length ? p.bodies : BODIES;
   const aMax = Math.max(...bodies.map((b) => b.a));
   const ink = p.inkColor;
-  const tilt = clamp(p.tilt, 0.25, 1);
+  const tilt = clamp(portrait ? Math.max(p.tilt, 0.9) : p.tilt, 0.25, 1);
   const sunR = 30 * u;
 
   // layout: outermost orbit (with its eccentricity) fits the frame
-  const fitW = portrait ? w * 0.46 : Math.min(w * 0.42, h * 0.62 / tilt);
+  const fitW = portrait ? w * 0.36 : Math.min(w * 0.42, h * 0.62 / tilt);
   const dispA = (a: number) => sunR * 1.9 + Math.pow(a / aMax, 0.62) * (fitW - sunR * 1.9);
 
   const years = (frame / 30) * p.timeScale;
@@ -173,7 +174,7 @@ const OrbitSystem: React.FC<Props> = (p) => {
           <circle cx={sx(0)} cy={sy(0)} r={sunR * sunS * (1 + 0.015 * Math.sin(frame * 0.12))} fill={`url(#${uid}sun)`} />
         </g>
         {p.starName && (
-          <text x={sx(0)} y={sy(0) + sunR * sunS + 26 * u} textAnchor="middle" fontFamily={fonts.mono} fontSize={14 * u} letterSpacing={2 * u} fill={ink} opacity={sunLabelA * 0.8}>
+          <text x={sx(0)} y={sy(0) + sunR * sunS + 26 * u} textAnchor="middle" fontFamily={fonts.mono} fontSize={14 * PT * u} letterSpacing={2 * u} fill={ink} opacity={sunLabelA * 0.8}>
             {p.starName.toUpperCase()}
           </text>
         )}
@@ -207,10 +208,10 @@ const OrbitSystem: React.FC<Props> = (p) => {
             return (
               <g key={i} opacity={a}>
                 <line x1={x + side * (rr + 3 * u)} y1={y} x2={lx - side * 4 * u} y2={y} stroke={hexA(ink, 0.5)} strokeWidth={1 * u} />
-                <text x={lx} y={y - 3 * u} textAnchor={side > 0 ? 'start' : 'end'} fontFamily={fonts.sans} fontWeight={700} fontSize={19 * u} fill={ink}>
+                <text x={lx} y={y - 3 * u} textAnchor={side > 0 ? 'start' : 'end'} fontFamily={fonts.sans} fontWeight={700} fontSize={19 * PT * u} fill={ink}>
                   {o.b.name}
                 </text>
-                <text x={lx} y={y + 17 * u} textAnchor={side > 0 ? 'start' : 'end'} fontFamily={fonts.mono} fontSize={13 * u} fill={hexA(ink, 0.65)}>
+                <text x={lx} y={y + 17 * u} textAnchor={side > 0 ? 'start' : 'end'} fontFamily={fonts.mono} fontSize={13 * PT * u} fill={hexA(ink, 0.65)}>
                   {o.per.toFixed(2)} {p.unit} · {orbits.toFixed(1)}x
                 </text>
               </g>
@@ -222,14 +223,14 @@ const OrbitSystem: React.FC<Props> = (p) => {
       {(p.title || p.subtitle) && (
         <div style={{position: 'absolute', left: portrait ? w * 0.07 : w * 0.05, top: portrait ? h * 0.055 : h * 0.07, width: portrait ? w * 0.86 : w * 0.34, opacity: prog(frame, 6, 26) * (1 - zIn)}}>
           <div style={{fontFamily: fonts.grotesk, fontWeight: 700, fontSize: fitSize(p.title, fonts.grotesk, (portrait ? 78 : 64) * u, (portrait ? w * 0.86 : w * 0.34), 700), color: ink, lineHeight: 1.05, letterSpacing: -1 * u}}>{p.title}</div>
-          <div style={{fontFamily: fonts.mono, fontSize: 15 * u, letterSpacing: 2 * u, color: hexA(ink, 0.6), marginTop: 12 * u}}>{p.subtitle.toUpperCase()}</div>
+          <div style={{fontFamily: fonts.mono, fontSize: (portrait ? 26 : 15) * u, letterSpacing: 2 * u, color: hexA(ink, 0.6), marginTop: 12 * u}}>{p.subtitle.toUpperCase()}</div>
         </div>
       )}
       {p.counter && (
         <div style={{position: 'absolute', left: 0, right: 0, bottom: h * 0.05, textAlign: 'center', opacity: prog(frame, 20, 40) * (1 - zIn)}}>
-          <span style={{fontFamily: fonts.mono, fontSize: 15 * u, letterSpacing: 3 * u, color: hexA(ink, 0.55)}}>ELAPSED </span>
-          <span style={{fontFamily: fonts.mono, fontWeight: 700, fontSize: 30 * u, color: ink, letterSpacing: 2 * u}}>{years.toFixed(2).padStart(5, '0')}</span>
-          <span style={{fontFamily: fonts.mono, fontSize: 15 * u, letterSpacing: 3 * u, color: hexA(ink, 0.55)}}> {p.unit.toUpperCase()}</span>
+          <span style={{fontFamily: fonts.mono, fontSize: (portrait ? 26 : 15) * u, letterSpacing: 3 * u, color: hexA(ink, 0.55)}}>ELAPSED </span>
+          <span style={{fontFamily: fonts.mono, fontWeight: 700, fontSize: (portrait ? 40 : 30) * u, color: ink, letterSpacing: 2 * u}}>{years.toFixed(2).padStart(5, '0')}</span>
+          <span style={{fontFamily: fonts.mono, fontSize: (portrait ? 26 : 15) * u, letterSpacing: 3 * u, color: hexA(ink, 0.55)}}> {p.unit.toUpperCase()}</span>
         </div>
       )}
       {/* focus card */}
@@ -248,7 +249,7 @@ const OrbitSystem: React.FC<Props> = (p) => {
             <div style={{fontFamily: fonts.grotesk, fontWeight: 700, fontSize: 64 * u, color: ink, letterSpacing: -1 * u}}>{o.b.name}</div>
             <div style={{height: 3 * u, width: 60 * u, background: p.accent, margin: `${12 * u}px 0 ${16 * u}px`}} />
             {rows.map(([k, v]) => (
-              <div key={k} style={{display: 'flex', justifyContent: 'space-between', borderBottom: `1px solid ${hexA(ink, 0.18)}`, padding: `${9 * u}px 0`, fontFamily: fonts.mono, fontSize: 17 * u}}>
+              <div key={k} style={{display: 'flex', justifyContent: 'space-between', borderBottom: `1px solid ${hexA(ink, 0.18)}`, padding: `${9 * u}px 0`, fontFamily: fonts.mono, fontSize: (portrait ? 28 : 17) * u}}>
                 <span style={{color: hexA(ink, 0.55), letterSpacing: 2 * u}}>{k}</span>
                 <span style={{color: ink, fontWeight: 700}}>{v}</span>
               </div>

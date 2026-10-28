@@ -35,7 +35,7 @@ const TokenTree: React.FC<Props> = ({path, bpm, offsetSec, beats, beatsPerToken,
   const tokT = (i: number) => g.timeOfBeat(1 + i * per);
   const shown = steps.filter((_, i) => t >= tokT(i)).length;
   // world layout (unit = px at zoom 1)
-  const fs = 30 * u * (portrait ? 1.2 : 1);
+  const fs = 30 * u * (portrait ? 1.6 : 1);
   const dx = Math.max(150 * u, fs * 5.2);
   const dy = fs * 1.9;
   const node = (i: number) => ({x: i * dx, y: 0});
@@ -84,13 +84,13 @@ const TokenTree: React.FC<Props> = ({path, bpm, offsetSec, beats, beatsPerToken,
   const pStep = Math.min(4, Math.floor(pb));
   const pk = clamp01((pStep + springStep((pb - pStep) * g.period, 3, 0.5)) / 4);
   const zoom = lerpN(followZoom, fit, t > lastT ? pk : 0);
-  const camX = lerpN(tipX + dx * 0.4, (maxX + fs * 4) / 2 - fs * 2, t > lastT ? pk : 0);
+  const camX = lerpN(tipX + dx * (portrait ? 0.9 : 0.4), (maxX + fs * 4) / 2 - fs * 2, t > lastT ? pk : 0);
   const camY = lerpN(0, (minY + maxY) / 2, t > lastT ? pk : 0);
   const tx = w * (portrait ? 0.5 : 0.5) - camX * zoom;
   const ty = h * 0.5 - camY * zoom;
   const intro = clamp01(frame / 10);
   const clear = background === 'transparent';
-  const mono = 13 * u * (portrait ? 1.25 : 1);
+  const mono = 13 * u * (portrait ? 2 : 1);
   const sentence = steps.slice(0, shown).map((s) => s.token).join(' ');
   return (
     <AbsoluteFill style={{background: clear ? 'transparent' : background}}>

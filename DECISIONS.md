@@ -1,5 +1,15 @@
 # Decisions
 
+## Update (2026-10-28, night) — portrait (9:16) pass over the whole library
+
+- All 429 motions rendered at 9:16 and reviewed (`out/qa/portrait-all.md`): 268 ok, 161 issues. 139 motions fixed for
+  portrait (reframing, closer cameras, bigger labels); every fix is portrait-only and the 16:9 default render was
+  regression-checked (all ≤ 0.87/255). Helpers `src/core/portrait.tsx` / `portrait3.tsx` (portrait-only fit/zoom).
+- Not fixed: `plan-tilt` walk-through in portrait, `globe-3d` (overlay, small labels), `map-mask-reveal` (by design),
+  partial: mission-clock, iso-actuators, screen-recorder-camera, book-open-3d, walker-world-scroll. The 18 "sample text"
+  findings are intentional defaults (hosts replace them, rule 4).
+- `gallery/physics-pile.jpg` was stale and is regenerated.
+
 ## Update (2026-10-28, afternoon) — QA pass, 5 more motions, plan-tilt popup
 
 - The 9 new motions were QA'd at 16:9 + 9:16 and fixed (microscope cell overlap / nucleus sizes / mag flash, card-helix

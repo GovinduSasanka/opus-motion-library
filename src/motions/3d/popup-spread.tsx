@@ -116,7 +116,7 @@ const PopupSpread: React.FC<Props> = (p) => {
   const {w, h, u, portrait} = useStage();
   const id = 'popup-spread';
   const bw = Math.min(w * (portrait ? 0.98 : 0.84), h * 1.7);
-  const bh = bw * 0.62;
+  const bh = bw * (portrait ? 1.0 : 0.62);
   const t = frame / 30;
   const push = 1 + 0.05 * eio(seg(frame, 0, 240));
   const sorted = [...p.pieces].map((pc, i) => ({...pc, i})).sort((a, b) => a.z - b.z);

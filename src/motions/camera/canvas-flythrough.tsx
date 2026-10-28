@@ -91,7 +91,7 @@ const World: React.FC<Props> = ({accent, ink, heading, badge, cards, stats, cta}
 const CanvasFlythrough: React.FC<Props> = (props) => {
   const {keys, frameStyle, background, blur} = props;
   const frame = useCurrentFrame();
-  const {w, h, u, cx, cy} = useStage();
+  const {w, h, u, cx, cy, portrait} = useStage();
   const fitW = (H * 1.22) * (w / h);
   const aspect = Math.max(1, w / h);
   const vis = (k: Key): View => [k.x, k.y, k.w > 0 ? Math.min(k.w * aspect, Math.max(k.w, W * 1.15)) : Math.max(fitW, W * 1.5)];
@@ -121,7 +121,12 @@ const CanvasFlythrough: React.FC<Props> = (props) => {
   const idle = Math.sin(frame * 0.045) * 5;
   const scale = w / v[2];
   const camX = v[0] + idle;
-  const camY = v[1] + Math.cos(frame * 0.037) * 4;
+  const camY0 = v[1] + Math.cos(frame * 0.037) * 4;
+  // portrait: keep the view inside the canvas (no empty void below the last section)
+  const visHh = h / scale;
+  const yLo = visHh / 2 - 120;
+  const yHi = H + 120 - visHh / 2;
+  const camY = portrait && yLo <= yHi ? Math.min(yHi, Math.max(yLo, camY0)) : camY0;
   // camera blur from screen-space velocity
   const vp = viewAt(frame - 1);
   const dxs = (v[0] - vp[0]) * scale;

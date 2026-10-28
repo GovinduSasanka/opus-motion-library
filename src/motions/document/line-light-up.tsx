@@ -109,10 +109,10 @@ const LineLightUp: React.FC<Props> = (p) => {
         <LightTable id={id} w={w} h={h} u={u} table={p.table} desk={p.desk} />
         <g transform={pageT}>
           <rect x={10} y={16} width={L.W} height={L.H} fill="#000" opacity={0.16} filter={`url(#${id}-ps)`} />
-          <rect width={L.W} height={L.H} fill="#fbfaf4" />
+          <rect width={L.W} height={L.H + (portrait ? 1500 : 0)} fill="#fbfaf4" />
           <DocText L={L} org={p.org} title={p.title} meta={p.meta} />
           {/* rest of the page dims; the band stays lit */}
-          <rect x={-20} y={-20} width={L.W + 40} height={L.H + 40} fill="#0e0f11" opacity={0.38 * dim} mask={`url(#${id}-m)`} />
+          <rect x={-20} y={-20} width={L.W + 40} height={L.H + 40 + (portrait ? 1500 : 0)} fill="#0e0f11" opacity={0.38 * dim} mask={`url(#${id}-m)`} />
           {/* lit ink: darker type on brighter paper inside the band */}
 
           <rect x={bx0} y={key.y - 34} width={Math.max(0, Math.min(xs, bx1) - bx0)} height={46} fill="#ffffff" opacity={0.55 * band} />

@@ -44,7 +44,7 @@ const MissionClock: React.FC<Props> = (p) => {
   const segK = eo(seg(frame, ht, ht + 0.3 * fps));
   const handFlash = ht > 0 && frame - ht < 0.6 * fps ? 1 - (frame - ht) / (0.6 * fps) : 0;
   // panel geometry; opens from its left edge (re-layout 0.34 s eio)
-  const s = u * p.size * (portrait ? 1.55 : 1.45);
+  const s = u * p.size * (portrait ? 1.95 : 1.45);
   const pw = Math.min(w - 96 * u, 1150 * u * p.size);
   const ph = 215 * s;
   const px = (w - pw) / 2;
@@ -80,7 +80,7 @@ const MissionClock: React.FC<Props> = (p) => {
         </g>
         {open < 1 && open > 0 && <rect x={px + pw * open - 2 * u} y={py} width={3 * u} height={ph} fill={p.accent} />}
         {p.caption && (
-          <text x={px} y={py + ph + 46 * u} fontFamily={la2Fonts.plex} fontWeight={500} fontSize={(portrait ? 22 : 20) * u} fill={CD.dim} letterSpacing={2 * u} opacity={capA}>
+          <text x={px} y={py + ph + 46 * u} fontFamily={la2Fonts.plex} fontWeight={500} fontSize={(portrait ? 28 : 20) * u} fill={CD.dim} letterSpacing={2 * u} opacity={capA}>
             {p.caption}
           </text>
         )}

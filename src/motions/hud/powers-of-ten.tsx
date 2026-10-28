@@ -194,13 +194,15 @@ const PowersOfTen: React.FC<Props> = ({background, levels, direction, mode, rati
     c = (L - 1) * prog(frame, 12 + Math.round(holdStart * D), D - 14, easing === 'linear' ? ease.linear : easing === 'inOut' ? ease.inOut : easing === 'expo' ? ease.expoInOut : ease.sine);
   }
   if (direction === 'in') c = L - 1 - c;
-  const R0 = S * (portrait ? 0.44 : 0.4);
+  const R0 = S * (portrait ? 0.4 : 0.4);
+  const hq = portrait ? 1.7 : 1; // portrait: bigger HUD text
   const levelR = (k: number) => R0 * Math.pow(rr, k - c);
   const diag = Math.hypot(w, h) / 2;
   const enter = prog(frame, 0, 12);
   const current = Math.round(c);
   const scale = Math.pow(rr, c);
-  const listY = portrait ? 80 * u + ((L - 1) / 2) * 34 * u : h / 2;
+  const rowH = 34 * u * (portrait ? 1.5 : 1);
+  const listY = portrait ? 100 * u + ((L - 1) / 2) * rowH : h / 2;
 
   return (
     <AbsoluteFill style={{background}}>
@@ -229,26 +231,26 @@ const PowersOfTen: React.FC<Props> = ({background, levels, direction, mode, rati
         </g>
         {hud && (
           <g opacity={prog(frame, 6, 18)} fontFamily={fonts.mono}>
-            <text x={48 * u} y={h - 52 * u} fill={line} fillOpacity={0.55} fontSize={15 * u} letterSpacing={15 * u * 0.25}>
+            <text x={48 * u} y={h - 52 * u * hq} fill={line} fillOpacity={0.55} fontSize={15 * u * hq} letterSpacing={15 * u * hq * 0.25}>
               SCALE
             </text>
-            <text x={48 * u} y={h - 24 * u} fill={line} fontSize={24 * u} fontWeight={700} letterSpacing={24 * u * 0.08}>
+            <text x={48 * u} y={h - 24 * u * (portrait ? 1.8 : 1)} fill={line} fontSize={24 * u * hq} fontWeight={700} letterSpacing={24 * u * hq * 0.08}>
               {`×${scale < 10 ? scale.toFixed(2) : scale.toFixed(1)}`}
             </text>
             {levels.map((lv, k) => {
               const on = k === current;
-              const y = listY + (k - (L - 1) / 2) * 34 * u;
+              const y = listY + (k - (L - 1) / 2) * rowH;
               const x = w - 48 * u;
               return (
                 <g key={k}>
-                  <text x={x - 24 * u} y={y + 5 * u} textAnchor="end" fill={on ? accent : line} fillOpacity={on ? 1 : 0.4} fontSize={14 * u} letterSpacing={14 * u * 0.25} fontWeight={on ? 700 : 400}>
+                  <text x={x - 24 * u} y={y + 5 * u * hq} textAnchor="end" fill={on ? accent : line} fillOpacity={on ? 1 : 0.4} fontSize={14 * u * hq} letterSpacing={14 * u * hq * 0.25} fontWeight={on ? 700 : 400}>
                     {`${String(k + 1).padStart(2, '0')} ${lv.label.toUpperCase()}`}
                   </text>
                   <rect x={x - 12 * u} y={y - 1 * u} width={on ? 22 * u : 10 * u} height={2 * u} fill={on ? accent : line} opacity={on ? 1 : 0.4} />
                 </g>
               );
             })}
-            <line x1={w - 36 * u} y1={listY - ((L - 1) / 2) * 34 * u - 20 * u} x2={w - 36 * u} y2={listY + ((L - 1) / 2) * 34 * u + 20 * u} stroke={line} strokeOpacity={0.3} strokeWidth={u} />
+            <line x1={w - 36 * u} y1={listY - ((L - 1) / 2) * rowH - 20 * u} x2={w - 36 * u} y2={listY + ((L - 1) / 2) * rowH + 20 * u} stroke={line} strokeOpacity={0.3} strokeWidth={u} />
           </g>
         )}
       </Svg>

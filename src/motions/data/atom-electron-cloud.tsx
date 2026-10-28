@@ -140,7 +140,7 @@ const AtomElectronCloud: React.FC<Props> = (p) => {
   // text panel metrics
   const cardS = (tall ? 150 : 210) * u;
   const px = tall ? w * 0.06 : w * 0.07;
-  const cardY = tall ? h * (portrait ? 0.115 : 0.12) : h * 0.34;
+  const cardY = tall ? h * (portrait ? 0.125 : 0.12) : h * 0.34;
   const titleY = tall ? h * (portrait ? 0.05 : 0.07) : h * 0.2;
 
   const stat = (label: string, val: number, x: number, y: number, col: string, size: number) => (
@@ -268,10 +268,10 @@ const AtomElectronCloud: React.FC<Props> = (p) => {
         )}
 
         {/* header */}
-        <text x={px} y={titleY} fontFamily={fonts.grotesk} fontWeight={700} fontSize={(tall ? 40 : 46) * u} fill={ink} opacity={prog(frame, 0, 18)}>
+        <text x={px} y={titleY} fontFamily={fonts.grotesk} fontWeight={700} fontSize={(portrait ? 54 : tall ? 40 : 46) * u} fill={ink} opacity={prog(frame, 0, 18)}>
           {p.title}
         </text>
-        <text x={px} y={titleY + (tall ? 36 : 44) * u} fontFamily={mono} fontSize={(tall ? 19 : 22) * u} fill={hexA(ink, 0.6)} opacity={prog(frame, 6, 24)}>
+        <text x={px} y={titleY + (portrait ? 52 : tall ? 36 : 44) * u} fontFamily={mono} fontSize={(portrait ? 28 : tall ? 19 : 22) * u} fill={hexA(ink, 0.6)} opacity={prog(frame, 6, 24)}>
           {p.caption}
         </text>
 
@@ -292,18 +292,18 @@ const AtomElectronCloud: React.FC<Props> = (p) => {
             </g>
             {/* +1 proton chip */}
             {sinceBeat < 26 && (
-              <g transform={`translate(${cardS + 24 * u},${cardS * 0.2 - sinceBeat * 1.2 * u})`} opacity={1 - prog(frame, tk(kNow) + 10, tk(kNow) + 26, ease.in)}>
-                <text fontFamily={fonts.grotesk} fontWeight={700} fontSize={(tall ? 24 : 30) * u} fill={p.protonColor}>
+              <g transform={`translate(${cardS + 24 * u},${(portrait ? -cardS * 0.06 : cardS * 0.2) - sinceBeat * 1.2 * u})`} opacity={1 - prog(frame, tk(kNow) + 10, tk(kNow) + 26, ease.in)}>
+                <text fontFamily={fonts.grotesk} fontWeight={700} fontSize={(portrait ? 34 : tall ? 24 : 30) * u} fill={p.protonColor}>
                   +1 proton
                 </text>
               </g>
             )}
             {/* stats */}
             {(() => {
-              const s = (tall ? 54 : 64) * u;
+              const s = (portrait ? 70 : tall ? 54 : 64) * u;
               const x0 = tall ? cardS + 44 * u : 0;
               const y0 = tall ? cardS * 0.32 : cardS + 40 * u;
-              const gap = tall ? 100 * u : 150 * u;
+              const gap = portrait ? 142 * u : tall ? 100 * u : 150 * u;
               return (
                 <>
                   {stat('PROTONS', cur.z, x0, y0, p.protonColor, s)}

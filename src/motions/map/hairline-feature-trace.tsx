@@ -58,7 +58,7 @@ const HairlineFeatureTrace: React.FC<Props> = ({amber, speed, gap, startAt, labe
   const yaw = 0.42 + t * 0.035;
   const el = (portrait ? 52 : 46) * (Math.PI / 180);
   const k = Math.min((w * (portrait ? 0.98 : 0.8)) / (size * 1.3), (h * (portrait ? 0.62 : 0.88)) / (size * 0.72 * Math.sin(el) + 16 * Math.cos(el)));
-  const cam: RelCam = {yaw, el, k, cx: w / 2, cy: h * (portrait ? 0.5 : 0.54)};
+  const cam: RelCam = {yaw, el, k: k * (portrait ? 1.45 : 1), cx: w / 2, cy: h * (portrait ? 0.5 : 0.54)};
   const quads = reliefQuads(H, size, 60, cam, {az: (315 * Math.PI) / 180, el: (26 * Math.PI) / 180}, {...RELIEF_PAL, lo: surface, hi: '#C6BFAA', zmax: 20 * s + 6, ambient: 0.2, interval: 2});
 
   // sequential light-up: each feature starts after the previous finishes (speed in plan units per frame)
@@ -103,7 +103,7 @@ const HairlineFeatureTrace: React.FC<Props> = ({amber, speed, gap, startAt, labe
     const a0 = sp[0];
     const pop = cl((frame - f.st) / 8);
     chips.push(
-      <text key={fi} x={a0[0] + 12 * u} y={a0[1] - 10 * u} fill={amber} fillOpacity={0.85 * pop} fontFamily={lf.plex} fontSize={17 * u} style={{letterSpacing: 3 * u}}>
+      <text key={fi} x={a0[0] + 12 * u} y={a0[1] - 10 * u} fill={amber} fillOpacity={0.85 * pop} fontFamily={lf.plex} fontSize={(portrait ? 28 : 17) * u} style={{letterSpacing: 3 * u}}>
         {f.name.toUpperCase()}
       </text>,
     );
@@ -125,7 +125,7 @@ const HairlineFeatureTrace: React.FC<Props> = ({amber, speed, gap, startAt, labe
         {parts}
         {chips}
         <rect width={w} height={h} fill="url(#hft-vig)" />
-        <text x={64 * u} y={h - 52 * u} fill="#FFFFFF" fillOpacity="0.62" fontFamily={lf.plex} fontSize={19 * u}>
+        <text x={64 * u} y={h - 52 * u} fill="#FFFFFF" fillOpacity="0.62" fontFamily={lf.plex} fontSize={(portrait ? 28 : 19) * u}>
           Plan trace, vertical exaggeration x1.0
         </text>
       </svg>

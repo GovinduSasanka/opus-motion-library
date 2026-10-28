@@ -27,13 +27,13 @@ type Props = {
 const AgentRoster: React.FC<Props> = ({background, agents, chipText, sponsor, controls, hudLabel, inAt, demoScene, seed}) => {
   const frame = useCurrentFrame();
   const {w, h, u, fps, portrait} = useStage();
-  const fs = 12 * u * (portrait ? 1.5 : 1);
+  const fs = 12 * u * (portrait ? 2.0 : 1);
   const cardW = (portrait ? 0.42 : 0.17) * w;
   const cardH = cardW * 0.42;
   const gapX = cardW * 0.08;
   const gapY = cardH * 0.34;
   const x0 = w * 0.022;
-  const y0 = h - h * 0.035 - 2 * cardH - gapY;
+  const y0 = h - h * (portrait ? 0.09 : 0.035) - 2 * cardH - gapY;
   const pad = cardH * 0.12;
   const pic = cardH * 0.62;
   return (

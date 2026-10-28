@@ -117,7 +117,7 @@ const posAt = (B: Built, s: number): P2 => {
 const OneLineJourney: React.FC<Props> = (props) => {
   const {pieces, background, color, lineWidth, zoomKeys, dimTo, holdAfter, holdSec, drawStart, drawEnd, follow, bank, title, subtitle} = props;
   const frame = useCurrentFrame();
-  const {w, h, u, fps, cx, cy} = useStage();
+  const {w, h, u, fps, cx, cy, portrait} = useStage();
   const key = JSON.stringify([pieces, holdAfter, holdSec, drawStart, drawEnd]);
   const M = useMemo(() => {
     const B = build(pieces);
@@ -189,7 +189,7 @@ const OneLineJourney: React.FC<Props> = (props) => {
   camX = mix(camX, B.center[0], reveal);
   camY = mix(camY, B.center[1], reveal);
   const fit = Math.min((w * 0.86) / B.extent[0], (h * 0.55) / B.extent[1]);
-  const scale = fit * Math.exp(zl);
+  const scale = fit * Math.exp(zl) * (portrait ? 1 + 1.2 * (1 - reveal) : 1);
   const sx = (x: number) => cx + (x - camX) * scale;
   const sy = (y: number) => cy + (y - camY) * scale + (cy * 0.06) * reveal;
   // banking roll through the wave piece
@@ -292,8 +292,8 @@ const OneLineJourney: React.FC<Props> = (props) => {
           color: color,
           fontFamily: fonts.sans,
           fontWeight: 400,
-          fontSize: 24 * u,
-          letterSpacing: 10 * u,
+          fontSize: (portrait ? 32 : 24) * u,
+          letterSpacing: (portrait ? 7 : 10) * u,
           textTransform: 'uppercase',
           opacity: textIn2 * 0.8,
         }}

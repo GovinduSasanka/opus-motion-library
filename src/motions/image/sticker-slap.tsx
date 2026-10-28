@@ -63,7 +63,7 @@ const Art: React.FC<{kind: string; src: string; size: number}> = ({kind, src, si
 
 const StickerSlap: React.FC<Props> = ({items, background, title, outline, outlineColor, shadowColor, slapFrames, fromScale, fromRotate, wobble, jolt}) => {
   const frame = useCurrentFrame();
-  const {w, h, u, fps, cx, cy} = useStage();
+  const {w, h, u, fps, cx, cy, portrait} = useStage();
   // camera jolt: sum of decaying kicks at every landing
   let jx = 0;
   let jy = 0;
@@ -92,9 +92,9 @@ const StickerSlap: React.FC<Props> = ({items, background, title, outline, outlin
             y={cy + 40 * u}
             textAnchor="middle"
             fontFamily={fonts.display}
-            fontSize={Math.min(w * 0.115, 210 * u)}
+            fontSize={portrait ? Math.min(w * 0.115, 210 * u, (w * 0.86) / (Math.max(4, title.length) * 0.95)) : Math.min(w * 0.115, 210 * u)}
             fill="#000"
-            opacity={0.06 * titleIn}
+            opacity={(portrait ? 0.1 : 0.06) * titleIn}
             letterSpacing={6 * u}
           >
             {title}

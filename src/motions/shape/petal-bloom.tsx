@@ -5,6 +5,7 @@ import {rng} from '../../core/random';
 import {Sparkle} from '../../core/shapes';
 import {Lotus, mix, shade} from '../../core/shape-kit';
 import {FilmGrain, PaperTexture, Svg, Vignette, useStage} from '../../core/stage';
+import {withPortraitFit} from '../../core/portrait3';
 import {defineMotion} from '../../core/types';
 
 /**
@@ -234,6 +235,6 @@ export const petalBloom = defineMotion<Props>({
     sun: 'radial: big orange sun disc behind the bloom',
     start: 'frame the bloom starts',
   },
-  component: PetalBloom,
+  component: withPortraitFit(PetalBloom, {s: 1.5}),
   tags: ['flower', 'bloom', 'organic', 'reveal', 'radial', 'lotus'],
 });

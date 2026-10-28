@@ -32,19 +32,21 @@ const buildShape = (shape: Props['shape'], w: number, h: number, u: number, port
   const cy = h / 2;
   const m = Math.min(w, h);
   const pts: BPt[] = [];
+  const kx = portrait ? 1 : 1.12;
+  const kp = portrait ? 1.15 : 1;
   if (shape === 'spiral') {
     const turns = 3.2;
     for (let i = 0; i <= 480; i++) {
       const t = i / 480;
       const a = -Math.PI / 2 + t * turns * Math.PI * 2;
-      const r = m * 0.06 + t * m * 0.36;
-      pts.push([cx + Math.cos(a) * r * 1.12, cy + Math.sin(a) * r]);
+      const r = (m * 0.06 + t * m * 0.36) * kp;
+      pts.push([cx + Math.cos(a) * r * kx, cy + Math.sin(a) * r]);
     }
   } else if (shape === 'ring') {
-    const r = m * 0.34;
+    const r = m * 0.34 * kp;
     for (let i = 0; i <= 360; i++) {
       const a = -Math.PI / 2 + (i / 360) * Math.PI * 2;
-      pts.push([cx + Math.cos(a) * r * 1.12, cy + Math.sin(a) * r]);
+      pts.push([cx + Math.cos(a) * r * kx, cy + Math.sin(a) * r]);
     }
   } else if (shape === 'wave') {
     const span = portrait ? h : w;
@@ -179,7 +181,7 @@ const CometPulseGuide: React.FC<Props> = (p) => {
           );
         })}
         {p.label && !overlay && (
-          <text x={w / 2} y={h * (portrait ? 0.93 : 0.92)} textAnchor="middle" fontFamily={la2Fonts.tight} fontWeight={300} fontSize={22 * u} letterSpacing={9 * u} fill={rgba('#EAF2F8', 0.75 * seg(frame, 10, 34))}>
+          <text x={w / 2} y={h * (portrait ? 0.93 : 0.92)} textAnchor="middle" fontFamily={la2Fonts.tight} fontWeight={300} fontSize={(portrait ? 30 : 22) * u} letterSpacing={(portrait ? 7 : 9) * u} fill={rgba('#EAF2F8', 0.75 * seg(frame, 10, 34))}>
             {p.label.toUpperCase()}
           </text>
         )}

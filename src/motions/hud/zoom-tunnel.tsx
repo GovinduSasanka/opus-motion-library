@@ -30,7 +30,7 @@ type Props = {
 
 const ZoomTunnel: React.FC<Props> = ({background, word, subtitle, rings, perRing, spin, speed, popFrame, shape, accent, line}) => {
   const frame = useCurrentFrame();
-  const {w, h, u, cx, cy} = useStage();
+  const {w, h, u, cx, cy, portrait} = useStage();
   const S = Math.min(w, h);
   const diag = Math.hypot(w, h) / 2;
   const accStart = Math.max(14, popFrame - 72);
@@ -51,7 +51,7 @@ const ZoomTunnel: React.FC<Props> = ({background, word, subtitle, rings, perRing
   const dPlane = 1.4;
   const dMin = 0.18;
   const dMax = rings + dPlane + 1;
-  const R = (d: number) => (S * F) / d;
+  const R = (d: number) => (S * (portrait ? 1.55 : 1) * F) / d; // portrait: bigger tunnel to use the tall frame
 
   const caps = React.useMemo(() => {
     const r = rng(1907);

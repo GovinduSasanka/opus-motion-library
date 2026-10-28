@@ -27,14 +27,15 @@ type Props = {
 const EmptyNextCell: React.FC<Props> = (p) => {
   const frame = useCurrentFrame();
   const {w, h, u, fps, portrait, durationInFrames: D} = useStage();
+  const PT = portrait ? 1.75 : 1;
   const vals = p.values.length ? p.values : [1];
   const n = vals.length;
   const mn = Math.min(...vals);
   const mx = Math.max(...vals);
   const x0 = w * (portrait ? 0.1 : 0.13);
   const x1 = w * (portrait ? 0.92 : 0.89);
-  const y0 = h * (portrait ? 0.32 : 0.28);
-  const y1 = h * (portrait ? 0.64 : 0.7);
+  const y0 = h * (portrait ? 0.26 : 0.28);
+  const y1 = h * (portrait ? 0.74 : 0.7);
   const slotW = (x1 - x0) / (n + 1);
   const X = (i: number) => x0 + slotW * (i + 0.5);
   const Y = (v: number) => y1 - ((y1 - y0) * (v - mn)) / (mx - mn || 1);
@@ -99,7 +100,7 @@ const EmptyNextCell: React.FC<Props> = (p) => {
           <text x={x0 - 10 * u} y={h * (portrait ? 0.12 : 0.14)} fontFamily={la2Fonts.newsreader} fontWeight={500} fontSize={fsT} fill={DV.ink}>
             {p.title}
           </text>
-          <text x={x0 - 10 * u} y={h * (portrait ? 0.12 : 0.14) + 32 * u} fontFamily={la2Fonts.plex} fontSize={16 * u} fill={DV.inkSoft} letterSpacing={1 * u}>
+          <text x={x0 - 10 * u} y={h * (portrait ? 0.12 : 0.14) + (portrait ? 44 : 32) * u} fontFamily={la2Fonts.plex} fontSize={16 * PT * u} fill={DV.inkSoft} letterSpacing={1 * u}>
             {p.subtitle}
           </text>
         </g>
@@ -109,7 +110,7 @@ const EmptyNextCell: React.FC<Props> = (p) => {
           {mpts.map(([mxp, myp], i) => (
             <DataDot key={i} x={mxp} y={myp} r={6 * u} fill={i === n - 1 ? p.color : DV.paper} ring={DV.ink} fresh={(frame - dotAt(i)) / fps} ringW={1.6 * u} />
           ))}
-          <g opacity={axisP * 0.9} fontFamily={la2Fonts.plex} fontSize={16 * u} fill={DV.inkSoft}>
+          <g opacity={axisP * 0.9} fontFamily={la2Fonts.plex} fontSize={16 * PT * u} fill={DV.inkSoft}>
             <text x={X(0)} y={y1 + 52 * u} textAnchor="middle">
               {p.labels[0]}
             </text>
@@ -128,7 +129,7 @@ const EmptyNextCell: React.FC<Props> = (p) => {
           <text x={w / 2} y={ry + rh * 0.72} fontFamily={la2Fonts.newsreader} fontWeight={500} fontSize={(portrait ? 46 : 56) * u} fill={DV.ink} textAnchor="middle">
             {p.cardTitle}
           </text>
-          <text x={w / 2} y={ry + rh * 0.72 + 38 * u} fontFamily={la2Fonts.plex} fontSize={17 * u} fill={DV.inkSoft} textAnchor="middle" letterSpacing={1.5 * u}>
+          <text x={w / 2} y={ry + rh * 0.72 + 38 * u} fontFamily={la2Fonts.plex} fontSize={17 * PT * u} fill={DV.inkSoft} textAnchor="middle" letterSpacing={1.5 * u}>
             {p.cardSub}
           </text>
         </g>

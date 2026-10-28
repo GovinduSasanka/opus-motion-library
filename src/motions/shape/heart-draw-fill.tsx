@@ -59,7 +59,7 @@ const HeartDrawFill: React.FC<Props> = ({icon, background, color, outlineColor, 
   const frame = useCurrentFrame();
   const {u, cx, cy, w, h} = useStage();
   const spec = ICONS[icon] ?? ICONS.heart;
-  const S = (Math.min(w, h) * size) / 2;
+  const S = (Math.min(w, h) * size * (h > w ? 1.55 : 1)) / 2;
   const d = useMemo(() => scalePath(spec.d, S, 0, 0), [spec.d, S]);
   const L = useMemo(() => getLength(d), [d]);
   const t0 = startAt;

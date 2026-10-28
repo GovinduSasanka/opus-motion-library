@@ -169,7 +169,7 @@ const landedCount = (p: Props, frame: number) => {
 
 const StackPlates3D: React.FC<Props> = (p) => {
   const frame = useCurrentFrame();
-  const {w, h, u, durationInFrames: D} = useStage();
+  const {w, h, u, durationInFrames: D, portrait} = useStage();
   const m = p.series.length;
   const xOf = (si: number) => (si - (m - 1) / 2) * GAP_X;
   const feedN = Math.max(0, Math.round(p.feedValue / p.unit));
@@ -196,7 +196,7 @@ const StackPlates3D: React.FC<Props> = (p) => {
       [D, 3.15],
     ],
     frame,
-  ) * Math.max(1, 1.08 / (w / h)) * (1 + Math.max(0, feedTopEnd - 0.7) * 0.5);
+  ) * (portrait ? 1.5 / (w / h) : Math.max(1, 1.08 / (w / h))) * (1 + Math.max(0, feedTopEnd - 0.7) * 0.5);
   const riseT = seg(frame, 112, 112 + feedN * 3 + 13);
   const camY = keyLerp(
     [
@@ -244,13 +244,13 @@ const StackPlates3D: React.FC<Props> = (p) => {
             boxShadow: `0 ${2 * u}px ${14 * u}px rgba(60,44,28,.12)`,
           }}
         >
-          <div style={{fontFamily: la2Fonts.plex, fontSize: 16 * u, letterSpacing: '0.16em', color: DP.ink2, display: 'flex', alignItems: 'center', gap: 9 * u, justifyContent: left ? 'flex-start' : 'flex-end'}}>
-            <span style={{display: 'inline-block', width: 12 * u, height: 12 * u, background: si === 1 ? DP.acrylic : DP.alu, border: `1px solid ${DP.ink2}`}} />
+          <div style={{fontFamily: la2Fonts.plex, fontSize: (portrait ? 28 : 16) * u, letterSpacing: '0.16em', color: DP.ink2, display: 'flex', alignItems: 'center', gap: 9 * u, justifyContent: left ? 'flex-start' : 'flex-end'}}>
+            <span style={{display: 'inline-block', width: (portrait ? 20 : 12) * u, height: (portrait ? 20 : 12) * u, background: si === 1 ? DP.acrylic : DP.alu, border: `1px solid ${DP.ink2}`}} />
             {s.label.toUpperCase()}
           </div>
-          <div style={{fontFamily: la2Fonts.inter, fontWeight: 300, fontSize: 52 * u, color: DP.ink, lineHeight: 1.18, marginTop: 2 * u}}>
+          <div style={{fontFamily: la2Fonts.inter, fontWeight: 300, fontSize: (portrait ? 72 : 52) * u, color: DP.ink, lineHeight: 1.18, marginTop: 2 * u}}>
             {value.toLocaleString('en-US')}
-            <span style={{fontFamily: la2Fonts.plex, fontSize: 18 * u, marginLeft: 9 * u, color: DP.ink2}}>{p.unitLabel}</span>
+            <span style={{fontFamily: la2Fonts.plex, fontSize: (portrait ? 30 : 18) * u, marginLeft: 9 * u, color: DP.ink2}}>{p.unitLabel}</span>
           </div>
         </div>
       </div>
@@ -305,11 +305,11 @@ const StackPlates3D: React.FC<Props> = (p) => {
 
       {/* title + source overlay */}
       <div style={{position: 'absolute', left: w * 0.055, top: h * 0.075, opacity: titleA, transform: `translateY(${(1 - eo(titleA)) * 14 * u}px)`}}>
-        <div style={{fontFamily: la2Fonts.plex, fontSize: 16 * u, letterSpacing: '0.22em', color: DP.ink2}}>ONE PLATE = {p.unit} {p.unitLabel}</div>
-        <div style={{fontFamily: la2Fonts.inter, fontWeight: 300, fontSize: 52 * u, color: DP.ink, marginTop: 8 * u, maxWidth: w * 0.42, lineHeight: 1.1}}>{p.title}</div>
+        <div style={{fontFamily: la2Fonts.plex, fontSize: (portrait ? 28 : 16) * u, letterSpacing: '0.22em', color: DP.ink2}}>ONE PLATE = {p.unit} {p.unitLabel}</div>
+        <div style={{fontFamily: la2Fonts.inter, fontWeight: 300, fontSize: (portrait ? 84 : 52) * u, color: DP.ink, marginTop: 8 * u, maxWidth: w * (portrait ? 0.8 : 0.42), lineHeight: 1.1}}>{p.title}</div>
         <div style={{width: 74 * u, height: 3 * u, background: p.accent, marginTop: 12 * u, transform: `scaleX(${eo(titleA)})`, transformOrigin: 'left'}} />
       </div>
-      <div style={{position: 'absolute', left: w * 0.055, bottom: h * 0.06, fontFamily: la2Fonts.plex, fontSize: 15 * u, letterSpacing: '0.08em', color: DP.ink2, opacity: srcA * 0.9}}>
+      <div style={{position: 'absolute', left: w * 0.055, bottom: h * 0.06, fontFamily: la2Fonts.plex, fontSize: (portrait ? 26 : 15) * u, letterSpacing: '0.08em', color: DP.ink2, opacity: srcA * 0.9}}>
         {p.sourceLine}
       </div>
       {readings}

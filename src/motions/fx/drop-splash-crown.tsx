@@ -6,6 +6,7 @@ import {useSafeId} from '../../core/image-kit';
 import {LiquidShade, hash, taper} from '../../core/r2-mg2b-kit';
 import {Svg, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
+import {PortraitFit} from '../../core/portrait';
 
 /**
  * A glossy liquid drop falls stretched, hits a polished floor, squashes into a lens (no pancake) and throws a crown of
@@ -116,6 +117,7 @@ const DropSplashCrown: React.FC<Props> = ({drops, crown, secondaries, floorY, re
   );
   return (
     <AbsoluteFill style={{background}}>
+      <PortraitFit s={1.6} oy={floorY}>
       <Svg>
         <defs>
           <linearGradient id={id + 'bg'} x1="0" y1="0" x2="0" y2="1">
@@ -155,6 +157,7 @@ const DropSplashCrown: React.FC<Props> = ({drops, crown, secondaries, floorY, re
           </LiquidShade>
         </g>
       </Svg>
+      </PortraitFit>
     </AbsoluteFill>
   );
 };

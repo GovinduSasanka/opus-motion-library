@@ -63,7 +63,7 @@ const EmotionSheet: React.FC<Props> = ({sheet, emotions, labels, showFamily, hig
   const ru = Math.min(cw / 11.5, ch / (labels ? 16.5 : 14));
   const colors = nibColorsFrom({bodyColor, inkColor, accent});
   const ink = inkColor || NIB_COLORS.ink;
-  const labelSize = Math.max(11 * u, ru * 1.35);
+  const labelSize = Math.max((portrait ? 24 : 11) * u, ru * 1.35); // portrait: legible labels
   return (
     <AbsoluteFill style={{background: background === 'transparent' ? 'transparent' : undefined}}>
       <Svg>

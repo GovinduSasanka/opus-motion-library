@@ -136,8 +136,8 @@ const FocusDesaturate: React.FC<Props> = ({at, dur, amount, tint, label, sublabe
       </svg>
       {labelK > 0 && label && (
         <div style={{position: 'absolute', left: sx, top: sy - 120 * u * Math.min(1, labelK), transform: `translate(-50%, -100%) scale(${labelK})`, transformOrigin: '50% 100%', textAlign: 'center', background: ISO.boardTop, border: `${2 * u}px solid ${ISO.ink}`, borderRadius: 10 * u, padding: `${10 * u}px ${18 * u}px`, whiteSpace: 'nowrap'}}>
-          <div style={{fontFamily: lf.jost, fontWeight: 600, fontSize: 28 * u, letterSpacing: 3 * u, color: ISO.ink}}>{label.toUpperCase()}</div>
-          {sublabel && <div style={{fontFamily: lf.jost, fontWeight: 400, fontSize: 24 * u, color: ISO.ink}}>{sublabel}</div>}
+          <div style={{fontFamily: lf.jost, fontWeight: 600, fontSize: (portrait ? 40 : 28) * u, letterSpacing: 3 * u, color: ISO.ink}}>{label.toUpperCase()}</div>
+          {sublabel && <div style={{fontFamily: lf.jost, fontWeight: 400, fontSize: (portrait ? 33 : 24) * u, color: ISO.ink}}>{sublabel}</div>}
         </div>
       )}
     </AbsoluteFill>

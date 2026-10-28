@@ -75,7 +75,7 @@ const GlyphFractalPush: React.FC<Props> = (p) => {
   void cxp;
   const T = `translate(${w / 2} ${h / 2}) scale(${Z}) translate(${-camX} ${-camY})`;
   // text field: lines at base size so the end size reads ≈ 30 px
-  const fs = (30 * u) / p.zoomTo;
+  const fs = (30 * u * (portrait ? 1.5 : 1)) / p.zoomTo;
   const lh = fs * 1.3;
   const adv = fs * 0.4;
   const pool = (p.innerText.length ? p.innerText : NAMES).join('  ·  ') + '  ·  ';

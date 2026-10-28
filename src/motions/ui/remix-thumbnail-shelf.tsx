@@ -144,9 +144,9 @@ const RemixThumbnailShelf: React.FC<Props> = (p) => {
   const ch = portrait ? cw * 0.72 : cw * 0.6;
   const cxm = w / 2;
   const cym = portrait ? h * 0.4 : h * 0.43;
-  const shelfY = portrait ? h * 0.84 : h * 0.835;
+  const shelfY = portrait ? h * 0.78 : h * 0.835;
   const pitch = w / (n + 1);
-  const s = Math.min(0.27, (pitch * 0.86) / cw);
+  const s = portrait ? Math.min(0.32, (pitch * 1.1) / cw) : Math.min(0.27, (pitch * 0.86) / cw);
   // shared hop at the climax: one jump per beat (15 frames)
   const hp = frame >= climax ? (frame - climax) / 15 : -1;
   const hopY = hp >= 0 && hp < 3 ? -Math.abs(Math.sin(Math.PI * hp)) * 34 * u : 0;
@@ -154,7 +154,7 @@ const RemixThumbnailShelf: React.FC<Props> = (p) => {
   const cur = clamp(Math.floor((frame - t0) / per), 0, n - 1);
   const inClimax = frame >= climax;
   // ribbon
-  const rh = 64 * u;
+  const rh = (portrait ? 96 : 64) * u;
   const rx0 = w * 0.07;
   const rx1 = w * 0.93;
   const mx = (m: number) => rx0 + ((m + 0.5) / 12) * (rx1 - rx0);
@@ -186,7 +186,7 @@ const RemixThumbnailShelf: React.FC<Props> = (p) => {
             return (
               <g key={i} transform={`translate(${mx(i)} ${30 * u + rh / 2})`}>
                 <circle r={5 * u} fill={done ? p.accent : 'rgba(255,255,255,0.25)'} />
-                <text y={-14 * u} textAnchor="middle" fontFamily={s1f.barlow} fontWeight={600} fontSize={Math.min(15 * u, (rx1 - rx0) / 12 * 0.34)} letterSpacing={u} fill={done ? '#fff' : '#8C93C4'} dy={26 * u}>
+                <text y={-14 * u} textAnchor="middle" fontFamily={s1f.barlow} fontWeight={600} fontSize={Math.min((portrait ? 26 : 15) * u, (rx1 - rx0) / 12 * (portrait ? 0.4 : 0.34))} letterSpacing={u} fill={done ? '#fff' : '#8C93C4'} dy={26 * u}>
                   {m}
                 </text>
               </g>

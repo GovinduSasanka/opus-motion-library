@@ -57,7 +57,8 @@ const HudChrome: React.FC<Props> = ({backdrop, previewSubject, theme, title, sub
   const grey = theme === 'dark' ? '#92908D' : '#6E6B63';
   const dim = theme === 'dark' ? '#393939' : '#C9C5B8';
   const mark = '#888888';
-  const fs = 15 * u;
+  const q = portrait ? 1.8 : 1; // portrait: bigger HUD text
+  const fs = 15 * u * q;
   const ls = fs * 0.15;
   const m = 44 * u;
   const L = Math.max(1, chapters.length);
@@ -131,7 +132,7 @@ const HudChrome: React.FC<Props> = ({backdrop, previewSubject, theme, title, sub
             <ellipse cx={bx} cy={floorY} rx={br * (1.1 - 0.5 * ((floorY - br - by) / hop))} ry={br * 0.12} fill="#000" opacity={0.35} />
             {Array.from({length: 40}, (_, k) => frame - 1 - k).filter((f) => f >= 0).map((f) => <circle key={f} cx={ballX(f)} cy={ballY(f)} r={2.2 * u} fill={ink} opacity={0.5 * (1 - (frame - f) / 40)} />)}
             <ellipse cx={bx} cy={floorY - br * sy} rx={br * sx} ry={br * sy} fill={accent} transform={`translate(0,${by - (floorY - br)})`} />
-            <text x={bx + br * 1.6} y={by + 6 * u} fontFamily={fonts.mono} fontSize={13 * u} fill={grey} letterSpacing={2 * u}>
+            <text x={bx + br * 1.6} y={by + 6 * u} fontFamily={fonts.mono} fontSize={13 * u * q} fill={grey} letterSpacing={2 * u}>
               {`sy ${sy.toFixed(2)}`}
             </text>
           </g>
@@ -154,7 +155,7 @@ const HudChrome: React.FC<Props> = ({backdrop, previewSubject, theme, title, sub
             )}
             {subtitle && <tspan fill={accent}>{charsIn(subtitle, 3 + (title.length / 60) * fps + 2)}</tspan>}
           </T>
-          <T x={w - m} y={50 * u} fill={ink} textAnchor="end">
+          <T x={w - m} y={50 * u + (portrait ? fs * 1.8 : 0)} fill={ink} textAnchor="end">
             {headerRight}
             <tspan fill={grey}>{`   ${counterLabel} `}</tspan>
             <tspan fill={accent}>{counter}</tspan>
@@ -197,14 +198,14 @@ const HudChrome: React.FC<Props> = ({backdrop, previewSubject, theme, title, sub
               <path key={i} d={`M${rx - 14 * u} ${markY(i) - 6 * u} L${rx - 14 * u} ${markY(i) + 6 * u} L${rx - 4 * u} ${markY(i) + 6 * u}`} fill="none" stroke={i <= ch ? ink : grey} strokeOpacity={i <= ch ? 0.9 : 0.5} strokeWidth={1.4 * u} />
             ))}
             <rect x={rx - 11 * u} y={indY - 1 * u} width={22 * u} height={2.4 * u} fill={rulerAccent} />
-            <text x={rx - 24 * u} y={indY + 4.5 * u} textAnchor="end" fontFamily={fonts.mono} fontSize={13 * u} fill={rulerAccent} letterSpacing={2 * u}>
+            <text x={rx - 24 * u} y={indY + 4.5 * u} textAnchor="end" fontFamily={fonts.mono} fontSize={13 * u * q} fill={rulerAccent} letterSpacing={2 * u}>
               {pad(ch + 1)}
             </text>
-            <text x={rx + 8 * u} y={ry1 + 46 * u} textAnchor="end" fontFamily={fonts.mono} fontSize={13 * u} letterSpacing={3 * u} fill={grey}>
+            <text x={rx + 8 * u} y={ry1 + 46 * u} textAnchor="end" fontFamily={fonts.mono} fontSize={13 * u * q} letterSpacing={3 * u} fill={grey}>
               <tspan fill={ink} fontWeight={700}>{pad(ch + 1)}</tspan>
               {` / ${pad(L)}${rulerUnit ? ' ' + rulerUnit : ''}`}
             </text>
-            <text x={rx + 8 * u} y={ry0 - 22 * u} textAnchor="end" fontFamily={fonts.mono} fontSize={13 * u} letterSpacing={3 * u} fill={ink} opacity={0.85}>
+            <text x={rx + 8 * u} y={ry0 - 22 * u} textAnchor="end" fontFamily={fonts.mono} fontSize={13 * u * q} letterSpacing={3 * u} fill={ink} opacity={0.85}>
               {(chapters[ch]?.label ?? '').toUpperCase().slice(0, 28)}
             </text>
           </g>

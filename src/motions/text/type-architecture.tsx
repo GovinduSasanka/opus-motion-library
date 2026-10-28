@@ -25,7 +25,7 @@ type Props = {
 
 const TypeArchitecture: React.FC<Props> = ({line, mode, figure, ground, ink, paper, accent, openWideFrames, speed, seed}) => {
   const frame = useCurrentFrame();
-  const {w, h, u, durationInFrames: dur} = useStage();
+  const {w, h, u, durationInFrames: dur, portrait} = useStage();
   const uid = useUid('tarch');
   const fam = lf('gothic');
   const cap = 0.27 * Math.min(h, w * 0.75);
@@ -77,9 +77,9 @@ const TypeArchitecture: React.FC<Props> = ({line, mode, figure, ground, ink, pap
   const e = eio3(seg(frame, openWideFrames, openWideFrames + 40));
   const back = eio3(seg(frame, hideAt + 14, hideAt + 50));
   const kz = e * (1 - back);
-  const s = lerp(sWide, 1, kz);
+  const s = lerp(sWide, portrait ? sWide : 1, kz);
   const followX = runX + (w * 0.2) / Math.max(0.2, s);
-  const camX = lerp(worldW / 2, Math.max(0, Math.min(worldW, followX)), kz);
+  const camX = portrait ? worldW / 2 : lerp(worldW / 2, Math.max(0, Math.min(worldW, followX)), kz);
   const camY = -cap * 0.62;
   const baseY = h * 0.56;
   const worldT = `translate(${fx(w / 2)},${fx(baseY)}) scale(${fx(s)}) translate(${fx(-camX)},${fx(-camY)})`;

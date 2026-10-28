@@ -60,12 +60,12 @@ const EraserRewind: React.FC<Props> = (p) => {
 
   const draw = prog(frame, 4, 40, ease.inOut);
   const lines = (p.text || '').split('\n');
-  const fs = (portrait ? 70 : 84) * u;
+  const fs = (portrait ? 88 : 84) * u;
   const afterP = prog(frame, endF + 8, endF + 44, ease.inOut);
   const mid = X + W / 2;
   const chartTop = Y + H * 0.05;
   const chartBot = Y + H * 0.7;
-  const cw = Math.min(W * 0.6, 760 * u);
+  const cw = portrait ? W * 0.92 : Math.min(W * 0.6, 760 * u);
   const bars = [0.34, 0.52, 0.8, 0.46];
 
   return (

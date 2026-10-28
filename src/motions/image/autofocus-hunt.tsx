@@ -122,11 +122,11 @@ const Corridor: React.FC<{w: number; h: number; u: number; id: string; wall: str
       <g transform={`translate(${nA[0]} ${nA[1]}) skewY(${(skew * 180) / Math.PI})`}>
         <rect width={nw} height={nh} fill="#efe7cf" />
         <rect width={nw} height={nh * 0.07} y={-nh * 0.02} x={nw * 0.38} fill="#d8d2b8" opacity={0.7} />
-        <text x={nw * 0.08} y={nh * 0.2} fontFamily={lf.plexSans} fontWeight={700} fontSize={nh * 0.12} fill="#222">
+        <text x={w < h ? -nw * 0.02 : nw * 0.08} textAnchor={w < h ? 'end' : undefined} y={nh * 0.2} fontFamily={lf.plexSans} fontWeight={700} fontSize={nh * 0.12} fill="#222">
           {notice[0] ?? ''}
         </text>
         {notice.slice(1).map((ln, i) => (
-          <text key={i} x={nw * 0.08} y={nh * (0.36 + i * 0.13)} fontFamily={lf.plexSans} fontWeight={600} fontSize={nh * 0.075} fill="#333">
+          <text key={i} x={w < h ? -nw * 0.02 : nw * 0.08} textAnchor={w < h ? 'end' : undefined} y={nh * (0.36 + i * 0.13)} fontFamily={lf.plexSans} fontWeight={600} fontSize={nh * 0.075} fill="#333">
             {ln}
           </text>
         ))}
@@ -156,7 +156,7 @@ const AutofocusHunt: React.FC<Props> = (p) => {
   const locked = sharp > 0.95;
   const br = (portrait ? 150 : 170) * u;
   const rec = Math.floor(frame / 15) % 2 === 0;
-  const os = (portrait ? 44 : 52) * u;
+  const os = (portrait ? 62 : 52) * u;
 
   return (
     <AbsoluteFill style={{background: '#000'}}>

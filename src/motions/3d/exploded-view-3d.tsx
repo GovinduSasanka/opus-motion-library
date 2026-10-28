@@ -192,7 +192,7 @@ const ExplodedView3D: React.FC<Props> = (P) => {
   const sides: Record<'L' | 'R', typeof lab> = {L: [], R: []};
   lab.forEach((l) => sides[l.x < w / 2 ? 'L' : 'R'].push(l));
   const colX = {L: w * (portrait ? 0.06 : 0.07), R: w * (portrait ? 0.94 : 0.93)};
-  const minGap = (portrait ? 92 : 98) * u;
+  const minGap = (portrait ? 124 : 98) * u;
   const place = (arr: typeof lab) => {
     const sorted = [...arr].sort((a, b) => a.y - b.y);
     const ys: number[] = [];
@@ -211,7 +211,7 @@ const ExplodedView3D: React.FC<Props> = (P) => {
   const placed = [...place(sides.L).map((l) => ({...l, side: 'L' as const})), ...place(sides.R).map((l) => ({...l, side: 'R' as const}))];
   const lastExploded = P.explodeAt + (n - 1) * P.stagger + 36;
   const outP = ease.in(prog(frame, P.reassembleAt - 10, P.reassembleAt + 2, (t) => t));
-  const fs = (portrait ? 26 : 28) * u;
+  const fs = (portrait ? 40 : 28) * u;
 
   return (
     <AbsoluteFill style={{background: `radial-gradient(120% 90% at 50% 45%, ${P.background} 0%, ${P.backgroundEdge} 80%)`}}>
@@ -248,7 +248,7 @@ const ExplodedView3D: React.FC<Props> = (P) => {
                 <text x={cx} y={ly - fs * 0.35} textAnchor={anchor} fontFamily={fonts.mono} fontSize={fs * 0.58} fill={P.accent}>{String(i + 1).padStart(2, '0')}</text>
                 <text x={cx} y={ly + fs * 0.55} textAnchor={anchor} fontFamily={fonts.sans} fontWeight={700} fontSize={fs} fill="#f3f5fa">{p.name}</text>
                 {p.spec && (
-                  <text x={cx} y={ly + fs * 1.4} textAnchor={anchor} fontFamily={fonts.mono} fontSize={fs * 0.6} fill="#f3f5fa" opacity={0.55}>{p.spec}</text>
+                  <text x={cx} y={ly + fs * 1.4} textAnchor={anchor} fontFamily={fonts.mono} fontSize={fs * (portrait ? 0.62 : 0.6)} fill="#f3f5fa" opacity={0.55}>{p.spec}</text>
                 )}
               </g>
             );

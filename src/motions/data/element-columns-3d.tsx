@@ -88,11 +88,13 @@ const ElementColumns3D: React.FC<Props> = (p) => {
   const colOf = (g: number) => cols[g % cols.length];
 
   const dur = 270;
-  const yaw = ((p.startYaw + p.orbitDeg * ease.inOut(clamp(frame / dur))) * Math.PI) / 180;
+  const yaw = ((p.startYaw + (portrait ? 90 : 0) + p.orbitDeg * ease.inOut(clamp(frame / dur))) * Math.PI) / 180;
   const pr = (p.pitch * Math.PI) / 180;
   const cyw = Math.cos(yaw), syw = Math.sin(yaw);
   const sp = Math.sin(pr), cp = Math.cos(pr);
-  const S = Math.min((w * 0.94) / (portrait ? 25 : w / h < 1.3 ? 24 : 21), (h * (portrait ? 0.5 : 0.7)) / (10 * sp + p.maxHeight * cp + 2));
+  const S = portrait
+    ? Math.min((w * 0.92) / 21, (h * 0.62) / (19 * sp + p.maxHeight * cp + 2))
+    : Math.min((w * 0.94) / (w / h < 1.3 ? 24 : 21), (h * 0.7) / (10 * sp + p.maxHeight * cp + 2));
   const ox = w / 2;
   const oy = h * (portrait ? 0.46 : 0.5) + (p.maxHeight * cp * S) / 2 - 0.6 * S;
   const proj = (x: number, y: number, z: number): [number, number, number] => {

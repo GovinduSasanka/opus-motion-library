@@ -41,7 +41,7 @@ const PapercutRosette: React.FC<Props> = (p) => {
   const {w, h, u, portrait} = useStage();
   const id = 'papercut-rosette';
   const S = Math.min(w, h);
-  const TR = S * (portrait ? 0.4 : 0.36);
+  const TR = S * (portrait ? 0.46 : 0.36);
   const cx = w / 2;
   const cy = h * (p.title ? (portrait ? 0.42 : 0.45) : 0.5);
   const wedge = React.useMemo(() => rosetteWedge(TR, p.motifs), [TR, p.motifs.join(',')]);

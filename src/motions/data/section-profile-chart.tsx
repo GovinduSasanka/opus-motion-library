@@ -55,8 +55,8 @@ const SectionProfileChart: React.FC<Props> = ({profile, units, reading, anchor3d
   // camera: oblique raking view, terrain pushed to the left of centre on landscape
   const yaw = 0.62 + t * 0.02;
   const el = (portrait ? 46 : 40) * (Math.PI / 180);
-  const k = Math.min((w * (portrait ? 0.96 : 0.62)) / (size * 1.3), (h * (portrait ? 0.4 : 0.9)) / (size * 0.66 * Math.sin(el) + 20 * Math.cos(el)));
-  const cam: RelCam = {yaw, el, k, cx: portrait ? w / 2 : w * 0.34, cy: h * (portrait ? 0.32 : 0.56)};
+  const k = Math.min((w * (portrait ? 0.96 : 0.62)) / (size * 1.3), (h * (portrait ? 0.46 : 0.9)) / (size * 0.66 * Math.sin(el) + 20 * Math.cos(el)));
+  const cam: RelCam = {yaw, el, k, cx: portrait ? w / 2 : w * 0.34, cy: h * (portrait ? 0.3 : 0.56)};
   const quads = reliefQuads(H, size, 44, cam, {az: (315 * Math.PI) / 180, el: (28 * Math.PI) / 180}, {...RELIEF_PAL, lo: surface, hi: '#C9C2AE', zmax: 18, ambient: 0.2, interval: 2});
 
   // the vertical section plane sweeps in across the feature
@@ -74,10 +74,10 @@ const SectionProfileChart: React.FC<Props> = ({profile, units, reading, anchor3d
 
   // chart panel (right third on landscape, bottom third on portrait)
   const pw = portrait ? w * 0.86 : w * 0.315;
-  const ph = portrait ? h * 0.23 : h * 0.34;
+  const ph = portrait ? h * 0.3 : h * 0.34;
   const px0 = portrait ? w * 0.07 : w * 0.655;
-  const py0 = portrait ? h * 0.69 : h * 0.3;
-  const pad = {l: 62 * u, r: 28 * u, t: 54 * u, b: 56 * u};
+  const py0 = portrait ? h * 0.63 : h * 0.3;
+  const pad = portrait ? {l: 96 * u, r: 28 * u, t: 76 * u, b: 84 * u} : {l: 62 * u, r: 28 * u, t: 54 * u, b: 56 * u};
   const cw = pw - pad.l - pad.r;
   const chh = ph - pad.t - pad.b;
   const zLo = Math.floor(zMin - 1);
@@ -101,7 +101,7 @@ const SectionProfileChart: React.FC<Props> = ({profile, units, reading, anchor3d
     return {x, z, a: seg(ptsK, i / nPts, i / nPts + 0.1)};
   });
   const tick = 2 * u;
-  const fs = 17 * u;
+  const fs = (portrait ? 27 : 17) * u;
 
   return (
     <AbsoluteFill style={{background, overflow: 'hidden'}}>
@@ -157,7 +157,7 @@ const SectionProfileChart: React.FC<Props> = ({profile, units, reading, anchor3d
               </text>
             </g>
           ))}
-          <text x={px0 + pw - pad.r} y={py0 + ph - 18 * u} fill="#FFFFFF" fillOpacity="0.45" fontFamily={lf.plex} fontSize={fs * 0.85} textAnchor="end">
+          <text x={px0 + pw - pad.r} y={py0 + ph - (portrait ? 24 : 18) * u} fill="#FFFFFF" fillOpacity="0.45" fontFamily={lf.plex} fontSize={fs * 0.85} textAnchor="end">
             distance ({units})
           </text>
           {/* returns */}

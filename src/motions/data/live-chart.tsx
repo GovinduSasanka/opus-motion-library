@@ -80,6 +80,7 @@ const ecgPath = (x0: number, x1: number, yb: number, amp: number, headX: number,
 const TraceMode: React.FC<Props> = (p) => {
   const frame = useCurrentFrame();
   const {w, h, u, portrait} = useStage();
+  const PT = portrait ? 1.6 : 1;
   // main chart box
   const M = portrait ? {x0: w * 0.14, x1: w * 0.9, y0: h * 0.12, y1: h * 0.42} : {x0: w * 0.1, x1: w * 0.58, y0: h * 0.16, y1: h * 0.66};
   const Sy = portrait ? {x0: w * 0.14, x1: w * 0.9, y0: h * 0.52, y1: h * 0.66} : {x0: w * 0.68, x1: w * 0.9, y0: h * 0.2, y1: h * 0.6};
@@ -144,10 +145,10 @@ const TraceMode: React.FC<Props> = (p) => {
           ))}
         </g>
         <g fontFamily={mono} fill={HUD.text} opacity={axesIn}>
-          <text x={M.x0 - 14 * u} y={M.y0 - 20 * u} fontSize={20 * u} textAnchor="end">
+          <text x={M.x0 - 14 * u} y={M.y0 - 20 * u} fontSize={20 * PT * u} textAnchor="end">
             {p.yLabel}
           </text>
-          <text x={M.x1 + 18 * u} y={M.y1 + 6 * u} fontSize={20 * u}>
+          <text x={M.x1 + 18 * u} y={M.y1 + 6 * u} fontSize={20 * PT * u}>
             {p.xLabel}
           </text>
           <text x={M.x0} y={M.y0 - 50 * u} fontSize={28 * u} fill="#E6E6F7">
@@ -162,7 +163,7 @@ const TraceMode: React.FC<Props> = (p) => {
           <>
             <circle cx={hx} cy={hy} r={(16 + 10 * ringPulse) * u} fill="none" stroke="#ffffff" strokeWidth={1.6 * u} opacity={1 - ringPulse} />
             <Glow x={hx} y={hy} r={5 * u} color={p.color} id="lc-head" />
-            <text x={hx + 22 * u} y={hy - 18 * u} fontFamily={mono} fontSize={22 * u} fill="#ffffff">
+            <text x={hx + 22 * u} y={hy - 18 * u} fontFamily={mono} fontSize={22 * PT * u} fill="#ffffff">
               {val.toFixed(1)}
             </text>
           </>
@@ -171,11 +172,11 @@ const TraceMode: React.FC<Props> = (p) => {
         <g opacity={prog(frame, 22, 34, ease.out)}>
           <path d={`M${Sy.x0} ${Sy.y0} V${Sy.y1} H${Sy.x1}`} fill="none" stroke={HUD.axis} strokeWidth={1.2 * u} />
           {sx.map((v, i) => (
-            <text key={i} x={lerp(Sy.x0, Sy.x1, v / 25)} y={Sy.y1 + 24 * u} fontFamily={mono} fontSize={15 * u} fill={HUD.text} textAnchor="middle">
+            <text key={i} x={lerp(Sy.x0, Sy.x1, v / 25)} y={Sy.y1 + 24 * u} fontFamily={mono} fontSize={15 * PT * u} fill={HUD.text} textAnchor="middle">
               {v}
             </text>
           ))}
-          <text x={Sy.x0} y={Sy.y0 - 14 * u} fontFamily={mono} fontSize={17 * u} fill={HUD.text}>
+          <text x={Sy.x0} y={Sy.y0 - 14 * u} fontFamily={mono} fontSize={17 * PT * u} fill={HUD.text}>
             synapses
           </text>
           <path d={sd} fill="none" stroke="#40868B" strokeWidth={2.6 * u} style={{filter: `drop-shadow(0 0 ${4 * u}px #40868B)`}} />
@@ -191,11 +192,11 @@ const TraceMode: React.FC<Props> = (p) => {
           </g>
           <path d={eD} fill="none" stroke={p.ecgColor} strokeWidth={2.4 * u} strokeLinejoin="round" style={{filter: `drop-shadow(0 0 ${5 * u}px ${p.ecgColor})`}} />
           <Glow x={headX} y={eHy} r={4 * u} color={p.ecgColor} id="lc-ehead" />
-          <text x={E.x0} y={E.y0 - 12 * u} fontFamily={mono} fontSize={17 * u} fill={HUD.text}>
+          <text x={E.x0} y={E.y0 - 12 * u} fontFamily={mono} fontSize={17 * PT * u} fill={HUD.text}>
             {`♥ ${p.bpm} bpm`}
           </text>
         </g>
-        <text x={portrait ? M.x0 : M.x0} y={portrait ? M.y1 + 70 * u : M.y1 + 64 * u} fontFamily={mono} fontSize={22 * u} fill="#E6E6F7">
+        <text x={portrait ? M.x0 : M.x0} y={portrait ? M.y1 + 70 * u : M.y1 + 64 * u} fontFamily={mono} fontSize={22 * PT * u} fill="#E6E6F7">
           {t1.slice(0, tc)}
           {tc < t1.length || blinkOn(frame) ? '▊' : ''}
         </text>

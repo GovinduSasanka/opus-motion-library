@@ -248,9 +248,9 @@ const BookOpen3D: React.FC<Props> = (props) => {
   const yaw = lerp(-24, -3, camT) + 3 * ease.sine(drift);
   const spreadW = 2 * (BW + O);
   const closedFit = Math.min((w * 0.5) / (BW + O), (h * 0.62) / (BH + 2 * O));
-  const openFit = portrait ? Math.min((w * 0.84) / (BW + O), (h * 0.62) / (BH + 2 * O)) : Math.min((w * 0.95) / spreadW, (h * 0.86) / (BH + 2 * O));
+  const openFit = portrait ? Math.min((w * 0.78) / (1.12 * BW + O), (h * 0.62) / (BH + 2 * O)) : Math.min((w * 0.95) / spreadW, (h * 0.86) / (BH + 2 * O));
   const zoom = lerp(closedFit, openFit, camT) * (1 + 0.06 * ease.sine(drift));
-  const fx = portrait ? lerp(BW * 0.5, BW * 0.5, camT) : lerp(BW * 0.5, 0, camT);
+  const fx = portrait ? lerp(BW * 0.5, (0.88 * BW + O) / 2, camT) : lerp(BW * 0.5, 0, camT);
   const fy = lerp(BH * 0.06, BH * 0.03, camT) - 0.02 * BH * drift;
 
   const ctx: PageCtx = {...props, BW, BH, u, frame, drawAt};

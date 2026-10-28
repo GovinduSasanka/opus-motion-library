@@ -46,8 +46,8 @@ const POOL = 'acemnorsuvxz';
 /** faint flower-of-life construction behind the credit (video6 end geometry) */
 const Decor: React.FC<{color: string}> = ({color}) => {
   const frame = useCurrentFrame();
-  const {w, h, u} = useStage();
-  const R = Math.min(w, h) * 0.22;
+  const {w, h, u, portrait} = useStage();
+  const R = Math.min(w, h) * (portrait ? 0.38 : 0.22);
   const cx = w / 2;
   const cy = h / 2;
   const rot = frame * 0.08;
@@ -81,7 +81,7 @@ const Decor: React.FC<{color: string}> = ({color}) => {
 
 const TypewriterSignature: React.FC<Props> = (p) => {
   const frame = useCurrentFrame();
-  const {u, durationInFrames} = useStage();
+  const {u, durationInFrames, portrait} = useStage();
   const chars = [...p.text];
   const firstSpace = p.text.indexOf(' ');
   // time at which char i appears (steps of charsPerStep every framesPerChar, + pause after first word)
@@ -126,7 +126,7 @@ const TypewriterSignature: React.FC<Props> = (p) => {
           ...style,
           fontFamily: tfonts[p.font],
           fontWeight: p.weight,
-          fontSize: p.size * u,
+          fontSize: p.size * u * (portrait ? 1.6 : 1),
           color: p.color,
           letterSpacing: `${p.tracking}em`,
           filter: scr ? `url(#${fid})` : undefined,

@@ -95,8 +95,8 @@ const sampleD = (d: string): Pt[] => {
 
 const BrushPaintIn: React.FC<Props> = (p) => {
   const frame = useCurrentFrame();
-  const {w, h, u} = useStage();
-  const S = (Math.min(w, h) * 0.84) / 1000;
+  const {w, h, u, portrait} = useStage();
+  const S = (Math.min(w, h) * 0.84 * (portrait ? 1.6 : 1)) / 1000;
   const ox = w / 2 - 500 * S;
   const oy = h / 2 - 500 * S;
 

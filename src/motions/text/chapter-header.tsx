@@ -82,7 +82,7 @@ const ChapterHeader: React.FC<Props> = (p) => {
   const idx = clamp(Math.floor(rel / p.stageFrames), 0, stages.length - 1);
   const local = rel - idx * p.stageFrames;
   const st = stages[idx];
-  const S = p.scale * u;
+  const S = p.scale * u * (portrait && p.variant === 'stage' ? 1.5 : 1);
   const backdrop: BackdropKind = p.backdrop === 'auto' ? (p.variant === 'stage' ? 'dunes' : p.variant === 'era' ? 'warm' : 'dusk') : p.backdrop;
 
   let body: React.ReactNode = null;

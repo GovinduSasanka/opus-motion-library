@@ -62,13 +62,13 @@ const LyricOnPath: React.FC<Props> = ({lines, lyrics, bpm, offsetSec, beats, var
       for (let i = 0; i <= n; i++) {
         const k = i / n;
         const x = lerpN(0.06, 0.94, k) * w;
-        const base = variant === 'fuse' ? 0.52 + 0.1 * Math.sin(k * 9 + seed) : lerpN(0.24, 0.74, Math.pow(k, 0.8));
+        const base = variant === 'fuse' ? 0.52 + 0.1 * Math.sin(k * 9 + seed) : portrait ? lerpN(0.14, 0.86, Math.pow(k, 0.8)) : lerpN(0.24, 0.74, Math.pow(k, 0.8));
         const y = (base + noise1(k * 6 + seed * 13, 2) * (variant === 'fuse' ? 0.05 : 0.07) * (1 - k * 0.4)) * h;
         out.push({x, y});
       }
     }
     return out;
-  }, [path, w, h, variant, seed]);
+  }, [path, w, h, variant, seed, portrait]);
   const lens = React.useMemo(() => {
     const Lk = [0];
     for (let i = 1; i < pts.length; i++) Lk.push(Lk[i - 1] + Math.hypot(pts[i].x - pts[i - 1].x, pts[i].y - pts[i - 1].y));
@@ -111,8 +111,8 @@ const LyricOnPath: React.FC<Props> = ({lines, lyrics, bpm, offsetSec, beats, var
   const head = at(front);
   const fi = Math.round(t * fps);
   const d = 'M' + pts.map((p) => `${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(' L');
-  const fs = size * u * (portrait ? 1.15 : 1);
-  const mono = 12 * u * (portrait ? 1.25 : 1);
+  const fs = size * u * (portrait ? 1.45 : 1);
+  const mono = 12 * u * (portrait ? 2 : 1);
   const clear = background === 'transparent';
   return (
     <AbsoluteFill style={{background: clear ? 'transparent' : background, overflow: 'hidden'}}>

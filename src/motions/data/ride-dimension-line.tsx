@@ -53,8 +53,8 @@ const RideDimension: React.FC<Props> = (p) => {
     for (let i = 0; i < n; i++) {
       if (f < start(i) - 12) break;
       const back = bease(seg(f, start(i) - 12, start(i)), 1.6, 3);
-      const prevEnd = i > 0 ? Math.max(0, x0 + items[i - 1].value * scale - w * 0.62) : 0;
-      const ride = Math.max(0, tipAt(i, f) - w * 0.62);
+      const prevEnd = i > 0 ? Math.max(0, x0 + items[i - 1].value * scale - w * (portrait ? 0.5 : 0.62)) : 0;
+      const ride = Math.max(0, tipAt(i, f) - w * (portrait ? 0.5 : 0.62));
       c = f < start(i) ? lerp(prevEnd, 0, back) : ride;
     }
     return c;
@@ -98,7 +98,7 @@ const RideDimension: React.FC<Props> = (p) => {
             const judge = clamp((landed - 8) / 10);
             return (
               <g key={i}>
-                <text x={x0 - 16 * u} y={y - 20 * u} textAnchor="start" fontFamily={lf.hand} fontWeight={700} fontSize={fs} fill={p.ink} opacity={clamp((frame - start(i) + 10) / 8)} transform={`translate(${16 * u} 0)`}>
+                <text x={portrait ? Math.max(x0 - 16 * u, camX + 12 * u) : x0 - 16 * u} y={y - 20 * u} textAnchor="start" fontFamily={lf.hand} fontWeight={700} fontSize={fs} fill={p.ink} opacity={clamp((frame - start(i) + 10) / 8)} transform={`translate(${16 * u} 0)`}>
                   {it.label}
                 </text>
                 {k > 0 && (

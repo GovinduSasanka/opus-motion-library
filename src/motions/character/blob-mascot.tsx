@@ -31,7 +31,7 @@ type Pt = [number, number];
 const BlobMascot: React.FC<Props> = ({background, floorColor, barColor, accent, trailColor, bodyColor, steps, hopFrames, rollFrames, trailFade, squash, followCam}) => {
   const frame = useCurrentFrame();
   const {w, h, u, portrait} = useStage();
-  const c = (portrait ? 165 : 155) * u;
+  const c = (portrait ? 125 : 155) * u;
   const r = 0.32 * c;
   const N = Math.max(2, Math.round(steps));
   const heights = Array.from({length: N}, (_, k) => 0.9 * (N - k) + 0.3);

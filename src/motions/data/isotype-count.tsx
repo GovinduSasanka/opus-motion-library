@@ -50,7 +50,7 @@ const IsotypeCount: React.FC<Props> = ({title, count, highlight, unitValue, unit
   const tDone = t;
 
   // ---- layout region
-  const area = portrait ? {x: 0.08 * w, y: 0.3 * h, w: 0.84 * w, h: 0.42 * h} : {x: 0.38 * w, y: 0.16 * h, w: 0.56 * w, h: 0.68 * h};
+  const area = portrait ? {x: 0.06 * w, y: 0.36 * h, w: 0.88 * w, h: 0.56 * h} : {x: 0.38 * w, y: 0.16 * h, w: 0.56 * w, h: 0.68 * h};
   type Cell = {x: number; y: number; s: number};
   const cells: Cell[] = [];
   if (arrangement === 'heart') {
@@ -77,7 +77,7 @@ const IsotypeCount: React.FC<Props> = ({title, count, highlight, unitValue, unit
   } else {
     const cols = arrangement === 'row' ? N : arrangement === 'bar' ? Math.ceil(N / 2) : Math.ceil(Math.sqrt((N * area.w) / area.h));
     const rows = Math.ceil(N / cols);
-    const s = Math.min(area.w / cols, area.h / rows, 160 * u);
+    const s = Math.min(area.w / cols, area.h / rows, (portrait ? 230 : 160) * u);
     const ox = area.x + (area.w - cols * s) / 2;
     const oy = area.y + (area.h - rows * s) / 2;
     for (let i = 0; i < N; i++) cells.push({x: ox + (i % cols) * s, y: oy + Math.floor(i / cols) * s, s: s * 0.84});

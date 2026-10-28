@@ -47,10 +47,10 @@ type Props = {
 
 const HandwriteOn: React.FC<Props> = ({lines, background, color, font, size, framesPerGlyph, strokeWidth, unwriteAt, paper, jitter, variant, glyphJitter, wetGlint, multiply, dry, halo, anchor, seed}) => {
   const frame = useCurrentFrame();
-  const {w, h, u} = useStage();
+  const {w, h, u, portrait} = useStage();
   let cursor = 0;
   const totalLines = lines.length;
-  const lineGap = size * 1.25 * u;
+  const lineGap = size * 1.25 * u * (portrait ? 1.6 : 1);
   const y0 = anchor === 'bottom' ? h - 0.1 * h - (totalLines - 1) * lineGap : h / 2 - ((totalLines - 1) * lineGap) / 2;
   // un-write runs backward at 2x speed
   const f = unwriteAt > 0 && frame > unwriteAt ? Math.max(0, unwriteAt - (frame - unwriteAt) * 2) : frame;
@@ -62,9 +62,11 @@ const HandwriteOn: React.FC<Props> = ({lines, background, color, font, size, fra
           const start = (ln.delay ?? (li === 0 ? 6 : cursor + 8));
           const chars = [...ln.text];
           cursor = start + chars.length * framesPerGlyph;
-          const fs = (ln.size ?? size) * u;
-          const col = ln.color ?? color;
+          const fs0 = (ln.size ?? size) * u;
           const fw = font === 'hand' ? 700 : 600;
+          const m0 = measure(ln.text, `${fw} ${fs0}px ${fonts[font]}`);
+          const fs = portrait ? fs0 * Math.max(1, Math.min(1.6, (w * 0.88) / Math.max(1, m0))) : fs0;
+          const col = ln.color ?? color;
           const m = (s: string) => measure(s, `${fw} ${fs}px ${fonts[font]}`);
           const totalW = m(ln.text);
           const x0 = w / 2 - totalW / 2;

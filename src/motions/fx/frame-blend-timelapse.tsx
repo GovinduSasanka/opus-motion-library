@@ -219,10 +219,11 @@ const FrameBlendTimelapse: React.FC<Props> = (p) => {
     </g>
   ));
   const hud = p.showHud;
-  const fs = Math.min(26 * u, w * 0.04);
+  const fs = portrait ? 38 * u : Math.min(26 * u, w * 0.04);
+  const hy = portrait ? 1.45 : 1; // HUD vertical scale
   // speed graph
-  const gw = Math.min(w * 0.42, 560 * u);
-  const gh = 70 * u;
+  const gw = portrait ? w * 0.8 : Math.min(w * 0.42, 560 * u);
+  const gh = (portrait ? 120 : 70) * u;
   const gx = portrait ? w / 2 - gw / 2 : 48 * u;
   const gy = h - gh - 70 * u;
   const lmin = Math.log(0.3);
@@ -240,17 +241,17 @@ const FrameBlendTimelapse: React.FC<Props> = (p) => {
         {layers.length ? layers : null}
         {hud && (
           <g>
-            <rect x={0} y={0} width={w} height={150 * u} fill="rgba(0,0,0,0.35)" />
-            <text x={portrait ? w / 2 : 48 * u} y={72 * u} textAnchor={portrait ? 'middle' : 'start'} fontFamily={s1f.dela} fontSize={Math.min(62 * u, w * 0.1)} fill="#FFF7E8">
+            <rect x={0} y={0} width={w} height={150 * hy * u} fill="rgba(0,0,0,0.35)" />
+            <text x={portrait ? w / 2 : 48 * u} y={72 * hy * u} textAnchor={portrait ? 'middle' : 'start'} fontFamily={s1f.dela} fontSize={portrait ? 90 * u : Math.min(62 * u, w * 0.1)} fill="#FFF7E8">
               {v >= 10 ? Math.round(v) : v.toFixed(1)}×
             </text>
-            <text x={portrait ? w / 2 : 48 * u} y={108 * u} textAnchor={portrait ? 'middle' : 'start'} fontFamily={s1f.barlow} fontWeight={600} fontSize={fs * 0.8} letterSpacing={3 * u} fill="#B8B1D0">
+            <text x={portrait ? w / 2 : 48 * u} y={108 * hy * u} textAnchor={portrait ? 'middle' : 'start'} fontFamily={s1f.barlow} fontWeight={600} fontSize={fs * 0.8} letterSpacing={3 * u} fill="#B8B1D0">
               {`SPEED · ${N} SUB-FRAME${N > 1 ? 'S' : ''} BLENDED`}
             </text>
-            <text x={w - 48 * u} y={72 * u} textAnchor="end" fontFamily={s1f.dela} fontSize={Math.min(62 * u, w * 0.1)} fill="#FFF7E8">
+            <text x={w - 48 * u} y={72 * hy * u} textAnchor="end" fontFamily={s1f.dela} fontSize={portrait ? 90 * u : Math.min(62 * u, w * 0.1)} fill="#FFF7E8">
               {clock}
             </text>
-            <text x={w - 48 * u} y={108 * u} textAnchor="end" fontFamily={s1f.barlow} fontWeight={600} fontSize={fs * 0.8} letterSpacing={3 * u} fill="#B8B1D0">
+            <text x={w - 48 * u} y={108 * hy * u} textAnchor="end" fontFamily={s1f.barlow} fontWeight={600} fontSize={fs * 0.8} letterSpacing={3 * u} fill="#B8B1D0">
               SOURCE CLOCK
             </text>
           </g>
@@ -262,7 +263,7 @@ const FrameBlendTimelapse: React.FC<Props> = (p) => {
               <path d={gp} fill="none" stroke="#35E7FF" strokeWidth={2.5 * u} />
               <line x1={px} x2={px} y1={gy - 6 * u} y2={gy + gh + 6 * u} stroke="rgba(255,255,255,0.5)" strokeWidth={1.5 * u} />
               <circle cx={px} cy={py} r={6 * u} fill="#FFF0A0" />
-              <text x={gx} y={gy + gh + 28 * u} fontFamily={s1f.barlow} fontWeight={600} fontSize={fs * 0.62} letterSpacing={2 * u} fill="#9A93B8">
+              <text x={gx} y={gy + gh + (portrait ? 44 : 28) * u} fontFamily={s1f.barlow} fontWeight={600} fontSize={fs * 0.62} letterSpacing={2 * u} fill="#9A93B8">
                 0.3× – 80× SPEED CURVE
               </text>
             </g>

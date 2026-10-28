@@ -44,7 +44,7 @@ type Props = {
 const easeCubicOut = (t: number) => 1 - Math.pow(1 - t, 3);
 
 /* ---------------- leader callout ---------------- */
-const LeaderCallout: React.FC<{ax: number; ay: number; ex: number; ey: number; label: string; sub?: string; start: number; ink: string; grey: string; u: number; frame: number; out: number}> = ({ax, ay, ex, ey, label, sub, start, ink, grey, u, frame, out}) => {
+const LeaderCallout: React.FC<{ax: number; ay: number; ex: number; ey: number; label: string; sub?: string; start: number; ink: string; grey: string; u: number; frame: number; out: number; q?: number}> = ({ax, ay, ex, ey, label, sub, start, ink, grey, u, frame, out, q = 1}) => {
   const f = frame - start;
   if (f < 0) return null;
   const dot = ease.back(clamp(f / 3));
@@ -58,7 +58,7 @@ const LeaderCallout: React.FC<{ax: number; ay: number; ex: number; ey: number; l
   const drawn = ln * total;
   const p1 = Math.min(1, drawn / seg1);
   const p2 = clamp((drawn - seg1) / shelf);
-  const fs = 19 * u;
+  const fs = 19 * u * q;
   const tx = bx + side * (shelf + 10 * u);
   const lab = typed(label, frame, start + 8, 25);
   const sb = sub ? typed(sub, frame, start + 8 + (label.length / 25) * 30 * 0.6, 30) : '';
@@ -71,7 +71,7 @@ const LeaderCallout: React.FC<{ax: number; ay: number; ex: number; ey: number; l
         {lab}
       </text>
       {sb && (
-        <text x={tx} y={by + fs * 1.55} textAnchor={side > 0 ? 'start' : 'end'} fill={grey} fontFamily={fonts.mono} fontSize={12.5 * u} letterSpacing={12.5 * u * 0.18}>
+        <text x={tx} y={by + fs * (q > 1 ? 1.4 : 1.55)} textAnchor={side > 0 ? 'start' : 'end'} fill={grey} fontFamily={fonts.mono} fontSize={12.5 * u * q * 1.1} letterSpacing={12.5 * u * q * 1.1 * 0.18}>
           {sb}
         </text>
       )}
@@ -593,7 +593,7 @@ const CalloutLabels: React.FC<Props> = ({variant, items, src, stagger, medallion
   const scy = cy - R * 0.1 + float;
   const def: Item[] = tall
     ? [
-        {x: -0.45, y: -0.45, label: 'HIGHLIGHT', sublabel: 'F0 .04 · CLEAR COAT', ex: -0.2, ey: -0.9},
+        {x: -0.45, y: -0.45, label: 'HIGHLIGHT', sublabel: 'F0 .04 · CLEAR COAT', ex: portrait ? 0.25 : -0.2, ey: portrait ? -1.4 : -0.9},
         {x: 0.42, y: -0.38, label: 'TERMINATOR', sublabel: 'n·l = 0', ex: 0.1, ey: -1.0},
         {x: 0.25, y: 0.38, label: 'CORE SHADOW', sublabel: 'n·l < 0', ex: 0.3, ey: 0.95},
         {x: 0.62, y: 0.72, label: 'REFLECTED LIGHT', sublabel: 'BOUNCE FROM THE FLOOR', ex: -0.6, ey: 0.95},
@@ -620,7 +620,7 @@ const CalloutLabels: React.FC<Props> = ({variant, items, src, stagger, medallion
           const ay = usingDefaults ? (isShadow ? cy - R * 0.1 : scy) + it.y * R : it.y * h + float;
           const exv = usingDefaults ? (it.ex ?? 0.5) * R : it.ex !== undefined ? it.ex * u : (ax < w / 2 ? -1 : 1) * 90 * u;
           const eyv = usingDefaults ? (it.ey ?? -0.4) * R : it.ey !== undefined ? it.ey * u : (ay < h / 2 ? -1 : 1) * 70 * u;
-          return <LeaderCallout key={i} ax={ax} ay={ay} ex={exv} ey={eyv} label={it.label} sub={it.sublabel} start={14 + i * stagger} ink={ink} grey={grey} u={u} frame={frame} out={out} />;
+          return <LeaderCallout key={i} ax={ax} ay={ay} ex={exv} ey={eyv} label={it.label} sub={it.sublabel} start={14 + i * stagger} ink={ink} grey={grey} u={u} frame={frame} out={out} q={portrait ? 1.5 : 1} />;
         })}
       </Svg>
     </AbsoluteFill>

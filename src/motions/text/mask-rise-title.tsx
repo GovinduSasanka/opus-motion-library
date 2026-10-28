@@ -116,7 +116,8 @@ const RollNumeral: React.FC<{from: string; to: string; at: number; dur: number; 
 
 const ChapterCard: React.FC<{c: Chapter; p: Props; inStart: number; outStart: number | null; compressAt: number | null; s: number}> = ({c, p, inStart, outStart, compressAt, s}) => {
   const frame = useCurrentFrame();
-  const {u, w} = useStage();
+  const {u, w, portrait} = useStage();
+  const pk = portrait ? 1.3 : 1;
   // shrink long titles to fit beside the numeral instead of wrapping mid-word
   const titleSize = fitSize(c.title, 66 * u * s, w * 0.66, 'display', 0.01);
   const per = p.letterStagger;
@@ -134,8 +135,8 @@ const ChapterCard: React.FC<{c: Chapter; p: Props; inStart: number; outStart: nu
         <RiseWord text={c.title} start={inStart} per={per} dur={p.letterFrames} font={fonts.display} size={titleSize} color={p.ink} exitP={outP} tracking={0.01} />
       </div>
       <div style={{display: 'flex', alignItems: 'baseline', gap: 16 * u * s, marginTop: 6 * u * s, opacity: 1 - outP}}>
-        {c.kicker ? <RiseWord text={c.kicker} start={inStart + 2} per={0} dur={p.letterFrames} font={fonts.sans} size={30 * u * s} color={p.ink} /> : null}
-        <span style={{fontFamily: fonts.mono, fontSize: 22 * u * s, color: p.muted, whiteSpace: 'pre', letterSpacing: '0.02em'}}>
+        {c.kicker ? <RiseWord text={c.kicker} start={inStart + 2} per={0} dur={p.letterFrames} font={fonts.sans} size={30 * u * s * pk} color={p.ink} /> : null}
+        <span style={{fontFamily: fonts.mono, fontSize: 22 * u * s * pk, color: p.muted, whiteSpace: 'pre', letterSpacing: '0.02em'}}>
           {sub.slice(0, n)}
           {frame >= typeStart && <BlockCursor visible={cursorOn(frame, typing, 2)} color={p.accent} w={10 * u * s} h={18 * u * s} />}
         </span>
@@ -255,7 +256,7 @@ const MaskRiseTitle: React.FC<Props> = (p) => {
           })}
           <line x1={margin * 0.5} x2={margin * 0.5 + (w - margin) * prog} y1={h - 72 * u} y2={h - 72 * u} stroke={p.accent} strokeWidth={2.5 * u} />
           <line x1={margin * 0.5 + (w - margin) * prog} x2={margin * 0.5 + (w - margin) * prog} y1={h - 80 * u} y2={h - 64 * u} stroke={p.accent} strokeWidth={2 * u} />
-          <text x={margin * 0.5} y={h - 38 * u} fontFamily={fonts.mono} fontSize={16 * u} fill={p.muted} letterSpacing={2 * u}>
+          <text x={margin * 0.5} y={h - 38 * u} fontFamily={fonts.mono} fontSize={(portrait ? 26 : 16) * u} fill={p.muted} letterSpacing={2 * u}>
             {`TC 00:00:${String(Math.floor(frame / 30)).padStart(2, '0')}:${String(frame % 30).padStart(2, '0')}`}
           </text>
         </svg>

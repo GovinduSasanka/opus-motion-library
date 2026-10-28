@@ -34,6 +34,7 @@ type Props = {
 const NeuralNetLayers: React.FC<Props> = ({layers, inputs, labels, title, subtitle, cycle, travel, showWeights, seed, background, ink, ramp: rampStops, positive, negative}) => {
   const frame = useCurrentFrame();
   const {w, h, u, portrait} = useStage();
+  const PT = portrait ? 1.8 : 1;
   const sizes = React.useMemo(() => layers.map((n) => Math.max(1, Math.min(14, Math.round(n)))).slice(0, 7), [layers]);
   const L = sizes.length;
   const weights = React.useMemo(() => makeWeights(sizes, seed), [sizes, seed]);
@@ -161,7 +162,7 @@ const NeuralNetLayers: React.FC<Props> = ({layers, inputs, labels, title, subtit
               const p0 = pos(l, 0);
               const name = l === 0 ? 'input' : l === L - 1 ? 'output' : `hidden ${l}`;
               return (
-                <text key={l} x={p0.x} y={netBox.y1 + 54 * u} fontFamily={fonts.mono} fontSize={15 * u} fill={ink} opacity={0.5 * entrance(l)} textAnchor="middle">
+                <text key={l} x={p0.x} y={netBox.y1 + 54 * u} fontFamily={fonts.mono} fontSize={15 * PT * u} fill={ink} opacity={0.5 * entrance(l)} textAnchor="middle">
                   {name}
                 </text>
               );
@@ -169,7 +170,7 @@ const NeuralNetLayers: React.FC<Props> = ({layers, inputs, labels, title, subtit
 
         {/* output bar chart */}
         <g opacity={prog(frame, L * 3, L * 3 + 16)}>
-          <text x={bars.x} y={bars.y - 18 * u} fontFamily={fonts.mono} fontSize={15 * u} fill={ink} opacity={0.55}>
+          <text x={bars.x} y={bars.y - 18 * u} fontFamily={fonts.mono} fontSize={15 * PT * u} fill={ink} opacity={0.55}>
             OUTPUT · SOFTMAX
           </text>
           {outLabels.map((lab, i) => {
@@ -180,12 +181,12 @@ const NeuralNetLayers: React.FC<Props> = ({layers, inputs, labels, title, subtit
             const full = bars.w - 90 * u;
             return (
               <g key={i}>
-                <text x={bars.x} y={y + rowH * 0.62} fontFamily={fonts.mono} fontSize={Math.min(20 * u, rowH * 0.5)} fill={ink} opacity={isWin ? 1 : 0.65}>
+                <text x={bars.x} y={y + rowH * 0.62} fontFamily={fonts.mono} fontSize={Math.min((portrait ? 30 : 20) * u, rowH * 0.5)} fill={ink} opacity={isWin ? 1 : 0.65}>
                   {lab}
                 </text>
                 <rect x={bars.x + 70 * u} y={y + rowH * 0.18} width={full} height={rowH * 0.5} rx={4 * u} fill={rgba5(ink, 0.08)} />
                 <rect x={bars.x + 70 * u} y={y + rowH * 0.18} width={Math.max(2 * u, full * pv)} height={rowH * 0.5} rx={4 * u} fill={isWin ? rampStops[rampStops.length - 1] : ramp(rampStops, 0.2 + pv * 0.6)} />
-                <text x={bars.x + 70 * u + full + 10 * u} y={y + rowH * 0.62} fontFamily={fonts.mono} fontSize={Math.min(18 * u, rowH * 0.45)} fill={ink} opacity={0.7}>
+                <text x={bars.x + 70 * u + full + 10 * u} y={y + rowH * 0.62} fontFamily={fonts.mono} fontSize={Math.min((portrait ? 28 : 18) * u, rowH * 0.45)} fill={ink} opacity={0.7}>
                   {(pv * 100).toFixed(0)}%
                 </text>
               </g>
@@ -197,7 +198,7 @@ const NeuralNetLayers: React.FC<Props> = ({layers, inputs, labels, title, subtit
       {/* title */}
       <div style={{position: 'absolute', left: portrait ? w * 0.1 : w * 0.1, top: h * 0.055, color: ink, opacity: prog(frame, 0, 16)}}>
         <div style={{fontFamily: fonts.grotesk, fontWeight: 700, fontSize: titleSize, letterSpacing: -1 * u, lineHeight: 1.05}}>{title}</div>
-        <div style={{fontFamily: fonts.mono, fontSize: 17 * u, opacity: 0.55, marginTop: 8 * u}}>{subtitle}</div>
+        <div style={{fontFamily: fonts.mono, fontSize: (portrait ? 28 : 17) * u, opacity: 0.55, marginTop: 8 * u}}>{subtitle}</div>
       </div>
       <Vignette strength={0.4} />
     </AbsoluteFill>
