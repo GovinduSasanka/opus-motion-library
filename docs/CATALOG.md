@@ -1,6 +1,6 @@
 # Motion catalog
 
-424 motions. Generated from `catalog.json` by `cli/gen-docs.mjs` — do not edit by hand.
+429 motions. Generated from `catalog.json` by `cli/gen-docs.mjs` — do not edit by hand.
 
 Render any of them: `node cli/mgl.mjs render <id> [--props '{...}'] [--format landscape|square|portrait]`. Previews live in `gallery/`.
 
@@ -11,9 +11,9 @@ Choosing: `node cli/mgl.mjs suggest "<what you need>"` and [CHOOSING.md](CHOOSIN
 - [shape](#shape) (41)
 - [fx](#fx) (49)
 - [environment](#environment) (39)
-- [character](#character) (16)
-- [data](#data) (37)
-- [ui](#ui) (35)
+- [character](#character) (17)
+- [data](#data) (40)
+- [ui](#ui) (36)
 - [hud](#hud) (21)
 - [camera](#camera) (4)
 - [texture](#texture) (1)
@@ -5509,6 +5509,8 @@ Countdown on a dusk launch pad, ignition with billowing ground smoke and a flick
 
 ### `segmented-worm-breach` — Segmented worm breach
 
+![segmented-worm-breach](../gallery/segmented-worm-breach.jpg)
+
 A giant panelled mechanical worm with a toothed circular mouth bursts out of a cream line-art desert in a dust plume, arcs toward camera and dives back; optional translucent cyan x-ray pass.
 
 **Use for:** Hero reveal of a colossal machine/creature, desert or sand worlds, sci-fi cold opens, product-as-monster metaphors.  
@@ -5824,6 +5826,34 @@ White eyed sphere hops down an isometric bar staircase with squash/stretch, pain
 | `trailFade` | `90` | frames for a trail tile to fade back |
 | `squash` | `0.3` | landing squash amount (sy = 1 - squash; floor landing is 1.6x) |
 | `followCam` | `true` | camera follows the blob diagonally |
+
+### `body-vessel-glow` — Body vessel glow character
+
+![body-vessel-glow](../gallery/body-vessel-glow.jpg)
+
+A friendly flat-vector kid in a hoodie in a night landscape: the camera eases in, the hoodie turns see-through and a glowing pink vessel network draws on from the heart through head, arms and legs with light pulses, then a small element chip ("Fe") pops out of the chest.
+
+**Use for:** Biology and health explainers, "what is in your body" reveals, nutrition and iron/mineral stories, science-for-kids channels, origin-of-elements intros.  
+**Rebuilt from:** analysis/sheets/r3/v3 (flat-vector "iron in your blood came from a star")  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** nature, hud, playful, night  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `background` | `"#0a1033"` | night sky base colour |
+| `hoodieColor` | `"#3a7be0"` | hoodie colour |
+| `skinColor` | `"#f3b48b"` | skin colour |
+| `hairColor` | `"#1c2040"` | hair colour |
+| `pantsColor` | `"#222a58"` | trousers colour |
+| `vesselColor` | `"#ff4f9a"` | glowing vessel colour |
+| `moonColor` | `"#7fe3d2"` | moon colour |
+| `chipText` | `"Fe"` | element symbol on the chip ("" hides the chip text) |
+| `chipSub` | `"4 g"` | small line under the symbol (e.g. amount; "" for none) |
+| `chipColor` | `"#ffb347"` | chip outline / glow colour |
+| `zoom` | `1.55` | camera zoom into the torso (1 = none) |
+| `seed` | `3` | capillary twigs / star field seed |
 
 ### `box-bot` — Box-bot mascot
 
@@ -6275,6 +6305,36 @@ A chibi explorer in a bucket hat walks in place at 37.5 % W while procedural era
 
 ## data
 
+### `atom-electron-cloud` — Atom electron cloud builder
+
+![atom-electron-cloud](../gallery/atom-electron-cloud.jpg)
+
+Dark blue space: a nucleus of protons and neutrons grows one proton per beat with a counter and an element symbol/name card updating (H, He, Li ...) while each new electron is a seeded particle swarm that spreads into its shell, expanding the electron cloud.
+
+**Use for:** Chemistry and physics explainers, "how elements are built" lessons, periodic-table intros, science channel hero shots.  
+**Rebuilt from:** analysis/sheets/r3/v1 (3D periodic table: click adds a proton, electron cloud)  
+**Default length:** 300 frames (10.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud, night  
+**Capabilities:** paints its own background · text: `title`, `caption` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Build an atom"` | headline (top-left) |
+| `caption` | `"Each click adds a proton."` | mono sub-line |
+| `elements` | `[{"symbol":"H","name":"Hydrogen","neutrons":0},{"symbol":…` | steps [{symbol,name,z? (default index+1),neutrons? (default ~z)}], one per beat |
+| `background` | `"#050f26"` | space colour |
+| `protonColor` | `"#ff6b8c"` | proton colour |
+| `neutronColor` | `"#a9b9d8"` | neutron colour |
+| `electronColor` | `"#6fd0ff"` | electron cloud / shell colour |
+| `inkColor` | `"#e8f0ff"` | text colour |
+| `accent` | `"#6fd0ff"` | element-card outline |
+| `beatFrames` | `26` | frames between steps (30 fps) |
+| `startFrame` | `22` | frame of the first step |
+| `particles` | `110` | particles per electron (more = denser cloud) |
+| `stars` | `90` | background star count |
+| `seed` | `4` | nucleus layout / particle seed |
+
 ### `axis-ratchet-rescale` — Axis ratchet rescale
 
 ![axis-ratchet-rescale](../gallery/axis-ratchet-rescale.jpg)
@@ -6390,6 +6450,8 @@ A locked-off concourse plate darkens and desaturates while every walker becomes 
 
 ### `dna-helix-unzip` — DNA helix unzip
 
+![dna-helix-unzip](../gallery/dna-helix-unzip.jpg)
+
 A rotating DNA double helix draws on, coloured A-T / G-C base-pair rungs fill in, then a zipper point runs along the axis and the two strands peel apart into half-rungs with letter tags.
 
 **Use for:** Biology / genetics explainers, "copying the code" or "unlocking" metaphors, biotech and health intros.  
@@ -6478,6 +6540,8 @@ A hand-drawn pencil dot chart on cream paper sweeps mark by mark into a full-hei
 
 ### `element-columns-3d` — Element columns 3D
 
+![element-columns-3d](../gallery/element-columns-3d.jpg)
+
 A periodic table of 3D tiles on a wooden bench in a dark lab: the columns rise from the floor to heights set by a property (melting point), the camera drifts round, the tallest column is tagged with a label and a caption pill sits at the bottom. Sample values are illustrative.
 
 **Use for:** Show a property across the periodic table (or any 118-item grid dataset) and call out the extreme; science explainers.  
@@ -6502,6 +6566,33 @@ A periodic table of 3D tiles on a wooden bench in a dark lab: the columns rise f
 | `startYaw` | `-22` | starting camera yaw, degrees |
 | `pitch` | `52` | camera elevation, degrees |
 | `showCaption` | `true` | show the caption pill |
+
+### `emission-spectrum-lines` — Emission spectrum lines
+
+![emission-spectrum-lines](../gallery/emission-spectrum-lines.jpg)
+
+A glowing gas-discharge tube sends light through a slit and a prism; a dark spectrum panel with an nm axis draws bright emission lines at element-specific wavelengths (hydrogen, helium, neon) as a scanner sweeps across, then swaps to the next gas.
+
+**Use for:** Physics and chemistry explainers on atomic spectra, "how we know what stars are made of", element fingerprints, astronomy intros.  
+**Rebuilt from:** analysis/sheets/r3/v1 (krypton spectrum tube and spectrum panel)  
+**Default length:** 340 frames (11.3 s @ 30 fps)
+
+**Roles:** subject · **Mood:** neon, hud, night  
+**Capabilities:** paints its own background · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Atomic fingerprints"` | headline (top-left) |
+| `subtitle` | `"Every element glows in its own lines"` | mono sub-line |
+| `gases` | `[{"symbol":"H","name":"Hydrogen","tube":"#ff6fcf","lines"…` | gases [{symbol,name,tube (tube glow colour),lines: [wavelength nm, ...]}] one per step |
+| `background` | `"#0a1024"` | backdrop colour |
+| `inkColor` | `"#e8eeff"` | text and axis colour |
+| `minNm` | `380` | left end of the nm axis |
+| `maxNm` | `720` | right end of the nm axis |
+| `framesPer` | `100` | frames per gas (30 fps) |
+| `startFrame` | `18` | frame the first gas lights |
+| `showLabels` | `true` | print the wavelength under each line |
+| `seed` | `1` | unused spare seed |
 
 ### `empty-next-cell` — Empty next cell
 
@@ -6562,6 +6653,33 @@ Ink-line glass jars on a clay shelf rack light up one by one: saturated self-lit
 | `ink` | `"#1E1E1E"` | line / text ink colour |
 | `yaw` | `-20` | 3/4 view yaw in degrees (drifts +7° over the clip) |
 | `pitch` | `28` | camera elevation in degrees |
+
+### `flame-test-colors` — Flame test colours
+
+![flame-test-colors](../gallery/flame-test-colors.jpg)
+
+A Bunsen-style burner on a lab bench: a wire loop dips into the flame, which turns crimson, yellow, lilac, green, red and orange for Li, Na, K, Cu, Sr and Ca with sparks, a label pill and the matching sample bottle lighting up.
+
+**Use for:** Chemistry lessons on flame tests and emission, "why fireworks have colours", element-by-element reveals, school science channels.  
+**Rebuilt from:** analysis/sheets/r3/v1 (strontium flame test with wire loop)  
+**Default length:** 390 frames (13.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud, playful, night  
+**Capabilities:** paints its own background · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Flame test"` | headline (top-left) |
+| `subtitle` | `"Each metal burns its own colour"` | mono sub-line |
+| `elements` | `[{"symbol":"Li","name":"Lithium","color":"#ff2f5a","color…` | steps [{symbol,name,color (flame colour),colorName?}] one per dip |
+| `background` | `"#0f1b2b"` | wall colour |
+| `benchColor` | `"#8a5a38"` | bench wood colour |
+| `baseFlame` | `"#6ea8ff"` | flame colour before the first dip |
+| `inkColor` | `"#e9f1ff"` | text colour |
+| `framesPer` | `58` | frames per element (30 fps) |
+| `startFrame` | `22` | frame of the first dip |
+| `sparks` | `26` | spark particles per dip |
+| `seed` | `3` | spark seed |
 
 ### `flow-diagram` — Flow diagram (packets on edges)
 
@@ -6992,6 +7110,8 @@ A glowing star and five bodies (one ringed, one with a moon) on dashed elliptica
 
 ### `order-book-depth` — Order-book depth chart
 
+![order-book-depth](../gallery/order-book-depth.jpg)
+
 Stepped cumulative bid (left) and ask (right) depth curves grow out from a dashed mid line, then breathe as levels refill; a ticking mid price, spread readout and trade pings sit on a dark trading-desk panel.
 
 **Use for:** Finance and trading explainers: liquidity, spread, supply vs demand, market depth, fintech product heroes (sample data only).  
@@ -7136,6 +7256,8 @@ Pen strokes draw a perspective trapezoid board, coloured-pencil hatch fills squa
 
 ### `pythagoras-rearrange` — Pythagoras proof by rearrangement
 
+![pythagoras-rearrange](../gallery/pythagoras-rearrange.jpg)
+
 A square of side a+b draws on; four right triangles pop in around a tilted c-square, then three of them slide into two rectangles, uncovering the a-square and the b-square, and a² + b² = c² writes itself below.
 
 **Use for:** Maths lessons, geometry explainers, "the proof in 7 seconds" shorts, and any "same pieces, new arrangement" idea.  
@@ -7249,6 +7371,8 @@ A vertical plane slices one feature of a raking-lit survey surface; its profile 
 | `surface` | `"#2A2D2F"` | low-ground colour of the lit surface |
 
 ### `star-fusion-shells` — Star fusion shells
+
+![star-fusion-shells](../gallery/star-fusion-shells.jpg)
 
 A glowing orange star grows on a purple starfield, a pie wedge opens onto labelled concentric fusion shells (H to Fe), the iron core swells, the star collapses and bursts as a supernova of coloured dashes that settles into a nebula.
 
@@ -7524,6 +7648,8 @@ Cards deal from a pile into a fanned hand, one is hovered, played to centre and 
 | `accent` | `"#4777D2"` | connect mode rail / capsule colour |
 
 ### `card-helix-gallery` — Card helix gallery
+
+![card-helix-gallery](../gallery/card-helix-gallery.jpg)
 
 Preview cards float on a rotating 3D ring over a pastel aurora with a giant serif rank text behind; the front card swells and an info panel with counting stats slides in each beat.
 
@@ -8032,6 +8158,35 @@ A glossy round magnet (an orange map pin with a white dot and a specular highlig
 | `spots` | `[{"x":0.22,"y":0.64,"label":"Start"},{"x":0.5,"y":0.36,"l…` | [{x, y, label}] labelled places on the board (replace the sample labels) |
 | `showRoute` | `true` | dotted route between keyed positions |
 | `size` | `210` | pin size in px |
+
+### `masonry-gallery-switch` — Ring to masonry gallery switch
+
+![masonry-gallery-switch](../gallery/masonry-gallery-switch.jpg)
+
+Pastel aurora backdrop: a carousel ring of cards turns, the Ring/Gallery toggle flips and every card springs (staggered) into a masonry grid under a large "Gallery" header.
+
+**Use for:** Showcase and portfolio reveals, app tours ("switch between views"), template or asset library intros, "browse everything" beats.  
+**Rebuilt from:** analysis/sheets/r3/v5 (pastel gallery app, ring view to gallery grid)  
+**Default length:** 270 frames (9.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** nature, ui  
+**Capabilities:** paints its own background · text: `title`, `subtitle`, `items` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Gallery"` | grid-view header |
+| `subtitle` | `"12 builds  ·  most trending first"` | mono sub-line under the header |
+| `ringTitle` | `"Top 10"` | huge faint serif word behind the ring ("" for none) |
+| `ringLabel` | `"Ring"` | first toggle label |
+| `gridLabel` | `"Gallery"` | second toggle label |
+| `items` | `[{"title":"Aurora study","tag":"MOTION","meta":"12.7k","c…` | cards [{title,tag?,meta?,color?,ratio? (height/width),src? (public/ image path or URL)}] |
+| `background` | `"#f5f2fc"` | base page colour |
+| `palette` | `["#c9d4ff","#ffc9e3","#cdf3e3","#ffe6c4","#e0d2ff"]` | aurora blob colours (5 used) |
+| `inkColor` | `"#1f1a3d"` | text / active toggle colour |
+| `accent` | `"#8b7bff"` | avatar dot colour |
+| `switchFrame` | `104` | frame the view switch starts |
+| `spin` | `3.4` | radians the ring turns before the switch |
+| `seed` | `2` | art / tilt seed |
 
 ### `notification-stack` — Notification stack (iOS / macOS / Android / toast)
 
@@ -9906,6 +10061,9 @@ An ink floor plan draws on top-down, then the camera tilts to eye level as the w
 | `kicker` | `"LINTEL · CASA SERRA · 2026"` | small mono line above the headline |
 | `showTitle` | `true` | show the headline over the plan |
 | `walkIn` | `true` | dolly through the doorway before craning back up |
+| `mode` | `"tour"` | 'tour' (default: tilt, walk in, crane back) or 'popup' (the flat line drawing rises off the page into a 3D ink model, camera tilts to an oblique and orbits) |
+| `popupFrames` | `26` | popup mode: frames each wall/object takes to rise (with paper-pop overshoot) |
+| `pageGhost` | `0.3` | popup mode: opacity of the flat wall footprints left on the page (0-1) |
 
 ### `plinth-progress-ring` — Plinth progress ring
 
@@ -10612,6 +10770,8 @@ A portrait poster builds one ink at a time under a squeegee on the beat: stepped
 
 ### `textbook-energy-lab` — Textbook energy lab
 
+![textbook-energy-lab](../gallery/textbook-energy-lab.jpg)
+
 An open physics textbook on a sage desk under window-light shadows. The right-page pencil apparatus stands up: a ball rolls a U-track while three beakers (gravitational, kinetic, thermal) trade liquid levels, joined by glowing transfer arcs.
 
 **Use for:** Explaining energy conservation, or any interactive-textbook look: a lesson page with a live diagram beside the formula.  
@@ -10635,7 +10795,7 @@ An open physics textbook on a sage desk under window-light shadows. The right-pa
 | `accent` | `"#6b4fb0"` | handwriting colour |
 | `releaseFrame` | `70` | frame the ball is released |
 | `speed` | `1` | rolling speed multiplier |
-| `friction` | `0.006` | energy lost to heat per frame (0 = none) |
+| `friction` | `0.0012` | energy lost to heat per frame (0 = none) |
 | `startAt` | `0.06` | start position along the track, 0..1 |
 
 ## game

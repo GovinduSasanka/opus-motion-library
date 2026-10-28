@@ -472,6 +472,16 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "body-vessel-glow": {
+  "overlay": false,
+  "overlayProps": null,
+  "loopable": false,
+  "bestLength": 240,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
  "box-bot": {
   "overlay": false,
   "overlayProps": null,
@@ -630,6 +640,16 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "atom-electron-cloud": {
+  "overlay": false,
+  "overlayProps": null,
+  "loopable": false,
+  "bestLength": 300,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
  "axis-ratchet-rescale": {
   "overlay": false,
   "overlayProps": null,
@@ -710,6 +730,16 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "emission-spectrum-lines": {
+  "overlay": false,
+  "overlayProps": null,
+  "loopable": false,
+  "bestLength": 340,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
  "empty-next-cell": {
   "overlay": false,
   "overlayProps": null,
@@ -725,6 +755,16 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "overlayProps": null,
   "loopable": false,
   "bestLength": 180,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "flame-test-colors": {
+  "overlay": false,
+  "overlayProps": null,
+  "loopable": false,
+  "bestLength": 390,
   "roles": [
    "subject"
   ],
@@ -4408,6 +4448,16 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "overlayProps": null,
   "loopable": false,
   "bestLength": 210,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "masonry-gallery-switch": {
+  "overlay": false,
+  "overlayProps": null,
+  "loopable": false,
+  "bestLength": 270,
   "roles": [
    "subject"
   ],

@@ -94,8 +94,8 @@ const cellAt = (i: number, j: number, seed: number, dd: number, Rn: number): Cel
   const home = i === 0 && j === 0;
   const jx = home ? 0 : (hsh(i, j, seed * 7 + 1) - 0.5) * 0.34 * dd;
   const jy = home ? 0 : (hsh(i, j, seed * 7 + 2) - 0.5) * 0.34 * dd;
-  const k = home ? 1 : 0.8 + 0.4 * hsh(i, j, seed * 7 + 3);
-  const el = home ? 1 : 0.8 + 0.4 * hsh(i, j, seed * 7 + 4);
+  const k = home ? 1 : 0.58 + 0.22 * hsh(i, j, seed * 7 + 3);
+  const el = home ? 1 : 0.88 + 0.24 * hsh(i, j, seed * 7 + 4);
   return {x: (i + 0.5 * (j & 1)) * dd + jx, y: j * dd * 0.866 + jy, rx: Rn * k * Math.sqrt(el), ry: (Rn * k) / Math.sqrt(el), phi: home ? 0 : hsh(i, j, seed * 7 + 5) * Math.PI, home, i, j};
 };
 
@@ -322,14 +322,16 @@ const MicroscopeDive: React.FC<Props> = (p) => {
     let nuc = '';
     let nucIn = '';
     let gran = '';
+    let halo = '';
     for (let j = j0; j <= j1; j++)
       for (let i = i0; i <= i1; i++) {
         const c = cellAt(i, j, p.seed, dd, Rn);
         const cx = c.x * k;
         const cy = c.y * k;
-        const r = dd * 0.49 * k * (0.92 + 0.16 * hsh(i, j, p.seed + 11));
+        const r = dd * 0.57 * k * (0.94 + 0.12 * hsh(i, j, p.seed + 11));
         if (hsh(i, j, p.seed + 12) < 0.5) cy1 += circ(cx, cy, r); else cy2 += circ(cx, cy, r);
         if (c.home && detail) continue;
+        halo += ell(cx, cy, c.rx * k * 1.7, c.ry * k * 1.7, c.phi);
         nuc += ell(cx, cy, c.rx * k, c.ry * k, c.phi);
         nucIn += ell(cx, cy, c.rx * k * 0.62, c.ry * k * 0.62, c.phi);
         if (detail) {
@@ -346,8 +348,10 @@ const MicroscopeDive: React.FC<Props> = (p) => {
     return (
       <>
         <rect x={v.x0} y={v.y0} width={v.x1 - v.x0} height={v.y1 - v.y0} fill={pal.bg} />
-        <path d={cy1} fill={pal.cyto} stroke={pal.mem} strokeWidth={dd * 0.05 * k} />
-        <path d={cy2} fill={pal.cyto2} stroke={pal.mem} strokeWidth={dd * 0.05 * k} />
+        <path d={cy1} fill={pal.cyto} />
+        <path d={cy2} fill={pal.cyto2} />
+        <path d={halo} fill={pal.gran} opacity={0.2} />
+        <rect x={v.x0} y={v.y0} width={v.x1 - v.x0} height={v.y1 - v.y0} fill={pal.nucD} filter={`url(#md-cyto-${detail ? 3 : 2})`} opacity={detail ? 0.26 : 0.16} />
         {detail && <path d={gran} fill={pal.gran} opacity={0.55} />}
         <path d={nuc} fill={pal.nuc} stroke={pal.nucD} strokeWidth={Math.max(1, 0.18 * k)} />
         <path d={nucIn} fill={pal.nucL} opacity={0.4} />
@@ -408,6 +412,12 @@ const MicroscopeDive: React.FC<Props> = (p) => {
         <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves={3} seed={p.seed} result="n" />
         <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.12 0 0 0 0 0.08 0 0 0 0 0.28 3.4 0 0 0 -1.5" />
       </filter>
+      {[2, 3].map((n) => (
+        <filter key={n} id={`md-cyto-${n}`} x="0%" y="0%" width="100%" height="100%" colorInterpolationFilters="sRGB">
+          <feTurbulence type="fractalNoise" baseFrequency={1.6 / (dd * (n === 2 ? S2 : S3) / 1000)} numOctaves={3} seed={p.seed + n} />
+          <feColorMatrix type="matrix" values="0 0 0 0 0.2 0 0 0 0 0.05 0 0 0 0 0.3 0 0 0 -2.6 1.5" />
+        </filter>
+      ))}
       <radialGradient id="md-pool">
         <stop offset="0" stopColor="#fff" stopOpacity={0.22} />
         <stop offset="1" stopColor="#fff" stopOpacity={0} />
@@ -475,8 +485,10 @@ const MicroscopeDive: React.FC<Props> = (p) => {
     </div>
   );
   const flashEl = lastChange >= 0 && frame < lastChange + 26 && frame > 20 && (
-    <div style={{position: 'absolute', left: 0, right: 0, bottom: (portrait ? 140 : 90) * u, textAlign: 'center', fontFamily: barlow, fontWeight: 300, fontSize: 150 * u, color: '#F4F1EC', opacity: 0.5 * flash, textShadow: `0 ${4 * u}px ${24 * u}px rgba(0,0,0,0.5)`}}>
-      {mag}×
+    <div style={{position: 'absolute', left: 0, right: 0, bottom: (portrait ? 140 : 80) * u, display: 'flex', justifyContent: 'center', opacity: Math.min(1, 1.6 * flash)}}>
+      <div style={{...glass, position: 'relative', padding: `${6 * u}px ${44 * u}px`, borderRadius: 22 * u, fontFamily: barlow, fontWeight: 500, fontSize: 130 * u, lineHeight: 1.1, letterSpacing: 2 * u, transform: `scale(${0.92 + 0.08 * ease.out(clamp((frame - lastChange) / 8))})`}}>
+        {mag}×
+      </div>
     </div>
   );
 

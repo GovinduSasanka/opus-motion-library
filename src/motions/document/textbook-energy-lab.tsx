@@ -178,7 +178,7 @@ const TextbookEnergyLab: React.FC<Props> = ({heading, formula, bodyLines, captio
               {formula}
             </text>
             {bodyLines.map((ln, i) => (
-              <text key={i} y={(portrait ? 124 : 134) + i * (portrait ? 24 : 26)} fontFamily={fonts.serif} fontSize={portrait ? 15 : 14.5} fill={ink} fillOpacity={0.72} opacity={textIn(3 + i * 0.5)}>
+              <text key={i} y={(portrait ? 124 : 134) + i * (portrait ? 28 : 32)} fontFamily={fonts.serif} fontSize={portrait ? 18 : 19} fontWeight={500} fill={ink} fillOpacity={0.88} opacity={textIn(3 + i * 0.5)}>
                 {ln}
               </text>
             ))}
@@ -196,7 +196,7 @@ const TextbookEnergyLab: React.FC<Props> = ({heading, formula, bodyLines, captio
               {/* rack */}
               <rect x="70" y="112" width="360" height="20" rx="3" fill={paper} stroke={ink} strokeWidth="1.6" />
               {beakerX.map((bx, i) => (
-                <text key={i} x={bx} y="126" textAnchor="middle" fontFamily={fonts.mono} fontSize="10" fill={ink} fillOpacity="0.8">
+                <text key={i} x={bx} y="126" textAnchor="middle" fontFamily={fonts.mono} fontSize="12" fill={ink} fillOpacity="0.85">
                   {labels[i] ?? ''}
                 </text>
               ))}
@@ -247,7 +247,7 @@ const TextbookEnergyLab: React.FC<Props> = ({heading, formula, bodyLines, captio
               </text>
             </g>
           </g>
-          <text x={rp.x + pageW - 20} y={rp.y + pageH - 14} textAnchor="end" fontFamily={fonts.serif} fontSize="11" fill={ink} fillOpacity="0.45">
+          <text x={rp.x + pageW - 20} y={rp.y + pageH - 14} textAnchor="end" fontFamily={fonts.serif} fontSize="14" fill={ink} fillOpacity="0.55">
             Fig. 1
           </text>
         </svg>

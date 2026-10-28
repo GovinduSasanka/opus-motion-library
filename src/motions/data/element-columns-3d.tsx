@@ -92,7 +92,7 @@ const ElementColumns3D: React.FC<Props> = (p) => {
   const pr = (p.pitch * Math.PI) / 180;
   const cyw = Math.cos(yaw), syw = Math.sin(yaw);
   const sp = Math.sin(pr), cp = Math.cos(pr);
-  const S = Math.min((w * 0.9) / 21, (h * (portrait ? 0.5 : 0.7)) / (10 * sp + p.maxHeight * cp + 2));
+  const S = Math.min((w * 0.94) / (portrait ? 25 : w / h < 1.3 ? 24 : 21), (h * (portrait ? 0.5 : 0.7)) / (10 * sp + p.maxHeight * cp + 2));
   const ox = w / 2;
   const oy = h * (portrait ? 0.46 : 0.5) + (p.maxHeight * cp * S) / 2 - 0.6 * S;
   const proj = (x: number, y: number, z: number): [number, number, number] => {
@@ -184,7 +184,9 @@ const ElementColumns3D: React.FC<Props> = (p) => {
   });
 
   const tIt = items.find((i) => i.z - 1 === top)!;
-  const tp = proj(tIt.col - 8.5, tIt.row - cyc, tIt.hgt);
+  const tcx = tIt.col - 8.5, tcy = tIt.row - cyc;
+  // anchor on the tile's top-most corner on screen so the leader never covers the symbol
+  const tp = ([[-T, -T], [T, -T], [T, T], [-T, T]] as P2[]).map(([a, b]) => proj(tcx + a, tcy + b, tIt.hgt)).reduce((m, q) => (q[1] < m[1] ? q : m));
   const sym = SYMS[top];
   const text = p.highlightLabel || `${NAMES[sym] ?? sym}  ${Math.round(vals[top])} ${p.unit}`;
   const fs = 30 * u;
@@ -217,7 +219,7 @@ const ElementColumns3D: React.FC<Props> = (p) => {
         {parts}
         <g opacity={label}>
           <line x1={tp[0]} y1={tp[1] - 6 * u} x2={lx} y2={ly + 20 * u} stroke="#fff" strokeWidth={2 * u} strokeOpacity={0.8} />
-          <circle cx={tp[0]} cy={tp[1]} r={(8 + 4 * Math.sin(frame / 6)) * u} fill="none" stroke="#fff" strokeWidth={2 * u} />
+          <circle cx={tp[0]} cy={tp[1]} r={(7 + 3 * Math.sin(frame / 6)) * u} fill="#fff" fillOpacity={0.9} stroke="#fff" strokeWidth={2 * u} />
           <rect x={lx - lw / 2} y={ly - 24 * u} width={lw} height={48 * u} rx={24 * u} fill="rgba(8,14,24,0.88)" stroke={colOf(tIt.g)} strokeWidth={2 * u} />
           <text x={lx} y={ly + 10 * u} textAnchor="middle" fontFamily={fonts.sans} fontWeight={800} fontSize={fs} fill="#fff">{text}</text>
         </g>

@@ -46,6 +46,7 @@ import {boardCamera} from './motions/camera/board-camera';
 import {canvasFlythrough} from './motions/camera/canvas-flythrough';
 import {timeRemapClock} from './motions/camera/time-remap-clock';
 import {blobMascot} from './motions/character/blob-mascot';
+import {bodyVesselGlow} from './motions/character/body-vessel-glow';
 import {boxBot} from './motions/character/box-bot';
 import {characterRig2d} from './motions/character/character-rig-2d';
 import {collagePuppet} from './motions/character/collage-puppet';
@@ -61,6 +62,7 @@ import {silhouetteRunner} from './motions/character/silhouette-runner';
 import {stickmanRig} from './motions/character/stickman-rig';
 import {toonObjectCharacter} from './motions/character/toon-object-character';
 import {walkerWorldScroll} from './motions/character/walker-world-scroll';
+import {atomElectronCloud} from './motions/data/atom-electron-cloud';
 import {axisRatchetRescale} from './motions/data/axis-ratchet-rescale';
 import {beatMontage} from './motions/data/beat-montage';
 import {chipStackBars} from './motions/data/chip-stack-bars';
@@ -69,8 +71,10 @@ import {dnaHelixUnzip} from './motions/data/dna-helix-unzip';
 import {dotTally} from './motions/data/dot-tally';
 import {dotToStripesMorph} from './motions/data/dot-to-stripes-morph';
 import {elementColumns3d} from './motions/data/element-columns-3d';
+import {emissionSpectrumLines} from './motions/data/emission-spectrum-lines';
 import {emptyNextCell} from './motions/data/empty-next-cell';
 import {energyJarFill} from './motions/data/energy-jar-fill';
+import {flameTestColors} from './motions/data/flame-test-colors';
 import {flowDiagram} from './motions/data/flow-diagram';
 import {functionPlot} from './motions/data/function-plot';
 import {gridException} from './motions/data/grid-exception';
@@ -411,6 +415,7 @@ import {keystrokeHud} from './motions/ui/keystroke-hud';
 import {lessonCarousel} from './motions/ui/lesson-carousel';
 import {liquidGlassLens} from './motions/ui/liquid-glass-lens';
 import {magnetPin} from './motions/ui/magnet-pin';
+import {masonryGallerySwitch} from './motions/ui/masonry-gallery-switch';
 import {notificationStack} from './motions/ui/notification-stack';
 import {plannedVsHeardChecklist} from './motions/ui/planned-vs-heard-checklist';
 import {playerToolbar} from './motions/ui/player-toolbar';
@@ -472,6 +477,7 @@ export const motions: MotionDef<any>[] = [
   canvasFlythrough,
   timeRemapClock,
   blobMascot,
+  bodyVesselGlow,
   boxBot,
   characterRig2d,
   collagePuppet,
@@ -487,6 +493,7 @@ export const motions: MotionDef<any>[] = [
   stickmanRig,
   toonObjectCharacter,
   walkerWorldScroll,
+  atomElectronCloud,
   axisRatchetRescale,
   beatMontage,
   chipStackBars,
@@ -495,8 +502,10 @@ export const motions: MotionDef<any>[] = [
   dotTally,
   dotToStripesMorph,
   elementColumns3d,
+  emissionSpectrumLines,
   emptyNextCell,
   energyJarFill,
+  flameTestColors,
   flowDiagram,
   functionPlot,
   gridException,
@@ -837,6 +846,7 @@ export const motions: MotionDef<any>[] = [
   lessonCarousel,
   liquidGlassLens,
   magnetPin,
+  masonryGallerySwitch,
   notificationStack,
   plannedVsHeardChecklist,
   playerToolbar,

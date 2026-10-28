@@ -41,6 +41,9 @@ type Props = {
   kicker: string;
   showTitle: boolean;
   walkIn: boolean;
+  mode: 'tour' | 'popup';
+  popupFrames: number;
+  pageGhost: number;
 };
 
 const WALLS: Wall[] = [
@@ -158,7 +161,7 @@ const WallMesh: React.FC<{wall: Wall; t: number; draw: number; height: number; t
   );
 };
 
-const PlanTilt: React.FC<Props> = ({walls, rooms, furniture, doors, entrance, wallHeight, wallThickness, paper, ink, poche, accent, title, kicker, showTitle, walkIn}) => {
+const PlanTilt: React.FC<Props> = ({walls, rooms, furniture, doors, entrance, wallHeight, wallThickness, paper, ink, poche, accent, title, kicker, showTitle, walkIn, mode, popupFrames, pageGhost}) => {
   const frame = useCurrentFrame();
   const {w, h, u, portrait} = useStage();
   const aspect = w / h;
@@ -266,8 +269,44 @@ const PlanTilt: React.FC<Props> = ({walls, rooms, furniture, doors, entrance, wa
   const dollyB = 222;
   const craneA = 232;
   const craneB = 290;
-  const ext = prog(frame, tiltA + 4, tiltB - 10, ease.inOut) * (1 - prog(frame, craneA + 18, craneB + 4, ease.inOut));
+  const popup = mode === 'popup';
+  // popup: the flat drawing is complete by ~70, then pieces rise back -> front with a paper-pop overshoot
+  const popStart = 74;
+  const riseF = Math.max(8, popupFrames);
+  const popU = (order: number, n: number, at: number) => {
+    const t0 = at + (order / Math.max(1, n)) * 34;
+    return Math.max(0, prog(frame, t0, t0 + riseF, ease.back));
+  };
+  const wallOrder = (i: number) => {
+    const q = walls[i];
+    return clamp((Math.max(q[1], q[3]) - minZ) / Math.max(1, PD), 0, 1) * walls.length; // back (small z) first
+  };
+  const wallH = (i: number) => (popup ? wallHeight * popU(wallOrder(i), walls.length, popStart) : 0);
+  const ext = popup ? 0 : prog(frame, tiltA + 4, tiltB - 10, ease.inOut) * (1 - prog(frame, craneA + 18, craneB + 4, ease.inOut));
   const height = wallHeight * ext;
+  const ghostObj = useMemo(() => {
+    const s: number[] = [];
+    const y = 0.005;
+    const t = wallThickness / 2;
+    for (const [x1, z1, x2, z2] of walls) {
+      const a = Math.atan2(z2 - z1, x2 - x1);
+      const nx = -Math.sin(a) * t;
+      const nz = Math.cos(a) * t;
+      const ex = Math.cos(a) * t;
+      const ez = Math.sin(a) * t;
+      const P = [
+        [x1 - ex + nx, z1 - ez + nz],
+        [x2 + ex + nx, z2 + ez + nz],
+        [x2 + ex - nx, z2 + ez - nz],
+        [x1 - ex - nx, z1 - ez - nz],
+      ];
+      for (let k = 0; k < 4; k++) s.push(P[k][0], y, P[k][1], P[(k + 1) % 4][0], y, P[(k + 1) % 4][1]);
+    }
+    return fatLines(s, 1.2 * u, ink, w, h, 1);
+  }, [walls, wallThickness, ink, u, w, h]);
+  useLayoutEffect(() => {
+    (ghostObj.material as LineMaterial).opacity = popup ? pageGhost * prog(frame, 4, 40, ease.out) : 0;
+  }, [ghostObj, popup, pageGhost, frame]);
 
   // ---- camera ----
   const fovTop = portrait ? 62 : 40;
@@ -325,9 +364,22 @@ const PlanTilt: React.FC<Props> = ({walls, rooms, furniture, doors, entrance, wa
     fov = lerp(fovEye, fovTop, p);
   }
 
-  const hud = prog(frame, 6, 22, ease.out) * (1 - prog(frame, tiltA, tiltA + 14, ease.linear));
-  const hud2 = prog(frame, craneB - 10, craneB + 6, ease.out);
-  const hint = frame < tiltA ? 'SCROLL TO WALK IN' : frame < craneA ? 'ENTRANCE · LIVING' : 'GROUND FLOOR · 7 ROOMS';
+  if (popup) {
+    // top-down while it draws, then tilt to a high oblique, keep pushing in and slowly orbit
+    const p = ease.inOut(prog(frame, 66, 150, ease.linear));
+    const pitch = lerp(89.5, portrait ? 50 : 46, p) * (Math.PI / 180);
+    const yaw = lerp(0, portrait ? -0.3 : -0.42, ease.inOut(prog(frame, 70, 300, ease.linear)));
+    const push = lerp(1, portrait ? 0.95 : 0.94, ease.out(prog(frame, 80, 300, ease.linear)));
+    const R = topDist * push * lerp(1, portrait ? 1.3 : 1.2, p);
+    const focus: V3 = [C[0] + offX * (1 - p), lerp(0, wallHeight * 0.35, p), C[2] + offZ * (1 - p)];
+    camPos = [focus[0] + Math.sin(yaw) * Math.cos(pitch) * R, focus[1] + Math.sin(pitch) * R, focus[2] + Math.cos(yaw) * Math.cos(pitch) * R + 0.02];
+    tgt = focus;
+    fov = fovTop;
+  }
+
+  const hud = prog(frame, 6, 22, ease.out) * (1 - prog(frame, popup ? 70 : tiltA, (popup ? 70 : tiltA) + 14, ease.linear));
+  const hud2 = popup ? 0 : prog(frame, craneB - 10, craneB + 6, ease.out);
+  const hint = popup ? (frame < popStart ? 'FLAT DRAWING' : 'EXTRUDING') : frame < tiltA ? 'SCROLL TO WALK IN' : frame < craneA ? 'ENTRANCE · LIVING' : 'GROUND FLOOR · 7 ROOMS';
 
   return (
     <AbsoluteFill style={{background: paper}}>
@@ -340,14 +392,15 @@ const PlanTilt: React.FC<Props> = ({walls, rooms, furniture, doors, entrance, wa
         <primitive object={gridObj} />
         <primitive object={doorObj} />
         <primitive object={accentObj} />
+        <primitive object={ghostObj} />
         {walls.map((q, i) => (
-          <WallMesh key={i} wall={q} t={1} draw={wallDraw(i)} height={Math.max(0.03, height)} thick={wallThickness} mats={wallMats} edgeMat={edgeMat} />
+          <WallMesh key={i} wall={q} t={1} draw={wallDraw(i)} height={Math.max(0.03, popup ? wallH(i) : height)} thick={wallThickness} mats={wallMats} edgeMat={edgeMat} />
         ))}
         {furniture.map((f, i) => {
           const on = furnOn(i);
           if (on <= 0) return null;
           return (
-            <FurnMesh key={i} f={f} on={on} ext={ext} mat={furnMat} edgeMat={edgeMat} />
+            <FurnMesh key={i} f={f} on={on} ext={popup ? popU(i + walls.length * 0.5, walls.length, popStart + 22) : ext} mat={furnMat} edgeMat={edgeMat} />
           );
         })}
         {labelGeos.map((g, i) => (
@@ -429,6 +482,9 @@ export const planTilt = defineMotion<Props>({
     kicker: 'LINTEL · CASA SERRA · 2026',
     showTitle: true,
     walkIn: true,
+    mode: 'tour',
+    popupFrames: 26,
+    pageGhost: 0.3,
   },
   propDocs: {
     walls: 'wall segments [x1, z1, x2, z2] in metres (gaps = openings)',
@@ -446,6 +502,9 @@ export const planTilt = defineMotion<Props>({
     kicker: 'small mono line above the headline',
     showTitle: 'show the headline over the plan',
     walkIn: 'dolly through the doorway before craning back up',
+    mode: "'tour' (default: tilt, walk in, crane back) or 'popup' (the flat line drawing rises off the page into a 3D ink model, camera tilts to an oblique and orbits)",
+    popupFrames: 'popup mode: frames each wall/object takes to rise (with paper-pop overshoot)',
+    pageGhost: 'popup mode: opacity of the flat wall footprints left on the page (0-1)',
   },
   component: PlanTilt,
   tags: ['3d', 'architecture', 'plan', 'camera', 'line-art', 'three'],

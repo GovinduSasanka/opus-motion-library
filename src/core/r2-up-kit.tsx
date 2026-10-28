@@ -276,16 +276,14 @@ export const buildCutout = (px: Pixels, rimCells: number, tolCells: number, seed
   }
   // synthetic: ellipse in pixel space (so it is round in the image), faceted by polygon resolution
   const inner = syntheticOutline(seed, W / H).map(([x, y]) => [x, y] as [number, number]);
-  // convert so the ellipse is round in image pixels (not stretched by aspect): radius from the short side
+  // ellipse is round in image pixels (not stretched by aspect): radius from the short side
   const short = Math.min(W, H);
   const px2 = inner.map(([x, y]) => [0.5 + ((x - 0.5) * short) / W, 0.5 + ((y - 0.5) * short) / H] as [number, number]);
-  const rim = rimCells / short;
   const outer = px2.map(([x, y]) => {
     const dx = (x - 0.5) * W;
     const dy = (y - 0.5) * H;
     const l = Math.hypot(dx, dy) || 1;
     return [x + ((dx / l) * rimCells) / W, y + ((dy / l) * rimCells) / H] as [number, number];
   });
-  void rim;
   return {outer, inner: px2};
 };

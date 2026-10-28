@@ -43,10 +43,10 @@ const DnaHelixUnzip: React.FC<Props> = (p) => {
   }, [p.sequence, p.seed, n]);
 
   // axis geometry
-  const L = portrait ? h * 0.62 : w * 0.72;
-  const R = portrait ? Math.min(w * 0.13, 120 * u) : Math.min(h * 0.14, 120 * u);
+  const L = portrait ? h * 0.66 : w * 0.8;
+  const R = portrait ? Math.min(w * 0.17, 170 * u) : Math.min(h * 0.19, 190 * u);
   const axisC = portrait ? {x: cx, y: cy + h * 0.04} : {x: cx, y: cy + h * 0.05};
-  const maxSep = portrait ? w * 0.17 : h * 0.17;
+  const maxSep = portrait ? w * 0.24 : h * 0.2;
   const toXY = (s: number, off: number): [number, number] =>
     portrait ? [axisC.x + off, axisC.y - L / 2 + s * L] : [axisC.x - L / 2 + s * L, axisC.y + off];
 
@@ -99,9 +99,9 @@ const DnaHelixUnzip: React.FC<Props> = (p) => {
 
   const titleIn = prog(frame, 8, 30, ease.out);
   const capIn = prog(frame, p.unzipAt + p.unzipFrames * 0.6, p.unzipAt + p.unzipFrames * 0.6 + 20, ease.out);
-  const sw = 7 * u;
-  const rungW = 6 * u;
-  const tag = 15 * u;
+  const sw = 12 * u;
+  const rungW = 9 * u;
+  const tag = 26 * u;
 
   const strandEl = (segs: {d: string; z: number}[], color: string, key: string) =>
     segs.map((sg, i) => (
@@ -116,7 +116,7 @@ const DnaHelixUnzip: React.FC<Props> = (p) => {
       />
     ));
 
-  const titleSize = (portrait ? 54 : 50) * u;
+  const titleSize = (portrait ? 72 : 64) * u;
   return (
     <AbsoluteFill style={{background: p.background}}>
       <Svg>
@@ -138,7 +138,7 @@ const DnaHelixUnzip: React.FC<Props> = (p) => {
           const my = lerp(ay, by, 0.5);
           const half = 1 - r.sep; // closed: halves meet in the middle; open: halves shrink to stubs
           const reach = lerp(0.5, 0.0, r.sep) + 0.0;
-          const stub = R * 0.55;
+          const stub = R * 0.6;
           const dirA = portrait ? [-1, 0] : [0, -1];
           const endA: [number, number] =
             r.sep < 1 ? [lerp(ax, mx, 1) * half + (ax + -dirA[0] * stub * 0 + dirA[0] * stub) * (1 - half), lerp(ay, my, 1) * half + (ay + dirA[1] * stub) * (1 - half)] : [ax + dirA[0] * stub, ay + dirA[1] * stub];
@@ -171,7 +171,7 @@ const DnaHelixUnzip: React.FC<Props> = (p) => {
         {/* zipper marker */}
         {zip > 0 && zip < 1 && (() => {
           const [zx, zy] = toXY(clamp(zipS - ramp * 0.15, 0, 1), 0);
-          return <circle cx={zx} cy={zy} r={10 * u} fill="none" stroke={p.inkColor} strokeOpacity={0.5} strokeWidth={2.5 * u} />;
+          return <circle cx={zx} cy={zy} r={14 * u} fill="none" stroke={p.inkColor} strokeOpacity={0.7} strokeWidth={3 * u} />;
         })()}
       </Svg>
       <div
@@ -200,7 +200,7 @@ const DnaHelixUnzip: React.FC<Props> = (p) => {
           bottom: portrait ? h * 0.06 : h * 0.06,
           textAlign: 'center',
           fontFamily: fonts.mono,
-          fontSize: 22 * u,
+          fontSize: 28 * u,
           letterSpacing: '0.12em',
           color: p.inkColor,
           opacity: capIn * 0.75,

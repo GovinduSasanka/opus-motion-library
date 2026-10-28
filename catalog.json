@@ -3877,6 +3877,18 @@
    "walkIn": {
     "default": true,
     "doc": "dolly through the doorway before craning back up"
+   },
+   "mode": {
+    "default": "tour",
+    "doc": "'tour' (default: tilt, walk in, crane back) or 'popup' (the flat line drawing rises off the page into a 3D ink model, camera tilts to an oblique and orbits)"
+   },
+   "popupFrames": {
+    "default": 26,
+    "doc": "popup mode: frames each wall/object takes to rise (with paper-pop overshoot)"
+   },
+   "pageGhost": {
+    "default": 0.3,
+    "doc": "popup mode: opacity of the flat wall footprints left on the page (0-1)"
    }
   }
  },
@@ -6877,6 +6889,120 @@
   }
  },
  {
+  "id": "body-vessel-glow",
+  "title": "Body vessel glow character",
+  "category": "character",
+  "description": "A friendly flat-vector kid in a hoodie in a night landscape: the camera eases in, the hoodie turns see-through and a glowing pink vessel network draws on from the heart through head, arms and legs with light pulses, then a small element chip (\"Fe\") pops out of the chest.",
+  "useFor": "Biology and health explainers, \"what is in your body\" reveals, nutrition and iron/mineral stories, science-for-kids channels, origin-of-elements intros.",
+  "source": [
+   "analysis/sheets/r3/v3 (flat-vector \"iron in your blood came from a star\")"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "character",
+   "body",
+   "blood",
+   "vessels",
+   "heart",
+   "hoodie",
+   "night",
+   "biology",
+   "iron",
+   "element",
+   "glow",
+   "flat vector",
+   "science",
+   "education",
+   "moon",
+   "kid"
+  ],
+  "file": "src/motions/character/body-vessel-glow.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "hoodieColor",
+   "skinColor",
+   "hairColor",
+   "pantsColor",
+   "vesselColor",
+   "moonColor",
+   "chipColor"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "nature",
+   "hud",
+   "playful",
+   "night"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "background": {
+    "default": "#0a1033",
+    "doc": "night sky base colour"
+   },
+   "hoodieColor": {
+    "default": "#3a7be0",
+    "doc": "hoodie colour"
+   },
+   "skinColor": {
+    "default": "#f3b48b",
+    "doc": "skin colour"
+   },
+   "hairColor": {
+    "default": "#1c2040",
+    "doc": "hair colour"
+   },
+   "pantsColor": {
+    "default": "#222a58",
+    "doc": "trousers colour"
+   },
+   "vesselColor": {
+    "default": "#ff4f9a",
+    "doc": "glowing vessel colour"
+   },
+   "moonColor": {
+    "default": "#7fe3d2",
+    "doc": "moon colour"
+   },
+   "chipText": {
+    "default": "Fe",
+    "doc": "element symbol on the chip (\"\" hides the chip text)"
+   },
+   "chipSub": {
+    "default": "4 g",
+    "doc": "small line under the symbol (e.g. amount; \"\" for none)"
+   },
+   "chipColor": {
+    "default": "#ffb347",
+    "doc": "chip outline / glow colour"
+   },
+   "zoom": {
+    "default": 1.55,
+    "doc": "camera zoom into the torso (1 = none)"
+   },
+   "seed": {
+    "default": 3,
+    "doc": "capillary twigs / star field seed"
+   }
+  }
+ },
+ {
   "id": "box-bot",
   "title": "Box-bot mascot",
   "category": "character",
@@ -8881,6 +9007,177 @@
   }
  },
  {
+  "id": "atom-electron-cloud",
+  "title": "Atom electron cloud builder",
+  "category": "data",
+  "description": "Dark blue space: a nucleus of protons and neutrons grows one proton per beat with a counter and an element symbol/name card updating (H, He, Li ...) while each new electron is a seeded particle swarm that spreads into its shell, expanding the electron cloud.",
+  "useFor": "Chemistry and physics explainers, \"how elements are built\" lessons, periodic-table intros, science channel hero shots.",
+  "source": [
+   "analysis/sheets/r3/v1 (3D periodic table: click adds a proton, electron cloud)"
+  ],
+  "durationInFrames": 300,
+  "tags": [
+   "atom",
+   "electron",
+   "proton",
+   "neutron",
+   "periodic table",
+   "chemistry",
+   "physics",
+   "element",
+   "particles",
+   "counter",
+   "science",
+   "education",
+   "dark",
+   "nucleus",
+   "shells"
+  ],
+  "file": "src/motions/data/atom-electron-cloud.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "caption"
+  ],
+  "colorProps": [
+   "background",
+   "protonColor",
+   "neutronColor",
+   "electronColor",
+   "inkColor",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 300,
+  "mood": [
+   "hud",
+   "night"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Build an atom",
+    "doc": "headline (top-left)"
+   },
+   "caption": {
+    "default": "Each click adds a proton.",
+    "doc": "mono sub-line"
+   },
+   "elements": {
+    "default": [
+     {
+      "symbol": "H",
+      "name": "Hydrogen",
+      "neutrons": 0
+     },
+     {
+      "symbol": "He",
+      "name": "Helium",
+      "neutrons": 2
+     },
+     {
+      "symbol": "Li",
+      "name": "Lithium",
+      "neutrons": 4
+     },
+     {
+      "symbol": "Be",
+      "name": "Beryllium",
+      "neutrons": 5
+     },
+     {
+      "symbol": "B",
+      "name": "Boron",
+      "neutrons": 6
+     },
+     {
+      "symbol": "C",
+      "name": "Carbon",
+      "neutrons": 6
+     },
+     {
+      "symbol": "N",
+      "name": "Nitrogen",
+      "neutrons": 7
+     },
+     {
+      "symbol": "O",
+      "name": "Oxygen",
+      "neutrons": 8
+     },
+     {
+      "symbol": "F",
+      "name": "Fluorine",
+      "neutrons": 10
+     },
+     {
+      "symbol": "Ne",
+      "name": "Neon",
+      "neutrons": 10
+     }
+    ],
+    "doc": "steps [{symbol,name,z? (default index+1),neutrons? (default ~z)}], one per beat"
+   },
+   "background": {
+    "default": "#050f26",
+    "doc": "space colour"
+   },
+   "protonColor": {
+    "default": "#ff6b8c",
+    "doc": "proton colour"
+   },
+   "neutronColor": {
+    "default": "#a9b9d8",
+    "doc": "neutron colour"
+   },
+   "electronColor": {
+    "default": "#6fd0ff",
+    "doc": "electron cloud / shell colour"
+   },
+   "inkColor": {
+    "default": "#e8f0ff",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#6fd0ff",
+    "doc": "element-card outline"
+   },
+   "beatFrames": {
+    "default": 26,
+    "doc": "frames between steps (30 fps)"
+   },
+   "startFrame": {
+    "default": 22,
+    "doc": "frame of the first step"
+   },
+   "particles": {
+    "default": 110,
+    "doc": "particles per electron (more = denser cloud)"
+   },
+   "stars": {
+    "default": 90,
+    "doc": "background star count"
+   },
+   "seed": {
+    "default": 4,
+    "doc": "nucleus layout / particle seed"
+   }
+  }
+ },
+ {
   "id": "axis-ratchet-rescale",
   "title": "Axis ratchet rescale",
   "category": "data",
@@ -10075,6 +10372,152 @@
   }
  },
  {
+  "id": "emission-spectrum-lines",
+  "title": "Emission spectrum lines",
+  "category": "data",
+  "description": "A glowing gas-discharge tube sends light through a slit and a prism; a dark spectrum panel with an nm axis draws bright emission lines at element-specific wavelengths (hydrogen, helium, neon) as a scanner sweeps across, then swaps to the next gas.",
+  "useFor": "Physics and chemistry explainers on atomic spectra, \"how we know what stars are made of\", element fingerprints, astronomy intros.",
+  "source": [
+   "analysis/sheets/r3/v1 (krypton spectrum tube and spectrum panel)"
+  ],
+  "durationInFrames": 340,
+  "tags": [
+   "spectrum",
+   "emission",
+   "prism",
+   "physics",
+   "chemistry",
+   "astronomy",
+   "wavelength",
+   "light",
+   "gas tube",
+   "hydrogen",
+   "neon",
+   "science",
+   "education",
+   "nm",
+   "axis"
+  ],
+  "file": "src/motions/data/emission-spectrum-lines.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "background",
+   "inkColor"
+  ],
+  "loopable": false,
+  "bestLength": 340,
+  "mood": [
+   "neon",
+   "hud",
+   "night"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Atomic fingerprints",
+    "doc": "headline (top-left)"
+   },
+   "subtitle": {
+    "default": "Every element glows in its own lines",
+    "doc": "mono sub-line"
+   },
+   "gases": {
+    "default": [
+     {
+      "symbol": "H",
+      "name": "Hydrogen",
+      "tube": "#ff6fcf",
+      "lines": [
+       410,
+       434,
+       486,
+       656
+      ]
+     },
+     {
+      "symbol": "He",
+      "name": "Helium",
+      "tube": "#ffcf7a",
+      "lines": [
+       447,
+       471,
+       492,
+       502,
+       587,
+       668,
+       706
+      ]
+     },
+     {
+      "symbol": "Ne",
+      "name": "Neon",
+      "tube": "#ff7a35",
+      "lines": [
+       585,
+       594,
+       607,
+       614,
+       640,
+       650,
+       692,
+       703
+      ]
+     }
+    ],
+    "doc": "gases [{symbol,name,tube (tube glow colour),lines: [wavelength nm, ...]}] one per step"
+   },
+   "background": {
+    "default": "#0a1024",
+    "doc": "backdrop colour"
+   },
+   "inkColor": {
+    "default": "#e8eeff",
+    "doc": "text and axis colour"
+   },
+   "minNm": {
+    "default": 380,
+    "doc": "left end of the nm axis"
+   },
+   "maxNm": {
+    "default": 720,
+    "doc": "right end of the nm axis"
+   },
+   "framesPer": {
+    "default": 100,
+    "doc": "frames per gas (30 fps)"
+   },
+   "startFrame": {
+    "default": 18,
+    "doc": "frame the first gas lights"
+   },
+   "showLabels": {
+    "default": true,
+    "doc": "print the wavelength under each line"
+   },
+   "seed": {
+    "default": 1,
+    "doc": "unused spare seed"
+   }
+  }
+ },
+ {
   "id": "empty-next-cell",
   "title": "Empty next cell",
   "category": "data",
@@ -10399,6 +10842,147 @@
    "pitch": {
     "default": 28,
     "doc": "camera elevation in degrees"
+   }
+  }
+ },
+ {
+  "id": "flame-test-colors",
+  "title": "Flame test colours",
+  "category": "data",
+  "description": "A Bunsen-style burner on a lab bench: a wire loop dips into the flame, which turns crimson, yellow, lilac, green, red and orange for Li, Na, K, Cu, Sr and Ca with sparks, a label pill and the matching sample bottle lighting up.",
+  "useFor": "Chemistry lessons on flame tests and emission, \"why fireworks have colours\", element-by-element reveals, school science channels.",
+  "source": [
+   "analysis/sheets/r3/v1 (strontium flame test with wire loop)"
+  ],
+  "durationInFrames": 390,
+  "tags": [
+   "flame",
+   "chemistry",
+   "bunsen burner",
+   "lab",
+   "element",
+   "metal",
+   "colour",
+   "science",
+   "education",
+   "sparks",
+   "fireworks",
+   "periodic table"
+  ],
+  "file": "src/motions/data/flame-test-colors.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "background",
+   "benchColor",
+   "baseFlame",
+   "inkColor"
+  ],
+  "loopable": false,
+  "bestLength": 390,
+  "mood": [
+   "hud",
+   "playful",
+   "night"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Flame test",
+    "doc": "headline (top-left)"
+   },
+   "subtitle": {
+    "default": "Each metal burns its own colour",
+    "doc": "mono sub-line"
+   },
+   "elements": {
+    "default": [
+     {
+      "symbol": "Li",
+      "name": "Lithium",
+      "color": "#ff2f5a",
+      "colorName": "Crimson"
+     },
+     {
+      "symbol": "Na",
+      "name": "Sodium",
+      "color": "#ffd21f",
+      "colorName": "Yellow"
+     },
+     {
+      "symbol": "K",
+      "name": "Potassium",
+      "color": "#b77cff",
+      "colorName": "Lilac"
+     },
+     {
+      "symbol": "Cu",
+      "name": "Copper",
+      "color": "#31e08a",
+      "colorName": "Green"
+     },
+     {
+      "symbol": "Sr",
+      "name": "Strontium",
+      "color": "#ff3b2f",
+      "colorName": "Red"
+     },
+     {
+      "symbol": "Ca",
+      "name": "Calcium",
+      "color": "#ff8a2a",
+      "colorName": "Orange"
+     }
+    ],
+    "doc": "steps [{symbol,name,color (flame colour),colorName?}] one per dip"
+   },
+   "background": {
+    "default": "#0f1b2b",
+    "doc": "wall colour"
+   },
+   "benchColor": {
+    "default": "#8a5a38",
+    "doc": "bench wood colour"
+   },
+   "baseFlame": {
+    "default": "#6ea8ff",
+    "doc": "flame colour before the first dip"
+   },
+   "inkColor": {
+    "default": "#e9f1ff",
+    "doc": "text colour"
+   },
+   "framesPer": {
+    "default": 58,
+    "doc": "frames per element (30 fps)"
+   },
+   "startFrame": {
+    "default": 22,
+    "doc": "frame of the first dip"
+   },
+   "sparks": {
+    "default": 26,
+    "doc": "spark particles per dip"
+   },
+   "seed": {
+    "default": 3,
+    "doc": "spark seed"
    }
   }
  },
@@ -56201,6 +56785,213 @@
    "size": {
     "default": 210,
     "doc": "pin size in px"
+   }
+  }
+ },
+ {
+  "id": "masonry-gallery-switch",
+  "title": "Ring to masonry gallery switch",
+  "category": "ui",
+  "description": "Pastel aurora backdrop: a carousel ring of cards turns, the Ring/Gallery toggle flips and every card springs (staggered) into a masonry grid under a large \"Gallery\" header.",
+  "useFor": "Showcase and portfolio reveals, app tours (\"switch between views\"), template or asset library intros, \"browse everything\" beats.",
+  "source": [
+   "analysis/sheets/r3/v5 (pastel gallery app, ring view to gallery grid)"
+  ],
+  "durationInFrames": 270,
+  "tags": [
+   "gallery",
+   "masonry",
+   "grid",
+   "cards",
+   "carousel",
+   "ring",
+   "pastel",
+   "aurora",
+   "portfolio",
+   "showcase",
+   "app",
+   "ui",
+   "switch",
+   "toggle",
+   "spring",
+   "stagger"
+  ],
+  "file": "src/motions/ui/masonry-gallery-switch.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle",
+   "items"
+  ],
+  "colorProps": [
+   "background",
+   "palette",
+   "inkColor",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 270,
+  "mood": [
+   "nature",
+   "ui"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Gallery",
+    "doc": "grid-view header"
+   },
+   "subtitle": {
+    "default": "12 builds  ·  most trending first",
+    "doc": "mono sub-line under the header"
+   },
+   "ringTitle": {
+    "default": "Top 10",
+    "doc": "huge faint serif word behind the ring (\"\" for none)"
+   },
+   "ringLabel": {
+    "default": "Ring",
+    "doc": "first toggle label"
+   },
+   "gridLabel": {
+    "default": "Gallery",
+    "doc": "second toggle label"
+   },
+   "items": {
+    "default": [
+     {
+      "title": "Aurora study",
+      "tag": "MOTION",
+      "meta": "12.7k",
+      "color": "#7c8cff",
+      "ratio": 0.8
+     },
+     {
+      "title": "Glass dashboard",
+      "tag": "UI",
+      "meta": "9.3k",
+      "color": "#ff8fc2",
+      "ratio": 1
+     },
+     {
+      "title": "Orbit loader",
+      "tag": "3D",
+      "meta": "21k",
+      "color": "#5fd3b0",
+      "ratio": 1.3
+     },
+     {
+      "title": "Soft gradients",
+      "tag": "COLOUR",
+      "meta": "4.1k",
+      "color": "#ffb86b",
+      "ratio": 0.9
+     },
+     {
+      "title": "Paper fold",
+      "tag": "MOTION",
+      "meta": "7.8k",
+      "color": "#b08cff",
+      "ratio": 1.15
+     },
+     {
+      "title": "Night market",
+      "tag": "ILLUSTRATION",
+      "meta": "15k",
+      "color": "#6cc7ff",
+      "ratio": 0.75
+     },
+     {
+      "title": "Pixel garden",
+      "tag": "GAME",
+      "meta": "3.2k",
+      "color": "#8fdc7a",
+      "ratio": 1.2
+     },
+     {
+      "title": "Wave studio",
+      "tag": "AUDIO",
+      "meta": "6.6k",
+      "color": "#ff8c8c",
+      "ratio": 0.95
+     },
+     {
+      "title": "Type specimen",
+      "tag": "TYPE",
+      "meta": "11k",
+      "color": "#9aa6ff",
+      "ratio": 1.25
+     },
+     {
+      "title": "Cloud icons",
+      "tag": "ICONS",
+      "meta": "5.5k",
+      "color": "#6fd6d6",
+      "ratio": 0.85
+     },
+     {
+      "title": "Pocket synth",
+      "tag": "AUDIO",
+      "meta": "8.9k",
+      "color": "#f59ad0",
+      "ratio": 1.1
+     },
+     {
+      "title": "Slow motion",
+      "tag": "VIDEO",
+      "meta": "18k",
+      "color": "#ffc76b",
+      "ratio": 0.8
+     }
+    ],
+    "doc": "cards [{title,tag?,meta?,color?,ratio? (height/width),src? (public/ image path or URL)}]"
+   },
+   "background": {
+    "default": "#f5f2fc",
+    "doc": "base page colour"
+   },
+   "palette": {
+    "default": [
+     "#c9d4ff",
+     "#ffc9e3",
+     "#cdf3e3",
+     "#ffe6c4",
+     "#e0d2ff"
+    ],
+    "doc": "aurora blob colours (5 used)"
+   },
+   "inkColor": {
+    "default": "#1f1a3d",
+    "doc": "text / active toggle colour"
+   },
+   "accent": {
+    "default": "#8b7bff",
+    "doc": "avatar dot colour"
+   },
+   "switchFrame": {
+    "default": 104,
+    "doc": "frame the view switch starts"
+   },
+   "spin": {
+    "default": 3.4,
+    "doc": "radians the ring turns before the switch"
+   },
+   "seed": {
+    "default": 2,
+    "doc": "art / tilt seed"
    }
   }
  },

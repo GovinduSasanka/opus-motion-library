@@ -40,14 +40,15 @@ const mix = (a: string, b: string, t: number) => {
 
 const Worm: React.FC<Props> = ({background, sand, ink, body, bodyDark, accent, dust, xrayColor, xray, segments, size, dustAmount, seed}) => {
   const frame = useCurrentFrame();
-  const {w, h, u} = useStage();
+  const {w, h, u, portrait} = useStage();
   const D = 150;
+  const xs = portrait ? 0.74 : 1;
   const sc = Math.min(w, h * 1.45);
-  const H = h * 0.38;
+  const H = h * (portrait ? 0.3 : 0.34);
   const Zs = sc * 0.5;
   const cx = w / 2;
-  const yH = h * 0.5;
-  const gY = (z: number) => h * (0.58 + 0.14 * z);
+  const yH = h * (portrait ? 0.54 : 0.5);
+  const gY = (z: number) => h * (yH / h + 0.08 + 0.14 * z);
   const persp = (z: number) => 1 / (1 - z * 0.45);
   const P = {
     x: [-0.3, -0.2, 0.06, 0.24],
@@ -57,7 +58,7 @@ const Worm: React.FC<Props> = ({background, sand, ink, body, bodyDark, accent, d
   const at = (p: number): V3 => ({x: bez(P.x[0], P.x[1], P.x[2], P.x[3], p), h: bez(P.h[0], P.h[1], P.h[2], P.h[3], p), z: bez(P.z[0], P.z[1], P.z[2], P.z[3], p)});
   const proj = (v: V3) => {
     const k = persp(v.z);
-    return {x: cx + v.x * sc * k, y: gY(v.z) - v.h * H * k, k};
+    return {x: cx + v.x * sc * xs * k, y: gY(v.z) - v.h * H * k, k};
   };
 
   const N = Math.max(8, Math.round(segments));
@@ -121,12 +122,19 @@ const Worm: React.FC<Props> = ({background, sand, ink, body, bodyDark, accent, d
       );
   }
 
-  const mound = (x: number, y: number, rw: number, rh: number, key: string) => (
-    <g key={key}>
-      <path d={`M${x - rw},${y + rh * 0.4} Q${x - rw * 0.4},${y - rh} ${x},${y - rh} Q${x + rw * 0.5},${y - rh} ${x + rw},${y + rh * 0.4}Z`} fill={sand} />
-      <path d={`M${x - rw},${y + rh * 0.4} Q${x - rw * 0.4},${y - rh} ${x},${y - rh} Q${x + rw * 0.5},${y - rh} ${x + rw},${y + rh * 0.4}`} fill="none" stroke={ink} strokeWidth={1.4 * u} opacity={0.7} />
-    </g>
-  );
+  const mound = (x: number, y: number, rw: number, rh: number, key: string) => {
+    const top = mix(sand, '#ffffff', 0.55);
+    const shade = mix(sand, dust, 0.7);
+    const outline = `M${x - rw},${y + rh * 0.4} Q${x - rw * 0.4},${y - rh} ${x},${y - rh} Q${x + rw * 0.5},${y - rh} ${x + rw},${y + rh * 0.4}`;
+    return (
+      <g key={key}>
+        <ellipse cx={x + rw * 0.1} cy={y + rh * 0.45} rx={rw * 1.1} ry={rh * 0.28} fill={shade} opacity={0.8} />
+        <path d={outline + 'Z'} fill={top} />
+        <path d={`M${x + rw * 0.1},${y - rh * 0.9} Q${x + rw * 0.6},${y - rh * 0.6} ${x + rw},${y + rh * 0.4}L${x + rw * 0.1},${y + rh * 0.4}Z`} fill={shade} opacity={0.75} />
+        <path d={outline} fill="none" stroke={ink} strokeWidth={2 * u} opacity={0.85} />
+      </g>
+    );
+  };
   const sIn = proj(at(0));
   const sOut = proj(at(1));
   const mIn = 0.5 + 0.5 * prog(frame, 4, 24, ease.out);
@@ -171,15 +179,15 @@ const Worm: React.FC<Props> = ({background, sand, ink, body, bodyDark, accent, d
       };
       return `M${A(u0, v0)}L${A(u1, v0)}L${A(u1, v1)}L${A(u0, v1)}Z`;
     };
-    const fillC = xr > 0.01 ? xrayColor : bodyFill(i);
-    const op = lerp(1, 0.22, xr);
-    els.push(<path key={'s' + i} d={quad(-1, 1, 0, 1)} fill={fillC} opacity={op} stroke={xr > 0.01 ? xrayColor : ink} strokeWidth={1.1 * u} strokeOpacity={lerp(0.8, 0.9, xr)} />);
+    const fillC = xr > 0.01 ? mix(bodyFill(i), i % 2 ? xrayColor : mix(xrayColor, '#ffffff', 0.35), xr) : bodyFill(i);
+    const op = lerp(1, 0.5, xr);
+    els.push(<path key={'s' + i} d={quad(-1, 1, 0, 1)} fill={fillC} opacity={op} stroke={mix(ink, mix(xrayColor, '#0a3a44', 0.6), xr)} strokeWidth={lerp(1.1, 1.8, xr) * u} strokeOpacity={lerp(0.8, 1, xr)} />);
     const Rr = rng(seed * 100 + i);
     for (let q = 0; q < 4; q++) {
       const u0 = -0.8 + q * 0.42;
       if (Rr() < 0.35) continue;
       const w2 = 0.14 + Rr() * 0.16;
-      els.push(<path key={`p${i}-${q}`} d={quad(u0, u0 + w2, 0.2, 0.8)} fill={xr > 0.01 ? xrayColor : bodyDark} opacity={lerp(0.85, 0.55, xr)} />);
+      els.push(<path key={`p${i}-${q}`} d={quad(u0, u0 + w2, 0.2, 0.8)} fill={mix(bodyDark, '#0e6f7e', xr)} opacity={lerp(0.85, 0.6, xr)} />);
     }
     if (i % 4 === 1) els.push(<path key={'g' + i} d={quad(-1, 1, 0.38, 0.52)} fill={xf(accent)} opacity={lerp(1, 0.8, xr)} />);
     els.push(
@@ -191,9 +199,9 @@ const Worm: React.FC<Props> = ({background, sand, ink, body, bodyDark, accent, d
         ry={b.r}
         transform={`translate(${b.c.x} ${b.c.y}) rotate(${(Math.atan2(b.ty, b.tx) * 180) / Math.PI})`}
         fill="none"
-        stroke={xr > 0.01 ? xrayColor : ink}
-        strokeWidth={1 * u}
-        opacity={0.65}
+        stroke={mix(ink, '#0a3a44', xr)}
+        strokeWidth={lerp(1, 2, xr) * u}
+        opacity={lerp(0.65, 0.9, xr)}
       />,
     );
   }

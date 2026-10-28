@@ -32,10 +32,10 @@ const PythagorasRearrange: React.FC<Props> = ({a: aIn, b: bIn, title, showLabels
   const a = Math.max(0.2, aIn);
   const b = Math.max(0.2, bIn);
   const s = a + b;
-  const S = Math.min(w * 0.78, h * (portrait ? 0.5 : 0.58));
+  const S = Math.min(w * 0.84, h * (portrait ? 0.5 : 0.62));
   const k = S / s;
   const X0 = cx - S / 2;
-  const Y0 = portrait ? h * 0.3 : h * 0.2;
+  const Y0 = portrait ? h * 0.27 : h * 0.2;
   const P = (x: number, y: number) => `${(X0 + x * k).toFixed(1)},${(Y0 + y * k).toFixed(1)}`;
 
   // four triangles: right-angle corner r0 (config c^2) -> r1 (config a^2 + b^2), signed legs along x and y
@@ -66,9 +66,9 @@ const PythagorasRearrange: React.FC<Props> = ({a: aIn, b: bIn, title, showLabels
         {/* title */}
         <text
           x={cx}
-          y={Y0 - (portrait ? 90 : 62) * u}
+          y={Y0 - (portrait ? 100 : 84) * u}
           textAnchor="middle"
-          fontSize={(portrait ? 56 : 50) * u}
+          fontSize={(portrait ? 64 : 58) * u}
           fontFamily={fonts.serif}
           fontWeight={700}
           fill={ink}
@@ -112,10 +112,10 @@ const PythagorasRearrange: React.FC<Props> = ({a: aIn, b: bIn, title, showLabels
         {/* labels */}
         {showLabels && (
           <g fontFamily={fonts.serif} fontStyle="italic" fill={ink}>
-            <g opacity={legLab} fontSize={fsLab * 0.75} textAnchor="middle">
-              <text x={X0 + (a / 2) * k} y={Y0 - 14 * u}>a</text>
-              <text x={X0 - 22 * u} y={Y0 + (b / 2) * k + fsLab * 0.25}>b</text>
-              <text x={X0 + (a / 2) * k + 18 * u} y={Y0 + (b / 2) * k + 10 * u} textAnchor="start">c</text>
+            <g opacity={legLab} fontSize={fsLab * 1.0} textAnchor="middle">
+              <text x={X0 + (a / 2) * k} y={Y0 - 18 * u}>a</text>
+              <text x={X0 - 34 * u} y={Y0 + (b / 2) * k + fsLab * 0.25}>b</text>
+              <text x={X0 + (a / 2) * k + 34 * u} y={Y0 + (b / 2) * k + 20 * u} textAnchor="start">c</text>
             </g>
             <text x={X0 + (s / 2) * k} y={Y0 + (s / 2) * k + fsLab * 0.35} textAnchor="middle" fontSize={fsLab * 1.1} fontWeight={700} opacity={cIn * (1 - cOut)}>
               c²

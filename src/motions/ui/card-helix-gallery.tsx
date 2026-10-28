@@ -55,7 +55,7 @@ const CardFace: React.FC<{it: Item; u: number; i: number}> = ({it, u, i}) => {
             <rect x={14} y={66} width={46 + (i % 4) * 8} height={7} rx={3.5} fill="#2a2440" opacity={0.7} />
             <rect x={14} y={78} width={30} height={5} rx={2.5} fill="#2a2440" opacity={0.28} />
           </svg>
-          <div style={{position: 'absolute', left: 12 * u, top: 12 * u, padding: `${3 * u}px ${8 * u}px`, borderRadius: 99, background: 'rgba(255,255,255,0.8)', fontFamily: fonts.mono, fontSize: 11 * u, color: '#5b4bb0', letterSpacing: 1 * u}}>
+          <div style={{position: 'absolute', left: 12 * u, top: 12 * u, padding: `${3 * u}px ${8 * u}px`, borderRadius: 99, background: 'rgba(255,255,255,0.8)', fontFamily: fonts.mono, fontSize: 13 * u, color: '#5b4bb0', letterSpacing: 1 * u}}>
             {it.tag ?? 'WORK'}
           </div>
         </>
@@ -79,22 +79,23 @@ const CardHelixGallery: React.FC<Props> = ({items, rankLabel, statLabels, holdFr
   const focusIdx = Math.round(pos);
   const focus = focusIdx % n;
   const arrive = focusIdx * seg - turnFrames * 0.5; // frame the focus item became front
-  const R = radius * u;
-  const cw = (portrait ? 250 : 270) * u;
+  const R = (portrait ? Math.min(radius, 470) : Math.min(radius, 780)) * u;
+  const cw = (portrait ? 330 : 330) * u;
+  const q = portrait ? 1.35 : 1.2;
   const ch = cw / cardAspect;
-  const ringCx = portrait ? w / 2 : w * 0.34;
-  const ringCy = portrait ? h * 0.33 : h * 0.5;
+  const ringCx = portrait ? w / 2 : w * 0.35;
+  const ringCy = portrait ? h * 0.32 : h * 0.5;
   const it = list[focus];
   const panelIn = ease.out(clamp((frame - arrive) / 22, 0, 1));
   const panelOut = 1 - ease.inOut(clamp((local - holdFrames) / Math.max(1, turnFrames * 0.45), 0, 1));
   const panelA = Math.min(panelIn, panelOut);
   const cnt = ease.out(clamp((frame - arrive) / 36, 0, 1));
-  const panelW = portrait ? w - 120 * u : 470 * u;
-  const panelX = portrait ? 60 * u : w * 0.6;
-  const panelY = portrait ? h * 0.6 : h * 0.5 - 215 * u;
+  const panelW = portrait ? w - 100 * u : 560 * u;
+  const panelX = portrait ? 50 * u : w * 0.62;
+  const panelY = portrait ? h * 0.6 : h * 0.5 - 260 * u;
 
   return (
-    <AbsoluteFill style={{background, overflow: 'hidden'}}>
+    <AbsoluteFill style={{background, overflow: 'hidden', fontVariantNumeric: 'lining-nums', fontFeatureSettings: '"lnum" 1'}}>
       {blobs.map((c, i) => {
         const a = (frame / 150) * Math.PI * 2 + i * 1.7;
         const bx = [0.15, 0.85, 0.5, 0.3, 0.9][i % 5] * w + Math.sin(a) * 60 * u;
@@ -119,25 +120,25 @@ const CardHelixGallery: React.FC<Props> = ({items, rankLabel, statLabels, holdFr
           })}
         </div>
       </div>
-      <div style={{position: 'absolute', left: panelX + (1 - panelIn) * 60 * u, top: panelY, width: panelW, opacity: panelA, padding: 34 * u, borderRadius: 26 * u, background: 'rgba(255,255,255,0.62)', boxShadow: `0 ${24 * u}px ${60 * u}px rgba(110,90,190,0.18), inset 0 0 0 ${1.5 * u}px rgba(255,255,255,0.9)`}}>
-        <div style={{display: 'flex', gap: 10 * u, alignItems: 'center', fontFamily: fonts.mono, fontSize: 14 * u, letterSpacing: 2 * u, color: accent}}>
+      <div style={{position: 'absolute', left: panelX + (1 - panelIn) * 60 * u, top: panelY, width: panelW, opacity: panelA, padding: 34 * q * u, borderRadius: 26 * u, background: 'rgba(255,255,255,0.62)', boxShadow: `0 ${24 * u}px ${60 * u}px rgba(110,90,190,0.18), inset 0 0 0 ${1.5 * u}px rgba(255,255,255,0.9)`}}>
+        <div style={{display: 'flex', gap: 10 * u, alignItems: 'center', fontFamily: fonts.mono, fontSize: 14 * q * u, letterSpacing: 2 * u, color: accent}}>
           <span>{'#' + (focus + 1)}</span>
           <span style={{opacity: 0.4}}>{'/ ' + n}</span>
           <span style={{marginLeft: 8 * u, padding: `${3 * u}px ${10 * u}px`, borderRadius: 99, background: `${accent}22`}}>{it.tag ?? 'WORK'}</span>
         </div>
-        <div style={{fontFamily: fonts.serif, fontSize: (portrait ? 46 : 52) * u, lineHeight: 1.08, color: ink, marginTop: 14 * u}}>{it.title}</div>
-        <div style={{fontFamily: fonts.sans, fontSize: 18 * u, color: ink, opacity: 0.55, marginTop: 8 * u}}>{it.handle ?? '@creator'}</div>
-        <div style={{display: 'flex', gap: 30 * u, marginTop: 26 * u}}>
+        <div style={{fontFamily: fonts.serif, fontSize: (portrait ? 40 : 46) * q * u, lineHeight: 1.08, color: ink, marginTop: 14 * q * u}}>{it.title}</div>
+        <div style={{fontFamily: fonts.sans, fontSize: 18 * q * u, color: ink, opacity: 0.55, marginTop: 8 * u}}>{it.handle ?? '@creator'}</div>
+        <div style={{display: 'flex', gap: 36 * q * u, marginTop: 26 * q * u}}>
           {(it.stats ?? [0, 0, 0]).slice(0, 3).map((s, j) => (
             <div key={j}>
-              <div style={{fontFamily: fonts.serif, fontSize: 44 * u, color: ink, lineHeight: 1}}>{fmtBig(s * cnt)}</div>
-              <div style={{fontFamily: fonts.mono, fontSize: 12 * u, letterSpacing: 2 * u, color: ink, opacity: 0.45, marginTop: 6 * u}}>{(statLabels[j] ?? '').toUpperCase()}</div>
+              <div style={{fontFamily: fonts.serif, fontSize: 44 * q * u, color: ink, lineHeight: 1}}>{fmtBig(s * cnt)}</div>
+              <div style={{fontFamily: fonts.mono, fontSize: 12 * q * u, letterSpacing: 2 * u, color: ink, opacity: 0.45, marginTop: 6 * u}}>{(statLabels[j] ?? '').toUpperCase()}</div>
             </div>
           ))}
         </div>
-        <div style={{display: 'flex', gap: 14 * u, marginTop: 28 * u}}>
-          <div style={{padding: `${11 * u}px ${24 * u}px`, borderRadius: 99, background: 'rgba(255,255,255,0.9)', boxShadow: `inset 0 0 0 ${1.5 * u}px rgba(0,0,0,0.08)`, fontFamily: fonts.sans, fontSize: 17 * u, color: ink}}>Save</div>
-          <div style={{padding: `${11 * u}px ${28 * u}px`, borderRadius: 99, background: ink, fontFamily: fonts.sans, fontSize: 17 * u, color: '#fff'}}>Open</div>
+        <div style={{display: 'flex', gap: 14 * u, marginTop: 28 * q * u}}>
+          <div style={{padding: `${11 * q * u}px ${24 * q * u}px`, borderRadius: 99, background: 'rgba(255,255,255,0.9)', boxShadow: `inset 0 0 0 ${1.5 * u}px rgba(0,0,0,0.08)`, fontFamily: fonts.sans, fontSize: 17 * q * u, color: ink}}>Save</div>
+          <div style={{padding: `${11 * q * u}px ${28 * q * u}px`, borderRadius: 99, background: ink, fontFamily: fonts.sans, fontSize: 17 * q * u, color: '#fff'}}>Open</div>
         </div>
       </div>
     </AbsoluteFill>

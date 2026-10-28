@@ -78,7 +78,7 @@ const StarFusionShells: React.FC<Props> = (p) => {
   const a0 = ac - half;
   const a1 = ac + half;
   const color = (k: number) => p.shellColors[Math.min(k, p.shellColors.length - 1)];
-  const chipR = 21 * u;
+  const chipR = 34 * u;
 
   // glow builds up to the collapse flash
   const flash = clamp(prog(frame, 150, 160, ease.out) - prog(frame, 160, 185, ease.sine));
@@ -142,9 +142,10 @@ const StarFusionShells: React.FC<Props> = (p) => {
             {open > 0.6 &&
               shells.map((label, k) => {
                 const rm = R * (edges[k] + edges[k + 1]) * 0.5;
-                const rr = k === n - 1 ? chipR * (1 + 0.5 * core) : chipR;
-                const px = cx + rm * Math.cos(a1);
-                const py = cy + rm * Math.sin(a1);
+                const shellW = R * (edges[k] - edges[k + 1]);
+                const rr = k === n - 1 ? Math.min(chipR * (1 + 0.5 * core), R * edges[k] * 0.55) : Math.min(chipR, Math.max(10 * u, shellW * 0.46));
+                const px = cx + rm * Math.cos(ac);
+                const py = cy + rm * Math.sin(ac);
                 const o = clamp((open - 0.6) / 0.4 - k * 0.06);
                 const wd = rr * (label.length > 1 ? 2.1 : 1.7);
                 return (
