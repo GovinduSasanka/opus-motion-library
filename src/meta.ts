@@ -1567,6 +1567,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "nutrition-facts-label": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 240,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
  "passport-stamps": {
   "overlay": true,
   "overlayProps": {
@@ -4160,6 +4172,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "coffee-pour-cup": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 210,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
  "colorway-swap": {
   "overlay": true,
   "overlayProps": {
@@ -5923,6 +5947,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "bestLength": 360,
   "roles": [
    "accent",
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "hotel-rating-card": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 210,
+  "roles": [
    "subject"
   ],
   "weight": "light"

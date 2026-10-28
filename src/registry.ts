@@ -146,6 +146,7 @@ import {formFillSubmit} from './motions/document/form-fill-submit';
 import {liftTheFlap} from './motions/document/lift-the-flap';
 import {lineLightUp} from './motions/document/line-light-up';
 import {mugshotHeightChart} from './motions/document/mugshot-height-chart';
+import {nutritionFactsLabel} from './motions/document/nutrition-facts-label';
 import {passportStamps} from './motions/document/passport-stamps';
 import {receiptPrint} from './motions/document/receipt-print';
 import {redactionBars} from './motions/document/redaction-bars';
@@ -377,6 +378,7 @@ import {vinylSpinLabel} from './motions/music/vinyl-spin-label';
 import {widthPressureType} from './motions/music/width-pressure-type';
 import {wordSlamHook} from './motions/music/word-slam-hook';
 import {addToCartFly} from './motions/product/add-to-cart-fly';
+import {coffeePourCup} from './motions/product/coffee-pour-cup';
 import {colorwaySwap} from './motions/product/colorway-swap';
 import {couponScratchReveal} from './motions/product/coupon-scratch-reveal';
 import {deliveryTracker} from './motions/product/delivery-tracker';
@@ -535,6 +537,7 @@ import {emptyStateIllustration} from './motions/ui/empty-state-illustration';
 import {glassLessonCard} from './motions/ui/glass-lesson-card';
 import {glassUiCards} from './motions/ui/glass-ui-cards';
 import {heroGradientOrbs} from './motions/ui/hero-gradient-orbs';
+import {hotelRatingCard} from './motions/ui/hotel-rating-card';
 import {iconGridBurst} from './motions/ui/icon-grid-burst';
 import {inspectorPopover} from './motions/ui/inspector-popover';
 import {isoActuators} from './motions/ui/iso-actuators';
@@ -724,6 +727,7 @@ export const motions: MotionDef<any>[] = [
   liftTheFlap,
   lineLightUp,
   mugshotHeightChart,
+  nutritionFactsLabel,
   passportStamps,
   receiptPrint,
   redactionBars,
@@ -955,6 +959,7 @@ export const motions: MotionDef<any>[] = [
   widthPressureType,
   wordSlamHook,
   addToCartFly,
+  coffeePourCup,
   colorwaySwap,
   couponScratchReveal,
   deliveryTracker,
@@ -1113,6 +1118,7 @@ export const motions: MotionDef<any>[] = [
   glassLessonCard,
   glassUiCards,
   heroGradientOrbs,
+  hotelRatingCard,
   iconGridBurst,
   inspectorPopover,
   isoActuators,

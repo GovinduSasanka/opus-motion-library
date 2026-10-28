@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
-import {ease, prog} from '../../core/ease';
+import {ease} from '../../core/ease';
 import {bgOf} from '../../core/commerce-kit';
 import {fonts} from '../../core/fonts';
 import {mixHex, sh, sseg, withAlpha} from '../../core/r2-s1-kit';
@@ -257,8 +257,6 @@ const PassportStamps: React.FC<Props> = (p) => {
     </AbsoluteFill>
   );
 };
-
-void prog;
 
 export const passportStamps = defineMotion<Props>({
   id: 'passport-stamps',

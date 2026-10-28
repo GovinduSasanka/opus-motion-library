@@ -1,6 +1,6 @@
 # Motion catalog
 
-576 motions. Generated from `catalog.json` by `cli/gen-docs.mjs` — do not edit by hand.
+579 motions. Generated from `catalog.json` by `cli/gen-docs.mjs` — do not edit by hand.
 
 Render any of them: `node cli/mgl.mjs render <id> [--props '{...}'] [--format landscape|square|portrait]`. Previews live in `gallery/`.
 
@@ -13,27 +13,27 @@ Choosing: `node cli/mgl.mjs suggest "<what you need>"` and [CHOOSING.md](CHOOSIN
 - [environment](#environment) (47)
 - [character](#character) (17)
 - [data](#data) (71)
-- [ui](#ui) (64)
+- [ui](#ui) (65)
 - [hud](#hud) (29)
 - [camera](#camera) (9)
 - [texture](#texture) (4)
 - [3d](#3d) (41)
-- [document](#document) (13)
+- [document](#document) (14)
 - [game](#game) (21)
 - [image](#image) (34)
 - [map](#map) (11)
 - [mascot](#mascot) (11)
 - [music](#music) (23)
-- [product](#product) (17)
+- [product](#product) (18)
 - [recipes](#recipes) (ready-made mixes)
 
 ## Capability index
 
 | capability | motions |
 |---|---|
-| overlay (transparent background — put it on top of other motions or your page) | `globe-3d`, `holo-solid-ignite`, `light-beam-ribbon`, `popup-spread`, `creator-hand`, `paper-critter-rig`, `pictogram-figure`, `api-request-flow`, `bar-race`, `bubble-scatter-grow`, `budget-envelope-split`, `cause-effect-chain`, `comparison-dumbbell`, `deploy-pipeline-stages`, `donut-breakdown`, `fitness-activity-rings`, `floorplan-draw`, `funnel-conversion`, `gantt-timeline`, `gauge-kpi-dial`, `git-branch-graph`, `heart-rate-monitor`, `heatmap-calendar`, `json-tree-expand`, `network-graph`, `org-chart-tree`, `progress-rings-stats`, `pros-cons-columns`, `radar-compare`, `sankey-flow`, `savings-goal-jar`, `server-rack-status`, `stacked-area-flow`, `step-process-numbered`, `treemap-split`, `venn-diagram-overlap`, `waterfall-bridge`, `weather-forecast-strip`, `certificate-seal`, `form-fill-submit`, `passport-stamps`, `receipt-print`, `aurora`, `bubbles`, `caustics-godrays`, `curl-flow`, `embers`, `falling-petals`, `fireworks`, `flow-lines`, `fog-clouds`, `insect-flight`, `lightning-flash`, `mesh-gradient-bg`, `rain`, `snowfall`, `starfield-night`, `starfield-warp`, `window-glow-sequence`, `backlit-cutout`, `circuit-traces`, `confetti-burst`, `electric-arcs`, `emote-pop`, `eyes-blink`, `fire-flames`, `giant-eye-reveal`, `grease-pencil-mark`, `impact-frame`, `ink-blot-stop`, `long-exposure-trails`, `magnifier-loupe`, `marker-ring-arrow`, `scribble-ball`, `smear-frame`, `smoke-puffs`, `sparkle-burst`, `star-glint`, `sticker-cutout`, `swirl-portal`, `vhs-crt-pass`, `achievement-unlock`, `bracket-advance`, `candy-set-backdrop`, `kill-streak-banner`, `level-up-burst`, `match-scoreboard`, `player-stat-card`, `stream-starting-soon`, `agent-roster`, `blur-redact-region`, `cam-chip-sync-badge`, `click-ripple-markers`, `day-ring-dial`, `event-feed`, `fight-hud`, `game-hud`, `hand-drawn-arrow-callout`, `hud-chrome`, `mission-clock`, `news-bug-source-tag`, `numbered-step-badges`, `prompt-wall`, `scribble-circle-highlight`, `spec-chip-rail`, `spotlight-dim-focus`, `target-lock-box`, `target-lock`, `tooltip-pointer`, `zoom-inset-box`, `film-look`, `sticker-slap`, `choropleth-fill`, `city-zoom-label`, `coverage-route`, `elevation-profile`, `flight-arcs`, `pin-drop-cluster`, `beat-dance`, `chomp-lid`, `emotion-idle-beat`, `emotion-sheet`, `emotion-timeline`, `mascot-nib`, `mascot-thinking`, `mascot-thumbs-up`, `mascot-wave-hello`, `smear-trail`, `beat-camera`, `beat-grid`, `beat-pulse-rings`, `engraving-hatch`, `equalizer-bars-loop`, `guilloche-note`, `lyric-on-path`, `lyric-timing`, `lyric-video`, `mixer-faders`, `now-playing-card`, `podcast-audiogram`, `shutter-blur`, `stage-curtain`, `time-stutter`, `token-sampler-prompt`, `token-tree`, `tracklist-reveal`, `vinyl-spin-label`, `width-pressure-type`, `add-to-cart-fly`, `colorway-swap`, `coupon-scratch-reveal`, `delivery-tracker`, `feature-callout-orbit`, `flash-deal-timer-card`, `order-confirmation`, `price-tag-drop`, `product-grid-filter`, `size-color-picker`, `spec-compare-table`, `sunburst-hero`, `unbox-lid-lift`, `comet-pulse-guide`, `ink-brush-stroke`, `logo-reveal-liquid`, `motif-grid-pattern`, `nib-follow-camera`, `papercut-rosette`, `toon-cel-shape`, `agenda-list-slide`, `big-stat-slide`, `blur-in-title`, `channel-intro-sting`, `chapter-countdown`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `definition-card`, `end-card-credits`, `end-screen-cards`, `follower-milestone`, `glyph-orbit-logo`, `key-takeaway-highlight`, `kinetic-captions`, `logo-reveal-lines`, `mask-rise-title`, `myth-vs-fact`, `news-strap`, `number-counter`, `outline-to-fill-text`, `paper-strip-title`, `per-letter-wave`, `qa-slide`, `quiz-question-reveal`, `quote-slide`, `rolling-credits`, `rundown-board`, `sale-countdown-banner`, `scene-tag`, `split-flap-board`, `sponsor-slate`, `stacked-repeat-echo`, `stamp-slam`, `sting-bug`, `story-caption-box`, `text-on-circle-spin`, `text-scramble-decode`, `typewriter-code`, `typewriter-delete-retype`, `typewriter-signature`, `word-carousel-rotator`, `bokeh-drift`, `light-leak-wash`, `pattern-scroll`, `agent-log-panel`, `ai-chat-streaming`, `appointment-booking-calendar`, `boarding-pass-print`, `checkout-steps`, `code-diff-highlight`, `comment-bubble-stream`, `cursor-driver`, `empty-state-illustration`, `glass-lesson-card`, `hero-gradient-orbs`, `itinerary-route-stops`, `keystroke-hud`, `liquid-glass-lens`, `loader-spinner-set`, `logo-wall-grid`, `menu-board-items`, `notification-stack`, `planned-vs-heard-checklist`, `player-toolbar`, `poll-results-bars`, `property-listing-card`, `recipe-ingredients-steps`, `review-stars-rating`, `roadmap-swimlanes`, `skeleton-shimmer`, `story-progress-frames`, `subscribe-like-bell`, `success-check-burst`, `team-grid-photos`, `terminal-install-progress`, `testimonial-card-carousel`, `three-column-features`, `toast-stack-loop`, `typing-indicator-chat`, `upload-progress` |
+| overlay (transparent background — put it on top of other motions or your page) | `globe-3d`, `holo-solid-ignite`, `light-beam-ribbon`, `popup-spread`, `creator-hand`, `paper-critter-rig`, `pictogram-figure`, `api-request-flow`, `bar-race`, `bubble-scatter-grow`, `budget-envelope-split`, `cause-effect-chain`, `comparison-dumbbell`, `deploy-pipeline-stages`, `donut-breakdown`, `fitness-activity-rings`, `floorplan-draw`, `funnel-conversion`, `gantt-timeline`, `gauge-kpi-dial`, `git-branch-graph`, `heart-rate-monitor`, `heatmap-calendar`, `json-tree-expand`, `network-graph`, `org-chart-tree`, `progress-rings-stats`, `pros-cons-columns`, `radar-compare`, `sankey-flow`, `savings-goal-jar`, `server-rack-status`, `stacked-area-flow`, `step-process-numbered`, `treemap-split`, `venn-diagram-overlap`, `waterfall-bridge`, `weather-forecast-strip`, `certificate-seal`, `form-fill-submit`, `nutrition-facts-label`, `passport-stamps`, `receipt-print`, `aurora`, `bubbles`, `caustics-godrays`, `curl-flow`, `embers`, `falling-petals`, `fireworks`, `flow-lines`, `fog-clouds`, `insect-flight`, `lightning-flash`, `mesh-gradient-bg`, `rain`, `snowfall`, `starfield-night`, `starfield-warp`, `window-glow-sequence`, `backlit-cutout`, `circuit-traces`, `confetti-burst`, `electric-arcs`, `emote-pop`, `eyes-blink`, `fire-flames`, `giant-eye-reveal`, `grease-pencil-mark`, `impact-frame`, `ink-blot-stop`, `long-exposure-trails`, `magnifier-loupe`, `marker-ring-arrow`, `scribble-ball`, `smear-frame`, `smoke-puffs`, `sparkle-burst`, `star-glint`, `sticker-cutout`, `swirl-portal`, `vhs-crt-pass`, `achievement-unlock`, `bracket-advance`, `candy-set-backdrop`, `kill-streak-banner`, `level-up-burst`, `match-scoreboard`, `player-stat-card`, `stream-starting-soon`, `agent-roster`, `blur-redact-region`, `cam-chip-sync-badge`, `click-ripple-markers`, `day-ring-dial`, `event-feed`, `fight-hud`, `game-hud`, `hand-drawn-arrow-callout`, `hud-chrome`, `mission-clock`, `news-bug-source-tag`, `numbered-step-badges`, `prompt-wall`, `scribble-circle-highlight`, `spec-chip-rail`, `spotlight-dim-focus`, `target-lock-box`, `target-lock`, `tooltip-pointer`, `zoom-inset-box`, `film-look`, `sticker-slap`, `choropleth-fill`, `city-zoom-label`, `coverage-route`, `elevation-profile`, `flight-arcs`, `pin-drop-cluster`, `beat-dance`, `chomp-lid`, `emotion-idle-beat`, `emotion-sheet`, `emotion-timeline`, `mascot-nib`, `mascot-thinking`, `mascot-thumbs-up`, `mascot-wave-hello`, `smear-trail`, `beat-camera`, `beat-grid`, `beat-pulse-rings`, `engraving-hatch`, `equalizer-bars-loop`, `guilloche-note`, `lyric-on-path`, `lyric-timing`, `lyric-video`, `mixer-faders`, `now-playing-card`, `podcast-audiogram`, `shutter-blur`, `stage-curtain`, `time-stutter`, `token-sampler-prompt`, `token-tree`, `tracklist-reveal`, `vinyl-spin-label`, `width-pressure-type`, `add-to-cart-fly`, `coffee-pour-cup`, `colorway-swap`, `coupon-scratch-reveal`, `delivery-tracker`, `feature-callout-orbit`, `flash-deal-timer-card`, `order-confirmation`, `price-tag-drop`, `product-grid-filter`, `size-color-picker`, `spec-compare-table`, `sunburst-hero`, `unbox-lid-lift`, `comet-pulse-guide`, `ink-brush-stroke`, `logo-reveal-liquid`, `motif-grid-pattern`, `nib-follow-camera`, `papercut-rosette`, `toon-cel-shape`, `agenda-list-slide`, `big-stat-slide`, `blur-in-title`, `channel-intro-sting`, `chapter-countdown`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `definition-card`, `end-card-credits`, `end-screen-cards`, `follower-milestone`, `glyph-orbit-logo`, `key-takeaway-highlight`, `kinetic-captions`, `logo-reveal-lines`, `mask-rise-title`, `myth-vs-fact`, `news-strap`, `number-counter`, `outline-to-fill-text`, `paper-strip-title`, `per-letter-wave`, `qa-slide`, `quiz-question-reveal`, `quote-slide`, `rolling-credits`, `rundown-board`, `sale-countdown-banner`, `scene-tag`, `split-flap-board`, `sponsor-slate`, `stacked-repeat-echo`, `stamp-slam`, `sting-bug`, `story-caption-box`, `text-on-circle-spin`, `text-scramble-decode`, `typewriter-code`, `typewriter-delete-retype`, `typewriter-signature`, `word-carousel-rotator`, `bokeh-drift`, `light-leak-wash`, `pattern-scroll`, `agent-log-panel`, `ai-chat-streaming`, `appointment-booking-calendar`, `boarding-pass-print`, `checkout-steps`, `code-diff-highlight`, `comment-bubble-stream`, `cursor-driver`, `empty-state-illustration`, `glass-lesson-card`, `hero-gradient-orbs`, `hotel-rating-card`, `itinerary-route-stops`, `keystroke-hud`, `liquid-glass-lens`, `loader-spinner-set`, `logo-wall-grid`, `menu-board-items`, `notification-stack`, `planned-vs-heard-checklist`, `player-toolbar`, `poll-results-bars`, `property-listing-card`, `recipe-ingredients-steps`, `review-stars-rating`, `roadmap-swimlanes`, `skeleton-shimmer`, `story-progress-frames`, `subscribe-like-bell`, `success-check-burst`, `team-grid-photos`, `terminal-install-progress`, `testimonial-card-carousel`, `three-column-features`, `toast-stack-loop`, `typing-indicator-chat`, `upload-progress` |
 | seamless loop | `iso-bar-chart`, `city-rooftops-rain-window`, `desert-dunes-heat`, `embers`, `firefly-meadow-night`, `forest-parallax-mist`, `lava-lamp-blobs`, `ocean-waves-layers`, `snow-mountain-dawn`, `starfield-warp`, `sonar-ping`, `empty-state-illustration`, `hero-gradient-orbs`, `loader-spinner-set`, `skeleton-shimmer`, `success-check-burst`, `toast-stack-loop`, `typing-indicator-chat`, `upload-progress` |
-| takes your image (`src` / `images` / `heroSrc`) | `pointcloud-orbit`, `crash-zoom`, `dolly-zoom`, `orbit-parallax`, `whip-pan`, `beat-montage`, `crowd-tracks`, `ground-plane-ruler`, `map-route`, `microscope-dive`, `science-reticle`, `thumbnail-mosaic`, `mugshot-height-chart`, `depth-descent`, `lamp-screen`, `paper-diorama`, `studio-sweep`, `topdown-terrain`, `window-glow-sequence`, `beat-punch-zoom`, `crayon-wax-shader`, `focus-desaturate`, `frame-blend-timelapse`, `frame-breakout`, `freeze-frame-brackets`, `giant-eye-reveal`, `glass-crack-mend`, `long-exposure-trails`, `loupe-magnify`, `magnifier-loupe`, `swirl-portal`, `theatre-gate`, `vhs-crt-pass`, `loot-reveal`, `player-stat-card`, `rocket-to-moon`, `callout-labels`, `cam-chip-sync-badge`, `target-lock-box`, `target-lock`, `zoom-inset-box`, `ascii-image-grid`, `autofocus-hunt`, `brush-stroke-reveal`, `comic-halftone`, `dot-matrix`, `duotone`, `film-look`, `glass-pane-grid`, `glitch-image`, `grid-multiply`, `handscroll-reveal`, `ken-burns`, `knife-colour-relay`, `knife-paint-plate`, `light-sweep`, `negative-develop-reveal`, `perspective-flatten`, `photomontage-tower`, `pixel-dither`, `press-lift`, `proportion-sweep`, `riso-plate-reveal`, `spinning-headline`, `split-grid-countdown`, `sticker-cutout-burst`, `telestrator-freeze`, `tilt-shift-diorama`, `woodblock-print-reveal`, `woodcut-carve`, `xray-scan`, `map-mask-reveal`, `audio-spectrum`, `guilloche-note`, `add-to-cart-fly`, `colorway-swap`, `feature-callout-orbit`, `flash-deal-timer-card`, `frost-to-clear`, `size-color-picker`, `sunburst-hero`, `unbox-lid-lift`, `logo-reveal-liquid`, `scissor-cut`, `sonar-ping`, `blur-in-title`, `bouncing-ball-singalong`, `channel-intro-sting`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `diagonal-band-title`, `end-card-credits`, `flipbook-riffle-outro`, `glyph-orbit-logo`, `halftone-exhibit-numeral`, `hanazi-caption`, `letters-become-image`, `logo-assemble`, `logo-reveal-lines`, `mask-rise-title`, `number-counter`, `quote-slide`, `sponsor-slate`, `stamp-slam`, `story-caption-box`, `typewriter-code`, `browser-mockup`, `device-mockup`, `property-listing-card`, `recipe-ingredients-steps`, `sms-thread`, `split-compare`, `story-progress-frames`, `tv-wall-switch-on`, `versus-roster` |
+| takes your image (`src` / `images` / `heroSrc`) | `pointcloud-orbit`, `crash-zoom`, `dolly-zoom`, `orbit-parallax`, `whip-pan`, `beat-montage`, `crowd-tracks`, `ground-plane-ruler`, `map-route`, `microscope-dive`, `science-reticle`, `thumbnail-mosaic`, `mugshot-height-chart`, `depth-descent`, `lamp-screen`, `paper-diorama`, `studio-sweep`, `topdown-terrain`, `window-glow-sequence`, `beat-punch-zoom`, `crayon-wax-shader`, `focus-desaturate`, `frame-blend-timelapse`, `frame-breakout`, `freeze-frame-brackets`, `giant-eye-reveal`, `glass-crack-mend`, `long-exposure-trails`, `loupe-magnify`, `magnifier-loupe`, `swirl-portal`, `theatre-gate`, `vhs-crt-pass`, `loot-reveal`, `player-stat-card`, `rocket-to-moon`, `callout-labels`, `cam-chip-sync-badge`, `target-lock-box`, `target-lock`, `zoom-inset-box`, `ascii-image-grid`, `autofocus-hunt`, `brush-stroke-reveal`, `comic-halftone`, `dot-matrix`, `duotone`, `film-look`, `glass-pane-grid`, `glitch-image`, `grid-multiply`, `handscroll-reveal`, `ken-burns`, `knife-colour-relay`, `knife-paint-plate`, `light-sweep`, `negative-develop-reveal`, `perspective-flatten`, `photomontage-tower`, `pixel-dither`, `press-lift`, `proportion-sweep`, `riso-plate-reveal`, `spinning-headline`, `split-grid-countdown`, `sticker-cutout-burst`, `telestrator-freeze`, `tilt-shift-diorama`, `woodblock-print-reveal`, `woodcut-carve`, `xray-scan`, `map-mask-reveal`, `audio-spectrum`, `guilloche-note`, `add-to-cart-fly`, `colorway-swap`, `feature-callout-orbit`, `flash-deal-timer-card`, `frost-to-clear`, `size-color-picker`, `sunburst-hero`, `unbox-lid-lift`, `logo-reveal-liquid`, `scissor-cut`, `sonar-ping`, `blur-in-title`, `bouncing-ball-singalong`, `channel-intro-sting`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `diagonal-band-title`, `end-card-credits`, `flipbook-riffle-outro`, `glyph-orbit-logo`, `halftone-exhibit-numeral`, `hanazi-caption`, `letters-become-image`, `logo-assemble`, `logo-reveal-lines`, `mask-rise-title`, `number-counter`, `quote-slide`, `sponsor-slate`, `stamp-slam`, `story-caption-box`, `typewriter-code`, `browser-mockup`, `device-mockup`, `hotel-rating-card`, `property-listing-card`, `recipe-ingredients-steps`, `sms-thread`, `split-compare`, `story-progress-frames`, `tv-wall-switch-on`, `versus-roster` |
 | heavy (three.js / WebGL — prefer an exported video on mobile web) | `accum-render-3d`, `brick-collapse-physics`, `brick-fx-fire-smoke`, `brick-rebuild-morph`, `brick-snap-build`, `chart-to-installation`, `cloner-bed-ripple`, `colour-ignition-wave`, `exploded-stack`, `exploded-view-3d`, `glass-strip-sweep`, `globe-3d`, `iso-blocks-3d`, `iso-city-build`, `jelly-type-drop`, `last-object-drop`, `liminal-corridor-3d`, `ocean-surface-3d`, `particle-shape-morph`, `plan-tilt`, `pointcloud-orbit`, `product-turntable-3d`, `shockwave-flip-field`, `stack-plates-3d`, `terrain-build-3d`, `voxel-burst-swirl`, `voxel-diorama`, `wireframe-build`, `dash-flow-field` |
 
 ## recipes
@@ -5517,6 +5517,8 @@ Underwater: a rippling caustic web at the surface, swaying light shafts and drif
 
 ### `city-rooftops-rain-window` — City rooftops rain window
 
+![city-rooftops-rain-window](../gallery/city-rooftops-rain-window.jpg)
+
 A rainy window over a defocused city: blurred rooftops with lit windows, soft bokeh lights, thin rain outside, and fogged glass with clinging beads and larger drops that slide down leaving trails; loops seamlessly, night / dusk / dawn / day palettes and a custom light colour list.
 
 **Use for:** Moody lo-fi / study-beats / podcast backdrops, melancholy or cosy titles, noir and thriller scenes, weather and "rainy day" content, city-life brand heroes; add a title or put your own UI over the glass.  
@@ -5684,6 +5686,8 @@ Underwater descent infographic: a bobbing brass bathysphere hangs on its cable w
 
 ### `desert-dunes-heat` — Desert dunes heat haze
 
+![desert-dunes-heat](../gallery/desert-dunes-heat.jpg)
+
 Rolling sand-dune ridges under a huge low sun: 3-7 layered dunes with lit crest edges, a shimmering heat-haze horizon and wind-blown sand streaks racing along the dunes; loops seamlessly, dawn / day / dusk / night palettes.
 
 **Use for:** Warm looping landscape backdrop for travel, adventure, Middle-East / Sahara themes, western titles, survival or thirst / heat messages, product reveals on sand; add a title or place your own HTML on top.  
@@ -5775,6 +5779,8 @@ Petals (or autumn leaves, or paper sheets) sway, spin and flip in 3D as they fal
 | `seed` | `1` | random seed |
 
 ### `firefly-meadow-night` — Firefly meadow night
+
+![firefly-meadow-night](../gallery/firefly-meadow-night.jpg)
 
 A moonlit meadow: starry sky, rolling hills and tree line, two layers of swaying grass blades and dozens of fireflies drifting on closed loops and pulsing softly; loops seamlessly.
 
@@ -5966,6 +5972,8 @@ Three parallax layers of drifting noise-built clouds (lit white cumulus with sof
 
 ### `forest-parallax-mist` — Forest parallax mist
 
+![forest-parallax-mist](../gallery/forest-parallax-mist.jpg)
+
 A misty pine forest in depth: 3-7 layers of conifer silhouettes swaying in parallax, drifting fog banks between them, breathing god rays from a low sun and floating pollen motes; loops seamlessly in dawn / day / dusk / night palettes.
 
 **Use for:** Atmospheric looping hero or title backdrop for outdoors, camping, wellness / meditation, storytelling, fantasy and horror-lite scenes, eco brands, podcasts and lyric videos; tint with timeOfDay or brand colours and add a title.  
@@ -6093,6 +6101,8 @@ A warm cotton shadow-theatre screen in a lacquered stage frame (optional blurred
 | `seed` | `3` | tremor / audience seed |
 
 ### `lava-lamp-blobs` — Lava lamp blobs
+
+![lava-lamp-blobs](../gallery/lava-lamp-blobs.jpg)
 
 Gooey metaball blobs slowly rising, stretching, merging and splitting over a glowing liquid gradient: a full-frame psychedelic backdrop or contained in a retro lava-lamp silhouette; palette-driven and seamlessly loopable.
 
@@ -6270,6 +6280,8 @@ An art-deco lobby in true one-point perspective: a checkered marble floor with a
 | `endDoor` | `true` | show the glowing sunburst door at the end of the hall |
 
 ### `ocean-waves-layers` — Ocean waves layers
+
+![ocean-waves-layers](../gallery/ocean-waves-layers.jpg)
 
 Stylised flat-vector ocean: a sun or moon over a hazy horizon, 3-9 layered waves heaving and sliding on whole-cycle sine sums with foam dashes on the front crests and a glittering sun path; loops seamlessly, palette from dawn / day / dusk / night.
 
@@ -6580,6 +6592,8 @@ A giant panelled mechanical worm with a toothed circular mouth bursts out of a c
 
 ### `snow-mountain-dawn` — Snow mountain dawn
 
+![snow-mountain-dawn](../gallery/snow-mountain-dawn.jpg)
+
 Three ridged mountain ranges with soft snow lines at first light: an alpine glow breathing on the sun-facing slopes, drifting mist between the ranges, slow clouds, falling snow and pine silhouettes; loops seamlessly in dawn / day / dusk / night palettes.
 
 **Use for:** Calm looping hero or title backdrop for outdoor / adventure / expedition, winter, wellness, finance "summit" metaphors, motivational quotes, podcasts and lyric videos; colour with timeOfDay or brand colours and add your own title.  
@@ -6679,6 +6693,8 @@ Dark teal night sky with twinkling cream stars, a grainy crescent moon that fade
 | `rippleSpeed` | `1100` | ripple speed in px/s at 1080p (1100) |
 
 ### `starfield-warp` — Starfield warp
+
+![starfield-warp](../gallery/starfield-warp.jpg)
 
 Hyperspace flight: stars burst from a vanishing point and accelerate outward as growing light streaks over a soft nebula and bright core glow; the warp amount stretches dots into light-speed lines, with optional gentle swirl; loops seamlessly and can be a transparent star overlay.
 
@@ -10438,6 +10454,38 @@ Soft, blurred gradient orbs in your brand colours drift and breathe on closed pa
 | `vignette` | `0.5` | edge darkening 0..1 (ignored when transparent) |
 | `seed` | `11` | changes the orb layout |
 | `background` | `"#0B1020"` | base colour, or "transparent" to layer over other content |
+
+### `hotel-rating-card` — Hotel rating card
+
+A stay listing card: the photo wipes in and slowly pushes in, name and location slide up, stars fill one by one, the review score counts up, amenity icons pop in, the nightly price counts up and a Book button pulses.
+
+**Use for:** Hotel, rental and resort promos, travel-booking app demos, "top-rated stay" reels, property / venue / restaurant rating cards — set the photo, name, stars, score, price and amenities.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo, ui, night  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `badge` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `name` | `"Harbor View Hotel"` | property name |
+| `location` | `"Old Town · 4 min walk to the beach"` | location line |
+| `src` | `""` | photo (public/ path or https URL); '' draws a procedural hotel scene |
+| `badge` | `"Top rated"` | small tag on the photo ('' for none) |
+| `stars` | `4` | star class 0-5 (halves allowed, e.g. 4.5) |
+| `score` | `9.2` | review score that counts up (e.g. 9.2) |
+| `scoreLabel` | `"Exceptional"` | word next to the score |
+| `reviews` | `"1,284 reviews"` | review count text |
+| `price` | `189` | nightly price (counts up) |
+| `currency` | `"$"` | currency symbol in front of the price |
+| `priceLabel` | `"per night"` | small caps line under the price |
+| `amenities` | `[{"icon":"wifi","label":"Free Wi-Fi"},{"icon":"pool","lab…` | up to 6: {icon, label} — icon: wifi \| pool \| breakfast \| parking \| gym \| spa \| ac \| bar \| pets \| beach \| desk \| kitchen \| shuttle \| coffee |
+| `cta` | `"Book now"` | button text |
+| `background` | `"#E3EAF2"` | page colour or 'transparent' |
+| `card` | `"#FFFFFF"` | card colour |
+| `ink` | `"#14233B"` | text colour |
+| `accent` | `"#E8553D"` | icons, badge and button colour |
+| `startAt` | `0` | frame the scene starts |
 
 ### `icon-grid-burst` — Icon grid burst
 
@@ -14407,6 +14455,39 @@ A round kawaii suspect rises in front of a height chart with cm labels at both e
 | `photoLabel` | `"SUSPECT"` | first (yellow) word of the front-plate caption |
 | `photoLabel2` | `"PHOTO"` | second (cream) word of the front-plate caption |
 
+### `nutrition-facts-label` — Nutrition facts label (count-up)
+
+A printed-style nutrition label: heavy rules draw on, then calories, nutrient amounts and daily-value percentages count up from zero in sequence, one row highlighted; wide frames add a macro donut that sweeps in beside it.
+
+**Use for:** Food and drink product promos, packaged-goods ads, health / diet explainers, recipe cards, menu nutrition callouts — set the calories, nutrient rows, serving info and colours.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `footnote` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Nutrition Facts"` | label heading |
+| `servings` | `"8 servings per container"` | servings-per-container line |
+| `servingLabel` | `"Serving size"` | left text of the serving-size line |
+| `servingSize` | `"2/3 cup (55 g)"` | right text of the serving-size line |
+| `caloriesLabel` | `"Calories"` | word next to the big calorie number |
+| `calories` | `230` | calories (counts up from 0) |
+| `amountLabel` | `"Amount per serving"` | small line above the calories |
+| `dailyLabel` | `"% Daily Value*"` | column header over the percentages |
+| `nutrients` | `[{"label":"Total Fat","value":8,"unit":"g","daily":10},{"…` | rows, up to 14: {label, value, unit, daily? (%), indent?, bold?} — value and daily count up |
+| `footnote` | `"* The % Daily Value tells you how much a nutrient in a s…` | small print under the label |
+| `highlight` | `"Total Sugars"` | label of a row to highlight (case-insensitive; empty for none) |
+| `macros` | `[{"label":"Carbs","value":37,"color":"#F2B134"},{"label":…` | donut segments in wide frames: {label, value, color} — shares are value / sum |
+| `panelTitle` | `"Where the energy comes from"` | caption above the macro legend |
+| `countFrames` | `22` | frames each number takes to count up |
+| `background` | `"#E9EFE4"` | page colour or 'transparent' |
+| `paper` | `"#FFFFFF"` | label colour |
+| `ink` | `"#111111"` | text and rule colour |
+| `accent` | `"#F2B134"` | highlighted row colour |
+| `startAt` | `0` | frame the scene starts |
+
 ### `passport-stamps` — Passport stamps thud on
 
 A passport page collects travel stamps one by one: a rubber-stamp tool drops, the inked stamp lands slightly rotated with a shockwave and a page shake, then the tool lifts — circle, rectangle, oval, octagon and arrow shapes in any ink colour.
@@ -17714,6 +17795,31 @@ A store header with a cart icon and a product card: the button is pressed, a cop
 | `ink` | `"#1D1B24"` | text and icon colour |
 | `accent` | `"#E8553A"` | price, button and badge colour |
 | `startAt` | `0` | frame the card starts entering |
+
+### `coffee-pour-cup` — Coffee pour: layered cup fills
+
+A glass or mug fills with a layered drink — a thin stream pours each layer in turn, the surface ripples, layers stack with soft interfaces, steam rises, a label sits on the cup and every layer is named on the side with a leader line.
+
+**Use for:** Cafe and drink promos, "what is in your latte" explainers, cocktail / smoothie / bubble-tea layer builds, recipe reveals — set drinkLayers (label, colour, amount) and the cup label.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Caramel latte"` | headline (top of the label column) |
+| `subtitle` | `"Built in four layers"` | small caps line under the headline |
+| `cupLabel` | `"LATTE"` | text on the cup ('' for none) |
+| `drinkLayers` | `[{"label":"Caramel","color":"#B9742E","amount":0.7,"detai…` | layers bottom to top, up to 6: {label, color, amount (relative height), detail?} |
+| `cup` | `"glass"` | 'glass' (tapered latte glass) or 'mug' (straight mug with handle) |
+| `pourFrames` | `120` | frames the whole fill takes (split between layers by amount) |
+| `steam` | `true` | rising steam after the pour |
+| `background` | `"#F1E6D6"` | page colour or 'transparent' |
+| `ink` | `"#2B1D12"` | text colour |
+| `accent` | `"#C4642B"` | cup label colour and subtitle |
+| `startAt` | `0` | frame the scene starts |
 
 ### `colorway-swap` — Colourway swap
 

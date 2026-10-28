@@ -22202,6 +22202,212 @@
   }
  },
  {
+  "id": "nutrition-facts-label",
+  "title": "Nutrition facts label (count-up)",
+  "category": "document",
+  "description": "A printed-style nutrition label: heavy rules draw on, then calories, nutrient amounts and daily-value percentages count up from zero in sequence, one row highlighted; wide frames add a macro donut that sweeps in beside it.",
+  "useFor": "Food and drink product promos, packaged-goods ads, health / diet explainers, recipe cards, menu nutrition callouts — set the calories, nutrient rows, serving info and colours.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "nutrition",
+   "food",
+   "label",
+   "calories",
+   "health",
+   "diet",
+   "ingredients",
+   "packaging",
+   "count up",
+   "macros",
+   "product",
+   "document"
+  ],
+  "file": "src/motions/document/nutrition-facts-label.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "footnote"
+  ],
+  "colorProps": [
+   "background",
+   "paper",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Nutrition Facts",
+    "doc": "label heading"
+   },
+   "servings": {
+    "default": "8 servings per container",
+    "doc": "servings-per-container line"
+   },
+   "servingLabel": {
+    "default": "Serving size",
+    "doc": "left text of the serving-size line"
+   },
+   "servingSize": {
+    "default": "2/3 cup (55 g)",
+    "doc": "right text of the serving-size line"
+   },
+   "caloriesLabel": {
+    "default": "Calories",
+    "doc": "word next to the big calorie number"
+   },
+   "calories": {
+    "default": 230,
+    "doc": "calories (counts up from 0)"
+   },
+   "amountLabel": {
+    "default": "Amount per serving",
+    "doc": "small line above the calories"
+   },
+   "dailyLabel": {
+    "default": "% Daily Value*",
+    "doc": "column header over the percentages"
+   },
+   "nutrients": {
+    "default": [
+     {
+      "label": "Total Fat",
+      "value": 8,
+      "unit": "g",
+      "daily": 10
+     },
+     {
+      "label": "Saturated Fat",
+      "value": 1,
+      "unit": "g",
+      "daily": 5,
+      "indent": true
+     },
+     {
+      "label": "Cholesterol",
+      "value": 0,
+      "unit": "mg",
+      "daily": 0
+     },
+     {
+      "label": "Sodium",
+      "value": 160,
+      "unit": "mg",
+      "daily": 7
+     },
+     {
+      "label": "Total Carbohydrate",
+      "value": 37,
+      "unit": "g",
+      "daily": 13
+     },
+     {
+      "label": "Dietary Fiber",
+      "value": 4,
+      "unit": "g",
+      "daily": 14,
+      "indent": true
+     },
+     {
+      "label": "Total Sugars",
+      "value": 12,
+      "unit": "g",
+      "indent": true
+     },
+     {
+      "label": "Protein",
+      "value": 3,
+      "unit": "g"
+     },
+     {
+      "label": "Calcium",
+      "value": 260,
+      "unit": "mg",
+      "daily": 20
+     }
+    ],
+    "doc": "rows, up to 14: {label, value, unit, daily? (%), indent?, bold?} — value and daily count up"
+   },
+   "footnote": {
+    "default": "* The % Daily Value tells you how much a nutrient in a serving contributes to a daily diet.",
+    "doc": "small print under the label"
+   },
+   "highlight": {
+    "default": "Total Sugars",
+    "doc": "label of a row to highlight (case-insensitive; empty for none)"
+   },
+   "macros": {
+    "default": [
+     {
+      "label": "Carbs",
+      "value": 37,
+      "color": "#F2B134"
+     },
+     {
+      "label": "Fat",
+      "value": 8,
+      "color": "#E4572E"
+     },
+     {
+      "label": "Protein",
+      "value": 3,
+      "color": "#2E86AB"
+     }
+    ],
+    "doc": "donut segments in wide frames: {label, value, color} — shares are value / sum"
+   },
+   "panelTitle": {
+    "default": "Where the energy comes from",
+    "doc": "caption above the macro legend"
+   },
+   "countFrames": {
+    "default": 22,
+    "doc": "frames each number takes to count up"
+   },
+   "background": {
+    "default": "#E9EFE4",
+    "doc": "page colour or 'transparent'"
+   },
+   "paper": {
+    "default": "#FFFFFF",
+    "doc": "label colour"
+   },
+   "ink": {
+    "default": "#111111",
+    "doc": "text and rule colour"
+   },
+   "accent": {
+    "default": "#F2B134",
+    "doc": "highlighted row colour"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the scene starts"
+   }
+  }
+ },
+ {
   "id": "passport-stamps",
   "title": "Passport stamps thud on",
   "category": "document",
@@ -53528,6 +53734,136 @@
   }
  },
  {
+  "id": "coffee-pour-cup",
+  "title": "Coffee pour: layered cup fills",
+  "category": "product",
+  "description": "A glass or mug fills with a layered drink — a thin stream pours each layer in turn, the surface ripples, layers stack with soft interfaces, steam rises, a label sits on the cup and every layer is named on the side with a leader line.",
+  "useFor": "Cafe and drink promos, \"what is in your latte\" explainers, cocktail / smoothie / bubble-tea layer builds, recipe reveals — set drinkLayers (label, colour, amount) and the cup label.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "coffee",
+   "latte",
+   "cafe",
+   "drink",
+   "pour",
+   "layers",
+   "cup",
+   "espresso",
+   "milk",
+   "cocktail",
+   "smoothie",
+   "tea",
+   "recipe",
+   "liquid",
+   "beverage",
+   "product"
+  ],
+  "file": "src/motions/product/coffee-pour-cup.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Caramel latte",
+    "doc": "headline (top of the label column)"
+   },
+   "subtitle": {
+    "default": "Built in four layers",
+    "doc": "small caps line under the headline"
+   },
+   "cupLabel": {
+    "default": "LATTE",
+    "doc": "text on the cup ('' for none)"
+   },
+   "drinkLayers": {
+    "default": [
+     {
+      "label": "Caramel",
+      "color": "#B9742E",
+      "amount": 0.7,
+      "detail": "2 pumps"
+     },
+     {
+      "label": "Espresso",
+      "color": "#3B2314",
+      "amount": 1,
+      "detail": "double shot"
+     },
+     {
+      "label": "Steamed milk",
+      "color": "#D9B48A",
+      "amount": 2.2,
+      "detail": "200 ml"
+     },
+     {
+      "label": "Milk foam",
+      "color": "#F5EAD7",
+      "amount": 0.9,
+      "detail": "silky"
+     }
+    ],
+    "doc": "layers bottom to top, up to 6: {label, color, amount (relative height), detail?}"
+   },
+   "cup": {
+    "default": "glass",
+    "doc": "'glass' (tapered latte glass) or 'mug' (straight mug with handle)"
+   },
+   "pourFrames": {
+    "default": 120,
+    "doc": "frames the whole fill takes (split between layers by amount)"
+   },
+   "steam": {
+    "default": true,
+    "doc": "rising steam after the pour"
+   },
+   "background": {
+    "default": "#F1E6D6",
+    "doc": "page colour or 'transparent'"
+   },
+   "ink": {
+    "default": "#2B1D12",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#C4642B",
+    "doc": "cup label colour and subtitle"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the scene starts"
+   }
+  }
+ },
+ {
   "id": "colorway-swap",
   "title": "Colourway swap",
   "category": "product",
@@ -75519,6 +75855,164 @@
    "background": {
     "default": "#0B1020",
     "doc": "base colour, or \"transparent\" to layer over other content"
+   }
+  }
+ },
+ {
+  "id": "hotel-rating-card",
+  "title": "Hotel rating card",
+  "category": "ui",
+  "description": "A stay listing card: the photo wipes in and slowly pushes in, name and location slide up, stars fill one by one, the review score counts up, amenity icons pop in, the nightly price counts up and a Book button pulses.",
+  "useFor": "Hotel, rental and resort promos, travel-booking app demos, \"top-rated stay\" reels, property / venue / restaurant rating cards — set the photo, name, stars, score, price and amenities.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "hotel",
+   "travel",
+   "booking",
+   "rating",
+   "stars",
+   "review",
+   "price",
+   "amenities",
+   "resort",
+   "stay",
+   "accommodation",
+   "listing",
+   "card",
+   "ui"
+  ],
+  "file": "src/motions/ui/hotel-rating-card.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": true,
+  "textProps": [
+   "badge"
+  ],
+  "colorProps": [
+   "background",
+   "card",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "photo",
+   "ui",
+   "night"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "name": {
+    "default": "Harbor View Hotel",
+    "doc": "property name"
+   },
+   "location": {
+    "default": "Old Town · 4 min walk to the beach",
+    "doc": "location line"
+   },
+   "src": {
+    "default": "",
+    "doc": "photo (public/ path or https URL); '' draws a procedural hotel scene"
+   },
+   "badge": {
+    "default": "Top rated",
+    "doc": "small tag on the photo ('' for none)"
+   },
+   "stars": {
+    "default": 4,
+    "doc": "star class 0-5 (halves allowed, e.g. 4.5)"
+   },
+   "score": {
+    "default": 9.2,
+    "doc": "review score that counts up (e.g. 9.2)"
+   },
+   "scoreLabel": {
+    "default": "Exceptional",
+    "doc": "word next to the score"
+   },
+   "reviews": {
+    "default": "1,284 reviews",
+    "doc": "review count text"
+   },
+   "price": {
+    "default": 189,
+    "doc": "nightly price (counts up)"
+   },
+   "currency": {
+    "default": "$",
+    "doc": "currency symbol in front of the price"
+   },
+   "priceLabel": {
+    "default": "per night",
+    "doc": "small caps line under the price"
+   },
+   "amenities": {
+    "default": [
+     {
+      "icon": "wifi",
+      "label": "Free Wi-Fi"
+     },
+     {
+      "icon": "pool",
+      "label": "Pool"
+     },
+     {
+      "icon": "breakfast",
+      "label": "Breakfast"
+     },
+     {
+      "icon": "parking",
+      "label": "Parking"
+     },
+     {
+      "icon": "gym",
+      "label": "Gym"
+     }
+    ],
+    "doc": "up to 6: {icon, label} — icon: wifi | pool | breakfast | parking | gym | spa | ac | bar | pets | beach | desk | kitchen | shuttle | coffee"
+   },
+   "cta": {
+    "default": "Book now",
+    "doc": "button text"
+   },
+   "background": {
+    "default": "#E3EAF2",
+    "doc": "page colour or 'transparent'"
+   },
+   "card": {
+    "default": "#FFFFFF",
+    "doc": "card colour"
+   },
+   "ink": {
+    "default": "#14233B",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#E8553D",
+    "doc": "icons, badge and button colour"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the scene starts"
    }
   }
  },
