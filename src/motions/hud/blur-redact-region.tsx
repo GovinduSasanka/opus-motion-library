@@ -2,7 +2,7 @@ import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {clamp, ease, lerp, prog} from '../../core/ease';
 import {fonts} from '../../core/fonts';
-import {DemoScreen, DemoTone, DEMO, Rect, textW, useExit, useNorm} from '../../core/r3-annot-kit';
+import {DemoScreen, DemoTone, DEMO, Rect, textW, useExit, useNorm, tidy} from '../../core/r3-annot-kit';
 import {rng} from '../../core/random';
 import {Svg} from '../../core/stage';
 import {defineMotion} from '../../core/types';
@@ -181,7 +181,7 @@ export const blurRedactRegion = defineMotion<Props>({
   source: ['screen-recording tutorial annotation'],
   useFor: 'Hide names, emails, keys or faces in a screen recording or screenshot walkthrough: pass `regions` (0-1 rects) with a `mode` and a label like "Hidden".',
   durationInFrames: 180,
-  defaultProps: {
+  defaultProps: tidy({
     regions: [
       {x: DEMO.search.x + 0.02, y: DEMO.search.y + 0.012, w: 0.2, h: 0.028, mode: 'blur', label: 'Blurred'},
       {x: DEMO.stat1.x + 0.02, y: DEMO.stat1.y + 0.07, w: 0.12, h: 0.05, mode: 'pixelate', label: 'Pixelated'},
@@ -204,7 +204,7 @@ export const blurRedactRegion = defineMotion<Props>({
     seed: 7,
     demoBackground: false,
     demoTone: 'light',
-  },
+  }),
   propDocs: {
     regions: 'array of {x, y, w, h (0-1, x/y = top-left), mode?: blur|pixelate|bar, label?, toX?, toY? (drift to this top-left), at?}',
     blurPx: 'backdrop blur radius in u (blur and pixelate modes)',

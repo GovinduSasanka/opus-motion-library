@@ -2,7 +2,7 @@ import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {clamp, ease, lerp, prog} from '../../core/ease';
 import {fonts} from '../../core/fonts';
-import {Chip, DemoScreen, DemoTone, DEMO, Rect, textW, useNorm} from '../../core/r3-annot-kit';
+import {Chip, DemoScreen, DemoTone, DEMO, Rect, textW, useNorm, tidy} from '../../core/r3-annot-kit';
 import {Svg} from '../../core/stage';
 import {defineMotion} from '../../core/types';
 
@@ -174,7 +174,7 @@ export const spotlightDimFocus = defineMotion<Props>({
   source: ['screen-recording tutorial annotation'],
   useFor: 'Walk a viewer through parts of a screen recording one region at a time ("first the search bar, then the chart, then save"): pass `regions` (0-1 rects) with captions.',
   durationInFrames: 270,
-  defaultProps: {
+  defaultProps: tidy({
     regions: [
       {x: DEMO.search.x, y: DEMO.search.y, w: DEMO.search.w, h: DEMO.search.h, shape: 'rounded', label: 'Start with a search'},
       {x: DEMO.chart.x, y: DEMO.chart.y, w: DEMO.chart.w, h: DEMO.chart.h, shape: 'rounded', label: 'Read the chart'},
@@ -197,7 +197,7 @@ export const spotlightDimFocus = defineMotion<Props>({
     speed: 1,
     demoBackground: false,
     demoTone: 'light',
-  },
+  }),
   propDocs: {
     regions: 'array of {x, y, w, h (0-1, x/y = top-left), shape: rounded|circle|ellipse, label?, hold?}',
     dim: 'veil opacity outside the cut-out (0-1)',

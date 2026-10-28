@@ -62,7 +62,7 @@ const TeamGridPhotos: React.FC<Props> = (p) => {
       const rows = Math.ceil(n / c);
       const cw = (gridW - gap * (c - 1)) / c;
       const chh = (gridH - gap * (rows - 1)) / rows;
-      const score = Math.min(cw / 0.8, chh) - (c > 1 && n % c !== 0 ? 6 * u : 0);
+      const score = Math.min(cw, Math.min(chh, cw * 1.3)) - (c > 1 && n % c !== 0 ? 6 * u : 0);
       if (score > best + 1) {
         best = score;
         cols = c;
@@ -72,7 +72,7 @@ const TeamGridPhotos: React.FC<Props> = (p) => {
   cols = Math.max(1, Math.min(cols, n));
   const rows = Math.ceil(n / cols);
   const cw = (gridW - gap * (cols - 1)) / cols;
-  const chh = Math.min((gridH - gap * (rows - 1)) / rows, cw * 1.5);
+  const chh = Math.min((gridH - gap * (rows - 1)) / rows, cw * 1.3);
   const gridTotalH = chh * rows + gap * (rows - 1);
   const topY = gridY + Math.max(0, (gridH - gridTotalH) / 2);
 
@@ -110,9 +110,9 @@ const TeamGridPhotos: React.FC<Props> = (p) => {
           const acy = y + chh * 0.07 + d / 2 + 6 * u;
           const ringT = prog(f, s0 + 6, s0 + 30, ease.out);
           const name = pe.name || '';
-          const nameSize = fitLine(name, 'sans', Math.min(40 * u, chh * 0.14), cw - 30 * u);
+          const nameSize = fitLine(name, 'sans', Math.min(40 * u, chh * 0.14), (cw - 30 * u) * 0.88);
           const role = pe.role || '';
-          const roleSize = fitLine(role, 'sans', Math.min(28 * u, chh * 0.1), cw - 30 * u);
+          const roleSize = fitLine(role, 'sans', Math.min(28 * u, chh * 0.1), (cw - 30 * u) * 0.88);
           const circ = p.shape !== 'rounded';
           const R = d / 2 + 9 * u;
           return (

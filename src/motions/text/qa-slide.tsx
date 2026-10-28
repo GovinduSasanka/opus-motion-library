@@ -55,27 +55,30 @@ const QaSlide: React.FC<Props> = (p) => {
   const badge = (portrait ? 78 : 84) * u;
   const qX = m + badge + 34 * u;
   const qW = w - m - qX;
-  const qTop = h * (portrait ? 0.15 : 0.17);
-  const qBoxH = h * (portrait ? 0.27 : 0.27);
+  const qBoxH = h * (portrait ? 0.26 : 0.26);
   const qBox = wrapFit(it.question, font, (portrait ? 68 : 66) * u, qW, qBoxH, 1.18, 24 * u);
   const qIn = prog(t, 0, 20, ease.out);
   const qWords = qBox.lines.map((l) => l.split(' ').filter(Boolean));
   const qN = qWords.reduce((a, b) => a + b.length, 0);
 
-  const aTop = h * (portrait ? 0.5 : 0.56);
-  const aH = h * (portrait ? 0.38 : 0.31);
   const aPad = 44 * u;
   const aX = m;
   const aW = w - 2 * m;
   const aTextX = aX + aPad + badge * 0.9 + 28 * u;
-  const aBox = wrapFit(it.answer, 'sans', (portrait ? 46 : 44) * u, aX + aW - aPad - aTextX, aH - 2 * aPad, 1.34, 20 * u);
+  const aBox = wrapFit(it.answer, 'sans', (portrait ? 46 : 44) * u, aX + aW - aPad - aTextX, h * (portrait ? 0.3 : 0.28), 1.34, 20 * u);
+  const qBlockH = Math.max(badge, badge * 0.62 + (qBox.lines.length - 1) * qBox.lineH + qBox.size * 0.5);
+  const aH = Math.max(badge + 2 * aPad, aBox.lines.length * aBox.lineH + 2 * aPad);
+  const blockTotal = qBlockH + 64 * u + aH;
+  const blockTop = 150 * u + Math.max(0, (h - 150 * u - 40 * u - blockTotal) / 2);
+  const qTop = blockTop;
+  const aTop = blockTop + qBlockH + 64 * u;
   const aCardIn = prog(t, 40, 62, ease.out);
   const aStart = 94;
   const aWords = aBox.lines.map((l) => l.split(' ').filter(Boolean));
   const aN = aWords.reduce((a, b) => a + b.length, 0);
   const aDur = Math.min(60, 14 + aN * 2.6);
   const dotsA = prog(t, 58, 70, ease.out) * (1 - prog(t, aStart - 8, aStart + 4, ease.in));
-  const aTextY0 = aTop + (aH - aBox.lines.length * aBox.lineH) / 2;
+  const aTextY0 = aTop + aPad;
 
   let qi = 0;
   let ai = 0;

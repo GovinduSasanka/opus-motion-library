@@ -1079,6 +1079,183 @@
     "film-look"
    ],
    "notes": "Pass your brand colours in palette. speed is an integer (laps per loop). Put headline text in HTML on top."
+  },
+  "hand-drawn-arrow-callout": {
+   "overlay": true,
+   "overlayProps": {
+    "demoBackground": false
+   },
+   "roles": [
+    "frame",
+    "accent"
+   ],
+   "weight": "light",
+   "textProps": [
+    "callouts"
+   ],
+   "loopable": false,
+   "pairsWith": [
+    "cursor-driver",
+    "keystroke-hud",
+    "scribble-circle-highlight"
+   ],
+   "notes": "Transparent overlay: stack on a screen recording; x/y of each callout are 0-1 target points. demoBackground:true only for previews.",
+   "avoid": "Replace the sample labels (Click here / Watch this bar / Then save)."
+  },
+  "scribble-circle-highlight": {
+   "overlay": true,
+   "overlayProps": {
+    "demoBackground": false
+   },
+   "roles": [
+    "frame",
+    "accent"
+   ],
+   "weight": "light",
+   "textProps": [
+    "marks"
+   ],
+   "loopable": false,
+   "pairsWith": [
+    "cursor-driver",
+    "hand-drawn-arrow-callout",
+    "spotlight-dim-focus"
+   ],
+   "notes": "Transparent overlay: marks are 0-1 regions (x,y = top-left). Types: circle, underline, box, highlight.",
+   "avoid": "Replace the sample labels (New project / Spot the dip / Total)."
+  },
+  "spotlight-dim-focus": {
+   "overlay": true,
+   "overlayProps": {
+    "demoBackground": false
+   },
+   "roles": [
+    "frame",
+    "accent"
+   ],
+   "weight": "light",
+   "textProps": [
+    "regions"
+   ],
+   "loopable": false,
+   "pairsWith": [
+    "cursor-driver",
+    "tooltip-pointer",
+    "numbered-step-badges"
+   ],
+   "notes": "Only a dark veil with a cut-out is drawn, so it sits on any footage. regions glide in order; hold/move set the pacing.",
+   "avoid": "Replace the sample captions (Start with a search / Read the chart ...)."
+  },
+  "zoom-inset-box": {
+   "overlay": true,
+   "overlayProps": {
+    "demoBackground": false
+   },
+   "roles": [
+    "frame",
+    "accent"
+   ],
+   "weight": "light",
+   "textProps": [
+    "zooms"
+   ],
+   "loopable": false,
+   "pairsWith": [
+    "cursor-driver",
+    "hand-drawn-arrow-callout",
+    "click-ripple-markers"
+   ],
+   "notes": "Pass src = a still of the same footage frame so the inset magnifies the real picture; without src it magnifies the built-in mock screen.",
+   "imageProps": [
+    "src"
+   ]
+  },
+  "numbered-step-badges": {
+   "overlay": true,
+   "overlayProps": {
+    "demoBackground": false
+   },
+   "roles": [
+    "frame",
+    "accent"
+   ],
+   "weight": "light",
+   "textProps": [
+    "steps"
+   ],
+   "loopable": false,
+   "pairsWith": [
+    "cursor-driver",
+    "tooltip-pointer",
+    "spotlight-dim-focus"
+   ],
+   "notes": "Transparent overlay: steps are 0-1 points; badgeStyle circle|pin|square. pin badges sit above their point, so keep pin points below ~15% of the frame height.",
+   "avoid": "Replace the sample captions (Search for a file / Pick a chart ...)."
+  },
+  "blur-redact-region": {
+   "overlay": true,
+   "overlayProps": {
+    "demoBackground": false
+   },
+   "roles": [
+    "frame",
+    "accent"
+   ],
+   "weight": "light",
+   "textProps": [
+    "regions"
+   ],
+   "loopable": false,
+   "pairsWith": [
+    "cursor-driver",
+    "keystroke-hud",
+    "spotlight-dim-focus"
+   ],
+   "notes": "blur frosts whatever is composited beneath (backdrop blur): use it inside a mix or over HTML. In a transparent alpha export it shows only the tint and mosaic, so prefer mode \"bar\" or \"pixelate\" there.",
+   "avoid": "Replace the sample labels (Blurred / Pixelated / Hidden)."
+  },
+  "click-ripple-markers": {
+   "overlay": true,
+   "overlayProps": {
+    "demoBackground": false
+   },
+   "roles": [
+    "frame",
+    "accent"
+   ],
+   "weight": "light",
+   "textProps": [
+    "clicks"
+   ],
+   "loopable": false,
+   "pairsWith": [
+    "cursor-driver",
+    "keystroke-hud",
+    "zoom-inset-box"
+   ],
+   "notes": "Transparent overlay: clicks are 0-1 points with a frame `at`; timestamps are derived from `at` at 30 fps."
+  },
+  "tooltip-pointer": {
+   "overlay": true,
+   "overlayProps": {
+    "demoBackground": false
+   },
+   "roles": [
+    "frame",
+    "accent"
+   ],
+   "weight": "light",
+   "textProps": [
+    "tips"
+   ],
+   "loopable": false,
+   "pairsWith": [
+    "cursor-driver",
+    "spotlight-dim-focus",
+    "numbered-step-badges"
+   ],
+   "notes": "Transparent overlay: tips are 0-1 target points; sequence mode shows one at a time, stack keeps all.",
+   "avoid": "Replace the sample tip titles and text (Search / Live chart / Save)."
   }
  }
 }

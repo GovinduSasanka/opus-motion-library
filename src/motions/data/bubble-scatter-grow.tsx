@@ -19,6 +19,7 @@ type Props = {
   ySuffix: string;
   xDecimals: number;
   yDecimals: number;
+  zeroBased: boolean;
   showLabels: boolean;
   labelTop: number;
   maxRadius: number;
@@ -45,6 +46,21 @@ const DEFAULT_POINTS: Pt[] = [
   {label: 'Juniper', x: 20, y: 24, size: 25, group: 'South'},
 ];
 
+const hexRgb = (hex: string): [number, number, number] | null => {
+  const m = /^#?([0-9a-f]{3}|[0-9a-f]{6})$/i.exec((hex || '').trim());
+  if (!m) return null;
+  let s = m[1];
+  if (s.length === 3) s = s.split('').map((c) => c + c).join('');
+  return [0, 2, 4].map((i) => parseInt(s.slice(i, i + 2), 16)) as [number, number, number];
+};
+/** colour of a translucent fill over the page, so label text contrast is judged on what is really seen */
+const blend = (fg: string, bg: string, a: number) => {
+  const f = hexRgb(fg);
+  const b = hexRgb(bg);
+  if (!f || !b) return fg;
+  return '#' + f.map((v, i) => Math.round(b[i] + (v - b[i]) * a).toString(16).padStart(2, '0')).join('');
+};
+
 const BubbleScatterGrow: React.FC<Props> = ({
   points,
   title,
@@ -58,6 +74,7 @@ const BubbleScatterGrow: React.FC<Props> = ({
   ySuffix,
   xDecimals,
   yDecimals,
+  zeroBased,
   showLabels,
   labelTop,
   maxRadius,
@@ -85,8 +102,15 @@ const BubbleScatterGrow: React.FC<Props> = ({
   // axis ranges
   const xs = pts.length ? pts.map((p) => p.x) : [0, 1];
   const ys = pts.length ? pts.map((p) => p.y) : [0, 1];
-  const xr = niceScale(Math.min(...xs) >= 0 ? 0 : Math.min(...xs), Math.max(...xs, 1), 5);
-  const yr = niceScale(Math.min(...ys) >= 0 ? 0 : Math.min(...ys), Math.max(...ys, 1), 5);
+  const rng2 = (a: number[]) => {
+    const lo = Math.min(...a);
+    const hi = Math.max(...a);
+    if (zeroBased) return niceScale(lo >= 0 ? 0 : lo, Math.max(hi, 1e-6), 5);
+    const pad = (hi - lo || Math.abs(hi) || 1) * 0.12;
+    return niceScale(lo - pad, hi + pad, 5);
+  };
+  const xr = rng2(xs);
+  const yr = rng2(ys);
   const tickSize = (portrait ? 26 : 22) * u;
   const axisTitleSize = (portrait ? 28 : 24) * u;
   const showLegend = groups.length > 1;
@@ -107,7 +131,7 @@ const BubbleScatterGrow: React.FC<Props> = ({
   const footH = tickSize * 1.6 + (xLabel ? axisTitleSize * 1.5 : 0) + legH + (showLegend ? 18 * u : 0);
   const px0 = box.x + yAxisW;
   const px1 = box.x + box.w - 18 * u;
-  const py0 = box.y + (portrait ? axisTitleSize * 1.3 : 12 * u) + (yLabel && portrait ? 0 : 0);
+  const py0 = box.y + (portrait ? axisTitleSize * 2.1 : 28 * u);
   const py1 = box.y + box.h - footH;
   const sx = (v: number) => px0 + ((v - xr.min) / (xr.max - xr.min || 1)) * (px1 - px0);
   const sy = (v: number) => py1 - ((v - yr.min) / (yr.max - yr.min || 1)) * (py1 - py0);
@@ -190,7 +214,7 @@ const BubbleScatterGrow: React.FC<Props> = ({
           ) : null}
           {yLabel ? (
             portrait ? (
-              <text x={box.x} y={py0 - axisTitleSize * 0.55} fontFamily={font} fontWeight={700} fontSize={axisTitleSize} fill={ink} fillOpacity={0.85} letterSpacing={axisTitleSize * 0.03}>
+              <text x={box.x} y={box.y + axisTitleSize * 0.9} fontFamily={font} fontWeight={700} fontSize={axisTitleSize} fill={ink} fillOpacity={0.85} letterSpacing={axisTitleSize * 0.03}>
                 {yLabel}
               </text>
             ) : (
@@ -200,7 +224,7 @@ const BubbleScatterGrow: React.FC<Props> = ({
             )
           ) : null}
           {sizeLabel ? (
-            <text x={px1} y={py0 - (portrait ? axisTitleSize * 0.55 : -axisTitleSize * 0.2)} textAnchor="end" fontFamily={font} fontWeight={500} fontSize={axisTitleSize * 0.82} fill={ink} fillOpacity={0.5}>
+            <text x={px1} y={portrait ? box.y + axisTitleSize * 0.9 : py0 - 14 * u} textAnchor="end" fontFamily={font} fontWeight={500} fontSize={axisTitleSize * 0.82} fill={ink} fillOpacity={0.5}>
               {clip(sizeLabel, (px1 - px0) * 0.5, axisTitleSize * 0.82)}
             </text>
           ) : null}
@@ -213,7 +237,7 @@ const BubbleScatterGrow: React.FC<Props> = ({
           if (g <= 0) return null;
           const col = colorOf(p, i);
           const isHl = i === hlIdx;
-          const dim = hlIdx >= 0 && !isHl ? 1 - 0.65 * hlT : 1;
+          const dim = hlIdx >= 0 && !isHl ? 1 - 0.5 * hlT : 1;
           const rr = b.r * g * (isHl ? 1 + 0.12 * hlT : 1);
           return (
             <g key={'b' + i} opacity={dim}>
@@ -239,7 +263,7 @@ const BubbleScatterGrow: React.FC<Props> = ({
               fontFamily={font}
               fontWeight={700}
               fontSize={fs}
-              fill={lp.inside ? textOn(col) : ink}
+              fill={lp.inside ? textOn(blend(col, background, bubbleOpacity)) : ink}
               stroke={lp.inside ? 'none' : bgSolid}
               strokeWidth={5 * u}
               strokeLinejoin="round"
@@ -296,6 +320,7 @@ export const bubbleScatterGrow = defineMotion<Props>({
     ySuffix: '%',
     xDecimals: 0,
     yDecimals: 0,
+    zeroBased: true,
     showLabels: true,
     labelTop: 0,
     maxRadius: 96,
@@ -321,6 +346,7 @@ export const bubbleScatterGrow = defineMotion<Props>({
     ySuffix: 'text after y-axis numbers, e.g. "%"',
     xDecimals: 'decimals on x-axis numbers',
     yDecimals: 'decimals on y-axis numbers',
+    zeroBased: 'start both axes at zero (false zooms to the data range)',
     showLabels: 'print bubble labels (inside when they fit, else beside, skipping collisions)',
     labelTop: 'only label the N largest bubbles (0 = all that fit)',
     maxRadius: 'radius of the largest bubble in u (capped to the plot size)',

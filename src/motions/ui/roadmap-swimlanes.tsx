@@ -96,17 +96,20 @@ const RoadmapSwimlanes: React.FC<Props> = (p) => {
   });
   const totalRows = packed.reduce((a, b) => a + b.rows, 0);
   const nameH = portrait ? 46 * u : 0;
-  const availH = lanesBottom - lanesTop - laneGap * (lanes.length - 1) - nameH * lanes.length;
-  const itemH = Math.min((portrait ? 84 : 86) * u, availH / totalRows - 12 * u);
-  const rowStep = itemH + 12 * u;
+  const availH = lanesBottom - lanesTop - laneGap * (lanes.length - 1);
+  const perRow = (availH - nameH * lanes.length) / totalRows;
+  const itemH = Math.min((portrait ? 200 : 120) * u, perRow - 16 * u);
+  const rowStep = Math.min(perRow, itemH + (portrait ? 130 : 76) * u);
 
   let yCursor = lanesTop;
   const laneBoxes = packed.map((pl) => {
-    const bh = pl.rows * rowStep + 12 * u + nameH;
+    const bh = pl.rows * rowStep + nameH;
     const box = {y: yCursor, h: bh};
     yCursor += bh + laneGap;
     return box;
   });
+
+  const lanesEnd = yCursor - laneGap + 14 * u;
 
   // global order of items for stagger
   const order: Record<string, number> = {};
@@ -141,7 +144,7 @@ const RoadmapSwimlanes: React.FC<Props> = (p) => {
               <text x={gx + i * qW + qW / 2} y={headY + headH * 0.66} textAnchor="middle" fontFamily={sans} fontWeight={800} fontSize={fitLine(q, 'sans', 28 * u, qW - 20 * u, 0.06)} letterSpacing={0.06 * 28 * u} fill={withAlpha(p.ink, 0.8)}>
                 {q}
               </text>
-              <line x1={gx + i * qW} x2={gx + i * qW} y1={headY + headH + 6 * u} y2={(headY + headH + 6 * u) + (lanesBottom - headY - headH - 6 * u) * prog(f, 10 + i * 4, 50 + i * 4, ease.out)} stroke={withAlpha(p.ink, 0.12)} strokeWidth={2 * u} strokeDasharray={`${6 * u} ${8 * u}`} />
+              <line x1={gx + i * qW} x2={gx + i * qW} y1={headY + headH + 6 * u} y2={(headY + headH + 6 * u) + (lanesEnd - headY - headH - 6 * u) * prog(f, 10 + i * 4, 50 + i * 4, ease.out)} stroke={withAlpha(p.ink, 0.12)} strokeWidth={2 * u} strokeDasharray={`${6 * u} ${8 * u}`} />
             </g>
           );
         })}
@@ -179,30 +182,29 @@ const RoadmapSwimlanes: React.FC<Props> = (p) => {
                 const pop = backOut(prog(f, s0, s0 + 22, ease.linear), 1.2);
                 const x = gx + it.start * qW + 4 * u;
                 const bw = (it.end - it.start) * qW - 8 * u;
-                const y = box.y + nameH + 12 * u + it.row * rowStep;
+                const y = box.y + nameH + (rowStep - itemH) / 2 + it.row * rowStep;
                 const done = it.end <= nowQ + 1e-6;
                 const doing = !done && it.start < nowQ;
                 const solid = done;
                 const fill = solid ? col : mixHex(bg, col, 0.22);
                 const txt = solid ? (hexLum(col) > 0.55 ? '#10131A' : '#FFFFFF') : p.ink;
                 const prgW = doing ? clamp((nowQ - it.start) / (it.end - it.start)) * bw * sweep : 0;
-                const size0 = Math.min(itemH * 0.38, 30 * u);
-                const avail = bw - 34 * u - (done ? itemH * 0.5 : 0);
-                let label = it.label || '';
-                let size = fitLine(label, 'sans', size0, avail);
-                if (size < 15 * u) {
-                  size = 15 * u;
-                  while (label.length > 3 && estWidth(label + '…', size, 'sans') > avail) label = label.slice(0, -1);
-                  label = label + '…';
-                }
+                const size0 = Math.min(itemH * 0.36, 30 * u);
+                const showCheck = done && bw > 300 * u;
+                const avail = (bw - 34 * u - (showCheck ? itemH * 0.55 : 0)) * 0.92;
+                const lb = wrapFit(it.label || '', 'sans', size0, avail, itemH - (doing ? 32 : 20) * u, 1.14, 15 * u);
+                const blockH = lb.lines.length * lb.lineH;
+                const ty0 = y + (itemH - (doing ? 12 * u : 0) - blockH) / 2;
                 return (
                   <g key={ii} opacity={a} transform={`translate(${(1 - pop) * -70 * u} 0)`}>
                     <rect x={x} y={y} width={bw} height={itemH} rx={16 * u} fill={fill} stroke={solid ? 'none' : col} strokeWidth={2.5 * u} />
                     {doing && <rect x={x + 10 * u} y={y + itemH - 14 * u} width={Math.max(0, prgW - 20 * u)} height={6 * u} rx={3 * u} fill={col} />}
-                    <text x={x + 20 * u} y={y + itemH / 2 + size * 0.34 - (doing ? 5 * u : 0)} fontFamily={sans} fontWeight={700} fontSize={size} fill={txt}>
-                      {label}
-                    </text>
-                    {done && (
+                    {lb.lines.map((ln, j) => (
+                      <text key={j} x={x + 20 * u} y={ty0 + j * lb.lineH + lb.size * 0.88} fontFamily={sans} fontWeight={700} fontSize={lb.size} fill={txt}>
+                        {ln}
+                      </text>
+                    ))}
+                    {showCheck && (
                       <path d={`M${x + bw - itemH * 0.62} ${y + itemH * 0.52} l${itemH * 0.14} ${itemH * 0.14} l${itemH * 0.26} ${-itemH * 0.28}`} fill="none" stroke={txt} strokeWidth={4 * u} strokeLinecap="round" strokeLinejoin="round" />
                     )}
                   </g>
@@ -214,14 +216,14 @@ const RoadmapSwimlanes: React.FC<Props> = (p) => {
 
         {/* now line */}
         <g opacity={prog(f, 24, 40, ease.out)}>
-          <line x1={nowX} x2={nowX} y1={headY - 6 * u} y2={lanesBottom + 8 * u} stroke={p.accent} strokeWidth={4 * u} />
+          <line x1={nowX} x2={nowX} y1={headY - 6 * u} y2={lanesEnd + 8 * u} stroke={p.accent} strokeWidth={4 * u} />
           <g transform={`translate(${nowX} ${headY - 6 * u})`}>
             <rect x={-(estWidth(p.nowLabel, 24 * u, 'sans', 0.05) + 36 * u) / 2} y={-44 * u} width={estWidth(p.nowLabel, 24 * u, 'sans', 0.05) + 36 * u} height={40 * u} rx={20 * u} fill={p.accent} />
             <text x={0} y={-16 * u} textAnchor="middle" fontFamily={sans} fontWeight={800} fontSize={22 * u} letterSpacing={0.05 * 22 * u} fill={hexLum(p.accent) > 0.55 ? '#10131A' : '#FFFFFF'}>
               {p.nowLabel}
             </text>
           </g>
-          <circle cx={nowX} cy={lanesBottom + 8 * u} r={(7 + 3 * Math.sin(f / 5) * (sweep >= 1 ? 1 : 0)) * u} fill={p.accent} />
+          <circle cx={nowX} cy={lanesEnd + 8 * u} r={(7 + 3 * Math.sin(f / 5) * (sweep >= 1 ? 1 : 0)) * u} fill={p.accent} />
         </g>
       </Svg>
     </AbsoluteFill>

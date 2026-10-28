@@ -51,7 +51,7 @@ const BigStatSlide: React.FC<Props> = (p) => {
   const widthAt = (s: number) => estWidth(finalStr, s, font, -0.02) + estWidth(p.prefix, s * AFF, font) + estWidth(p.suffix, s * AFF, font);
   const S = Math.min(base, base * (maxW / Math.max(1, widthAt(base))));
 
-  const baseline = h * (portrait ? 0.47 : 0.57);
+  const baseline = h * (portrait ? 0.5 : 0.57);
   const landed = prog(f, 12 + count, 12 + count + 14, ease.out);
   const pulse = 1 + 0.025 * Math.sin(landed * Math.PI);
   const numIn = prog(f, 4, 26, ease.out);
@@ -66,7 +66,7 @@ const BigStatSlide: React.FC<Props> = (p) => {
   const barW = Math.min(maxW, Math.max(260 * u, widthAt(S) * 0.5));
   const srcSize = fitLine(p.source, 'sans', (portrait ? 28 : 26) * u, maxW);
 
-  const ringC = {x: portrait ? w * 0.78 : w * 0.8, y: portrait ? h * 0.36 : h * 0.46};
+  const ringC = {x: portrait ? w * 0.78 : w * 0.8, y: portrait ? h * 0.76 : h * 0.46};
   const ringR = (portrait ? 330 : 380) * u;
 
   return (
@@ -91,7 +91,7 @@ const BigStatSlide: React.FC<Props> = (p) => {
         )}
 
         <g opacity={numIn} transform={`translate(${m} ${baseline}) scale(${pulse}) translate(${-m} ${-baseline}) translate(0 ${(1 - numIn) * 40 * u})`}>
-          <text x={m} y={baseline} fontFamily={fam} fontWeight={700} fontSize={S} letterSpacing={-0.02 * S} fill={p.ink} style={{fontVariantNumeric: 'tabular-nums'}}>
+          <text x={m} y={baseline} fontFamily={fam} fontWeight={700} fontSize={S} letterSpacing={-0.02 * S} fill={p.ink} style={{fontVariantNumeric: 'lining-nums tabular-nums'}}>
             {p.prefix && (
               <tspan fontSize={S * AFF} fill={p.accent} dy={-S * 0.2} letterSpacing={0}>
                 {p.prefix}

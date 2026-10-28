@@ -10675,6 +10675,10 @@
     "default": 0,
     "doc": "decimals on y-axis numbers"
    },
+   "zeroBased": {
+    "default": true,
+    "doc": "start both axes at zero (false zooms to the data range)"
+   },
    "showLabels": {
     "default": true,
     "doc": "print bubble labels (inside when they fit, else beside, skipping collisions)"
@@ -14203,7 +14207,7 @@
     "doc": "seed for the sample data used when values is empty"
    },
    "startDate": {
-    "default": "2025-01-05",
+    "default": "2025-01-01",
     "doc": "date of the first value, \"YYYY-MM-DD\" (drives month labels and weekday alignment)"
    },
    "weekStart": {
@@ -18876,7 +18880,9 @@
      "#8E5CF0",
      "#E5487F",
      "#5BC0EB",
-     "#7A8794"
+     "#7A8794",
+     "#9BCB3C",
+     "#D96C6C"
     ],
     "doc": "palette for tiles without their own colour"
    },
@@ -35035,12 +35041,16 @@
    "lock"
   ],
   "file": "src/motions/hud/blur-redact-region.tsx",
-  "overlay": false,
-  "overlayProps": null,
+  "overlay": true,
+  "overlayProps": {
+   "demoBackground": false
+  },
   "takesImage": false,
   "imageProps": [],
-  "takesText": false,
-  "textProps": [],
+  "takesText": true,
+  "textProps": [
+   "regions"
+  ],
   "colorProps": [
    "tint",
    "outline",
@@ -35054,7 +35064,8 @@
    "pixel"
   ],
   "roles": [
-   "subject"
+   "frame",
+   "accent"
   ],
   "weight": "light",
   "formats": [
@@ -35062,12 +35073,18 @@
    "square",
    "portrait"
   ],
-  "pairsWith": [],
+  "pairsWith": [
+   "cursor-driver",
+   "keystroke-hud",
+   "spotlight-dim-focus"
+  ],
+  "notes": "blur frosts whatever is composited beneath (backdrop blur): use it inside a mix or over HTML. In a transparent alpha export it shows only the tint and mosaic, so prefer mode \"bar\" or \"pixelate\" there.",
+  "avoid": "Replace the sample labels (Blurred / Pixelated / Hidden).",
   "props": {
    "regions": {
     "default": [
      {
-      "x": 0.12000000000000001,
+      "x": 0.12,
       "y": 0.03,
       "w": 0.2,
       "h": 0.028,
@@ -35075,16 +35092,16 @@
       "label": "Blurred"
      },
      {
-      "x": 0.12000000000000001,
-      "y": 0.6200000000000001,
+      "x": 0.12,
+      "y": 0.62,
       "w": 0.12,
       "h": 0.05,
       "mode": "pixelate",
       "label": "Pixelated"
      },
      {
-      "x": 0.15000000000000002,
-      "y": 0.8400000000000001,
+      "x": 0.15,
+      "y": 0.84,
       "w": 0.26,
       "h": 0.05,
       "mode": "bar",
@@ -35431,12 +35448,16 @@
    "interaction"
   ],
   "file": "src/motions/hud/click-ripple-markers.tsx",
-  "overlay": false,
-  "overlayProps": null,
+  "overlay": true,
+  "overlayProps": {
+   "demoBackground": false
+  },
   "takesImage": false,
   "imageProps": [],
-  "takesText": false,
-  "textProps": [],
+  "takesText": true,
+  "textProps": [
+   "clicks"
+  ],
   "colorProps": [
    "color",
    "accent",
@@ -35447,7 +35468,8 @@
   "bestLength": 180,
   "mood": [],
   "roles": [
-   "subject"
+   "frame",
+   "accent"
   ],
   "weight": "light",
   "formats": [
@@ -35455,12 +35477,17 @@
    "square",
    "portrait"
   ],
-  "pairsWith": [],
+  "pairsWith": [
+   "cursor-driver",
+   "keystroke-hud",
+   "zoom-inset-box"
+  ],
+  "notes": "Transparent overlay: clicks are 0-1 points with a frame `at`; timestamps are derived from `at` at 30 fps.",
   "props": {
    "clicks": {
     "default": [
      {
-      "x": 0.8500000000000001,
+      "x": 0.85,
       "y": 0.044,
       "kind": "click",
       "at": 16
@@ -36224,12 +36251,16 @@
    "sketch"
   ],
   "file": "src/motions/hud/hand-drawn-arrow-callout.tsx",
-  "overlay": false,
-  "overlayProps": null,
+  "overlay": true,
+  "overlayProps": {
+   "demoBackground": false
+  },
   "takesImage": false,
   "imageProps": [],
-  "takesText": false,
-  "textProps": [],
+  "takesText": true,
+  "textProps": [
+   "callouts"
+  ],
   "colorProps": [
    "color",
    "labelBg",
@@ -36241,7 +36272,8 @@
    "paper"
   ],
   "roles": [
-   "subject"
+   "frame",
+   "accent"
   ],
   "weight": "light",
   "formats": [
@@ -36249,13 +36281,19 @@
    "square",
    "portrait"
   ],
-  "pairsWith": [],
+  "pairsWith": [
+   "cursor-driver",
+   "keystroke-hud",
+   "scribble-circle-highlight"
+  ],
+  "notes": "Transparent overlay: stack on a screen recording; x/y of each callout are 0-1 target points. demoBackground:true only for previews.",
+  "avoid": "Replace the sample labels (Click here / Watch this bar / Then save).",
   "props": {
    "callouts": {
     "default": [
      {
-      "x": 0.8500000000000001,
-      "y": 0.07200000000000001,
+      "x": 0.85,
+      "y": 0.072,
       "label": "Click here",
       "lx": 0.72,
       "ly": 0.2,
@@ -36938,12 +36976,16 @@
    "sequence"
   ],
   "file": "src/motions/hud/numbered-step-badges.tsx",
-  "overlay": false,
-  "overlayProps": null,
+  "overlay": true,
+  "overlayProps": {
+   "demoBackground": false
+  },
   "takesImage": false,
   "imageProps": [],
-  "takesText": false,
-  "textProps": [],
+  "takesText": true,
+  "textProps": [
+   "steps"
+  ],
   "colorProps": [
    "accent",
    "badgeInk",
@@ -36957,7 +36999,8 @@
    "editorial"
   ],
   "roles": [
-   "subject"
+   "frame",
+   "accent"
   ],
   "weight": "light",
   "formats": [
@@ -36965,7 +37008,13 @@
    "square",
    "portrait"
   ],
-  "pairsWith": [],
+  "pairsWith": [
+   "cursor-driver",
+   "tooltip-pointer",
+   "spotlight-dim-focus"
+  ],
+  "notes": "Transparent overlay: steps are 0-1 points; badgeStyle circle|pin|square. pin badges sit above their point, so keep pin points below ~15% of the frame height.",
+  "avoid": "Replace the sample captions (Search for a file / Pick a chart ...).",
   "props": {
    "steps": {
     "default": [
@@ -37439,12 +37488,16 @@
    "emphasis"
   ],
   "file": "src/motions/hud/scribble-circle-highlight.tsx",
-  "overlay": false,
-  "overlayProps": null,
+  "overlay": true,
+  "overlayProps": {
+   "demoBackground": false
+  },
   "takesImage": false,
   "imageProps": [],
-  "takesText": false,
-  "textProps": [],
+  "takesText": true,
+  "textProps": [
+   "marks"
+  ],
   "colorProps": [
    "color"
   ],
@@ -37455,7 +37508,8 @@
    "photo"
   ],
   "roles": [
-   "subject"
+   "frame",
+   "accent"
   ],
   "weight": "light",
   "formats": [
@@ -37463,7 +37517,13 @@
    "square",
    "portrait"
   ],
-  "pairsWith": [],
+  "pairsWith": [
+   "cursor-driver",
+   "hand-drawn-arrow-callout",
+   "spotlight-dim-focus"
+  ],
+  "notes": "Transparent overlay: marks are 0-1 regions (x,y = top-left). Types: circle, underline, box, highlight.",
+  "avoid": "Replace the sample labels (New project / Spot the dip / Total).",
   "props": {
    "marks": {
     "default": [
@@ -37477,7 +37537,7 @@
      },
      {
       "type": "box",
-      "x": 0.12000000000000001,
+      "x": 0.12,
       "y": 0.22,
       "w": 0.46,
       "h": 0.25,
@@ -37485,7 +37545,7 @@
      },
      {
       "type": "underline",
-      "x": 0.12000000000000001,
+      "x": 0.12,
       "y": 0.625,
       "w": 0.12,
       "h": 0.04
@@ -37708,12 +37768,16 @@
    "attention"
   ],
   "file": "src/motions/hud/spotlight-dim-focus.tsx",
-  "overlay": false,
-  "overlayProps": null,
+  "overlay": true,
+  "overlayProps": {
+   "demoBackground": false
+  },
   "takesImage": false,
   "imageProps": [],
-  "takesText": false,
-  "textProps": [],
+  "takesText": true,
+  "textProps": [
+   "regions"
+  ],
   "colorProps": [
    "dimColor",
    "ringColor",
@@ -37728,7 +37792,8 @@
    "night"
   ],
   "roles": [
-   "subject"
+   "frame",
+   "accent"
   ],
   "weight": "light",
   "formats": [
@@ -37736,7 +37801,13 @@
    "square",
    "portrait"
   ],
-  "pairsWith": [],
+  "pairsWith": [
+   "cursor-driver",
+   "tooltip-pointer",
+   "numbered-step-badges"
+  ],
+  "notes": "Only a dark veil with a cut-out is drawn, so it sits on any footage. regions glide in order; hold/move set the pacing.",
+  "avoid": "Replace the sample captions (Start with a search / Read the chart ...).",
   "props": {
    "regions": {
     "default": [
@@ -37758,7 +37829,7 @@
      },
      {
       "x": 0.39,
-      "y": 0.6000000000000001,
+      "y": 0.6,
       "w": 0.16,
       "h": 0.1,
       "shape": "circle",
@@ -38266,12 +38337,16 @@
    "walkthrough"
   ],
   "file": "src/motions/hud/tooltip-pointer.tsx",
-  "overlay": false,
-  "overlayProps": null,
+  "overlay": true,
+  "overlayProps": {
+   "demoBackground": false
+  },
   "takesImage": false,
   "imageProps": [],
-  "takesText": false,
-  "textProps": [],
+  "takesText": true,
+  "textProps": [
+   "tips"
+  ],
   "colorProps": [
    "accent"
   ],
@@ -38279,7 +38354,8 @@
   "bestLength": 240,
   "mood": [],
   "roles": [
-   "subject"
+   "frame",
+   "accent"
   ],
   "weight": "light",
   "formats": [
@@ -38287,13 +38363,19 @@
    "square",
    "portrait"
   ],
-  "pairsWith": [],
+  "pairsWith": [
+   "cursor-driver",
+   "spotlight-dim-focus",
+   "numbered-step-badges"
+  ],
+  "notes": "Transparent overlay: tips are 0-1 target points; sequence mode shows one at a time, stack keeps all.",
+  "avoid": "Replace the sample tip titles and text (Search / Live chart / Save).",
   "props": {
    "tips": {
     "default": [
      {
-      "x": 0.30000000000000004,
-      "y": 0.06999999999999999,
+      "x": 0.3,
+      "y": 0.07,
       "title": "Search",
       "text": "Find any project, file or teammate by typing a few letters."
      },
@@ -38395,14 +38477,18 @@
    "connector"
   ],
   "file": "src/motions/hud/zoom-inset-box.tsx",
-  "overlay": false,
-  "overlayProps": null,
+  "overlay": true,
+  "overlayProps": {
+   "demoBackground": false
+  },
   "takesImage": true,
   "imageProps": [
    "src"
   ],
-  "takesText": false,
-  "textProps": [],
+  "takesText": true,
+  "textProps": [
+   "zooms"
+  ],
   "colorProps": [
    "color",
    "borderColor",
@@ -38415,7 +38501,8 @@
    "photo"
   ],
   "roles": [
-   "subject"
+   "frame",
+   "accent"
   ],
   "weight": "light",
   "formats": [
@@ -38423,7 +38510,12 @@
    "square",
    "portrait"
   ],
-  "pairsWith": [],
+  "pairsWith": [
+   "cursor-driver",
+   "hand-drawn-arrow-callout",
+   "click-ripple-markers"
+  ],
+  "notes": "Pass src = a still of the same footage frame so the inset magnifies the real picture; without src it magnifies the built-in mock screen.",
   "props": {
    "zooms": {
     "default": [
@@ -63159,6 +63251,156 @@
   }
  },
  {
+  "id": "outline-to-fill-text",
+  "title": "Outline to fill text",
+  "category": "text",
+  "description": "A headline appears as hollow outlined letters, then each letter floods with solid colour one after another — rising like liquid with a wavy surface or wiping up, down, left or right (optional top-to-bottom gradient) — and can drain back to an outline; long text wraps and shrinks to fit.",
+  "useFor": "Bold website hero words, section titles, poster-style stat words, title cards and reel openers; works as a looping brand headline.",
+  "source": [
+   "original — generic kinetic-type effect (R3)"
+  ],
+  "durationInFrames": 170,
+  "tags": [
+   "text",
+   "outline",
+   "fill",
+   "stroke",
+   "liquid",
+   "headline",
+   "title",
+   "hero",
+   "reveal",
+   "wipe",
+   "typography",
+   "kinetic",
+   "website",
+   "overlay",
+   "hollow"
+  ],
+  "file": "src/motions/text/outline-to-fill-text.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "text",
+   "subtitle"
+  ],
+  "colorProps": [
+   "background",
+   "outline",
+   "fill",
+   "subtitleColor"
+  ],
+  "loopable": false,
+  "bestLength": 170,
+  "mood": [
+   "nature",
+   "playful",
+   "ui"
+  ],
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "text": {
+    "default": "Make it count",
+    "doc": "the headline (\\n = forced break; wraps and shrinks to fit)"
+   },
+   "subtitle": {
+    "default": "",
+    "doc": "optional small line under the headline"
+   },
+   "font": {
+    "default": "display",
+    "doc": "font role (heavy display faces read best)"
+   },
+   "size": {
+    "default": 190,
+    "doc": "max font size in u; shrinks to fit"
+   },
+   "weight": {
+    "default": 400,
+    "doc": "font weight"
+   },
+   "tracking": {
+    "default": 0.01,
+    "doc": "letter spacing in em"
+   },
+   "textCase": {
+    "default": "upper",
+    "doc": "upper | none"
+   },
+   "direction": {
+    "default": "up",
+    "doc": "wipe direction: up | down | left | right (liquid always rises)"
+   },
+   "surface": {
+    "default": "liquid",
+    "doc": "liquid (wavy rising surface) | wipe (hard straight edge)"
+   },
+   "fillDelay": {
+    "default": 14,
+    "doc": "frames after the outline appears before the first fill starts"
+   },
+   "stagger": {
+    "default": 2.6,
+    "doc": "frames between neighbouring letters starting to fill"
+   },
+   "fillFrames": {
+    "default": 24,
+    "doc": "frames one letter takes to fill"
+   },
+   "startAt": {
+    "default": 6,
+    "doc": "frame the outline starts appearing"
+   },
+   "cycle": {
+    "default": "fill-unfill",
+    "doc": "fill (stay filled) | fill-unfill (drain back to outline at the end)"
+   },
+   "holdFilled": {
+    "default": 34,
+    "doc": "frames the filled text holds before it drains"
+   },
+   "stroke": {
+    "default": 0.03,
+    "doc": "outline weight as a fraction of the font size"
+   },
+   "background": {
+    "default": "#0E0E12",
+    "doc": "background colour; \"transparent\" for an overlay"
+   },
+   "outline": {
+    "default": "#F4F0E6",
+    "doc": "outline colour"
+   },
+   "fill": {
+    "default": "#FF4D2E",
+    "doc": "fill colour"
+   },
+   "fill2": {
+    "default": "",
+    "doc": "optional second colour: fill becomes a top-to-bottom gradient per letter (\"\" = solid)"
+   },
+   "subtitleColor": {
+    "default": "#BDB8AA",
+    "doc": "subtitle colour"
+   }
+  }
+ },
+ {
   "id": "paper-strip-title",
   "title": "Paper strip title (scroll unroll + seal)",
   "category": "text",
@@ -63275,6 +63517,146 @@
    "background": {
     "default": "backdrop",
     "doc": "\"backdrop\" or \"transparent\" (overlay over any scene, e.g. lightbox-stack)"
+   }
+  }
+ },
+ {
+  "id": "per-letter-wave",
+  "title": "Per-letter wave",
+  "category": "text",
+  "description": "Every letter rides a travelling wave: it lifts, scales, rocks or all three, so a crest runs through the words — smooth sine, bouncing hops, a single ripple or a swing — with crest letters shifting to the accent colour; letters pop in on a stagger, long text wraps, and the clip loops seamlessly.",
+  "useFor": "Playful titles, loading and waiting states, \"hello\" greetings, party / music / kids content, website hero words, looping caption accents; replace the text.",
+  "source": [
+   "original — generic kinetic-type effect (R3)"
+  ],
+  "durationInFrames": 150,
+  "tags": [
+   "text",
+   "wave",
+   "letters",
+   "per-letter",
+   "bounce",
+   "playful",
+   "hello",
+   "title",
+   "loop",
+   "typography",
+   "kinetic",
+   "website",
+   "loader",
+   "ripple",
+   "overlay"
+  ],
+  "file": "src/motions/text/per-letter-wave.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "text"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "3d",
+   "playful",
+   "ui"
+  ],
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "text": {
+    "default": "Let it flow",
+    "doc": "the text (\\n = forced break; wraps and shrinks to fit)"
+   },
+   "shape": {
+    "default": "sine",
+    "doc": "sine | bounce | ripple | swing — wave profile"
+   },
+   "effect": {
+    "default": "lift-scale",
+    "doc": "lift | scale | rotate | lift-scale — what the wave moves"
+   },
+   "amplitude": {
+    "default": 0.16,
+    "doc": "wave height as a fraction of the font size"
+   },
+   "wavelength": {
+    "default": 9,
+    "doc": "letters per wave (bigger = broader crest)"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "wave cycles per second (integer values loop seamlessly on the default 5 s)"
+   },
+   "colorWave": {
+    "default": true,
+    "doc": "letters shift towards the accent colour on the crest"
+   },
+   "entrance": {
+    "default": "pop",
+    "doc": "pop | rise | none — how letters first appear"
+   },
+   "enterStagger": {
+    "default": 1.8,
+    "doc": "frames between letters entering"
+   },
+   "startAt": {
+    "default": 4,
+    "doc": "frame the first letter enters"
+   },
+   "font": {
+    "default": "display",
+    "doc": "font role"
+   },
+   "size": {
+    "default": 200,
+    "doc": "max font size in u; shrinks to fit"
+   },
+   "weight": {
+    "default": 400,
+    "doc": "font weight"
+   },
+   "tracking": {
+    "default": 0.01,
+    "doc": "letter spacing in em"
+   },
+   "textCase": {
+    "default": "upper",
+    "doc": "upper | none"
+   },
+   "background": {
+    "default": "#FFF4E0",
+    "doc": "background colour; \"transparent\" for an overlay"
+   },
+   "ink": {
+    "default": "#1D1B3A",
+    "doc": "base letter colour"
+   },
+   "accent": {
+    "default": "#FF3D7F",
+    "doc": "crest colour"
+   },
+   "shadow": {
+    "default": false,
+    "doc": "soft drop shadow that follows each letter"
    }
   }
  },
@@ -64521,6 +64903,149 @@
   }
  },
  {
+  "id": "split-flap-board",
+  "title": "Split-flap board",
+  "category": "text",
+  "description": "A mechanical split-flap (Solari) departure board: a grid of two-half flap cells clatters through the alphabet, the upper flap folding down and the lower flap of the new letter dropping in, rippling across the board to spell each message in turn — auto-sized to the text, wrapped to the board width.",
+  "useFor": "Announcements, schedules, countdown/updates, retro tech titles, \"coming soon\" reveals, scoreboards and price boards; give it messages[] with \\n for rows.",
+  "source": [
+   "original — generic kinetic-type effect (R3)"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "text",
+   "split-flap",
+   "solari",
+   "departure board",
+   "flip",
+   "board",
+   "retro",
+   "schedule",
+   "announcement",
+   "scoreboard",
+   "ticker",
+   "typography",
+   "kinetic",
+   "mechanical"
+  ],
+  "file": "src/motions/text/split-flap-board.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "messages",
+   "title"
+  ],
+  "colorProps": [
+   "background",
+   "cellBg",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "pixel"
+  ],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "messages": {
+    "default": [
+     "WELCOME\nTO THE SHOW\nDOORS OPEN 7PM",
+     "SOLD OUT\nTONIGHT\nTHANK YOU"
+    ],
+    "doc": "array of messages shown one after another; \\n starts a new row, long rows wrap to the board width"
+   },
+   "title": {
+    "default": "Now showing",
+    "doc": "small label above the board (\"\" to hide)"
+   },
+   "accentRows": {
+    "default": [
+     0
+    ],
+    "doc": "row numbers (0-based) drawn in the accent colour"
+   },
+   "alphabet": {
+    "default": " ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.:-!?'/&,",
+    "doc": "characters the flaps cycle through, in order"
+   },
+   "columns": {
+    "default": 0,
+    "doc": "board width in cells (0 = fit the longest line, capped per format)"
+   },
+   "flipFrames": {
+    "default": 3,
+    "doc": "frames per single flap (2 = fast clatter, 5 = lazy)"
+   },
+   "maxFlips": {
+    "default": 12,
+    "doc": "most flaps a cell flips before landing (long cycles are shortened to this)"
+   },
+   "colStagger": {
+    "default": 1.5,
+    "doc": "frames between neighbouring columns starting to flip"
+   },
+   "rowStagger": {
+    "default": 5,
+    "doc": "frames between rows"
+   },
+   "jitter": {
+    "default": 5,
+    "doc": "random extra start delay per cell in frames"
+   },
+   "startAt": {
+    "default": 10,
+    "doc": "frame the first message starts flipping"
+   },
+   "hold": {
+    "default": 70,
+    "doc": "frames a message stays readable before the next one flips"
+   },
+   "uppercase": {
+    "default": true,
+    "doc": "upper-case all text (the default alphabet is upper-case)"
+   },
+   "font": {
+    "default": "grotesk",
+    "doc": "font role for the characters"
+   },
+   "weight": {
+    "default": 700,
+    "doc": "font weight"
+   },
+   "background": {
+    "default": "#121212",
+    "doc": "background colour; \"transparent\" for an overlay"
+   },
+   "cellBg": {
+    "default": "#232326",
+    "doc": "flap colour"
+   },
+   "ink": {
+    "default": "#F1E9D2",
+    "doc": "character colour"
+   },
+   "accent": {
+    "default": "#FFB320",
+    "doc": "title and accent-row colour"
+   }
+  }
+ },
+ {
   "id": "sponsor-slate",
   "title": "Sponsor slate",
   "category": "text",
@@ -64632,6 +65157,148 @@
    "fontFamily": {
     "default": "",
     "doc": "optional CSS font-family"
+   }
+  }
+ },
+ {
+  "id": "stacked-repeat-echo",
+  "title": "Stacked repeat echo",
+  "category": "text",
+  "description": "A headline repeated again and again behind itself: copies peel off the crisp front word one after another as offset outlines marching up or down (or alternating solid and hollow, a zooming tunnel, a diagonal trail or a fan), fading from one accent to a second, then breathing slowly.",
+  "useFor": "Bold poster-style hero words, music / fashion / sport titles, repeating-text backdrops behind a subject, section openers; replace the text and colours.",
+  "source": [
+   "original — generic kinetic-type effect (R3)"
+  ],
+  "durationInFrames": 150,
+  "tags": [
+   "text",
+   "echo",
+   "repeat",
+   "stack",
+   "outline",
+   "tunnel",
+   "trail",
+   "headline",
+   "title",
+   "poster",
+   "hero",
+   "typography",
+   "kinetic",
+   "music",
+   "fashion",
+   "overlay"
+  ],
+  "file": "src/motions/text/stacked-repeat-echo.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "text"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "accent2"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [],
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "text": {
+    "default": "Echo",
+    "doc": "the headline (\\n = forced break; wraps and shrinks to fit)"
+   },
+   "count": {
+    "default": 7,
+    "doc": "how many echoes behind the front word"
+   },
+   "mode": {
+    "default": "stack",
+    "doc": "stack (offset copies) | tunnel (growing copies) | diagonal (trail) | fan (rotating copies)"
+   },
+   "direction": {
+    "default": "up",
+    "doc": "stack mode: up | down | both"
+   },
+   "echoStyle": {
+    "default": "outline",
+    "doc": "outline | alternate (solid and hollow) | solid"
+   },
+   "spread": {
+    "default": 0.5,
+    "doc": "distance between echoes as a fraction of the font size"
+   },
+   "fade": {
+    "default": 1,
+    "doc": "0..1 how much the echoes fade towards the back"
+   },
+   "float": {
+    "default": 1,
+    "doc": "0..1 amount of slow breathing after the echoes settle"
+   },
+   "font": {
+    "default": "display",
+    "doc": "font role"
+   },
+   "size": {
+    "default": 260,
+    "doc": "max font size in u; shrinks so the stack fits"
+   },
+   "weight": {
+    "default": 400,
+    "doc": "font weight"
+   },
+   "tracking": {
+    "default": 0.01,
+    "doc": "letter spacing in em"
+   },
+   "textCase": {
+    "default": "upper",
+    "doc": "upper | none"
+   },
+   "startAt": {
+    "default": 6,
+    "doc": "frame the front word appears"
+   },
+   "stagger": {
+    "default": 3,
+    "doc": "frames between successive echoes peeling off"
+   },
+   "stroke": {
+    "default": 0.018,
+    "doc": "outline weight as a fraction of the font size"
+   },
+   "background": {
+    "default": "#101014",
+    "doc": "background colour; \"transparent\" for an overlay"
+   },
+   "ink": {
+    "default": "#F6F1E6",
+    "doc": "front word colour"
+   },
+   "accent": {
+    "default": "#FF4F6D",
+    "doc": "colour of the nearest echo"
+   },
+   "accent2": {
+    "default": "#5A6BFF",
+    "doc": "colour of the farthest echo"
    }
   }
  },
@@ -65093,6 +65760,298 @@
   }
  },
  {
+  "id": "text-on-circle-spin",
+  "title": "Text on a circle, spinning",
+  "category": "text",
+  "description": "Concentric rings of text that wrap a circle exactly — a phrase repeating with a separator, seam closed by adjusting the letter spacing — each spinning at its own speed and direction, solid or outlined, reading outward or inward, around a centre word that pops in; rings spin up on a stagger.",
+  "useFor": "Badge / seal / stamp logos, rotating \"coming soon\" or \"limited edition\" rings, music and podcast discs, circular text backdrops, loaders, website decorations; set rings[] and centerText.",
+  "source": [
+   "original — generic kinetic-type effect (R3)"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "text",
+   "circle",
+   "circular",
+   "ring",
+   "spin",
+   "rotate",
+   "badge",
+   "seal",
+   "stamp",
+   "logo",
+   "typography",
+   "kinetic",
+   "textpath",
+   "loader",
+   "podcast",
+   "overlay"
+  ],
+  "file": "src/motions/text/text-on-circle-spin.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "centerColor",
+   "background",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [],
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "rings": {
+    "default": [
+     {
+      "text": "Round and round we go",
+      "separator": "  ✦  ",
+      "radius": 0.98,
+      "size": 76,
+      "speed": 24,
+      "color": "#F7F2E7",
+      "style": "solid",
+      "weight": 800,
+      "font": "display"
+     },
+     {
+      "text": "Your words here",
+      "separator": "  •  ",
+      "radius": 0.68,
+      "size": 54,
+      "speed": -36,
+      "color": "#FF6B3D",
+      "style": "outline",
+      "weight": 800,
+      "font": "display"
+     }
+    ],
+    "doc": "[{text, separator?, radius(outer edge, 0..1 of the circle), size(u), speed(deg/s, negative = anticlockwise), color, style?(solid|outline), inward?(read from the inside), weight?, font?}]"
+   },
+   "centerText": {
+    "default": "Hello",
+    "doc": "word(s) in the middle (\"\" for none); wraps and shrinks to fit"
+   },
+   "centerFont": {
+    "default": "display",
+    "doc": "font role of the centre word"
+   },
+   "centerSize": {
+    "default": 150,
+    "doc": "max centre font size in u"
+   },
+   "centerWeight": {
+    "default": 400,
+    "doc": "centre font weight"
+   },
+   "centerColor": {
+    "default": "#F7F2E7",
+    "doc": "centre colour"
+   },
+   "disc": {
+    "default": "",
+    "doc": "colour of a disc behind the centre (\"\" = none)"
+   },
+   "guides": {
+    "default": true,
+    "doc": "thin circle next to each ring"
+   },
+   "startAngle": {
+    "default": -90,
+    "doc": "initial rotation in degrees"
+   },
+   "enterStagger": {
+    "default": 8,
+    "doc": "frames between rings spinning in"
+   },
+   "startAt": {
+    "default": 4,
+    "doc": "frame the first ring enters"
+   },
+   "tracking": {
+    "default": 0.02,
+    "doc": "extra letter spacing in em"
+   },
+   "textCase": {
+    "default": "upper",
+    "doc": "upper | none"
+   },
+   "background": {
+    "default": "#16223A",
+    "doc": "background colour; \"transparent\" for an overlay"
+   },
+   "ink": {
+    "default": "#F7F2E7",
+    "doc": "general light colour (for presets)"
+   },
+   "accent": {
+    "default": "#FF6B3D",
+    "doc": "accent colour (glow)"
+   }
+  }
+ },
+ {
+  "id": "text-scramble-decode",
+  "title": "Text scramble decode",
+  "category": "text",
+  "description": "A headline starts as flickering random glyphs (blocks, symbols, binary or your own charset) and each character locks onto its real letter in turn — left to right, centre out, edges in or random — flashing the accent colour as it lands, with an optional \"decoding 64%\" status line and bar; wraps and shrinks for long text, optional scramble-out.",
+  "useFor": "Hacker / cyber / AI reveals, tech product titles, \"secret message\" stings, section headers on dark sites, caption reveals; replace the text and charset.",
+  "source": [
+   "original — generic kinetic-type effect (R3)"
+  ],
+  "durationInFrames": 150,
+  "tags": [
+   "text",
+   "scramble",
+   "decode",
+   "decrypt",
+   "hacker",
+   "matrix",
+   "cyber",
+   "title",
+   "reveal",
+   "glitch",
+   "typography",
+   "kinetic",
+   "website",
+   "caption",
+   "overlay"
+  ],
+  "file": "src/motions/text/text-scramble-decode.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "text"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "dim"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "playful",
+   "editorial",
+   "ui"
+  ],
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "text": {
+    "default": "Hidden in plain sight",
+    "doc": "the line or paragraph to decode (\\n = forced break; long text wraps and shrinks to fit)"
+   },
+   "eyebrow": {
+    "default": "Decoding message",
+    "doc": "small status label above the text (\"\" to hide)"
+   },
+   "showProgress": {
+    "default": true,
+    "doc": "show the % counter and progress bar"
+   },
+   "charset": {
+    "default": "glyphs",
+    "doc": "glyphs | binary | hex | letters | symbols | digits — or any string whose characters are used as the noise"
+   },
+   "order": {
+    "default": "ltr",
+    "doc": "ltr | rtl | center | edges | random — order in which glyphs lock in"
+   },
+   "font": {
+    "default": "mono",
+    "doc": "font role (mono keeps cells even; others work too)"
+   },
+   "size": {
+    "default": 120,
+    "doc": "max font size in u (1080-short-side units); shrinks to fit"
+   },
+   "weight": {
+    "default": 700,
+    "doc": "font weight"
+   },
+   "align": {
+    "default": "center",
+    "doc": "center | left"
+   },
+   "tracking": {
+    "default": 0,
+    "doc": "extra letter spacing in em"
+   },
+   "startAt": {
+    "default": 8,
+    "doc": "frame the noise appears"
+   },
+   "revealFrames": {
+    "default": 62,
+    "doc": "frames over which the glyphs lock in (longer = slower decode)"
+   },
+   "scrambleEvery": {
+    "default": 2,
+    "doc": "frames between noise changes (1 = frantic, 4 = calm)"
+   },
+   "exit": {
+    "default": "scramble",
+    "doc": "scramble (back to noise and gone) | fade | none"
+   },
+   "exitFrames": {
+    "default": 26,
+    "doc": "length of the exit at the end of the clip"
+   },
+   "seed": {
+    "default": 7,
+    "doc": "noise seed"
+   },
+   "background": {
+    "default": "#0A0F14",
+    "doc": "background colour; \"transparent\" for an overlay"
+   },
+   "ink": {
+    "default": "#EAF4F2",
+    "doc": "colour of resolved text"
+   },
+   "accent": {
+    "default": "#34F5B0",
+    "doc": "noise / flash / status colour"
+   },
+   "dim": {
+    "default": "#2F8F78",
+    "doc": "secondary colour for noise and counter"
+   }
+  }
+ },
+ {
   "id": "type-architecture",
   "title": "Type architecture (credits as a set)",
   "category": "text",
@@ -65472,6 +66431,160 @@
   }
  },
  {
+  "id": "typewriter-delete-retype",
+  "title": "Typewriter delete & retype",
+  "category": "text",
+  "description": "A lead-in line is typed once, then phrases are typed after it with an uneven keystroke rhythm, held, then deleted — backspacing with accelerating speed or select-all-and-delete — and replaced by the next phrase, with an optional typo that is noticed and corrected and a blinking bar, block or underscore caret.",
+  "useFor": "Hero taglines that cycle (\"Built to be fast / secure / simple\"), search-box and prompt demos, \"we help X do Y\" rotators, chat/AI typing intros, coding-themed titles; set prefix and phrases[].",
+  "source": [
+   "original — generic kinetic-type effect (R3)"
+  ],
+  "durationInFrames": 290,
+  "tags": [
+   "text",
+   "typewriter",
+   "typing",
+   "delete",
+   "backspace",
+   "retype",
+   "cursor",
+   "caret",
+   "tagline",
+   "hero",
+   "rotator",
+   "prompt",
+   "ai",
+   "search",
+   "typography",
+   "kinetic",
+   "website",
+   "overlay"
+  ],
+  "file": "src/motions/text/typewriter-delete-retype.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "prefix"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "cursorColor"
+  ],
+  "loopable": false,
+  "bestLength": 290,
+  "mood": [
+   "ui"
+  ],
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "prefix": {
+    "default": "Built to be ",
+    "doc": "lead-in typed once and kept (include a trailing space if the phrase follows directly)"
+   },
+   "phrases": {
+    "default": [
+     "fast.",
+     "secure.",
+     "simple."
+    ],
+    "doc": "phrases typed, held and deleted one after another"
+   },
+   "typo": {
+    "default": true,
+    "doc": "every second phrase gets a mistyped letter that is noticed and corrected"
+   },
+   "deleteStyle": {
+    "default": "backspace",
+    "doc": "backspace (letter by letter, speeding up) | select (highlight the phrase, then delete at once)"
+   },
+   "loop": {
+    "default": true,
+    "doc": "delete the last phrase too (false = last phrase stays on screen)"
+   },
+   "typeCps": {
+    "default": 12,
+    "doc": "typing speed in characters per second"
+   },
+   "deleteCps": {
+    "default": 26,
+    "doc": "backspace speed in characters per second"
+   },
+   "hold": {
+    "default": 38,
+    "doc": "frames a finished phrase stays before deleting"
+   },
+   "startAt": {
+    "default": 10,
+    "doc": "frame typing starts"
+   },
+   "cursor": {
+    "default": "bar",
+    "doc": "bar | block | underscore"
+   },
+   "align": {
+    "default": "left",
+    "doc": "left (anchored, block centred on screen) | center"
+   },
+   "font": {
+    "default": "mono",
+    "doc": "font role (mono looks most typed)"
+   },
+   "size": {
+    "default": 110,
+    "doc": "max font size in u; shrinks so the longest line fits"
+   },
+   "weight": {
+    "default": 700,
+    "doc": "font weight"
+   },
+   "tracking": {
+    "default": 0,
+    "doc": "letter spacing in em"
+   },
+   "seed": {
+    "default": 5,
+    "doc": "keystroke-rhythm seed"
+   },
+   "background": {
+    "default": "#0F1217",
+    "doc": "background colour; \"transparent\" for an overlay"
+   },
+   "ink": {
+    "default": "#ECEFF4",
+    "doc": "lead-in colour"
+   },
+   "accent": {
+    "default": "#4FE3A6",
+    "doc": "phrase colour"
+   },
+   "cursorColor": {
+    "default": "#4FE3A6",
+    "doc": "caret colour"
+   },
+   "selectColor": {
+    "default": "rgba(79,227,166,0.28)",
+    "doc": "selection highlight colour (select delete style)"
+   }
+  }
+ },
+ {
   "id": "typewriter-signature",
   "title": "Typewriter signature",
   "category": "text",
@@ -65618,6 +66731,151 @@
    "decodeOut": {
     "default": 8,
     "doc": "decode: frames the break-back-to-symbols exit takes at scrambleAt (0 = no decode exit)"
+   }
+  }
+ },
+ {
+  "id": "word-carousel-rotator",
+  "title": "Word carousel rotator",
+  "category": "text",
+  "description": "A fixed sentence with one swapping word — \"We build [fast | safe | beautiful | scalable] apps\": the word rolls like a slot machine (or blurs, flips, slides) inside an accent pill whose width glides to each new word while the rest re-centres; stacks into three lines on narrow frames.",
+  "useFor": "Website hero taglines, value-prop rotators, \"for designers / developers / teams\" audience swaps, intro slides, social hooks; set prefix, words[] and suffix.",
+  "source": [
+   "original — generic kinetic-type effect (R3)"
+  ],
+  "durationInFrames": 220,
+  "tags": [
+   "text",
+   "word",
+   "rotator",
+   "carousel",
+   "swap",
+   "hero",
+   "headline",
+   "tagline",
+   "website",
+   "slot",
+   "roll",
+   "typography",
+   "kinetic",
+   "value-prop",
+   "overlay"
+  ],
+  "file": "src/motions/text/word-carousel-rotator.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "prefix"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "pillInk"
+  ],
+  "loopable": false,
+  "bestLength": 220,
+  "mood": [
+   "3d",
+   "ui"
+  ],
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "prefix": {
+    "default": "We build",
+    "doc": "static text before the swapping word (\"\" for none)"
+   },
+   "words": {
+    "default": [
+     "fast",
+     "secure",
+     "beautiful",
+     "scalable"
+    ],
+    "doc": "the words that rotate, in order"
+   },
+   "suffix": {
+    "default": "apps",
+    "doc": "static text after the swapping word (\"\" for none)"
+   },
+   "layout": {
+    "default": "auto",
+    "doc": "auto (inline if it fits, otherwise stacked) | inline | stacked"
+   },
+   "transition": {
+    "default": "roll",
+    "doc": "roll | blur | flip | slide — how one word replaces another"
+   },
+   "pill": {
+    "default": true,
+    "doc": "put the word on an accent pill (false = accent-coloured text)"
+   },
+   "anchor": {
+    "default": "center",
+    "doc": "center (sentence re-centres as the word width changes) | prefix (prefix stays put)"
+   },
+   "loop": {
+    "default": true,
+    "doc": "wrap back to the first word after the last (false = hold the last word)"
+   },
+   "startAt": {
+    "default": 14,
+    "doc": "frame the first word rolls in"
+   },
+   "interval": {
+    "default": 50,
+    "doc": "frames each word stays (min transitionFrames + 4)"
+   },
+   "transitionFrames": {
+    "default": 14,
+    "doc": "frames each swap takes"
+   },
+   "font": {
+    "default": "sans",
+    "doc": "font role"
+   },
+   "size": {
+    "default": 150,
+    "doc": "max font size in u; shrinks to fit the frame"
+   },
+   "weight": {
+    "default": 800,
+    "doc": "font weight"
+   },
+   "tracking": {
+    "default": -0.01,
+    "doc": "letter spacing in em"
+   },
+   "background": {
+    "default": "#F5F1E8",
+    "doc": "background colour; \"transparent\" for an overlay"
+   },
+   "ink": {
+    "default": "#16130F",
+    "doc": "colour of the fixed text"
+   },
+   "accent": {
+    "default": "#FF5A36",
+    "doc": "pill / word colour"
+   },
+   "pillInk": {
+    "default": "#FFFFFF",
+    "doc": "word colour when on the pill"
    }
   }
  },

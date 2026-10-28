@@ -233,3 +233,11 @@ export const useNorm = () => {
   const {w, h, u, fps, durationInFrames} = useStage();
   return {w, h, u, fps, durationInFrames, px: (x: number, y: number): Pt => [x * w, y * h]};
 };
+
+/** round every number in a default-props object to 3 decimals (keeps 0.1 + 0.02 from printing as 0.12000000000000001) */
+export const tidy = <T,>(o: T): T => {
+  if (typeof o === 'number') return (Math.round(o * 1000) / 1000) as unknown as T;
+  if (Array.isArray(o)) return o.map(tidy) as unknown as T;
+  if (o && typeof o === 'object') return Object.fromEntries(Object.entries(o as Record<string, unknown>).map(([k, v]) => [k, tidy(v)])) as T;
+  return o;
+};

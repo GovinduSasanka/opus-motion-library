@@ -94,20 +94,21 @@ const GanttTimeline: React.FC<Props> = ({
   // geometry
   const labSize = (portrait ? 28 : square ? 25 : 25) * u;
   const tickSize = (portrait ? 24 : 21) * u;
-  const labW = Math.min(box.w * (portrait ? 0.3 : 0.24), Math.max(...ts.map((t) => tw(t.label, labSize, 0.56)), 80 * u) + 22 * u);
+  const labW = Math.min(box.w * (portrait ? 0.32 : 0.24), Math.max(...ts.map((t) => tw(t.label, labSize, 0.6)), 80 * u) + 22 * u);
   const showLegend = groups.length > 1;
   const legSize = (portrait ? 26 : 22) * u;
   const legH = showLegend ? legSize * 2.1 : 0;
   const axisH = tickSize * 1.9;
-  const msH = ms.length ? (portrait ? 64 : 58) * u : 0;
+  const msLab = tickSize * 1.05;
+  const msH = ms.length ? msLab + 14 * u + 32 * u + 14 * u : 0;
   const gx0 = box.x + labW;
   const gx1 = box.x + box.w - 24 * u;
-  const gy0 = box.y + axisH + msH;
+  const gy0 = box.y + msH + axisH;
   const gy1 = box.y + box.h - legH - (showLegend ? 16 * u : 0);
-  const rowH = Math.min((portrait ? 92 : 78) * u, (gy1 - gy0) / Math.max(1, ts.length));
+  const rowH = Math.min((portrait ? 150 : 78) * u, (gy1 - gy0) / Math.max(1, ts.length));
   const barH = rowH * 0.56;
   const gh = rowH * ts.length;
-  const top = gy0 + Math.max(0, (gy1 - gy0 - gh) / 2) * 0.5;
+  const top = gy0 + 10 * u;
   const sx = (v: number) => gx0 + ((v - a0) / (a1 - a0 || 1)) * (gx1 - gx0);
 
   const ticks: number[] = [];
@@ -143,7 +144,7 @@ const GanttTimeline: React.FC<Props> = ({
               <g key={i}>
                 <line x1={x} x2={x} y1={gy0 - 6 * u} y2={top + gh + 6 * u} stroke={ink} strokeOpacity={0.09} strokeWidth={1.5 * u} />
                 {show && (
-                  <text x={x} y={box.y + tickSize * 1.1} textAnchor="middle" fontFamily={font} fontWeight={500} fontSize={tickSize} fill={ink} fillOpacity={0.6} style={{fontVariantNumeric: 'tabular-nums'}}>
+                  <text x={x} y={gy0 - 16 * u} textAnchor="middle" fontFamily={font} fontWeight={500} fontSize={tickSize} fill={ink} fillOpacity={0.6} style={{fontVariantNumeric: 'tabular-nums'}}>
                     {tickText(v)}
                   </text>
                 )}
@@ -156,6 +157,10 @@ const GanttTimeline: React.FC<Props> = ({
         {/* alternating row bands */}
         {ts.map((_, i) =>
           i % 2 === 0 ? <rect key={'band' + i} x={box.x} y={top + i * rowH} width={box.w} height={rowH} rx={8 * u} fill={ink} fillOpacity={0.035 * axisT} /> : null,
+        )}
+
+        {hasToday && (
+          <line x1={sx(today)} x2={sx(today)} y1={gy0 - 2 * u} y2={gy0 - 2 * u + (top + gh + 8 * u - (gy0 - 2 * u)) * todayT} stroke="#E5484D" strokeWidth={3 * u} opacity={clamp(todayT * 1.5)} />
         )}
 
         {/* bars */}
@@ -172,7 +177,11 @@ const GanttTimeline: React.FC<Props> = ({
           const pg = ramp(frame, barStart(i) + 16, 30, speed, ease.out);
           const dur = t.end - t.start;
           const durTxt = fmt(dur, dur % 1 ? 1 : 0, '', durationSuffix);
-          const inside = w > tw(durTxt, barH * 0.5, 0.58) + 28 * u;
+          const durW = tw(durTxt, barH * 0.5, 0.58);
+          const inside = w > durW + 28 * u;
+          const overflowRight = !inside && x0 + w + 12 * u + durW > gx1 + 40 * u;
+          const filledW = showProgress ? full * p * pg : full;
+          const onSolid = inside && filledW > durW + 28 * u;
           return (
             <g key={i}>
               <text x={box.x + 12 * u} y={y + barH / 2 + labSize * 0.35} fontFamily={font} fontWeight={600} fontSize={labSize} fill={ink} opacity={lt}>
@@ -182,13 +191,13 @@ const GanttTimeline: React.FC<Props> = ({
               {showProgress && p > 0 && <rect x={x0} y={y} width={Math.max(barH * 0.6, full * p * pg) * Math.min(1, g * 1.2)} height={barH} rx={barH * 0.3} fill={col} />}
               {showDurations && g > 0.95 && (
                 <text
-                  x={inside ? x0 + 14 * u : x0 + w + 12 * u}
+                  x={inside ? x0 + 14 * u : overflowRight ? x0 - 12 * u - durW : x0 + w + 12 * u}
                   y={y + barH / 2 + barH * 0.2}
                   fontFamily={font}
                   fontWeight={700}
                   fontSize={barH * 0.5}
-                  fill={inside && !showProgress ? textOn(col) : ink}
-                  fillOpacity={inside && !showProgress ? 0.95 : 0.6}
+                  fill={onSolid ? textOn(col) : ink}
+                  fillOpacity={onSolid ? 0.95 : 0.65}
                   opacity={prog(frame, barStart(i) + 28, barStart(i) + 42)}
                 >
                   {durTxt}
@@ -203,39 +212,23 @@ const GanttTimeline: React.FC<Props> = ({
           const t = msT(k);
           const x = sx(m.at);
           const d = (portrait ? 17 : 15) * u * t;
-          const cy = gy0 - msH * 0.45 - 10 * u;
+          const cy = box.y + msLab + 14 * u + 15 * u;
+          const half = tw(m.label, tickSize, 0.6) / 2;
           return (
             <g key={'m' + k} opacity={clamp(t)}>
-              <line x1={x} x2={x} y1={cy + d} y2={top + gh + 6 * u} stroke={ink} strokeOpacity={0.35} strokeWidth={2 * u} strokeDasharray={`${6 * u} ${6 * u}`} />
+              <line x1={x} x2={x} y1={gy0 - 6 * u} y2={top + gh + 6 * u} stroke={ink} strokeOpacity={0.35} strokeWidth={2 * u} strokeDasharray={`${6 * u} ${6 * u}`} />
               <path d={`M${x} ${cy - d} L${x + d} ${cy} L${x} ${cy + d} L${x - d} ${cy} Z`} fill={ink} />
-              <text
-                x={Math.min(Math.max(x, gx0 + tw(m.label, tickSize, 0.56) / 2), gx1 - tw(m.label, tickSize, 0.56) / 2)}
-                y={cy - d - 8 * u}
-                textAnchor="middle"
-                fontFamily={font}
-                fontWeight={700}
-                fontSize={tickSize}
-                fill={ink}
-              >
+              <text x={Math.min(Math.max(x, gx0 - 20 * u + half), gx1 + 16 * u - half)} y={box.y + msLab} textAnchor="middle" fontFamily={font} fontWeight={700} fontSize={tickSize} fill={ink}>
                 {m.label}
               </text>
             </g>
           );
         })}
 
-        {/* today marker */}
         {hasToday && (
           <g opacity={clamp(todayT * 1.5)}>
-            <line x1={sx(today)} x2={sx(today)} y1={gy0 - 2 * u} y2={(gy0 - 2 * u) + (top + gh + 8 * u - (gy0 - 2 * u)) * todayT} stroke="#E5484D" strokeWidth={3 * u} />
             <g transform={`translate(0 ${bobY})`}>
-              <rect
-                x={sx(today) - (tw(todayLabel, tickSize, 0.62) + 24 * u) / 2}
-                y={top + gh + 12 * u}
-                width={tw(todayLabel, tickSize, 0.62) + 24 * u}
-                height={tickSize * 1.75}
-                rx={tickSize * 0.875}
-                fill="#E5484D"
-              />
+              <rect x={sx(today) - (tw(todayLabel, tickSize, 0.62) + 24 * u) / 2} y={top + gh + 12 * u} width={tw(todayLabel, tickSize, 0.62) + 24 * u} height={tickSize * 1.75} rx={tickSize * 0.875} fill="#E5484D" />
               <text x={sx(today)} y={top + gh + 12 * u + tickSize * 1.22} textAnchor="middle" fontFamily={font} fontWeight={700} fontSize={tickSize} fill="#FFFFFF" letterSpacing={tickSize * 0.06}>
                 {todayLabel}
               </text>
@@ -247,7 +240,7 @@ const GanttTimeline: React.FC<Props> = ({
           <Legend
             items={groups.map((g, i) => ({label: g, color: itemColor(undefined, colors, i)}))}
             x={gx0}
-            y={box.y + box.h - legH}
+            y={Math.min(box.y + box.h - legH, top + gh + (hasToday ? tickSize * 1.75 + 28 * u : 12 * u) + 28 * u)}
             w={gx1 - gx0}
             cols={Math.min(groups.length, portrait ? 3 : 6)}
             rowH={legSize * 2}

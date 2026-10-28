@@ -2,7 +2,7 @@ import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {clamp, ease, prog} from '../../core/ease';
 import {fonts} from '../../core/fonts';
-import {Chip, DemoScreen, DemoTone, DEMO, Pt, quadPts, smoothD, useExit, useNorm} from '../../core/r3-annot-kit';
+import {Chip, DemoScreen, DemoTone, DEMO, Pt, quadPts, smoothD, useExit, useNorm, tidy} from '../../core/r3-annot-kit';
 import {Svg} from '../../core/stage';
 import {defineMotion} from '../../core/types';
 
@@ -160,7 +160,7 @@ export const numberedStepBadges = defineMotion<Props>({
   source: ['screen-recording tutorial annotation'],
   useFor: 'Number the steps of a how-to on top of a screen recording or screenshot ("1 pick a file, 2 choose a format, 3 export"): pass `steps` with x/y points and your own captions.',
   durationInFrames: 180,
-  defaultProps: {
+  defaultProps: tidy({
     steps: [
       {x: DEMO.search.x + 0.04, y: DEMO.search.y + DEMO.search.h / 2, label: 'Search for a file'},
       {x: 0.55, y: 0.3, label: 'Pick a chart', side: 'left'},
@@ -182,7 +182,7 @@ export const numberedStepBadges = defineMotion<Props>({
     exitAt: 0,
     demoBackground: false,
     demoTone: 'light',
-  },
+  }),
   propDocs: {
     steps: 'array of {x, y (0-1 point), label?, n? (badge text), side?: auto|left|right|top|bottom, at?}',
     badgeStyle: 'circle | pin | square',

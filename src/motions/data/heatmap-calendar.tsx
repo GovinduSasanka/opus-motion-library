@@ -86,8 +86,8 @@ const HeatmapCalendar: React.FC<Props> = ({
         const wd = new Date(Date.UTC(y, m - 1, d + i)).getUTCDay();
         const wave = (n2('hm' + sampleSeed, i * 0.045, 0) + 1) / 2; // slow bursts of activity
         const weekend = wd === 0 || wd === 6 ? 0.35 : 1;
-        const base = wave * wave * 10 * weekend * (0.4 + r());
-        return r() < 0.14 * (1.4 - wave) ? 0 : Math.round(base);
+        const base = (0.2 + 0.8 * wave) * 11 * weekend * (0.3 + 0.9 * r());
+        return r() < 0.1 + 0.12 * (1 - wave) ? 0 : Math.max(1, Math.round(base));
       });
     }
     return vals.map((v, i) => {
@@ -115,7 +115,7 @@ const HeatmapCalendar: React.FC<Props> = ({
   const statBig = (portrait ? 54 : square ? 48 : 46) * u;
   const statSmall = (portrait ? 24 : 21) * u;
   const stacked = portrait || square;
-  const footH = (showStats ? statBig + statSmall * 1.6 : 0) + (showLegend ? 40 * u : 0) + (showStats && showLegend && stacked ? 28 * u : 0) + (!stacked && showStats && showLegend ? -40 * u : 0);
+  const footH = (showStats ? statBig + statSmall * 1.6 : 0) + (showLegend && (stacked || !showStats) ? 40 * u : 0) + (showStats && showLegend && stacked ? 40 * u : 0);
   const footGap = footH > 0 ? 36 * u : 0;
   const chartH = box.h - footH - footGap;
 
@@ -140,7 +140,7 @@ const HeatmapCalendar: React.FC<Props> = ({
     gridW = cell * cols;
     gridH = cell * 7;
     originX = box.x + (box.w - gridW - dayW) / 2 + dayW;
-    originY = box.y + monH + Math.max(0, (chartH - monH - gridH) / 2);
+    originY = box.y + monH + Math.max(0, (box.h - (monH + gridH + footGap + footH)) * 0.4);
     days.forEach((d, i) => {
       const col = Math.floor((off + i) / 7);
       place[i] = {x: originX + col * cell, y: originY + rowOf(d.wd) * cell, cell, col};
@@ -183,7 +183,7 @@ const HeatmapCalendar: React.FC<Props> = ({
     const totalW = mcols * blockW + (mcols - 1) * blockGap;
     const totalH = mrows * blockH + (mrows - 1) * blockGap;
     const ox = box.x + (box.w - totalW) / 2;
-    const oy = box.y + Math.max(0, (chartH - totalH) / 2);
+    const oy = box.y + Math.max(0, (box.h - (totalH + footGap + footH)) * 0.4);
     gridW = totalW;
     gridH = totalH;
     originX = ox;
@@ -212,15 +212,15 @@ const HeatmapCalendar: React.FC<Props> = ({
   const statT = (k: number) => prog(frame, startAt + 14 + k * 8, startAt + 34 + k * 8, ease.out);
   const countT = ramp(frame, startAt + 14, popSpan + 10, 1, ease.out);
 
-  const footY = originY + (mode === 'strip' ? gridH : gridH) + footGap + (mode === 'strip' ? Math.max(0, 0) : 0);
-  const statY = Math.min(footY, box.y + box.h - footH) + statBig * 0.85;
+  const footY = originY + gridH + footGap;
+  const statY = footY + statBig * 0.85;
   const stats = [
     {big: fmt(total * countT, 0, prefix, suffix), small: totalLabel},
     {big: fmt(maxV * clamp(countT * 1.0), 0, prefix, suffix), small: bestLabel},
     {big: fmt(active * countT, 0), small: activeLabel},
   ];
   const statW = stacked ? box.w / 3 : Math.min(300 * u, box.w * 0.2);
-  const legY = stacked && showStats ? statY + statSmall * 1.6 + 28 * u : Math.min(footY, box.y + box.h - footH) + statBig * 0.4;
+  const legY = stacked && showStats ? statY + statSmall * 1.5 + 62 * u : footY + statBig * 0.4;
   const legSw = (portrait ? 26 : 22) * u;
   const legText = (portrait ? 24 : 21) * u;
   const legW = legSw * (L + 1) * 1.3 + tw(lessLabel, legText, 0.56) + tw(moreLabel, legText, 0.56) + 40 * u;
@@ -328,7 +328,7 @@ export const heatmapCalendar = defineMotion<Props>({
   defaultProps: {
     values: [],
     sampleSeed: 7,
-    startDate: '2025-01-05',
+    startDate: '2025-01-01',
     weekStart: 'sun',
     layout: 'auto',
     levels: 5,

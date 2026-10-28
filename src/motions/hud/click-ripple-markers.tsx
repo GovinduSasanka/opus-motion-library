@@ -2,7 +2,7 @@ import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {clamp, ease, prog} from '../../core/ease';
 import {fonts} from '../../core/fonts';
-import {Chip, DemoScreen, DemoTone, DEMO, Pt, Stroke, fmtTime, lineD, useExit, useNorm} from '../../core/r3-annot-kit';
+import {Chip, DemoScreen, DemoTone, DEMO, Pt, Stroke, fmtTime, lineD, useExit, useNorm, tidy} from '../../core/r3-annot-kit';
 import {Svg} from '../../core/stage';
 import {defineMotion} from '../../core/types';
 
@@ -136,7 +136,7 @@ export const clickRippleMarkers = defineMotion<Props>({
   source: ['screen-recording tutorial annotation'],
   useFor: 'Show exactly where and when something was clicked in a screen recording, UX test replay or bug report: pass `clicks` with x/y, the frame `at` and the `kind`.',
   durationInFrames: 180,
-  defaultProps: {
+  defaultProps: tidy({
     clicks: [
       {x: DEMO.button.x + DEMO.button.w / 2, y: DEMO.button.y + DEMO.button.h / 2, kind: 'click', at: 16},
       {x: 0.36, y: 0.33, kind: 'double', at: 64},
@@ -158,7 +158,7 @@ export const clickRippleMarkers = defineMotion<Props>({
     exitAt: 0,
     demoBackground: false,
     demoTone: 'light',
-  },
+  }),
   propDocs: {
     clicks: 'array of {x, y (0-1 point), at? (frame), kind?: click|double|right, label?, time?}',
     timestamps: 'append the timestamp (m:ss.d from the video start) to each chip',

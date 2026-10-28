@@ -205,10 +205,12 @@ const OrgChartTree: React.FC<Props> = ({tree, title, subtitle, direction, showIn
           const initR = showInitials ? cardH * 0.28 : 0;
           const textX = showInitials ? -cardW / 2 + pad + initR * 2 + 12 * u : 0;
           const textW = cardW - pad * 2 - (showInitials ? initR * 2 + 12 * u : 0);
-          const nameLines = wrapLines(p.n.name, textW, nameSize, 0.56, p.n.role ? 1 : 2);
-          const roleLines = p.n.role ? wrapLines(p.n.role, textW, roleSize, 0.56, 1) : [];
-          const blockH = nameLines.length * nameSize * 1.1 + (roleLines.length ? roleSize * 1.25 : 0);
-          const ty0 = -blockH / 2 + nameSize * 0.85;
+          const nSz = clamp(textW / (Math.max(1, p.n.name.length) * 0.6), nameSize * 0.72, nameSize);
+          const rSz = clamp(textW / (Math.max(1, (p.n.role || '').length) * 0.58), roleSize * 0.78, roleSize);
+          const nameLines = wrapLines(p.n.name, textW, nSz, 0.58, 2);
+          const roleLines = p.n.role ? wrapLines(p.n.role, textW, rSz, 0.58, 1) : [];
+          const blockH = nameLines.length * nSz * 1.1 + (roleLines.length ? rSz * 1.25 : 0);
+          const ty0 = -blockH / 2 + nSz * 0.85;
           const anchor = showInitials ? 'start' : 'middle';
           return (
             <g key={'n' + p.id} opacity={tt * dim} transform={`translate(${p.x} ${p.y}) scale(${s * (isHl ? 1 + 0.05 * hlT : 1)})`}>
@@ -224,13 +226,13 @@ const OrgChartTree: React.FC<Props> = ({tree, title, subtitle, direction, showIn
                 </g>
               )}
               {nameLines.map((l, li) => (
-                <text key={li} x={textX} y={ty0 + li * nameSize * 1.1} textAnchor={anchor} fontFamily={font} fontWeight={700} fontSize={nameSize} fill={fg}>
-                  {clip(l, textW + 4 * u, nameSize)}
+                <text key={li} x={textX} y={ty0 + li * nSz * 1.1} textAnchor={anchor} fontFamily={font} fontWeight={700} fontSize={nSz} fill={fg}>
+                  {clip(l, textW + 4 * u, nSz)}
                 </text>
               ))}
               {roleLines.map((l, li) => (
-                <text key={'r' + li} x={textX} y={ty0 + nameLines.length * nameSize * 1.1 + roleSize * 0.2 + li * roleSize * 1.2} textAnchor={anchor} fontFamily={font} fontWeight={500} fontSize={roleSize} fill={fg} fillOpacity={0.62}>
-                  {clip(l, textW + 4 * u, roleSize)}
+                <text key={'r' + li} x={textX} y={ty0 + nameLines.length * nSz * 1.1 + rSz * 0.2 + li * rSz * 1.2} textAnchor={anchor} fontFamily={font} fontWeight={500} fontSize={rSz} fill={fg} fillOpacity={0.62}>
+                  {clip(l, textW + 4 * u, rSz)}
                 </text>
               ))}
             </g>

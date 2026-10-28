@@ -2,7 +2,7 @@ import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {clamp, ease, prog} from '../../core/ease';
 import {fonts} from '../../core/fonts';
-import {DemoScreen, DemoTone, DEMO, useExit, useNorm, wrapLines} from '../../core/r3-annot-kit';
+import {DemoScreen, DemoTone, DEMO, useExit, useNorm, wrapLines, tidy} from '../../core/r3-annot-kit';
 import {Svg} from '../../core/stage';
 import {defineMotion} from '../../core/types';
 
@@ -164,7 +164,7 @@ export const tooltipPointer = defineMotion<Props>({
   source: ['screen-recording tutorial annotation'],
   useFor: 'Explain a control in a product tour, onboarding walkthrough or screen-recording tutorial: pass `tips` with the target x/y, a title and a sentence of text.',
   durationInFrames: 240,
-  defaultProps: {
+  defaultProps: tidy({
     tips: [
       {x: DEMO.search.x + 0.2, y: DEMO.search.y + DEMO.search.h, title: 'Search', text: 'Find any project, file or teammate by typing a few letters.'},
       {x: 0.52, y: 0.28, title: 'Live chart', text: 'Bars update as soon as new data comes in.', side: 'right'},
@@ -184,7 +184,7 @@ export const tooltipPointer = defineMotion<Props>({
     exitAt: 0,
     demoBackground: false,
     demoTone: 'light',
-  },
+  }),
   propDocs: {
     tips: 'array of {x, y (0-1 target), title?, text, side?: auto|top|bottom|left|right, at?}',
     mode: 'sequence = one tip at a time | stack = all tips stay',

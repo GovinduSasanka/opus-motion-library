@@ -150,9 +150,9 @@ const SankeyFlow: React.FC<Props> = ({
   const nw = nodeWidth * u * (portrait ? 0.9 : 1);
 
   // margins for labels of the first and last column
-  const labW = (c: N[]) => c.reduce((m, n) => Math.max(m, tw(n.id, labelSize, 0.56)), 0);
+  const labW = (c: N[]) => c.reduce((m, n) => Math.max(m, tw(n.id, labelSize, 0.6)), 0);
   const capLab = (portrait ? 0.2 : 0.17) * box.w;
-  const leftM = Math.min(capLab, labW(cols[0] || []) + 22 * u);
+  const leftM = Math.min(capLab, labW(cols[0] || []) + (showValues ? 40 * u : 22 * u));
   const rightM = Math.min(capLab, labW(cols[nCols - 1] || []) + (showValues ? 64 * u : 22 * u));
   const innerX0 = box.x + leftM;
   const innerX1 = box.x + box.w - rightM - nw;
@@ -246,7 +246,7 @@ const SankeyFlow: React.FC<Props> = ({
           const fill = l.color || (linkMode === 'gradient' ? `url(#${uid}-g${l.i})` : linkMode === 'target' ? l.t.color : l.s.color);
           const on = linkOn(l);
           return (
-            <path key={l.i} d={p} fill={fill} opacity={linkOpacity * (on ? 1 : 1 - 0.8 * hlT)} clipPath={`url(#${uid}-c${l.i})`} />
+            <path key={l.i} d={p} fill={fill} opacity={linkOpacity * (on ? 1 : 1 - 0.7 * hlT)} clipPath={`url(#${uid}-c${l.i})`} />
           );
         })}
 
@@ -257,13 +257,13 @@ const SankeyFlow: React.FC<Props> = ({
           const cy = n.y + n.h / 2;
           const hh = Math.max(3 * u, n.h) * t;
           const connected = !hl || n.id === hl || L2.some((l) => (l.s.id === hl && l.t.id === n.id) || (l.t.id === hl && l.s.id === n.id));
-          const dim = connected ? 1 : 1 - 0.7 * hlT;
+          const dim = connected ? 1 : 1 - 0.6 * hlT;
           const first = n.col === 0;
           const lx = first ? n.x - 14 * u : n.x + nw + 14 * u;
           const room = first ? leftM - 18 * u : (n.col === nCols - 1 ? rightM - 18 * u : box.x + box.w - lx);
           const lt = prog(frame, ns0 + 8 / speed, ns0 + 26 / speed, ease.out);
           const vtxt = fmt(n.value, decimals, prefix, suffix);
-          const showVal = showValues && n.h >= (labelSize + valSize) * 1.15;
+          const showVal = showValues && n.h >= (labelSize + valSize) * 0.95;
           const inlineVal = showValues && !showVal;
           const label = clip(n.id + (inlineVal ? '  ' + vtxt : ''), Math.max(40 * u, room), labelSize, 0.56);
           return (

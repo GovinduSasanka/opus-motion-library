@@ -1,12 +1,12 @@
 # Motion catalog
 
-531 motions. Generated from `catalog.json` by `cli/gen-docs.mjs` — do not edit by hand.
+539 motions. Generated from `catalog.json` by `cli/gen-docs.mjs` — do not edit by hand.
 
 Render any of them: `node cli/mgl.mjs render <id> [--props '{...}'] [--format landscape|square|portrait]`. Previews live in `gallery/`.
 
 Choosing: `node cli/mgl.mjs suggest "<what you need>"` and [CHOOSING.md](CHOOSING.md). Using them in a website / app / other project: [INTEGRATION.md](INTEGRATION.md).
 
-- [text](#text) (63)
+- [text](#text) (71)
 - [transition](#transition) (2)
 - [shape](#shape) (42)
 - [fx](#fx) (49)
@@ -31,7 +31,7 @@ Choosing: `node cli/mgl.mjs suggest "<what you need>"` and [CHOOSING.md](CHOOSIN
 
 | capability | motions |
 |---|---|
-| overlay (transparent background — put it on top of other motions or your page) | `globe-3d`, `holo-solid-ignite`, `light-beam-ribbon`, `popup-spread`, `creator-hand`, `paper-critter-rig`, `pictogram-figure`, `bar-race`, `bubble-scatter-grow`, `cause-effect-chain`, `comparison-dumbbell`, `donut-breakdown`, `funnel-conversion`, `gantt-timeline`, `gauge-kpi-dial`, `heatmap-calendar`, `network-graph`, `org-chart-tree`, `progress-rings-stats`, `pros-cons-columns`, `radar-compare`, `sankey-flow`, `stacked-area-flow`, `step-process-numbered`, `treemap-split`, `venn-diagram-overlap`, `waterfall-bridge`, `certificate-seal`, `form-fill-submit`, `receipt-print`, `aurora`, `bubbles`, `caustics-godrays`, `curl-flow`, `embers`, `falling-petals`, `fireworks`, `flow-lines`, `fog-clouds`, `insect-flight`, `lightning-flash`, `mesh-gradient-bg`, `rain`, `snowfall`, `starfield-night`, `window-glow-sequence`, `backlit-cutout`, `circuit-traces`, `confetti-burst`, `electric-arcs`, `emote-pop`, `eyes-blink`, `fire-flames`, `giant-eye-reveal`, `grease-pencil-mark`, `impact-frame`, `ink-blot-stop`, `long-exposure-trails`, `magnifier-loupe`, `marker-ring-arrow`, `scribble-ball`, `smear-frame`, `smoke-puffs`, `sparkle-burst`, `star-glint`, `sticker-cutout`, `swirl-portal`, `vhs-crt-pass`, `achievement-unlock`, `bracket-advance`, `candy-set-backdrop`, `kill-streak-banner`, `level-up-burst`, `match-scoreboard`, `player-stat-card`, `stream-starting-soon`, `agent-roster`, `cam-chip-sync-badge`, `day-ring-dial`, `event-feed`, `fight-hud`, `game-hud`, `hud-chrome`, `mission-clock`, `news-bug-source-tag`, `prompt-wall`, `spec-chip-rail`, `target-lock-box`, `target-lock`, `film-look`, `sticker-slap`, `choropleth-fill`, `city-zoom-label`, `coverage-route`, `elevation-profile`, `flight-arcs`, `pin-drop-cluster`, `beat-dance`, `chomp-lid`, `emotion-idle-beat`, `emotion-sheet`, `emotion-timeline`, `mascot-nib`, `mascot-thinking`, `mascot-thumbs-up`, `mascot-wave-hello`, `smear-trail`, `beat-camera`, `beat-grid`, `beat-pulse-rings`, `engraving-hatch`, `equalizer-bars-loop`, `guilloche-note`, `lyric-on-path`, `lyric-timing`, `lyric-video`, `mixer-faders`, `now-playing-card`, `podcast-audiogram`, `shutter-blur`, `stage-curtain`, `time-stutter`, `token-sampler-prompt`, `token-tree`, `tracklist-reveal`, `vinyl-spin-label`, `width-pressure-type`, `colorway-swap`, `feature-callout-orbit`, `price-tag-drop`, `spec-compare-table`, `sunburst-hero`, `unbox-lid-lift`, `comet-pulse-guide`, `ink-brush-stroke`, `logo-reveal-liquid`, `motif-grid-pattern`, `nib-follow-camera`, `papercut-rosette`, `toon-cel-shape`, `agenda-list-slide`, `big-stat-slide`, `blur-in-title`, `channel-intro-sting`, `chapter-countdown`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `definition-card`, `end-card-credits`, `end-screen-cards`, `follower-milestone`, `glyph-orbit-logo`, `key-takeaway-highlight`, `kinetic-captions`, `logo-reveal-lines`, `mask-rise-title`, `myth-vs-fact`, `news-strap`, `number-counter`, `paper-strip-title`, `qa-slide`, `quiz-question-reveal`, `quote-slide`, `rolling-credits`, `rundown-board`, `sale-countdown-banner`, `scene-tag`, `sponsor-slate`, `stamp-slam`, `sting-bug`, `story-caption-box`, `typewriter-code`, `typewriter-signature`, `bokeh-drift`, `light-leak-wash`, `pattern-scroll`, `agent-log-panel`, `comment-bubble-stream`, `cursor-driver`, `empty-state-illustration`, `glass-lesson-card`, `hero-gradient-orbs`, `keystroke-hud`, `liquid-glass-lens`, `loader-spinner-set`, `logo-wall-grid`, `notification-stack`, `planned-vs-heard-checklist`, `player-toolbar`, `poll-results-bars`, `review-stars-rating`, `roadmap-swimlanes`, `skeleton-shimmer`, `story-progress-frames`, `subscribe-like-bell`, `success-check-burst`, `team-grid-photos`, `testimonial-card-carousel`, `three-column-features`, `toast-stack-loop`, `typing-indicator-chat`, `upload-progress` |
+| overlay (transparent background — put it on top of other motions or your page) | `globe-3d`, `holo-solid-ignite`, `light-beam-ribbon`, `popup-spread`, `creator-hand`, `paper-critter-rig`, `pictogram-figure`, `bar-race`, `bubble-scatter-grow`, `cause-effect-chain`, `comparison-dumbbell`, `donut-breakdown`, `funnel-conversion`, `gantt-timeline`, `gauge-kpi-dial`, `heatmap-calendar`, `network-graph`, `org-chart-tree`, `progress-rings-stats`, `pros-cons-columns`, `radar-compare`, `sankey-flow`, `stacked-area-flow`, `step-process-numbered`, `treemap-split`, `venn-diagram-overlap`, `waterfall-bridge`, `certificate-seal`, `form-fill-submit`, `receipt-print`, `aurora`, `bubbles`, `caustics-godrays`, `curl-flow`, `embers`, `falling-petals`, `fireworks`, `flow-lines`, `fog-clouds`, `insect-flight`, `lightning-flash`, `mesh-gradient-bg`, `rain`, `snowfall`, `starfield-night`, `window-glow-sequence`, `backlit-cutout`, `circuit-traces`, `confetti-burst`, `electric-arcs`, `emote-pop`, `eyes-blink`, `fire-flames`, `giant-eye-reveal`, `grease-pencil-mark`, `impact-frame`, `ink-blot-stop`, `long-exposure-trails`, `magnifier-loupe`, `marker-ring-arrow`, `scribble-ball`, `smear-frame`, `smoke-puffs`, `sparkle-burst`, `star-glint`, `sticker-cutout`, `swirl-portal`, `vhs-crt-pass`, `achievement-unlock`, `bracket-advance`, `candy-set-backdrop`, `kill-streak-banner`, `level-up-burst`, `match-scoreboard`, `player-stat-card`, `stream-starting-soon`, `agent-roster`, `blur-redact-region`, `cam-chip-sync-badge`, `click-ripple-markers`, `day-ring-dial`, `event-feed`, `fight-hud`, `game-hud`, `hand-drawn-arrow-callout`, `hud-chrome`, `mission-clock`, `news-bug-source-tag`, `numbered-step-badges`, `prompt-wall`, `scribble-circle-highlight`, `spec-chip-rail`, `spotlight-dim-focus`, `target-lock-box`, `target-lock`, `tooltip-pointer`, `zoom-inset-box`, `film-look`, `sticker-slap`, `choropleth-fill`, `city-zoom-label`, `coverage-route`, `elevation-profile`, `flight-arcs`, `pin-drop-cluster`, `beat-dance`, `chomp-lid`, `emotion-idle-beat`, `emotion-sheet`, `emotion-timeline`, `mascot-nib`, `mascot-thinking`, `mascot-thumbs-up`, `mascot-wave-hello`, `smear-trail`, `beat-camera`, `beat-grid`, `beat-pulse-rings`, `engraving-hatch`, `equalizer-bars-loop`, `guilloche-note`, `lyric-on-path`, `lyric-timing`, `lyric-video`, `mixer-faders`, `now-playing-card`, `podcast-audiogram`, `shutter-blur`, `stage-curtain`, `time-stutter`, `token-sampler-prompt`, `token-tree`, `tracklist-reveal`, `vinyl-spin-label`, `width-pressure-type`, `colorway-swap`, `feature-callout-orbit`, `price-tag-drop`, `spec-compare-table`, `sunburst-hero`, `unbox-lid-lift`, `comet-pulse-guide`, `ink-brush-stroke`, `logo-reveal-liquid`, `motif-grid-pattern`, `nib-follow-camera`, `papercut-rosette`, `toon-cel-shape`, `agenda-list-slide`, `big-stat-slide`, `blur-in-title`, `channel-intro-sting`, `chapter-countdown`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `definition-card`, `end-card-credits`, `end-screen-cards`, `follower-milestone`, `glyph-orbit-logo`, `key-takeaway-highlight`, `kinetic-captions`, `logo-reveal-lines`, `mask-rise-title`, `myth-vs-fact`, `news-strap`, `number-counter`, `outline-to-fill-text`, `paper-strip-title`, `per-letter-wave`, `qa-slide`, `quiz-question-reveal`, `quote-slide`, `rolling-credits`, `rundown-board`, `sale-countdown-banner`, `scene-tag`, `split-flap-board`, `sponsor-slate`, `stacked-repeat-echo`, `stamp-slam`, `sting-bug`, `story-caption-box`, `text-on-circle-spin`, `text-scramble-decode`, `typewriter-code`, `typewriter-delete-retype`, `typewriter-signature`, `word-carousel-rotator`, `bokeh-drift`, `light-leak-wash`, `pattern-scroll`, `agent-log-panel`, `comment-bubble-stream`, `cursor-driver`, `empty-state-illustration`, `glass-lesson-card`, `hero-gradient-orbs`, `keystroke-hud`, `liquid-glass-lens`, `loader-spinner-set`, `logo-wall-grid`, `notification-stack`, `planned-vs-heard-checklist`, `player-toolbar`, `poll-results-bars`, `review-stars-rating`, `roadmap-swimlanes`, `skeleton-shimmer`, `story-progress-frames`, `subscribe-like-bell`, `success-check-burst`, `team-grid-photos`, `testimonial-card-carousel`, `three-column-features`, `toast-stack-loop`, `typing-indicator-chat`, `upload-progress` |
 | seamless loop | `iso-bar-chart`, `embers`, `sonar-ping`, `empty-state-illustration`, `hero-gradient-orbs`, `loader-spinner-set`, `skeleton-shimmer`, `success-check-burst`, `toast-stack-loop`, `typing-indicator-chat`, `upload-progress` |
 | takes your image (`src` / `images` / `heroSrc`) | `pointcloud-orbit`, `crash-zoom`, `dolly-zoom`, `orbit-parallax`, `whip-pan`, `beat-montage`, `crowd-tracks`, `ground-plane-ruler`, `map-route`, `microscope-dive`, `science-reticle`, `thumbnail-mosaic`, `mugshot-height-chart`, `depth-descent`, `lamp-screen`, `paper-diorama`, `studio-sweep`, `topdown-terrain`, `window-glow-sequence`, `beat-punch-zoom`, `crayon-wax-shader`, `focus-desaturate`, `frame-blend-timelapse`, `frame-breakout`, `freeze-frame-brackets`, `giant-eye-reveal`, `glass-crack-mend`, `long-exposure-trails`, `loupe-magnify`, `magnifier-loupe`, `swirl-portal`, `theatre-gate`, `vhs-crt-pass`, `loot-reveal`, `player-stat-card`, `rocket-to-moon`, `callout-labels`, `cam-chip-sync-badge`, `target-lock-box`, `target-lock`, `zoom-inset-box`, `ascii-image-grid`, `autofocus-hunt`, `brush-stroke-reveal`, `comic-halftone`, `dot-matrix`, `duotone`, `film-look`, `glass-pane-grid`, `glitch-image`, `grid-multiply`, `handscroll-reveal`, `ken-burns`, `knife-colour-relay`, `knife-paint-plate`, `light-sweep`, `negative-develop-reveal`, `perspective-flatten`, `photomontage-tower`, `pixel-dither`, `press-lift`, `proportion-sweep`, `riso-plate-reveal`, `spinning-headline`, `split-grid-countdown`, `sticker-cutout-burst`, `telestrator-freeze`, `tilt-shift-diorama`, `woodblock-print-reveal`, `woodcut-carve`, `xray-scan`, `map-mask-reveal`, `audio-spectrum`, `guilloche-note`, `colorway-swap`, `feature-callout-orbit`, `frost-to-clear`, `sunburst-hero`, `unbox-lid-lift`, `logo-reveal-liquid`, `scissor-cut`, `sonar-ping`, `blur-in-title`, `bouncing-ball-singalong`, `channel-intro-sting`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `diagonal-band-title`, `end-card-credits`, `flipbook-riffle-outro`, `glyph-orbit-logo`, `halftone-exhibit-numeral`, `hanazi-caption`, `letters-become-image`, `logo-assemble`, `logo-reveal-lines`, `mask-rise-title`, `number-counter`, `quote-slide`, `sponsor-slate`, `stamp-slam`, `story-caption-box`, `typewriter-code`, `browser-mockup`, `device-mockup`, `sms-thread`, `split-compare`, `story-progress-frames`, `tv-wall-switch-on`, `versus-roster` |
 | heavy (three.js / WebGL — prefer an exported video on mobile web) | `accum-render-3d`, `brick-collapse-physics`, `brick-fx-fire-smoke`, `brick-rebuild-morph`, `brick-snap-build`, `chart-to-installation`, `cloner-bed-ripple`, `colour-ignition-wave`, `exploded-stack`, `exploded-view-3d`, `glass-strip-sweep`, `globe-3d`, `iso-blocks-3d`, `iso-city-build`, `jelly-type-drop`, `last-object-drop`, `liminal-corridor-3d`, `ocean-surface-3d`, `particle-shape-morph`, `plan-tilt`, `pointcloud-orbit`, `product-turntable-3d`, `shockwave-flip-field`, `stack-plates-3d`, `terrain-build-3d`, `voxel-burst-swirl`, `voxel-diorama`, `wireframe-build`, `dash-flow-field` |
@@ -343,6 +343,8 @@ A seamless 14-second loop for a landing-page hero, app promo or showreel tile: o
 
 ### `agenda-list-slide` — Agenda list slide
 
+![agenda-list-slide](../gallery/agenda-list-slide.jpg)
+
 Keynote agenda slide: big title column and a numbered list; a highlight pill glides item to item so the current topic is bright and the rest dim.
 
 **Use for:** Meeting and webinar agendas, chapter lists, course outlines, table-of-contents beats and "what we will cover" slides in decks and videos.  
@@ -397,6 +399,8 @@ A 1950s atomic-age TV title in fat cream block caps with a thick ink outline and
 | `seed` | `2` | star layout seed |
 
 ### `big-stat-slide` — Big stat slide
+
+![big-stat-slide](../gallery/big-stat-slide.jpg)
 
 Keynote one-number slide: an eyebrow tag, a huge number counting up with accent prefix/suffix, an accent rule drawing under it, a one-line label and a source footnote.
 
@@ -1690,6 +1694,41 @@ Huge thin-mono counter that ticks or odometer-rolls through dwell keyframes, wit
 | `kicker` | `""` | hook line slamming in above the number |
 | `rollDuration` | `0.45` | block hook: seconds of the scale slam |
 
+### `outline-to-fill-text` — Outline to fill text
+
+A headline appears as hollow outlined letters, then each letter floods with solid colour one after another — rising like liquid with a wavy surface or wiping up, down, left or right (optional top-to-bottom gradient) — and can drain back to an outline; long text wraps and shrinks to fit.
+
+**Use for:** Bold website hero words, section titles, poster-style stat words, title cards and reel openers; works as a looping brand headline.  
+**Rebuilt from:** original — generic kinetic-type effect (R3)  
+**Default length:** 170 frames (5.7 s @ 30 fps)
+
+**Roles:** type, accent · **Mood:** nature, playful, ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `text`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `text` | `"Make it count"` | the headline (\n = forced break; wraps and shrinks to fit) |
+| `subtitle` | `""` | optional small line under the headline |
+| `font` | `"display"` | font role (heavy display faces read best) |
+| `size` | `190` | max font size in u; shrinks to fit |
+| `weight` | `400` | font weight |
+| `tracking` | `0.01` | letter spacing in em |
+| `textCase` | `"upper"` | upper \| none |
+| `direction` | `"up"` | wipe direction: up \| down \| left \| right (liquid always rises) |
+| `surface` | `"liquid"` | liquid (wavy rising surface) \| wipe (hard straight edge) |
+| `fillDelay` | `14` | frames after the outline appears before the first fill starts |
+| `stagger` | `2.6` | frames between neighbouring letters starting to fill |
+| `fillFrames` | `24` | frames one letter takes to fill |
+| `startAt` | `6` | frame the outline starts appearing |
+| `cycle` | `"fill-unfill"` | fill (stay filled) \| fill-unfill (drain back to outline at the end) |
+| `holdFilled` | `34` | frames the filled text holds before it drains |
+| `stroke` | `0.03` | outline weight as a fraction of the font size |
+| `background` | `"#0E0E12"` | background colour; "transparent" for an overlay |
+| `outline` | `"#F4F0E6"` | outline colour |
+| `fill` | `"#FF4D2E"` | fill colour |
+| `fill2` | `""` | optional second colour: fill becomes a top-to-bottom gradient per letter ("" = solid) |
+| `subtitleColor` | `"#BDB8AA"` | subtitle colour |
+
 ### `paper-strip-title` — Paper strip title (scroll unroll + seal)
 
 ![paper-strip-title](../gallery/paper-strip-title.jpg)
@@ -1720,6 +1759,39 @@ Vertical columns of brush calligraphy on cut gold-paper strips unroll from their
 | `backdrop` | `"#121a38"` | backdrop colour behind the strips |
 | `background` | `"backdrop"` | "backdrop" or "transparent" (overlay over any scene, e.g. lightbox-stack) |
 
+### `per-letter-wave` — Per-letter wave
+
+Every letter rides a travelling wave: it lifts, scales, rocks or all three, so a crest runs through the words — smooth sine, bouncing hops, a single ripple or a swing — with crest letters shifting to the accent colour; letters pop in on a stagger, long text wraps, and the clip loops seamlessly.
+
+**Use for:** Playful titles, loading and waiting states, "hello" greetings, party / music / kids content, website hero words, looping caption accents; replace the text.  
+**Rebuilt from:** original — generic kinetic-type effect (R3)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** type, accent · **Mood:** 3d, playful, ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `text` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `text` | `"Let it flow"` | the text (\n = forced break; wraps and shrinks to fit) |
+| `shape` | `"sine"` | sine \| bounce \| ripple \| swing — wave profile |
+| `effect` | `"lift-scale"` | lift \| scale \| rotate \| lift-scale — what the wave moves |
+| `amplitude` | `0.16` | wave height as a fraction of the font size |
+| `wavelength` | `9` | letters per wave (bigger = broader crest) |
+| `speed` | `1` | wave cycles per second (integer values loop seamlessly on the default 5 s) |
+| `colorWave` | `true` | letters shift towards the accent colour on the crest |
+| `entrance` | `"pop"` | pop \| rise \| none — how letters first appear |
+| `enterStagger` | `1.8` | frames between letters entering |
+| `startAt` | `4` | frame the first letter enters |
+| `font` | `"display"` | font role |
+| `size` | `200` | max font size in u; shrinks to fit |
+| `weight` | `400` | font weight |
+| `tracking` | `0.01` | letter spacing in em |
+| `textCase` | `"upper"` | upper \| none |
+| `background` | `"#FFF4E0"` | background colour; "transparent" for an overlay |
+| `ink` | `"#1D1B3A"` | base letter colour |
+| `accent` | `"#FF3D7F"` | crest colour |
+| `shadow` | `false` | soft drop shadow that follows each letter |
+
 ### `pixel-logo-drop` — Pixel logo drop
 
 ![pixel-logo-drop](../gallery/pixel-logo-drop.jpg)
@@ -1748,6 +1820,8 @@ A chunky gold pixel-glyph logo falls with gravity, lands on a white flash frame,
 | `seed` | `5` | seed for stars, dust and sparks |
 
 ### `qa-slide` — Q&A slide
+
+![qa-slide](../gallery/qa-slide.jpg)
 
 Keynote Q&A slide: a question lands beside an accent "Q" badge, three thinking dots pulse in the answer card, then the answer reveals word by word; several pairs play in turn with a counter.
 
@@ -1802,6 +1876,8 @@ A QUIZ tag and question, lettered option cards dealing in, a draining timer ring
 | `speed` | `1` | playback speed multiplier |
 
 ### `quote-slide` — Quote slide
+
+![quote-slide](../gallery/quote-slide.jpg)
 
 Keynote quote slide: giant accent quote mark pops in, the quote reveals word by word / typed / line by line, then name and role slide in beside an optional round portrait.
 
@@ -2009,6 +2085,39 @@ On black, a big word cut into 8–10 horizontal slices of different heights flie
 | `hud` | `true` | show the reel HUD |
 | `label` | `"04 — TYPE"` | HUD chapter label |
 
+### `split-flap-board` — Split-flap board
+
+A mechanical split-flap (Solari) departure board: a grid of two-half flap cells clatters through the alphabet, the upper flap folding down and the lower flap of the new letter dropping in, rippling across the board to spell each message in turn — auto-sized to the text, wrapped to the board width.
+
+**Use for:** Announcements, schedules, countdown/updates, retro tech titles, "coming soon" reveals, scoreboards and price boards; give it messages[] with \n for rows.  
+**Rebuilt from:** original — generic kinetic-type effect (R3)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** pixel  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `messages`, `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `messages` | `["WELCOME\nTO THE SHOW\nDOORS OPEN 7PM","SOLD OUT\nTONIGH…` | array of messages shown one after another; \n starts a new row, long rows wrap to the board width |
+| `title` | `"Now showing"` | small label above the board ("" to hide) |
+| `accentRows` | `[0]` | row numbers (0-based) drawn in the accent colour |
+| `alphabet` | `" ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.:-!?'/&,"` | characters the flaps cycle through, in order |
+| `columns` | `0` | board width in cells (0 = fit the longest line, capped per format) |
+| `flipFrames` | `3` | frames per single flap (2 = fast clatter, 5 = lazy) |
+| `maxFlips` | `12` | most flaps a cell flips before landing (long cycles are shortened to this) |
+| `colStagger` | `1.5` | frames between neighbouring columns starting to flip |
+| `rowStagger` | `5` | frames between rows |
+| `jitter` | `5` | random extra start delay per cell in frames |
+| `startAt` | `10` | frame the first message starts flipping |
+| `hold` | `70` | frames a message stays readable before the next one flips |
+| `uppercase` | `true` | upper-case all text (the default alphabet is upper-case) |
+| `font` | `"grotesk"` | font role for the characters |
+| `weight` | `700` | font weight |
+| `background` | `"#121212"` | background colour; "transparent" for an overlay |
+| `cellBg` | `"#232326"` | flap colour |
+| `ink` | `"#F1E9D2"` | character colour |
+| `accent` | `"#FFB320"` | title and accent-row colour |
+
 ### `sponsor-slate` — Sponsor slate
 
 ![sponsor-slate](../gallery/sponsor-slate.jpg)
@@ -2037,6 +2146,40 @@ A "presented by" label flanked by drawing rules, a rounded panel that scales up 
 | `startAt` | `0` | frame the slate starts |
 | `fadeOut` | `true` | fade out over the last 16 frames |
 | `fontFamily` | `""` | optional CSS font-family |
+
+### `stacked-repeat-echo` — Stacked repeat echo
+
+A headline repeated again and again behind itself: copies peel off the crisp front word one after another as offset outlines marching up or down (or alternating solid and hollow, a zooming tunnel, a diagonal trail or a fan), fading from one accent to a second, then breathing slowly.
+
+**Use for:** Bold poster-style hero words, music / fashion / sport titles, repeating-text backdrops behind a subject, section openers; replace the text and colours.  
+**Rebuilt from:** original — generic kinetic-type effect (R3)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** type, accent · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `text` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `text` | `"Echo"` | the headline (\n = forced break; wraps and shrinks to fit) |
+| `count` | `7` | how many echoes behind the front word |
+| `mode` | `"stack"` | stack (offset copies) \| tunnel (growing copies) \| diagonal (trail) \| fan (rotating copies) |
+| `direction` | `"up"` | stack mode: up \| down \| both |
+| `echoStyle` | `"outline"` | outline \| alternate (solid and hollow) \| solid |
+| `spread` | `0.5` | distance between echoes as a fraction of the font size |
+| `fade` | `1` | 0..1 how much the echoes fade towards the back |
+| `float` | `1` | 0..1 amount of slow breathing after the echoes settle |
+| `font` | `"display"` | font role |
+| `size` | `260` | max font size in u; shrinks so the stack fits |
+| `weight` | `400` | font weight |
+| `tracking` | `0.01` | letter spacing in em |
+| `textCase` | `"upper"` | upper \| none |
+| `startAt` | `6` | frame the front word appears |
+| `stagger` | `3` | frames between successive echoes peeling off |
+| `stroke` | `0.018` | outline weight as a fraction of the font size |
+| `background` | `"#101014"` | background colour; "transparent" for an overlay |
+| `ink` | `"#F6F1E6"` | front word colour |
+| `accent` | `"#FF4F6D"` | colour of the nearest echo |
+| `accent2` | `"#5A6BFF"` | colour of the farthest echo |
 
 ### `stamp-slam` — Stamp slam + keyword pop
 
@@ -2148,6 +2291,70 @@ Double-ruled black narrative caption box under a letterboxed scene (RPG-style ty
 | `paper` | `""` | ornate/bubble/paper-strip: fill or text colour of the paper (empty = per-variant default) |
 | `ink` | `""` | bubble/paper-strip/banderole: outline + text ink (empty = per-variant default) |
 
+### `text-on-circle-spin` — Text on a circle, spinning
+
+Concentric rings of text that wrap a circle exactly — a phrase repeating with a separator, seam closed by adjusting the letter spacing — each spinning at its own speed and direction, solid or outlined, reading outward or inward, around a centre word that pops in; rings spin up on a stagger.
+
+**Use for:** Badge / seal / stamp logos, rotating "coming soon" or "limited edition" rings, music and podcast discs, circular text backdrops, loaders, website decorations; set rings[] and centerText.  
+**Rebuilt from:** original — generic kinetic-type effect (R3)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** type, accent · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `rings` | `[{"text":"Round and round we go","separator":"  ✦  ","rad…` | [{text, separator?, radius(outer edge, 0..1 of the circle), size(u), speed(deg/s, negative = anticlockwise), color, style?(solid\|outline), inward?(read from the inside), weight?, font?}] |
+| `centerText` | `"Hello"` | word(s) in the middle ("" for none); wraps and shrinks to fit |
+| `centerFont` | `"display"` | font role of the centre word |
+| `centerSize` | `150` | max centre font size in u |
+| `centerWeight` | `400` | centre font weight |
+| `centerColor` | `"#F7F2E7"` | centre colour |
+| `disc` | `""` | colour of a disc behind the centre ("" = none) |
+| `guides` | `true` | thin circle next to each ring |
+| `startAngle` | `-90` | initial rotation in degrees |
+| `enterStagger` | `8` | frames between rings spinning in |
+| `startAt` | `4` | frame the first ring enters |
+| `tracking` | `0.02` | extra letter spacing in em |
+| `textCase` | `"upper"` | upper \| none |
+| `background` | `"#16223A"` | background colour; "transparent" for an overlay |
+| `ink` | `"#F7F2E7"` | general light colour (for presets) |
+| `accent` | `"#FF6B3D"` | accent colour (glow) |
+
+### `text-scramble-decode` — Text scramble decode
+
+A headline starts as flickering random glyphs (blocks, symbols, binary or your own charset) and each character locks onto its real letter in turn — left to right, centre out, edges in or random — flashing the accent colour as it lands, with an optional "decoding 64%" status line and bar; wraps and shrinks for long text, optional scramble-out.
+
+**Use for:** Hacker / cyber / AI reveals, tech product titles, "secret message" stings, section headers on dark sites, caption reveals; replace the text and charset.  
+**Rebuilt from:** original — generic kinetic-type effect (R3)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** type, accent · **Mood:** playful, editorial, ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `text` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `text` | `"Hidden in plain sight"` | the line or paragraph to decode (\n = forced break; long text wraps and shrinks to fit) |
+| `eyebrow` | `"Decoding message"` | small status label above the text ("" to hide) |
+| `showProgress` | `true` | show the % counter and progress bar |
+| `charset` | `"glyphs"` | glyphs \| binary \| hex \| letters \| symbols \| digits — or any string whose characters are used as the noise |
+| `order` | `"ltr"` | ltr \| rtl \| center \| edges \| random — order in which glyphs lock in |
+| `font` | `"mono"` | font role (mono keeps cells even; others work too) |
+| `size` | `120` | max font size in u (1080-short-side units); shrinks to fit |
+| `weight` | `700` | font weight |
+| `align` | `"center"` | center \| left |
+| `tracking` | `0` | extra letter spacing in em |
+| `startAt` | `8` | frame the noise appears |
+| `revealFrames` | `62` | frames over which the glyphs lock in (longer = slower decode) |
+| `scrambleEvery` | `2` | frames between noise changes (1 = frantic, 4 = calm) |
+| `exit` | `"scramble"` | scramble (back to noise and gone) \| fade \| none |
+| `exitFrames` | `26` | length of the exit at the end of the clip |
+| `seed` | `7` | noise seed |
+| `background` | `"#0A0F14"` | background colour; "transparent" for an overlay |
+| `ink` | `"#EAF4F2"` | colour of resolved text |
+| `accent` | `"#34F5B0"` | noise / flash / status colour |
+| `dim` | `"#2F8F78"` | secondary colour for noise and counter |
+
 ### `type-architecture` — Type architecture (credits as a set)
 
 ![type-architecture](../gallery/type-architecture.jpg)
@@ -2243,6 +2450,41 @@ macOS-style code editor or terminal window that types syntax-coloured code with 
 | `consoleEvery` | `9` | frames between console lines |
 | `chips` | `false` | numeric literals on small rounded chips |
 
+### `typewriter-delete-retype` — Typewriter delete & retype
+
+A lead-in line is typed once, then phrases are typed after it with an uneven keystroke rhythm, held, then deleted — backspacing with accelerating speed or select-all-and-delete — and replaced by the next phrase, with an optional typo that is noticed and corrected and a blinking bar, block or underscore caret.
+
+**Use for:** Hero taglines that cycle ("Built to be fast / secure / simple"), search-box and prompt demos, "we help X do Y" rotators, chat/AI typing intros, coding-themed titles; set prefix and phrases[].  
+**Rebuilt from:** original — generic kinetic-type effect (R3)  
+**Default length:** 290 frames (9.7 s @ 30 fps)
+
+**Roles:** type, accent · **Mood:** ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `prefix` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `prefix` | `"Built to be "` | lead-in typed once and kept (include a trailing space if the phrase follows directly) |
+| `phrases` | `["fast.","secure.","simple."]` | phrases typed, held and deleted one after another |
+| `typo` | `true` | every second phrase gets a mistyped letter that is noticed and corrected |
+| `deleteStyle` | `"backspace"` | backspace (letter by letter, speeding up) \| select (highlight the phrase, then delete at once) |
+| `loop` | `true` | delete the last phrase too (false = last phrase stays on screen) |
+| `typeCps` | `12` | typing speed in characters per second |
+| `deleteCps` | `26` | backspace speed in characters per second |
+| `hold` | `38` | frames a finished phrase stays before deleting |
+| `startAt` | `10` | frame typing starts |
+| `cursor` | `"bar"` | bar \| block \| underscore |
+| `align` | `"left"` | left (anchored, block centred on screen) \| center |
+| `font` | `"mono"` | font role (mono looks most typed) |
+| `size` | `110` | max font size in u; shrinks so the longest line fits |
+| `weight` | `700` | font weight |
+| `tracking` | `0` | letter spacing in em |
+| `seed` | `5` | keystroke-rhythm seed |
+| `background` | `"#0F1217"` | background colour; "transparent" for an overlay |
+| `ink` | `"#ECEFF4"` | lead-in colour |
+| `accent` | `"#4FE3A6"` | phrase colour |
+| `cursorColor` | `"#4FE3A6"` | caret colour |
+| `selectColor` | `"rgba(79,227,166,0.28)"` | selection highlight colour (select delete style) |
+
 ### `typewriter-signature` — Typewriter signature
 
 ![typewriter-signature](../gallery/typewriter-signature.jpg)
@@ -2281,6 +2523,39 @@ Small lowercase credit typed into a corner two frames per character, no cursor; 
 | `pool` | `""` | decode: glyph pool (empty = brackets, symbols, letters) |
 | `direction` | `"ltr"` | decode: ltr \| center-out \| random resolve order |
 | `decodeOut` | `8` | decode: frames the break-back-to-symbols exit takes at scrambleAt (0 = no decode exit) |
+
+### `word-carousel-rotator` — Word carousel rotator
+
+A fixed sentence with one swapping word — "We build [fast | safe | beautiful | scalable] apps": the word rolls like a slot machine (or blurs, flips, slides) inside an accent pill whose width glides to each new word while the rest re-centres; stacks into three lines on narrow frames.
+
+**Use for:** Website hero taglines, value-prop rotators, "for designers / developers / teams" audience swaps, intro slides, social hooks; set prefix, words[] and suffix.  
+**Rebuilt from:** original — generic kinetic-type effect (R3)  
+**Default length:** 220 frames (7.3 s @ 30 fps)
+
+**Roles:** type, accent · **Mood:** 3d, ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `prefix` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `prefix` | `"We build"` | static text before the swapping word ("" for none) |
+| `words` | `["fast","secure","beautiful","scalable"]` | the words that rotate, in order |
+| `suffix` | `"apps"` | static text after the swapping word ("" for none) |
+| `layout` | `"auto"` | auto (inline if it fits, otherwise stacked) \| inline \| stacked |
+| `transition` | `"roll"` | roll \| blur \| flip \| slide — how one word replaces another |
+| `pill` | `true` | put the word on an accent pill (false = accent-coloured text) |
+| `anchor` | `"center"` | center (sentence re-centres as the word width changes) \| prefix (prefix stays put) |
+| `loop` | `true` | wrap back to the first word after the last (false = hold the last word) |
+| `startAt` | `14` | frame the first word rolls in |
+| `interval` | `50` | frames each word stays (min transitionFrames + 4) |
+| `transitionFrames` | `14` | frames each swap takes |
+| `font` | `"sans"` | font role |
+| `size` | `150` | max font size in u; shrinks to fit the frame |
+| `weight` | `800` | font weight |
+| `tracking` | `-0.01` | letter spacing in em |
+| `background` | `"#F5F1E8"` | background colour; "transparent" for an overlay |
+| `ink` | `"#16130F"` | colour of the fixed text |
+| `accent` | `"#FF5A36"` | pill / word colour |
+| `pillInk` | `"#FFFFFF"` | word colour when on the pill |
 
 ## transition
 
@@ -7032,6 +7307,7 @@ A bubble chart: axes and grid fade in, then bubbles grow in from left to right a
 | `ySuffix` | `"%"` | text after y-axis numbers, e.g. "%" |
 | `xDecimals` | `0` | decimals on x-axis numbers |
 | `yDecimals` | `0` | decimals on y-axis numbers |
+| `zeroBased` | `true` | start both axes at zero (false zooms to the data range) |
 | `showLabels` | `true` | print bubble labels (inside when they fit, else beside, skipping collisions) |
 | `labelTop` | `0` | only label the N largest bubbles (0 = all that fit) |
 | `maxRadius` | `96` | radius of the largest bubble in u (capped to the plot size) |
@@ -7715,7 +7991,7 @@ A GitHub-style contribution calendar: one rounded square per day, shaded in leve
 |---|---|---|
 | `values` | `[]` | one number per day, up to 371 (empty = seeded sample year) |
 | `sampleSeed` | `7` | seed for the sample data used when values is empty |
-| `startDate` | `"2025-01-05"` | date of the first value, "YYYY-MM-DD" (drives month labels and weekday alignment) |
+| `startDate` | `"2025-01-01"` | date of the first value, "YYYY-MM-DD" (drives month labels and weekday alignment) |
 | `weekStart` | `"sun"` | "sun" or "mon": which weekday is the top row |
 | `layout` | `"auto"` | "auto" (strip in 16:9, mini months in 1:1 / 9:16), "strip" or "months" |
 | `levels` | `5` | number of shades including empty (3-8) |
@@ -9553,6 +9829,8 @@ Six seamless loading indicators — spinning ring, chasing dots, equaliser bars,
 
 ### `logo-wall-grid` — Logo wall grid
 
+![logo-wall-grid](../gallery/logo-wall-grid.jpg)
+
 Keynote "trusted by" slide: a headline over a grid of client tiles (logo images or invented wordmarks with geometric marks) that pop in as a ripple, sequence or shuffle, then an accent highlight roams the wall.
 
 **Use for:** Client / partner / customer logo walls, "as seen in" and sponsor slides, integration lists and social-proof sections of decks, sales videos and landing pages.  
@@ -9792,6 +10070,8 @@ Stars fill one after another up to a rating (the last one partially) while a big
 | `startAt` | `0` | frame the sequence begins |
 
 ### `roadmap-swimlanes` — Roadmap swimlanes
+
+![roadmap-swimlanes](../gallery/roadmap-swimlanes.jpg)
 
 Keynote roadmap: quarter columns across the top, one swimlane per workstream; item bars slide in on their lane (done solid, upcoming tinted, in progress with a progress strip) while a "today" line sweeps to the current date.
 
@@ -10115,6 +10395,8 @@ The speaker (your video, or a built-in presenter stand-in) starts full-frame the
 
 ### `team-grid-photos` — Team grid with photos
 
+![team-grid-photos](../gallery/team-grid-photos.jpg)
+
 Keynote team slide: a headline over a grid of person cards (round or rounded photo, or coloured initials, plus name and role) that pop in with a drawing accent ring.
 
 **Use for:** Meet-the-team and about-us slides, speaker lineups, advisor and contributor walls, org intros in pitch decks, videos and landing pages.  
@@ -10167,6 +10449,8 @@ Customer quote cards with a big quote mark, star rating, avatar, name and role r
 | `startAt` | `0` | frame the sequence begins |
 
 ### `three-column-features` — Three-column features
+
+![three-column-features](../gallery/three-column-features.jpg)
 
 Keynote feature slide: a headline over three cards (2-4 supported), each with a line icon that draws on (or your own image), a heading and a short text; columns in landscape, stacked rows in portrait.
 
@@ -10461,18 +10745,23 @@ A cyan radar HUD scans while a contact closes in; at the climax a ring expands f
 
 ### `blur-redact-region` — Blur / pixelate redact region
 
+![blur-redact-region](../gallery/blur-redact-region.jpg)
+
 Tutorial / privacy overlay: boxes over regions of the footage frost what is underneath (backdrop blur), pop in a scattered pixel mosaic or slide a solid censor bar across, each with corner ticks and a lock badge label; a region can drift to follow a moving element.
 
 **Use for:** Hide names, emails, keys or faces in a screen recording or screenshot walkthrough: pass `regions` (0-1 rects) with a `mode` and a label like "Hidden".  
 **Rebuilt from:** screen-recording tutorial annotation  
 **Default length:** 180 frames (6.0 s @ 30 fps)
 
-**Roles:** subject · **Mood:** photo, pixel  
-**Capabilities:** paints its own background · weight: light  
+**Roles:** frame, accent · **Mood:** photo, pixel  
+**Capabilities:** overlay (`{"demoBackground":false}`) · text: `regions` · weight: light  
+**Pairs well with:** `cursor-driver`, `keystroke-hud`, `spotlight-dim-focus`  
+**Note:** blur frosts whatever is composited beneath (backdrop blur): use it inside a mix or over HTML. In a transparent alpha export it shows only the tint and mosaic, so prefer mode "bar" or "pixelate" there.  
+**Avoid:** Replace the sample labels (Blurred / Pixelated / Hidden).  
 
 | prop | default | notes |
 |---|---|---|
-| `regions` | `[{"x":0.12000000000000001,"y":0.03,"w":0.2,"h":0.028,"mod…` | array of {x, y, w, h (0-1, x/y = top-left), mode?: blur\|pixelate\|bar, label?, toX?, toY? (drift to this top-left), at?} |
+| `regions` | `[{"x":0.12,"y":0.03,"w":0.2,"h":0.028,"mode":"blur","labe…` | array of {x, y, w, h (0-1, x/y = top-left), mode?: blur\|pixelate\|bar, label?, toX?, toY? (drift to this top-left), at?} |
 | `blurPx` | `16` | backdrop blur radius in u (blur and pixelate modes) |
 | `pixelSize` | `15` | mosaic block size in u |
 | `tint` | `"#9AA3B5"` | frost / mosaic / bar colour |
@@ -10545,18 +10834,22 @@ Per-feed labelling for split screens: a chip top-left (square sync dot, CAM code
 
 ### `click-ripple-markers` — Click ripple markers
 
+![click-ripple-markers](../gallery/click-ripple-markers.jpg)
+
 Tutorial overlay on a transparent background: concentric rings ripple out of each click point, a dot stays behind and a chip names the click (click, double click, right click) with its timestamp; earlier clicks dim and an optional dotted trail links them.
 
 **Use for:** Show exactly where and when something was clicked in a screen recording, UX test replay or bug report: pass `clicks` with x/y, the frame `at` and the `kind`.  
 **Rebuilt from:** screen-recording tutorial annotation  
 **Default length:** 180 frames (6.0 s @ 30 fps)
 
-**Roles:** subject · **Mood:** —  
-**Capabilities:** paints its own background · weight: light  
+**Roles:** frame, accent · **Mood:** —  
+**Capabilities:** overlay (`{"demoBackground":false}`) · text: `clicks` · weight: light  
+**Pairs well with:** `cursor-driver`, `keystroke-hud`, `zoom-inset-box`  
+**Note:** Transparent overlay: clicks are 0-1 points with a frame `at`; timestamps are derived from `at` at 30 fps.  
 
 | prop | default | notes |
 |---|---|---|
-| `clicks` | `[{"x":0.8500000000000001,"y":0.044,"kind":"click","at":16…` | array of {x, y (0-1 point), at? (frame), kind?: click\|double\|right, label?, time?} |
+| `clicks` | `[{"x":0.85,"y":0.044,"kind":"click","at":16},{"x":0.36,"y…` | array of {x, y (0-1 point), at? (frame), kind?: click\|double\|right, label?, time?} |
 | `timestamps` | `true` | append the timestamp (m:ss.d from the video start) to each chip |
 | `keep` | `"all"` | all = earlier clicks stay dimmed \| last = only the latest \| none = rings only |
 | `trail` | `true` | dotted trail between consecutive clicks |
@@ -10709,18 +11002,23 @@ A video-game overlay: health, mana and xp bars that drain in eased steps with a 
 
 ### `hand-drawn-arrow-callout` — Hand-drawn arrow callout
 
+![hand-drawn-arrow-callout](../gallery/hand-drawn-arrow-callout.jpg)
+
 Tutorial annotation overlay on a transparent background: a handwritten label pops, a sketchy double-pass pen arrow draws from it to a target point with a scribbled head and impact ticks. Several callouts run in sequence; positions are 0-1 fractions of the frame.
 
 **Use for:** Point at a button, field or number in any screen recording or tutorial ("click here", "watch this"): pass `callouts` with the target x/y and your own label text.  
 **Rebuilt from:** screen-recording tutorial annotation  
 **Default length:** 180 frames (6.0 s @ 30 fps)
 
-**Roles:** subject · **Mood:** paper  
-**Capabilities:** paints its own background · weight: light  
+**Roles:** frame, accent · **Mood:** paper  
+**Capabilities:** overlay (`{"demoBackground":false}`) · text: `callouts` · weight: light  
+**Pairs well with:** `cursor-driver`, `keystroke-hud`, `scribble-circle-highlight`  
+**Note:** Transparent overlay: stack on a screen recording; x/y of each callout are 0-1 target points. demoBackground:true only for previews.  
+**Avoid:** Replace the sample labels (Click here / Watch this bar / Then save).  
 
 | prop | default | notes |
 |---|---|---|
-| `callouts` | `[{"x":0.8500000000000001,"y":0.07200000000000001,"label":…` | array of {x, y, label, sublabel?, lx?, ly?, curve?, color?, at?}: x/y = target (0-1), lx/ly = label centre (0-1), at = start frame |
+| `callouts` | `[{"x":0.85,"y":0.072,"label":"Click here","lx":0.72,"ly":…` | array of {x, y, label, sublabel?, lx?, ly?, curve?, color?, at?}: x/y = target (0-1), lx/ly = label centre (0-1), at = start frame |
 | `color` | `"#FF4B3E"` | arrow colour |
 | `labelBg` | `"#FFE14D"` | sticker fill (or text colour for plain/underline) |
 | `labelInk` | `"#15171C"` | sticker text colour |
@@ -10862,14 +11160,19 @@ Attribution overlay: a top-left channel bug (accent square, channel, topic), a "
 
 ### `numbered-step-badges` — Numbered step badges
 
+![numbered-step-badges](../gallery/numbered-step-badges.jpg)
+
 Tutorial overlay on a transparent background: numbered badges (1, 2, 3 ...) pop onto points of the footage one after another with a pulse ring and a caption chip, linked by a dotted path that draws on between them. Circle, map-pin or rounded-square badges.
 
 **Use for:** Number the steps of a how-to on top of a screen recording or screenshot ("1 pick a file, 2 choose a format, 3 export"): pass `steps` with x/y points and your own captions.  
 **Rebuilt from:** screen-recording tutorial annotation  
 **Default length:** 180 frames (6.0 s @ 30 fps)
 
-**Roles:** subject · **Mood:** photo, editorial  
-**Capabilities:** paints its own background · weight: light  
+**Roles:** frame, accent · **Mood:** photo, editorial  
+**Capabilities:** overlay (`{"demoBackground":false}`) · text: `steps` · weight: light  
+**Pairs well with:** `cursor-driver`, `tooltip-pointer`, `spotlight-dim-focus`  
+**Note:** Transparent overlay: steps are 0-1 points; badgeStyle circle|pin|square. pin badges sit above their point, so keep pin points below ~15% of the frame height.  
+**Avoid:** Replace the sample captions (Search for a file / Pick a chart ...).  
 
 | prop | default | notes |
 |---|---|---|
@@ -10979,14 +11282,19 @@ Dark blueprint: a blue dot pings, the camera snaps back to a seeded circular lib
 
 ### `scribble-circle-highlight` — Scribble circle highlight
 
+![scribble-circle-highlight](../gallery/scribble-circle-highlight.jpg)
+
 Tutorial annotation overlay on a transparent background: a marker pen draws a looping circle, a scribbled underline, a sketchy box or a translucent highlighter swath around chosen regions of the footage, each with an optional handwritten label.
 
 **Use for:** Circle the button, underline the setting, box the table or highlight the number in any screen recording: pass `marks` with the region (x, y, w, h in 0-1), the mark `type` and your own label.  
 **Rebuilt from:** screen-recording tutorial annotation  
 **Default length:** 180 frames (6.0 s @ 30 fps)
 
-**Roles:** subject · **Mood:** paper, photo  
-**Capabilities:** paints its own background · weight: light  
+**Roles:** frame, accent · **Mood:** paper, photo  
+**Capabilities:** overlay (`{"demoBackground":false}`) · text: `marks` · weight: light  
+**Pairs well with:** `cursor-driver`, `hand-drawn-arrow-callout`, `spotlight-dim-focus`  
+**Note:** Transparent overlay: marks are 0-1 regions (x,y = top-left). Types: circle, underline, box, highlight.  
+**Avoid:** Replace the sample labels (New project / Spot the dip / Total).  
 
 | prop | default | notes |
 |---|---|---|
@@ -11032,14 +11340,19 @@ Hologram spec sheet: each value rolls from garbage glyphs into the real number o
 
 ### `spotlight-dim-focus` — Spotlight dim focus
 
+![spotlight-dim-focus](../gallery/spotlight-dim-focus.jpg)
+
 Tutorial overlay: the frame dims except a soft-edged cut-out (rounded rectangle, ellipse or circle) that closes in on a region, glides to the next one with a caption chip on each, then opens back up. Everything outside the cut-out is just a dark veil, so it sits on any footage.
 
 **Use for:** Walk a viewer through parts of a screen recording one region at a time ("first the search bar, then the chart, then save"): pass `regions` (0-1 rects) with captions.  
 **Rebuilt from:** screen-recording tutorial annotation  
 **Default length:** 270 frames (9.0 s @ 30 fps)
 
-**Roles:** subject · **Mood:** photo, editorial, night  
-**Capabilities:** paints its own background · weight: light  
+**Roles:** frame, accent · **Mood:** photo, editorial, night  
+**Capabilities:** overlay (`{"demoBackground":false}`) · text: `regions` · weight: light  
+**Pairs well with:** `cursor-driver`, `tooltip-pointer`, `numbered-step-badges`  
+**Note:** Only a dark veil with a cut-out is drawn, so it sits on any footage. regions glide in order; hold/move set the pacing.  
+**Avoid:** Replace the sample captions (Start with a search / Read the chart ...).  
 
 | prop | default | notes |
 |---|---|---|
@@ -11143,18 +11456,23 @@ Candidate boxes with ids and rising MATCH % appear over a scene half a second ap
 
 ### `tooltip-pointer` — Tooltip pointer
 
+![tooltip-pointer](../gallery/tooltip-pointer.jpg)
+
 Tutorial overlay on a transparent background: a tooltip bubble with a title and wrapped text and a pointer touching a target point pops out of the pointer tip, with a pulsing beacon on the target. Tips replace each other one by one (with a "1 / 3" counter) or all stay stacked.
 
 **Use for:** Explain a control in a product tour, onboarding walkthrough or screen-recording tutorial: pass `tips` with the target x/y, a title and a sentence of text.  
 **Rebuilt from:** screen-recording tutorial annotation  
 **Default length:** 240 frames (8.0 s @ 30 fps)
 
-**Roles:** subject · **Mood:** —  
-**Capabilities:** paints its own background · weight: light  
+**Roles:** frame, accent · **Mood:** —  
+**Capabilities:** overlay (`{"demoBackground":false}`) · text: `tips` · weight: light  
+**Pairs well with:** `cursor-driver`, `spotlight-dim-focus`, `numbered-step-badges`  
+**Note:** Transparent overlay: tips are 0-1 target points; sequence mode shows one at a time, stack keeps all.  
+**Avoid:** Replace the sample tip titles and text (Search / Live chart / Save).  
 
 | prop | default | notes |
 |---|---|---|
-| `tips` | `[{"x":0.30000000000000004,"y":0.06999999999999999,"title"…` | array of {x, y (0-1 target), title?, text, side?: auto\|top\|bottom\|left\|right, at?} |
+| `tips` | `[{"x":0.3,"y":0.07,"title":"Search","text":"Find any proj…` | array of {x, y (0-1 target), title?, text, side?: auto\|top\|bottom\|left\|right, at?} |
 | `mode` | `"sequence"` | sequence = one tip at a time \| stack = all tips stay |
 | `theme` | `"dark"` | dark \| light \| accent bubble |
 | `accent` | `"#3D7BFF"` | beacon colour (and bubble colour for the accent theme) |
@@ -11172,14 +11490,18 @@ Tutorial overlay on a transparent background: a tooltip bubble with a title and 
 
 ### `zoom-inset-box` — Zoom inset box
 
+![zoom-inset-box](../gallery/zoom-inset-box.jpg)
+
 Tutorial overlay: a dashed box marks a small region, connector lines run from its corners and a magnified inset (a crop of the same picture) grows out of it into a free corner with a zoom badge. Pass the footage frame as `src`; without one it magnifies a built-in mock screen.
 
 **Use for:** Show tiny UI detail legibly in a screen recording (a menu item, a number, a toggle): set `zooms` with the source region, the inset position and a still of the footage in `src`.  
 **Rebuilt from:** screen-recording tutorial annotation  
 **Default length:** 180 frames (6.0 s @ 30 fps)
 
-**Roles:** subject · **Mood:** photo  
-**Capabilities:** paints its own background · image: `src` · weight: light  
+**Roles:** frame, accent · **Mood:** photo  
+**Capabilities:** overlay (`{"demoBackground":false}`) · text: `zooms` · image: `src` · weight: light  
+**Pairs well with:** `cursor-driver`, `hand-drawn-arrow-callout`, `click-ripple-markers`  
+**Note:** Pass src = a still of the same footage frame so the inset magnifies the real picture; without src it magnifies the built-in mock screen.  
 
 | prop | default | notes |
 |---|---|---|

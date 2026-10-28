@@ -66,7 +66,7 @@ const AgendaListSlide: React.FC<Props> = (p) => {
   const pillIn = prog(f, E - 14, E + 6, ease.out);
 
   // title column
-  const titleSize = fitLine(p.title.toUpperCase(), font, (portrait ? 150 : 150) * u, portrait ? w - 2 * m : colX - m - 50 * u);
+  const titleSize = fitLine(p.title.toUpperCase(), font, (portrait ? 150 : 150) * u, (portrait ? w - 2 * m : colX - m - 50 * u) * 0.84);
   const titleIn = prog(f, 0, 26, ease.out);
   const counter = `${String(Math.round(pos) + 1).padStart(2, '0')} / ${String(n).padStart(2, '0')}`;
 

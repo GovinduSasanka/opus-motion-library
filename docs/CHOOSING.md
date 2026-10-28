@@ -179,11 +179,19 @@ Generated from `docs/motion-meta.json` by `cli/gen-docs.mjs`.
 | `smoke-puffs` | accent | `gears`, `box-bot`, `stamp-slam` |  |
 | `sparkle-burst` | accent | `heart-draw-fill`, `number-counter`, `box-bot` |  |
 | `star-glint` | accent | `glyph-orbit-logo`, `number-counter`, `browser-mockup`, `neon-sign` | The 'shiny / premium' accent on a logo, badge or number. |
+| `blur-redact-region` | frame, accent | `cursor-driver`, `keystroke-hud`, `spotlight-dim-focus` | Replace the sample labels (Blurred / Pixelated / Hidden). |
 | `callout-labels` | subject, frame | `flat-to-3d-sphere`, `science-reticle`, `ken-burns` |  |
+| `click-ripple-markers` | frame, accent | `cursor-driver`, `keystroke-hud`, `zoom-inset-box` | Transparent overlay: clicks are 0-1 points with a frame `at`; timestamps are derived from `at` at 30 fps. |
 | `era-dial` | subject | `film-look`, `chapter-header`, `walker-world-scroll` |  |
+| `hand-drawn-arrow-callout` | frame, accent | `cursor-driver`, `keystroke-hud`, `scribble-circle-highlight` | Replace the sample labels (Click here / Watch this bar / Then save). |
 | `hud-chrome` | accent, subject, frame | `bouncing-ball`, `live-chart`, `typewriter-code` |  |
+| `numbered-step-badges` | frame, accent | `cursor-driver`, `tooltip-pointer`, `spotlight-dim-focus` | Replace the sample captions (Search for a file / Pick a chart ...). |
 | `powers-of-ten` | subject | `zoom-tunnel`, `radial-blueprint`, `number-counter` |  |
 | `radial-blueprint` | subject | `glyph-orbit-logo`, `zoom-tunnel`, `typewriter-code` | At 30-40 % opacity with categories [] it is a premium tech texture behind a logo. |
+| `scribble-circle-highlight` | frame, accent | `cursor-driver`, `hand-drawn-arrow-callout`, `spotlight-dim-focus` | Replace the sample labels (New project / Spot the dip / Total). |
+| `spotlight-dim-focus` | frame, accent | `cursor-driver`, `tooltip-pointer`, `numbered-step-badges` | Replace the sample captions (Start with a search / Read the chart ...). |
+| `tooltip-pointer` | frame, accent | `cursor-driver`, `spotlight-dim-focus`, `numbered-step-badges` | Replace the sample tip titles and text (Search / Live chart / Save). |
+| `zoom-inset-box` | frame, accent | `cursor-driver`, `hand-drawn-arrow-callout`, `click-ripple-markers` | Pass src = a still of the same footage frame so the inset magnifies the real picture; without src it magnifies the built-in mock screen. |
 | `zoom-tunnel` | subject | `radial-blueprint`, `glyph-orbit-logo`, `electric-arcs` |  |
 | `comic-halftone` | backdrop | `comic-burst`, `speed-lines`, `story-caption-box` |  |
 | `dot-matrix` | backdrop | `neon-sign`, `beat-montage`, `kinetic-captions` |  |

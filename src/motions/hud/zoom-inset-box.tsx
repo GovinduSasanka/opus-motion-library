@@ -3,7 +3,7 @@ import {AbsoluteFill, Img, useCurrentFrame} from 'remotion';
 import {resolveSrc} from '../../core/asset';
 import {clamp, ease, lerp, prog} from '../../core/ease';
 import {fonts} from '../../core/fonts';
-import {Chip, DemoScreen, DemoSvg, DemoTone, DEMO, Pt, Stroke, lineD, useExit, useNorm} from '../../core/r3-annot-kit';
+import {Chip, DemoScreen, DemoSvg, DemoTone, DEMO, Pt, Stroke, lineD, useExit, useNorm, tidy} from '../../core/r3-annot-kit';
 import {Svg} from '../../core/stage';
 import {defineMotion} from '../../core/types';
 
@@ -152,7 +152,7 @@ export const zoomInsetBox = defineMotion<Props>({
   source: ['screen-recording tutorial annotation'],
   useFor: 'Show tiny UI detail legibly in a screen recording (a menu item, a number, a toggle): set `zooms` with the source region, the inset position and a still of the footage in `src`.',
   durationInFrames: 180,
-  defaultProps: {
+  defaultProps: tidy({
     zooms: [
       {region: {x: 0.43, y: 0.2, w: 0.14, h: 0.2}, inset: {x: 0.66, y: 0.15, w: 0.27}},
     ],
@@ -169,7 +169,7 @@ export const zoomInsetBox = defineMotion<Props>({
     exitAt: 0,
     demoBackground: false,
     demoTone: 'light',
-  },
+  }),
   propDocs: {
     zooms: 'array of {region:{x,y,w,h}, inset:{x,y,w}, label?, at?}: region = source box (0-1, x/y = top-left), inset = landing spot (x/y top-left, w = width fraction), label overrides the auto "2.5x"',
     src: 'public/ path or URL of the frame to magnify (same picture as the footage); empty = mock screen',

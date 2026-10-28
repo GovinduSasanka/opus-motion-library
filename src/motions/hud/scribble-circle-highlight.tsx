@@ -2,7 +2,7 @@ import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {clamp, ease, prog} from '../../core/ease';
 import {fonts} from '../../core/fonts';
-import {DemoScreen, DemoTone, DEMO, Pt, Rect, Stroke, edgePts, jitter, lineD, smoothD, textW, useExit, useNorm} from '../../core/r3-annot-kit';
+import {DemoScreen, DemoTone, DEMO, Pt, Rect, Stroke, edgePts, jitter, lineD, smoothD, textW, useExit, useNorm, tidy} from '../../core/r3-annot-kit';
 import {Svg} from '../../core/stage';
 import {defineMotion} from '../../core/types';
 
@@ -164,7 +164,7 @@ export const scribbleCircleHighlight = defineMotion<Props>({
   source: ['screen-recording tutorial annotation'],
   useFor: 'Circle the button, underline the setting, box the table or highlight the number in any screen recording: pass `marks` with the region (x, y, w, h in 0-1), the mark `type` and your own label.',
   durationInFrames: 180,
-  defaultProps: {
+  defaultProps: tidy({
     marks: [
       {type: 'circle', x: DEMO.button.x, y: DEMO.button.y, w: DEMO.button.w, h: DEMO.button.h, label: 'New project'},
       {type: 'box', x: DEMO.chart.x + 0.02, y: DEMO.chart.y + 0.1, w: 0.46, h: 0.25, label: 'Spot the dip'},
@@ -183,7 +183,7 @@ export const scribbleCircleHighlight = defineMotion<Props>({
     seed: 5,
     demoBackground: false,
     demoTone: 'light',
-  },
+  }),
   propDocs: {
     marks: 'array of {type: circle|underline|box|highlight, x, y, w, h (0-1 region, x/y = top-left), label?, color?, at?}',
     color: 'marker colour (per-mark override with `color`)',

@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
-import {ease, lerp, prog} from '../../core/ease';
+import {clamp, ease, lerp, prog} from '../../core/ease';
 import {Header, clip, fmt, itemColor, ramp, resolveFont, textOn, useChartBox, wrapLines} from '../../core/r3-chart-kit';
 import {Svg, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
@@ -130,9 +130,18 @@ const TreemapSplit: React.FC<Props> = ({
   const minV = Math.min(...rows.map((r) => r.value), 0);
   const maxV = Math.max(...rows.map((r) => r.value), 1);
 
-  const t1 = ramp(frame, startAt, 34, speed, ease.inOut); // container splits into strips
-  const t2 = ramp(frame, startAt + 22, 40, speed, ease.inOut); // strips split into cells
-  const fadeIn = prog(frame, startAt - 2, startAt + 10, ease.out);
+  const stripKeys: string[] = [];
+  const rowIdx = cells.map((c) => {
+    const key = [c.row.x, c.row.y, c.row.w, c.row.h].map((v) => v.toFixed(1)).join(',');
+    let k = stripKeys.indexOf(key);
+    if (k < 0) {
+      stripKeys.push(key);
+      k = stripKeys.length - 1;
+    }
+    return k;
+  });
+  const nStrips = stripKeys.length;
+  const t2 = ramp(frame, startAt + nStrips * 7 + 14, 40, speed, ease.inOut); // strips split into cells
   const hl = highlight ? cells.findIndex((c) => c.item.label === highlight) : -1;
   const hlT = hl >= 0 ? prog(frame, startAt + 100 / speed, startAt + 122 / speed, ease.out) : 0;
   const g = gap * u;
@@ -144,12 +153,14 @@ const TreemapSplit: React.FC<Props> = ({
     <AbsoluteFill style={{background}}>
       <Svg>
         <Header box={box} ink={ink} fontFamily={font} frame={frame} />
-        {cells.map((c, k) => {
-          const strip = mixRect(container, c.row, t1);
+        {cells.map((c, k) => ({c, k})).reverse().map(({c, k}) => {
+          const t1 = ramp(frame, startAt + rowIdx[k] * 7, 24, speed, ease.out);
+          const sc1 = 0.86 + 0.14 * t1;
+          const strip: R = {x: c.row.x + (c.row.w * (1 - sc1)) / 2, y: c.row.y + (c.row.h * (1 - sc1)) / 2, w: c.row.w * sc1, h: c.row.h * sc1};
           const r = mixRect(strip, c.rect, t2);
           const col = c.item.color || (colorMode === 'value' ? mixHex(lowColor, highColor, (c.item.value - minV) / Math.max(1e-9, maxV - minV)) : itemColor(undefined, colors, c.i));
           const isHl = k === hl;
-          const dim = hl >= 0 && !isHl ? 1 - 0.6 * hlT : 1;
+          const dim = hl >= 0 && !isHl ? 1 - 0.45 * hlT : 1;
           const ix = r.x + g / 2;
           const iy = r.y + g / 2;
           const iw = Math.max(0, r.w - g);
@@ -166,7 +177,7 @@ const TreemapSplit: React.FC<Props> = ({
           const showVal = !!valStr && size >= 15 * u && fh >= (lines.length + 1) * size * 1.4;
           const tt = prog(frame, startAt + 44 / speed, startAt + 64 / speed, ease.out);
           return (
-            <g key={c.i} opacity={fadeIn * dim}>
+            <g key={c.i} opacity={dim * clamp(t1 * 1.6)}>
               <rect x={ix} y={iy} width={iw} height={ih} rx={rad} fill={col} />
               {isHl && <rect x={ix - 3 * u * hlT} y={iy - 3 * u * hlT} width={iw + 6 * u * hlT} height={ih + 6 * u * hlT} rx={rad} fill="none" stroke={ink} strokeWidth={3 * u} strokeOpacity={hlT} />}
               {lines.length > 0 && (
@@ -233,7 +244,7 @@ export const treemapSplit = defineMotion<Props>({
     gap: 8,
     radius: 14,
     highlight: '',
-    colors: ['#2F6FED', '#FF7A45', '#16B39A', '#F2B134', '#8E5CF0', '#E5487F', '#5BC0EB', '#7A8794'],
+    colors: ['#2F6FED', '#FF7A45', '#16B39A', '#F2B134', '#8E5CF0', '#E5487F', '#5BC0EB', '#7A8794', '#9BCB3C', '#D96C6C'],
     background: '#F5F3EE',
     ink: '#18212B',
     fontFamily: '',

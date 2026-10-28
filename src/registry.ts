@@ -452,7 +452,9 @@ import {neonSign} from './motions/text/neon-sign';
 import {newsStrap} from './motions/text/news-strap';
 import {newsreelIdent} from './motions/text/newsreel-ident';
 import {numberCounter} from './motions/text/number-counter';
+import {outlineToFillText} from './motions/text/outline-to-fill-text';
 import {paperStripTitle} from './motions/text/paper-strip-title';
+import {perLetterWave} from './motions/text/per-letter-wave';
 import {pixelLogoDrop} from './motions/text/pixel-logo-drop';
 import {qaSlide} from './motions/text/qa-slide';
 import {quizQuestionReveal} from './motions/text/quiz-question-reveal';
@@ -463,14 +465,20 @@ import {rundownBoard} from './motions/text/rundown-board';
 import {saleCountdownBanner} from './motions/text/sale-countdown-banner';
 import {sceneTag} from './motions/text/scene-tag';
 import {sliceAssembleGlyph} from './motions/text/slice-assemble-glyph';
+import {splitFlapBoard} from './motions/text/split-flap-board';
 import {sponsorSlate} from './motions/text/sponsor-slate';
+import {stackedRepeatEcho} from './motions/text/stacked-repeat-echo';
 import {stampSlam} from './motions/text/stamp-slam';
 import {stingBug} from './motions/text/sting-bug';
 import {storyCaptionBox} from './motions/text/story-caption-box';
+import {textOnCircleSpin} from './motions/text/text-on-circle-spin';
+import {textScrambleDecode} from './motions/text/text-scramble-decode';
 import {typeArchitecture} from './motions/text/type-architecture';
 import {typeMarqueeField} from './motions/text/type-marquee-field';
 import {typewriterCode} from './motions/text/typewriter-code';
+import {typewriterDeleteRetype} from './motions/text/typewriter-delete-retype';
 import {typewriterSignature} from './motions/text/typewriter-signature';
+import {wordCarouselRotator} from './motions/text/word-carousel-rotator';
 import {bokehDrift} from './motions/texture/bokeh-drift';
 import {hideCarvePatterns} from './motions/texture/hide-carve-patterns';
 import {lightLeakWash} from './motions/texture/light-leak-wash';
@@ -985,7 +993,9 @@ export const motions: MotionDef<any>[] = [
   newsStrap,
   newsreelIdent,
   numberCounter,
+  outlineToFillText,
   paperStripTitle,
+  perLetterWave,
   pixelLogoDrop,
   qaSlide,
   quizQuestionReveal,
@@ -996,14 +1006,20 @@ export const motions: MotionDef<any>[] = [
   saleCountdownBanner,
   sceneTag,
   sliceAssembleGlyph,
+  splitFlapBoard,
   sponsorSlate,
+  stackedRepeatEcho,
   stampSlam,
   stingBug,
   storyCaptionBox,
+  textOnCircleSpin,
+  textScrambleDecode,
   typeArchitecture,
   typeMarqueeField,
   typewriterCode,
+  typewriterDeleteRetype,
   typewriterSignature,
+  wordCarouselRotator,
   bokehDrift,
   hideCarvePatterns,
   lightLeakWash,

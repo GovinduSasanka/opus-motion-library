@@ -146,7 +146,7 @@ const LogoWallGrid: React.FC<Props> = (p) => {
           const wf = WORD_FONTS[i % WORD_FONTS.length];
           const label = wf.caps ? name.toUpperCase() : name;
           const markS = th * 0.3;
-          const textMax = tw - 2 * 26 * u - markS - 14 * u;
+          const textMax = (tw - 2 * 26 * u - markS - 14 * u) * 0.8;
           const size = fitLine(label, wf.f, Math.min(th * 0.34, 54 * u), textMax, wf.track);
           const inkC = withAlpha(p.ink, 0.85);
           const tcx = x + tw / 2;

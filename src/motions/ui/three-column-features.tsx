@@ -56,9 +56,15 @@ const ThreeColumnFeatures: React.FC<Props> = (p) => {
 
   const st = Math.max(1, p.stagger);
   const cw = portrait ? gridW : (gridW - gap * (n - 1)) / n;
-  const chh = portrait ? Math.min((gridH - gap * (n - 1)) / n, 300 * u) : Math.min(gridH, 640 * u);
+  const dL = Math.min(150 * u, cw * 0.42);
+  const needed = cols.map((c) => {
+    const head = fitLine(c.heading, 'sans', 44 * u, cw - 60 * u);
+    const tb = wrapFit(c.text || '', 'sans', 30 * u, cw - 72 * u, 330 * u, 1.38, 18 * u);
+    return 60 * u + dL + 60 * u + head * 0.2 + 56 * u + Math.max(0, tb.lines.length - 1) * tb.lineH + tb.size + 54 * u;
+  });
+  const chh = portrait ? Math.min((gridH - gap * (n - 1)) / n, 300 * u) : Math.min(gridH, Math.max(380 * u, ...needed));
   const gridUsed = portrait ? chh * n + gap * (n - 1) : chh;
-  const offY = Math.max(0, (gridH - gridUsed) / 2) * (portrait ? 0.6 : 0.5);
+  const offY = Math.max(0, (gridH - gridUsed) / 2) * (portrait ? 0.6 : open ? 0.95 : 0.5);
 
   return (
     <AbsoluteFill style={{background: bgOf(p.background)}}>
@@ -90,7 +96,7 @@ const ThreeColumnFeatures: React.FC<Props> = (p) => {
             const icy = y + 60 * u + d / 2;
             const head = fitLine(c.heading, 'sans', 44 * u, cw - 60 * u);
             const hy = icy + d / 2 + 60 * u + head * 0.2;
-            const tb = wrapFit(c.text || '', 'sans', 30 * u, cw - 72 * u, y + chh - (hy + 44 * u) - 36 * u, 1.38, 18 * u);
+            const tb = wrapFit(c.text || '', 'sans', 30 * u, cw - 72 * u, 330 * u, 1.38, 18 * u);
             return (
               <g key={i} opacity={a} transform={`translate(0 ${(1 - pop) * 60 * u})`}>
                 {!open && <rect x={x} y={y + 8 * u} width={cw} height={chh} rx={32 * u} fill="#000" opacity={0.1} />}

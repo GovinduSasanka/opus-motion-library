@@ -2703,12 +2703,15 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "weight": "light"
  },
  "blur-redact-region": {
-  "overlay": false,
-  "overlayProps": null,
+  "overlay": true,
+  "overlayProps": {
+   "demoBackground": false
+  },
   "loopable": false,
   "bestLength": 180,
   "roles": [
-   "subject"
+   "frame",
+   "accent"
   ],
   "weight": "light"
  },
@@ -2737,12 +2740,15 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "weight": "light"
  },
  "click-ripple-markers": {
-  "overlay": false,
-  "overlayProps": null,
+  "overlay": true,
+  "overlayProps": {
+   "demoBackground": false
+  },
   "loopable": false,
   "bestLength": 180,
   "roles": [
-   "subject"
+   "frame",
+   "accent"
   ],
   "weight": "light"
  },
@@ -2809,12 +2815,15 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "weight": "light"
  },
  "hand-drawn-arrow-callout": {
-  "overlay": false,
-  "overlayProps": null,
+  "overlay": true,
+  "overlayProps": {
+   "demoBackground": false
+  },
   "loopable": false,
   "bestLength": 180,
   "roles": [
-   "subject"
+   "frame",
+   "accent"
   ],
   "weight": "light"
  },
@@ -2870,12 +2879,15 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "weight": "light"
  },
  "numbered-step-badges": {
-  "overlay": false,
-  "overlayProps": null,
+  "overlay": true,
+  "overlayProps": {
+   "demoBackground": false
+  },
   "loopable": false,
   "bestLength": 180,
   "roles": [
-   "subject"
+   "frame",
+   "accent"
   ],
   "weight": "light"
  },
@@ -2913,12 +2925,15 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "weight": "light"
  },
  "scribble-circle-highlight": {
-  "overlay": false,
-  "overlayProps": null,
+  "overlay": true,
+  "overlayProps": {
+   "demoBackground": false
+  },
   "loopable": false,
   "bestLength": 180,
   "roles": [
-   "subject"
+   "frame",
+   "accent"
   ],
   "weight": "light"
  },
@@ -2935,12 +2950,15 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "weight": "light"
  },
  "spotlight-dim-focus": {
-  "overlay": false,
-  "overlayProps": null,
+  "overlay": true,
+  "overlayProps": {
+   "demoBackground": false
+  },
   "loopable": false,
   "bestLength": 270,
   "roles": [
-   "subject"
+   "frame",
+   "accent"
   ],
   "weight": "light"
  },
@@ -2981,22 +2999,28 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "weight": "light"
  },
  "tooltip-pointer": {
-  "overlay": false,
-  "overlayProps": null,
+  "overlay": true,
+  "overlayProps": {
+   "demoBackground": false
+  },
   "loopable": false,
   "bestLength": 240,
   "roles": [
-   "subject"
+   "frame",
+   "accent"
   ],
   "weight": "light"
  },
  "zoom-inset-box": {
-  "overlay": false,
-  "overlayProps": null,
+  "overlay": true,
+  "overlayProps": {
+   "demoBackground": false
+  },
   "loopable": false,
   "bestLength": 180,
   "roles": [
-   "subject"
+   "frame",
+   "accent"
   ],
   "weight": "light"
  },
@@ -4929,7 +4953,33 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "outline-to-fill-text": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 170,
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light"
+ },
  "paper-strip-title": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 150,
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light"
+ },
+ "per-letter-wave": {
   "overlay": true,
   "overlayProps": {
    "background": "transparent"
@@ -5060,6 +5110,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "split-flap-board": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 240,
+  "roles": [
+   "type"
+  ],
+  "weight": "light"
+ },
  "sponsor-slate": {
   "overlay": true,
   "overlayProps": {
@@ -5069,6 +5131,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "bestLength": 150,
   "roles": [
    "type"
+  ],
+  "weight": "light"
+ },
+ "stacked-repeat-echo": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 150,
+  "roles": [
+   "type",
+   "accent"
   ],
   "weight": "light"
  },
@@ -5110,6 +5185,32 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "text-on-circle-spin": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 180,
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light"
+ },
+ "text-scramble-decode": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 150,
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light"
+ },
  "type-architecture": {
   "overlay": false,
   "overlayProps": null,
@@ -5142,6 +5243,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "typewriter-delete-retype": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 290,
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light"
+ },
  "typewriter-signature": {
   "overlay": true,
   "overlayProps": {
@@ -5151,6 +5265,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "bestLength": 90,
   "roles": [
    "type"
+  ],
+  "weight": "light"
+ },
+ "word-carousel-rotator": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 220,
+  "roles": [
+   "type",
+   "accent"
   ],
   "weight": "light"
  },

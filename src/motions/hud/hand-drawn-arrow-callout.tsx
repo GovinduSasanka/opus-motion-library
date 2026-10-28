@@ -2,7 +2,7 @@ import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {clamp, ease, prog} from '../../core/ease';
 import {fonts} from '../../core/fonts';
-import {Chip, DemoScreen, DemoTone, DEMO, Pt, Stroke, jitter, lineD, quadPts, smoothD, textW, useExit, useNorm} from '../../core/r3-annot-kit';
+import {Chip, DemoScreen, DemoTone, DEMO, Pt, Stroke, jitter, lineD, quadPts, smoothD, textW, useExit, useNorm, tidy} from '../../core/r3-annot-kit';
 import {Svg} from '../../core/stage';
 import {defineMotion} from '../../core/types';
 
@@ -172,7 +172,7 @@ export const handDrawnArrowCallout = defineMotion<Props>({
   source: ['screen-recording tutorial annotation'],
   useFor: 'Point at a button, field or number in any screen recording or tutorial ("click here", "watch this"): pass `callouts` with the target x/y and your own label text.',
   durationInFrames: 180,
-  defaultProps: {
+  defaultProps: tidy({
     callouts: [
       {x: DEMO.button.x + DEMO.button.w / 2, y: DEMO.button.y + DEMO.button.h, label: 'Click here', lx: 0.72, ly: 0.2, curve: 0.22},
       {x: 0.34, y: 0.41, label: 'Watch this bar', sublabel: 'it jumps after the update', lx: 0.2, ly: 0.64, curve: -0.2},
@@ -193,7 +193,7 @@ export const handDrawnArrowCallout = defineMotion<Props>({
     seed: 3,
     demoBackground: false,
     demoTone: 'light',
-  },
+  }),
   propDocs: {
     callouts: 'array of {x, y, label, sublabel?, lx?, ly?, curve?, color?, at?}: x/y = target (0-1), lx/ly = label centre (0-1), at = start frame',
     color: 'arrow colour',
