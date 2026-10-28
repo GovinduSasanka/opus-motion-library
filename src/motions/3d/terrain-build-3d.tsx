@@ -29,6 +29,16 @@ type Props = {
   sunElevation: number;
   sunAzimuth: number;
   snowLine: number;
+  /** natural (default) | contours (illuminated topographic iso-lines on a dark void, no sky / clouds / lens) */
+  look: 'natural' | 'contours';
+  /** fly (default fly-by) | dive (camera dives from above down the canyon toward the lowest point; needs flyby) */
+  camera: 'fly' | 'dive';
+  /** draw a glowing path descending the slope (the spark's route) during the fly-by */
+  trail: boolean;
+  contourColor: string;
+  /** height between contour lines in world units */
+  contourStep: number;
+  trailColor: string;
   colors: {rock: string; scree: string; grass: string; snow: string; clay: string; sun: string; zenith: string; horizon: string; cloudShadow: string; cloudLight: string};
 };
 
@@ -250,7 +260,20 @@ const heightAt = (f: Field, x: number, z: number) => {
 // ------------------------------------------------------------------------------------------------
 // 3D pieces
 // ------------------------------------------------------------------------------------------------
-const Terrain: React.FC<{field: Field; a1: number; a2: number; a3: number; matT: number; clay: string}> = ({field, a1, a2, a3, matT, clay}) => {
+const CONTOUR_VS = `varying float vY; varying vec3 vN; void main(){ vY = (modelMatrix*vec4(position,1.0)).y; vN = normal; gl_Position = projectionMatrix*viewMatrix*modelMatrix*vec4(position,1.0); }`;
+const CONTOUR_FS = `varying float vY; varying vec3 vN; uniform vec3 uLine; uniform vec3 uBg; uniform float uK;
+void main(){
+  float t = vY / uK;
+  float fw = max(fwidth(t), 1e-4);
+  float d = abs(fract(t - 0.5) - 0.5) / fw;
+  float line = 1.0 - smoothstep(0.6, 1.6, d);
+  float major = 1.0 - smoothstep(0.9, 2.6, abs(fract(t / 5.0 - 0.5) - 0.5) / (fw / 5.0));
+  float shade = 0.55 + 0.45 * clamp(vN.y, 0.0, 1.0);
+  vec3 col = uBg * (0.6 + 0.8 * shade) + uLine * (0.55 * line + 0.8 * major) * (0.5 + 0.5 * shade);
+  gl_FragColor = vec4(col, 1.0);
+}`;
+
+const Terrain: React.FC<{field: Field; a1: number; a2: number; a3: number; matT: number; clay: string; contours?: {line: string; step: number}}> = ({field, a1, a2, a3, matT, clay, contours}) => {
   const geo = useMemo(() => {
     const g = new THREE.PlaneGeometry(SIZE, SIZE, SEG, SEG);
     g.rotateX(-Math.PI / 2);
@@ -283,8 +306,17 @@ const Terrain: React.FC<{field: Field; a1: number; a2: number; a3: number; matT:
     c.needsUpdate = true;
   }, [geo, field, matT, clay]);
   return (
-    <mesh geometry={geo} castShadow receiveShadow>
-      <meshStandardMaterial vertexColors roughness={0.92} metalness={0} />
+    <mesh geometry={geo} castShadow={!contours} receiveShadow={!contours}>
+      {contours ? (
+        <shaderMaterial
+          key={contours.line + contours.step}
+          vertexShader={CONTOUR_VS}
+          fragmentShader={CONTOUR_FS}
+          uniforms={{uLine: {value: new THREE.Color(contours.line)}, uBg: {value: new THREE.Color('#07101a')}, uK: {value: contours.step}}}
+        />
+      ) : (
+        <meshStandardMaterial vertexColors roughness={0.92} metalness={0} />
+      )}
     </mesh>
   );
 };
@@ -507,7 +539,7 @@ const CodePanel: React.FC<{st: Stage; local: number; u: number; w: number; h: nu
 // ------------------------------------------------------------------------------------------------
 // main
 // ------------------------------------------------------------------------------------------------
-const TerrainBuild: React.FC<Props> = ({stages, seed, stageFrames, leadIn, flyby, flybyFrames, showCode, showTitle, sunElevation, sunAzimuth, snowLine, colors}) => {
+const TerrainBuild: React.FC<Props> = ({stages, seed, stageFrames, leadIn, flyby, flybyFrames, showCode, showTitle, sunElevation, sunAzimuth, snowLine, colors, look, camera, trail, contourColor, contourStep, trailColor}) => {
   const frame = useCurrentFrame();
   const {w, h, u, portrait} = useStage();
   const C = {...COLORS, ...colors};
@@ -574,6 +606,42 @@ const TerrainBuild: React.FC<Props> = ({stages, seed, stageFrames, leadIn, flyby
     // slow forward drift continues after the path
   }
   const drift = frame * 0.0009;
+  const contoursOn = look === 'contours';
+  if (camera === 'dive' && flyE > 0) {
+    const DP: V3[] = [[0, 78, 120], [-8, 52, 70], [-26, 28, 30], [-38, 15, 4], [-42, 10, -16]];
+    const DT: V3[] = [[0, 12, -10], [-10, 10, -8], [-26, 9, -10], [-40, 8, -24], [-44, 8, -34]];
+    camPos = catmull(DP, flyE);
+    camTgt = catmull(DT, flyE);
+    const ground = heightAt(field, camPos[0], camPos[2]) + 4;
+    if (camPos[1] < ground) camPos = [camPos[0], ground, camPos[2]];
+  }
+  // spark route: steepest descent from the hero peak
+  const route = useMemo(() => {
+    const pts: V3[] = [];
+    let x = 4;
+    let z = -26;
+    let best = -1;
+    for (let gx = -40; gx <= 40; gx += 4) for (let gz = -60; gz <= 0; gz += 4) {
+      const hh = heightAt(field, gx, gz);
+      if (hh > best) {
+        best = hh;
+        x = gx;
+        z = gz;
+      }
+    }
+    for (let i = 0; i < 90; i++) {
+      const hh = heightAt(field, x, z);
+      pts.push([x, hh + 0.6, z]);
+      const gxv = heightAt(field, x + 1.2, z) - heightAt(field, x - 1.2, z);
+      const gzv = heightAt(field, x, z + 1.2) - heightAt(field, x, z - 1.2);
+      const m = Math.hypot(gxv, gzv) || 1;
+      x -= (gxv / m) * 2.4 + Math.sin(i * 0.7) * 0.5;
+      z -= (gzv / m) * 2.4;
+      if (Math.abs(x) > SIZE / 2 - 5 || Math.abs(z) > SIZE / 2 - 5) break;
+    }
+    return pts;
+  }, [field]);
+  const routeP = trail ? clamp((frame - (buildEnd - 4)) / Math.max(1, flybyFrames * 0.8)) : 0;
 
   // ---- lens: sun on screen + occlusion for ghosts ----
   const aspect = w / h;
@@ -618,25 +686,31 @@ const TerrainBuild: React.FC<Props> = ({stages, seed, stageFrames, leadIn, flyby
   const ccy = h / 2;
 
   return (
-    <AbsoluteFill style={{background: '#7e818a', overflow: 'hidden'}}>
+    <AbsoluteFill style={{background: contoursOn ? '#04070b' : '#7e818a', overflow: 'hidden'}}>
       <AbsoluteFill style={{filter: `brightness(${dip}) contrast(${1 + 0.08 * lensT}) saturate(${1 + 0.08 * lensT})`}}>
         <Stage3D shadows="soft" exposure={1.0}>
           <CameraRig position={camPos} target={camTgt} fov={fov} near={0.5} far={12000} />
-          <SkyDome zenith={zen} horizon={hor} ground={fogCol} sunDir={sunDir} sunColor={C.sun} glow={sunGlow * 1.4} horizonSharp={lerp(3, 9, atmT)} />
-          <SceneFog color={fogCol} density={fogD} />
+          {!contoursOn && <SkyDome zenith={zen} horizon={hor} ground={fogCol} sunDir={sunDir} sunColor={C.sun} glow={sunGlow * 1.4} horizonSharp={lerp(3, 9, atmT)} />}
+          {!contoursOn && <SceneFog color={fogCol} density={fogD} />}
           <hemisphereLight args={[hemiSky, hemiGnd, hemiI]} />
           <Sun dir={sunDir} color={sunColor} intensity={sunI} />
-          <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.9, 0]} receiveShadow>
+          {!contoursOn && <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.9, 0]} receiveShadow>
             <planeGeometry args={[16000, 16000]} />
             <meshStandardMaterial color={hexOf(mixCol(C.clay, mixCol(C.grass, C.rock, 0.5), matT))} roughness={0.95} />
-          </mesh>
-          <Terrain field={field} a1={a1} a2={a2} a3={a3} matT={matT} clay={C.clay} />
-          <Clouds seed={seed} cover={cloudT} base={lerp(-2.5, 3.4, cloudT)} shadow={hexOf(mixCol('#9a9ca6', C.cloudShadow, atmT))} light={hexOf(mixCol('#e4e4ea', mixCol(C.cloudLight, '#f2e6dc', 0.45), atmT))} drift={drift} />
+          </mesh>}
+          <Terrain field={field} a1={a1} a2={a2} a3={a3} matT={matT} clay={C.clay} contours={contoursOn ? {line: contourColor, step: contourStep} : undefined} />
+          {trail && routeP > 0 && route.slice(0, Math.max(1, Math.floor(route.length * routeP))).map((pt, i, arr) => (
+            <mesh key={i} position={pt}>
+              <sphereGeometry args={[i === arr.length - 1 ? 0.9 : 0.3, 8, 8]} />
+              <meshBasicMaterial color={i === arr.length - 1 ? '#fff3dc' : trailColor} />
+            </mesh>
+          ))}
+          {!contoursOn && <Clouds seed={seed} cover={cloudT} base={lerp(-2.5, 3.4, cloudT)} shadow={hexOf(mixCol('#9a9ca6', C.cloudShadow, atmT))} light={hexOf(mixCol('#e4e4ea', mixCol(C.cloudLight, '#f2e6dc', 0.45), atmT))} drift={drift} />}
         </Stage3D>
       </AbsoluteFill>
 
       {/* lens: bloom glow, ghosts, vignette, grain */}
-      {lensT > 0 && (
+      {lensT > 0 && !contoursOn && (
         <AbsoluteFill style={{opacity: lensT, pointerEvents: 'none'}}>
           {vis > 0 && (
             <>
@@ -708,6 +782,12 @@ export const terrainBuild3d = defineMotion<Props>({
     sunElevation: 7,
     sunAzimuth: 104,
     snowLine: 13,
+    look: 'natural',
+    camera: 'fly',
+    trail: false,
+    contourColor: '#8fc9ff',
+    contourStep: 1.6,
+    trailColor: '#ff8a2a',
     colors: COLORS,
   },
   propDocs: {
@@ -722,8 +802,14 @@ export const terrainBuild3d = defineMotion<Props>({
     sunElevation: 'final sun elevation in degrees (low = golden hour)',
     sunAzimuth: 'final sun azimuth in degrees (90 = from screen right)',
     snowLine: 'height above which snow settles (world units, hero peak ≈ 32)',
+    look: "natural (default) | contours (illuminated topographic iso-lines on a dark void: no sky, clouds or lens; the build stages still run)",
+    camera: "fly (default fly-by) | dive (camera dives from above down the canyon toward the lowest point)",
+    trail: 'a glowing orange route descending the steepest slope during the fly-by (the spark path)',
+    contourColor: 'contours: iso-line colour',
+    contourStep: 'contours: height between lines in world units (hero peak ~ 32)',
+    trailColor: 'trail colour',
     colors: 'rock / scree / grass / snow / clay / sun / zenith / horizon / cloudShadow / cloudLight',
   },
   component: TerrainBuild,
-  tags: ['3d', 'terrain', 'procedural', 'code', 'flyby', 'three'],
+  tags: ['3d', 'terrain', 'procedural', 'code', 'flyby', 'three', 'contours', 'topographic', 'iso-lines', 'dive', 'loss landscape', 'gradient descent', 'optimisation', 'ml explainer'],
 });

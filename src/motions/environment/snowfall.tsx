@@ -15,7 +15,7 @@ import {defineMotion} from '../../core/types';
  *   #97A3BB -> #727A8E vignetted white-out that clears from a brighter flash.
  */
 type Props = {
-  mode: 'drift' | 'blizzard';
+  mode: 'drift' | 'blizzard' | 'stab';
   background: string;
   backdrop: boolean;
   color: string;
@@ -26,6 +26,11 @@ type Props = {
   streaks: number;
   pixelSize: number;
   seed: number;
+  freezeAt: number;
+  reinkFrom: number;
+  reinkStagger: number;
+  angle: number;
+  sizeRange: number[];
 };
 
 const circlePath = (x: number, y: number, r: number) => `M${(x - r).toFixed(1)} ${y.toFixed(1)}a${r.toFixed(2)} ${r.toFixed(2)} 0 1 0 ${(2 * r).toFixed(2)} 0a${r.toFixed(2)} ${r.toFixed(2)} 0 1 0 ${(-2 * r).toFixed(2)} 0`;
@@ -159,7 +164,7 @@ const WhiteOut: React.FC<{seed: number; t: number}> = ({seed, t}) => {
   );
 };
 
-const Snowfall: React.FC<Props> = ({mode, background, backdrop, color, density, speed, wind, size, streaks, pixelSize, seed}) => {
+const Snowfall: React.FC<Props> = ({mode, background, backdrop, color, density, speed, wind, size, streaks, pixelSize, seed, freezeAt, reinkFrom, reinkStagger, angle, sizeRange}) => {
   const frame = useCurrentFrame();
   const {w, h, u, fps} = useStage();
   const t = frame / fps;
@@ -167,6 +172,45 @@ const Snowfall: React.FC<Props> = ({mode, background, backdrop, color, density, 
   const scene = backdrop && !overlay;
   const K = areaK(w, h) * density;
   const blizzard = mode === 'blizzard';
+
+  if (mode === 'stab') {
+    // woodcut stab flecks: teardrop white cuts in black wood; can freeze mid-air and be inked back in one by one
+    const tt = freezeAt >= 0 ? Math.min(frame, freezeAt) / fps : t;
+    const n = Math.round(380 * K);
+    const a = (angle * Math.PI) / 180;
+    const dx = Math.sin(a);
+    const dy = Math.cos(a);
+    const span = w + 80 * u;
+    let d = '';
+    for (let i = 0; i < n; i++) {
+      const r = (sizeRange[0] + (sizeRange[1] - sizeRange[0]) * hash01(seed, i, 5)) * u * size;
+      const v = (110 + 150 * hash01(seed, i, 6)) * u * speed;
+      const y = wrap(hash01(seed, i, 2) * (h + 80 * u) + v * tt, h + 80 * u) - 40 * u;
+      const x = wrap(hash01(seed, i, 1) * span + v * dx * tt * wind + 6 * u * Math.sin(tt * 1.7 + i), span) - 40 * u;
+      if (reinkFrom >= 0 && frame >= reinkFrom + Math.floor(hash01(seed, i, 9) * n) * reinkStagger) continue;
+      const nx = -dy;
+      const ny = dx;
+      const L = r * 3.4;
+      const left: string[] = [];
+      const right: string[] = [];
+      for (let k = 0; k <= 8; k++) {
+        const sUp = k / 8; // 0 at head front .. 1 at tail tip
+        const prof = Math.pow(Math.sin(Math.PI * Math.min(1, 1.35 * (1 - sUp))), 0.6) * (1 - 0.35 * (1 - sUp));
+        const cx = x - dx * L * sUp;
+        const cy = y - dy * L * sUp;
+        left.push(`${(cx + nx * r * prof).toFixed(1)} ${(cy + ny * r * prof).toFixed(1)}`);
+        right.push(`${(cx - nx * r * prof).toFixed(1)} ${(cy - ny * r * prof).toFixed(1)}`);
+      }
+      d += `M${left.join('L')}L${right.reverse().join('L')}Z`;
+    }
+    return (
+      <AbsoluteFill style={{background: overlay ? 'transparent' : background === '#3A5D80' ? '#0B0A09' : background}}>
+        <Svg>
+          <path d={d} fill={color} />
+        </Svg>
+      </AbsoluteFill>
+    );
+  }
 
   const layers: React.ReactNode[] = [];
   if (!blizzard) {
@@ -274,9 +318,14 @@ export const snowfall = defineMotion<Props>({
     streaks: 0,
     pixelSize: 6,
     seed: 1,
+    freezeAt: -1,
+    reinkFrom: -1,
+    reinkStagger: 0.4,
+    angle: 12,
+    sizeRange: [4, 11],
   },
   propDocs: {
-    mode: '"drift" (soft layered snow) or "blizzard" (horizontal pixel snow + white-out)',
+    mode: '"drift" (soft layered snow), "blizzard" (horizontal pixel snow + white-out) or "stab" (woodcut teardrop flecks on black; background "#3A5D80" default becomes near-black)',
     background: 'CSS background; "transparent" = overlay (no painted landscape)',
     backdrop: 'paint the procedural landscape / white-out',
     color: 'flake colour',
@@ -287,7 +336,12 @@ export const snowfall = defineMotion<Props>({
     streaks: 'extra fast wind streak lines in drift mode (video2 hydrant look), e.g. 120',
     pixelSize: 'blizzard pixel size in px at 1080p (6 = source)',
     seed: 'random seed',
+    freezeAt: 'stab: frame at which the flecks freeze mid-air (-1 = never)',
+    reinkFrom: 'stab: frame the flecks start being inked back in one by one (-1 = off)',
+    reinkStagger: 'stab: frames between re-inked flecks',
+    angle: 'stab: shared fall angle in degrees',
+    sizeRange: 'stab: [min, max] fleck radius in px at 1080p',
   },
   component: Snowfall,
-  tags: ['weather', 'snow', 'winter', 'blizzard', 'overlay', 'particles', 'pixel'],
+  tags: ['weather', 'snow', 'winter', 'blizzard', 'overlay', 'particles', 'pixel', 'woodcut', 'stab', 'flecks', 'sparks', 'print', 'freeze'],
 });

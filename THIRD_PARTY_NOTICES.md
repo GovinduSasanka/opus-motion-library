@@ -137,3 +137,7 @@ SOFTWARE.
 Case index data used under CC BY 4.0 (attribution: athemeroy and the original case authors linked per case in docs/prompt-index.json).
 
 Documentation and style write-ups of lemo-opuscar are CC BY 4.0 (LemoLab / @lemomo_ai); our style definitions describe the same visual grammar in our own words.
+
+## Natural Earth — https://www.naturalearthdata.com/
+Simplified land outlines baked into `src/core/r2-mg2a-land.ts` (used by `holo-globe`) are derived from Natural Earth
+data, which is in the public domain. No attribution is required; we credit it anyway.

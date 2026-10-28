@@ -5,6 +5,7 @@ import {rng} from '../../core/random';
 import {FilmGrain, useStage} from '../../core/stage';
 import {TFont, estWidth, hash01, tfonts} from '../../core/text-kit';
 import {defineMotion} from '../../core/types';
+import {NeonScript} from '../../core/r2-e2-text-kit';
 
 /**
  * Neon sign ignition (video20 neon-sign-ignite "NOODLES"): dark plum plate, rounded tube lettering
@@ -27,6 +28,13 @@ type Props = {
   tracking: number;
   pullBack: boolean;
   seed: number;
+  script: boolean;
+  scriptFont: TFont;
+  traceFrames: number;
+  strikeEnvelope: number[];
+  glassColor: string;
+  rotation: number;
+  noPlate: boolean;
 };
 
 const FLICK = [1, 0, 0, 0.35, 1, 0.15, 1];
@@ -50,6 +58,20 @@ const brightness = (frame: number, at: number, faulty: boolean, seed: string) =>
 };
 
 const NeonSign: React.FC<Props> = (p) => {
+  if (p.script) {
+    const l0 = p.lines[0] ?? {text: 'Midnight'};
+    const isDefaultLines = p.lines.length === 2 && p.lines[0].text === 'NOODLES';
+    return (
+      <AbsoluteFill style={{background: p.noPlate ? 'transparent' : p.wallColor, overflow: 'hidden'}}>
+        <NeonScript text={isDefaultLines ? 'Midnight' : l0.text} color={l0.color ?? '#FF2FB8'} glow={l0.glow ?? '#FF00AA'} font={p.scriptFont} traceAt={p.igniteAt} traceFrames={p.traceFrames} envelope={p.strikeEnvelope} glassColor={p.glassColor} rotation={p.rotation} wall={p.wallColor} noPlate={p.noPlate} />
+        <FilmGrain opacity={0.05} />
+      </AbsoluteFill>
+    );
+  }
+  return <NeonTube {...p} />;
+};
+
+const NeonTube: React.FC<Props> = (p) => {
   const frame = useCurrentFrame();
   const {w, h, u, portrait} = useStage();
   const lines = p.lines.length ? p.lines : [{text: 'NEON'}];
@@ -195,6 +217,13 @@ export const neonSign = defineMotion<Props>({
     tracking: 0.08,
     pullBack: true,
     seed: 5,
+    script: false,
+    scriptFont: 'hand' as TFont,
+    traceFrames: 24,
+    strikeEnvelope: [1, 0.15, 1, 1, 0.08, 0.5, 0.85, 1],
+    glassColor: '#5f4653',
+    rotation: -8,
+    noPlate: false,
   },
   propDocs: {
     lines: '[{text, color?, glow?, font?, size?}] neon lines stacked on the plate (size is relative to the first line)',
@@ -209,7 +238,14 @@ export const neonSign = defineMotion<Props>({
     tracking: 'letter spacing in em for the main font',
     pullBack: 'start tight on the plate and pull back after ignition',
     seed: 'changes the ignition order and stutters',
+    script: 'script mode: a cursive neon word is traced on as unlit glass with a hot head, then the tube strikes on with a ballast flicker (uses the first line; default lines render "Midnight")',
+    scriptFont: 'script: font role of the cursive word (hand = Caveat)',
+    traceFrames: 'script: frames the trace takes (≈0.8 s in the source)',
+    strikeEnvelope: 'script: per-frame brightness levels after the trace, then hum',
+    glassColor: 'script: colour of the unlit glass tube',
+    rotation: 'script: tilt in degrees (−8 italic placement)',
+    noPlate: 'script: transparent background so the neon floats over another scene',
   },
   component: NeonSign,
-  tags: ['neon', 'sign', 'glow', 'flicker', 'title'],
+  tags: ['neon', 'sign', 'glow', 'flicker', 'title', 'script', 'cursive', 'synthwave', 'nightlife', 'overlay'],
 });

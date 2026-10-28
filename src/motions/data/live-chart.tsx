@@ -6,6 +6,7 @@ import {rng} from '../../core/random';
 import {useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
 import {FlatIcon, blinkOn, lin, mixC, typedCount} from '../../core/ui-kit';
+import {ScopeMode, ThresholdMode} from '../../core/r2-e2-chart-kit';
 
 /**
  * Live data traces.
@@ -19,7 +20,7 @@ import {FlatIcon, blinkOn, lin, mixC, typedCount} from '../../core/ui-kit';
  *    swings from HIGH to MEDIUM with a damped overshoot.
  */
 type Props = {
-  mode: 'trace' | 'sync' | 'decline';
+  mode: 'trace' | 'sync' | 'decline' | 'threshold' | 'scope';
   data: number[];
   declineValues: number[];
   title: string;
@@ -37,6 +38,11 @@ type Props = {
   gaugeFrom: number;
   gaugeTo: number;
   background: string;
+  series: number[];
+  threshold: number;
+  stamp: string;
+  echoes: number;
+  graticule: boolean;
 };
 
 const HUD = {text: '#A2A2C7', axis: '#A09FC2', ring: '#302F4E'};
@@ -392,7 +398,20 @@ const DeclineMode: React.FC<Props> = (p) => {
   );
 };
 
-const LiveChart: React.FC<Props> = (p) => (p.mode === 'sync' ? <SyncMode {...p} /> : p.mode === 'decline' ? <DeclineMode {...p} /> : <TraceMode {...p} />);
+const modeExtra = (p: Props) => ({
+  series: p.series,
+  threshold: p.threshold,
+  stamp: p.stamp,
+  readout: p.mode === 'scope' ? p.readout : p.readout.startsWith('wk 8') ? 'CLOSE 4,212.30  ·  PREV 4,556.90' : p.readout,
+  color: p.mode === 'scope' && p.color === '#C8D0F5' ? '#6CFFA6' : p.color,
+  background: p.mode === 'scope' && p.background === '#020414' ? '#010806' : p.mode === 'threshold' && p.background === '#020414' ? '#0B0E14' : p.background,
+  bpm: p.bpm,
+  echoes: p.echoes,
+  graticule: p.graticule,
+  title: p.mode === 'scope' ? (p.title === 'fetal growth' ? 'CH1 · 2 V/DIV' : p.title) : p.title === 'fetal growth' ? 'LIMIT' : p.title,
+});
+
+const LiveChart: React.FC<Props> = (p) => (p.mode === 'threshold' ? <ThresholdMode {...modeExtra(p)} /> : p.mode === 'scope' ? <ScopeMode {...modeExtra(p)} /> : p.mode === 'sync' ? <SyncMode {...p} /> : p.mode === 'decline' ? <DeclineMode {...p} /> : <TraceMode {...p} />);
 
 export const liveChart = defineMotion<Props>({
   id: 'live-chart',
@@ -421,9 +440,19 @@ export const liveChart = defineMotion<Props>({
     gaugeFrom: 0.85,
     gaugeTo: 0.5,
     background: '#020414',
+    series: [] as number[],
+    threshold: 0.72,
+    stamp: 'BREAK',
+    echoes: 4,
+    graticule: true,
   },
   propDocs: {
-    mode: "'trace' (growth + synapses + ECG), 'sync' (dual heartbeat sync), 'decline' (quality chart + gauge)",
+    mode: "'trace' (growth + synapses + ECG), 'sync' (dual heartbeat sync), 'decline' (quality chart + gauge), 'threshold' (line steps toward a dashed limit, final point breaks it with shake, ring, readout panel + stamp), 'scope' (phosphor oscilloscope: beat-repainted trace with echoes, graticule, CRT-off exit)",
+    series: 'threshold: 0..1 values of the line ([] = built-in climb that breaks the limit on the last point)',
+    threshold: 'threshold: height of the dashed limit line, 0..1',
+    stamp: 'threshold: stamp text that lands on the readout panel',
+    echoes: 'scope: number of fading previous sweeps kept on screen',
+    graticule: 'scope: draw the glass graticule over the trace',
     data: 'trace: main curve values (one sample revealed per 0.25 s)',
     declineValues: 'decline: values of the falling red line',
     title: "trace: chart title; decline: monitor title ('QUALITY' also names the gauge REASONING EFFORT)",
@@ -440,5 +469,5 @@ export const liveChart = defineMotion<Props>({
     background: 'background colour (trace / decline)',
   },
   component: LiveChart,
-  tags: ['chart', 'ecg', 'heartbeat', 'line', 'data', 'gauge', 'hud'],
+  tags: ['chart', 'ecg', 'heartbeat', 'line', 'data', 'gauge', 'hud', 'threshold', 'break', 'oscilloscope', 'scope', 'crt', 'news', 'stock', 'limit'],
 });

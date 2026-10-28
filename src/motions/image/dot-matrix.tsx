@@ -1,7 +1,9 @@
 import React from 'react';
-import {AbsoluteFill, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, random, useCurrentFrame} from 'remotion';
 import {clamp} from '../../core/ease';
 import {rng} from '../../core/random';
+import {fonts} from '../../core/fonts';
+import {h1} from '../../core/r2-e4-kit';
 import {Vignette, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
 import {PlatePaletteName, hexRgb, luma, mixRgb, rgbStr, sampleGrid, usePlatePixels, useSafeId} from '../../core/image-kit';
@@ -17,7 +19,8 @@ import {PlatePaletteName, hexRgb, luma, mixRgb, rgbStr, sampleGrid, usePlatePixe
  * resolution-ramp: pitch steps (hard cuts, 6 f apart, 2-frame x1.08 overshoot) 150 -> 90 -> 60 -> 40 -> legible,
  * and the reverse at the end (40 -> 300).
  */
-type Style = 'led' | 'halftone' | 'glow' | 'pointillism';
+type Style = 'led' | 'halftone' | 'glow' | 'pointillism' | 'field' | 'tiles' | 'text';
+type FieldLayer = {color: string; angle: number; step: number; k: number};
 
 type Props = {
   src: string;
@@ -40,6 +43,24 @@ type Props = {
   body: string;
   maxRadius: number;
   glow: number;
+  field: 'radial' | 'edge' | 'ramp';
+  fieldLayers: FieldLayer[];
+  fieldRadius: number;
+  fieldPow: number;
+  fieldSwell: number;
+  fieldCenter: [number, number];
+  tileSize: number;
+  tileShape: 'square' | 'round' | 'circle';
+  grout: number;
+  flipFrames: number;
+  flipOrder: 'radial' | 'random' | 'sweep';
+  flipStart: number;
+  flipSpan: number;
+  text: string;
+  textGrid: number;
+  textWave: number;
+  zoomFrom: number;
+  textColor: string;
 };
 
 /** ink / paper pairs measured in video18 */
@@ -52,12 +73,150 @@ export const HALFTONE_PAIRS: [string, string][] = [
   ['#EB1458', '#FFFFFF'],
 ];
 
+
+/** analytic halftone density field (Ben-Day layers at different angles, multiply-printed on paper) */
+const FieldRender: React.FC<{p: Props; frame: number; w: number; h: number; u: number}> = ({p, frame, w, h, u}) => {
+  const layers = p.fieldLayers.length ? p.fieldLayers : [{color: p.ink, angle: 45, step: 22, k: 0.65}];
+  const R = Math.hypot(w, h) * 0.5 * p.fieldRadius * (1 + p.fieldSwell * Math.sin((frame / 30) * 2));
+  const cx0 = p.fieldCenter[0] * w;
+  const cy0 = p.fieldCenter[1] * h;
+  const pw = p.fieldPow;
+  const paths = layers.map((L, li) => {
+    const step = L.step * u;
+    const a = (L.angle * Math.PI) / 180;
+    const ca = Math.cos(a);
+    const sa = Math.sin(a);
+    const n = Math.ceil(Math.hypot(w, h) / step) + 1;
+    let d = '';
+    for (let j = -n; j <= n; j++)
+      for (let i = -n; i <= n; i++) {
+        const lx = i * step;
+        const ly = j * step;
+        const x = w / 2 + lx * ca - ly * sa;
+        const y = h / 2 + lx * sa + ly * ca;
+        if (x < -step || x > w + step || y < -step || y > h + step) continue;
+        let v: number;
+        if (p.field === 'edge') {
+          const e = Math.min(x, w - x, y, h - y) / (Math.min(w, h) * 0.35 * p.fieldRadius);
+          v = Math.pow(clamp(1 - e), pw);
+        } else if (p.field === 'ramp') {
+          v = Math.pow(clamp(x / w + 0.25 * Math.sin((frame / 30) * p.fieldSwell * 2)), pw);
+        } else {
+          v = Math.pow(clamp(1 - Math.hypot(x - cx0, y - cy0) / R), pw);
+        }
+        const r = L.k * step * 0.5 * Math.sqrt(v) * 1.15;
+        if (r < 0.6 * u) continue;
+        d += `M${(x - r).toFixed(1)} ${y.toFixed(1)}a${r.toFixed(2)} ${r.toFixed(2)} 0 1 0 ${(2 * r).toFixed(2)} 0a${r.toFixed(2)} ${r.toFixed(2)} 0 1 0 ${(-2 * r).toFixed(2)} 0Z`;
+      }
+    return <path key={li} d={d} fill={L.color} style={{mixBlendMode: 'multiply'}} />;
+  });
+  return (
+    <svg width={w} height={h} style={{position: 'absolute', inset: 0}}>
+      {paths}
+    </svg>
+  );
+};
+
+/** image built from flipping tiles with grout */
+const TilesRender: React.FC<{p: Props; frame: number; w: number; h: number; u: number; px: ReturnType<typeof usePlatePixels>}> = ({p, frame, w, h, u, px}) => {
+  const size = Math.max(w * 0.015, (p.tileSize / 100) * Math.min(w, h));
+  const cols = Math.ceil(w / size);
+  const rows = Math.ceil(h / size);
+  const g = px ? sampleGrid(px, cols, rows, {x0: 0, y0: 0, x1: 1, y1: 1}) : null;
+  const ox = (w - cols * size) / 2;
+  const oy = (h - rows * size) / 2;
+  const els: React.ReactNode[] = [];
+  const maxD = Math.hypot(cols, rows) / 2;
+  for (let gy = 0; gy < rows; gy++)
+    for (let gx = 0; gx < cols; gx++) {
+      const k = gy * cols + gx;
+      let ord = 0;
+      if (p.flipOrder === 'random') ord = h1('tf' + p.seed, k);
+      else if (p.flipOrder === 'sweep') ord = gx / cols;
+      else ord = Math.hypot(gx - cols / 2, gy - rows / 2) / maxD;
+      const t0 = p.flipStart + ord * p.flipSpan;
+      const t = clamp((frame - t0) / Math.max(1, p.flipFrames));
+      const sx = Math.abs(Math.cos(Math.PI * t));
+      const front = t >= 0.5;
+      const o = k * 3;
+      const col = g && front ? `rgb(${g[o] | 0},${g[o + 1] | 0},${g[o + 2] | 0})` : p.bgDot;
+      const cx = ox + (gx + 0.5) * size;
+      const cy = oy + (gy + 0.5) * size;
+      const s = size - p.grout * u;
+      if (s <= 0 || sx < 0.01) continue;
+      if (p.tileShape === 'circle') els.push(<ellipse key={k} cx={cx} cy={cy} rx={(s / 2) * sx} ry={s / 2} fill={col} />);
+      else els.push(<rect key={k} x={cx - (s / 2) * sx} y={cy - s / 2} width={s * sx} height={s} rx={p.tileShape === 'round' ? s * 0.22 : 0} fill={col} />);
+    }
+  return (
+    <svg width={w} height={h} style={{position: 'absolute', inset: 0}}>
+      {els}
+    </svg>
+  );
+};
+
+/** words spelled by lit cells of a huge dot grid; camera cranes from one cell to the full floor */
+const TextRender: React.FC<{p: Props; frame: number; w: number; h: number; u: number; D: number}> = ({p, frame, w, h, u, D}) => {
+  const id = `ct${p.seed}`;
+  const cell = Math.max(3 * u, w / p.textGrid);
+  const words = p.text.split(/\s+/).filter(Boolean);
+  const per = Math.max(8, Math.floor((D * 0.6) / Math.max(1, words.length)));
+  const zz = p.zoomFrom > 1 ? Math.exp(Math.log(p.zoomFrom) * (1 - Math.sqrt(clamp(frame / (D * 0.4))))) : 1;
+  const stack = words.length > 2 && w < h;
+  const fs = Math.min(h * 0.2, (w * 0.88) / Math.max(3, (stack ? Math.max(...words.map((x) => x.length)) : p.text.length) * 0.7));
+  const lines = stack ? words : [p.text];
+  const bands = 8;
+  const wave = (y: number) => 0.5 + 0.5 * Math.sin(y * 0.01 + (frame / 30) * p.textWave * 3);
+  return (
+    <svg width={w} height={h} style={{position: 'absolute', inset: 0}}>
+      <defs>
+        <pattern id={id + 'p'} width={cell} height={cell} patternUnits="userSpaceOnUse">
+          <rect x={cell * 0.14} y={cell * 0.14} width={cell * 0.72} height={cell * 0.72} fill={p.textColor} />
+        </pattern>
+        <mask id={id + 'm'}>
+          <rect width={w} height={h} fill="#000" />
+          {lines.map((ln, li) => {
+            const wd = ln.split(' ');
+            return (
+              <text key={li} x={w / 2} y={h / 2 + (li - (lines.length - 1) / 2) * fs * 1.15 + fs * 0.35} textAnchor="middle" fontFamily={fonts.display} fontWeight={800} fontSize={fs} fill="#fff">
+                {wd.map((wt, wi) => {
+                  const gi = stack ? li : words.indexOf(wt);
+                  const on = clamp((frame - (6 + gi * per)) / 10);
+                  return (
+                    <tspan key={wi} fillOpacity={on}>
+                      {wt + (wi < wd.length - 1 ? ' ' : '')}
+                    </tspan>
+                  );
+                })}
+              </text>
+            );
+          })}
+        </mask>
+      </defs>
+      <g transform={`translate(${w / 2} ${h / 2}) scale(${zz}) translate(${-w / 2} ${-h / 2})`}>
+        {Array.from({length: bands}, (_, b) => (
+          <rect key={b} x={0} y={(b / bands) * h} width={w} height={h / bands + 1} fill={`url(#${id}p)`} opacity={0.06 + 0.18 * wave((b / bands) * h) * (0.6 + 0.4 * random('cw' + b + Math.floor(frame / 3)))} />
+        ))}
+        <rect width={w} height={h} fill={`url(#${id}p)`} mask={`url(#${id}m)`} opacity={0.95} />
+      </g>
+    </svg>
+  );
+};
+
 const DotMatrix: React.FC<Props> = (p) => {
   const frame = useCurrentFrame();
   const {w, h, u, durationInFrames: D} = useStage();
   const id = useSafeId('dm');
   const px = usePlatePixels({src: p.src, seed: p.seed, palette: p.palette}, 480);
   const fq = Math.floor(frame / Math.max(1, p.holdFrames)) * Math.max(1, p.holdFrames);
+  if (p.style === 'field' || p.style === 'tiles' || p.style === 'text') {
+    return (
+      <AbsoluteFill style={{background: p.style === 'field' ? p.paper : p.panel, overflow: 'hidden', isolation: 'isolate'}}>
+        {p.style === 'field' && <FieldRender p={p} frame={frame} w={w} h={h} u={u} />}
+        {p.style === 'tiles' && <TilesRender p={p} frame={frame} w={w} h={h} u={u} px={px} />}
+        {p.style === 'text' && <TextRender p={p} frame={frame} w={w} h={h} u={u} D={D} />}
+      </AbsoluteFill>
+    );
+  }
 
   // ---- resolution ramp (hard steps) -----------------------------------------------------------
   const minPitch = Math.sqrt((w * h) / 5000);
@@ -215,12 +374,33 @@ export const dotMatrix = defineMotion<Props>({
     body: '#FFC861',
     maxRadius: 18,
     glow: 1,
+    field: 'radial',
+    fieldLayers: [
+      {color: '#EB1458', angle: 15, step: 22, k: 0.7},
+      {color: '#2321F5', angle: 70, step: 22, k: 0.6},
+    ],
+    fieldRadius: 0.8,
+    fieldPow: 1.2,
+    fieldSwell: 0.06,
+    fieldCenter: [0.5, 0.5],
+    tileSize: 3,
+    tileShape: 'square',
+    grout: 2,
+    flipFrames: 8,
+    flipOrder: 'radial',
+    flipStart: 6,
+    flipSpan: 60,
+    text: 'SCALE',
+    textGrid: 160,
+    textWave: 1,
+    zoomFrom: 6,
+    textColor: '#7FD6FF',
   },
   propDocs: {
     src: 'public/ image path; empty = procedural plate (sampled analytically)',
     seed: 'procedural plate / jitter seed',
     palette: 'procedural plate palette: dusk | night | dawn',
-    style: 'led | halftone | glow | pointillism',
+    style: 'led | halftone | glow | pointillism | field (analytic Ben-Day density field) | tiles (flipping mosaic tiles with grout) | text (words spelled by a cell grid)',
     pitch: 'legible dot pitch in px at 1080p (led 26, halftone 13–29, glow 12–18); auto-raised to keep ≤ 5000 dots',
     ramp: 'coarser pitches stepped through before the legible one ([] = no ramp)',
     stepFrames: 'frames per ramp step (half-beats: 5–6)',
@@ -237,7 +417,25 @@ export const dotMatrix = defineMotion<Props>({
     body: 'glow: particle body colour (gold #FFC861, violet #D88BFF, white)',
     maxRadius: 'glow: max particle radius in px at 1080p',
     glow: 'glow: blurred bloom copy strength 0..1',
+    field: "style 'field' (Ben-Day density field, no image): radial halo | edge (dots crowd the frame border) | ramp (left to right)",
+    fieldLayers: "style 'field': overprinted layers [{color, angle deg, step px at 1080p, k dot size 0..1}] (multiply on paper)",
+    fieldRadius: 'field: halo radius / edge band, relative (0.8)',
+    fieldPow: 'field: density fall-off exponent (1.2)',
+    fieldSwell: 'field: breathing amplitude of the halo (dots swell = emotion), 0 = static',
+    fieldCenter: 'field radial: halo centre [x,y] 0..1',
+    tileSize: "style 'tiles': tile size in % of the short side",
+    tileShape: 'tiles: square | round | circle',
+    grout: 'tiles: grout width px at 1080p (bgDot colour shows on the unflipped back of each tile)',
+    flipFrames: 'tiles: frames a tile flip takes',
+    flipOrder: 'tiles: radial (from the centre) | random | sweep (left to right)',
+    flipStart: 'tiles: first flip frame',
+    flipSpan: 'tiles: frames over which the flips are staggered',
+    text: "style 'text': words spelled out by lit cells (panel colour is the floor)",
+    textGrid: 'text: cells across the width',
+    textWave: 'text: speed of the lattice flicker waves',
+    zoomFrom: 'text: camera crane start zoom (1 = none, 6 = macro to wide)',
+    textColor: 'text: lit cell colour',
   },
   component: DotMatrix,
-  tags: ['image', 'halftone', 'led', 'dots', 'particles', 'pointillism', 'resolution-ramp', 'music-video'],
+  tags: ['image', 'halftone', 'led', 'dots', 'particles', 'pointillism', 'resolution-ramp', 'music-video', 'ben-day', 'density field', 'mosaic', 'tiles', 'flip', 'cell text', 'led wall', 'photo reveal'],
 });

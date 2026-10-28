@@ -7,6 +7,7 @@ import {GlossySphere} from '../../core/shapes';
 import {PaperTexture, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
 import {DEMO_IMAGES, Pic} from '../../core/ui-kit';
+import {MATCH_SHAPES, MatchShape} from '../../core/r2-e1-kit';
 
 /**
  * video4 accelerating-montage + sonar-ring-overlay, video2 beat-hardcut-montage, video18 beat-style-shuffler.
@@ -28,6 +29,12 @@ type Props = {
   paper: string;
   ringColor: string;
   seed: number;
+  /** images (default) | shapes = graphic match cuts: one circle, same centre + size, redrawn as wheel / roulette / pupil / moon / keyhole ... */
+  mode: 'images' | 'shapes';
+  /** replay the shots in reverse order (rewind / flashback); rings contract instead of expand */
+  reverse: boolean;
+  /** shapes mode: background colours cycled per shot */
+  shapePalette: string[];
 };
 
 type Seg = {kind: 'shot' | 'ping' | 'end'; start: number; len: number; img: number; style: string; block: number};
@@ -38,8 +45,9 @@ const DUO = [
   ['#0e3b2e', '#e8f5c8'],
 ];
 
-const Rings: React.FC<{cx: number; cy: number; h: number; u: number; frame: number; period: number; color: string; start: number}> = ({cx, cy, h, u, frame, period, color, start}) => {
-  const ph = (((frame - start) % period) + period) % period / period;
+const Rings: React.FC<{cx: number; cy: number; h: number; u: number; frame: number; period: number; color: string; start: number; reverse?: boolean}> = ({cx, cy, h, u, frame, period, color, start, reverse}) => {
+  const ph0 = (((frame - start) % period) + period) % period / period;
+  const ph = reverse ? 1 - ph0 : ph0;
   return (
     <>
       {[0.22, 0.45].map((k, i) => {
@@ -93,7 +101,9 @@ const BeatMontage: React.FC<Props> = (p) => {
 
   let content: React.ReactNode;
   if (seg.kind === 'shot') {
-    const src = p.images.length ? p.images[seg.img % p.images.length] : undefined;
+    const totalShots = segs.filter((q) => q.kind === 'shot').length;
+    const imgIdx = p.reverse ? totalShots - 1 - seg.img : seg.img;
+    const src = p.images.length ? p.images[imgIdx % p.images.length] : undefined;
     const sc = 1 + 0.03 * clamp(local / seg.len);
     const ox = seg.img % 2 ? '45% 50%' : '55% 50%';
     const duo = DUO[seg.img % DUO.length];
@@ -119,7 +129,11 @@ const BeatMontage: React.FC<Props> = (p) => {
               : {}),
           }}
         >
-          <Pic src={src} seed={p.seed * 100 + seg.img} id={`bm-pic`} position={ox} />
+          {p.mode === 'shapes' ? (
+            <MatchShape kind={MATCH_SHAPES[imgIdx % MATCH_SHAPES.length]} w={w} h={h} u={u} bg={p.shapePalette[imgIdx % p.shapePalette.length]} fg={['#f4ede0', '#1d1a22', '#f4ede0', '#1d1a22'][imgIdx % 4]} accent={p.dotColor} t={local / seg.len} />
+          ) : (
+            <Pic src={src} seed={p.seed * 100 + imgIdx} id={`bm-pic`} position={ox} />
+          )}
         </div>
       </AbsoluteFill>
     );
@@ -149,7 +163,7 @@ const BeatMontage: React.FC<Props> = (p) => {
     <AbsoluteFill style={{background: '#000'}}>
       {content}
       <svg width={w} height={h} style={{position: 'absolute', inset: 0}}>
-        {showRings && <Rings cx={cx} cy={cy} h={Math.min(w, h)} u={u} frame={frame} period={beat} color={p.ringColor} start={fastStart} />}
+        {showRings && <Rings cx={cx} cy={cy} h={Math.min(w, h)} u={u} frame={frame} period={beat} color={p.ringColor} start={fastStart} reverse={p.reverse} />}
         <GlossySphere cx={cx} cy={cy} r={dotR * pulse} color={p.dotColor} id="bm-dot" shadowOpacity={seg.kind === 'shot' ? 0.35 : 0.6} />
       </svg>
     </AbsoluteFill>
@@ -177,6 +191,9 @@ export const beatMontage = defineMotion<Props>({
     paper: '#ECE4D7',
     ringColor: '#7AA8E0',
     seed: 2,
+    mode: 'images',
+    reverse: false,
+    shapePalette: ['#E8584A', '#2B6CB0', '#F2C94C', '#1F7A5C', '#7B4FB8', '#ECE4D7'],
   },
   propDocs: {
     images: 'public/ image paths cycled through the shots (empty = procedural scenes)',
@@ -187,7 +204,10 @@ export const beatMontage = defineMotion<Props>({
     styles: 'styles to shuffle between: duotone | dot | invert',
     rings: "sonar ring overlay: 'fast' (last block), 'always' or 'off'",
     pingBeats: 'insert 6-frame paper ping beats between blocks',
+    mode: "images (default) | shapes (graphic match cuts: one circle keeps its centre and size while it becomes a wheel, roulette, pupil, moon, keyhole, target; steps [10,8,6,4] + dotColor as accent)",
+    reverse: 'replay the shots in reverse order with contracting rings (rewind / flashback; combine with steps [4,2])',
+    shapePalette: 'shapes mode: background colours cycled per shot',
   },
   component: BeatMontage,
-  tags: ['montage', 'edit', 'beat', 'cuts', 'showreel', 'rhythm'],
+  tags: ['montage', 'edit', 'beat', 'cuts', 'showreel', 'rhythm', 'rewind', 'reverse', 'flashback', 'match cut', 'graphic match', 'circle', 'loop'],
 });

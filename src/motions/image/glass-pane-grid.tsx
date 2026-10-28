@@ -5,6 +5,7 @@ import {rng} from '../../core/random';
 import {Vignette, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
 import {Plate, PlatePaletteName, useSafeId} from '../../core/image-kit';
+import {LeadedGlass} from '../../core/r2-e2-glass-kit';
 
 /**
  * video2 refraction-pane-grid (Mondrian / stained-glass lens): a black-leaded grid of irregular
@@ -26,6 +27,13 @@ type Props = {
   driftDuration: number;
   start: number;
   sheen: number;
+  mode: 'panes' | 'leaded';
+  cellSize: number;
+  lead: number;
+  leadColor: string;
+  jewels: string[];
+  backlight: number;
+  bandAt: number;
 };
 
 type Pane = {x: number; y: number; w: number; h: number; ox: number; oy: number; s: number; tint: string; dx: number; dy: number; delay: number};
@@ -147,6 +155,13 @@ const GlassPaneGrid: React.FC<Props> = (p) => {
   );
 };
 
+const GlassRoot: React.FC<Props> = (p) =>
+  p.mode === 'leaded' ? (
+    <LeadedGlass src={p.src} seed={p.seed} palette={p.palette} gridSeed={p.gridSeed} cellSize={p.cellSize} lead={p.lead} leadColor={p.leadColor} jewels={p.jewels} backlight={p.backlight} bandAt={p.bandAt} start={p.start} tintOpacity={Math.max(p.tintOpacity, 0.75)} />
+  ) : (
+    <GlassPaneGrid {...p} />
+  );
+
 export const glassPaneGrid = defineMotion<Props>({
   id: 'glass-pane-grid',
   title: 'Mondrian glass pane grid',
@@ -169,6 +184,13 @@ export const glassPaneGrid = defineMotion<Props>({
     driftDuration: 60,
     start: 10,
     sheen: 1,
+    mode: 'panes',
+    cellSize: 56,
+    lead: 6,
+    leadColor: '#0c0a0c',
+    jewels: ['#1f4fa8', '#a8202c', '#d6a323', '#2e7d4f', '#6b3a8c', '#2a8c9c'],
+    backlight: 0.6,
+    bandAt: -1,
   },
   propDocs: {
     src: 'public/ image path; empty = procedural plate',
@@ -184,7 +206,14 @@ export const glassPaneGrid = defineMotion<Props>({
     driftDuration: 'frames for the refraction offsets to ease in (easeInQuad), then a slow drift continues',
     start: 'frame the leading starts drawing on',
     sheen: 'glass sheen / bevel highlight strength',
+    mode: "'panes' (Mondrian refraction grid) | 'leaded' (stained-glass panel: lozenge lattice of jewel pieces, dark lead with solder blobs, streaky glass, backlight band)",
+    cellSize: 'leaded: piece size in px at 1080p (30-80)',
+    lead: 'leaded: lead came width in px at 1080p',
+    leadColor: 'leaded: lead colour',
+    jewels: 'leaded: jewel colour palette the pieces cycle through',
+    backlight: 'leaded: strength of the backlight band sweeping across',
+    bandAt: 'leaded: frame the backlight band starts (-1 = start + 30)',
   },
-  component: GlassPaneGrid,
-  tags: ['image', 'glass', 'mondrian', 'refraction', 'stained-glass', 'grid', 'fracture'],
+  component: GlassRoot,
+  tags: ['image', 'glass', 'mondrian', 'refraction', 'stained-glass', 'grid', 'fracture', 'leaded', 'heritage window', 'backlit', 'jewel'],
 });

@@ -34,6 +34,14 @@ type Props = {
   showSubject: boolean;
   ink: string;
   seed: number;
+  /** guide-star trail: number of tiny stars that pop on one by one behind the glint (0 = none) */
+  trail: number;
+  trailSpacing: number;
+  trailAngle: number;
+  trailCurve: number;
+  trailStagger: number;
+  /** anamorphic lens flare strength 0..1 (horizontal streak + hexagonal ghosts along the line through frame centre) */
+  lens: number;
 };
 
 const quadOut = Easing.out(Easing.quad);
@@ -138,7 +146,7 @@ const BladeScene: React.FC<{tx: number; ty: number; w: number; h: number; u: num
 };
 
 const StarGlint: React.FC<Props> = (p) => {
-  const {background, x, y, delay, style, size, hold, inFrames, outFrames, color, bloomColor, spikeAngles, shimmer, to, repeat, every, showSubject, ink, seed} = p;
+  const {background, x, y, delay, style, size, hold, inFrames, outFrames, color, bloomColor, spikeAngles, shimmer, to, repeat, every, showSubject, ink, seed, trail, trailSpacing, trailAngle, trailCurve, trailStagger, lens} = p;
   const {f, frame, w, h, u, px, py} = useFx(x, y, delay);
   const clear = isClear(background);
   const id = `sg${seed}`;
@@ -200,6 +208,44 @@ const StarGlint: React.FC<Props> = (p) => {
     <FxRoot background={background}>
       <Svg>
         {showSubject && !clear && <BladeScene tx={px} ty={py} w={w} h={h} u={u} ink={ink} shine={shine} />}
+        {lens > 0 && f >= 0 && (
+          <g style={{mixBlendMode: clear ? 'normal' : 'screen'}} opacity={lens * clamp(f / 4) * (1 - quadIn(clamp((f - inFrames - hold) / Math.max(1, outFrames))))}>
+            <defs>
+              <linearGradient id={`${id}-st`} x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0%" stopColor={bloomColor} stopOpacity={0} />
+                <stop offset="50%" stopColor={color} stopOpacity={0.95} />
+                <stop offset="100%" stopColor={bloomColor} stopOpacity={0} />
+              </linearGradient>
+            </defs>
+            <rect x={gx - 900 * u * size * 0.7} y={gy - 3 * u * size} width={1800 * u * size * 0.7} height={6 * u * size} fill={`url(#${id}-st)`} />
+            {[0.35, 0.62, 1.15, 1.4, 1.75].map((kk, i) => {
+              const gxx = gx + (w / 2 - gx) * kk;
+              const gyy = gy + (h / 2 - gy) * kk;
+              const rr = (16 + i * 7) * u * size * (i % 2 ? 1 : 1.3);
+              const cols = ['#8FF0C8', '#FF9FD0', '#8FB8FF', '#FFD98A', '#C7A2FF'];
+              const pts = Array.from({length: 6}, (_, q) => `${gxx + Math.cos((q / 6) * Math.PI * 2) * rr},${gyy + Math.sin((q / 6) * Math.PI * 2) * rr}`).join(' ');
+              return <polygon key={i} points={pts} fill={cols[i]} fillOpacity={0.28} stroke={cols[i]} strokeOpacity={0.5} strokeWidth={1.5 * u} />;
+            })}
+          </g>
+        )}
+        {trail > 0 &&
+          Array.from({length: Math.round(trail)}, (_, i) => {
+            const lf = f - (inFrames + 6 + i * trailStagger);
+            if (lf < 0) return null;
+            const pop = Easing.bezier(0.34, 1.56, 0.64, 1)(clamp(lf / 6));
+            const a = ((trailAngle + trailCurve * 30 * i) * Math.PI) / 180;
+            const d = (i + 1) * trailSpacing * w * 1.0 + 0.04 * w;
+            const sx = gx + Math.cos(a) * d;
+            const sy = gy + Math.sin(a) * d;
+            const rs = (0.012 - (0.006 * i) / Math.max(1, trail - 1)) * w * size * 0.6;
+            const tw = 0.85 + 0.25 * (0.5 + 0.5 * Math.sin((frame / 30) * Math.PI * 2 * 1.2 + i * 1.7));
+            return (
+              <g key={i} transform={`translate(${sx} ${sy}) scale(${pop * tw})`}>
+                <circle r={rs * 2.2} fill={bloomColor} opacity={0.25} />
+                <path d={sparkle4Path(rs * 1.6, 1.15, 0.1)} fill={color} />
+              </g>
+            );
+          })}
         {glint}
       </Svg>
     </FxRoot>
@@ -235,6 +281,12 @@ export const starGlint = defineMotion<Props>({
     showSubject: true,
     ink: '#2D3A6F',
     seed: 1,
+    trail: 0,
+    trailSpacing: 0.025,
+    trailAngle: 125,
+    trailCurve: 0.3,
+    trailStagger: 4,
+    lens: 0,
   },
   propDocs: {
     background: "scene colour (lavender sky); 'transparent' = overlay (no blade scene)",
@@ -256,7 +308,13 @@ export const starGlint = defineMotion<Props>({
     showSubject: 'draw the etched sword-and-army scene (scene mode only)',
     ink: 'etching ink colour for the scene',
     seed: 'random seed',
+    trail: 'guide-star trail: number of tiny shrinking stars popping on one by one behind the glint, then twinkling (0 = none; try 6 with spikeAngles [0,90,180,270], style flare, color #D6B65D, bloomColor #FFF3C4)',
+    trailSpacing: 'trail: spacing between trail stars as a fraction of width',
+    trailAngle: 'trail: direction in degrees the trail leaves the glint (90 = straight down)',
+    trailCurve: 'trail: arc bend (degrees per star x30)',
+    trailStagger: 'trail: frames between stars popping on',
+    lens: 'anamorphic lens flare 0..1: horizontal streak + 5 hexagonal ghosts along the line through the frame centre',
   },
   component: StarGlint,
-  tags: ['glint', 'flare', 'shine', 'sparkle', 'highlight', 'overlay', 'fx'],
+  tags: ['glint', 'flare', 'shine', 'sparkle', 'highlight', 'overlay', 'fx', 'lens flare', 'anamorphic', 'streak', 'guide star', 'trail', 'twinkle', 'north star', 'ghosts'],
 });

@@ -30,6 +30,11 @@ type Props = {
   background: string;
   pillarColor: string;
   seed: number;
+  /** round-2: floor tiles fall in rings with spin, squash and two tiny bounces */
+  floorIntro: 'none' | 'ring-drop';
+  ringEvery: number;
+  ringExtent: number;
+  rimColor: string;
 };
 
 type V3 = [number, number, number];
@@ -43,9 +48,9 @@ const unbase = (bx: number, by: number): [number, number] => [(bx * KZ[1] - KZ[0
 const easeCubic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 const R_BALL = 0.34;
 
-const IsoBarChart: React.FC<Props> = ({values, beatFrames, showCharacter, loop, maxHeight, zoom, hopHeight, accent, ghost, barColor, floorColor, background, pillarColor, seed}) => {
+const IsoBarChart: React.FC<Props> = ({values, beatFrames, showCharacter, loop, maxHeight, zoom, hopHeight, accent, ghost, barColor, floorColor, background, pillarColor, seed, floorIntro, ringEvery, ringExtent, rimColor}) => {
   const frame = useCurrentFrame();
-  const {w, h, u, portrait} = useStage();
+  const {w, h, u, portrait, fps} = useStage();
   const N = Math.max(2, values.length);
   const vals = values.length >= 2 ? values : [3, 2];
   const vmax = Math.max(...vals.map((v) => Math.abs(v)), 1e-6);
@@ -312,6 +317,69 @@ const IsoBarChart: React.FC<Props> = ({values, beatFrames, showCharacter, loop, 
   }
   if (loop) flat.push(<polygon key="foot" points={tileTop(-1, -1, 0.002)} fill={mixHex(floorColor, pillarColor, 0.55)} />);
 
+  // ---------- floor ring-drop intro ----------
+  const ringDrop = floorIntro === 'ring-drop';
+  const tileEls: React.ReactNode[] = [];
+  let tilesDone = 0;
+  if (ringDrop) {
+    const cx0 = Math.min(N / 2, 2.5);
+    const cz0 = 0.5;
+    const ext = Math.max(2, Math.round(ringExtent));
+    const cells: {i: number; j: number; k: number}[] = [];
+    let maxLand = 0;
+    for (let i = -ext; i < N + ext; i++) {
+      for (let j = -ext; j < ext + 1; j++) {
+        const dx = i + 0.5 - cx0;
+        const dz = (j + 0.5 - cz0) * 2.2;
+        const ring = Math.round(Math.hypot(dx * 0.5, dz * 0.5));
+        const ang = (Math.atan2(dz, dx) + Math.PI) / (Math.PI * 2);
+        const land = 4 + ring * ringEvery + ang * 2.1;
+        maxLand = Math.max(maxLand, land + 9 + 8);
+        cells.push({i, j, k: land});
+      }
+    }
+    tilesDone = maxLand;
+    cells.sort((a, b) => 0.32 * a.i - 0.3 * a.j - (0.32 * b.i - 0.3 * b.j));
+    for (const c of cells) {
+      const tau = frame - c.k; // frames since landing (negative = still falling)
+      const fall = clamp((frame - (c.k - 9)) / 9);
+      if (frame < c.k - 9) continue;
+      let lift = 0;
+      let rot = 0;
+      let sq = 1;
+      if (tau < 0) {
+        const uu = fall;
+        lift = 1.6 * (1 - uu * uu);
+        rot = 1.7 * Math.pow(1 - uu, 2.2);
+      } else if (tau < 5) {
+        lift = 0.07 * 4 * (tau / 5) * (1 - tau / 5);
+      } else if (tau < 8) {
+        lift = 0.021 * 4 * ((tau - 5) / 3) * (1 - (tau - 5) / 3);
+      }
+      if (tau >= 0) sq = 1 - 0.3 * Math.exp(-(tau / fps) / 0.05) * Math.cos(40 * (tau / fps));
+      const th = 0.12 * sq;
+      const cxm = c.i + 0.5;
+      const czm = c.j + 0.5;
+      const hw = 0.5 - 0.035;
+      const rc = Math.cos(rot);
+      const rs = Math.sin(rot);
+      const corner = (dx: number, dz: number, y: number): V3 => [cxm + dx * rc - dz * rs, y, czm + dx * rs + dz * rc];
+      const yTop = lift + th;
+      const top = [corner(-hw, -hw, yTop), corner(hw, -hw, yTop), corner(hw, hw, yTop), corner(-hw, hw, yTop)];
+      const front = [corner(-hw, hw, yTop), corner(hw, hw, yTop), corner(hw, hw, lift), corner(-hw, hw, lift)];
+      const rightS = [corner(hw, -hw, yTop), corner(hw, hw, yTop), corner(hw, hw, lift), corner(hw, -hw, lift)];
+      const rim = tau >= 0 && tau < 7 ? 1 - tau / 7 : 0;
+      tileEls.push(
+        <g key={`ft${c.i},${c.j}`}>
+          <polygon points={poly(front.map((q) => P(...q)))} fill={shade(floorColor, -0.14)} />
+          <polygon points={poly(rightS.map((q) => P(...q)))} fill={shade(floorColor, -0.09)} />
+          <polygon points={poly(top.map((q) => P(...q)))} fill={shade(floorColor, 0.03)} stroke={rim > 0 ? rimColor : 'none'} strokeOpacity={rim} strokeWidth={Math.max(1, 0.06 * C)} />
+        </g>,
+      );
+    }
+  }
+  const gridOp = ringDrop ? clamp((frame - tilesDone) / 6) : 1;
+
   // ---------- bars ----------
   const t = tl;
   const ball = showCharacter && (loop || t >= -18) ? ballAt(t) : undefined;
@@ -504,8 +572,9 @@ const IsoBarChart: React.FC<Props> = ({values, beatFrames, showCharacter, loop, 
           </mask>
         </defs>
         <g mask="url(#iso-floor-mask)">
-          <path d={gridHi} stroke={shade(floorColor, 0.5)} strokeWidth={Math.max(0.6, 0.022 * C)} fill="none" opacity={0.7} />
-          <path d={grid} stroke={groove} strokeWidth={Math.max(0.8, 0.055 * C)} fill="none" />
+          <path d={gridHi} stroke={shade(floorColor, 0.5)} strokeWidth={Math.max(0.6, 0.022 * C)} fill="none" opacity={0.7 * gridOp} />
+          <path d={grid} stroke={groove} strokeWidth={Math.max(0.8, 0.055 * C)} fill="none" opacity={gridOp} />
+          {tileEls}
         </g>
         {flat}
         {rippleBehind}
@@ -543,6 +612,10 @@ export const isoBarChart = defineMotion<Props>({
     background: '#E9E1D6',
     pillarColor: '#E5BDA6',
     seed: 7,
+    floorIntro: 'none',
+    ringEvery: 7,
+    ringExtent: 4,
+    rimColor: '#38C8E8',
   },
   propDocs: {
     values: 'bar heights (any series; loop length = (N-2)*beat + 270 f for N>=6)',
@@ -559,7 +632,11 @@ export const isoBarChart = defineMotion<Props>({
     background: 'backdrop colour behind the floor',
     pillarColor: 'lift pillar colour',
     seed: 'confetti / ripple jitter seed',
+    floorIntro: "'none' (default) | 'ring-drop' (floor tiles fall in rings expanding from the centre: 0.3 s fall with a spin that settles flat at contact, squash, two tiny bounces, cyan rim flash)",
+    ringEvery: 'ring-drop: frames between rings (0.25 s = 7)',
+    ringExtent: 'ring-drop: tile margin around the bars in cells',
+    rimColor: 'ring-drop: outline flash colour on landing',
   },
   component: IsoBarChart,
-  tags: ['chart', 'isometric', 'bar chart', 'loop', 'character', 'data'],
+  tags: ['chart', 'isometric', 'bar chart', 'loop', 'character', 'data', 'ring-drop', 'floor-tiles', 'board-assembles', 'intro'],
 });

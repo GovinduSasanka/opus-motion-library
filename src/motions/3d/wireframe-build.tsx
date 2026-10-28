@@ -29,6 +29,12 @@ type Props = {
   lineWidth: number;
   sparks: number;
   orbit: number;
+  /** blueprint (default: parchment + materialising galleon) | holo (cyan hologram wireframe on a projector pad, scan plane, no solids) */
+  variant: 'blueprint' | 'holo';
+  /** holo: wire hue in degrees (188 = cyan) */
+  hue: number;
+  /** holo: projector pad rings + scan plane */
+  pad: boolean;
 };
 
 type Poly = {pts: V3[]; a: number; b: number}; // draw window in frames
@@ -305,8 +311,13 @@ const useLineObj = (width: number, color: string, opacity: number, additive: boo
     return obj;
   }, [width, color, additive, w, h]);
 
-const WireframeBuild: React.FC<Props> = ({background, paper, ink, wire, hot, wood, stripe, sail, spark, lineWidth, sparks, orbit}) => {
+const WireframeBuild: React.FC<Props> = ({background: bg0, paper, ink, wire: wire0, hot: hot0, wood, stripe, sail, spark: spark0, lineWidth, sparks, orbit, variant, hue, pad}) => {
   const frame = useCurrentFrame();
+  const holo = variant === 'holo';
+  const background = holo ? '#02080c' : bg0;
+  const wire = holo ? `hsl(${hue}, 100%, 62%)` : wire0;
+  const hot = holo ? '#e6ffff' : hot0;
+  const spark = holo ? `hsl(${hue}, 100%, 78%)` : spark0;
   const {w, h, u, portrait} = useStage();
   const ship = useMemo(() => buildShip(), []);
   const inkLines = useMemo(() => blueprintInk(), []);
@@ -322,7 +333,7 @@ const WireframeBuild: React.FC<Props> = ({background, paper, ink, wire, hot, woo
   );
 
   // wire fade-out after materialising
-  const wireAlpha = 1 - 0.85 * prog(frame, 205, 245, ease.inOut);
+  const wireAlpha = holo ? 1 : 1 - 0.85 * prog(frame, 205, 245, ease.inOut);
 
   // ---- line positions for this frame ----
   const {pos, colA} = useMemo(() => {
@@ -495,13 +506,33 @@ const WireframeBuild: React.FC<Props> = ({background, paper, ink, wire, hot, woo
           <spotLight position={[2, 16, 6]} angle={0.62} penumbra={0.8} intensity={650} decay={2} color="#ffe4c0" />
           <directionalLight position={[-6, 8, 9]} intensity={0.9} color="#ffd9a8" />
           {/* parchment */}
-          <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
-            <planeGeometry args={[19.5, 13]} />
-            <meshStandardMaterial map={paperTex} color={paper} roughness={0.95} />
-          </mesh>
-          <primitive object={inkObj} />
+          {!holo && (
+            <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
+              <planeGeometry args={[19.5, 13]} />
+              <meshStandardMaterial map={paperTex} color={paper} roughness={0.95} />
+            </mesh>
+          )}
+          {holo && pad && (
+            <group>
+              {[[8.6, 8.75, 1], [6.4, 6.5, 0.55], [3.6, 3.66, 0.4]].map(([r0, r1, o], i) => (
+                <mesh key={i} rotation={[-Math.PI / 2, 0, frame * 0.004 * (i % 2 ? -1 : 1)]} position={[0, 0.01, 0]}>
+                  <ringGeometry args={[r0, r1, 96, 1, 0, i === 1 ? Math.PI * 1.6 : Math.PI * 2]} />
+                  <meshBasicMaterial color={wire} transparent opacity={o * 0.7} blending={THREE.AdditiveBlending} depthWrite={false} side={THREE.DoubleSide} />
+                </mesh>
+              ))}
+              <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.5 + 7.5 * ease.inOut(prog(frame, 30, 235, ease.linear)), 0]}>
+                <ringGeometry args={[5.2, 5.32, 96]} />
+                <meshBasicMaterial color={hot} transparent opacity={0.8 * (1 - prog(frame, 240, 262))} blending={THREE.AdditiveBlending} depthWrite={false} side={THREE.DoubleSide} />
+              </mesh>
+              <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.5 + 7.5 * ease.inOut(prog(frame, 30, 235, ease.linear)), 0]}>
+                <circleGeometry args={[5.2, 64]} />
+                <meshBasicMaterial color={wire} transparent opacity={0.07 * (1 - prog(frame, 240, 262))} blending={THREE.AdditiveBlending} depthWrite={false} side={THREE.DoubleSide} />
+              </mesh>
+            </group>
+          )}
+          {!holo && <primitive object={inkObj} />}
           {/* keel blocks */}
-          {Array.from({length: 7}, (_, i) => {
+          {!holo && Array.from({length: 7}, (_, i) => {
             const x = -3.9 + i * 1.3;
             const on = prog(frame, 24 + i * 2, 34 + i * 2, ease.out);
             return on > 0 ? (
@@ -511,13 +542,15 @@ const WireframeBuild: React.FC<Props> = ({background, paper, ink, wire, hot, woo
               </mesh>
             ) : null;
           })}
+          {!holo && (<>
           <mesh geometry={patchGeo.g}>
             <meshStandardMaterial vertexColors side={THREE.DoubleSide} roughness={0.75} metalness={0.05} />
           </mesh>
           <mesh geometry={patchGeo.heat}>
             <meshBasicMaterial vertexColors side={THREE.DoubleSide} transparent blending={THREE.AdditiveBlending} depthWrite={false} polygonOffset polygonOffsetFactor={-2} />
           </mesh>
-          {masts > 0 &&
+          </>)}
+          {!holo && masts > 0 &&
             ship.masts.map((m, i) => (
               <mesh key={i} position={[m.x, DECK_Y + (m.h * masts) / 2, 0]} scale={[1, masts, 1]}>
                 <cylinderGeometry args={[0.07, 0.11, m.h, 12]} />
@@ -557,6 +590,9 @@ export const wireframeBuild = defineMotion<Props>({
     lineWidth: 1.4,
     sparks: 260,
     orbit: 70,
+    variant: 'blueprint',
+    hue: 188,
+    pad: true,
   },
   propDocs: {
     background: 'void colour around the blueprint',
@@ -571,7 +607,10 @@ export const wireframeBuild = defineMotion<Props>({
     lineWidth: 'core wire width in px at 1080',
     sparks: 'number of spark particles',
     orbit: 'camera orbit sweep in degrees',
+    variant: "blueprint (default) | holo (hologram: hue-coloured additive wireframe grows through a glowing scan plane over a projector pad; no parchment, solids or masts)",
+    hue: 'holo: wire hue in degrees (188 cyan, 38 amber, 300 magenta)',
+    pad: 'holo: projector pad rings and the rising scan plane',
   },
   component: WireframeBuild,
-  tags: ['3d', 'wireframe', 'blueprint', 'build', 'materialize', 'sparks', 'three'],
+  tags: ['3d', 'wireframe', 'blueprint', 'build', 'materialize', 'sparks', 'three', 'hologram', 'holo', 'scan', 'projector', 'cyan', 'sci-fi', 'spec scan'],
 });

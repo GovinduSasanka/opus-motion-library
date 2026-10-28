@@ -15,6 +15,8 @@ import {Brush, Erase, Flood, Overprint, Rewrite, Squeegee, Stripes} from './tran
 import {Ball, Portal, Shockwave} from './transitions/burst';
 import {Burn, LayerSwap, Occluder, Scan} from './transitions/world';
 import {Blinds, LineOpen, MosaicT, SteppedDiagonal, Tiles} from './transitions/pattern';
+import {IrisPlus} from './transitions/iris';
+import {BlobBubble, BlobFog, BlobInk, Curl3d, DiagStrips, GridCut, Halftone, PackageBand, Scroll, Shutter, TearPeel, WipeX, ZoomSnap} from './transitions/ext';
 
 /**
  * Scene-to-scene transitions reverse-engineered from the samples (see docs/TRANSITIONS.md).
@@ -73,6 +75,15 @@ import {Blinds, LineOpen, MosaicT, SteppedDiagonal, Tiles} from './transitions/p
  *  layer-swap  the old scene's layers drop out near-to-far, the new layers rise far-to-near
  *  expand      a UI rect grows into the next screen; variant 'collapse' (rect -> dot on black)
  *  diagonal 'stepped' (x2 pixel-staircase band), bands 'line' (x2 line-open-wipe)
+ *
+ * Round-2 extensions of the original types (options + variants; defaults render exactly as before):
+ *  iris        shape heart|star|keyhole|diamond|square|hexagon|rock, hold + holdRadius, mode 'closeopen', feather, x2/y2 drift, rim;
+ *              variants 'ring', 'medallion' (numbered stamp), 'marker' (drawn ring), 'bloom' (feather by speed, shape 'horizon')   (src/transitions/iris.tsx)
+ *  blob        'fog' (misty feathered), 'ink' (irregular edge + tide line), 'bubble' (chain of shape wipes)
+ *  strip       'shutter' (top then bottom blacks out, strip opens)        page-turn 'curl3d' (N-strip curling leaf)
+ *  dots        'halftone' (circle-grid wipe)      wipe 'brush' | 'soft' | 'mist' | 'band'      diagonal 'band' (package wipe) | 'strips'
+ *  bands       'rows' | 'cols' | 'quarter' (grid snap)      slide 'scroll' (handscroll)      tear 'peel'      zoom 'snap'      push-blur 'whip'
+ *  (the new variants live in src/transitions/ext.tsx)
  */
 export type TransitionType =
   | 'cut'
@@ -151,6 +162,21 @@ export type TransitionSpec = {
   colors?: string[];
   /** text for types that draw words (rewrite: "old|new", e.g. "FIG. 1|FIG. 2 · EXPLODED VIEW") */
   text?: string;
+  /** iris aperture: 'circle' (default) | 'heart' | 'star' | 'keyhole' | 'diamond' | 'square' | 'hexagon' | 'rock'; iris 'bloom': 'horizon' */
+  shape?: string;
+  /** iris: fraction of the transition spent holding at `holdRadius` (0 = no hold) */
+  hold?: number;
+  /** iris hold size: mean radius as a fraction of the frame height (default 0.22) */
+  holdRadius?: number;
+  /** feathered edge: iris px at 1080 (bloom: multiplier of the edge speed), blob 'fog' px, blob 'ink' edge irregularity (0.15) */
+  feather?: number;
+  /** iris: where the centre ends up (default = x, y); medallion drifts to it, 'closeopen' reopens there */
+  x2?: number;
+  y2?: number;
+  /** rim / outline stroke width in px at 1080 (iris, medallion, brush edge); 0 = none */
+  rim?: number;
+  /** iris: 'closeopen' = the old scene closes (optionally holds) onto x,y, a black beat, then the new scene opens at x2,y2 */
+  mode?: 'open' | 'closeopen';
 };
 
 export const TRANSITION_TYPES: TransitionType[] = [
@@ -160,7 +186,7 @@ export const TRANSITION_TYPES: TransitionType[] = [
   'occluder', 'squeegee', 'lights', 'flood', 'stripes', 'burn', 'brush', 'ball', 'shockwave', 'screen', 'layer-swap', 'expand',
 ];
 
-type Def = {frames: number; color?: string; colors?: string[]; angle?: number; bands?: number; size?: number; variant?: string; x?: number; y?: number; text?: string};
+type Def = {frames: number; color?: string; colors?: string[]; angle?: number; bands?: number; size?: number; variant?: string; x?: number; y?: number; text?: string; x2?: number; y2?: number; rim?: number; holdRadius?: number};
 export const DEFAULTS: Record<string, Def> = {
   cut: {frames: 0},
   fade: {frames: 15},
@@ -237,6 +263,30 @@ export const DEFAULTS: Record<string, Def> = {
   'expand:collapse': {frames: 18},
   'diagonal:stepped': {frames: 14, angle: 150, color: '#D2FC36', bands: 22, size: 0.25},
   'bands:line': {frames: 12, color: '#ffffff', colors: ['#F6481E']},
+  // round-2 extensions of the original types
+  'iris:ring': {frames: 14, rim: 3},
+  'iris:medallion': {frames: 26, color: '#1F2A44', colors: ['#F2994A', '#FFFFFF'], x: 0.28, y: 0.34, x2: 0.5, y2: 0.5, rim: 7, text: '1'},
+  'iris:marker': {frames: 24, color: '#E0312B', holdRadius: 0.13, rim: 7},
+  'iris:bloom': {frames: 16, color: '#ffffff', rim: 0, angle: 270},
+  'blob:fog': {frames: 14, color: '#E8ECEC', x: 0.58, y: 0.55},
+  'blob:ink': {frames: 30},
+  'blob:bubble': {frames: 30, colors: ['#FF6B4A', '#FFD23F']},
+  'strip:shutter': {frames: 22},
+  'page-turn:curl3d': {frames: 34, angle: 0, bands: 16, size: 0.55, color: '#ffffff'},
+  'dots:halftone': {frames: 16, color: '#FF5470', size: 0.074, angle: 45},
+  'wipe:brush': {frames: 20, angle: 0, color: '#2b2622', size: 0.04},
+  'wipe:soft': {frames: 16, angle: 0, size: 0.12},
+  'wipe:mist': {frames: 60, angle: 270, color: '#F1E9D8'},
+  'wipe:band': {frames: 8, angle: 18, color: '#E02B2B', size: 0.135},
+  'diagonal:band': {frames: 12, angle: 0, color: '#FFD400', size: 0.27, colors: ['#0B0F14']},
+  'diagonal:strips': {frames: 24, angle: 30, size: 0.24},
+  'bands:rows': {frames: 14, bands: 6},
+  'bands:cols': {frames: 14, bands: 8},
+  'bands:quarter': {frames: 14, size: 1 / 6},
+  'slide:scroll': {frames: 34, angle: 180, color: '#c9b690', size: 0.135},
+  'tear:peel': {frames: 36, color: '#f3efe6', colors: ['#C9A77A']},
+  'zoom:snap': {frames: 10, size: 3.2},
+  'push-blur:whip': {frames: 8, angle: 180, size: 60},
 };
 
 const DIR_ANGLE: Record<string, number> = {'from-left': 0, 'from-right': 180, 'from-top': 90, 'from-bottom': 270};
@@ -720,6 +770,9 @@ const Diagonal: C = ({children, presentationDirection, presentationProgress: p, 
 
 const pushPos = (p: number) => (p < 0.78 ? 1.04 * E.inOutQuart(p / 0.78) : 1.04 - 0.04 * E.inOutCubic((p - 0.78) / 0.22));
 
+/** whip pan: easeInOutExpo, no overshoot (variant 'whip', `size` = max blur px) */
+const pushExpo = (t: number) => (t <= 0 ? 0 : t >= 1 ? 1 : t < 0.5 ? Math.pow(2, 20 * t - 10) / 2 : (2 - Math.pow(2, -20 * t + 10)) / 2);
+
 const PushBlur: C = ({children, presentationDirection, presentationProgress: p, presentationDurationInFrames: D, passedProps: pp}) => {
   const {w, h, u} = useFrameSize();
   const fid = useUid('pbf');
@@ -727,10 +780,12 @@ const PushBlur: C = ({children, presentationDirection, presentationProgress: p, 
   const dx = Math.round(Math.cos(a) * 1000) / 1000;
   const dy = Math.round(Math.sin(a) * 1000) / 1000;
   const L = Math.abs(dx) * w + Math.abs(dy) * h;
-  const pos = pushPos(clamp01(p));
+  const whip = pp.variant === 'whip';
+  const posFn = whip ? pushExpo : pushPos;
+  const pos = posFn(clamp01(p));
   const dp = 0.01;
-  const vel = ((pushPos(clamp01(p + dp)) - pushPos(clamp01(p - dp))) / (2 * dp)) * (L / Math.max(1, D));
-  const blur = p <= 0 || p >= 1 ? 0 : Math.min(40 * u, Math.abs(vel) * 0.12);
+  const vel = ((posFn(clamp01(p + dp)) - posFn(clamp01(p - dp))) / (2 * dp)) * (L / Math.max(1, D));
+  const blur = p <= 0 || p >= 1 ? 0 : whip ? Math.min((pp.size || 60) * u, Math.abs(vel) * 0.2) : Math.min(40 * u, Math.abs(vel) * 0.12);
   const filt = blur > 0.3 ? `url(#${fid})` : undefined;
   const defs = (
     <svg width={0} height={0} style={{position: 'absolute'}}>
@@ -1331,24 +1386,34 @@ export const presentationFor = (s: TransitionSpec, width = 1920, height = 1080):
     size: s.size ?? def.size ?? 0,
     variant,
     seed: s.seed ?? 1,
+    shape: s.shape ?? '',
+    hold: s.hold ?? 0,
+    holdRadius: s.holdRadius ?? def.holdRadius ?? 0.22,
+    feather: s.feather ?? 0,
+    x2: s.x2 ?? def.x2 ?? s.x ?? def.x ?? 0.5,
+    y2: s.y2 ?? def.y2 ?? s.y ?? def.y ?? 0.5,
+    rim: s.rim ?? def.rim ?? 4,
+    mode: s.mode ?? '',
   };
   switch (s.type) {
     case 'slide':
-      return slide({direction: dir4 ?? 'from-right'});
+      return variant === 'scroll' ? custom(Scroll, pp) : slide({direction: dir4 ?? 'from-right'});
     case 'wipe':
+      if (variant === 'band') return custom(Bar, pp);
+      if (variant === 'brush' || variant === 'soft' || variant === 'mist') return custom(WipeX, pp);
       return wipe({direction: dir4 ?? 'from-left'});
     case 'clock':
       return clockWipe({width, height});
     case 'flip':
       return flip();
     case 'iris':
-      return custom(Iris, pp);
+      return custom(variant || s.shape || s.hold || s.mode || s.feather || s.x2 !== undefined || s.y2 !== undefined || s.rim !== undefined ? IrisPlus : Iris, pp);
     case 'blob':
-      return custom(Blob, pp);
+      return custom(variant === 'fog' ? BlobFog : variant === 'ink' ? BlobInk : variant === 'bubble' ? BlobBubble : Blob, pp);
     case 'tear':
-      return custom(Tear, pp);
+      return custom(variant === 'peel' ? TearPeel : Tear, pp);
     case 'zoom':
-      return custom(Zoom, pp);
+      return custom(variant === 'snap' ? ZoomSnap : Zoom, pp);
     case 'flash':
       return custom(Flash, pp);
     case 'glitch':
@@ -1360,13 +1425,13 @@ export const presentationFor = (s: TransitionSpec, width = 1920, height = 1080):
     case 'wave':
       return custom(Wave, pp);
     case 'bands':
-      return custom(variant === 'line' ? LineOpen : Bands, pp);
+      return custom(variant === 'line' ? LineOpen : variant === 'rows' || variant === 'cols' || variant === 'quarter' ? GridCut : Bands, pp);
     case 'diagonal':
-      return custom(variant === 'stepped' ? SteppedDiagonal : Diagonal, pp);
+      return custom(variant === 'stepped' ? SteppedDiagonal : variant === 'band' ? PackageBand : variant === 'strips' ? DiagStrips : Diagonal, pp);
     case 'push-blur':
       return custom(PushBlur, pp);
     case 'page-turn':
-      return custom(PageTurn, pp);
+      return custom(variant === 'curl3d' ? Curl3d : PageTurn, pp);
     case 'storm':
       return custom(Storm, pp);
     case 'whiteout':
@@ -1374,9 +1439,9 @@ export const presentationFor = (s: TransitionSpec, width = 1920, height = 1080):
     case 'bar':
       return custom(Bar, pp);
     case 'strip':
-      return custom(Strip, pp);
+      return custom(variant === 'shutter' ? Shutter : Strip, pp);
     case 'dots':
-      return custom(Dots, pp);
+      return custom(variant === 'halftone' ? Halftone : Dots, pp);
     case 'xray':
       return custom(Xray, pp);
     case 'door':

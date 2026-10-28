@@ -26,6 +26,9 @@ type Props = {
   grass: boolean;
   grain: boolean;
   seed: number;
+  /** a wave of brightened twinkles spreading from a point ({x, y} 0..1, at = frame) */
+  ripple: {x: number; y: number; at: number} | null;
+  rippleSpeed: number;
 };
 
 const Grass: React.FC<{t: number; seed: number}> = ({t, seed}) => {
@@ -64,7 +67,7 @@ const Grass: React.FC<{t: number; seed: number}> = ({t, seed}) => {
   );
 };
 
-const StarfieldNight: React.FC<Props> = ({background, backdrop, starCount, starColor, moon, moonPos, moonSize, moonPhase, shootingStar, shootingAt, grass, grain, seed}) => {
+const StarfieldNight: React.FC<Props> = ({background, backdrop, starCount, starColor, moon, moonPos, moonSize, moonPhase, shootingStar, shootingAt, grass, grain, seed, ripple, rippleSpeed}) => {
   const frame = useCurrentFrame();
   const {w, h, u, fps, durationInFrames} = useStage();
   const t = frame / fps;
@@ -138,6 +141,29 @@ const StarfieldNight: React.FC<Props> = ({background, backdrop, starCount, starC
         </defs>
         {scene && <rect width={w} height={h} fill="url(#sfn-sky)" />}
         <StarField count={Math.round(starCount * areaK(w, h))} seed={seed} w={w} h={h} u={u} t={t} color={starColor} area={[0, 0, 1, grass && scene ? 0.85 : 1]} fade={starFade} glints={0.05} />
+        {ripple && (() => {
+          const nS = Math.round(starCount * areaK(w, h));
+          const area = [0, 0, 1, grass && scene ? 0.85 : 1];
+          const rx0 = ripple.x * w;
+          const ry0 = ripple.y * h;
+          const els: React.ReactNode[] = [];
+          for (let i = 0; i < nS; i++) {
+            const x = (area[0] + (area[2] - area[0]) * hash01(seed, i, 1)) * w;
+            const y = (area[1] + (area[3] - area[1]) * Math.pow(hash01(seed, i, 2), 1.25)) * h;
+            const r = (1 + 1.5 * Math.pow(hash01(seed, i, 3), 2.2)) * u;
+            const a = t - ripple.at / fps - Math.hypot(x - rx0, y - ry0) / (rippleSpeed * u);
+            if (a <= 0) continue;
+            const boost = 1.3 * Math.exp(-5 * a) * Math.min(1, 25 * a);
+            if (boost < 0.03) continue;
+            els.push(
+              <g key={i} opacity={Math.min(1, boost)}>
+                <circle cx={x} cy={y} r={r * (1 + 1.4 * boost)} fill="#fff" />
+                <circle cx={x} cy={y} r={r * (3 + 5 * boost)} fill={starColor} opacity={0.18} />
+              </g>,
+            );
+          }
+          return <g>{els}</g>;
+        })()}
         {shoot}
         {moon && (
           <g opacity={mIn} transform={`translate(${mx} ${my}) scale(${0.85 + 0.15 * mIn}) translate(${-mx} ${-my})`}>
@@ -177,6 +203,8 @@ export const starfieldNight = defineMotion<Props>({
     grass: true,
     grain: true,
     seed: 1,
+    ripple: null,
+    rippleSpeed: 1100,
   },
   propDocs: {
     background: 'CSS background; "transparent" = overlay (stars, moon, shooting star only)',
@@ -192,7 +220,9 @@ export const starfieldNight = defineMotion<Props>({
     grass: 'swaying teal grass silhouette along the bottom',
     grain: 'static print speckle over the frame',
     seed: 'random seed',
+    ripple: '{x, y, at}: a wave of brightened twinkles spreads from that point (0..1 fractions) starting at that frame - a "star arriving home" / payoff accent; null = off',
+    rippleSpeed: 'ripple speed in px/s at 1080p (1100)',
   },
   component: StarfieldNight,
-  tags: ['sky', 'night', 'stars', 'moon', 'calm', 'overlay', 'ambience'],
+  tags: ['sky', 'night', 'stars', 'moon', 'calm', 'overlay', 'ambience', 'twinkle-ripple', 'payoff', 'wave'],
 });

@@ -19,7 +19,7 @@ import {defineMotion} from '../../core/types';
 
 type Stage = {title: string; subtitle?: string};
 type Props = {
-  variant: 'stage' | 'era' | 'location';
+  variant: 'stage' | 'era' | 'location' | 'fight-banner' | 'fantasy';
   stages: Stage[];
   stageFrames: number;
   startFrame: number;
@@ -30,6 +30,18 @@ type Props = {
   accent: string;
   backdrop: BackdropKind | 'auto';
   src: string;
+  /** fight-banner: band at the 'top' or 'bottom' */
+  position: 'top' | 'bottom';
+  /** fight-banner: band tilt in degrees */
+  angle: number;
+  /** fight-banner: band colour */
+  bandColor: string;
+  /** fight-banner / fantasy: gold rule + word colour */
+  goldColor: string;
+  /** fantasy: ornament line style */
+  ornament: 'diamond-line' | 'none';
+  /** fantasy: drifting ember particle */
+  ember: boolean;
 };
 
 const SAMPLES: Record<Props['variant'], Stage[]> = {
@@ -42,6 +54,16 @@ const SAMPLES: Record<Props['variant'], Stage[]> = {
     {title: '1642', subtitle: 'Rembrandt · Chiaroscuro'},
     {title: '1831', subtitle: 'Hokusai · The Great Wave'},
     {title: '1889', subtitle: 'Van Gogh · Starry Night'},
+  ],
+  'fight-banner': [
+    {title: 'ROUND ONE', subtitle: 'FASTEST ANSWER WINS'},
+    {title: 'DRAW', subtitle: 'SAME SCORE'},
+    {title: 'LUMEN WINS!', subtitle: 'LOWER PRICE'},
+  ],
+  fantasy: [
+    {title: 'The Far Shore', subtitle: 'CHAPTER I'},
+    {title: 'Embers of the Keep', subtitle: 'CHAPTER II'},
+    {title: 'A Quiet Crown', subtitle: 'CHAPTER III'},
   ],
   location: [
     {title: 'ROME', subtitle: 'C. 100 AD'},
@@ -182,6 +204,61 @@ const ChapterHeader: React.FC<Props> = (p) => {
     body = <div style={{position: 'absolute', inset: 0, overflow: 'hidden'}}>{tag(st, ty, `t${idx}`)}</div>;
   }
 
+  let overlayBackdrop: React.ReactNode = null;
+  if (p.variant === 'fight-banner' && rel >= 0) {
+    const bandH = h * 0.17;
+    const slide = 1 - ease.out(clamp(local / 2));
+    const word = local < 0 ? 0 : ease.back(clamp(local / 5));
+    const subO = clamp((local - 8) / 4);
+    const fs = Math.min(h * 0.08 * (p.scale / 1.25), fitSize(st.title, h * 0.1, w * 0.86, 'sans', 0.02));
+    const y = p.position === 'top' ? h * 0.1 : h * 0.72;
+    const fromX = (idx % 2 ? 1 : -1) * w * 1.1;
+    body = (
+      <div style={{position: 'absolute', left: 0, top: 0, width: w, height: h, overflow: 'hidden', pointerEvents: 'none'}}>
+        <div style={{position: 'absolute', left: -w * 0.1, width: w * 1.2, top: y, height: bandH, transform: `translateX(${fromX * slide}px) rotate(${p.angle}deg)`, background: p.bandColor, opacity: 0.92, borderTop: `${2 * u}px solid ${p.goldColor}`, borderBottom: `${2 * u}px solid ${p.goldColor}`, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+          <div style={{fontFamily: fonts.sans, fontWeight: 800, fontStyle: 'italic', fontSize: fs, letterSpacing: '0.02em', lineHeight: 1, color: p.goldColor, transform: `scale(${0.3 + 0.7 * word})`, opacity: word > 0 ? 1 : 0, textShadow: `${3 * u}px ${4 * u}px 0 #7a5a12`, whiteSpace: 'nowrap'}}>{st.title}</div>
+          {st.subtitle && <div style={{fontFamily: fonts.sans, fontWeight: 600, fontSize: h * 0.016 * (p.scale / 1.25), letterSpacing: '0.2em', color: '#e9e4f5', marginTop: h * 0.012, opacity: subO}}>{st.subtitle}</div>}
+        </div>
+      </div>
+    );
+  }
+  if (p.variant === 'fantasy') {
+    overlayBackdrop = <AbsoluteFill style={{background: 'radial-gradient(circle at 50% 45%, #11172A 0%, #070a16 55%, #020308 100%)'}} />;
+    const inT = ease.out(clamp((rel - 2) / 14));
+    const nameT = ease.out(clamp((rel - 10) / 16));
+    const swap = idx > 0 ? clamp(local / 8) : 1;
+    const orn = ease.out(clamp((local - 4) / 14));
+    const gold = p.goldColor;
+    const tf = fitSize(st.title, 78 * S, w * 0.84, 'serif', 0);
+    const cap = 34 * S;
+    const drift = (((frame * 0.0035) % 1) + 1) % 1;
+    const ex = w * (0.12 + 0.76 * drift);
+    const ey = h * (0.62 + 0.08 * Math.sin(frame * 0.05)) - drift * h * 0.2;
+    body = rel < 0 ? null : (
+      <div style={{position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', opacity: swap}}>
+        <div style={{fontFamily: fonts.serif, fontWeight: 500, fontSize: cap, letterSpacing: '0.3em', color: gold, opacity: inT, paddingLeft: '0.3em'}}>{(st.subtitle ?? '').toUpperCase()}</div>
+        {p.ornament === 'diamond-line' && (
+          <svg width={w * 0.5} height={30 * S} style={{margin: `${14 * S}px 0`, overflow: 'visible'}}>
+            {(() => {
+              const W = w * 0.5;
+              const cy2 = 15 * S;
+              const d = 9 * S * orn;
+              return (
+                <g>
+                  <line x1={W / 2 - W * 0.48 * orn} x2={W / 2 - 16 * S * orn} y1={cy2} y2={cy2} stroke={gold} strokeWidth={1.5 * u} opacity={0.9} />
+                  <line x1={W / 2 + 16 * S * orn} x2={W / 2 + W * 0.48 * orn} y1={cy2} y2={cy2} stroke={gold} strokeWidth={1.5 * u} opacity={0.9} />
+                  <polygon points={`${W / 2},${cy2 - d} ${W / 2 + d},${cy2} ${W / 2},${cy2 + d} ${W / 2 - d},${cy2}`} fill={gold} />
+                </g>
+              );
+            })()}
+          </svg>
+        )}
+        <div style={{fontFamily: fonts.serif, fontStyle: 'italic', fontWeight: 500, fontSize: tf, color: '#f1e6cf', opacity: nameT, textShadow: `0 0 ${24 * u}px rgba(246,190,96,0.45)`, transform: `translateY(${(1 - nameT) * 14 * u}px)`, textAlign: 'center', padding: `0 ${w * 0.06}px`}}>{st.title}</div>
+        {p.ember && <div style={{position: 'absolute', left: ex, top: ey, width: 3 * u, height: 3 * u, background: '#ffb35a', boxShadow: `0 0 ${10 * u}px ${4 * u}px rgba(255,150,60,0.7)`, opacity: 0.9}} />}
+      </div>
+    );
+  }
+
   // gentle push to keep the scene alive; stage changes add a small camera kick like a cut
   const kick = idx > 0 && local < 8 ? (1 - local / 8) * 0.012 : 0;
   return (
@@ -189,6 +266,7 @@ const ChapterHeader: React.FC<Props> = (p) => {
       <AbsoluteFill style={{transform: `scale(${1.02 + frame * 0.0002 + kick})`}}>
         <Backdrop kind={backdrop} src={p.src || undefined} drift={p.variant === 'stage' ? 1 + idx * 0.6 : 0.5} />
       </AbsoluteFill>
+      {overlayBackdrop}
       {body}
     </AbsoluteFill>
   );
@@ -214,9 +292,15 @@ export const chapterHeader = defineMotion<Props>({
     accent: '#c14d3c',
     backdrop: 'auto',
     src: '',
+    position: 'bottom',
+    angle: -4,
+    bandColor: '#070224',
+    goldColor: '#F8CB61',
+    ornament: 'diamond-line',
+    ember: true,
   },
   propDocs: {
-    variant: 'stage (video8 top-left block) | era (video14 top-right year card) | location (video10 vertical tag)',
+    variant: "stage (video8 top-left block) | era (video14 top-right year card) | location (video10 vertical tag) | fight-banner (tilted dark band snapping across the frame, heavy italic gold word + sub-line; title = word, subtitle = sub) | fantasy (radial navy card, CHAPTER I capitals over a gold diamond ornament, glowing italic serif name, drifting ember; title = name, subtitle = chapter label)",
     stages: '[{title, subtitle}] stepped through in order; [] = built-in sample for the variant',
     stageFrames: 'frames per stage',
     startFrame: 'frame the first stage appears',
@@ -227,7 +311,13 @@ export const chapterHeader = defineMotion<Props>({
     accent: 'location tag fill',
     backdrop: 'auto (dunes / warm / dusk per variant) | any backdrop kind',
     src: 'optional public/ image behind the header',
+    position: "fight-banner: band 'top' or 'bottom'",
+    angle: 'fight-banner: band tilt in degrees (-4)',
+    bandColor: 'fight-banner: band colour',
+    goldColor: 'fight-banner / fantasy: gold rules, word and ornament colour',
+    ornament: "fantasy: 'diamond-line' | 'none'",
+    ember: 'fantasy: drifting ember particle',
   },
   component: ChapterHeader,
-  tags: ['chapter', 'title', 'progress', 'badge', 'label', 'timeline'],
+  tags: ['chapter', 'title', 'progress', 'badge', 'label', 'timeline', 'fight banner', 'verdict', 'round', 'announcement', 'versus', 'fantasy', 'story', 'chapter card', 'ornament', 'ember'],
 });

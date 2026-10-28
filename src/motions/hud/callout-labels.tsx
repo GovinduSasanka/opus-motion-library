@@ -8,6 +8,7 @@ import {smoothClosed} from '../../core/shapes';
 import {BP, GlowDot, IconKind, LineIcon, RadialPlan, ScanlineBg, typed} from '../../core/hud-kit';
 import {PaperTexture, Svg, Vignette, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
+import {DimensionLine, MagItem, MagnifierSet, Measure, ProductDrawing} from '../../core/r2-e1-kit';
 
 /**
  * Annotation callouts, four looks:
@@ -25,8 +26,14 @@ import {defineMotion} from '../../core/types';
  */
 type Item = {x: number; y: number; label: string; sublabel?: string; ex?: number; ey?: number; icon?: IconKind};
 type Props = {
-  variant: 'leader' | 'room' | 'tag' | 'medallion';
+  variant: 'leader' | 'room' | 'tag' | 'medallion' | 'dimension' | 'magnifier';
   items: Item[];
+  /** dimension variant: measured spans; p1/p2 are frame fractions, p2To makes the part move */
+  measure: Measure[];
+  /** dimension variant: value units per px@1080 for the {v} placeholder */
+  measureScale: number;
+  /** magnifier variant: zoom factor of the disc content */
+  zoom: number;
   src: string;
   stagger: number;
   medallionReveal: 'pop' | 'pie';
@@ -199,11 +206,84 @@ const whalePath = (cx: number, cy: number, s: number) =>
   );
 
 /* ---------------- main ---------------- */
-const CalloutLabels: React.FC<Props> = ({variant, items, src, stagger, medallionReveal, accent, ink}) => {
+const CalloutLabels: React.FC<Props> = ({variant, items, src, stagger, medallionReveal, accent, ink, measure, measureScale, zoom}) => {
   const frame = useCurrentFrame();
   const {w, h, u, cx, cy, portrait, durationInFrames: D} = useStage();
   const S = Math.min(w, h);
   const out = prog(frame, D - 10, D - 2, ease.in);
+
+  if (variant === 'dimension') {
+    const paper = '#F1EADA';
+    const sw = 3 * u;
+    const bx0 = w * (portrait ? 0.12 : 0.22);
+    const bx1 = w * (portrait ? 0.88 : 0.78);
+    const by0 = h * 0.52;
+    const by1 = h * (portrait ? 0.6 : 0.68);
+    const bwid = w * (portrait ? 0.2 : 0.12);
+    const bhei = h * (portrait ? 0.12 : 0.2);
+    const move = 0.5 - 0.5 * Math.cos(clamp((frame - 40) / Math.max(1, D - 70)) * Math.PI * 2 * 1.0);
+    const sxF = lerp(portrait ? 0.3 : 0.36, portrait ? 0.62 : 0.56, move);
+    const sl = w * sxF;
+    const defaults: Measure[] = [
+      {p1: [bx0 / w, 0.46], p2: [sxF, 0.46], offset: -70, label: '{v}'},
+      {p1: [bx0 / w, by1 / h], p2: [bx1 / w, by1 / h], offset: 70, label: '{v}'},
+      {p1: [(sxF * w + bwid) / w, by0 / h - bhei / h], p2: [(sxF * w + bwid) / w, by0 / h], offset: -80, label: '{v}'},
+    ];
+    const list = measure.length ? measure : defaults;
+    const per = 16;
+    return (
+      <AbsoluteFill style={{background: paper}}>
+        <Svg>
+          <g opacity={1 - out}>
+            {/* part: base plate with a sliding block */}
+            <rect x={bx0 - 18 * u} y={by0 - 6 * u} width={bx1 - bx0 + 36 * u} height={by1 - by0 + 12 * u} fill="#E4DAC3" stroke={ink} strokeWidth={sw} />
+            <rect x={bx0 - 18 * u} y={by0 - bhei * 1.5} width={18 * u} height={bhei * 1.5 + 6 * u} fill="#D3C6A8" stroke={ink} strokeWidth={sw} />
+            <rect x={sl} y={by0 - bhei} width={bwid} height={bhei} fill="#F8F3E6" stroke={ink} strokeWidth={sw} />
+            <line x1={sl + bwid * 0.5} x2={sl + bwid * 0.5} y1={by0 - bhei * 0.85} y2={by0 - bhei * 0.15} stroke={ink} strokeWidth={sw * 0.5} strokeDasharray={`${10 * u} ${6 * u}`} />
+            <circle cx={sl + bwid * 0.5} cy={by0 - bhei * 0.5} r={bhei * 0.18} fill="none" stroke={ink} strokeWidth={sw * 0.7} />
+            {list.map((m, i) => {
+              const k = list === defaults ? 0 : move;
+              const p2: [number, number] = m.p2To && list !== defaults ? [lerp(m.p2[0], m.p2To[0], k), lerp(m.p2[1], m.p2To[1], k)] : m.p2;
+              const a: [number, number] = [m.p1[0] * w, m.p1[1] * h];
+              const b: [number, number] = [p2[0] * w, p2[1] * h];
+              const dist = Math.hypot(b[0] - a[0], b[1] - a[1]) / u;
+              const v = (dist * measureScale).toFixed(1);
+              const label = (m.label ?? '{v}').replace('{v}', v);
+              return <DimensionLine key={i} a={a} b={b} offset={(m.offset ?? 60) * u} label={label} t={(frame - 10 - i * per) / 30 / 1} u={u} ink={ink} accent={accent} />;
+            })}
+          </g>
+        </Svg>
+        <PaperTexture opacity={0.25} />
+      </AbsoluteFill>
+    );
+  }
+
+  if (variant === 'magnifier') {
+    const paper = '#F1EADA';
+    const portraitM = portrait;
+    const defaults: MagItem[] = portraitM
+      ? [
+          {x: 0.5, y: 0.5, label: 'Set the dial', sublabel: 'FIRM CLICK', ex: 0, ey: -h * 0.27 / u},
+          {x: 0.3, y: 0.545, label: 'Keep vents clear', sublabel: '50 CM EACH SIDE', ex: 0, ey: h * 0.27 / u},
+        ]
+      : [
+          {x: 0.5, y: 0.5, label: 'Set the dial', sublabel: 'FIRM CLICK', ex: w * 0.27 / u, ey: -h * 0.2 / u},
+          {x: 0.3, y: 0.545, label: 'Keep vents clear', sublabel: '50 CM EACH SIDE', ex: -w * 0.18 / u, ey: h * 0.18 / u},
+        ];
+    const list: MagItem[] = (items.length ? items : defaults).map((it) => ({...it, zoom: (it as MagItem).zoom ?? zoom}));
+    const scene = src ? null : <ProductDrawing w={w} h={h} u={u} ink={ink} paper={paper} accent={accent} />;
+    return (
+      <AbsoluteFill style={{background: paper}}>
+        <Svg>
+          <g opacity={1 - out * 0.0}>
+            {src ? <image href={resolveSrc(src)} x={0} y={0} width={w} height={h} preserveAspectRatio="xMidYMid slice" /> : scene}
+            <MagnifierSet items={list} frame={frame} stagger={stagger * 2.2} w={w} h={h} u={u} ink={ink} paper={paper} accent={accent} out={out} scene={scene} src={src} />
+          </g>
+        </Svg>
+        <PaperTexture opacity={0.25} />
+      </AbsoluteFill>
+    );
+  }
 
   if (variant === 'room') {
     const list: Item[] = items.length
@@ -569,16 +649,22 @@ export const calloutLabels = defineMotion<Props>({
     medallionReveal: 'pop',
     accent: '#E24D0F',
     ink: '#0B0D0C',
+    measure: [],
+    measureScale: 0.25,
+    zoom: 1.9,
   },
   propDocs: {
-    variant: 'leader | room | tag | medallion',
+    variant: 'leader | room | tag | medallion | dimension (engineering dimension lines measuring a moving part) | magnifier (paper-ring magnifier disc showing a zoomed copy of the subject, dashed leader, star tag)',
     items: 'callouts {x, y, label, sublabel?, ex?, ey?, icon?}: x,y anchor as frame fractions (0..1); ex,ey label offset in px@1080 (leader) or plan-anchor offset (medallion); room titles split lines with "/"; [] = built-in demo',
     src: 'optional public/ image used as the subject instead of the procedural one',
     stagger: 'frames between callouts (0.35 s = 10.5)',
     medallionReveal: 'pop (scale from a preview dot) or pie (clockwise wipe + tangent leaders)',
     accent: 'accent colour (room label, medallion highlights)',
     ink: 'line / text colour for leader and room callouts',
+    measure: "dimension variant: [{p1:[x,y], p2:[x,y], p2To?:[x,y] (part moves over the clip), offset?: px@1080, label?: 'text with {v} = measured value'}], [] = built-in demo",
+    measureScale: 'dimension variant: value units per px@1080 for {v} (0.25 = mm)',
+    zoom: 'magnifier variant: zoom of the disc content (items[].zoom overrides); items {x,y target, label, sublabel, ex,ey disc offset px, r}',
   },
   component: CalloutLabels,
-  tags: ['callout', 'label', 'annotation', 'leader line', 'hud', 'tag'],
+  tags: ['callout', 'label', 'annotation', 'leader line', 'hud', 'tag', 'dimension', 'dimension lines', 'measure', 'spec', 'magnifier', 'zoom inset', 'manual', 'how-to', 'detail callout'],
 });

@@ -20,7 +20,7 @@ import {Plate, PlatePaletteName, rainPath, useSafeId} from '../../core/image-kit
 type Props = {
   src: string;
   seed: number;
-  mode: 'headlight' | 'streetlamp' | 'door';
+  mode: 'headlight' | 'streetlamp' | 'door' | 'reveal' | 'neon';
   color: string;
   beamSpread: number;
   rain: number;
@@ -30,6 +30,81 @@ type Props = {
   figure: boolean;
   push: number;
   grain: number;
+  sweepStart: number;
+  sweepFrames: number;
+  base: number;
+  soft: number;
+  angle: number;
+  glint: number;
+  keep: boolean;
+  bands: string[];
+  bandDir: 'ltr' | 'rtl';
+  bandFrames: number;
+  bandWidth: number;
+  palette: PlatePaletteName;
+};
+
+/** a soft diagonal band of light passes and leaves the (dim) picture fully lit, a faint glint riding the front */
+const RevealSweep: React.FC<Props> = (p) => {
+  const frame = useCurrentFrame();
+  const {fps} = useStage();
+  const zoom = 1 + (p.push / 100) * (frame / fps);
+  const k = prog(frame, p.sweepStart, p.sweepStart + p.sweepFrames, ease.inOut);
+  const soft = Math.max(1, p.soft * 100);
+  const front = -soft + k * (100 + soft * 2);
+  const deg = 90 + (p.angle * 180) / Math.PI;
+  const lit = p.keep ? `linear-gradient(${deg}deg, #000 0%, #000 ${front - soft}%, transparent ${front}%)` : `linear-gradient(${deg}deg, transparent ${front - soft * 2}%, #000 ${front - soft}%, #000 ${front - soft * 0.4}%, transparent ${front}%)`;
+  const gl = `linear-gradient(${deg}deg, transparent ${front - soft * 0.5}%, rgba(255,255,255,${p.glint}) ${front - soft * 0.12}%, transparent ${front + soft * 0.1}%)`;
+  const scene = (
+    <AbsoluteFill style={{transform: `scale(${zoom})`, transformOrigin: '60% 55%'}}>
+      <Plate src={p.src} seed={p.seed} palette={p.palette} />
+    </AbsoluteFill>
+  );
+  return (
+    <AbsoluteFill style={{background: '#000', overflow: 'hidden'}}>
+      <AbsoluteFill style={{filter: `brightness(${p.base})`}}>{scene}</AbsoluteFill>
+      <AbsoluteFill style={{WebkitMaskImage: lit, maskImage: lit}}>{scene}</AbsoluteFill>
+      {p.glint > 0 && k > 0 && k < 1 && <AbsoluteFill style={{background: gl, mixBlendMode: 'plus-lighter'}} />}
+      {p.grain > 0 && <FilmGrain opacity={p.grain} every={1} />}
+    </AbsoluteFill>
+  );
+};
+
+/** bands of colour light slide across a held picture (screen blend) */
+const NeonBands: React.FC<Props> = (p) => {
+  const frame = useCurrentFrame();
+  const {w, h, fps} = useStage();
+  const zoom = 1 + (p.push / 100) * (frame / fps);
+  const dir = p.bandDir === 'rtl' ? -1 : 1;
+  const span = Math.hypot(w, h);
+  const bw = p.bandWidth * span;
+  return (
+    <AbsoluteFill style={{background: '#000', overflow: 'hidden'}}>
+      <AbsoluteFill style={{transform: `scale(${zoom})`, transformOrigin: '60% 55%'}}>
+        <Plate src={p.src} seed={p.seed} palette={p.palette} />
+      </AbsoluteFill>
+      <svg width={w} height={h} style={{position: 'absolute', inset: 0, mixBlendMode: 'screen'}}>
+        <defs>
+          {p.bands.map((c, i) => (
+            <linearGradient key={i} id={`nb${i}`} x1="0" x2="1" y1="0" y2="0">
+              <stop offset="0" stopColor={c} stopOpacity={0} />
+              <stop offset="0.5" stopColor={c} stopOpacity={0.75} />
+              <stop offset="1" stopColor={c} stopOpacity={0} />
+            </linearGradient>
+          ))}
+        </defs>
+        {p.bands.map((c, i) => {
+          const t = ((frame - 6 - i * (p.bandFrames * 0.18)) / p.bandFrames);
+          if (t < 0 || t > 1) return null;
+          const e = ease.inOut(t);
+          const x = dir > 0 ? -bw + e * (w + bw * 2) : w + bw - e * (w + bw * 2);
+          return <rect key={i} x={x - bw / 2} y={-span * 0.3} width={bw} height={span * 1.6} fill={`url(#nb${i})`} transform={`rotate(14 ${x} ${h / 2})`} />;
+        })}
+      </svg>
+      <Vignette strength={0.35} />
+      {p.grain > 0 && <FilmGrain opacity={p.grain} every={1} />}
+    </AbsoluteFill>
+  );
 };
 
 const carPath = (x: number, y: number, L: number, H: number, dir: number) => {
@@ -490,7 +565,7 @@ const Door: React.FC<Props> = (p) => {
   );
 };
 
-const LightSweep: React.FC<Props> = (p) => (p.mode === 'streetlamp' ? <Streetlamp {...p} /> : p.mode === 'door' ? <Door {...p} /> : <Headlight {...p} />);
+const LightSweep: React.FC<Props> = (p) => (p.mode === 'reveal' ? <RevealSweep {...p} /> : p.mode === 'neon' ? <NeonBands {...p} /> : p.mode === 'streetlamp' ? <Streetlamp {...p} /> : p.mode === 'door' ? <Door {...p} /> : <Headlight {...p} />);
 
 export const lightSweep = defineMotion<Props>({
   id: 'light-sweep',
@@ -513,11 +588,35 @@ export const lightSweep = defineMotion<Props>({
     figure: true,
     push: 1,
     grain: 0.08,
+    sweepStart: 10,
+    sweepFrames: 39,
+    base: 0.07,
+    soft: 0.26,
+    angle: 0.62,
+    glint: 0.2,
+    keep: true,
+    bands: ['#FF3DB4', '#2FE6FF', '#FFC93D'],
+    bandDir: 'ltr',
+    bandFrames: 24,
+    bandWidth: 0.16,
+    palette: 'night',
   },
   propDocs: {
     src: 'public/ image for the outside view (window / street / doorway); empty = procedural night (dawn for door)',
     seed: 'procedural plate / rain / droplet seed',
-    mode: 'headlight | streetlamp | door',
+    mode: 'headlight | streetlamp | door | reveal (dim picture lit by a passing soft diagonal band of light) | neon (bands of coloured light slide across a held picture)',
+    sweepStart: 'reveal: frame the sweep starts',
+    sweepFrames: 'reveal: frames the sweep takes (~1.3 s = 39)',
+    base: 'reveal: brightness of the unlit picture (0.07)',
+    soft: 'reveal: band softness as a fraction of the sweep (0.26)',
+    angle: 'reveal: band tilt in radians (0.62)',
+    glint: 'reveal: glint riding the front, 0 = none (<= 0.2)',
+    keep: 'reveal: stay lit after the band passes (false = the band lights only what it covers)',
+    bands: 'neon: band colours (magenta / cyan / gold)',
+    bandDir: 'neon: ltr | rtl',
+    bandFrames: 'neon: frames one band takes to cross',
+    bandWidth: 'neon: band width as a fraction of the frame diagonal',
+    palette: 'procedural plate palette when no src (dusk | night | dawn)',
     color: 'headlight beam colour',
     beamSpread: 'headlight wedge spread in degrees (20)',
     rain: 'rain density multiplier (0 = dry)',
@@ -529,5 +628,5 @@ export const lightSweep = defineMotion<Props>({
     grain: 'film grain amount',
   },
   component: LightSweep,
-  tags: ['image', 'light', 'night', 'headlight', 'street-lamp', 'volumetric', 'rain', 'door', 'shadow', 'cinematic'],
+  tags: ['image', 'light', 'night', 'headlight', 'street-lamp', 'volumetric', 'rain', 'door', 'shadow', 'cinematic', 'reveal', 'light reveal', 'neon', 'band sweep', 'glint', 'hero reveal', 'dashboard reveal'],
 });

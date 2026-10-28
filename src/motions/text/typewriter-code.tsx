@@ -32,7 +32,23 @@ type Props = {
   cursorColor: string;
   backdrop: BackdropKind | 'auto';
   src: string;
+  /** dark (default) | paper (light editor card, teal accents) */
+  theme: 'dark' | 'paper';
+  /** code-run-sync: lines (0-based) a pale band steps through after typing ends; [] = none */
+  highlightLines: number[];
+  /** frames each highlighted line holds */
+  highlightEvery: number;
+  /** serial-monitor pane under the code: lines appended one by one (empty = no pane) */
+  consoleLines: string[];
+  /** frame the Run starts (play -> stop button, pane opens); -1 = right after typing ends */
+  runAt: number;
+  /** frames between console lines */
+  consoleEvery: number;
+  /** numeric literals sit on small rounded chips */
+  chips: boolean;
 };
+
+const PAPER: Partial<Colors> = {keyword: '#7a4fb0', fn: '#2b6cb0', number: '#a8570f', string: '#2f7a3a', comment: '#9a917f', text: '#2b2a28', lineNo: '#b4a98f'};
 
 const EDITOR: Colors = {keyword: '#b898d8', fn: '#88a0d8', number: '#e0a860', string: '#9fd39a', comment: '#7a7d85', text: '#d8dade', prompt: '#7fb8ff', command: '#a6d4ff', ok: '#7ee2a0', warn: '#ffd76a', error: '#ff7b72', lineNo: '#6b6c72'};
 const TERMINAL: Colors = {...EDITOR, text: '#e9e3ef', comment: '#8a8095', lineNo: '#5d5566'};
@@ -84,7 +100,8 @@ const sliceSegs = (segs: Seg[], n: number) => {
 const TypewriterCode: React.FC<Props> = (p) => {
   const frame = useCurrentFrame();
   const {w, h, u, portrait} = useStage();
-  const col: Colors = {...(p.mode === 'terminal' ? TERMINAL : EDITOR), ...p.colors};
+  const paper = p.theme === 'paper';
+  const col: Colors = {...(p.mode === 'terminal' ? TERMINAL : EDITOR), ...(paper ? PAPER : null), ...p.colors};
   const lines = p.lines.map((l) => (typeof l === 'string' ? {text: l} : l));
   const fpc = 30 / Math.max(1, p.charsPerSecond);
 
@@ -124,7 +141,10 @@ const TypewriterCode: React.FC<Props> = (p) => {
   const promptRow = p.mode === 'terminal' ? eoc((frame - doneAt - p.outputDelay) / 4) : 0;
   rows += promptRow;
   const bodyPad = 24 * u;
-  const panelH = header + bodyPad * 2 + rows * pitch;
+  const runStart = p.runAt >= 0 ? p.runAt : Math.round(doneAt) + 10;
+  const hasConsole = p.consoleLines.length > 0;
+  const consoleH = hasConsole ? pitch * 5.2 * eoc((frame - runStart) / 8) : 0;
+  const panelH = header + bodyPad * 2 + rows * pitch + consoleH;
   const appear = prog(frame, p.startFrame - 6, p.startFrame - 2);
   const left = big ? (w - panelW) / 2 : margin;
   const bottom = big ? (h - panelH) / 2 : portrait ? h * 0.12 : margin;
@@ -146,7 +166,8 @@ const TypewriterCode: React.FC<Props> = (p) => {
           width: panelW,
           height: panelH,
           borderRadius: radius,
-          background: p.panelColor || (p.mode === 'terminal' ? 'rgba(38,31,46,0.95)' : 'rgba(52,53,58,0.88)'),
+          background: p.panelColor || (paper ? '#F5EFE1' : p.mode === 'terminal' ? 'rgba(38,31,46,0.95)' : 'rgba(52,53,58,0.88)'),
+          border: paper ? `${1.5 * u}px solid #D7CCBA` : undefined,
           backdropFilter: `blur(${6 * u}px)`,
           boxShadow: `0 ${18 * u}px ${50 * u}px rgba(0,0,0,0.28)`,
           overflow: 'hidden',
@@ -155,13 +176,19 @@ const TypewriterCode: React.FC<Props> = (p) => {
           fontFamily: fonts.mono,
         }}
       >
-        <div style={{height: header, background: p.headerColor || (p.mode === 'terminal' ? '#352c3e' : '#4f5055'), display: 'flex', alignItems: 'center', position: 'relative'}}>
+        <div style={{height: header, background: p.headerColor || (paper ? '#E8DEC9' : p.mode === 'terminal' ? '#352c3e' : '#4f5055'), display: 'flex', alignItems: 'center', position: 'relative'}}>
           {['#dd5d5d', '#dfac2e', '#2ead4a'].map((c, i) => (
             <div key={i} style={{position: 'absolute', left: 22 * u + i * 26 * u, width: 15 * u, height: 15 * u, borderRadius: '50%', background: c}} />
           ))}
-          <div style={{width: '100%', textAlign: 'center', fontSize: 18 * u * (big ? 1.15 : 1), color: 'rgba(255,255,255,0.55)', letterSpacing: '0.02em'}}>{p.title}</div>
+          <div style={{width: '100%', textAlign: 'center', fontSize: 18 * u * (big ? 1.15 : 1), color: paper ? 'rgba(40,36,28,0.6)' : 'rgba(255,255,255,0.55)', letterSpacing: '0.02em'}}>{p.title}</div>
+          {hasConsole && (
+            <div style={{position: 'absolute', right: 22 * u, width: 18 * u, height: 18 * u, background: frame >= runStart ? '#D5473E' : '#21A69A', borderRadius: frame >= runStart ? 3 * u : 0, clipPath: frame >= runStart ? undefined : 'polygon(0 0, 100% 50%, 0 100%)'}} />
+          )}
         </div>
-        <div style={{position: 'absolute', left: 0, right: 0, bottom: bodyPad, top: header + bodyPad, fontSize: fs, lineHeight: `${pitch}px`, fontWeight: p.mode === 'terminal' ? 700 : 400, whiteSpace: 'pre'}}>
+        <div style={{position: 'absolute', left: 0, right: 0, bottom: bodyPad + consoleH, top: header + bodyPad, fontSize: fs, lineHeight: `${pitch}px`, fontWeight: p.mode === 'terminal' ? 700 : 400, whiteSpace: 'pre'}}>
+          {p.highlightLines.length > 0 && frame >= doneAt && (
+            <div style={{position: 'absolute', left: 0, right: 0, top: p.highlightLines[Math.floor((frame - doneAt) / Math.max(1, p.highlightEvery)) % p.highlightLines.length] * pitch, height: pitch, background: 'rgba(33,166,154,0.14)', borderLeft: `${3 * u}px solid #21A69A`}} />
+          )}
           {lines.map((l, i) => {
             const s = sched[i];
             if (frame < s.start) return null;
@@ -180,7 +207,7 @@ const TypewriterCode: React.FC<Props> = (p) => {
                 {!p.lineNumbers && <span style={{width: fs * 1.2, flexShrink: 0}} />}
                 <span>
                   {segs.map((sg, k) => (
-                    <span key={k} style={{color: sg.c}}>
+                    <span key={k} style={{color: sg.c, ...(p.chips && sg.c === col.number && /^\d/.test(sg.t) ? {background: 'rgba(33,166,154,0.16)', borderRadius: fs * 0.2, padding: `0 ${fs * 0.15}px`} : null)}}>
                       {sg.t}
                     </span>
                   ))}
@@ -199,6 +226,22 @@ const TypewriterCode: React.FC<Props> = (p) => {
             </div>
           )}
         </div>
+        {hasConsole && consoleH > 1 && (
+          <div style={{position: 'absolute', left: 0, right: 0, bottom: 0, height: consoleH, background: paper ? '#ECE3CF' : 'rgba(20,20,24,0.55)', borderTop: `${1.5 * u}px solid ${paper ? '#D7CCBA' : 'rgba(255,255,255,0.12)'}`, overflow: 'hidden', fontSize: fs * 0.8, lineHeight: `${pitch * 0.85}px`}}>
+            <div style={{padding: `${6 * u}px ${fs}px`, color: '#21A69A', letterSpacing: '0.12em', fontSize: fs * 0.62, fontWeight: 700}}>{'\u25CF SERIAL MONITOR RUNNING'}</div>
+            <div style={{padding: `0 ${fs}px`, color: col.text, whiteSpace: 'pre', position: 'absolute', left: 0, right: 0, bottom: 6 * u}}>
+              {p.consoleLines
+                .map((ln, i) => ({ln, at: runStart + 14 + i * Math.max(1, p.consoleEvery)}))
+                .filter((q) => frame >= q.at)
+                .slice(-4)
+                .map((q, i) => (
+                  <div key={q.at} style={{opacity: eoc((frame - q.at) / 4)}}>
+                    {q.ln}
+                  </div>
+                ))}
+            </div>
+          </div>
+        )}
       </div>
     </AbsoluteFill>
   );
@@ -239,6 +282,13 @@ export const typewriterCode = defineMotion<Props>({
     cursorColor: '#e6e6e6',
     backdrop: 'auto',
     src: '',
+    theme: 'dark',
+    highlightLines: [],
+    highlightEvery: 10,
+    consoleLines: [],
+    runAt: -1,
+    consoleEvery: 9,
+    chips: false,
   },
   propDocs: {
     lines: 'code lines (strings, or {text, color}); in terminal mode "$ " lines type, other lines are output',
@@ -255,7 +305,14 @@ export const typewriterCode = defineMotion<Props>({
     cursorColor: 'block cursor colour (video17 uses red #ED3821)',
     backdrop: 'auto | dunes | warm | ink | cream | peaks | dusk | ocean | none — procedural scene behind the panel',
     src: 'optional public/ image behind the panel (overrides backdrop)',
+    theme: 'dark | paper (light editor card, teal accents)',
+    highlightLines: 'code-run-sync: 0-based lines a pale teal band steps through after typing ends, e.g. [4,5,6,7]',
+    highlightEvery: 'frames the band rests on each line',
+    consoleLines: 'serial-monitor / console pane below the code, lines appended one by one while it runs; the play button turns into a red stop',
+    runAt: 'frame the Run is pressed (-1 = shortly after typing ends)',
+    consoleEvery: 'frames between console lines',
+    chips: 'numeric literals on small rounded chips',
   },
   component: TypewriterCode,
-  tags: ['code', 'typewriter', 'terminal', 'ide', 'hud'],
+  tags: ['code', 'typewriter', 'terminal', 'ide', 'hud', 'run', 'console', 'serial monitor', 'highlight', 'tutorial', 'paper theme', 'code sync'],
 });

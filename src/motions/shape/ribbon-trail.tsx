@@ -6,6 +6,7 @@ import {Ball, Mono, P17, PrinciplesHud, serifItalic} from '../../core/principles
 import {Sparkle} from '../../core/shapes';
 import {Svg, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
+import {DabRibbon} from '../../core/r2-e2-fx-kit';
 
 /**
  * video17 ribbon-follow-through (+ video11 motion-trail-ribbons as style 'neon').
@@ -15,7 +16,7 @@ import {defineMotion} from '../../core/types';
  *   then spiral in and meet in a white starburst.
  */
 type Props = {
-  style: 'ribbons' | 'neon';
+  style: 'ribbons' | 'neon' | 'dabs';
   background: string;
   ballColor: string;
   colors: string[];
@@ -32,6 +33,13 @@ type Props = {
   title: string;
   subtitle: string;
   code: string;
+  bezier: number[][];
+  dabs: number;
+  dabLife: number;
+  dabCols: string[];
+  drip: number;
+  dabWidth: number[];
+  seed: number;
 };
 
 type V = [number, number];
@@ -287,6 +295,13 @@ const NeonScene: React.FC<Props> = ({neonColors: colors, ribbonWidth, label}) =>
 
 const RibbonTrail: React.FC<Props> = (props) => {
   const {style, background, hud} = props;
+  if (style === 'dabs') {
+    return (
+      <AbsoluteFill style={{background: background || '#1C2330'}}>
+        <DabRibbon bezier={props.bezier} dabs={props.dabs} dabLife={props.dabLife} dabCols={props.dabCols} drip={props.drip} dabWidth={props.dabWidth} startAt={10} flyFrames={Math.max(20, props.stopAt - 20)} seed={props.seed} />
+      </AbsoluteFill>
+    );
+  }
   const neon = style === 'neon';
   const bg = background || (neon ? '#CC856F' : P17.blue);
   return (
@@ -338,9 +353,16 @@ export const ribbonTrail = defineMotion<Props>({
     title: 'FOLLOW THROUGH\n& OVERLAPPING ACTION',
     subtitle: 'Nothing stops all at once.',
     code: 'strand[i].pos = ball.pos(t - i·Δ) // drag & settle',
+    bezier: [[0.12, 0.72], [0.3, 0.12], [0.7, 0.95], [0.88, 0.3]],
+    dabs: 26,
+    dabLife: 90,
+    dabCols: ['#F8C850', '#F0A030', '#FFDF80', '#E88A28'],
+    drip: 0.7,
+    dabWidth: [20, 64],
+    seed: 4,
   },
   propDocs: {
-    style: "'ribbons' (video17 ball + lagging ribbons) | 'neon' (video11 orbiting neon tube trails with beads)",
+    style: "'ribbons' (video17 ball + lagging ribbons) | 'neon' (video11 orbiting neon tube trails with beads) | 'dabs' (ribbon of impasto knife dabs flying along a Bezier, dripping and fading)",
     background: "background colour ('' = blue for ribbons, plaza terracotta for neon)",
     colors: 'ribbon colours (one ribbon each)',
     neonColors: 'neon style: the two trail colours',
@@ -352,7 +374,14 @@ export const ribbonTrail = defineMotion<Props>({
     damping: 'settle damping ratio ζ',
     path: 'ball waypoints as [x,y] fractions of the frame (smooth curve through them; ends at the last one)',
     hud: 'show HUD chrome + chapter title',
+    bezier: "dabs: cubic Bezier [[x,y]x4] as frame fractions (source -> target)",
+    dabs: 'dabs: number of knife dabs in the ribbon (16-30)',
+    dabLife: 'dabs: frames a dab stays before it washes away',
+    dabCols: 'dabs: colour ramp the dabs blend through (gold by default)',
+    drip: 'dabs: share of dabs that drip (0..1)',
+    dabWidth: 'dabs: [min, max] dab width in u (envelope peaks mid-ribbon)',
+    seed: 'dabs: random seed',
   },
   component: RibbonTrail,
-  tags: ['trail', 'ribbon', 'follow-through', 'physics', 'ball', 'neon'],
+  tags: ['trail', 'ribbon', 'follow-through', 'physics', 'ball', 'neon', 'dabs', 'paint', 'impasto', 'bezier', 'signal travelling', 'brush'],
 });

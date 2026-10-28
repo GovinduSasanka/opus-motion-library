@@ -26,9 +26,20 @@ type Props = {
   windowColors: string[];
   windowSize: number;
   paper: boolean;
+  projection: 'flat' | 'iso';
+  measure: boolean;
+  targetFrom: [number, number];
+  target: [number, number];
+  moveStart: number;
+  moveFrames: number;
+  unitScale: number;
+  unit: string;
+  lineColor: string;
+  echoColor: string;
+  pillColor: string;
 };
 
-const Rings: React.FC<{t0: number; color: string; count: number; gap: number; life: number; cx: number; cy: number; R: number; u: number; seed: number}> = ({t0, color, count, gap, life, cx, cy, R, u, seed}) => {
+const Rings: React.FC<{t0: number; color: string; count: number; gap: number; life: number; cx: number; cy: number; R: number; u: number; seed: number; iso?: boolean}> = ({t0, color, count, gap, life, cx, cy, R, u, seed, iso}) => {
   const frame = useCurrentFrame();
   return (
     <>
@@ -41,13 +52,14 @@ const Rings: React.FC<{t0: number; color: string; count: number; gap: number; li
         const breakup = clamp((r - R * 0.55) / (R * 0.3));
         const rr = rng(seed * 31 + i);
         const dash = breakup > 0 ? Array.from({length: 8}, (_, k) => (k % 2 ? (10 + rr() * 30) * breakup : 40 + rr() * 80) * u).join(' ') : undefined;
-        return <circle key={i} cx={cx} cy={cy} r={r} fill="none" stroke={color} strokeWidth={sw} strokeDasharray={dash} opacity={1 - clamp((t - 0.75) / 0.25)} />;
+        const op = 1 - clamp((t - 0.75) / 0.25);
+        return iso ? <ellipse key={i} cx={cx} cy={cy} rx={r} ry={r * 0.5} fill="none" stroke={color} strokeWidth={sw} strokeDasharray={dash} opacity={op} /> : <circle key={i} cx={cx} cy={cy} r={r} fill="none" stroke={color} strokeWidth={sw} strokeDasharray={dash} opacity={op} />;
       })}
     </>
   );
 };
 
-const SonarPing: React.FC<Props> = ({background, color, pings, pingEvery, ringCount, ringGap, ringLife, echoAngles, windowImages, windowColors, windowSize, paper}) => {
+const SonarPing: React.FC<Props> = ({background, color, pings, pingEvery, ringCount, ringGap, ringLife, echoAngles, windowImages, windowColors, windowSize, paper, projection, measure, targetFrom, target, moveStart, moveFrames, unitScale, unit, lineColor, echoColor, pillColor}) => {
   const frame = useCurrentFrame();
   const {w, h, u, cx, cy} = useStage();
   const R = Math.min(w, h) * 0.82;
@@ -73,17 +85,18 @@ const SonarPing: React.FC<Props> = ({background, color, pings, pingEvery, ringCo
           const col = windowColors[k % windowColors.length];
           return (
             <g key={k}>
-              <Rings t0={t0} color={color} count={ringCount} gap={ringGap} life={ringLife} cx={cx} cy={cy} R={R} u={u} seed={k} />
+              <Rings t0={t0} color={color} count={ringCount} gap={ringGap} life={ringLife} cx={cx} cy={cy} R={R} u={u} seed={k} iso={projection === 'iso'} />
               {frame >= e0 && e < 1 &&
                 [0, 1, 2].map((j) => {
                   const rr = (h * 0.65 - (h * 0.65 - 30 * u) * clamp(e * 1.15 - j * 0.08)) + j * 24 * u;
                   const span = (40 * Math.PI) / 180;
                   const a0 = ang - span / 2;
                   const a1 = ang + span / 2;
+                  const ky = projection === 'iso' ? 0.5 : 1;
                   return (
                     <path
                       key={j}
-                      d={`M ${cx + Math.cos(a0) * rr} ${cy + Math.sin(a0) * rr} A ${rr} ${rr} 0 0 1 ${cx + Math.cos(a1) * rr} ${cy + Math.sin(a1) * rr}`}
+                      d={`M ${cx + Math.cos(a0) * rr} ${cy + Math.sin(a0) * rr * ky} A ${rr} ${rr * ky} 0 0 1 ${cx + Math.cos(a1) * rr} ${cy + Math.sin(a1) * rr * ky}`}
                       fill="none"
                       stroke={color}
                       strokeWidth={(2 + 4 * e) * u}
@@ -117,6 +130,36 @@ const SonarPing: React.FC<Props> = ({background, color, pings, pingEvery, ringCo
             </g>
           );
         })}
+        {measure && (() => {
+          const mk = prog(frame, moveStart, moveStart + moveFrames, ease.inOut);
+          const tx = (targetFrom[0] + (target[0] - targetFrom[0]) * mk) * w;
+          const ty = (targetFrom[1] + (target[1] - targetFrom[1]) * mk) * h;
+          const dist = Math.hypot(tx - cx, ty - cy) / Math.min(w, h);
+          const label = `${Math.round(dist * unitScale)} ${unit}`;
+          const appear = prog(frame, 4, 14, ease.out);
+          const fs = 32 * u;
+          const pw = (label.length * 0.62 + 1.6) * fs;
+          const ang = Math.atan2(cy - ty, cx - tx);
+          return (
+            <g opacity={appear}>
+              {[1, 1.15].map((kk, i) => (
+                <ellipse key={i} cx={tx} cy={ty + 22 * u} rx={80 * u * kk} ry={40 * u * kk} fill="none" stroke={lineColor} strokeWidth={3 * u} opacity={i ? 0.4 : 0.7} />
+              ))}
+              <line x1={cx} y1={cy} x2={tx} y2={ty} stroke={lineColor} strokeWidth={2.4 * u} strokeDasharray={`${6 * u} ${5 * u}`} />
+              {[0, 1, 2].map((j) => {
+                const ph = ((frame / 18 + j * 0.28) % 1);
+                const rr = (50 + 110 * ph) * u;
+                const sp = 0.5;
+                return <path key={j} d={`M ${tx + Math.cos(ang - sp) * rr} ${ty + Math.sin(ang - sp) * rr} A ${rr} ${rr} 0 0 1 ${tx + Math.cos(ang + sp) * rr} ${ty + Math.sin(ang + sp) * rr}`} fill="none" stroke={echoColor} strokeWidth={4 * u} strokeLinecap="round" opacity={1 - ph} />;
+              })}
+              <circle cx={tx} cy={ty} r={14 * u} fill="#fff" stroke={lineColor} strokeWidth={5 * u} />
+              <g transform={`translate(${tx + 40 * u} ${ty - 70 * u})`}>
+                <rect x={0} y={-fs} width={pw} height={fs * 1.9} rx={fs * 0.95} fill={pillColor} />
+                <text x={pw / 2} y={fs * 0.28} textAnchor="middle" fontFamily="ui-monospace, Menlo, Consolas, monospace" fontSize={fs} fill="#fff">{label}</text>
+              </g>
+            </g>
+          );
+        })()}
         <GlossySphere cx={cx} cy={cy} r={22 * u * (1 + 0.2 * Math.max(0, 1 - Math.abs(((frame - 6) % pingEvery) - 1) / 2))} color={color === '#3383CB' ? '#3780E7' : color} id="listener" />
       </Svg>
       {paper && <Vignette strength={0.28} color="120,110,95" />}
@@ -145,6 +188,17 @@ export const sonarPing = defineMotion<Props>({
     windowColors: ['#2b6e8f', '#3b2a6b', '#a34b6b'],
     windowSize: 0.53,
     paper: true,
+    projection: 'flat',
+    measure: false,
+    targetFrom: [0.5, 0.78],
+    target: [0.76, 0.34],
+    moveStart: 12,
+    moveFrames: 27,
+    unitScale: 60,
+    unit: 'cm',
+    lineColor: '#2FA493',
+    echoColor: '#E5A24C',
+    pillColor: '#181B30',
   },
   propDocs: {
     pings: 'number of ping cycles',
@@ -152,7 +206,18 @@ export const sonarPing = defineMotion<Props>({
     echoAngles: 'degrees (0 = right, 90 = down) each echo comes from',
     windowImages: 'public/ paths of images shown in the pop-out windows (falls back to colour gradients)',
     windowSize: 'window diameter as a fraction of the short side',
+    projection: "flat | iso (rings and echo arcs lie on an isometric ground: ellipses with ry = 0.5 rx)",
+    measure: 'draw a measurement gizmo: dashed line from the sensor to a handle on a target, live distance pill, ground ellipses and echo arcs pulsing back',
+    targetFrom: 'measure: [x, y] (0..1) where the obstacle starts',
+    target: 'measure: [x, y] (0..1) where the obstacle ends up',
+    moveStart: 'measure: frame the obstacle starts moving',
+    moveFrames: 'measure: frames the obstacle takes to move (the label counts live)',
+    unitScale: 'measure: label units per short-side length',
+    unit: 'measure: unit text (cm, m, ft ...)',
+    lineColor: 'measure: line / handle / ground ring colour',
+    echoColor: 'measure: echo arc colour',
+    pillColor: 'measure: label pill colour',
   },
   component: SonarPing,
-  tags: ['radar', 'pulse', 'signal', 'reveal'],
+  tags: ['radar', 'pulse', 'signal', 'reveal', 'iso', 'isometric', 'measure', 'distance', 'range', 'sensor', 'ultrasonic', 'echo'],
 });

@@ -4,6 +4,7 @@ import {fonts} from '../../core/fonts';
 import {useStage} from '../../core/stage';
 import {ease, prog, springAt} from '../../core/ease';
 import {defineMotion} from '../../core/types';
+import {CapStyle, E2_CAPTION_LINES} from '../../core/r2-e2-kit';
 
 export interface CaptionCue {
   text: string;
@@ -17,6 +18,8 @@ export interface CaptionCue {
   position?: 'bottom' | 'center' | 'top';
   /** per-cue contrast: 'light' text for dark scenes, 'dark' text for bright scenes */
   tone?: 'light' | 'dark';
+  /** second-language / translation line (slam variant) */
+  sub?: string;
 }
 
 type Style = {
@@ -29,10 +32,10 @@ type Style = {
   /** reveal words one at a time across the cue (video10) */
   wordByWord?: boolean;
   /** 'kinetic' = word pop with highlight boxes (video10); 'premium' = calm line, words brighten as spoken */
-  variant?: 'kinetic' | 'premium';
+  variant?: 'kinetic' | 'premium' | 'slam' | 'toast' | 'frosted-bar' | 'terminal' | 'print' | 'karaoke' | 'rise';
   /** premium: accent colour for *starred* words */
   accent?: string;
-};
+} & Omit<CapStyle, 'position' | 'color' | 'highlightColor' | 'highlightText' | 'size' | 'font' | 'accent'>;
 
 /**
  * Premium caption: the line fades up out of a slight blur, unspoken words wait at low opacity and
@@ -167,13 +170,13 @@ const CaptionLine: React.FC<{cue: CaptionCue} & Style> = ({cue, position: basePo
 export const CaptionTrack: React.FC<{cues: CaptionCue[]} & Style> = ({cues, ...style}) => {
   const frame = useCurrentFrame();
   const cue = cues.find((c) => frame >= c.from && frame < c.to);
-  const Line = style.variant === 'premium' ? PremiumLine : CaptionLine;
+  const Line: React.FC<any> = style.variant === 'premium' ? PremiumLine : style.variant && E2_CAPTION_LINES[style.variant] ? E2_CAPTION_LINES[style.variant] : CaptionLine;
   return <AbsoluteFill style={{pointerEvents: 'none'}}>{cue && <Line cue={cue} {...style} />}</AbsoluteFill>;
 };
 
-const Demo: React.FC<{lines: string[]; framesPerLine: number; background: string} & Style> = ({lines, framesPerLine, background, ...style}) => {
+const Demo: React.FC<{lines: string[]; secondLines?: string[]; framesPerLine: number; background: string} & Style> = ({lines, secondLines, framesPerLine, background, ...style}) => {
   // a cue's start/end are absolute frames; demo spreads lines evenly
-  const cues = lines.map((text, i) => ({text, from: i * framesPerLine, to: (i + 1) * framesPerLine}));
+  const cues = lines.map((text, i) => ({text, from: i * framesPerLine, to: (i + 1) * framesPerLine, ...(secondLines?.[i] ? {sub: secondLines[i]} : {})}));
   return (
     <AbsoluteFill style={{background}}>
       <CaptionTrack cues={cues} {...style} />
@@ -181,12 +184,12 @@ const Demo: React.FC<{lines: string[]; framesPerLine: number; background: string
   );
 };
 
-export const kineticCaptions = defineMotion({
+export const kineticCaptions = defineMotion<Record<string, any>>({
   id: 'kinetic-captions',
   title: 'Kinetic word captions',
   category: 'text',
   description: 'Word-by-word pop-in captions; *starred* words sit on a solid highlight box.',
-  source: ['video10 0:04-0:42'],
+  source: ['video10 0:04-0:42', 'lemo-opuscar styles/caption-news, glass-product, ui toast (MIT, LemoLab)', 'pdoom karaoke-fill idea'],
   useFor: 'Narrated shorts: subtitles that pace with the voice and punch key words.',
   durationInFrames: 150,
   defaultProps: {
@@ -205,8 +208,22 @@ export const kineticCaptions = defineMotion({
     background: 'scene colour; "transparent" = caption overlay on top of other motions',
     position: 'bottom | center | top',
     highlightColor: 'box colour behind highlighted words',
-    variant: "kinetic (word pop + highlight boxes) | premium (calm line, words brighten as spoken, soft scrim)",
-    accent: 'premium: colour of *starred* words',
+    variant: "kinetic (word pop + highlight boxes) | premium (calm line, words brighten as spoken, soft scrim) | slam (huge left-aligned chunks split by |, {keyword} on a colour block, optional secondLines) | toast (UI notification pill with live dot) | frosted-bar (blurred glass slab + accent line) | terminal (LOG tag, > prompt, words typed with the voice) | print (glyph-drop headline with offset overprint shadow) | karaoke (outline words fill as sung) | rise (calm per-word fade + rise)",
+    accent: 'premium/toast/terminal/karaoke: accent colour (starred words, dot, tag, current word)',
+    secondLines: 'slam: translation / second-language line per caption (shown under the chunks)',
+    keywordColor: 'slam: colour of the {keyword} block (default honey #F2B63C)',
+    slamScale: 'slam: start scale of each chunk (default 1.3)',
+    chunkStagger: 'slam: seconds between chunks (default 0.12)',
+    blur: 'frosted-bar: backdrop blur px at 1080p (default 18)',
+    accentLine: 'frosted-bar: thin accent line on top of the bar (default true)',
+    tag: 'terminal: inverse-video tag text (default LOG)',
+    prompt: 'terminal: prompt glyph (default >)',
+    shadowColor: 'print: second-ink offset shadow colour',
+    sungColor: 'karaoke: colour of sung words (default = color)',
+    unsungOpacity: 'karaoke: outline opacity of unsung words (default 0.35)',
+    risePx: 'rise: px each word rises (default 8)',
+    stagger: 'rise: frames between words (default 1.5)',
   },
-  component: Demo,
+  component: Demo as React.FC<any>,
+  tags: ['caption', 'subtitle', 'toast', 'karaoke', 'lyrics', 'terminal', 'frosted', 'bilingual', 'keyword', 'headline', 'live transcript'],
 });

@@ -26,6 +26,10 @@ type Props = {
   land: string[];
   grain: number;
   seed: string;
+  /** round-2: print-style sky ('thinning' stripes, no wobble) + concentric sun rings (set mode) */
+  bandStyle: 'wobble' | 'thinning';
+  sunRings: number;
+  stripes: number;
 };
 
 const quadOut = Easing.out(Easing.quad);
@@ -167,7 +171,24 @@ const SetScene: React.FC<Props> = (p) => {
           </radialGradient>
         </defs>
         {/* stepped sky bands with soft wobbly tops */}
-        {Array.from({length: nb}, (_, i) => {
+        {p.bandStyle === 'thinning' &&
+          Array.from({length: nb}, (_, i) => {
+            if (i === 0) return null;
+            const yTop = edges[i];
+            const yBot = i + 1 < nb ? edges[i + 1] : horizon;
+            const zone = Math.max(0, (yBot - yTop) * 0.55);
+            const n = Math.max(1, Math.round(p.stripes));
+            return (
+              <g key={`t${i}`}>
+                <rect x={0} y={yTop} width={w} height={horizon + 2 - yTop} fill={bandCol(i)} />
+                {Array.from({length: n}, (_, k) => {
+                  const th = (zone / n) * (1 - (k + 0.5) / n) * 0.95 + 1.2 * u;
+                  return <rect key={k} x={0} y={yTop + (zone * k) / n} width={w} height={th} fill={bandCol(i - 1)} />;
+                })}
+              </g>
+            );
+          })}
+        {p.bandStyle !== 'thinning' && Array.from({length: nb}, (_, i) => {
           if (i === 0) return null;
           const f = wob(i);
           const y0 = edges[i];
@@ -190,6 +211,9 @@ const SetScene: React.FC<Props> = (p) => {
               return <line key={i} x1={Math.cos(a) * l0} y1={Math.sin(a) * l0} x2={Math.cos(a) * l1} y2={Math.sin(a) * l1} stroke={sunCol} strokeWidth={2 * u} strokeLinecap="round" />;
             })}
           </g>
+          {Array.from({length: Math.max(0, Math.round(p.sunRings))}, (_, i) => (
+            <circle key={`ring${i}`} cx={sunX} cy={sunY} r={sr * (1.5 + i * 0.5)} fill="none" stroke={sunCol} strokeWidth={Math.max(1.5, 2.4 * u)} opacity={0.65 - i * 0.15} />
+          ))}
           <circle cx={sunX} cy={sunY} r={sr} fill={sunCol} />
         </g>
         {/* tiny 4-point star near top centre */}
@@ -249,6 +273,9 @@ export const sunRiseSet = defineMotion<Props>({
     moon: true,
     bands: ['#8d5f88', '#a76a82', '#bb727d', '#d08a80', '#dcab8c', '#f5edda'],
     duskBands: ['#423463', '#563d6e', '#6e4672', '#8a5272', '#a8636a', '#d08a6c'],
+    bandStyle: 'wobble',
+    sunRings: 0,
+    stripes: 5,
     land: ['#65536e', '#50425e', '#3f344c'],
     grain: 0.07,
     seed: 'sun',
@@ -269,10 +296,13 @@ export const sunRiseSet = defineMotion<Props>({
     moon: 'crescent moon that sinks and fades as the sun rises',
     bands: 'sunset sky band colours, top to horizon (set)',
     duskBands: 'the same bands at full dusk (set)',
+    bandStyle: "set mode: 'wobble' (default soft wobbly band tops) | 'thinning' (flat colour stepping into the next via thinning stripes — instant screen-print sky, no gradients)",
+    sunRings: 'set mode: concentric rings around the sun disc (0 = none, 2-3 = print look)',
+    stripes: "set mode, bandStyle 'thinning': stripes per band transition (5)",
     land: 'land layer colours far to near (set)',
     grain: 'film grain opacity',
     seed: 'random seed',
   },
   component: SunRiseSet,
-  tags: ['sun', 'sunrise', 'sunset', 'sky', 'dusk', 'rays'],
+  tags: ['sun', 'sunrise', 'sunset', 'sky', 'dusk', 'rays', 'screenprint', 'poster', 'banded-sky', 'stepped-bands', 'rings'],
 });

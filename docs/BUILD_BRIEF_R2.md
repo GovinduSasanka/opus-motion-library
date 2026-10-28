@@ -54,3 +54,21 @@ Do NOT `git commit` (the main agent commits).
 
 ## Final reply (short)
 Table: `id — what it does — status (ok / skipped: reason / limitation)`, plus any shared-file changes you need.
+
+## Cost rules (usage limits are shared by all agents)
+- Your batch is small on purpose (≤ ~10 ids). Read only the doc sections for your ids (use the line numbers; `sed -n 'A,Bp'`),
+  not whole docs. Don't re-read files you already have in context.
+- Images are expensive: for each motion check ONE landscape sheet (`--at` 4 frames) and ONE portrait still. Re-render only
+  what you changed. Don't Read source frames unless the doc is unclear.
+- Some ids in your batch may already exist as files or as a variant of another motion (an earlier builder was cut off).
+  First run `ls src/motions/*/<id>.tsx` / grep catalog.json; if it exists, just verify it renders and move on.
+
+## EXTENDS agents (editing existing motions)
+You own ONLY the motions listed in your group (`out/extends-r2.json → groups.E<n>`). For each one, the research items
+that extend it are in `out/extends-r2.json → items.motion.<id>` (doc + line + one-line summary); read those sections.
+- Edit `src/motions/*/<id>.tsx` in place (and a NEW `src/core/r2-e<n>-kit.tsx` for helpers). Additive only: new props
+  with defaults, `variant` values, new `propDocs`, extra `tags`. **The default render must stay identical** — every
+  existing compose spec, recipe and the demo video depend on it. Never rename or remove props.
+- Skip items that would need a big rewrite or are already covered by a newer motion (`node cli/mgl.mjs suggest`); say so.
+- Verify: tsc, then ONE landscape sheet with the new variant/props set (`node cli/mgl.mjs still <id> --at … --props '<json>'`)
+  plus ONE default still compared against `gallery/<id>.jpg` to prove the default is unchanged.

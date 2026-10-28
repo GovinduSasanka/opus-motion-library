@@ -17,6 +17,12 @@ type Props = {
   windowColor: string;
   traffic: boolean;
   seed: string;
+  /** round-2: 'sequence' = windows pop on one by one on a cadence, each with a bloom, until the whole place glows */
+  lightsMode: 'flicker' | 'sequence';
+  lightsStart: number;
+  lightsSpan: number;
+  cadence: number;
+  glowColor: string;
 };
 
 type Bld = {x: number; bw: number; bh: number; row: number; setback: number; antenna: boolean; boxes: number; gable: boolean; side: number; tone: number; ww: number; wh: number; gx: number; gy: number; seed: number; tank: boolean};
@@ -31,7 +37,7 @@ const hash = (a: number, b: number) => {
   return (x >>> 0) / 4294967296;
 };
 
-const CitySkyline: React.FC<Props> = ({style, pullback, pullFrom, pullFrames, toNight, litRatio, stepFrames, windowColor, traffic, seed}) => {
+const CitySkyline: React.FC<Props> = ({style, pullback, pullFrom, pullFrames, toNight, litRatio, stepFrames, windowColor, traffic, seed, lightsMode, lightsStart, lightsSpan, cadence, glowColor}) => {
   const frame = useCurrentFrame();
   const {w, h, u, cx, cy, durationInFrames: D, portrait} = useStage();
   const id = `city-skyline-${seed}`;
@@ -85,6 +91,8 @@ const CitySkyline: React.FC<Props> = ({style, pullback, pullFrom, pullFrames, to
   };
   const lit = clamp(litRatio * (sketch ? 0.6 : 0.35 + 0.65 * night));
   const step = Math.floor(frame / Math.max(1, stepFrames));
+  const seq = lightsMode === 'sequence';
+  const cadenceF = Math.max(1, cadence);
 
   // crane pull-back camera (video20: x12 distance, bezier .4,0,.2,1, slight yaw)
   const pb = pullback ? interpolate(frame, [pullFrom, pullFrom + pullFrames], [0, 1], {easing: Easing.bezier(0.4, 0, 0.2, 1), extrapolateLeft: 'clamp', extrapolateRight: 'clamp'}) : 1;
@@ -104,6 +112,7 @@ const CitySkyline: React.FC<Props> = ({style, pullback, pullFrom, pullFrames, to
     const k = row / (ROWS - 1);
     const lift = (1 - k) * 0.05 * h; // back rows sit a little higher (farther ground)
     const on: [number, number][][] = [];
+    const flash: [number, number][][] = [];
     const off: [number, number][][] = [];
     const bodies: React.ReactNode[] = [];
     bs.forEach((b, bi) => {
@@ -164,7 +173,13 @@ const CitySkyline: React.FC<Props> = ({style, pullback, pullFrom, pullFrames, to
           const x0 = ox + i * (b.ww + b.gx);
           const y0 = top + b.gy + 6 * u + j * (b.wh + b.gy);
           const q: [number, number][] = [[x0, y0], [x0 + b.ww, y0], [x0 + b.ww, y0 + b.wh], [x0, y0 + b.wh]];
-          (st < lit ? on : off).push(q);
+          if (seq) {
+            const onAt = lightsStart + Math.floor((hash(wi, 21) * lightsSpan) / cadenceF) * cadenceF;
+            if (frame >= onAt) {
+              on.push(q);
+              if (frame < onAt + 5) flash.push(q);
+            } else off.push(q);
+          } else (st < lit ? on : off).push(q);
         }
     });
     const winOff = sketch ? '#c6b9a7' : mix(mix(rowCol(row, 0.5), '#000', 0.35), '#3b3e42', 0.3);
@@ -173,8 +188,9 @@ const CitySkyline: React.FC<Props> = ({style, pullback, pullFrom, pullFrames, to
         {lift > 0 && <rect x={-w} y={gy - lift - 1} width={w * 3} height={lift + 2} fill={rowCol(row, 0.6)} />}
         {bodies}
         <path d={polysD(off)} fill={winOff} opacity={sketch ? 0.8 : 0.9} stroke={sketch ? ink : 'none'} strokeWidth={sw * 0.5} />
-        {!sketch && <path d={polysD(on)} fill={windowColor} filter={`url(#${id}-glow)`} opacity={0.55 * (0.4 + 0.6 * night)} />}
-        <path d={polysD(on)} fill={windowColor} opacity={sketch ? 0.95 : 0.6 + 0.4 * night} stroke={sketch ? ink : 'none'} strokeWidth={sw * 0.5} />
+        {!sketch && <path d={polysD(on)} fill={seq ? glowColor || windowColor : windowColor} filter={`url(#${id}-glow)`} opacity={0.55 * (0.4 + 0.6 * night)} />}
+        <path d={polysD(on)} fill={seq ? glowColor || windowColor : windowColor} opacity={sketch ? 0.95 : 0.6 + 0.4 * night} stroke={sketch ? ink : 'none'} strokeWidth={sw * 0.5} />
+        {seq && flash.length > 0 && <path d={polysD(flash)} fill="#FFFFFF" opacity={0.85} filter={`url(#${id}-bloom)`} />}
         {/* atmospheric fade toward the sky colour for far rows */}
         {!sketch && row < ROWS - 1 && <rect x={-w} y={-h} width={w * 3} height={gy - lift + h} fill={sky[2]} opacity={(1 - k) * 0.28 * (1 - night * 0.5)} />}
         {sketch && row < ROWS - 1 && <rect x={-w} y={-h} width={w * 3} height={gy - lift + h} fill={sky[2]} opacity={(1 - k) * 0.4} />}
@@ -205,6 +221,9 @@ const CitySkyline: React.FC<Props> = ({style, pullback, pullFrom, pullFrames, to
           <pattern id={`${id}-hatch2`} patternUnits="userSpaceOnUse" width={7 * u} height={7 * u} patternTransform="rotate(62)">
             <line x1={0} y1={0} x2={0} y2={7 * u} stroke="#7a6550" strokeWidth={0.9 * u} opacity={0.6} />
           </pattern>
+          <filter id={`${id}-bloom`} x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation={9 * u} />
+          </filter>
           <filter id={`${id}-glow`} x="-10%" y="-10%" width="120%" height="120%">
             <feGaussianBlur stdDeviation={5 * u} />
           </filter>
@@ -253,6 +272,11 @@ export const citySkyline = defineMotion<Props>({
     windowColor: '#f2d27a',
     traffic: true,
     seed: 'metro',
+    lightsMode: 'flicker',
+    lightsStart: 20,
+    lightsSpan: 110,
+    cadence: 3,
+    glowColor: '',
   },
   propDocs: {
     style: '"flat" dusk/night silhouettes or "sketch" hatched pencil-on-paper (video20)',
@@ -265,7 +289,12 @@ export const citySkyline = defineMotion<Props>({
     windowColor: 'lit window colour',
     traffic: 'cars with head/tail lights on the street',
     seed: 'city seed',
+    lightsMode: "'flicker' (default, windows toggle randomly) | 'sequence' (every window lights once, one by one on the cadence, with a white bloom pop, until the city glows)",
+    lightsStart: 'sequence: first frame a window can light',
+    lightsSpan: 'sequence: frames over which all windows have lit',
+    cadence: 'sequence: lighting steps every N frames (2-4 = steady cadence; match the beat)',
+    glowColor: 'sequence: lit window / glow colour (empty = windowColor)',
   },
   component: CitySkyline,
-  tags: ['city', 'skyline', 'night', 'windows', 'urban', 'pullback'],
+  tags: ['city', 'skyline', 'night', 'windows', 'urban', 'pullback', 'lights-on', 'electrification', 'network', 'growth', 'cadence'],
 });

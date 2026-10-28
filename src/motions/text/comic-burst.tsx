@@ -6,6 +6,7 @@ import {rng} from '../../core/random';
 import {useStage} from '../../core/stage';
 import {Backdrop, BackdropKind, estWidth} from '../../core/text-kit';
 import {defineMotion} from '../../core/types';
+import {TelopMode} from '../../core/r2-e2-text-kit';
 
 /**
  * Comic SFX starburst (video12 BONK!/POP!/BEEP! BEEP!, video14 comic-impact-burst, video17 impact-frame).
@@ -26,6 +27,11 @@ type Props = {
   backdrop: BackdropKind;
   src: string;
   seed: number;
+  variant: 'burst' | 'telop';
+  angle: number;
+  strokeRatio: number;
+  tagCorner: boolean;
+  skewDeg: number;
 };
 
 const PAL: Record<Palette, {fill: string; dots: string; top: string; bottom: string; offset: string}> = {
@@ -179,7 +185,7 @@ const ComicBurst: React.FC<Props> = (p) => {
     <AbsoluteFill style={{overflow: 'hidden'}}>
       <AbsoluteFill style={{transform: `translate(${shx}px, ${shy}px) scale(1.03)`}}>
         <Backdrop kind={p.backdrop} src={p.src || undefined} drift={0.3} />
-        <svg width={w} height={h} style={{position: 'absolute', inset: 0, overflow: 'visible'}}>
+        <svg width={w} height={h} style={{position: 'absolute', inset: 0, overflow: 'visible', display: p.variant === 'telop' ? 'none' : undefined}}>
           {p.speedLines &&
             p.bursts.map((b, i) => {
               const lf = frame - b.at;
@@ -192,7 +198,10 @@ const ComicBurst: React.FC<Props> = (p) => {
           ))}
         </svg>
       </AbsoluteFill>
-      {imp && (
+      {p.variant === 'telop' && (
+        <TelopMode bursts={p.bursts} outline={p.outline} angle={p.angle} strokeRatio={p.strokeRatio} tagCorner={p.tagCorner} skewDeg={p.skewDeg} />
+      )}
+      {imp && p.variant !== 'telop' && (
         <AbsoluteFill style={{background: '#f6dc1f'}}>
           <svg width={w} height={h} style={{position: 'absolute', inset: 0}}>
             <defs>
@@ -230,6 +239,11 @@ export const comicBurst = defineMotion<Props>({
     backdrop: 'comic',
     src: '',
     seed: 3,
+    variant: 'burst',
+    angle: -6,
+    strokeRatio: 0.15,
+    tagCorner: false,
+    skewDeg: 0,
   },
   propDocs: {
     bursts: '[{text, at, x, y, palette?, rotate?, size?, impact?, life?}] — palette pink | yellow | white | cyan | green; impact = 3-frame yellow smash frame before it; life = frames until it pops away',
@@ -241,7 +255,12 @@ export const comicBurst = defineMotion<Props>({
     backdrop: 'comic | dusk | warm | … procedural scene behind',
     src: 'optional public/ image as the scene',
     seed: 'changes the burst shapes',
+    variant: 'burst (starburst + onomatopoeia) | telop (huge outlined verdict word pops at an angle, drifts up, with a star + ring + speed-line burst)',
+    angle: 'telop: default tilt in degrees (a burst rotate overrides it)',
+    strokeRatio: 'telop: ink outline width as a share of the font size',
+    tagCorner: 'telop: after the hold the word shrinks into a small tag in the top-left corner and stays',
+    skewDeg: 'telop: horizontal skew of the word',
   },
   component: ComicBurst,
-  tags: ['comic', 'sfx', 'burst', 'impact', 'pop-art'],
+  tags: ['comic', 'sfx', 'burst', 'impact', 'pop-art', 'telop', 'verdict', 'perfect', 'game show', 'command word', 'achievement'],
 });

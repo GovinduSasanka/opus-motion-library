@@ -10,7 +10,7 @@
  *        --frames 150   --fps 30   --out out/x.mp4
  *   node cli/mgl.mjs still <motion-id> [--frame 60 | --at 10,40,80] [options]   one PNG, or a contact sheet
  *   node cli/mgl.mjs compose <spec.json> [--out out/x.mp4]      render a multi-scene video
- *   node cli/mgl.mjs gallery [--only a,b] [--force]                 gallery/<id>.jpg preview strip for every motion
+ *   node cli/mgl.mjs gallery [--only a,b] [--force] [--dir d]        gallery/<id>.jpg preview strip for every motion
  *
  * Choosing and mixing
  *   node cli/mgl.mjs suggest "<brief>" [--overlay] [--image] [--text] [--loop] [--light] [--category data] [--limit 8] [--json]
@@ -316,7 +316,7 @@ const main = async () => {
   } else if (cmd === 'gallery') {
     // gallery/<id>.jpg: three frames (25 / 55 / 85 %) side by side, from one bundle and one browser
     const rows = catalog().filter((m) => !opts.only || String(opts.only).split(',').includes(m.id));
-    const dir = p('gallery');
+    const dir = typeof opts.dir === 'string' ? path.resolve(opts.dir) : p('gallery');
     fs.mkdirSync(dir, {recursive: true});
     const serveUrl = await serve();
     const puppeteerInstance = await getBrowser();

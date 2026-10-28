@@ -5,6 +5,7 @@ import {fonts} from '../../core/fonts';
 import {useStage} from '../../core/stage';
 import {Backdrop, BackdropKind, eoc, fitSize, tfonts} from '../../core/text-kit';
 import {defineMotion} from '../../core/types';
+import {back} from '../../core/r2-e2-kit';
 
 /**
  * End card over a drifting shot (video8 end-card-stats-stagger, video17/23 end titles). A bottom
@@ -24,6 +25,12 @@ type Props = {
   fadeToBlack: boolean;
   backdrop: BackdropKind;
   src: string;
+  layout: 'stack' | 'storybook';
+  cta: string;
+  ctaColor: string;
+  ctaTextColor: string;
+  ctaAt: number;
+  pullBack: boolean;
 };
 
 const Item: React.FC<{at: number; children: React.ReactNode; style?: React.CSSProperties}> = ({at, children, style}) => {
@@ -47,14 +54,18 @@ const EndCardCredits: React.FC<Props> = (p) => {
   const maxW = w * (portrait ? 0.86 : 0.7);
   const titleFs = fitSize(p.title, 110 * u, maxW, 'serif', 0.5);
   const headFs = portrait ? 62 * u : 58 * u;
+  const story = p.layout === 'storybook';
+  const ctaT = p.cta ? clamp((frame - p.ctaAt) / 10) : 0;
+  const ctaS = p.ctaAt <= 0 ? 1 : back(ctaT, 1.6);
+  const ctaFs = 34 * u;
   return (
     <AbsoluteFill style={{background: p.backdrop === 'none' && !p.src ? 'transparent' : '#000', overflow: 'hidden'}}>
-      <AbsoluteFill style={{transform: `scale(${1.04 + frame * 0.0003}) translateX(${-frame * 0.15 * u}px)`}}>
+      <AbsoluteFill style={{transform: p.pullBack ? `scale(${1.14 - (frame / 30) * 0.03}) translateX(${frame * 0.12 * u}px)` : `scale(${1.04 + frame * 0.0003}) translateX(${-frame * 0.15 * u}px)`}}>
         <Backdrop kind={p.backdrop} src={p.src || undefined} drift={1.2} />
       </AbsoluteFill>
-      <AbsoluteFill style={{opacity: scrim * p.scrimStrength, background: 'linear-gradient(180deg, rgba(10,12,18,0) 42%, rgba(10,12,18,0.82) 100%)'}} />
+      <AbsoluteFill style={{opacity: story ? 0 : scrim * p.scrimStrength, background: 'linear-gradient(180deg, rgba(10,12,18,0) 42%, rgba(10,12,18,0.82) 100%)'}} />
       <div style={{position: 'absolute', left: 0, right: 0, top: h * (portrait ? p.headlineY - 0.06 : p.headlineY), display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', color: '#fff', transform: 'translateY(-50%)'}}>
-        {p.title && (
+        {p.title && !story && (
           <Item at={s - 18} style={{fontFamily: fonts.serif, fontWeight: 500, fontSize: titleFs, letterSpacing: '0.5em', paddingLeft: '0.5em', marginBottom: 30 * u, textShadow: `0 ${3 * u}px ${18 * u}px rgba(0,0,0,.5)`}}>
             {p.title}
           </Item>
@@ -77,6 +88,18 @@ const EndCardCredits: React.FC<Props> = (p) => {
           </Item>
         )}
       </div>
+      {story && p.title && (
+        <div style={{position: 'absolute', left: 0, right: 0, top: h * 0.14, display: 'flex', justifyContent: 'center', textAlign: 'center'}}>
+          <Item at={s - 4} style={{fontFamily: fonts.serif, fontWeight: 500, fontSize: fitSize(p.title, 120 * u, maxW, 'serif', 0.04), letterSpacing: '0.04em', color: '#fff', textShadow: `0 ${3 * u}px ${18 * u}px rgba(0,0,0,.45)`}}>
+            {p.title}
+          </Item>
+        </div>
+      )}
+      {p.cta && (
+        <div style={{position: 'absolute', left: 0, right: 0, top: h * (story ? 0.86 : portrait ? 0.9 : 0.9), display: 'flex', justifyContent: 'center', transform: 'translateY(-50%)', opacity: p.ctaAt <= 0 ? 1 : clamp(ctaT * 2)}}>
+          <div style={{transform: `scale(${ctaS})`, background: p.ctaColor, color: p.ctaTextColor, fontFamily: fonts.sans, fontWeight: 800, fontSize: ctaFs, letterSpacing: '0.04em', padding: `${ctaFs * 0.6}px ${ctaFs * 1.5}px`, borderRadius: ctaFs * 1.4, boxShadow: `0 ${6 * u}px ${20 * u}px rgba(0,0,0,0.4)`}}>{p.cta}</div>
+        </div>
+      )}
       <AbsoluteFill style={{background: '#000', opacity: fade}} />
     </AbsoluteFill>
   );
@@ -102,6 +125,12 @@ export const endCardCredits = defineMotion<Props>({
     fadeToBlack: true,
     backdrop: 'peaks',
     src: '',
+    layout: 'stack',
+    cta: '',
+    ctaColor: '#D83A34',
+    ctaTextColor: '#ffffff',
+    ctaAt: 0,
+    pullBack: false,
   },
   propDocs: {
     title: 'optional wide-tracked serif title shown above the headline ("" = none)',
@@ -115,7 +144,13 @@ export const endCardCredits = defineMotion<Props>({
     fadeToBlack: 'fade to black over the last 11 frames',
     backdrop: 'peaks (sunrise over mountains) | dunes | dusk | ocean | … scene behind',
     src: 'optional public/ image or still of your last shot',
+    layout: 'stack (headline block over a bottom scrim) | storybook (calm: serif title blurs in at the top over a slow pull-back, CTA low in the frame)',
+    cta: 'call-to-action button text ("" = none)',
+    ctaColor: 'CTA button fill',
+    ctaTextColor: 'CTA button text colour',
+    ctaAt: 'frame the CTA pops in (0 = visible from the first frame)',
+    pullBack: 'slow pull-back (≈3 %/s) with a slight truck right instead of the drift-in',
   },
   component: EndCardCredits,
-  tags: ['endcard', 'credits', 'stats', 'outro'],
+  tags: ['endcard', 'credits', 'stats', 'outro', 'cta', 'button', 'storybook', 'call to action', 'pull back'],
 });

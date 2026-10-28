@@ -6,6 +6,7 @@ import {Plate, resolveSrc} from '../../core/image-kit';
 import {useStage} from '../../core/stage';
 import {fitSize} from '../../core/text-kit';
 import {defineMotion} from '../../core/types';
+import {LedgerCounter, LedgerSplit} from '../../core/r2-e2-ui-kit';
 
 /**
  * video3 "split-screen-compare": static presentation chrome (headline + subheading, two synced 16:9 panels,
@@ -25,7 +26,7 @@ type Props = {
   right: Side;
   image: string;
   seed: number;
-  layout: 'panels' | 'wipe';
+  layout: 'panels' | 'wipe' | 'ledger';
   introWipe: boolean;
   push: number;
   fadeOut: boolean;
@@ -33,6 +34,11 @@ type Props = {
   headlineColor: string;
   textColor: string;
   dividerColor: string;
+  counters: LedgerCounter[];
+  stamp: string;
+  dividerDrop: number;
+  stampColor: string;
+  badTint: string;
 };
 
 const STYLE_FILTER: Record<string, string> = {
@@ -292,6 +298,13 @@ const SplitCompare: React.FC<Props> = (p) => {
   );
 };
 
+const SplitCompareRoot: React.FC<Props> = (p) =>
+  p.layout === 'ledger' ? (
+    <LedgerSplit counters={p.counters} stamp={p.stamp} seed={p.seed} image={p.image === 'demo/lighthouse.jpg' ? '' : p.image} headline={p.headline === 'Same blueprint, two ways to draw it' ? 'Before vs after' : p.headline} dividerColor={p.dividerColor === '#35342d' ? '#F5F2EC' : p.dividerColor} dividerDrop={p.dividerDrop} stampColor={p.stampColor} badTint={p.badTint} />
+  ) : (
+    <SplitCompare {...p} />
+  );
+
 export const splitCompare = defineMotion<Props>({
   id: 'split-compare',
   title: 'Split-screen compare',
@@ -317,6 +330,14 @@ export const splitCompare = defineMotion<Props>({
     headlineColor: '#f8e2c0',
     textColor: '#e8e4df',
     dividerColor: '#35342d',
+    counters: [
+      {label: 'Before', value: 1240, unit: 'ms', bad: true},
+      {label: 'After', value: 86, unit: 'ms'},
+    ] as LedgerCounter[],
+    stamp: 'FIXED',
+    dividerDrop: 10,
+    stampColor: '#E5484D',
+    badTint: '#B8281E',
   },
   propDocs: {
     headline: 'headline above the panels',
@@ -326,12 +347,17 @@ export const splitCompare = defineMotion<Props>({
     right: 'same for the right (bottom) panel',
     image: 'public/ image shown in both panels when a side has no own src (empty = procedural plate)',
     seed: 'procedural plate seed',
-    layout: "'panels' = two side-by-side (stacked in portrait) panels, 'wipe' = one frame with a moving divider",
+    layout: "'panels' = two side-by-side (stacked in portrait) panels, 'wipe' = one frame with a moving divider, 'ledger' = full-bleed halves: divider drops, the bad half desaturates with a red tint, two counters race, a stamp lands on the divider",
+    counters: 'ledger: [{label, value, unit?, prefix?, bad?, decimals?}] for the two halves; bad = desaturated + red tint',
+    stamp: 'ledger: stamp text on the divider after both counters settle',
+    dividerDrop: 'ledger: frames the divider takes to drop in',
+    stampColor: 'ledger: stamp colour',
+    badTint: 'ledger: red tint multiplied over the bad half',
     introWipe: 'divider draws on and the panels open outward from it',
     push: 'shared camera push amount over the whole motion (0.14 = +14 %)',
     build: 'both panels are revealed in sync by a rising scan line after the intro',
     fadeOut: 'panels fade to black over the last 0.5 s (chrome stays)',
   },
-  component: SplitCompare,
-  tags: ['compare', 'split-screen', 'before-after', 'layout', 'presentation'],
+  component: SplitCompareRoot,
+  tags: ['compare', 'split-screen', 'before-after', 'layout', 'presentation', 'ledger', 'counter', 'versus', 'stamp', 'claim vs reality'],
 });

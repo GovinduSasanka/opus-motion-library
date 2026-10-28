@@ -29,6 +29,11 @@ type Props = {
   turbulence: number;
   fringe: number;
   keyDark: number;
+  scan: boolean;
+  scanStart: number;
+  scanFrames: number;
+  seamColor: string;
+  craneTilt: number;
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -184,8 +189,9 @@ attribute vec3 aCol;
 attribute vec4 aRnd;
 attribute float aLayer;
 uniform float uDepth; uniform float uExtrude; uniform float uFront; uniform float uDir; uniform float uSpeed;
+uniform float uScan; uniform float uScanOn;
 uniform float uTurb; uniform float uFrontSpeed; uniform float uSize; uniform float uIntro; uniform float uTime; uniform float uPx;
-varying vec3 vCol; varying float vAlpha; varying float vWhite;
+varying vec3 vCol; varying float vAlpha; varying float vWhite; varying float vSeam;
 void main() {
   vec3 p = position;
   p.z *= uDepth;
@@ -194,6 +200,11 @@ void main() {
   // voxel extrusion: layers stack back behind the surface
   float layerOn = aLayer < 0.5 ? 1.0 : step(aLayer, uExtrude * 3.0 + 0.001);
   p.z -= aLayer * 0.22 * uDepth * uExtrude;
+  // scan front: ahead of the line the picture is still a flat photo plane of beads, behind it the relief stands up
+  float ahead = uScanOn * smoothstep(-0.15, 0.55, position.x - uScan);
+  p.z = mix(p.z, 0.0, ahead);
+  layerOn = mix(layerOn, aLayer < 0.5 ? 1.0 : 0.0, ahead);
+  vSeam = uScanOn * exp(-pow((position.x - uScan) / 0.3, 2.0));
   // intro: beads arrive from a scattered depth cloud
   float d = clamp((uIntro - aRnd.x * 0.5) / 0.5, 0.0, 1.0);
   d = 1.0 - pow(1.0 - d, 3.0);
@@ -211,7 +222,7 @@ void main() {
   vec4 mv = modelViewMatrix * vec4(q, 1.0);
   gl_Position = projectionMatrix * mv;
   float shrink = mix(1.0, 0.3, clamp(age / 0.9, 0.0, 1.0));
-  float size = uSize * (0.75 + 0.5 * aRnd.w) * shrink * layerOn * d;
+  float size = uSize * (0.75 + 0.5 * aRnd.w) * shrink * layerOn * d * (1.0 + 0.9 * vSeam);
   gl_PointSize = size * uPx / -mv.z;
   vCol = aCol * (aLayer > 0.5 ? 0.62 : 1.0);
   vWhite = clamp(age / 0.7, 0.0, 1.0);
@@ -219,8 +230,8 @@ void main() {
 }`;
 
 const FRAG = /* glsl */ `
-uniform float uFringe;
-varying vec3 vCol; varying float vAlpha; varying float vWhite;
+uniform float uFringe; uniform float uSeamR; uniform float uSeamG; uniform float uSeamB;
+varying vec3 vCol; varying float vAlpha; varying float vWhite; varying float vSeam;
 void main() {
   vec2 c = gl_PointCoord - 0.5;
   float r = length(c);
@@ -232,6 +243,7 @@ void main() {
   vec3 rim = vec3(rr > 0.44 ? 0.35 : 1.0, 1.0 - 0.25 * step(0.44, max(rr, bb)), bb > 0.44 ? 0.35 : 1.0);
   float shade = 0.7 + 0.45 * (1.0 - smoothstep(0.0, 0.5, length(c + vec2(0.12, 0.14))));
   col = col * shade * mix(vec3(1.0), rim, 1.0 - vWhite);
+  col = mix(col, vec3(uSeamR, uSeamG, uSeamB), clamp(vSeam * 1.2, 0.0, 1.0));
   gl_FragColor = vec4(col, vAlpha);
   #include <colorspace_fragment>
 }`;
@@ -252,7 +264,7 @@ const Beads: React.FC<{cloud: Cloud; u: Record<string, number>}> = ({cloud, u}) 
         fragmentShader: FRAG,
         transparent: true,
         depthWrite: true,
-        uniforms: Object.fromEntries(['uDepth', 'uExtrude', 'uFront', 'uFrontSpeed', 'uDir', 'uSpeed', 'uTurb', 'uSize', 'uIntro', 'uTime', 'uPx', 'uFringe'].map((k) => [k, {value: 0}])),
+        uniforms: Object.fromEntries(['uDepth', 'uExtrude', 'uFront', 'uFrontSpeed', 'uDir', 'uSpeed', 'uTurb', 'uSize', 'uIntro', 'uTime', 'uPx', 'uFringe', 'uScan', 'uScanOn', 'uSeamR', 'uSeamG', 'uSeamB'].map((k) => [k, {value: 0}])),
       }),
     [],
   );
@@ -262,7 +274,7 @@ const Beads: React.FC<{cloud: Cloud; u: Record<string, number>}> = ({cloud, u}) 
   return <points geometry={geo} material={mat} frustumCulled={false} />;
 };
 
-const PointcloudOrbit: React.FC<Props> = ({src, background, density, depthScale, beadSize, orbitAngle, extrusion, disintegrate, direction, speed, turbulence, fringe, keyDark}) => {
+const PointcloudOrbit: React.FC<Props> = ({src, background, density, depthScale, beadSize, orbitAngle, extrusion, disintegrate, direction, speed, turbulence, fringe, keyDark, scan, scanStart, scanFrames, seamColor, craneTilt}) => {
   const frame = useCurrentFrame();
   const {w, h, portrait} = useStage();
   const px = usePlatePixels({src: src || undefined}, 360);
@@ -272,12 +284,16 @@ const PointcloudOrbit: React.FC<Props> = ({src, background, density, depthScale,
 
   const intro = prog(frame, 0, 36, ease.linear);
   const yaw = lerp(-orbitAngle, orbitAngle, ease.sine(prog(frame, 6, 205, ease.linear))) * (Math.PI / 180);
-  const pitch = (4 + 5 * Math.sin(frame / 60)) * (Math.PI / 180);
+  const sk = prog(frame, scanStart, scanStart + scanFrames, ease.inOut);
+  const pitch = (craneTilt > 0 ? craneTilt * sk : 4 + 5 * Math.sin(frame / 60)) * (Math.PI / 180);
   const ext = extrusion * prog(frame, 70, 108, ease.inOut);
   const dir = direction >= 0 ? 1 : -1;
   const halfW = cloud ? (cloud.xmax - cloud.xmin) / 2 + 0.6 : 5;
     const frontSpeed = ((2 * halfW + 1) / 62) * 30;
   const front = disintegrate ? -halfW - 0.5 + ((frame - 140) / 30) * frontSpeed : -999;
+  const scanX = scan && cloud ? lerp(cloud.xmin - 1, cloud.xmax + 1, sk) : -999;
+  const sc = /^#?([0-9a-f]{6})$/i.exec(seamColor);
+  const sn = sc ? parseInt(sc[1], 16) : 0xd4fff0;
   const dist = (portrait ? 23 : 16.5) * lerp(1.08, 0.95, ease.sine(prog(frame, 0, 240, ease.linear)));
   const camPos: V3 = [Math.sin(yaw) * dist * Math.cos(pitch), Math.sin(pitch) * dist, Math.cos(yaw) * dist * Math.cos(pitch)];
   const fov = portrait ? 40 : 38;
@@ -303,6 +319,11 @@ const PointcloudOrbit: React.FC<Props> = ({src, background, density, depthScale,
               uTime: frame / 30,
               uPx: pxScale,
               uFringe: fringe,
+              uScan: scanX,
+              uScanOn: scan ? 1 : 0,
+              uSeamR: ((sn >> 16) & 255) / 255,
+              uSeamG: ((sn >> 8) & 255) / 255,
+              uSeamB: (sn & 255) / 255,
             }}
           />
         </Stage3D>
@@ -335,6 +356,11 @@ export const pointcloudOrbit = defineMotion<Props>({
     turbulence: 0.8,
     fringe: 0.07,
     keyDark: 0.06,
+    scan: false,
+    scanStart: 20,
+    scanFrames: 90,
+    seamColor: '#D4FFF0',
+    craneTilt: 0,
   },
   propDocs: {
     src: 'optional image in public/ (e.g. demo/owl.jpg); empty = procedural figure',
@@ -350,7 +376,12 @@ export const pointcloudOrbit = defineMotion<Props>({
     turbulence: 'noise turbulence amplitude',
     fringe: 'RGB rim split on each bead (0 = off)',
     keyDark: 'for images: luminance below this is keyed out (0 = keep all)',
+    scan: 'photo-to-points scan: a bright seam sweeps left to right; ahead of it the picture is a flat plate of beads, behind it the 3D relief stands up',
+    scanStart: 'scan: frame the seam starts',
+    scanFrames: 'scan: frames the seam takes to cross (~3 s = 90)',
+    seamColor: 'scan: seam colour (#D4FFF0)',
+    craneTilt: 'degrees the camera tilts up during the scan (0 = default gentle pitch); e.g. 44 for a nadir-to-oblique crane',
   },
   component: PointcloudOrbit,
-  tags: ['3d', 'particles', 'pointcloud', 'image', 'disintegrate', 'three'],
+  tags: ['scan', 'photo to points', 'condense', 'lidar', 'survey', '3d', 'particles', 'pointcloud', 'image', 'disintegrate', 'three'],
 });

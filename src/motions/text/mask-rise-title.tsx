@@ -4,6 +4,7 @@ import {clamp} from '../../core/ease';
 import {fonts} from '../../core/fonts';
 import {useStage} from '../../core/stage';
 import {Backdrop, BackdropKind, BlockCursor, CropMarks, cursorOn, eic, eioc, eoc, estWidth, fitSize, tfonts, typed} from '../../core/text-kit';
+import {RiseVariant} from '../../core/r2-e3-rise';
 import {defineMotion} from '../../core/types';
 
 /**
@@ -18,7 +19,7 @@ import {defineMotion} from '../../core/types';
 type Chapter = {number: string; title: string; kicker?: string; subtitle?: string};
 type StackLine = {numeral?: string; word: string};
 type Props = {
-  variant: 'chapter' | 'stack';
+  variant: 'chapter' | 'stack' | 'water' | 'numeral' | 'vertical' | 'breathing';
   chapter: Chapter;
   fromChapter: Chapter | null;
   swapAt: number;
@@ -39,6 +40,18 @@ type Props = {
   exit: boolean;
   backdrop: BackdropKind;
   src: string;
+  /** round-2 variants (water / numeral / vertical / breathing) */
+  text: string;
+  eyebrow: string;
+  subtitle: string;
+  sideLine: string;
+  dotColor: string;
+  breathPeriod: number;
+  steps: number;
+  stepFrames: number;
+  exitAt: number;
+  letterStepFrames: number;
+  font: 'display' | 'sans' | 'serif' | 'instrument' | 'rounded' | 'grotesk';
 };
 
 /** per-letter rise from a baseline mask */
@@ -136,6 +149,10 @@ const MaskRiseTitle: React.FC<Props> = (p) => {
   const {w, h, u, portrait, durationInFrames: D} = useStage();
   const margin = (portrait ? 64 : 88) * u;
   const exitAt = p.exit ? D - 12 : null;
+
+  if (p.variant === 'water' || p.variant === 'numeral' || p.variant === 'vertical' || p.variant === 'breathing') {
+    return <RiseVariant {...p} variant={p.variant} frame={frame} exitAt={p.exitAt > 0 ? p.exitAt : p.exit ? D - 12 : 0} />;
+  }
 
   if (p.variant === 'stack') {
     const lines = p.lines;
@@ -281,9 +298,20 @@ export const maskRiseTitle = defineMotion<Props>({
     exit: true,
     backdrop: 'cream',
     src: '',
+    text: '',
+    eyebrow: '',
+    subtitle: '',
+    sideLine: '',
+    dotColor: '#ED3821',
+    breathPeriod: 1,
+    steps: 4,
+    stepFrames: 8,
+    exitAt: 0,
+    letterStepFrames: 2,
+    font: 'display',
   },
   propDocs: {
-    variant: 'chapter (numeral + title + typed subtitle) | stack (end-card lines + side column)',
+    variant: 'chapter (numeral + title + typed subtitle) | stack (end-card lines + side column) | water (caps rise from a thin waterline, damped overshoot + splash dots) | numeral (giant numeral climbing into a clip window in eased steps) | vertical (vertical word lockup + side line) | breathing (end card: dot drops, headline rises, rule, typed eyebrow, breathing dot with rings)',
     chapter: '{number, title, kicker?, subtitle?} shown (after the swap if fromChapter is set)',
     fromChapter: 'previous chapter shown first and swapped out at swapAt (null = enter fresh, numeral rolls from 00)',
     swapAt: 'frame the previous title exits upward',
@@ -298,7 +326,18 @@ export const maskRiseTitle = defineMotion<Props>({
     progressRule: 'chapter: global progress rule + timecode at the bottom',
     exit: 'compress (chapter) or skew-slide (stack) out over the last 12 frames',
     backdrop: 'cream | ink | dunes | … (plain background colour for cream)',
+    text: "variants water / numeral / vertical / breathing: the headline ('' = a built-in sample word per variant)",
+    eyebrow: 'breathing: mono eyebrow typed above the headline behind a block cursor',
+    subtitle: 'water / numeral / breathing: sub-line',
+    sideLine: 'vertical: small tracked caps line running alongside the vertical word',
+    dotColor: 'breathing: accent dot colour (also its rings and the rule tick)',
+    breathPeriod: 'breathing: seconds per breath (dot swells, ring emitted)',
+    steps: 'numeral: number of eased climb steps',
+    stepFrames: 'numeral: frames per step',
+    exitAt: 'water / numeral / vertical / breathing: frame to exit (0 = the last 12 frames when exit is true)',
+    letterStepFrames: 'vertical: frames between letters (2)',
+    font: 'water / numeral / vertical / breathing: display | sans | serif | instrument | rounded | grotesk',
   },
   component: MaskRiseTitle,
-  tags: ['title', 'chapter', 'mask', 'reveal', 'editorial', 'endcard'],
+  tags: ['title', 'chapter', 'mask', 'reveal', 'editorial', 'endcard', 'water', 'numeral', 'stepped', 'vertical', 'lockup', 'breathing', 'slogan', 'calm'],
 });

@@ -4,6 +4,7 @@ import {clamp, ease, lerp, prog} from '../../core/ease';
 import {rng, range} from '../../core/random';
 import {FilmGrain, Svg, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
+import {SEASON_PALETTES, SeasonParticles, seasonMix} from '../../core/r2-e2-season-kit';
 import {Moon, Stars, circlesD, makeRidge, mix, ramp, ridgePath} from '../../core/world-kit';
 
 type Stop = {t: number; skyTop: string; skyBottom: string; sun: string; grade: string};
@@ -19,14 +20,19 @@ type Props = {
   moon: boolean;
   hills: string[];
   seed: string;
+  /** internal: hold the time-of-day at this 0..1 value (used by the season modes) */
+  fixedT?: number;
+  season?: 'off' | 'cycle' | 'spring' | 'summer' | 'autumn' | 'winter';
+  seasonFrames?: number;
+  seasonFade?: number;
 };
 
-const TimeOfDayGrade: React.FC<Props> = ({stops, holdStart, holdEnd, lights, lightsAt, nightGrade, sun, moon, hills, seed}) => {
+const TimeOfDayGrade: React.FC<Props> = ({stops, holdStart, holdEnd, lights, lightsAt, nightGrade, sun, moon, hills, seed, fixedT}) => {
   const frame = useCurrentFrame();
   const {w, h, u, durationInFrames: D, portrait} = useStage();
   const id = `time-of-day-grade-${seed}`;
   const st = [...stops].sort((a, b) => a.t - b.t);
-  const T = prog(frame, holdStart, D - holdEnd, ease.sine);
+  const T = fixedT !== undefined ? fixedT : prog(frame, holdStart, D - holdEnd, ease.sine);
   const ts = st.map((s) => s.t);
   const skyTop = ramp(T, ts, st.map((s) => s.skyTop));
   const skyBot = ramp(T, ts, st.map((s) => s.skyBottom));
@@ -162,6 +168,30 @@ const TimeOfDayGrade: React.FC<Props> = ({stops, holdStart, holdEnd, lights, lig
   );
 };
 
+/** season modes: crossfade fixed-time village scenes per season and add falling petals / leaves / snow */
+const TimeOfDayRoot: React.FC<Props> = (p) => {
+  const frame = useCurrentFrame();
+  const {durationInFrames: D} = useStage();
+  if (!p.season || p.season === 'off') return <TimeOfDayGrade {...p} />;
+  const mix = seasonMix(frame, D, p.season, p.seasonFrames ?? 0, p.seasonFade ?? 18);
+  return (
+    <AbsoluteFill style={{background: '#000'}}>
+      {mix.map((m) => {
+        const pal = SEASON_PALETTES[m.season];
+        const stops = [{t: 0, skyTop: pal.skyTop, skyBottom: pal.skyBottom, sun: pal.sun, grade: pal.grade}, {t: 1, skyTop: pal.skyTop, skyBottom: pal.skyBottom, sun: pal.sun, grade: pal.grade}];
+        return (
+          <AbsoluteFill key={m.season} style={{opacity: m.alpha}}>
+            <TimeOfDayGrade {...p} stops={stops} hills={pal.hills} fixedT={pal.fixedT} lights={false} moon={false} nightGrade={0} seed={p.seed} />
+          </AbsoluteFill>
+        );
+      })}
+      {mix.map((m) => (
+        <SeasonParticles key={m.season} season={m.season} alpha={m.alpha} seed={p.seed} />
+      ))}
+    </AbsoluteFill>
+  );
+};
+
 export const timeOfDayGrade = defineMotion<Props>({
   id: 'time-of-day-grade',
   title: 'Time-of-day grade (day to night)',
@@ -189,6 +219,9 @@ export const timeOfDayGrade = defineMotion<Props>({
     moon: true,
     hills: ['#9db4c4', '#7fa37a', '#5f8f4f'],
     seed: 'village',
+    season: 'off',
+    seasonFrames: 0,
+    seasonFade: 18,
   },
   propDocs: {
     stops: 'grade keyframes [{t 0..1, skyTop, skyBottom, sun, grade}] (grade = multiply wash colour)',
@@ -201,7 +234,10 @@ export const timeOfDayGrade = defineMotion<Props>({
     moon: 'moon rising at night',
     hills: 'hill colours far, mid, near (before grading)',
     seed: 'random seed',
+    season: "off (day to night) | cycle (spring -> summer -> autumn -> winter with petals, leaves, snow) | spring | summer | autumn | winter (one fixed season)",
+    seasonFrames: 'cycle: frames per season (0 = split the duration in four; 2-4 s each is typical)',
+    seasonFade: 'cycle: crossfade frames between seasons (≈30 in the source)',
   },
-  component: TimeOfDayGrade,
-  tags: ['time', 'day', 'night', 'grade', 'sunset', 'mood', 'village'],
+  component: TimeOfDayRoot,
+  tags: ['time', 'day', 'night', 'grade', 'sunset', 'mood', 'village', 'season', 'seasons', 'spring', 'autumn', 'winter', 'snow', 'petals', 'leaves', 'year in review'],
 });

@@ -5,6 +5,7 @@ import {n2} from '../../core/random';
 import {FilmGrain, Vignette, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
 import {ChannelLayer, FilterDefs, Plate, PlatePaletteName, buildPlate, useSafeId} from '../../core/image-kit';
+import {CrtOverlay, DamageOverlay, GateMask} from '../../core/r2-e4-kit';
 
 /**
  * Cinematic finishing stack (video8 film-post-stack, video16 anamorphic-flare, video21 letterbox):
@@ -36,9 +37,43 @@ type Props = {
   aspect: number;
   weave: number;
   push: number;
+  look: 'film' | 'print' | 'crt' | 'projector';
+  scratches: number;
+  dust: number;
+  hair: boolean;
+  burn: number;
+  sepia: number;
+  flicker: number;
+  crank: number;
+  scanlines: number;
+  rollBand: number;
+  sliceGlitch: number;
+  phosphor: string;
+  curvature: number;
+  impactFlashAt: number;
+  gate: number;
+  gateRadius: number;
+  gateSoft: number;
 };
 
-const FilmLook: React.FC<Props> = (p) => {
+/** presets applied on top of untouched props (explicit non-default props always win) */
+const LOOKS: Record<string, Partial<Props>> = {
+  film: {},
+  print: {scratches: 0.6, dust: 0.8, hair: true, burn: 0.5, sepia: 0.25, flicker: 1, weave: 1.4, grain: 0.16, vignette: 0.55, flare: false, letterbox: 'off'},
+  crt: {scanlines: 0.6, rollBand: 0.5, sliceGlitch: 0.5, fringe: 2.2, flare: false, vignette: 0.45, curvature: 0.045, letterbox: 'off', grain: 0.06},
+  projector: {gate: 1.37, gateRadius: 22, gateSoft: 6, flicker: 1, scratches: 0.4, dust: 0.6, sepia: 0.12, weave: 1.6, vignette: 0.5, flare: false, letterbox: 'off'},
+};
+
+const FilmLook: React.FC<Props> = (p0) => {
+  const p = React.useMemo(() => {
+    const pre = LOOKS[p0.look] ?? {};
+    const base = filmLook.defaultProps as Props;
+    const out: Props = {...p0};
+    (Object.keys(pre) as (keyof Props)[]).forEach((k) => {
+      if (p0[k] === base[k]) (out as any)[k] = pre[k];
+    });
+    return out;
+  }, [p0]);
   const frame = useCurrentFrame();
   const {w, h, u, fps, durationInFrames: D, portrait} = useStage();
   const id = useSafeId('film');
@@ -62,6 +97,7 @@ const FilmLook: React.FC<Props> = (p) => {
   const wx = (random(`wx${frame}`) - 0.5) * 2 * p.weave * u;
   const wy = (random(`wy${frame}`) - 0.5) * 2 * p.weave * u;
   const expo = 1 + (random(`ex${frame}`) - 0.5) * 0.03;
+  const gateId = useSafeId('gate');
 
   // flare intensity: fades up, flickers with "occlusion" (two dips), noise shimmer
   const occl = 1 - 0.75 * Math.exp(-Math.pow((frame - D * 0.55) / 6, 2)) - 0.5 * Math.exp(-Math.pow((frame - D * 0.62) / 3, 2));
@@ -148,8 +184,15 @@ const FilmLook: React.FC<Props> = (p) => {
           </g>
         </svg>
       )}
+      {(p.sepia > 0 || p.scratches > 0 || p.dust > 0 || p.hair || p.burn > 0 || p.flicker > 0) && (
+        <DamageOverlay frame={frame} w={w} h={h} u={u} seed={p.seed} scratches={p.scratches} dust={p.dust} hair={p.hair} burn={p.burn} sepia={p.sepia} flicker={p.flicker} crank={p.crank} />
+      )}
+      {(p.scanlines > 0 || p.rollBand > 0 || p.sliceGlitch > 0 || p.phosphor || p.curvature > 0 || p.impactFlashAt >= 0) && (
+        <CrtOverlay frame={frame} w={w} h={h} u={u} seed={p.seed} scanlines={p.scanlines} rollBand={p.rollBand} sliceGlitch={p.sliceGlitch} phosphor={p.phosphor} curvature={p.curvature} flashAt={p.impactFlashAt} />
+      )}
       {p.vignette > 0 && <Vignette strength={p.vignette} />}
       {p.grain > 0 && <FilmGrain opacity={p.grain} every={1} />}
+      {p.gate > 0 && <GateMask w={w} h={h} aspect={p.gate} radius={p.gateRadius * u} softness={p.gateSoft * u} id={gateId} />}
       {bar > 0 && (
         <>
           <div style={{position: 'absolute', left: 0, top: 0, width: w, height: Math.round(bar), background: '#000'}} />
@@ -187,6 +230,23 @@ export const filmLook = defineMotion<Props>({
     aspect: 2.39,
     weave: 0.6,
     push: 1,
+    look: 'film',
+    scratches: 0,
+    dust: 0,
+    hair: false,
+    burn: 0,
+    sepia: 0,
+    flicker: 0,
+    crank: 1,
+    scanlines: 0,
+    rollBand: 0,
+    sliceGlitch: 0,
+    phosphor: '',
+    curvature: 0,
+    impactFlashAt: -1,
+    gate: 0,
+    gateRadius: 22,
+    gateSoft: 0,
   },
   propDocs: {
     src: 'public/ image path; empty = procedural plate',
@@ -207,7 +267,24 @@ export const filmLook = defineMotion<Props>({
     aspect: 'letterbox picture aspect (2.39)',
     weave: 'gate weave jitter in px',
     push: 'slow push-in in %/s',
+    look: "preset on top of untouched props: film (default) | print (damaged nitrate print: scratches, dust, hair, burn, sepia, flicker) | crt (scanlines, roll band, slice glitch, fringe) | projector (rounded 1.37 gate, flicker, scratches)",
+    scratches: 'vertical emulsion scratches 0..1 (0 = off, ~0.6 print)',
+    dust: 'dust specks per frame 0..2',
+    hair: 'a hair that lives in the gate for a few frames now and then',
+    burn: 'brown burn creeping in from the edges 0..1',
+    sepia: 'sepia / silver colour veil 0..1',
+    flicker: 'whole-frame exposure flicker 0..2 (print flicker 1)',
+    crank: 'print damage speed multiplier (1 = normal)',
+    scanlines: 'CRT scanline strength 0..1',
+    rollBand: 'rolling interference band 0..1',
+    sliceGlitch: 'horizontal slice glitches 0..1',
+    phosphor: 'monochrome phosphor tint colour (e.g. #33ff66); empty = off',
+    curvature: 'curved-glass edge darkening 0..0.1 (0.045 = CRT)',
+    impactFlashAt: 'frame of a white-hot impact flash (-1 = none)',
+    gate: 'projector gate aspect (1.37 = academy); 0 = off. Black surround with rounded corners',
+    gateRadius: 'gate corner radius px at 1080p',
+    gateSoft: 'gate rim softness px at 1080p',
   },
   component: FilmLook,
-  tags: ['image', 'film', 'grain', 'bloom', 'flare', 'anamorphic', 'letterbox', 'vignette', 'overlay', 'post'],
+  tags: ['image', 'film', 'grain', 'bloom', 'flare', 'anamorphic', 'letterbox', 'vignette', 'overlay', 'post', 'crt', 'scanlines', 'phosphor', 'scratches', 'dust', 'print damage', 'old film', 'projector', 'gate', 'newsreel', 'retro', 'sepia', 'vhs'],
 });

@@ -38,6 +38,13 @@ type Props = {
   chrome: boolean;
   cursor: boolean;
   scroll: number;
+  device: 'browser' | 'laptop';
+  lidFrames: number;
+  lidAt: number;
+  deviceColor: string;
+  cursorPath: {t0: number; t1: number; to: [number, number]; arc?: number}[];
+  clicks: number[];
+  clickPush: number;
 };
 
 // ---------------------------------------------------------------------------------------------- hero art
@@ -325,12 +332,22 @@ const BrowserMockup: React.FC<Props> = (p) => {
   const id = 'bmock';
 
   // window rect (inset 3.7 % / 4.6 %)
-  const insX = w * (portrait ? 0.04 : 0.046);
-  const insY = h * (portrait ? 0.03 : 0.037);
-  const rad = h * 0.013 * (portrait ? 0.7 : 1);
+  const lap = p.device === 'laptop';
+  const bz = lap ? 14 * u : 0; // laptop bezel thickness
+  const lapW = w * (portrait ? 0.86 : 0.72);
+  const lapH = Math.min(lapW * 0.62, h * 0.7);
+  const baseH = lap ? lapH * 0.07 : 0;
+  const insX = lap ? (w - lapW) / 2 + bz : w * (portrait ? 0.04 : 0.046);
+  const insY = lap ? (h - lapH - baseH) / 2 + bz : h * (portrait ? 0.03 : 0.037);
+  const rad = lap ? 8 * u : h * 0.013 * (portrait ? 0.7 : 1);
   const barH = p.chrome ? 46 * u : 0;
-  const Wn = w - insX * 2;
-  const Hn = h - insY * 2;
+  const Wn = lap ? lapW - bz * 2 : w - insX * 2;
+  const Hn = lap ? lapH - bz * 2 : h - insY * 2;
+  // laptop lid: opens from flat toward the camera with a small overshoot; screen content fades up between 30 % and 70 % open
+  const lidT = lap ? prog(frame, p.lidAt, p.lidAt + p.lidFrames, ease.out) : 1;
+  const lidOver = lap ? Math.sin(Math.PI * clamp((frame - p.lidAt) / Math.max(1, p.lidFrames * 1.4))) * 3 * (1 - lidT) : 0;
+  const lidRot = lap ? (1 - lidT) * 75 : 0; // deg the lid is still folded back (0 = face-on)
+  const screenOn = lap ? clamp((lidT - 0.3) / 0.4) : 1;
   const W = Wn;
   const H = Hn - barH; // viewport
   const enter = prog(frame, 0, 22, ease.out);
@@ -353,10 +370,44 @@ const BrowserMockup: React.FC<Props> = (p) => {
   const ctaY = portrait ? navH + hlSize * 2.3 + 190 * u : navH + H * 0.1 + 78 * u;
   const cp = prog(frame, 50, 92, ease.inOut);
   const c0 = [W * 0.48, H * 0.73];
-  const curX = c0[0] + (ctaX + 30 * u - c0[0]) * cp + Math.sin(cp * Math.PI) * 30 * u;
-  const curY = c0[1] + (ctaY + 14 * u - c0[1]) * cp - Math.sin(cp * Math.PI) * 40 * u;
-  const press = prog(frame, 100, 104, ease.out) * (1 - prog(frame, 106, 112, ease.out));
-  const hover = prog(frame, 88, 96, ease.out);
+  let curX = c0[0] + (ctaX + 30 * u - c0[0]) * cp + Math.sin(cp * Math.PI) * 30 * u;
+  let curY = c0[1] + (ctaY + 14 * u - c0[1]) * cp - Math.sin(cp * Math.PI) * 40 * u;
+  let press = prog(frame, 100, 104, ease.out) * (1 - prog(frame, 106, 112, ease.out));
+  let hover = prog(frame, 88, 96, ease.out);
+  let curOp = 1;
+  let push = 0;
+  if (p.cursorPath.length) {
+    // scripted cursor: glides on arcs between waypoints (fractions of the viewport), never teleports
+    let px = c0[0];
+    let py = c0[1];
+    let cx = px;
+    let cy = py;
+    for (const seg of p.cursorPath) {
+      const tx = seg.to[0] * W;
+      const ty = seg.to[1] * H;
+      const k = prog(frame, seg.t0, seg.t1, ease.inOut);
+      if (frame >= seg.t0) {
+        const arc = (seg.arc ?? 40) * u;
+        const dx = tx - px;
+        const dy = ty - py;
+        const len = Math.hypot(dx, dy) || 1;
+        cx = px + dx * k + (-dy / len) * Math.sin(k * Math.PI) * arc;
+        cy = py + dy * k + (dx / len) * Math.sin(k * Math.PI) * arc;
+      }
+      px = tx;
+      py = ty;
+    }
+    curX = cx;
+    curY = cy;
+    press = 0;
+    for (const c of p.clicks) {
+      press = Math.max(press, prog(frame, c, c + 3, ease.out) * (1 - prog(frame, c + 4, c + 9, ease.out)));
+      push = Math.max(push, prog(frame, c, c + 3, ease.out) * (1 - prog(frame, c + 4, c + 14, ease.out)));
+    }
+    hover = press > 0 ? 1 : 0;
+    const t0 = p.cursorPath[0].t0;
+    curOp = prog(frame, t0 - 4, t0 + 5, ease.out);
+  }
 
   const grad = `linear-gradient(90deg, ${p.gradFrom} 0%, ${p.gradTo} 100%)`;
   const textGrad: React.CSSProperties = {backgroundImage: grad, WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextFillColor: 'transparent'};
@@ -489,6 +540,28 @@ const BrowserMockup: React.FC<Props> = (p) => {
   const thumbY = 8 * u + (H - thumbH - 16 * u) * scrollT;
   return (
     <AbsoluteFill style={{background: `radial-gradient(ellipse at 0% 0%, ${p.backdrop[0]} 0%, transparent 45%), linear-gradient(${p.backdrop[1]} 0%, ${p.backdrop[2]} 55%, ${p.backdrop[3]} 100%)`}}>
+      {lap && (
+        <div style={{position: 'absolute', left: (w - lapW) / 2 - 22 * u, top: (h - lapH - baseH) / 2 + lapH, width: lapW + 44 * u, height: baseH, opacity: enter, background: `linear-gradient(180deg, ${p.deviceColor} 0%, #9a8470 100%)`, borderRadius: `0 0 ${22 * u}px ${22 * u}px`, clipPath: 'polygon(0 0, 100% 0, 100% 62%, 98.5% 100%, 1.5% 100%, 0 62%)', boxShadow: `0 ${h * 0.02}px ${h * 0.04}px rgba(0,0,0,0.3)`}}>
+          <div style={{position: 'absolute', left: '42%', width: '16%', top: 0, height: '38%', background: 'rgba(0,0,0,0.16)', borderRadius: `0 0 ${10 * u}px ${10 * u}px`}} />
+        </div>
+      )}
+      {lap && (
+        <div
+          style={{
+            position: 'absolute',
+            left: (w - lapW) / 2,
+            top: (h - lapH - baseH) / 2,
+            width: lapW,
+            height: lapH,
+            borderRadius: 18 * u,
+            background: lidT < 0.99 ? p.deviceColor : '#15171c',
+            transformOrigin: '50% 100%',
+            transform: `perspective(${lapW * 2.2}px) rotateX(${lidRot - lidOver}deg) scale(${1 + 0.0 * push})`,
+            boxShadow: `0 ${h * 0.012}px ${h * 0.03}px rgba(0,0,0,0.25)`,
+            opacity: enter,
+          }}
+        />
+      )}
       <div
         style={{
           position: 'absolute',
@@ -498,14 +571,16 @@ const BrowserMockup: React.FC<Props> = (p) => {
           height: Hn,
           borderRadius: rad,
           overflow: 'hidden',
-          boxShadow: `0 ${h * 0.022}px ${h * 0.055}px rgba(20,25,35,${0.35 * enter})`,
-          transform: `translateY(${(1 - enter) * 40 * u}px) scale(${0.97 + 0.03 * enter})`,
+          boxShadow: lap ? 'none' : `0 ${h * 0.022}px ${h * 0.055}px rgba(20,25,35,${0.35 * enter})`,
+          transformOrigin: lap ? `50% ${Hn + bz}px` : undefined,
+          transform: lap ? `perspective(${lapW * 2.2}px) rotateX(${lidRot - lidOver}deg)` : `translateY(${(1 - enter) * 40 * u}px) scale(${(0.97 + 0.03 * enter) * (1 + p.clickPush * push)})`,
           opacity: enter,
-          background: p.paper,
+          background: lap ? '#1A1A1A' : p.paper,
         }}
       >
+        {lap && <div style={{position: 'absolute', inset: 0, background: p.paper, opacity: screenOn, zIndex: 0}} />}
         {p.chrome && (
-          <div style={{position: 'absolute', left: 0, top: 0, width: Wn, height: barH, background: '#f4f5f8', borderBottom: '1px solid rgba(20,35,91,0.1)', display: 'flex', alignItems: 'center'}}>
+          <div style={{position: 'absolute', left: 0, top: 0, width: Wn, height: barH, opacity: screenOn, background: '#f4f5f8', borderBottom: '1px solid rgba(20,35,91,0.1)', display: 'flex', alignItems: 'center'}}>
             {['#ff5f57', '#febc2e', '#28c840'].map((c, i) => (
               <div key={i} style={{width: 13 * u, height: 13 * u, borderRadius: '50%', background: c, marginLeft: (i ? 8 : 20) * u}} />
             ))}
@@ -535,12 +610,12 @@ const BrowserMockup: React.FC<Props> = (p) => {
             </div>
           </div>
         )}
-        <div style={{position: 'absolute', left: 0, top: barH, width: W, height: H, overflow: 'hidden'}}>
+        <div style={{position: 'absolute', left: 0, top: barH, width: W, height: H, overflow: 'hidden', opacity: screenOn}}>
           {page}
           <div style={{position: 'absolute', right: 4 * u, top: thumbY, width: 4 * u, height: thumbH, borderRadius: 2 * u, background: 'rgba(85,85,85,0.5)', opacity: p.scroll > 0 ? 1 : 0.6}} />
           {p.cursor && (
             <svg width={W} height={H} style={{position: 'absolute', inset: 0}}>
-              <ArrowCursor x={curX} y={curY} size={(portrait ? 40 : 32) * u} press={press} />
+              <g opacity={curOp}><ArrowCursor x={curX} y={curY} size={(portrait ? 40 : 32) * u} press={press} /></g>
             </svg>
           )}
         </div>
@@ -578,6 +653,13 @@ export const browserMockup = defineMotion<Props>({
     chrome: true,
     cursor: true,
     scroll: 0.5,
+    device: 'browser',
+    lidFrames: 14,
+    lidAt: 4,
+    deviceColor: '#CBAE93',
+    cursorPath: [],
+    clicks: [],
+    clickPush: 0.012,
   },
   propDocs: {
     brand: 'brand name in the nav',
@@ -592,7 +674,14 @@ export const browserMockup = defineMotion<Props>({
     backdrop: '[highlight, top, mid, bottom] studio backdrop colours',
     chrome: 'show the browser top bar (traffic lights + URL)',
     scroll: 'how far the page scrolls (fraction of the viewport, 0 = no scroll)',
+    device: "browser (default floating window) | laptop (aluminium laptop on the desk whose lid opens toward the camera, screen fading up to the page)",
+    lidFrames: 'laptop: frames the lid takes to open',
+    lidAt: 'laptop: frame the lid starts opening',
+    deviceColor: 'laptop: aluminium colour',
+    cursorPath: '[{t0, t1, to:[x,y] fractions of the viewport, arc px}] scripted cursor glide on arcs between waypoints (overrides the default CTA click path)',
+    clicks: 'frames at which the cursor clicks (dip + tiny camera push); used with cursorPath',
+    clickPush: 'camera push amount on a click (0.012 = 1.2 %)',
   },
   component: BrowserMockup,
-  tags: ['browser', 'website', 'mockup', 'landing-page', 'cinemagraph', 'ui'],
+  tags: ['browser', 'website', 'mockup', 'landing-page', 'cinemagraph', 'ui', 'laptop', 'device', 'lid open', 'cursor', 'click', 'screen', 'product promo'],
 });

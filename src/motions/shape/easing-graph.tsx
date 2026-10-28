@@ -26,11 +26,23 @@ type Props = {
   title: string;
   subtitle: string;
   code: string;
+  /** lane race (EXTENDS r2): replaces the two A/B tracks with N labelled lanes: linear | ease-out | bezier | spring | back | steps; [] = classic A/B tracks */
+  lanes: string[];
+};
+
+const LANE_FN: Record<string, (x: number, bez: (x: number) => number) => number> = {
+  linear: (x) => x,
+  'ease-out': (x) => 1 - Math.pow(1 - x, 3),
+  'ease-in': (x) => x * x * x,
+  bezier: (x, bez) => bez(x),
+  spring: (x) => 1 - Math.exp(-6.5 * x) * Math.cos(x * Math.PI * 3.2),
+  back: (x) => 1 + 2.7 * Math.pow(x - 1, 3) + 1.7 * Math.pow(x - 1, 2),
+  steps: (x) => Math.floor(x * 6) / 6 + (x >= 1 ? 1 - 1 : 0),
 };
 
 const LIN: [number, number, number, number] = [0.33, 0.33, 0.67, 0.67];
 
-const EasingGraph: React.FC<Props> = ({background, easing, traverse, tickCount, colorA, colorB, labelA, labelB, zones, hud, numeral, title, subtitle, code}) => {
+const EasingGraph: React.FC<Props> = ({background, easing, traverse, tickCount, colorA, colorB, labelA, labelB, zones, hud, numeral, title, subtitle, code, lanes}) => {
   const frame = useCurrentFrame();
   const {w, h, u, portrait} = useStage();
   const ink = P17.ink;
@@ -105,7 +117,7 @@ const EasingGraph: React.FC<Props> = ({background, easing, traverse, tickCount, 
     <AbsoluteFill style={{background}}>
       <Svg>
         {/* tracks */}
-        {[yA, yB].map((y, i) => (
+        {!lanes.length && [yA, yB].map((y, i) => (
           <g key={i}>
             <line x1={tx0} x2={lerp(tx0, tx1, draw)} y1={y} y2={y} stroke={ink} strokeWidth={1.5 * u} opacity={0.6} />
             <circle cx={tx0} cy={y} r={4 * u} fill={ink} />
@@ -113,12 +125,32 @@ const EasingGraph: React.FC<Props> = ({background, easing, traverse, tickCount, 
             <line x1={tx0} x2={tx1} y1={y + rB + 30 * u} y2={y + rB + 30 * u} stroke={ink} strokeWidth={0.8 * u} opacity={0.15 * draw} />
           </g>
         ))}
-        <g transform={`translate(0 ${rB + 22 * u})`}>
-          {ticks(yA, (x) => x, colorA, 'a')}
-          {ticks(yB, eased, colorB, 'b')}
-        </g>
-        <circle cx={xA} cy={yA} r={rA * draw} fill={colorA} />
-        <circle cx={xB} cy={yB} r={rB * draw} fill={colorB} />
+        {!lanes.length && (
+          <>
+            <g transform={`translate(0 ${rB + 22 * u})`}>
+              {ticks(yA, (x) => x, colorA, 'a')}
+              {ticks(yB, eased, colorB, 'b')}
+            </g>
+            <circle cx={xA} cy={yA} r={rA * draw} fill={colorA} />
+            <circle cx={xB} cy={yB} r={rB * draw} fill={colorB} />
+          </>
+        )}
+        {lanes.map((ln, li) => {
+          const y = lerp(portrait ? h * 0.1 : h * 0.18, portrait ? h * 0.34 : h * 0.74, lanes.length > 1 ? li / (lanes.length - 1) : 0.5);
+          const fn = LANE_FN[ln] ?? LANE_FN.linear;
+          const colr = li % 2 ? colorB : colorA;
+          return (
+            <g key={ln + li} opacity={draw}>
+              <line x1={tx0} x2={tx1} y1={y} y2={y} stroke={ink} strokeWidth={1.5 * u} opacity={0.5} />
+              {Array.from({length: N}, (_, k) => {
+                if (k > shown) return null;
+                const x = lerp(tx0, tx1, pos(clamp(fn(k / (N - 1), fB))));
+                return <line key={k} x1={x} x2={x} y1={y + 16 * u} y2={y + 34 * u} stroke={colr} strokeWidth={1.6 * u} />;
+              })}
+              <circle cx={lerp(tx0, tx1, pos(fn(uRaw, fB)))} cy={y} r={(li === 2 ? 22 : 18) * u * draw} fill={li === 2 ? '#fff' : colr} stroke={li === 2 ? ink : 'none'} strokeWidth={4 * u} />
+            </g>
+          );
+        })}
         {/* graph editor */}
         <g opacity={panelIn} transform={`translate(${gx + S / 2} ${gy + S / 2}) scale(${0.94 + 0.06 * panelIn}) translate(${-gx - S / 2} ${-gy - S / 2})`}>
           <rect x={gx} y={gy} width={S} height={S} rx={4 * u} fill={ink} />
@@ -176,16 +208,27 @@ const EasingGraph: React.FC<Props> = ({background, easing, traverse, tickCount, 
           {')'}
         </div>
       </div>
-      <Mono x={tx0} y={yA - rB - 34 * u} size={12} color={ink} opacity={draw}>
-        {labelA}
-      </Mono>
-      <Mono x={tx0 + 200 * u} y={yA - rB - 34 * u} size={11} color={P17.grey} opacity={draw}>
-        {`Δx ${(((tx1 - tx0) / u / (N - 1)) * 1).toFixed(1)} px/f · constant`}
-      </Mono>
-      <Mono x={tx0} y={yB - rB - 34 * u} size={12} color={colorB} opacity={draw}>
-        {frame >= m0 ? labelB : 'B · LINEAR'}
-      </Mono>
-      {zones.length >= 3 &&
+      {lanes.map((ln, li) => (
+        <Mono key={ln + li} x={tx0} y={lerp(portrait ? h * 0.1 : h * 0.18, portrait ? h * 0.34 : h * 0.74, lanes.length > 1 ? li / (lanes.length - 1) : 0.5) - 34 * u} size={12} color={li % 2 ? colorB : ink} opacity={draw}>
+          {ln.toUpperCase()}
+        </Mono>
+      ))}
+      {!lanes.length && (
+        <Mono x={tx0} y={yA - rB - 34 * u} size={12} color={ink} opacity={draw}>
+          {labelA}
+        </Mono>
+      )}
+      {!lanes.length && (
+        <Mono x={tx0 + 200 * u} y={yA - rB - 34 * u} size={11} color={P17.grey} opacity={draw}>
+          {`Δx ${(((tx1 - tx0) / u / (N - 1)) * 1).toFixed(1)} px/f · constant`}
+        </Mono>
+      )}
+      {!lanes.length && (
+        <Mono x={tx0} y={yB - rB - 34 * u} size={12} color={colorB} opacity={draw}>
+          {frame >= m0 ? labelB : 'B · LINEAR'}
+        </Mono>
+      )}
+      {!lanes.length && zones.length >= 3 &&
         [0, 0.5, 1].map((p, i) => (
           <Mono key={i} x={lerp(tx0, tx1, p)} y={yB + rB + 50 * u} size={10} color={colorB} anchor={i === 0 ? 'left' : i === 1 ? 'center' : 'right'} opacity={zonesIn}>
             {zones[leg.dir > 0 ? i : 2 - i]}
@@ -219,6 +262,7 @@ export const easingGraph = defineMotion<Props>({
     title: 'SLOW IN & SLOW OUT',
     subtitle: 'Ease into every pose. Ease out of it.',
     code: 'x = x0 + Δx·ease(u) // same frames, different spacing',
+    lanes: [],
   },
   propDocs: {
     easing: 'target cubic-bezier [x1, y1, x2, y2] the graph handles drag to',
@@ -228,7 +272,8 @@ export const easingGraph = defineMotion<Props>({
     colorB: 'eased ball / tick colour',
     zones: 'three labels under the eased track (start, middle, end)',
     hud: 'show HUD chrome + chapter title',
+    lanes: "lane race instead of the two tracks: any of 'linear','ease-out','ease-in','bezier' (uses easing),'spring','back','steps', e.g. ['linear','ease-out','bezier','spring']; [] = classic A/B",
   },
   component: EasingGraph,
-  tags: ['easing', 'graph', 'bezier', 'timing', 'explainer', 'ball'],
+  tags: ['easing', 'graph', 'bezier', 'timing', 'explainer', 'ball', 'lanes', 'spring', 'easing comparison', 'cubic-bezier', 'api docs', 'dev tool'],
 });

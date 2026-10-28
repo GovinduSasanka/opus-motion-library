@@ -182,7 +182,7 @@ const sids = new Set();
 const styleCatalog = smod.styleList.map((st) => {
   if (sids.has(st.id)) throw new Error(`duplicate style id ${st.id}`);
   sids.add(st.id);
-  return {id: st.id, name: st.name, family: st.family, description: st.description, useFor: st.useFor, palette: st.palette, fonts: st.fonts ?? null, step: st.step ?? 1, tags: st.tags, source: st.source ?? 'original'};
+  return {id: st.id, name: st.name, family: st.family, description: st.description, useFor: st.useFor, palette: st.palette, fonts: st.fonts ?? null, step: st.step ?? 1, tags: st.tags, source: st.source ?? 'original', cutout: st.cutout ?? false, signature: st.signature ?? [], avoid: st.avoid ?? [], confusableWith: st.confusableWith ?? [], motionRules: st.motionRules ?? null};
 });
 fs.writeFileSync(path.join(root, 'styles.json'), JSON.stringify(styleCatalog, null, 1));
 console.log(`registry: ${names.length} motions from ${files.length} files -> src/registry.ts, catalog.json, src/meta.ts, src/web/loaders.ts; ${recipeList.length} recipes -> src/recipes.ts; ${styleCatalog.length} styles -> src/styles/registry.ts, styles.json`);

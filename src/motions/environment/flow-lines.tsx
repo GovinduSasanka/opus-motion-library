@@ -20,7 +20,7 @@ import {defineMotion} from '../../core/types';
  *   2nd harmonic), scrolling 15 % W/s, pencil-wobbled on paper, 0.35 s fade in / out.
  */
 type Props = {
-  mode: 'wind' | 'heat' | 'steam' | 'waves';
+  mode: 'wind' | 'heat' | 'steam' | 'waves' | 'ink-curls';
   background: string;
   backdrop: boolean;
   color: string;
@@ -32,10 +32,18 @@ type Props = {
   sources: number[][];
   fade: boolean;
   seed: number;
+  /** ink-curls mode */
+  followPath: number[][];
+  spawnEvery: number;
+  drawFrames: number;
+  life: number;
+  curlSize: number;
+  dabs: number;
+  dabColors: string[];
 };
 
-const COLORS = {wind: '#5A6FAE', heat: '#FFFFFF', steam: '#FFFFFF', waves: '#2B2622'};
-const COUNTS = {wind: 7, heat: 18, steam: 8, waves: 16};
+const COLORS = {wind: '#5A6FAE', heat: '#FFFFFF', steam: '#FFFFFF', waves: '#2B2622', 'ink-curls': '#2B2520'};
+const COUNTS = {wind: 7, heat: 18, steam: 8, waves: 16, 'ink-curls': 12};
 
 const WindSky: React.FC<{t: number}> = ({t}) => {
   const {w, h, u, portrait} = useStage();
@@ -150,7 +158,7 @@ const Kitchen: React.FC<{sx: number; sy: number}> = ({sx, sy}) => {
   );
 };
 
-const FlowLines: React.FC<Props> = ({mode, background, backdrop, color, count, speed, amplitude, weight, curlProbability, sources, fade, seed}) => {
+const FlowLines: React.FC<Props> = ({mode, background, backdrop, color, count, speed, amplitude, weight, curlProbability, sources, fade, seed, followPath, spawnEvery, drawFrames, life, curlSize, dabs, dabColors}) => {
   const frame = useCurrentFrame();
   const {w, h, u, fps, durationInFrames, portrait} = useStage();
   const overlay = isTransparent(background);
@@ -264,6 +272,71 @@ const FlowLines: React.FC<Props> = ({mode, background, backdrop, color, count, s
         els.push(<path key={`${si}-${j}c`} d={smoothOpen(pts.slice(0, 5))} stroke={col} strokeWidth={sw * 0.4} fill="none" strokeLinecap="round" opacity={o * 0.8} />);
       }
     });
+  } else if (mode === 'ink-curls') {
+    // wind drawn as little "~@" ink curls that spawn behind a moving object, draw on, then erase from the tail;
+    // a trail of leaf-shaped wash dabs tumbles after
+    if (scene) backdropEl = null;
+    const D = durationInFrames;
+    const path = followPath.length >= 2 ? followPath : [[0.1, 0.55], [0.3, 0.42], [0.5, 0.52], [0.7, 0.4], [0.9, 0.48]];
+    const posAtF = (f: number) => {
+      const q = Math.max(0, Math.min(1, (f - 4) / Math.max(1, D - 24))) * (path.length - 1);
+      const i = Math.min(path.length - 2, Math.floor(q));
+      const k = q - i;
+      const kk = k * k * (3 - 2 * k);
+      return [(path[i][0] + (path[i + 1][0] - path[i][0]) * kk) * w, (path[i][1] + (path[i + 1][1] - path[i][1]) * kk) * h] as const;
+    };
+    const every = Math.max(2, spawnEvery);
+    const first = 6;
+    const nCurl = Math.floor((D - first) / every);
+    const R0 = 0.04 * Math.min(w, h * 1.4) * curlSize;
+    const heroP = posAtF(frame);
+    // the hero: a small ink-dot object the curls trail behind
+    els.push(<circle key="hero" cx={heroP[0]} cy={heroP[1]} r={9 * u} fill={col} />);
+    for (let k = 0; k < nCurl; k++) {
+      const s0 = first + k * every;
+      if (frame < s0 || frame > s0 + life + 6) continue;
+      const [px, py] = posAtF(s0);
+      const [qx, qy] = posAtF(s0 + 3);
+      const ang = Math.atan2(qy - py, qx - px);
+      const L = R0 * (3.2 + 1.2 * hash01(seed, k, 1));
+      const loopR = R0 * (0.55 + 0.25 * hash01(seed, k, 2));
+      // local curl: wavy line going back from the hero then a 1.25 turn loop at the far end
+      const pts: [number, number][] = [];
+      for (let i = 0; i <= 18; i++) {
+        const q = i / 18;
+        pts.push([-q * L, Math.sin(q * Math.PI * 2.2) * R0 * 0.28 * amplitude]);
+      }
+      for (let i = 1; i <= 24; i++) {
+        const th = (i / 24) * TAU * 1.25;
+        const rr = loopR * (1 - 0.4 * (i / 24));
+        const aa = -Math.PI / 2 - th;
+        pts.push([-L + rr * Math.cos(aa), loopR + rr * Math.sin(aa)]);
+      }
+      const cs = Math.cos(ang);
+      const sn = Math.sin(ang);
+      const world: [number, number][] = pts.map(([x, y]) => [px + x * cs - y * sn, py + x * sn + y * cs]);
+      const age = frame - s0;
+      const drawP = Math.min(1, age / Math.max(1, drawFrames));
+      const eraseP = Math.max(0, Math.min(1, (age - drawFrames) / Math.max(1, life - drawFrames)));
+      const d = smoothOpen(world);
+      els.push(
+        <path key={`c${k}`} d={d} pathLength={1} stroke={col} strokeWidth={(2.4 + 1.4 * hash01(seed, k, 3)) * u * weight} fill="none" strokeLinecap="round" strokeLinejoin="round" strokeDasharray={`${Math.max(0.0001, drawP - eraseP)} 2`} strokeDashoffset={-eraseP} opacity={drawP > 0 ? 1 : 0} />,
+      );
+    }
+    // leaf dabs: tumble and fall along the wake of the hero
+    const nDab = Math.max(0, Math.round(dabs));
+    const cols = dabColors.length ? dabColors : ['#6E9A4A', '#A7B84C', '#D98B3A', '#8DB07A'];
+    for (let j = 0; j < nDab; j++) {
+      const s0 = first + 4 + Math.floor(j * (D - first - 30) / Math.max(1, nDab));
+      const age = frame - s0;
+      if (age < 0 || age > 54) continue;
+      const [px, py] = posAtF(s0);
+      const k = age / 54;
+      const x = px - 40 * u * (1 + hash01(seed, j, 7)) * k + 14 * u * Math.sin(age * 0.3 + j);
+      const y = py + (60 + 80 * hash01(seed, j, 8)) * u * k * k + 10 * u * k;
+      const sz = (5 + 15 * hash01(seed, j, 9)) * u;
+      els.push(<ellipse key={`d${j}`} cx={x} cy={y} rx={sz} ry={sz * 0.5} fill={cols[j % cols.length]} opacity={0.8 * (1 - k * k)} transform={`rotate(${(age * 9 * (hash01(seed, j, 10) + 0.5)) % 360} ${x} ${y})`} />);
+    }
   } else {
     const t = (frame / fps) * speed;
     if (scene) backdropEl = null;
@@ -290,8 +363,8 @@ const FlowLines: React.FC<Props> = ({mode, background, backdrop, color, count, s
   const env = fade && mode === 'waves' ? Math.min(prog(frame, 0, 11, ease.out), 1 - prog(frame, durationInFrames - 11, durationInFrames, ease.in)) : 1;
   return (
     <AbsoluteFill style={{background: overlay ? 'transparent' : background}}>
-      {scene && mode === 'waves' && (
-        <AbsoluteFill style={{background: '#ECE4D7'}}>
+      {scene && (mode === 'waves' || mode === 'ink-curls') && (
+        <AbsoluteFill style={{background: mode === 'ink-curls' ? '#F1EAD8' : '#ECE4D7'}}>
           <Svg>
             <defs>
               <BlurFilter id="fl-wash" std={60 * u} />
@@ -342,9 +415,16 @@ export const flowLines = defineMotion<Props>({
     sources: [],
     fade: true,
     seed: 1,
+    followPath: [],
+    spawnEvery: 12,
+    drawFrames: 12,
+    life: 42,
+    curlSize: 1,
+    dabs: 8,
+    dabColors: [],
   },
   propDocs: {
-    mode: '"wind", "heat", "steam" or "waves"',
+    mode: '"wind", "heat", "steam", "waves" or "ink-curls" (wind drawn as ~@ ink curls spawning behind a moving object that draw on, then erase from the tail, with falling leaf dabs)',
     background: 'CSS background; "transparent" = overlay (lines only)',
     backdrop: 'paint the mode scene (sky / desert road / kitchen bowl / paper)',
     color: 'line colour; empty = mode default (#5A6FAE / white / white / ink #2B2622)',
@@ -356,7 +436,14 @@ export const flowLines = defineMotion<Props>({
     sources: 'steam: [[x, y], ...] emitter positions as frame fractions (default bowl at [0.5, 0.66])',
     fade: 'waves: 0.35 s fade in at the start and out at the end (wipe use)',
     seed: 'random seed',
+    followPath: 'ink-curls: [[x, y], ...] frame fractions the hero object travels along (empty = a gentle wave left to right)',
+    spawnEvery: 'ink-curls: frames between curl spawns (one per beat, e.g. 12)',
+    drawFrames: 'ink-curls: frames a curl takes to draw on (0.4 s = 12)',
+    life: 'ink-curls: frames before a curl has erased itself from its tail',
+    curlSize: 'ink-curls: curl size multiplier',
+    dabs: 'ink-curls: number of leaf-shaped wash dabs tumbling after the hero',
+    dabColors: 'ink-curls: foliage colours for the dabs (empty = greens / ochre)',
   },
   component: FlowLines,
-  tags: ['wind', 'heat', 'steam', 'waves', 'lines', 'air', 'overlay', 'ambience'],
+  tags: ['wind', 'heat', 'steam', 'waves', 'lines', 'air', 'overlay', 'ambience', 'ink', 'curls', 'ink-curls', 'sketch', 'leaves', 'illustrated'],
 });

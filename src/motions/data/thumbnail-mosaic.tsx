@@ -19,7 +19,7 @@ import {DEMO_IMAGES, SceneContent, inBack, lin, outBack} from '../../core/ui-kit
  *    (2 f stagger, 0.3→1.08→1), camera pushes into the screen, then the grid pops out to a dot.
  */
 type Props = {
-  layout: 'disc' | 'grid' | 'recap';
+  layout: 'disc' | 'grid' | 'recap' | 'spiral-count';
   images: string[];
   procedural: number;
   seed: number;
@@ -31,6 +31,12 @@ type Props = {
   accent: string;
   dotColor: string;
   duotone: string[];
+  /** spiral-count: grid side (3 = 3x3) */
+  cols: number;
+  /** spiral-count: frames between cells lighting up (1/16 s = 1.9) */
+  beat: number;
+  /** spiral-count: colour of the last (centre) cell and the counter */
+  lastColor: string;
 };
 
 type Tile = {src?: string; seed: number; pos: string; zoom: number};
@@ -346,7 +352,76 @@ const Recap: React.FC<Props> = (p) => {
   );
 };
 
-const ThumbnailMosaic: React.FC<Props> = (p) => (p.layout === 'grid' ? <Grid {...p} /> : p.layout === 'recap' ? <Recap {...p} /> : <Disc {...p} />);
+// ------------------------------------------------------------------------------------------------ spiral-count (EXTENDS r2)
+const spiralOrder = (n: number): number[] => {
+  const out: number[] = [];
+  let t = 0;
+  let b = n - 1;
+  let l = 0;
+  let r = n - 1;
+  while (t <= b && l <= r) {
+    for (let c = l; c <= r; c++) out.push(t * n + c);
+    t++;
+    for (let rr = t; rr <= b; rr++) out.push(rr * n + r);
+    r--;
+    if (t <= b) for (let c = r; c >= l; c--) out.push(b * n + c);
+    b--;
+    if (l <= r) for (let rr = b; rr >= t; rr--) out.push(rr * n + l);
+    l++;
+  }
+  return out;
+};
+
+const SpiralCount: React.FC<Props> = (p) => {
+  const frame = useCurrentFrame();
+  const {w, h, u, cx, cy, durationInFrames: D} = useStage();
+  const n = Math.max(2, Math.min(6, Math.round(p.cols)));
+  const total = n * n;
+  const tiles = useTiles(total, p.images, p.procedural, p.seed);
+  const order = React.useMemo(() => spiralOrder(n), [n]);
+  const side = Math.min(w, h) * (w > h ? 0.82 : 0.9);
+  const cell = side / n;
+  const t0 = 14;
+  const beat = Math.max(1, p.beat);
+  const lastIdx = order[total - 1];
+  const exit = 1 - prog(frame, D - 10, D - 2, ease.in);
+  const lit = (i: number) => {
+    const k = order.indexOf(i);
+    return frame - (t0 + 6 + k * beat);
+  };
+  const lastF = frame - (t0 + 6 + (total - 1) * beat);
+  const counted = Math.max(0, Math.min(total, Math.floor((frame - (t0 + 6)) / beat) + 1));
+  return (
+    <AbsoluteFill style={{background: p.background, opacity: exit}}>
+      <PaperTexture opacity={0.25} />
+      {Array.from({length: total}, (_, i) => {
+        const sc = ease.back(clamp((frame - (t0 + (i % n) * 1.5 + Math.floor(i / n) * 1.5)) / 8));
+        const f = lit(i);
+        const on = f >= 0;
+        const x = cx - side / 2 + (i % n) * cell + cell / 2;
+        const y = cy - side / 2 + Math.floor(i / n) * cell + cell / 2;
+        const flash = on ? 1 - clamp(f / 5) : 0;
+        const isLast = i === lastIdx;
+        const gap = 10 * u;
+        return (
+          <div key={i} style={{position: 'absolute', left: x - (cell - gap) / 2, top: y - (cell - gap) / 2, width: cell - gap, height: cell - gap, transform: `scale(${sc})`, overflow: 'hidden', borderRadius: 6 * u, border: `${3 * u}px solid ${on ? (isLast ? p.lastColor : '#2B2D42') : '#bdb3a0'}`, background: '#d8cfbf'}}>
+            <div style={{position: 'absolute', inset: 0, opacity: on ? 1 : 0.18, filter: on ? 'none' : 'grayscale(1)'}}>
+              <TileFill t={tiles[i]} id={`tms${i}`} frame={frame} />
+            </div>
+            {flash > 0 && <div style={{position: 'absolute', inset: 0, background: isLast ? p.lastColor : '#fff', opacity: flash * 0.55}} />}
+          </div>
+        );
+      })}
+      {counted > 0 && (
+        <div style={{position: 'absolute', left: cx - 46 * u, top: cy - 46 * u, width: 92 * u, height: 92 * u, borderRadius: '50%', background: counted >= total && lastF >= 0 ? p.lastColor : '#2B2D42', color: '#fff', fontFamily: 'Archivo Black, Inter, sans-serif', fontWeight: 900, fontSize: 56 * u, display: 'flex', alignItems: 'center', justifyContent: 'center', transform: `scale(${1 + 0.18 * (1 - clamp(((frame - (t0 + 6)) % beat) / 4))})`, boxShadow: `0 ${6 * u}px ${18 * u}px rgba(0,0,0,.35)`}}>
+          {counted}
+        </div>
+      )}
+    </AbsoluteFill>
+  );
+};
+
+const ThumbnailMosaic: React.FC<Props> = (p) => (p.layout === 'spiral-count' ? <SpiralCount {...p} /> : p.layout === 'grid' ? <Grid {...p} /> : p.layout === 'recap' ? <Recap {...p} /> : <Disc {...p} />);
 
 export const thumbnailMosaic = defineMotion<Props>({
   id: 'thumbnail-mosaic',
@@ -369,9 +444,15 @@ export const thumbnailMosaic = defineMotion<Props>({
     accent: '#E546AA',
     dotColor: '#3780E7',
     duotone: ['#1F4FA0', '#E8EEF8'],
+    cols: 3,
+    beat: 12,
+    lastColor: '#D8392B',
   },
   propDocs: {
-    layout: "'disc' (video4 ring disc), 'grid' (video2 mosaic wall), 'recap' (video14 monitor grid)",
+    layout: "'disc' (video4 ring disc), 'grid' (video2 mosaic wall), 'recap' (video14 monitor grid), 'spiral-count' (3x3 windows light in spiral order while the centre counter climbs; the centre lights last in red)",
+    cols: 'spiral-count: grid side (3 = 3x3, 2-6)',
+    beat: 'spiral-count: frames per lit cell',
+    lastColor: 'spiral-count: colour of the last cell / final counter',
     images: 'public/ image paths cycled through the thumbnails (empty = all procedural scenes)',
     procedural: '0..1 share of thumbnails drawn as procedural mini scenes instead of images',
     rings: 'disc: items per ring, first = centre dot',
@@ -383,5 +464,5 @@ export const thumbnailMosaic = defineMotion<Props>({
     duotone: 'disc: [shadow, highlight] of the duotone recolour before the pop-out',
   },
   component: ThumbnailMosaic,
-  tags: ['thumbnails', 'mosaic', 'grid', 'recap', 'collage', 'pop-out'],
+  tags: ['thumbnails', 'mosaic', 'grid', 'recap', 'collage', 'pop-out', 'spiral', 'count', 'counter', 'nine cities', 'windows grid', 'countdown'],
 });

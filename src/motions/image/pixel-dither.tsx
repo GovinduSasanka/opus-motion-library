@@ -27,6 +27,33 @@ type Props = {
   grain: number;
   vignette: number;
   fadeIn: number;
+  /** palette collapse (EXTENDS r2): colour-depth steps taken one per `stepFrames` after `collapseAt`; presets full (24 steps) | c16 | c8 (steps resampled from `colors`) | gb4 | c2 | faded (fixed blue-grey ramps) or a hex ramp "#000,#334,#99a" */
+  ladder: string[];
+  stepFrames: number;
+  collapseAt: number;
+};
+
+/** colour-depth presets: n = number of steps resampled from the main ramp; pal = fixed ramp */
+const LADDER: Record<string, {n?: number; pal?: string[]}> = {
+  full: {n: 24},
+  c16: {n: 16},
+  c8: {n: 8},
+  gb4: {pal: ['#0d1b2a', '#35506b', '#7e9bb5', '#d3e0ea']},
+  c2: {pal: ['#1b2a3a', '#cfdbe6']},
+  faded: {pal: ['#14202b', '#2a3b4b', '#425669', '#5d7388', '#7d92a6', '#a3b5c5', '#cbd8e3']},
+};
+
+const hexRgb = (c: string) => [1, 3, 5].map((i) => parseInt(c.slice(i, i + 2), 16));
+const resampleRamp = (ramp: string[], n: number) => {
+  if (ramp.length < 2) return ramp;
+  return Array.from({length: n}, (_, i) => {
+    const t = (i / Math.max(1, n - 1)) * (ramp.length - 1);
+    const k = Math.min(ramp.length - 2, Math.floor(t));
+    const f = t - k;
+    const a = hexRgb(ramp[k]);
+    const b = hexRgb(ramp[k + 1]);
+    return '#' + a.map((v, j) => Math.round(v + (b[j] - v) * f).toString(16).padStart(2, '0')).join('');
+  });
 };
 
 const PixelDither: React.FC<Props> = (p) => {
@@ -34,6 +61,12 @@ const PixelDither: React.FC<Props> = (p) => {
   const {w, h, u, fps, durationInFrames: D, portrait} = useStage();
   const id = useSafeId('pxd');
   const ps = Math.max(2, Math.round(p.pixelSize * u));
+  const stepIdx = p.ladder.length ? Math.max(0, Math.min(p.ladder.length, Math.floor((frame - p.collapseAt) / Math.max(1, p.stepFrames)) + 1)) : 0;
+  const stepName = stepIdx > 0 ? p.ladder[stepIdx - 1] : '';
+  const stepDef = stepName ? (LADDER[stepName] ?? (stepName.includes('#') ? {pal: stepName.split(',').map((c) => c.trim())} : undefined)) : undefined;
+  const palNow = stepDef ? (stepDef.pal ?? resampleRamp(p.colors, stepDef.n ?? 8)) : p.colors;
+  const levelsNow = 5;
+  const flash = p.ladder.length && frame >= p.collapseAt && (frame - p.collapseAt) % Math.max(1, p.stepFrames) < 2 && stepIdx > 0 ? 0.12 : 0;
   const boxed = p.letterbox === 'on' || (p.letterbox === 'auto' && !portrait);
   const ha = boxed ? Math.min(h, Math.round(w / p.aspect / ps) * ps) : h;
   const top = Math.round((h - ha) / 2);
@@ -66,7 +99,7 @@ const PixelDither: React.FC<Props> = (p) => {
   return (
     <AbsoluteFill style={{background: '#000', overflow: 'hidden'}}>
       <FilterDefs>
-        <PixelDitherFilter id={id} size={ps} palette={p.colors} dither={p.dither} levels={5} />
+        <PixelDitherFilter id={id} size={ps} palette={palNow} dither={p.dither} levels={levelsNow} />
       </FilterDefs>
       <div style={{position: 'absolute', left: 0, top, width: w, height: ha, overflow: 'hidden', opacity: fade}}>
         {/* filtered wrapper: fixed pixel grid; everything inside moves underneath it */}
@@ -78,6 +111,7 @@ const PixelDither: React.FC<Props> = (p) => {
             {embers.map((e, i) => e.on && <rect key={i} x={e.x} y={e.y} width={e.s} height={e.s} fill={e.c} />)}
           </svg>
         </div>
+        {flash > 0 && <div style={{position: 'absolute', inset: 0, background: '#fff', opacity: flash}} />}
         {p.vignette > 0 && <Vignette strength={p.vignette} />}
         {p.grain > 0 && <FilmGrain opacity={p.grain * 2.5} every={1} />}
       </div>
@@ -108,6 +142,9 @@ export const pixelDither = defineMotion<Props>({
     grain: 0.035,
     vignette: 0.55,
     fadeIn: 18,
+    ladder: [],
+    stepFrames: 15,
+    collapseAt: 30,
   },
   propDocs: {
     src: 'public/ image path; empty = procedural plate',
@@ -124,7 +161,10 @@ export const pixelDither = defineMotion<Props>({
     grain: 'grain amount (0.03–0.04)',
     vignette: 'corner darkening (0.55 in the source)',
     fadeIn: 'fade from black over this many frames',
+    ladder: "palette collapse: colour-depth steps, one per stepFrames after collapseAt, e.g. ['c16','c8','gb4','c2','faded'] (presets full 24 steps | c16 | c8 resampled from colors | gb4 | c2 | faded fixed blue-greys, or a hex ramp string '#000,#445,#aab'); [] = off",
+    stepFrames: 'palette collapse: frames per step (a beat, 15 = 0.5 s)',
+    collapseAt: 'palette collapse: frame of the first step',
   },
   component: PixelDither,
-  tags: ['image', 'pixel-art', 'dither', 'retro', 'letterbox', 'grade'],
+  tags: ['image', 'pixel-art', 'dither', 'retro', 'letterbox', 'grade', 'palette collapse', 'colour depth', 'memory fading', 'bit depth', 'faded', 'flashback'],
 });

@@ -7,6 +7,7 @@ import {smoothClosed, smoothOpen} from '../../core/shapes';
 import {shade} from '../../core/hud-kit';
 import {FilmGrain, PaperTexture, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
+import {RangeMode} from '../../core/r2-e2-map-kit';
 
 /**
  * video6 map-flight-path + waggle-dance-diagram, video22 hop-move-dotted-trail.
@@ -21,7 +22,7 @@ import {defineMotion} from '../../core/types';
 type Waypoint = {x: number; y: number; label: string};
 type Props = {
   waypoints: Waypoint[];
-  style: 'flight' | 'hop';
+  style: 'flight' | 'hop' | 'range';
   trail: 'dots' | 'dash' | 'line';
   marker: 'bee' | 'pin' | 'dot';
   showBearing: boolean;
@@ -33,6 +34,14 @@ type Props = {
   vectorColor: string;
   sunColor: string;
   zoom: number;
+  from: [number, number];
+  to: [number, number];
+  unit: string;
+  src: string;
+  corridor: boolean;
+  chase: boolean;
+  labelA: string;
+  labelB: string;
 };
 
 type Pt = [number, number];
@@ -475,6 +484,8 @@ const MapRoute: React.FC<Props> = ({waypoints, style, trail, marker, showBearing
   );
 };
 
+const MapRouteRoot: React.FC<Props> = (p) => (p.style === 'range' ? <RangeMode from={p.from} to={p.to} distanceKm={p.distanceKm} unit={p.unit} src={p.src} corridor={p.corridor} chase={p.chase} labelA={p.labelA} labelB={p.labelB} seed={p.seed} trailColor={p.trailColor === '#24221C' ? '#E8A93A' : p.trailColor} /> : <MapRoute {...p} />);
+
 export const mapRoute = defineMotion<Props>({
   id: 'map-route',
   title: 'Map route',
@@ -503,10 +514,26 @@ export const mapRoute = defineMotion<Props>({
     vectorColor: '#C83230',
     sunColor: '#E8A93A',
     zoom: 1,
+    from: [0.2, 0.68] as [number, number],
+    to: [0.8, 0.32] as [number, number],
+    unit: 'km',
+    src: '',
+    corridor: true,
+    chase: true,
+    labelA: 'A',
+    labelB: 'B',
   },
   propDocs: {
     waypoints: 'route stops {x, y, label} in map space -1..1 (first = start, last = bearing target)',
-    style: 'flight = smooth curve; hop = straight legs with hop arcs, popping dots and landing rings',
+    style: 'flight = smooth curve; hop = straight legs with hop arcs, popping dots and landing rings; range = ticked measuring line A to B over imagery (camera chases the tip, pulls back, reading lands)',
+    from: 'range: start point as frame fractions [x, y]',
+    to: 'range: end point as frame fractions [x, y]',
+    unit: 'range: unit shown after the rolling value',
+    src: 'range: public/ image used as the ground (empty = procedural satellite-style ground)',
+    corridor: 'range: light a corridor along the line and dim the rest',
+    chase: 'range: camera follows the line tip then pulls back',
+    labelA: 'range: label of the start marker',
+    labelB: 'range: label of the end marker',
     trail: 'dots | dash (marching) | line',
     marker: 'bee | pin | dot',
     showBearing: 'red bearing vector, angle arc and distance ticks from the start',
@@ -516,6 +543,6 @@ export const mapRoute = defineMotion<Props>({
     paper: 'map base colour',
     zoom: 'camera zoom',
   },
-  component: MapRoute,
-  tags: ['map', 'route', 'journey', 'path', 'distance', 'travel'],
+  component: MapRouteRoot,
+  tags: ['map', 'route', 'journey', 'path', 'distance', 'travel', 'range line', 'measure', 'how far', 'satellite', 'ruler'],
 });

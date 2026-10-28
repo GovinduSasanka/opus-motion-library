@@ -193,3 +193,21 @@ Regenerate: `python -I out/prompt-research/parse_cases.py <opus_sources/repos> <
   the list but are marked; `stop-motion-boil`, `crt-vhs-overlay` and `cinematic-camera-3d` are EXTENDS of existing core
   helpers / style engine, not new motions.
 - Thumbnail contact sheets (61 thumbnails) are in git-ignored `analysis/frames/prompt-thumbs/`.
+
+## R2 group TR — 33 transition techniques (agent TR)
+
+- All 33 TR techniques are built; several that are the same effect were merged into one type with variants:
+  `crt-power-on-off` + `crt-off` + `crt-collapse` → `crt` (variants `off`, `on`); `brush-wipe` + `brush-band-wipe`
+  → `brush` (code from ClaudeAnimationBase, MIT — the pdoom version is idea-only); `deco-door-split` +
+  `revolving-door-wipe` + `swing-doors-reveal` → `door` (variants `revolve`, `saloon`); `pillar-wipe` +
+  `foreground-occluder` → `occluder` (variants `trunks`, `foliage`, `clouds`, `waves`); `field-blinds-wipe` →
+  `blinds:open`; `stepped-diagonal-wipe` → `diagonal:stepped`; `line-open-wipe` → `bands:line` (they relate to
+  existing types, so variants instead of new types). Change later by splitting the variant into its own `type`
+  in `presentationFor`.
+- New spec fields `colors` (palette types) and `text` (rewrite) were added to `TransitionSpec`; shared presentation
+  helpers moved from src/transitions.tsx into src/transitions/kit.tsx (same exports, no API change); new
+  presentations live in src/transitions/{pattern,doors,screens,paint,burst,world}.tsx.
+- `mosaic:swirl` builds its feDisplacementMap twist image on a canvas keyed by frame-derived values only
+  (deterministic); `door`, `burn`, `layer-swap` render a scene 2–4×, documented in docs/TRANSITIONS.md notes.
+- Did not run cli/gen-docs.mjs (parallel agents were still adding motions; the main agent should run it once at
+  the end).

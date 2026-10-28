@@ -5,6 +5,7 @@ import {n2} from '../../core/random';
 import {FilmGrain, Vignette, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
 import {ChannelLayer, Plate, PlatePaletteName} from '../../core/image-kit';
+import {SilhouetteScene, VhsWrap} from '../../core/r2-e3-glitch';
 
 /**
  * Digital glitch toolkit over an image, driven by a burst list (intensity envelope):
@@ -36,6 +37,22 @@ type Props = {
   echoCount: number;
   push: number;
   grain: number;
+  /** round-2: look 'vhs' (camcorder tape) and mode 'silhouette' (code-fill silhouette + tile bursts) */
+  look: 'clean' | 'vhs';
+  aspect: '4:3' | 'full';
+  jitter: number;
+  chromaShift: number;
+  edgeRing: number;
+  agcNoise: number;
+  dropouts: number;
+  tapeFps: number;
+  trackingTearAt: number[];
+  mode: 'glitch' | 'silhouette';
+  color: string;
+  textFill: string;
+  silBursts: number[];
+  poses: {rot?: number; sx?: number; sy?: number; dx?: number}[];
+  caption: string;
 };
 
 const GlitchImage: React.FC<Props> = (p) => {
@@ -169,7 +186,7 @@ const GlitchImage: React.FC<Props> = (p) => {
   const flash = K === 'flash';
   const fo = 10 * u * (0.6 + 0.4 * env);
 
-  return (
+  const body = (
     <AbsoluteFill style={{background: '#000', overflow: 'hidden'}}>
       {flash ? (
         <AbsoluteFill style={{background: '#fff', isolation: 'isolate'}}>
@@ -196,6 +213,10 @@ const GlitchImage: React.FC<Props> = (p) => {
       {p.grain > 0 && <FilmGrain opacity={p.grain * 2} every={1} />}
     </AbsoluteFill>
   );
+
+  if (p.mode === 'silhouette') return <SilhouetteScene frame={frame} src={p.src} color={p.color} textFill={p.textFill} bursts={p.silBursts} poses={p.poses} caption={p.caption} seed={p.seed} />;
+  if (p.look === 'vhs') return <VhsWrap frame={frame} jitter={p.jitter} chromaShift={p.chromaShift} edgeRing={p.edgeRing} agcNoise={p.agcNoise} dropouts={p.dropouts} tapeFps={p.tapeFps} trackingTearAt={p.trackingTearAt} aspect={p.aspect}>{body}</VhsWrap>;
+  return body;
 };
 
 export const glitchImage = defineMotion<Props>({
@@ -228,6 +249,21 @@ export const glitchImage = defineMotion<Props>({
     echoCount: 8,
     push: 1,
     grain: 0.035,
+    look: 'clean',
+    aspect: '4:3',
+    jitter: 0.5,
+    chromaShift: 3,
+    edgeRing: 0.35,
+    agcNoise: 1,
+    dropouts: 1,
+    tapeFps: 15,
+    trackingTearAt: [],
+    mode: 'glitch',
+    color: '#1A16E0',
+    textFill: '#9FB4FF',
+    silBursts: [20, 50, 80, 110],
+    poses: [],
+    caption: 'northwind.ai',
   },
   propDocs: {
     src: 'public/ image path; empty = procedural plate',
@@ -243,7 +279,22 @@ export const glitchImage = defineMotion<Props>({
     echoCount: 'number of chroma echo copies (6–10)',
     push: 'slow push-in in %/s',
     grain: 'film grain amount',
+    look: "'clean' (default) | 'vhs' (1990s camcorder tape: chroma shifted + smeared, edge halos, lifted blacks, streaky noise, wobble, head-switching band, dropouts, 4:3 pillarbox)",
+    aspect: "vhs: '4:3' pillarbox bars | 'full'",
+    jitter: 'vhs: line wobble in px',
+    chromaShift: 'vhs: chroma shift to the right in px',
+    edgeRing: 'vhs: edge-enhancement halo strength 0..1',
+    agcNoise: 'vhs: streaky noise density multiplier',
+    dropouts: 'vhs: white dropout streak density multiplier',
+    tapeFps: 'vhs: wobble / noise refresh rate',
+    trackingTearAt: 'vhs: frames at which a tracking-tear band slips sideways',
+    mode: "'glitch' (default, burst toolkit) | 'silhouette' (a solid colour silhouette filled with scrolling code, stepping through poses, glitch-tile bursts, typed caption on black)",
+    color: 'silhouette: fill colour',
+    textFill: 'silhouette: colour of the scrolling code text in the fill',
+    silBursts: 'silhouette: frames at which tile bursts spray out',
+    poses: 'silhouette: [{rot, sx, sy, dx}] stepped every ~3.5 frames (empty = seeded micro-poses)',
+    caption: 'silhouette: mono caption typed beside the silhouette with a "_" cursor',
   },
   component: GlitchImage,
-  tags: ['image', 'glitch', 'rgb-split', 'datamosh', 'chromatic', 'echo', 'flash', 'transition'],
+  tags: ['image', 'glitch', 'rgb-split', 'datamosh', 'chromatic', 'echo', 'flash', 'transition', 'vhs', 'camcorder', 'tape', '90s', 'found-footage', 'silhouette', 'tech-sting', 'logo-sting'],
 });

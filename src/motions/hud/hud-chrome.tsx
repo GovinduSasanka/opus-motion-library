@@ -3,6 +3,7 @@ import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {clamp, ease, prog} from '../../core/ease';
 import {fonts} from '../../core/fonts';
 import {Svg, useStage} from '../../core/stage';
+import {CamcorderOsd, DevHud, SegmentBar, SurveyBlock, VoiceSubtitle} from '../../core/r2-e3-hud';
 import {defineMotion} from '../../core/types';
 
 /**
@@ -13,7 +14,7 @@ import {defineMotion} from '../../core/types';
  * optional right-side ruler with bracket markers, a sliding orange indicator and "0N / 07".
  * Overlay: set `backdrop` to "transparent"; the default dark backdrop + bouncing ball is only a preview.
  */
-type Chapter = {label: string; code: string};
+type Chapter = {label: string; code: string; labelAlt?: string};
 type Props = {
   backdrop: string;
   previewSubject: boolean;
@@ -30,11 +31,26 @@ type Props = {
   showRuler: boolean;
   showProgress: boolean;
   rulerUnit: string;
+  /** round-2 variants: chrome (default) | reel | camcorder | survey | subtitle | dev */
+  variant: 'chrome' | 'reel' | 'camcorder' | 'survey' | 'subtitle' | 'dev';
+  rec: boolean;
+  battery: number;
+  clock: string;
+  date: string;
+  titleText: string;
+  jumps: {at: number; toTime: string}[];
+  surveyLines: string[];
+  subtitle2: string;
+  voiceBars: number;
+  hudCounter: {value: number; total: number; unit: string; pad: number; sub: string} | null;
+  phases: {from: number; label: string; color?: string}[];
+  frameCounter: boolean;
+  progressSegments: number;
 };
 
 const pad = (n: number, l = 2) => String(Math.floor(n)).padStart(l, '0');
 
-const HudChrome: React.FC<Props> = ({backdrop, previewSubject, theme, title, subtitle, headerRight, counterLabel, counter, chapters, bpm, accent, rulerAccent, showRuler, showProgress, rulerUnit}) => {
+const HudChrome: React.FC<Props> = ({backdrop, previewSubject, theme, title, subtitle, headerRight, counterLabel, counter, chapters, bpm, accent, rulerAccent, showRuler, showProgress, rulerUnit, variant, rec, battery, clock, date, titleText, jumps, surveyLines, subtitle2, voiceBars, hudCounter, phases, frameCounter, progressSegments}) => {
   const frame = useCurrentFrame();
   const {w, h, u, fps, durationInFrames: D, portrait} = useStage();
   const ink = theme === 'dark' ? '#EEEBDE' : '#0B0D0C';
@@ -121,7 +137,7 @@ const HudChrome: React.FC<Props> = ({backdrop, previewSubject, theme, title, sub
           </g>
         )}
         {/* crop marks */}
-        {[
+        {(variant === 'chrome' || variant === 'reel') && [
           [18, 18, 1, 1],
           [w / u - 18, 18, -1, 1],
           [18, h / u - 18, 1, -1],
@@ -130,7 +146,7 @@ const HudChrome: React.FC<Props> = ({backdrop, previewSubject, theme, title, sub
           <path key={i} d={`M${(x + dx * 22 * marks) * u} ${y * u} L${x * u} ${y * u} L${x * u} ${(y + dy * 22 * marks) * u}`} fill="none" stroke={mark} strokeWidth={2 * u} />
         ))}
         {/* header */}
-        <g opacity={head}>
+        <g opacity={head} display={variant === 'chrome' ? undefined : 'none'}>
           <T x={m} y={50 * u} fill={ink}>
             {charsIn(title, 3)}
             {subtitle && (
@@ -145,7 +161,7 @@ const HudChrome: React.FC<Props> = ({backdrop, previewSubject, theme, title, sub
           </T>
         </g>
         {/* progress bar */}
-        {showProgress && (
+        {showProgress && variant === 'chrome' && (
           <g opacity={foot}>
             <line x1={m} y1={barY} x2={m + (w - 2 * m) * prog(frame, 6, 20, ease.out)} y2={barY} stroke={dim} strokeWidth={2 * u} />
             {chapters.map((_, i) => (i === 0 ? null : <line key={i} x1={m + ((w - 2 * m) * i) / L} y1={barY - 4 * u} x2={m + ((w - 2 * m) * i) / L} y2={barY + 4 * u} stroke={dim} strokeWidth={1.5 * u} />))}
@@ -154,7 +170,7 @@ const HudChrome: React.FC<Props> = ({backdrop, previewSubject, theme, title, sub
           </g>
         )}
         {/* footer */}
-        <g opacity={foot} transform={`translate(0,${(1 - foot) * 8 * u})`}>
+        <g opacity={foot} transform={`translate(0,${(1 - foot) * 8 * u})`} display={variant === 'chrome' ? undefined : 'none'}>
           <T x={m} y={h - 44 * u} fill={grey}>
             {'TC  '}
             <tspan fill={ink}>{tc}</tspan>
@@ -171,7 +187,7 @@ const HudChrome: React.FC<Props> = ({backdrop, previewSubject, theme, title, sub
           ))}
         </g>
         {/* right progress ruler */}
-        {showRuler && (
+        {showRuler && variant === 'chrome' && (
           <g opacity={prog(frame, 8, 18)}>
             <line x1={rx} y1={ry0} x2={rx} y2={ry0 + (ry1 - ry0) * prog(frame, 8, 26, ease.out)} stroke={grey} strokeOpacity={0.7} strokeWidth={1 * u} />
             {Array.from({length: Math.floor((ry1 - ry0) / (21 * u)) + 1}, (_, i) => (
@@ -192,6 +208,26 @@ const HudChrome: React.FC<Props> = ({backdrop, previewSubject, theme, title, sub
               {(chapters[ch]?.label ?? '').toUpperCase().slice(0, 28)}
             </text>
           </g>
+        )}
+        {variant === 'reel' && (
+          <g fontFamily={fonts.mono} fontWeight={700} fontSize={fs} letterSpacing={ls} opacity={head}>
+            <text x={m + 8 * u} y={50 * u} fill={ink} opacity={0.6}>
+              {`${pad(ch + 1)} — ${(chapters[ch]?.label ?? '').toUpperCase()}`}
+              {chapters[ch]?.labelAlt ? <tspan fill={accent}>{`  ${chapters[ch].labelAlt}`}</tspan> : null}
+            </text>
+            <text x={w - m - 8 * u} y={50 * u} textAnchor="end" fill={ink} opacity={0.6}>
+              <tspan fill={frame % beatLen < beatLen * 0.35 ? accent : grey}>●</tspan>
+              {` ${tc}`}
+            </text>
+            <text x={m + 8 * u} y={h - 44 * u} fill={grey}>{`${title.toUpperCase()} / ${Math.round(w)}×${Math.round(h)} / ${fps} FPS`}</text>
+            <SegmentBar x={w - m - 8 * u - Math.min(w * 0.3, 360 * u)} y={h - 52 * u} width={Math.min(w * 0.3, 360 * u)} height={5 * u} n={Math.max(2, progressSegments || L)} progress={p} ink={ink} dim={dim} />
+          </g>
+        )}
+        {variant === 'camcorder' && <CamcorderOsd w={w} h={h} u={u} frame={frame} fps={fps} mono={fonts.mono} rec={rec} battery={battery} clock={clock} date={date} titleText={titleText} jumps={jumps} ink="#FFFFFF" />}
+        {variant === 'survey' && <SurveyBlock w={w} h={h} u={u} frame={frame} fps={fps} mono={fonts.mono} lines={surveyLines} ink={ink} />}
+        {variant === 'subtitle' && <VoiceSubtitle w={w} h={h} u={u} frame={frame} fps={fps} mono={fonts.mono} text={subtitle2} bars={voiceBars} color="#33D6E8" ink="#EAFBFF" />}
+        {(variant === 'dev' || phases.length > 0 || hudCounter) && (
+          <DevHud w={w} h={h} u={u} frame={frame} fps={fps} mono={fonts.mono} counter={hudCounter} phases={phases} frameCounter={frameCounter} total={D} ink={ink} grey={grey} accent="#F28A1B" />
         )}
       </Svg>
     </AbsoluteFill>
@@ -230,6 +266,20 @@ export const hudChrome = defineMotion<Props>({
     showRuler: true,
     showProgress: true,
     rulerUnit: '',
+    variant: 'chrome',
+    rec: true,
+    battery: 3,
+    clock: '23:58',
+    date: 'SEP.27.1996',
+    titleText: '',
+    jumps: [],
+    surveyLines: ['LAKE MORROW  44.52N  7.18W', 'AREA 142 KM2', 'ELEVATION DATASET · 1.2M POINTS', 'VERTICAL EXAGGERATION x1.5'],
+    subtitle2: 'Signal acquired. Stand by for descent.',
+    voiceBars: 4,
+    hudCounter: null,
+    phases: [],
+    frameCounter: false,
+    progressSegments: 0,
   },
   propDocs: {
     backdrop: 'background colour; "transparent" to use as an overlay',
@@ -247,7 +297,21 @@ export const hudChrome = defineMotion<Props>({
     showRuler: 'right-side progress ruler with "0N / 0L" counter',
     showProgress: 'bottom hairline progress bar with chapter ticks',
     rulerUnit: 'word after the ruler counter, e.g. "ROOMS"',
+    variant: 'chrome (default) | reel (crop marks, "NN — LABEL alt", timecode with beat dot, footer, segmented progress; chapters may carry labelAlt) | camcorder (bitmap OSD: REC, battery, clock, date, title) | survey (quiet top-left mono block) | subtitle (diagonal brackets + voice bars plate) | dev (only the counter / phase badge slots)',
+    rec: 'camcorder: blinking REC dot at 1 Hz',
+    battery: 'camcorder: 0-3 bars (blinks at 0)',
+    clock: 'camcorder: start time "HH:MM" (24 h) shown as "PM 11:58"',
+    date: 'camcorder: date stamp',
+    titleText: 'camcorder: title-generator caption over the first shot ("" = none)',
+    jumps: 'camcorder: [{at, toTime}] - the clock jumps to toTime at that frame (time-jump evidence)',
+    surveyLines: 'survey: 3-4 mono lines, top-left',
+    subtitle2: 'subtitle variant: the caption text',
+    voiceBars: 'subtitle: number of voice bars',
+    hudCounter: 'dev slot (any variant): {value,total,unit,pad,sub} top-left zero-padded counter "0817 / 1200 VOXELS"; null = off',
+    phases: 'dev slot: [{from, label, color?}] top-right phase badge that swaps instantly (READY = black, others accent)',
+    frameCounter: 'dev slot: "029 / 720" frame counter under the badge',
+    progressSegments: 'reel: number of progress segments (0 = one per chapter)',
   },
   component: HudChrome,
-  tags: ['hud', 'overlay', 'timecode', 'progress', 'code', 'broadcast'],
+  tags: ['hud', 'overlay', 'timecode', 'progress', 'code', 'broadcast', 'camcorder', 'osd', 'rec', 'vhs', 'survey', 'subtitle', 'voiceprint', 'reel', 'chapter', 'phase-badge', 'counter', 'dev-hud'],
 });

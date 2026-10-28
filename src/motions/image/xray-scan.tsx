@@ -23,7 +23,7 @@ type Props = {
   src: string;
   seed: number;
   palette: PlatePaletteName;
-  mode: 'beam' | 'blob' | 'hole';
+  mode: 'beam' | 'blob' | 'hole' | 'cutaway';
   look: 'blueprint' | 'xray';
   speed: number;
   start: number;
@@ -35,6 +35,73 @@ type Props = {
   reticle: boolean;
   bristleColor: string;
   push: number;
+  words: {text: string; at: number}[];
+  object: 'battery' | 'pipe' | 'cell';
+  coreColor: string;
+  inkColor: string;
+  clayColor: string;
+  orbitDeg: number;
+  cutAngle: number;
+};
+
+/** 2D half-section of an object: hatched cut walls around a glowing emissive core, glow tinting the floor */
+const Cutaway: React.FC<{p: Props; frame: number; w: number; h: number; u: number; D: number; id: string}> = ({p, frame, w, h, u, D, id}) => {
+  const e = (t: number) => 0.5 - 0.5 * Math.cos(Math.PI * clamp(t));
+  const drift = e(frame / Math.max(1, D * 0.8)) * p.orbitDeg;
+  const intro = prog(frame, 0, 22, ease.out);
+  const vert = h > w;
+  const L = (vert ? h * 0.52 : w * 0.46) * intro;
+  const Rr = (vert ? w * 0.22 : h * 0.2) * (p.object === 'pipe' ? 0.8 : 1);
+  const wall = Rr * 0.12 * 2;
+  const glow = 0.85 + 0.15 * Math.sin(frame * 0.12);
+  const cut = clamp(p.cutAngle / 180);
+  const rot = (vert ? 90 : 0) + drift * 0.5;
+  const capW = p.object === 'battery' ? Rr * 0.28 : 0;
+  const body = (
+    <g transform={`translate(${w / 2} ${h * (vert ? 0.46 : 0.5)}) rotate(${rot}) skewX(${-drift * 0.3})`}>
+      {/* floor glow */}
+      <ellipse cx={0} cy={Rr * 1.5} rx={L * 0.7} ry={Rr * 0.35} fill={p.coreColor} opacity={0.18 * glow} filter={`url(#${id}b)`} />
+      {/* back half (clay) */}
+      <rect x={-L / 2} y={-Rr} width={L} height={Rr * 2} rx={p.object === 'cell' ? Rr * 0.9 : Rr * 0.18} fill={p.clayColor} stroke={p.inkColor} strokeWidth={2 * u} />
+      {capW > 0 && <rect x={L / 2} y={-Rr * 0.32} width={capW} height={Rr * 0.64} rx={Rr * 0.08} fill={p.clayColor} stroke={p.inkColor} strokeWidth={2 * u} />}
+      {/* cut-away window: the front of the can is removed */}
+      <rect x={-L / 2 + wall} y={-Rr + wall + Rr * 2 * (1 - cut) * 0.0} width={L - wall * 2} height={(Rr - wall) * 2} rx={Rr * 0.1} fill="#050805" />
+      {/* hatched walls (cut faces) */}
+      <rect x={-L / 2} y={-Rr} width={L} height={wall} fill={`url(#${id}h)`} stroke={p.inkColor} strokeWidth={1.5 * u} />
+      <rect x={-L / 2} y={Rr - wall} width={L} height={wall} fill={`url(#${id}h)`} stroke={p.inkColor} strokeWidth={1.5 * u} />
+      <rect x={-L / 2} y={-Rr} width={wall} height={Rr * 2} fill={`url(#${id}h)`} stroke={p.inkColor} strokeWidth={1.5 * u} />
+      <rect x={L / 2 - wall} y={-Rr} width={wall} height={Rr * 2} fill={`url(#${id}h)`} stroke={p.inkColor} strokeWidth={1.5 * u} />
+      {/* emissive core */}
+      <rect x={-L / 2 + wall * 1.6} y={-Rr + wall * 1.6} width={L - wall * 3.2} height={(Rr - wall * 1.6) * 2} rx={Rr * 0.12} fill={p.coreColor} opacity={0.35 * glow} filter={`url(#${id}b)`} />
+      <rect x={-L / 2 + wall * 1.6} y={-Rr + wall * 1.6} width={L - wall * 3.2} height={(Rr - wall * 1.6) * 2} rx={Rr * 0.12} fill={`url(#${id}c)`} />
+    </g>
+  );
+  return (
+    <AbsoluteFill style={{background: '#0b0d0c'}}>
+      <svg width={w} height={h} style={{position: 'absolute', inset: 0}}>
+        <defs>
+          <pattern id={`${id}h`} width={6 * u} height={6 * u} patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <rect width={6 * u} height={6 * u} fill={p.clayColor} />
+            <line x1={0} y1={0} x2={0} y2={6 * u} stroke={p.inkColor} strokeWidth={1.4 * u} />
+          </pattern>
+          <radialGradient id={`${id}c`} cx="50%" cy="50%" r="65%">
+            <stop offset="0" stopColor="#d8ffe4" />
+            <stop offset="0.45" stopColor={p.coreColor} />
+            <stop offset="1" stopColor={p.coreColor} stopOpacity={0.85} />
+          </radialGradient>
+          <filter id={`${id}b`} x="-30%" y="-60%" width="160%" height="220%">
+            <feGaussianBlur stdDeviation={9 * u} />
+          </filter>
+          <radialGradient id={`${id}f`} cx="50%" cy="60%" r="60%">
+            <stop offset="0" stopColor={p.coreColor} stopOpacity={0.14 * glow} />
+            <stop offset="1" stopColor={p.coreColor} stopOpacity={0} />
+          </radialGradient>
+        </defs>
+        <rect width={w} height={h} fill={`url(#${id}f)`} />
+        {body}
+      </svg>
+    </AbsoluteFill>
+  );
 };
 
 const LOOKS = {
@@ -48,6 +115,7 @@ const XrayScan: React.FC<Props> = (p) => {
   const fid = useSafeId('xr');
   const look = LOOKS[p.look] ?? LOOKS.blueprint;
   const zoom = 1 + (p.push / 100) * (frame / fps);
+  if (p.mode === 'cutaway') return <Cutaway p={p} frame={frame} w={w} h={h} u={u} D={D} id={fid} />;
 
   const colour = (
     <AbsoluteFill style={{transform: `scale(${zoom})`, transformOrigin: '60% 55%'}}>
@@ -69,6 +137,15 @@ const XrayScan: React.FC<Props> = (p) => {
       </AbsoluteFill>
       {/* scanlines: 1 px every 4 px @ 6 % */}
       <AbsoluteFill style={{backgroundImage: `repeating-linear-gradient(0deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) ${u}px, transparent ${u}px, transparent ${4 * u}px)`}} />
+      {p.words.length > 0 && (
+        <div style={{position: 'absolute', left: 0, top: h * 0.4, width: w, height: h * 0.2, display: 'flex'}}>
+          {p.words.map((wd, i) => (
+            <div key={i} style={{flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Archivo, Impact, sans-serif', fontWeight: 800, fontSize: Math.min(h * 0.14, ((w / p.words.length) * 0.9) / Math.max(2, Math.max(...p.words.map((x) => x.text.length)) * 0.62)), letterSpacing: '0.02em', color: look.stroke, textShadow: `0 0 ${12 * u}px ${look.stroke}`, opacity: 0.95}}>
+              {wd.text}
+            </div>
+          ))}
+        </div>
+      )}
       {retT > 0.001 && (
         <svg width={w} height={h} style={{position: 'absolute', inset: 0, opacity: retT}}>
           <g stroke={look.stroke} fill="none" strokeWidth={1.4 * u}>
@@ -108,6 +185,22 @@ const XrayScan: React.FC<Props> = (p) => {
       bx = dir > 0 ? x : w - x;
       revealW = clamp(bx, 0, w);
       if (t > 1) bx = dir > 0 ? w + margin * 3 : -margin * 3;
+    }
+    if (p.words.length) {
+      // the beam's leading edge is the karaoke cursor: word i occupies x in [i/n, (i+1)/n] of the width
+      const n = p.words.length;
+      let wi = -1;
+      for (let i = 0; i < n; i++) if (frame >= p.words[i].at) wi = i;
+      if (wi < 0) {
+        bx = -margin;
+        revealW = 0;
+      } else {
+        const next = wi + 1 < n ? p.words[wi + 1].at : p.words[wi].at + 14;
+        const t = ease.inOut(clamp((frame - p.words[wi].at) / Math.max(4, Math.min(next - p.words[wi].at, 18))));
+        bx = ((wi + t) / n) * w;
+        revealW = clamp(bx, 0, w);
+        dir = 1;
+      }
     }
     const beamVisible = bx > -margin && bx < w + margin;
     reveal = <AbsoluteFill style={{clipPath: `inset(0 ${w - revealW}px 0 0)`}}>{xray}</AbsoluteFill>;
@@ -308,12 +401,18 @@ export const xrayScan = defineMotion<Props>({
     reticle: true,
     bristleColor: '#10131C',
     push: 1.2,
+    words: [],
+    object: 'battery',
+    coreColor: '#2DFF71',
+    inkColor: '#1d1b17',
+    clayColor: '#e8e1d2',
+    orbitDeg: 8,
+    cutAngle: 180,
   },
   propDocs: {
     src: 'public/ image path (edge-detected into an x-ray); empty = procedural plate drawn as line art',
     seed: 'procedural plate seed',
     palette: 'procedural plate palette: dusk | night | dawn',
-    mode: 'beam | blob | hole',
     look: 'blueprint (lavender on navy) | xray (cyan on deep blue)',
     speed: 'beam speed in frame-widths per second (0.75 measured)',
     start: 'frame the first reveal starts',
@@ -325,7 +424,15 @@ export const xrayScan = defineMotion<Props>({
     reticle: 'draw construction circles / reticle over the x-ray',
     bristleColor: 'blob / hole ink edge colour',
     push: 'slow push-in in %/s',
+    mode: 'beam | blob | hole | cutaway (half-section drawing of an object: hatched cut walls around a glowing core)',
+    words: "beam mode karaoke cursor: [{text, at}] words laid across the frame; the beam's leading edge advances on each word's `at` frame, revealing the word cut into the x-ray layer",
+    object: 'cutaway: battery | pipe | cell',
+    coreColor: 'cutaway: emissive core colour (#2DFF71)',
+    inkColor: 'cutaway: line / hatch ink',
+    clayColor: 'cutaway: clay body colour',
+    orbitDeg: 'cutaway: slow camera drift in degrees over the shot',
+    cutAngle: 'cutaway: cut extent in degrees (180 = half section)',
   },
   component: XrayScan,
-  tags: ['image', 'xray', 'scan', 'blueprint', 'reveal', 'beam', 'wipe'],
+  tags: ['image', 'xray', 'scan', 'blueprint', 'reveal', 'beam', 'wipe', 'cutaway', 'cross-section', 'battery', 'whats inside', 'karaoke', 'lyrics'],
 });

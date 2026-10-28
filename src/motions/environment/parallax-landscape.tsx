@@ -18,6 +18,10 @@ type Props = {
   streaks: boolean;
   grain: number;
   seed: string;
+  /** round-2: 'papercut' = flat paper sheets from a tonal ladder, each casting a soft shadow on the next */
+  finish: 'flat' | 'papercut';
+  paperFamily: 'indigo' | 'rice' | 'jade' | 'black';
+  shadow: number;
 };
 
 type Pal = {
@@ -80,11 +84,22 @@ const PALETTES: Record<'day' | 'savanna' | 'dusk', Pal> = {
   },
 };
 
-const ParallaxLandscape: React.FC<Props> = ({mode, palette, speed, peakSpeed, layerFactors, rampIn, rampOut, hero, streaks, grain, seed}) => {
+const paperPal = (far: string, near: string, fields: string, hill: string, tree: string, treeDark: string, ground: string, fg: string, sky: [string, string, string], cloud: string): Pal => ({
+  sky, far, near, fields: [fields, mix(fields, hill, 0.5)], hill, tree, treeDark, ground, fg, house: [mix(tree, cloud, 0.6), tree, treeDark], cloud, night: false,
+});
+const PAPER: Record<'indigo' | 'rice' | 'jade' | 'black', Pal> = {
+  indigo: paperPal('#6c6fae', '#585b99', '#474a85', '#3a3c70', '#2d2f5c', '#25264c', '#1d1e3e', '#15162f', ['#4a4d8c', '#8a86b8', '#f1d9a8'], '#e9dfc9'),
+  rice: paperPal('#d8c4a4', '#c3ab87', '#b0956c', '#9b7e57', '#7c5f40', '#654b32', '#4f3a27', '#3a2a1c', ['#f3e6cf', '#f7eddc', '#fbf4e6'], '#fffaf0'),
+  jade: paperPal('#9ccdb0', '#7db796', '#5fa07e', '#47876a', '#34705a', '#295c4a', '#1f4a3b', '#16382d', ['#cfe8d6', '#e3f2e0', '#f4f8e8'], '#f6faee'),
+  black: paperPal('#4a3f50', '#3b323f', '#2f2733', '#251f29', '#1c171f', '#161218', '#100d12', '#0a080b', ['#2a2630', '#5b4046', '#e09a62'], '#d9a77f'),
+};
+
+const ParallaxLandscape: React.FC<Props> = ({mode, palette, speed, peakSpeed, layerFactors, rampIn, rampOut, hero, streaks, grain, seed, finish, paperFamily, shadow}) => {
   const frame = useCurrentFrame();
   const {w, h, u, durationInFrames: D, portrait} = useStage();
   const run = mode === 'speedrun';
-  const pal = PALETTES[palette === 'auto' ? (run ? 'savanna' : 'day') : palette];
+  const paper = finish === 'papercut';
+  const pal = paper ? PAPER[paperFamily] ?? PAPER.indigo : PALETTES[palette === 'auto' ? (run ? 'savanna' : 'day') : palette];
   const id = `parallax-landscape-${seed}`;
 
   // foreground velocity (px/frame) and its integral (camera x)
@@ -110,7 +125,7 @@ const ParallaxLandscape: React.FC<Props> = ({mode, palette, speed, peakSpeed, la
     const o = ((X * factor) % Pl + Pl) % Pl;
     const b = run ? blur * v * factor : 0;
     return (
-      <g filter={b > 0.5 ? `url(#${id}-${lid}-bl)` : undefined}>
+      <g filter={b > 0.5 ? `url(#${id}-${lid}-bl)` : paper ? `url(#${id}-shadow)` : undefined}>
         {b > 0.5 && (
           <defs>
             <filter id={`${id}-${lid}-bl`} x="-20%" y="-5%" width="140%" height="110%">
@@ -170,6 +185,11 @@ const ParallaxLandscape: React.FC<Props> = ({mode, palette, speed, peakSpeed, la
     <AbsoluteFill style={{background: `linear-gradient(180deg, ${pal.sky[0]} 0%, ${pal.sky[1]} ${run ? 60 : 55}%, ${pal.sky[2]} 100%)`}}>
       <Svg>
         <defs>
+          {paper && (
+            <filter id={`${id}-shadow`} x="-5%" y="-20%" width="110%" height="140%">
+              <feDropShadow dx={2.6 * u * shadow} dy={3.6 * u * shadow} stdDeviation={2.6 * u * shadow} floodColor="#0a0614" floodOpacity={0.42} />
+            </filter>
+          )}
           <radialGradient id={`${id}-sun`} cx="50%" cy="40%" r="62%">
             <stop offset="0%" stopColor="#fb8346" />
             <stop offset="100%" stopColor="#f1643e" />
@@ -245,13 +265,13 @@ const ParallaxLandscape: React.FC<Props> = ({mode, palette, speed, peakSpeed, la
         {/* foreground ground */}
         <Layer factor={fFg} lid="fg" blur={0.35}>
           <path d={ridgePath(fgR, 0, Pl, fgY, 0.025 * h, h + 4, 10)} fill={pal.ground} />
-          {!run &&
+          {!run && !paper &&
             tufts.map((t, i) => {
               const y = fgY + t.y * (h - fgY);
               const s = t.s * (0.6 + t.y);
               return <path key={i} d={`M${t.x - 10 * u * s} ${y}L${t.x - 4 * u * s} ${y - 16 * u * s}L${t.x} ${y}L${t.x + 5 * u * s} ${y - 20 * u * s}L${t.x + 10 * u * s} ${y}Z`} fill={pal.fg} opacity={0.8} />;
             })}
-          {!run && (
+          {!run && !paper && (
             <GrassField
               id={`${id}-ggrass`}
               rows={tealRows(portrait ? 0.55 : 0.42).map((row, k) => ({...row, base: ['#355c30', '#3f6b37', '#4a7a3f'][k], tip: ['#6f9a52', '#86b062', '#9cc36e'][k]}))}
@@ -304,8 +324,8 @@ const ParallaxLandscape: React.FC<Props> = ({mode, palette, speed, peakSpeed, la
                 const bs = [0, 1, 2, 3, 4, 5].map((k) => ({x: t.x + (k - 2.5) * 46 * u, y: h + 20 * u - (k % 3) * 22 * u - (k === 2 || k === 3 ? 40 * u : 0), r: (60 + (k % 2) * 18) * u}));
                 return (
                   <g key={i}>
-                    <path d={circlesD(bs)} fill="#2f5a2c" />
-                    <path d={circlesD(bs.map((b) => ({x: b.x - b.r * 0.2, y: b.y - b.r * 0.25, r: b.r * 0.55})))} fill="#3d6f37" opacity={0.7} />
+                    <path d={circlesD(bs)} fill={paper ? pal.fg : '#2f5a2c'} />
+                    <path d={circlesD(bs.map((b) => ({x: b.x - b.r * 0.2, y: b.y - b.r * 0.25, r: b.r * 0.55})))} fill={paper ? pal.ground : '#3d6f37'} opacity={0.7} />
                   </g>
                 );
               })}
@@ -337,6 +357,9 @@ export const parallaxLandscape = defineMotion<Props>({
     streaks: true,
     grain: 0.06,
     seed: 'valley',
+    finish: 'flat',
+    paperFamily: 'indigo',
+    shadow: 1,
   },
   propDocs: {
     mode: '"truck" (slow camera truck) or "speedrun" (ramp up to a rush, blur streaks, ramp down)',
@@ -350,7 +373,10 @@ export const parallaxLandscape = defineMotion<Props>({
     streaks: 'horizontal light streaks at speed (speed-run)',
     grain: 'film grain opacity',
     seed: 'landscape seed',
+    finish: "'flat' (default) | 'papercut' (flat paper sheets from a tonal ladder, back sheets glowing and light, front near-black, each casting a soft shadow on the next; grass and tufts are dropped)",
+    paperFamily: "papercut: 'indigo' | 'rice' | 'jade' | 'black' tonal ladder",
+    shadow: 'papercut: shadow strength multiplier (1 = 2.6 / 3.6 px blur 5)',
   },
   component: ParallaxLandscape,
-  tags: ['parallax', 'landscape', 'travel', 'speed', 'camera', 'truck'],
+  tags: ['parallax', 'landscape', 'travel', 'speed', 'camera', 'truck', 'papercut', 'paper', 'lightbox', 'layered', 'depth-travel'],
 });

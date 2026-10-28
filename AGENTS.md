@@ -94,7 +94,54 @@ Build the library once before using `dist/` (web paths): `npm install && npm run
 - Live 3D players on mobile; three+ simultaneous players in one viewport.
 - Hard-coding a motion's default colours on a brand that has its own palette.
 
-## 6. Quick reference
+## 6. Styles (looks)
+
+Any motion, mix or composed video can be restyled with one **style id** (catalogue: `docs/STYLES.md`; data:
+`styles.json`). A style is a filter chain + paper / light overlays + optional "on twos" timing laid over the motion, so
+the motion's code and props stay the same. Pick a style for the *look* (woodcut, risograph, blueprint, neon noir) and
+keep the brand colours in the motion's colour props.
+
+- CLI: `node cli/mgl.mjs render box-bot --style cel-boil`, `node cli/mgl.mjs still ken-burns --style ukiyoe --out out/x.png`.
+- Compose spec: `"style": "risograph"` on the whole video, on one scene, or on one layer.
+- Web: `<MotionPlayer motion="city-skyline" look="paper-lantern" />` or `<opus-motion look="paper-lantern" …>`
+  (React also takes `look={{id, strength}}`).
+- Before choosing, read the style's `description` and `useFor` in `styles.json` (MCP: `get_style`), then check a still
+  with `--style` exactly as you would a motion.
+
+## 7. MCP server (AI agents)
+
+`mcp/server.mjs` exposes the library to any MCP client as tools: search, list and inspect motions, styles and recipes,
+preview, render, export, add to a project and read integration guides. Run `npm install` once in the library folder;
+rendering also needs FFmpeg on PATH.
+
+Connect it:
+
+- **Claude Code**, from the library folder: nothing to do, the repo's `.mcp.json` registers `opus-motion`. From any other
+  folder: `claude mcp add opus-motion -- node /absolute/path/to/motion_graphics_library/mcp/server.mjs`
+- **Claude Desktop, Cursor, Windsurf, other clients**: add this to the client's MCP config (for Claude Desktop,
+  `claude_desktop_config.json`):
+  ```json
+  {"mcpServers": {"opus-motion": {"command": "node", "args": ["/absolute/path/to/motion_graphics_library/mcp/server.mjs"]}}}
+  ```
+- **Installed as a package**: the `opus-motion-mcp` bin runs the same server. From the library folder, `npm run mcp` does too.
+
+| tool | what it does |
+|---|---|
+| `search_motions` | ranks motions and recipes for a brief in plain words, with reasons, ready props and fitting styles. Filters: `overlay`, `image`, `text`, `loop`, `light`, `category`. Call it first. |
+| `list_motions`, `get_motion` | every motion; one motion's props, defaults, text / colour / image props and overlay props |
+| `list_recipes`, `get_recipe` | ready-made mixes and their layer stacks |
+| `list_styles`, `get_style` | the style catalogue (filter by family); one style's palette, fonts and timing |
+| `preview` | a contact-sheet image of a motion, recipe, mix or spec, returned inline, to check before rendering |
+| `render` | an MP4 of a motion, recipe, layered mix or full Compose spec; returns the path (default `out/mcp/`) |
+| `export` | a file for apps and editors: `mp4`, `webm`, `webm-alpha`, `prores-alpha`, `gif`, `png`, `poster` |
+| `add_to_project` | copies only the source a host needs into `<dir>/opus-motion/`; returns the npm install line and a snippet |
+| `integration_guide` | step-by-step integration for one stack (Remotion, Next.js, React, Vite, HTML, WordPress, Vue, Svelte, React Native, Flutter, iOS, Android, Keynote, Premiere) |
+
+`preview` and `render` take one target (`motion`, `recipe`, `layers` or `spec`) plus `props`, `style`,
+`format` (`landscape`, `square`, `portrait`) and `frames`. Two resources are readable too: `opus-motion://AGENTS.md`
+and `opus-motion://docs/CHOOSING.md`.
+
+## 8. Quick reference
 
 ```bash
 node cli/mgl.mjs suggest "<need>" [--overlay|--image|--text|--loop|--light|--category c|--json]
@@ -105,6 +152,8 @@ node cli/mgl.mjs still <id> --at 30,90 --props '{…}' --out out/check.jpg     #
 node cli/mgl.mjs add <motion|recipe …> --to <host>/src [--player]           # copy source into a host project
 node cli/mgl.mjs export <motion|recipe> --as mp4|webm|webm-alpha|prores-alpha|gif|png|poster
 npm run build:lib                               # dist/ for web hosts (ESM + <opus-motion> element + types)
+node cli/mgl.mjs render <id> --style woodcut    # any motion, any style (see list_styles / docs/STYLES.md)
+node mcp/server.mjs                             # MCP server over stdio (or: npm run mcp)
 ```
 
 ```tsx

@@ -5,6 +5,7 @@ import {rng} from '../../core/random';
 import {Reticle, TypedLabel, VK, VoidBg} from '../../core/void-kit';
 import {Svg, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
+import {BranchExplosion} from '../../core/r2-e2-fx-kit';
 
 /**
  * video11 branching-growth-stroke + branching-tree-diagram. A recursive branching structure draws itself from the
@@ -13,7 +14,7 @@ import {defineMotion} from '../../core/types';
  * diagram gains one level per stage. Layouts: neuron (dendrites up + roots down inside a reticle), tree, radial.
  */
 type Props = {
-  layout: 'neuron' | 'tree' | 'radial';
+  layout: 'neuron' | 'tree' | 'radial' | 'explosion';
   depth: number;
   angleSpread: number;
   lengthDecay: number;
@@ -27,6 +28,10 @@ type Props = {
   label: string;
   sublabel: string;
   seed: number;
+  splitOn: 'beat' | 'eighth' | 'sixteenth';
+  bpm: number;
+  maxDepth: number;
+  rings: number[];
 };
 
 type Br = {x0: number; y0: number; cx: number; cy: number; x1: number; y1: number; d: number; t0: number; leaf: boolean; w: number; order: number};
@@ -162,6 +167,16 @@ const BranchGrow: React.FC<Props> = ({layout, depth, angleSpread, lengthDecay, f
   );
 };
 
+const BranchRoot: React.FC<Props> = (p) =>
+  p.layout === 'explosion' ? (
+    <AbsoluteFill>
+      <VoidBg seed={p.seed + 2} />
+      <BranchExplosion maxDepth={p.maxDepth} splitOn={p.splitOn} bpm={p.bpm} angleSpread={p.angleSpread} lengthDecay={p.lengthDecay === 0.74 ? 0.86 : p.lengthDecay} startAt={p.startAt} color={p.color} tipColor={p.tipColor} seed={p.seed} rings={p.rings} />
+    </AbsoluteFill>
+  ) : (
+    <BranchGrow {...p} />
+  );
+
 export const branchGrow = defineMotion<Props>({
   id: 'branch-grow',
   title: 'Branching growth (dendrites / tree / network)',
@@ -185,9 +200,17 @@ export const branchGrow = defineMotion<Props>({
     label: 'dendrites · synapses form',
     sublabel: 'one cell, thousands of connections',
     seed: 3,
+    splitOn: 'eighth',
+    bpm: 150,
+    maxDepth: 9,
+    rings: [] as number[],
   },
   propDocs: {
-    layout: "'neuron' (dendrites up, roots down, inside a reticle) | 'tree' (one tree from the bottom) | 'radial' (network from the centre)",
+    layout: "'neuron' (dendrites up, roots down, inside a reticle) | 'tree' (one tree from the bottom) | 'radial' (network from the centre) | 'explosion' (one line splits on every beat subdivision: 1 -> 2 -> 4 ... up to 1024 branches, shockwave rings)",
+    splitOn: 'explosion: beat | eighth (switches to sixteenth for the second half) | sixteenth — how often every branch splits',
+    bpm: 'explosion: tempo that sets the split interval',
+    maxDepth: 'explosion: number of split levels (2-10; 10 = 1024 branches)',
+    rings: 'explosion: extra shockwave ring times in frames after startAt (rings also fire at the start and the final split)',
     depth: 'recursion depth (levels)',
     angleSpread: 'branch angle from the parent in degrees (25-35 measured)',
     lengthDecay: 'child length / parent length (0.72 measured)',
@@ -201,6 +224,6 @@ export const branchGrow = defineMotion<Props>({
     sublabel: 'second label line',
     seed: 'branch randomness',
   },
-  component: BranchGrow,
-  tags: ['branch', 'tree', 'neuron', 'network', 'growth', 'recursive', 'hud', 'science'],
+  component: BranchRoot,
+  tags: ['branch', 'tree', 'neuron', 'network', 'growth', 'recursive', 'hud', 'science', 'exponential', 'beat', 'explosion', 'doubling', 'music sync'],
 });

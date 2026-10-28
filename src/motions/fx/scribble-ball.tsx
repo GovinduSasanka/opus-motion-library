@@ -31,6 +31,7 @@ type Props = {
   fade: number;
   showSubject: boolean;
   seed: number;
+  elementBoil: boolean;
 };
 
 const ScribbleBall: React.FC<Props> = (p) => {
@@ -55,19 +56,25 @@ const ScribbleBall: React.FC<Props> = (p) => {
     const r = rng(seed * 1009 + b * 31);
     let d = '';
     for (let k = 0; k < loops; k++) {
-      const ox = (r() - 0.5) * 0.12 * W;
-      const oy = (r() - 0.5) * 0.12 * H;
-      const rx = (W / 2) * range(r, 0.62, 0.92) * (1 + (r() - 0.5) * 0.3);
-      const ry = (H / 2) * range(r, 0.62, 0.95) * (1 + (r() - 0.5) * 0.3);
-      const rot = ((r() - 0.5) * 16 * Math.PI) / 180;
-      const a0 = k * 1.3 + b * 0.45 + r() * 0.6;
-      const sweep = ((330 + r() * 50) * Math.PI) / 180;
-      d += doodleLoop(px + ox, cy + oy, rx, ry, rot, a0, sweep, `sb${seed}-${b}-${k}`, 0.08, 22) + ' ';
+      // elementBoil: every loop owns its random stream and only re-draws on its own (staggered) boil beat,
+      // so nothing shimmers just because another loop moved
+      const rl = p.elementBoil ? rng(seed * 1009 + k * 977 + Math.floor((frame + k) / Math.max(1, boilEvery * 2)) * 31) : r;
+      const bl = p.elementBoil ? Math.floor((frame + k) / Math.max(1, boilEvery * 2)) : b;
+      const ox = (rl() - 0.5) * 0.12 * W;
+      const oy = (rl() - 0.5) * 0.12 * H;
+      const rx = (W / 2) * range(rl, 0.62, 0.92) * (1 + (rl() - 0.5) * 0.3);
+      const ry = (H / 2) * range(rl, 0.62, 0.95) * (1 + (rl() - 0.5) * 0.3);
+      const rot = ((rl() - 0.5) * 16 * Math.PI) / 180;
+      const a0 = k * 1.3 + bl * 0.45 + rl() * 0.6;
+      const sweep = ((330 + rl() * 50) * Math.PI) / 180;
+      d += doodleLoop(px + ox, cy + oy, rx, ry, rot, a0, sweep, `sb${seed}-${bl}-${k}`, 0.08, 22) + ' ';
     }
     // a couple of tight inner knots
     for (let k = 0; k < 2; k++) {
-      const rx = W * range(r, 0.12, 0.2);
-      d += doodleLoop(px + (r() - 0.5) * W * 0.3, cy + (r() - 0.5) * H * 0.3, rx, rx * 0.6, r() * 6, r() * 6, 5.5, `sbk${b}${k}`, 0.12, 14) + ' ';
+      const bk = p.elementBoil ? Math.floor((frame + 3 * k) / Math.max(1, boilEvery * 3)) : b;
+      const rk = p.elementBoil ? rng(seed * 313 + k * 71 + bk) : r;
+      const rx = W * range(rk, 0.12, 0.2);
+      d += doodleLoop(px + (rk() - 0.5) * W * 0.3, cy + (rk() - 0.5) * H * 0.3, rx, rx * 0.6, rk() * 6, rk() * 6, 5.5, `sbk${bk}${k}`, 0.12, 14) + ' ';
     }
     out.push(<path key="tangle" d={d} fill="none" stroke={color} strokeWidth={3.2 * u * Math.max(0.7, size)} strokeLinecap="round" strokeLinejoin="round" />);
   } else {
@@ -174,6 +181,7 @@ export const scribbleBall = defineMotion<Props>({
     fade: 6,
     showSubject: true,
     seed: 5,
+    elementBoil: false,
   },
   propDocs: {
     background: "scene paper colour; 'transparent' = overlay (no bot, no paper)",
@@ -192,7 +200,8 @@ export const scribbleBall = defineMotion<Props>({
     fade: 'fade in/out frames (0.2 s)',
     showSubject: 'draw the upset box-bot underneath (scene mode only)',
     seed: 'random seed',
+    elementBoil: 'per-element line boil: each ink loop keeps its own random stream and re-draws only on its own staggered beat (no all-over shimmer)',
   },
   component: ScribbleBall,
-  tags: ['scribble', 'frustration', 'boil', 'doodle', 'storm', 'emote', 'overlay', 'fx'],
+  tags: ['scribble', 'frustration', 'boil', 'doodle', 'storm', 'emote', 'overlay', 'fx', 'per-element boil', 'hand-drawn'],
 });

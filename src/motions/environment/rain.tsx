@@ -4,6 +4,7 @@ import {ease} from '../../core/ease';
 import {BlurFilter, RainField, TAU, areaK, hash01, isTransparent, ridgePath} from '../../core/environment-kit';
 import {Svg, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
+import {GroundReflections, reflectionLights} from '../../core/r2-e1-rain';
 
 /**
  * Rain (video1 rain-streaks, video14 rain-streaks, video16 rain-overlay).
@@ -27,6 +28,11 @@ type Props = {
   lamp: boolean;
   lampColor: string;
   seed: number;
+  /** wet-ground reflection of the lights: none (default) | streaks (blurred vertical neon + ripple bands) | dabs (painterly knife dabs) */
+  reflection: 'none' | 'streaks' | 'dabs';
+  /** neon colours of the extra reflected lights (lamp colour is always included) */
+  reflectionColors: string[];
+  reflectionAlpha: number;
 };
 
 const NightStreet: React.FC<{horizon: number; lamp: boolean; lampColor: string; seed: number; lampX: number; lampTop: number; lampBase: number; t: number}> = ({horizon, lamp, lampColor, seed, lampX, lampTop, lampBase, t}) => {
@@ -121,7 +127,7 @@ const NightStreet: React.FC<{horizon: number; lamp: boolean; lampColor: string; 
   );
 };
 
-const Rain: React.FC<Props> = ({background, backdrop, color, density, speed, angle, layers, ripples, groundY, glass, glassDrops, lamp, lampColor, seed}) => {
+const Rain: React.FC<Props> = ({background, backdrop, color, density, speed, angle, layers, ripples, groundY, glass, glassDrops, lamp, lampColor, seed, reflection, reflectionColors, reflectionAlpha}) => {
   const frame = useCurrentFrame();
   const {w, h, u, fps, portrait} = useStage();
   const t = frame / fps;
@@ -225,6 +231,7 @@ const Rain: React.FC<Props> = ({background, backdrop, color, density, speed, ang
             <polygon points={conePts} />
           </clipPath>
         </defs>
+        {scene && reflection !== 'none' && <GroundReflections mode={reflection} w={w} h={h} u={u} horizon={horizon} frame={frame} seed={seed} lights={reflectionLights(w, lampX, lampColor, reflectionColors, seed)} alpha={reflectionAlpha} />}
         {rip}
         <RainField t={t} w={w} h={h} u={u} seed={seed} density={density} speed={speed} angle={angle} color={color} layers={layers} />
         {scene && lamp && <RainField t={t} w={w} h={h} u={u} seed={seed} density={density} speed={speed} angle={angle} color="#FFD9A8" layers={layers} opacityScale={2.4} clipPath="url(#rain-cone-clip)" />}
@@ -257,6 +264,9 @@ export const rain = defineMotion<Props>({
     lamp: true,
     lampColor: '#F0904F',
     seed: 1,
+    reflection: 'none',
+    reflectionColors: ['#4FB0F0', '#F05FA0', '#F0C44F'],
+    reflectionAlpha: 1,
   },
   propDocs: {
     background: 'CSS background; "transparent" = overlay mode (no painted street)',
@@ -273,7 +283,10 @@ export const rain = defineMotion<Props>({
     lamp: 'street lamp with volumetric cone that lights the streaks',
     lampColor: 'sodium lamp colour',
     seed: 'random seed',
+    reflection: 'wet-ground reflection of the lights: none | streaks (neon-noir: blurred flipped streaks + ripple bands) | dabs (painterly stacked knife dabs, shimmering on twos)',
+    reflectionColors: 'colours of the extra reflected neon lights (each adds one column)',
+    reflectionAlpha: 'reflection strength multiplier',
   },
   component: Rain,
-  tags: ['weather', 'rain', 'night', 'overlay', 'ambience', 'particles'],
+  tags: ['weather', 'rain', 'night', 'overlay', 'ambience', 'particles', 'wet street', 'reflection', 'neon', 'neon-noir', 'puddles', 'dabs'],
 });

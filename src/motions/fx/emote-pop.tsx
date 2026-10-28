@@ -4,6 +4,7 @@ import {BotFace, BoxBot, FxRoot, boil, isClear, useFx, portraitFit} from '../../
 import {n2} from '../../core/random';
 import {Svg, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
+import {EXTRA_EMOTES, ExtraEmote} from '../../core/r2-e1-kit';
 
 /**
  * video20 emote-icon-pop: doodle icons ~0.4 body heights above a character — red "!" with radial
@@ -30,7 +31,7 @@ type Props = {
   seed: number;
 };
 
-const durOf = (ic: Icon, hold: number) => (ic === 'heart' || ic === 'note' ? hold + 22 : ic === 'bulb' ? 2 + hold + 9 : 2 + hold + 5);
+const durOf = (ic: Icon, hold: number) => (EXTRA_EMOTES.includes(ic) ? hold + 14 : ic === 'heart' || ic === 'note' ? hold + 22 : ic === 'bulb' ? 2 + hold + 9 : 2 + hold + 5);
 
 const IconDraw: React.FC<{ic: Icon; S: number; lf: number; dur: number; hold: number; u: number; ink: string; red: string; bulb: string; heart: string; sweat: string; frame: number; id: string; H: number}> = ({ic, S, lf, dur, hold, u, ink, red, bulb, heart, sweat, frame, id, H}) => {
   const sw = 3.2 * u * (S / (190 * u));
@@ -168,6 +169,7 @@ const IconDraw: React.FC<{ic: Icon; S: number; lf: number; dur: number; hold: nu
       );
     }
     default:
+      if (EXTRA_EMOTES.includes(ic)) return <ExtraEmote ic={ic} S={S} lf={lf} dur={dur} u={u} ink={ink} red={red} bulb={bulb} sweat={sweat} heart={heart} id={id} />;
       return null;
   }
 };
@@ -253,7 +255,7 @@ export const emotePop = defineMotion<Props>({
     x: 'emote anchor x (0..1) — the point the icons pop over',
     y: 'emote anchor y (0..1)',
     delay: 'frame the first emote pops',
-    icons: "sequence of icons: '!', '?', '!?', 'bulb', 'heart', 'sweat', 'note' (each starts the frame after the previous ends)",
+    icons: "sequence of icons: '!', '?', '!?', 'bulb', 'heart', 'sweat', 'note' + round-2 set: 'ticks' (flickering manga action strokes), 'anger' (vein), 'steam' (rising puffs), 'zzz', 'dots' (typing bubble), 'stars' (orbiting), 'spark', 'cloud' (personal rain cloud); each starts the frame after the previous ends",
     hold: 'frames each icon holds (0.6-1.2 s)',
     size: 'icon size multiplier',
     ink: 'ink line colour',
@@ -265,5 +267,5 @@ export const emotePop = defineMotion<Props>({
     seed: 'random seed (line boil)',
   },
   component: EmotePop,
-  tags: ['emote', 'reaction', 'icon', 'character', 'doodle', 'overlay', 'fx'],
+  tags: ['emote', 'reaction', 'icon', 'character', 'doodle', 'overlay', 'fx', 'ticks', 'emanata', 'anger', 'steam', 'zzz', 'sleep', 'typing', 'stars', 'dizzy', 'spark', 'rain cloud', 'sad'],
 });

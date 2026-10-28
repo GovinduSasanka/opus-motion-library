@@ -24,6 +24,12 @@ type Props = {
   accent: string;
   line: string;
   hud: boolean;
+  /** continuous-mode easing of the log-scale move (EXTENDS r2): sine (default) | linear | inOut | expo */
+  easing: 'sine' | 'linear' | 'inOut' | 'expo';
+  /** total camera roll in degrees over the move (orbit-dive look); 0 = none */
+  camRoll: number;
+  /** frame range fraction kept at the start as a still hold (0..0.4) */
+  holdStart: number;
 };
 
 const DEFAULT_KINDS: Kind[] = ['word', 'badge', 'radar', 'plan', 'dial', 'network'];
@@ -170,7 +176,7 @@ const LevelArt: React.FC<{kind: Kind; label: string; x: number; y: number; R: nu
   }
 };
 
-const PowersOfTen: React.FC<Props> = ({background, levels, direction, mode, ratio, accent, line, hud}) => {
+const PowersOfTen: React.FC<Props> = ({background, levels, direction, mode, ratio, accent, line, hud, easing, camRoll, holdStart}) => {
   const frame = useCurrentFrame();
   const {w, h, u, cx, cy, durationInFrames: D, portrait} = useStage();
   const S = Math.min(w, h);
@@ -185,7 +191,7 @@ const PowersOfTen: React.FC<Props> = ({background, levels, direction, mode, rati
     const snap = within > hold - 16 ? prog(within, hold - 16, hold - 2, ease.expoOut) : 0;
     c = Math.min(L - 1, k + (k < L - 1 ? snap : 0));
   } else {
-    c = (L - 1) * prog(frame, 12, D - 14, ease.sine);
+    c = (L - 1) * prog(frame, 12 + Math.round(holdStart * D), D - 14, easing === 'linear' ? ease.linear : easing === 'inOut' ? ease.inOut : easing === 'expo' ? ease.expoInOut : ease.sine);
   }
   if (direction === 'in') c = L - 1 - c;
   const R0 = S * (portrait ? 0.44 : 0.4);
@@ -200,7 +206,7 @@ const PowersOfTen: React.FC<Props> = ({background, levels, direction, mode, rati
     <AbsoluteFill style={{background}}>
       <ScanlineBg />
       <Svg>
-        <g opacity={enter}>
+        <g opacity={enter} transform={camRoll ? `rotate(${(camRoll * c) / Math.max(1, L - 1) * (direction === 'in' ? -1 : 1)} ${cx} ${cy})` : undefined}>
           {/* outermost first so inner drawings sit on top of the holes */}
           {levels
             .map((lv, k) => ({lv, k}))
@@ -268,6 +274,9 @@ export const powersOfTen = defineMotion<Props>({
     accent: BP.blue,
     line: BP.line,
     hud: true,
+    easing: 'sine',
+    camRoll: 0,
+    holdStart: 0,
   },
   propDocs: {
     levels: 'innermost first: {label, kind?}; kind word|badge|radar|plan|dial|network (defaults cycle in that order; level 1 shows its label as a big word)',
@@ -275,7 +284,10 @@ export const powersOfTen = defineMotion<Props>({
     mode: 'continuous log-scale move, or snap (hold, then easeOutExpo snap per level)',
     ratio: 'scale ratio between neighbouring levels',
     hud: 'scale readout and level list',
+    easing: 'continuous mode move curve: sine | linear (constant log-zoom, orbit-dive) | inOut | expo',
+    camRoll: 'degrees the whole camera rolls while zooming (e.g. 90 for an orbit dive, 0 = none)',
+    holdStart: 'fraction of the clip (0..0.4) the first level holds before the move starts',
   },
   component: PowersOfTen,
-  tags: ['zoom', 'scale', 'nested', 'pull-back', 'blueprint', 'camera'],
+  tags: ['zoom', 'scale', 'nested', 'pull-back', 'blueprint', 'camera', 'scale-dive', 'orbit-dive', 'log-zoom', 'camera roll', 'droste'],
 });

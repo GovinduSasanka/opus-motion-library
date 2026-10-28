@@ -1,32 +1,40 @@
 # Motion catalog
 
-109 motions. Generated from `catalog.json` by `cli/gen-docs.mjs` — do not edit by hand.
+415 motions. Generated from `catalog.json` by `cli/gen-docs.mjs` — do not edit by hand.
 
 Render any of them: `node cli/mgl.mjs render <id> [--props '{...}'] [--format landscape|square|portrait]`. Previews live in `gallery/`.
 
 Choosing: `node cli/mgl.mjs suggest "<what you need>"` and [CHOOSING.md](CHOOSING.md). Using them in a website / app / other project: [INTEGRATION.md](INTEGRATION.md).
 
-- [text](#text) (15)
-- [transition](#transition) (1)
-- [shape](#shape) (22)
-- [fx](#fx) (10)
-- [environment](#environment) (22)
-- [character](#character) (5)
-- [data](#data) (8)
-- [ui](#ui) (5)
-- [hud](#hud) (6)
-- [3d](#3d) (5)
-- [image](#image) (10)
+- [text](#text) (46)
+- [transition](#transition) (2)
+- [shape](#shape) (41)
+- [fx](#fx) (49)
+- [environment](#environment) (38)
+- [character](#character) (16)
+- [data](#data) (31)
+- [ui](#ui) (34)
+- [hud](#hud) (21)
+- [camera](#camera) (4)
+- [texture](#texture) (1)
+- [3d](#3d) (41)
+- [document](#document) (8)
+- [game](#game) (14)
+- [image](#image) (34)
+- [map](#map) (6)
+- [mascot](#mascot) (8)
+- [music](#music) (16)
+- [product](#product) (5)
 - [recipes](#recipes) (ready-made mixes)
 
 ## Capability index
 
 | capability | motions |
 |---|---|
-| overlay (transparent background — put it on top of other motions or your page) | `aurora`, `bubbles`, `caustics-godrays`, `curl-flow`, `embers`, `falling-petals`, `fireworks`, `flow-lines`, `insect-flight`, `lightning-flash`, `rain`, `snowfall`, `starfield-night`, `confetti-burst`, `electric-arcs`, `emote-pop`, `eyes-blink`, `giant-eye-reveal`, `scribble-ball`, `smoke-puffs`, `sparkle-burst`, `star-glint`, `hud-chrome`, `film-look`, `blur-in-title`, `chapter-header`, `comic-burst`, `end-card-credits`, `glyph-orbit-logo`, `kinetic-captions`, `mask-rise-title`, `number-counter`, `scene-tag`, `stamp-slam`, `story-caption-box`, `typewriter-code`, `typewriter-signature` |
+| overlay (transparent background — put it on top of other motions or your page) | `globe-3d`, `holo-solid-ignite`, `light-beam-ribbon`, `popup-spread`, `creator-hand`, `paper-critter-rig`, `pictogram-figure`, `aurora`, `bubbles`, `caustics-godrays`, `curl-flow`, `embers`, `falling-petals`, `fireworks`, `flow-lines`, `fog-clouds`, `insect-flight`, `lightning-flash`, `mesh-gradient-bg`, `rain`, `snowfall`, `starfield-night`, `window-glow-sequence`, `backlit-cutout`, `circuit-traces`, `confetti-burst`, `electric-arcs`, `emote-pop`, `eyes-blink`, `fire-flames`, `giant-eye-reveal`, `grease-pencil-mark`, `impact-frame`, `ink-blot-stop`, `long-exposure-trails`, `magnifier-loupe`, `marker-ring-arrow`, `scribble-ball`, `smear-frame`, `smoke-puffs`, `sparkle-burst`, `star-glint`, `sticker-cutout`, `swirl-portal`, `vhs-crt-pass`, `candy-set-backdrop`, `agent-roster`, `cam-chip-sync-badge`, `day-ring-dial`, `event-feed`, `fight-hud`, `game-hud`, `hud-chrome`, `mission-clock`, `news-bug-source-tag`, `prompt-wall`, `spec-chip-rail`, `target-lock-box`, `target-lock`, `film-look`, `sticker-slap`, `coverage-route`, `beat-dance`, `chomp-lid`, `emotion-idle-beat`, `emotion-sheet`, `emotion-timeline`, `mascot-nib`, `smear-trail`, `beat-camera`, `beat-grid`, `engraving-hatch`, `guilloche-note`, `lyric-on-path`, `lyric-timing`, `lyric-video`, `shutter-blur`, `stage-curtain`, `time-stutter`, `token-sampler-prompt`, `token-tree`, `width-pressure-type`, `sunburst-hero`, `comet-pulse-guide`, `ink-brush-stroke`, `motif-grid-pattern`, `nib-follow-camera`, `papercut-rosette`, `toon-cel-shape`, `blur-in-title`, `chapter-header`, `comic-burst`, `end-card-credits`, `glyph-orbit-logo`, `kinetic-captions`, `mask-rise-title`, `news-strap`, `number-counter`, `paper-strip-title`, `rundown-board`, `scene-tag`, `stamp-slam`, `sting-bug`, `story-caption-box`, `typewriter-code`, `typewriter-signature`, `agent-log-panel`, `cursor-driver`, `glass-lesson-card`, `keystroke-hud`, `liquid-glass-lens`, `notification-stack`, `planned-vs-heard-checklist`, `player-toolbar` |
 | seamless loop | `iso-bar-chart`, `embers`, `sonar-ping` |
-| takes your image (`src` / `images` / `heroSrc`) | `pointcloud-orbit`, `beat-montage`, `thumbnail-mosaic`, `depth-descent`, `topdown-terrain`, `giant-eye-reveal`, `callout-labels`, `comic-halftone`, `dot-matrix`, `duotone`, `film-look`, `glass-pane-grid`, `glitch-image`, `ken-burns`, `light-sweep`, `pixel-dither`, `xray-scan`, `sonar-ping`, `blur-in-title`, `chapter-header`, `comic-burst`, `end-card-credits`, `glyph-orbit-logo`, `mask-rise-title`, `number-counter`, `stamp-slam`, `story-caption-box`, `typewriter-code`, `browser-mockup`, `sms-thread`, `split-compare` |
-| heavy (three.js / WebGL — prefer an exported video on mobile web) | `iso-blocks-3d`, `plan-tilt`, `pointcloud-orbit`, `terrain-build-3d`, `wireframe-build` |
+| takes your image (`src` / `images` / `heroSrc`) | `pointcloud-orbit`, `beat-montage`, `crowd-tracks`, `ground-plane-ruler`, `map-route`, `science-reticle`, `thumbnail-mosaic`, `mugshot-height-chart`, `depth-descent`, `lamp-screen`, `paper-diorama`, `studio-sweep`, `topdown-terrain`, `window-glow-sequence`, `beat-punch-zoom`, `crayon-wax-shader`, `focus-desaturate`, `frame-blend-timelapse`, `frame-breakout`, `freeze-frame-brackets`, `giant-eye-reveal`, `glass-crack-mend`, `long-exposure-trails`, `loupe-magnify`, `magnifier-loupe`, `swirl-portal`, `theatre-gate`, `vhs-crt-pass`, `loot-reveal`, `rocket-to-moon`, `callout-labels`, `cam-chip-sync-badge`, `target-lock-box`, `target-lock`, `ascii-image-grid`, `autofocus-hunt`, `brush-stroke-reveal`, `comic-halftone`, `dot-matrix`, `duotone`, `film-look`, `glass-pane-grid`, `glitch-image`, `grid-multiply`, `handscroll-reveal`, `ken-burns`, `knife-colour-relay`, `knife-paint-plate`, `light-sweep`, `negative-develop-reveal`, `perspective-flatten`, `photomontage-tower`, `pixel-dither`, `press-lift`, `proportion-sweep`, `riso-plate-reveal`, `spinning-headline`, `split-grid-countdown`, `sticker-cutout-burst`, `telestrator-freeze`, `tilt-shift-diorama`, `woodblock-print-reveal`, `woodcut-carve`, `xray-scan`, `map-mask-reveal`, `audio-spectrum`, `guilloche-note`, `frost-to-clear`, `sunburst-hero`, `scissor-cut`, `sonar-ping`, `blur-in-title`, `bouncing-ball-singalong`, `chapter-header`, `comic-burst`, `diagonal-band-title`, `end-card-credits`, `flipbook-riffle-outro`, `glyph-orbit-logo`, `halftone-exhibit-numeral`, `hanazi-caption`, `letters-become-image`, `logo-assemble`, `mask-rise-title`, `number-counter`, `stamp-slam`, `story-caption-box`, `typewriter-code`, `browser-mockup`, `device-mockup`, `sms-thread`, `split-compare`, `tv-wall-switch-on`, `versus-roster` |
+| heavy (three.js / WebGL — prefer an exported video on mobile web) | `accum-render-3d`, `brick-collapse-physics`, `brick-fx-fire-smoke`, `brick-rebuild-morph`, `brick-snap-build`, `chart-to-installation`, `cloner-bed-ripple`, `colour-ignition-wave`, `exploded-stack`, `exploded-view-3d`, `glass-strip-sweep`, `globe-3d`, `iso-blocks-3d`, `iso-city-build`, `jelly-type-drop`, `last-object-drop`, `liminal-corridor-3d`, `ocean-surface-3d`, `particle-shape-morph`, `plan-tilt`, `pointcloud-orbit`, `product-turntable-3d`, `shockwave-flip-field`, `stack-plates-3d`, `terrain-build-3d`, `voxel-burst-swirl`, `voxel-diorama`, `wireframe-build`, `dash-flow-field` |
 
 ## recipes
 
@@ -207,6 +215,63 @@ A customer quote typed in a cinematic caption box over a slowly pushed-in photo 
 
 ## text
 
+### `atomic-orbit-title` — Atomic orbit title (retro toon)
+
+![atomic-orbit-title](../gallery/atomic-orbit-title.jpg)
+
+A 1950s atomic-age TV title in fat cream block caps with a thick ink outline and a hard magenta offset shadow, wrapped by a tilted cyan orbit that threads behind the top of the letters and in front of the bottom, a small object flying round it and twinkling four-point stars; pops in on twos.
+
+**Use for:** Playful show or episode titles, product names for tech and comedy brands, YouTube intros; complements stamp-slam and blur-in-title.  
+**Rebuilt from:** lemo-opuscar styles/scifi-toon demo/main.js (titleArt), DEMO.md "Titles & end card" (MIT, LemoLab)  
+**Default length:** 120 frames (4.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** pixel, comic, playful, night  
+**Capabilities:** paints its own background · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Orbit Tonight"` | title text (auto-fits; two lines when too wide) |
+| `subtitle` | `"A very small space opera"` | line under the title (empty = none) |
+| `fill` | `"#fff1cf"` | letter colour |
+| `inkColor` | `"#1b1422"` | outline colour |
+| `shadowColor` | `"#ff4fa3"` | hard offset shadow colour |
+| `ringColor` | `"#33d6e8"` | orbit ring colour |
+| `ringTilt` | `-6` | ring tilt in degrees |
+| `orbitIcon` | `"planet"` | 'planet', an emoji, or an image path/URL |
+| `orbitSeconds` | `2` | seconds per orbit |
+| `stars` | `4` | twinkling stars |
+| `popAt` | `8` | frame of the pop-in |
+| `boil` | `true` | wobble outlines on threes |
+| `background` | `"#2a1f6b"` | backdrop colour |
+| `fontSize` | `150` | title size in u at one line |
+| `seed` | `2` | star layout seed |
+
+### `blob-to-wordmark` — Blob to wordmark
+
+![blob-to-wordmark](../gallery/blob-to-wordmark.jpg)
+
+A row of coloured beads gathers and fuses into a capsule, erupts into a crown of spikes and morphs into a glossy liquid wordmark; thin liquid bridges join the letters and snap one after another, a glint sweeps across, a drip forms under one letter, falls and ripples the floor, and a tagline fades in.
+
+**Use for:** Liquid logo reveals for beverages, cosmetics and apps named after liquids; end cards.  
+**Rebuilt from:** mg-styles-15 demos/07-liquid textsdf.js, shaders.js SDF morph, scene.js, type.js (MIT), video 07-liquid 5.75-10 s  
+**Default length:** 160 frames (5.3 s @ 30 fps)
+
+**Roles:** type · **Mood:** —  
+**Capabilities:** paints its own background · text: `word`, `tagline` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `word` | `"JUICY"` | the wordmark (4-7 letters work best; one bead per letter) |
+| `tagline` | `"cold pressed daily"` | small line that fades in at the end (empty = none) |
+| `colors` | `["#ff4d8d","#ffb02e","#2ee6c8","#7a5cff","#ff6a3d"]` | per-letter colours, cycled |
+| `gatherAt` | `16` | frame the beads start gathering into a capsule |
+| `burstAt` | `46` | frame the capsule erupts and morphs into letters |
+| `snapAt` | `74` | frame the first letter bridge snaps (one more every 2 frames) |
+| `glintAt` | `100` | frame the glint sweep starts |
+| `drip` | `{"letter":2,"at":108}` | {letter: index of the letter that drips, at: frame the drip starts forming} |
+| `light` | `225` | key light azimuth in degrees |
+| `background` | `"#060e1c"` | backdrop base colour |
+
 ### `blur-in-title` — Blur-in title card
 
 ![blur-in-title](../gallery/blur-in-title.jpg)
@@ -217,8 +282,8 @@ Wide-tracked title whose letters sharpen out of a blur with a random stagger, ta
 **Rebuilt from:** video23 1:31-1:33, video23 0:07.6-0:09.1, video8 0:00-0:40, video10 0:02-0:40, video21 0:12  
 **Default length:** 210 frames (7.0 s @ 30 fps)
 
-**Roles:** type · **Mood:** dark, cinematic, editorial  
-**Capabilities:** overlay (`{"backdrop":"none","background":"transparent"}`) · text: `title`, `subtitle`, `swapTo` · image: `src` · weight: light  
+**Roles:** type, accent · **Mood:** dark, cinematic, editorial  
+**Capabilities:** overlay (`{"backdrop":"none","background":"transparent"}`) · text: `title`, `subtitle`, `swapTo`, `kicker` · image: `src` · weight: light  
 **Pairs well with:** `aurora`, `starfield-night`, `caustics-godrays`, `embers`, `ken-burns`  
 **Avoid:** Change title and subtitle (defaults ABYSSES / THE MIDNIGHT ZONE are sample text); set swapTo null for a single card.  
 
@@ -248,6 +313,96 @@ Wide-tracked title whose letters sharpen out of a blur with a random stagger, ta
 | `background` | `"#020406"` |  |
 | `src` | `""` | optional public/ image behind the title |
 | `fadeOut` | `true` | blur-fade everything out over the last 16 frames |
+| `material` | `"plain"` | 'plain' (default) \| 'gold' (7-stop banded gold gradient letters; combine with a light backdrop / ink background) |
+| `sheenAt` | `-1` | frame the specular band starts crossing the letters (-1 = right after the letters land) |
+| `sheenFrames` | `18` | frames the band takes to cross (~0.6 s) |
+| `glint` | `null` | {t0?, dur?, angle?} a white diagonal glint sweeping across the (plain-colour) letters; null = off. Pair with weight 200 and tracking ~0.5 for a thin launch-film title |
+| `kicker` | `""` | small tracked mono caps line above the title ("" = none) |
+
+### `bouncing-ball-singalong` — Bouncing-ball singalong
+
+![bouncing-ball-singalong](../gallery/bouncing-ball-singalong.jpg)
+
+Lyrics or a slogan on a period cinema title card: a white ball hops from word to word on the beat along parabolic arcs, squashing as it lands, and every word lights up (outline to solid) the moment the ball touches it.
+
+**Use for:** Jingles, slogans, safety rhymes, karaoke captions, kids learning content; works over any backdrop motion (set `background` transparent-ish or pass `src`).  
+**Rebuilt from:** lemo-opuscar styles/rubber-hose/STYLE.md §8 "bouncing-ball singalong", §4 title cards (MIT / CC BY 4.0, LemoLab); original implementation  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** pixel, editorial  
+**Capabilities:** paints its own background · text: `lines`, `title` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `lines` | `["SING ALONG WITH ME","EVERY WORD IN TIME"]` | lyric lines (replace the sample words) |
+| `title` | `"Follow the bouncing ball"` | small heading on the card (empty = none) |
+| `cues` | `[]` | optional frame of each word touch; empty = one hop per beat from bpm |
+| `bpm` | `100` | beats per minute (one word per beat) |
+| `startAt` | `30` | frame of the first touch |
+| `ballColor` | `"#F6F2E8"` | ball colour |
+| `textColor` | `"#F4EFE3"` | outline / unlit word colour |
+| `litColor` | `"#FFF3C9"` | colour a touched word fills with |
+| `highlight` | `"fill"` | 'fill' (outline to solid) \| 'brighten' (55 % to 100 %) |
+| `cardStyle` | `"period"` | 'period' (double-rule cinema card) \| 'modern' (rounded dark card) |
+| `font` | `"serif"` | 'serif' (small-caps period serif) \| 'limelight' (show caps) \| 'sans' |
+| `background` | `"#4A3A2A"` | backdrop colour (period style darkens it to a vignette) |
+| `src` | `""` | optional backdrop image (public path), shown dimmed behind the card |
+| `grain` | `true` | film grain |
+| `exit` | `true` | ball hops off the card after the last word |
+
+### `bulb-marquee-sign` — Bulb marquee sign
+
+![bulb-marquee-sign](../gallery/bulb-marquee-sign.jpg)
+
+Any word becomes a theatre marquee of evenly spaced warm bulbs on gold channel letters; letters ignite one per beat with a flash overshoot, then a chase runs across the sign and a tracked gold subtitle rises.
+
+**Use for:** Counted reveals (countdowns, launch names, award winners), premiere / Vegas / theatre titles, event openers.  
+**Rebuilt from:** lemo-opuscar styles/art-deco demo/engine/bulbs.js bulb render + litSequence (MIT, LemoLab), analysis/sources/lemo-styles-a.md §2 bulb-marquee-sign  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** pixel  
+**Capabilities:** paints its own background · text: `text`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `text` | `"TONIGHT"` | word(s) to spell in bulbs (A–Z, 0–9, ! ? - . & and spaces; keep it short, ≤ 10 letters) |
+| `subtitle` | `"AT THE NORTHWIND THEATRE"` | tracked gold caps under the sign (empty = none) |
+| `beatFrames` | `8` | frames between letters igniting |
+| `startAt` | `12` | frame the first letter lights |
+| `chaseGap` | `12` | frames after the last letter before the chase starts |
+| `spacing` | `0.62` | bulb spacing along the strokes in cap-height/6 units (smaller = more bulbs) |
+| `bulbColor` | `"#ffe6a3"` | lit bulb colour |
+| `channelColor` | `"#2a1a10"` | enamel colour inside the gold channel letters |
+| `background` | `"#0d0b09"` | warm lacquer black background |
+| `rays` | `true` | faint gold sunburst behind the sign |
+
+### `carved-plaque` — Carved plaque (shadow-theatre title)
+
+![carved-plaque](../gallery/carved-plaque.jpg)
+
+A dark hide plaque with the title cut out so the letters glow with the lamp light behind; carved border with a meander band and cloud-scroll corner roundels, a vermilion seal with a cut glyph, carried on two thin rods, pressed on to enter and lifted off to exit.
+
+**Use for:** Titles, end cards and chapter cards for heritage, myths and festivals (Lunar New Year, Diwali shadow plays), "a tale of ..." openers; works over lamp-screen or any bright backdrop.  
+**Rebuilt from:** lemo-opuscar styles/shadow-puppet demo/stage.js (plaque), DEMO.md "Title plaque" (MIT, LemoLab)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** editorial, night  
+**Capabilities:** paints its own background · text: `lines` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `lines` | `[{"text":"A TALE OF LANTERNS","font":"cormorant","size":9…` | title lines [{text, font (cormorant\|playfair\|bungee\|oldItalic\|gothic\|...), size, weight}] |
+| `plaqueColor` | `"#1a100a"` | hide colour |
+| `borderColor` | `"#5a3a1c"` | plaque edge highlight |
+| `sealColor` | `"#b3261b"` | seal colour (vermilion) |
+| `seal` | `"影"` | single glyph cut into the seal |
+| `rods` | `true` | show the carrying rods |
+| `enterAt` | `14` | frame the plaque presses on |
+| `exitAt` | `118` | frame the plaque lifts off (-1 = stays) |
+| `tremor` | `1` | hand tremor strength |
+| `backdrop` | `"lamp"` | 'lamp' (lit cloth behind) or 'color' |
+| `backdropColor` | `"#120805"` | colour when backdrop = color |
+| `seed` | `6` | tremor seed |
 
 ### `chapter-header` — Chapter header
 
@@ -265,7 +420,7 @@ Numbered chapter/stage header that steps through titles: tracked title + segment
 
 | prop | default | notes |
 |---|---|---|
-| `variant` | `"stage"` | stage (video8 top-left block) \| era (video14 top-right year card) \| location (video10 vertical tag) |
+| `variant` | `"stage"` | stage (video8 top-left block) \| era (video14 top-right year card) \| location (video10 vertical tag) \| fight-banner (tilted dark band snapping across the frame, heavy italic gold word + sub-line; title = word, subtitle = sub) \| fantasy (radial navy card, CHAPTER I capitals over a gold diamond ornament, glowing italic serif name, drifting ember; title = name, subtitle = chapter label) |
 | `stages` | `[]` | [{title, subtitle}] stepped through in order; [] = built-in sample for the variant |
 | `stageFrames` | `56` | frames per stage |
 | `startFrame` | `8` | frame the first stage appears |
@@ -276,6 +431,69 @@ Numbered chapter/stage header that steps through titles: tracked title + segment
 | `accent` | `"#c14d3c"` | location tag fill |
 | `backdrop` | `"auto"` | auto (dunes / warm / dusk per variant) \| any backdrop kind |
 | `src` | `""` | optional public/ image behind the header |
+| `position` | `"bottom"` | fight-banner: band 'top' or 'bottom' |
+| `angle` | `-4` | fight-banner: band tilt in degrees (-4) |
+| `bandColor` | `"#070224"` | fight-banner: band colour |
+| `goldColor` | `"#F8CB61"` | fight-banner / fantasy: gold rules, word and ornament colour |
+| `ornament` | `"diamond-line"` | fantasy: 'diamond-line' \| 'none' |
+| `ember` | `true` | fantasy: drifting ember particle |
+
+### `chrome-80s-title` — Chrome 80s title
+
+![chrome-80s-title](../gallery/chrome-80s-title.jpg)
+
+Heavy italic title in a sky-to-sunset chrome gradient with a white horizon line, dark outline plus neon outline glowing through; flickers on, a light bar sweeps the letters, a star glint pops, katakana line above, red year below.
+
+**Use for:** Synthwave / retro / 80s anime title cards, YouTube intros and game or film trailers.  
+**Rebuilt from:** lemo-opuscar styles/cel-anime-80s/demo/scenes1.js titleCard() (MIT, LemoLab)  
+**Default length:** 120 frames (4.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** neon, pixel, comic, nature, night  
+**Capabilities:** paints its own background · text: `title`, `subtitle`, `tagline` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"MIDNIGHT RUN"` | main title (caps recommended; wraps to two lines at 9:16) |
+| `subtitle` | `"ミッドナイト・ラン"` | katakana / Japanese line above (empty = none) |
+| `year` | `"1986"` | red year line below (empty = none) |
+| `tagline` | `"AN ORIGINAL ANIMATION"` | small tracked caps line under the year |
+| `neon` | `"#FF3FA4"` | neon outline colour |
+| `outline` | `"#120830"` | dark outline colour |
+| `sweepAt` | `14` | frame the light-bar sweep starts |
+| `glintAt` | `33` | frame the star glint starts |
+| `flicker` | `true` | flicker on at 12 fps with a 2-frame white flash |
+| `stars` | `60` | number of background stars |
+| `background` | `"#130D1F"` | night sky top colour |
+
+### `chrome-title-slam` — Chrome title slam
+
+![chrome-title-slam](../gallery/chrome-title-slam.jpg)
+
+An extruded 80s chrome logotype slams in from huge scale, flashes the frame white and shakes: sky-to-sunset split face with a bright horizon line, dark outline, neon edge, stacked purple extrusion, bevel slivers and reflection lines; then a diagonal glint sweeps across and a four-point star pops.
+
+**Use for:** Retro title cards, gaming / esports intros, event posters and Y2K chrome brand moments; the extruded, slammed cousin of `chrome-80s-title`.  
+**Rebuilt from:** mg-styles-15 demos/10-synthwave chrome title (MIT), video 10-synthwave 4.13-5.6 s  
+**Default length:** 120 frames (4.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** neon, 3d, pixel, nature, night  
+**Capabilities:** paints its own background · text: `text`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `text` | `"HYPERWAVE"` | the logotype (short, caps) |
+| `subtitle` | `"WORLD TOUR 2099"` | small letter-spaced line under it (empty = none) |
+| `skyColors` | `["#3f6bff","#8fdcff","#eefaff"]` | face gradient stops, top to the horizon line (2-4 hex colours) |
+| `sunColors` | `["#ffe76a","#ff9a3d","#ff3d9a"]` | face gradient stops, below the horizon line |
+| `rimColor` | `"#ff7bdd"` | colour of the bright rim stroke |
+| `neon` | `"#ff49d6"` | neon edge + glow colour |
+| `extrudeColor` | `"#5c1080"` | extrusion colour at the face; it darkens with depth |
+| `extrudeSteps` | `14` | number of stacked extrusion copies (depth) |
+| `slamAt` | `8` | frame the title starts slamming in |
+| `flash` | `0.6` | white flash peak 0..1 |
+| `glintAt` | `52` | frame the diagonal glint starts (0.6 s sweep) |
+| `starGlint` | `true` | pop a four-point star + streak at the end of the sweep |
+| `skew` | `-8` | italic skew in degrees |
+| `background` | `"#090216"` | backdrop base colour |
 
 ### `comic-burst` — Comic SFX burst
 
@@ -302,6 +520,95 @@ Comic onomatopoeia (BONK! POP!) in a jagged halftone starburst that springs in a
 | `backdrop` | `"comic"` | comic \| dusk \| warm \| … procedural scene behind |
 | `src` | `""` | optional public/ image as the scene |
 | `seed` | `3` | changes the burst shapes |
+| `variant` | `"burst"` | burst (starburst + onomatopoeia) \| telop (huge outlined verdict word pops at an angle, drifts up, with a star + ring + speed-line burst) |
+| `angle` | `-6` | telop: default tilt in degrees (a burst rotate overrides it) |
+| `strokeRatio` | `0.15` | telop: ink outline width as a share of the font size |
+| `tagCorner` | `false` | telop: after the hold the word shrinks into a small tag in the top-left corner and stays |
+| `skewDeg` | `0` | telop: horizontal skew of the word |
+
+### `deco-title-bar` — Art deco title bar
+
+![deco-title-bar](../gallery/deco-title-bar.jpg)
+
+An art-deco title card unfolding from a centre point: hairline → stepped lacquer bar with double gold keyline → title rises in Limelight gold → wings with speed lines, over a stepped arch and a 72-ray sunburst, with a diamond year badge and a specular sheen across the gold.
+
+**Use for:** Openers and end cards for galas, launches, 1920s themes, hotel / luxury brands and New Year countdowns.  
+**Rebuilt from:** lemo-opuscar styles/art-deco demo/engine/type.js titleBar, yearBadge; engine/deco.js goldGrad, gline, sunburst, archFrame (MIT, LemoLab), analysis/sources/lemo-styles-a.md §2 deco-title-bar  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** nature  
+**Capabilities:** paints its own background · text: `title`, `subtitle`, `badge`, `caption` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Midnight"` | main title (set in Limelight caps; long titles shrink to fit the bar) |
+| `subtitle` | `"at the Northwind Hotel"` | tracked caps line under the bar |
+| `badge` | `"2026"` | text in the diamond badge, split in two halves (e.g. "2026" → 20 / 26) |
+| `caption` | `"New Year's Eve"` | thin tracked caps line under the badge (empty = none) |
+| `rays` | `72` | sunburst ray count (alternate wedges are drawn) |
+| `steps` | `3` | stepped arch frames drawn above the bar |
+| `accent` | `"#8E1B2E"` | burgundy jewel accent at the bar ends |
+| `background` | `"#0d0b09"` | warm lacquer black |
+| `sheenAt` | `84` | frame the specular sheen sweeps across the gold |
+
+### `diagonal-assemble-title` — Diagonal assemble title (shatter into title)
+
+![diagonal-assemble-title](../gallery/diagonal-assemble-title.jpg)
+
+The previous scene slices into 23 strips along a 30-degree cut that slide off alternately; the title letters then fly in along the same diagonal from alternating sides, spinning and landing one per sixteenth note, the title sitting split along the cut until the halves close with a click.
+
+**Use for:** Logo and name reveals ("the chase ends at the brand"), event openers, trailers: an assemble-the-title finale with real graphic punch.  
+**Rebuilt from:** lemo-opuscar styles/spy-titles demo/film.js (sShatter), title.js (MIT, LemoLab)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** paper, ui  
+**Capabilities:** paints its own background · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `["Northwind","Station"]` | title lines (one or two short lines) |
+| `cutAngle` | `30` | cut line angle from vertical, degrees |
+| `strips` | `23` | number of strips the outgoing scene is cut into |
+| `stripWidth` | `260` | strip width in u |
+| `landFrom` | `28` | frame the first letter lands |
+| `landEvery` | `3` | frames between letter landings |
+| `splitGap` | `40` | gap between the two title halves in u |
+| `closeAt` | `92` | frame the halves close with a click |
+| `scene` | `true` | show the outgoing scene (false = start straight on the title) |
+| `sceneGround` | `"#c8321e"` | outgoing scene sky/ground colour |
+| `sceneInk` | `"#1b1714"` | outgoing scene skyline colour |
+| `sceneAccent` | `"#e2a52a"` | window / click accent colour |
+| `paper` | `"#efe4c9"` | background behind the title |
+| `titleInk` | `"#1b1714"` | title letter colour |
+| `seed` | `3` | skyline seed |
+
+### `diagonal-band-title` — Diagonal band title
+
+![diagonal-band-title](../gallery/diagonal-band-title.jpg)
+
+Constructivist title package on warm paper: an archive-footage window slams down, a red girder band slams in along a −18° axis with a decaying shake, a huge Oswald number stamps digit by digit (one per eighth note) with its unit in red, and a caps line rides on the band; everything printed in one ink, one red.
+
+**Use for:** Bold documentary, anniversary and report openers; launch numbers with real photos (pass src).  
+**Rebuilt from:** lemo-opuscar styles/kino-montage (MIT, LemoLab) — STYLE.md §6 title package, poster.jpg, index.html slam/slant  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** paper, photo, cinematic, editorial  
+**Capabilities:** paints its own background · text: `unit` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `number` | `"410"` | the huge number (stamped digit by digit) |
+| `unit` | `"days"` | unit word in red beside it |
+| `line` | `"Northwind Tower · built floor by floor"` | caps line riding on the red band |
+| `subline` | `"Opened ahead of schedule"` | ink-tab line under the number |
+| `tag` | `"Film · Northwind archive · 1931"` | Space Mono source tag on the footage window |
+| `src` | `""` | optional photo/still in public/ for the footage window (print-graded to ink/paper) |
+| `footage` | `"tower"` | procedural archive scene when no src: 'tower' \| 'girder' \| 'crowd' \| 'street' \| 'works' |
+| `axisDeg` | `-18` | band axis in degrees (−15 to −30) |
+| `bpm` | `120` | beat grid: digits land on eighth notes |
+| `red` | `"#D52B1E"` | the one red |
+| `ink` | `"#141210"` | ink colour |
+| `paper` | `"#EDE4D0"` | paper colour |
 
 ### `end-card-credits` — End card credits
 
@@ -330,6 +637,69 @@ Bottom scrim fades in over a drifting landscape; headline, mono stat lines and a
 | `fadeToBlack` | `true` | fade to black over the last 11 frames |
 | `backdrop` | `"peaks"` | peaks (sunrise over mountains) \| dunes \| dusk \| ocean \| … scene behind |
 | `src` | `""` | optional public/ image or still of your last shot |
+| `layout` | `"stack"` | stack (headline block over a bottom scrim) \| storybook (calm: serif title blurs in at the top over a slow pull-back, CTA low in the frame) |
+| `cta` | `""` | call-to-action button text ("" = none) |
+| `ctaColor` | `"#D83A34"` | CTA button fill |
+| `ctaTextColor` | `"#ffffff"` | CTA button text colour |
+| `ctaAt` | `0` | frame the CTA pops in (0 = visible from the first frame) |
+| `pullBack` | `false` | slow pull-back (≈3 %/s) with a slight truck right instead of the drift-in |
+
+### `flipbook-riffle-outro` — Flipbook riffle outro
+
+![flipbook-riffle-outro](../gallery/flipbook-riffle-outro.jpg)
+
+A hand-drawn end card (scalloped red title plate, flame mascot, sparkles) pulls back in three drawings to become the top sheet of an animation-paper stack on a peg bar on a desk; a red pencil writes and circles the drawing count, a cartoon thumb lifts the corner and riffles back through earlier drawings on ones, then settles on the top sheet and the mascot winks.
+
+**Use for:** A memorable "it was all hand-made" signature ending for studio reels, behind-the-scenes, craft and handmade brands.  
+**Rebuilt from:** mg-styles-15 05-cel-boil 9.0-9.7 s, scene.js drawDesk / drawThumb / RIFFLE (MIT, Vincentwei1021) — technique after mg-styles-15  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** paper, 3d, comic, playful  
+**Capabilities:** paints its own background · text: `title`, `subtitle`, `tagline` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Made by Hand"` | title on the scalloped plate |
+| `subtitle` | `"FRAME BY FRAME"` | small caps line inside the plate |
+| `tagline` | `"drawn one sheet at a time"` | hand-lettered line under the plate |
+| `countLabel` | `"No. 146"` | red-pencil drawing count that gets circled |
+| `sceneLabel` | `"SC. 05"` | slate text top-left of every sheet |
+| `src` | `""` | optional image (public/ path or URL) shown in place of the title plate |
+| `paper` | `"#F1E7CF"` | animation paper colour |
+| `deskColor` | `"#57523F"` | desk colour around the sheet |
+| `plateColor` | `"#E04A33"` | title plate colour |
+| `titleColor` | `"#FFC425"` | title fill colour |
+| `ink` | `"#1C1613"` | ink colour |
+| `pencil` | `"#D9573F"` | red col-erase pencil colour |
+| `pegBar` | `true` | draw the peg bar, peg holes and tape |
+| `riffleCount` | `6` | earlier drawings flashed during the riffle (2–8, one per frame) |
+| `showFlame` | `true` | flame mascot peeking over the plate |
+| `seed` | `1` | variation seed |
+
+### `glyph-fractal-push` — Glyph fractal push
+
+![glyph-fractal-push](../gallery/glyph-fractal-push.jpg)
+
+A big word on a phosphor terminal holds, then the camera pushes on an exponential curve into one glyph until you see it is made of lines of smaller text (names, logs, headlines); outside the glyph the text is barely visible.
+
+**Use for:** Scale reveals for text-heavy stories: "a company made of its people", "a year made of headlines", "a model made of a million lines".  
+**Rebuilt from:** lemo-opuscar styles/ascii-crt demo/main.js fractal section, term.js thin bitmaps (MIT, LemoLab), analysis/sources/lemo-styles-a.md §3 glyph-fractal-push  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** editorial  
+**Capabilities:** paints its own background · text: `word` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `word` | `"TEAM"` | the big word (A–Z, 0–9; 2–6 letters reads best) |
+| `target` | `1` | index of the letter the camera pushes into |
+| `innerText` | `[]` | strings that make up the small text (names, log lines, headlines); empty = 24 neutral placeholder names |
+| `holdFrames` | `34` | frames the whole word holds before the push |
+| `pushFrames` | `110` | push duration |
+| `zoomTo` | `7` | final zoom (the small text reads at ≈ 30 px at the end) |
+| `phosphor` | `"#FFB000"` | phosphor colour (beam edges / glow) |
+| `phosphorHi` | `"#FFE2A0"` | small-text colour |
+| `background` | `"#090604"` | unlit glass colour |
 
 ### `glyph-orbit-logo` — Glyph-orbit logo build
 
@@ -361,6 +731,64 @@ Glyphs fly in and orbit a ring, then resolve into a typed mono logotype (scrambl
 | `backdrop` | `"ink"` | ink (blueprint black) \| any backdrop kind |
 | `src` | `""` |  |
 | `seed` | `2` |  |
+| `variant` | `"orbit"` | orbit (typed with jumble) \| fly (wordmark-fly-assemble: letters fly out of the hero point one after another, motion-blurred, and settle into the wordmark) |
+| `travel` | `12` | fly: frames each letter takes to travel (0.42 s = 12) |
+| `paletteDashes` | `[]` | fly: colours of short dashes that line up under the logo as a palette signature (e.g. ['#FF5A4A','#FFC24A','#3FB6C8']) |
+| `dotColor` | `""` | colour of the focus / tittle dot ('' = accent) |
+
+### `halftone-exhibit-numeral` — Halftone exhibit numeral
+
+![halftone-exhibit-numeral](../gallery/halftone-exhibit-numeral.jpg)
+
+A giant rounded numeral bleeds off the right edge in flat yellow overprinted with an orange Ben-Day halftone clipped to the glyph, rising in with a back-ease behind a boiling evidence tag, while a misregistered slab headline drops letter by letter and a navy caption pill pops — all on mottled archive paper.
+
+**Use for:** Numbered lists ("Reason 3"), step counters, chapter numbers and exhibit cards in print / editorial / true-crime-parody looks.  
+**Rebuilt from:** lemo-opuscar styles/halftone-dossier (MIT, LemoLab) — demo/index.html halftone(), radial(), charge-card scene, caption, boil filter  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** paper, pixel, comic, editorial  
+**Capabilities:** paints its own background · text: `headline`, `caption`, `keyword` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `numeral` | `"03"` | the giant numeral (1–3 characters) |
+| `headline` | `"Exhibit three"` | slab headline with misregistered shadow (letters drop in) |
+| `caseLine` | `"CASE No.2026-NW-003"` | mono case number top-left |
+| `tag` | `"CHARGE 03"` | navy pill under the case number |
+| `caption` | `"Left the oven on 17 times this year."` | caption pill text (empty = none) |
+| `keyword` | `"17 times"` | part of the caption shown in yellow |
+| `numeralColor` | `"#FFC628"` | flat spot ink of the numeral (yellow / pale pink) |
+| `dotColor` | `"#F58A34"` | halftone overprint colour inside the numeral |
+| `shadowColor` | `"#FFC628"` | misregistration shadow colour of the headline |
+| `src` | `""` | optional public/ image shown as the exhibit (boiling evidence tag otherwise) |
+| `background` | `"#F4ECDD"` | paper colour |
+
+### `hanazi-caption` — Hanazi caption
+
+![hanazi-caption](../gallery/hanazi-caption.jpg)
+
+A fat rounded variety-show caption made of five stacked layers (offset extrusion, coloured outer stroke, white stroke, gradient fill, top gloss) pops in character by character on a damped spring with a slight drop and rotation, then wiggles, bobs and breathes before popping out; a small handwritten aside and sparkles ride along.
+
+**Use for:** Social packaging (Douyin / Bilibili / Reels / TikTok), vlogs, interviews and reaction moments: drop emotional captions on top of footage.  
+**Rebuilt from:** mg-styles-15 demos/18-hanazi HZ, charXf, driveHZ, spring (MIT), video 18-hanazi 0.2-0.5 s, 2.57 s, 6.0 s, 8.1 s, 8.9 s  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** paper, 3d, playful, editorial  
+**Capabilities:** paints its own background · text: `text` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `text` | `"SO HAPPY!"` | the caption (Latin or CJK) |
+| `preset` | `"joy"` | joy \| shock \| aside \| question \| bye: colours, font and skew |
+| `aside` | `"(quietly) soaking up the sun..."` | small handwritten line under it (empty = none) |
+| `at` | `8` | frame the first character pops |
+| `out` | `138` | frame the pop-out starts (0.17 s) |
+| `stagger` | `2` | frames between characters |
+| `wiggle` | `1.8` | hold wiggle in degrees (1.15 Hz) |
+| `bob` | `3` | hold bob in px at 1080 |
+| `sparkles` | `true` | twinkling sparkles around it |
+| `src` | `""` | optional photo/video frame (public/) to caption over; empty = demo sky |
+| `background` | `"#7fd3ff"` | backdrop colour behind the demo sky |
 
 ### `handwrite-on` — Handwrite-on title
 
@@ -372,7 +800,7 @@ Text written glyph by glyph with a pen: outline strokes on, ink fill follows; op
 **Rebuilt from:** video4 0:26-0:28, video22 0:05-0:07, video22 0:14-0:16  
 **Default length:** 120 frames (4.0 s @ 30 fps)
 
-**Roles:** type · **Mood:** light, paper  
+**Roles:** type · **Mood:** light, paper, editorial  
 **Capabilities:** paints its own background · text: `lines` · weight: light  
 **Pairs well with:** `flow-lines`, `falling-petals`, `heart-draw-fill`, `sprout-grow`  
 
@@ -388,6 +816,70 @@ Text written glyph by glyph with a pen: outline strokes on, ink fill follows; op
 | `unwriteAt` | `0` | frame to start erasing backwards at 2x speed (0 = never) |
 | `paper` | `true` |  |
 | `jitter` | `1.2` | pen wobble in px |
+| `variant` | `"pen"` | 'pen' (default outline-then-ink) \| 'marker' (dry-erase marker: per-glyph seeded tilt / baseline / size wobble, thicker translucent multiply ink, wet glint at the nib) \| 'brush' (swelling pressure per glyph, thick stroke, dry streaks) |
+| `glyphJitter` | `{"tilt":2.5,"baseline":2,"size":0.03}` | marker: {tilt deg, baseline px, size fraction} seeded per glyph |
+| `wetGlint` | `true` | marker: small white glint at the nib while a glyph is being written |
+| `multiply` | `true` | marker: ink is ~90 % opaque and multiplies with what is below |
+| `dry` | `0.6` | brush: 0..1 dry-brush streak strength |
+| `halo` | `null` | written-caption mode: {color, width} paper-coloured blurred halo behind each glyph so it knocks back lines passing behind (null = off) |
+| `anchor` | `"center"` | 'center' (default) \| 'bottom' (caption position, 10 % from the bottom) |
+| `seed` | `4` | marker glyph jitter seed |
+
+### `intertitle-card` — Intertitle card (silent-film)
+
+![intertitle-card](../gallery/intertitle-card.jpg)
+
+A full-frame black painted silent-film card with an Art-Deco border whose ornament follows the emotion (narration, shout, tender, title), set in small-caps and italic serifs, with weave, flicker, scratches, dust and a hair of print damage.
+
+**Use for:** Chapter cards, quotes, punchlines ("Meanwhile, in the lab..."), a statistic as a twist; any retro or silent-comedy explainer. The SRT text can be the card text, so it doubles as a subtitle style.  
+**Rebuilt from:** lemo-opuscar styles/silent-film demo/engine/cards.js, STYLE.md §4 (MIT, LemoLab)  
+**Default length:** 120 frames (4.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** photo, pixel, cinematic, editorial  
+**Capabilities:** paints its own background · text: `lines` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `lines` | `[{"text":"Meanwhile, in the laboratory, a small idea was …` | card text [{text, font?, size?, italic?}]; level 'title' treats the first line as the title and the rest as italic subtitles |
+| `level` | `"narration"` | 'narration' \| 'shout' \| 'tender' \| 'title': picks the border ornament and type style |
+| `shake` | `1` | shout shake strength |
+| `cardColor` | `"#141210"` | painted card colour |
+| `inkColor` | `"#e8e4da"` | text colour |
+| `borderColor` | `"#bdb6a8"` | border colour |
+| `hold` | `3.5` | seconds the card is shown before a cut to black |
+| `fadeFrames` | `5` | fade from black at the start (0 = hard cut) |
+| `damage` | `1` | print damage 0..1 (weave, flicker, scratches, dust) |
+| `aspect` | `0` | 0 = 4:3 (3:4 in portrait), -1 = fill the frame, or a width/height number |
+| `outside` | `"#050403"` | colour outside the gate |
+
+### `iso-ground-title` — Iso ground title
+
+![iso-ground-title](../gallery/iso-ground-title.jpg)
+
+A bold extruded wordmark that belongs to an isometric world: letters drop one by one onto the iso floor plane (16th-note stagger) with a contact shadow, a small bounce and a lean, a hairline rule draws under them, a tagline and a mono stats line type on flat on the plane, and a cyan floor ping closes it.
+
+**Use for:** Titles and end cards for iso dioramas, maps and product worlds; pair with iso-city-build after its pull-back.  
+**Rebuilt from:** mg-styles-15 03-isometric 8.4-9.2 s, title.js / title5.js (MIT, Vincentwei1021) — technique after mg-styles-15  
+**Default length:** 120 frames (4.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** 3d, playful  
+**Capabilities:** paints its own background · text: `text`, `tagline` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `text` | `"NORTHWIND"` | the wordmark (short, caps reads best) |
+| `tagline` | `"a city that grows itself"` | line set flat on the plane under the title |
+| `stats` | `"CITY OS · 144 TILES · ONLINE"` | mono stats line |
+| `plane` | `"right"` | 'right' reads up-right along one iso axis, 'left' reads down-right along the other |
+| `background` | `["#E6E0FB","#CFC5F4","#B6A8EC"]` | background gradient stops |
+| `color` | `"#2C2960"` | letter top colour |
+| `sideColor` | `"#1C1946"` | extrusion / text colour |
+| `accent` | `"#62F0F2"` | dot and floor ping colour |
+| `depth` | `12` | extrusion layers (thickness) |
+| `stagger` | `2` | frames between letters (2 = 16ths at 120 bpm) |
+| `startAt` | `6` | frame of the first letter drop |
+| `grid` | `true` | faint iso floor grid |
+| `ping` | `true` | cyan floor ping at the end |
 
 ### `kinetic-captions` — Kinetic word captions
 
@@ -396,7 +888,7 @@ Text written glyph by glyph with a pen: outline strokes on, ink fill follows; op
 Word-by-word pop-in captions; *starred* words sit on a solid highlight box.
 
 **Use for:** Narrated shorts: subtitles that pace with the voice and punch key words.  
-**Rebuilt from:** video10 0:04-0:42  
+**Rebuilt from:** video10 0:04-0:42, lemo-opuscar styles/caption-news, glass-product, ui toast (MIT, LemoLab), pdoom karaoke-fill idea  
 **Default length:** 150 frames (5.0 s @ 30 fps)
 
 **Roles:** type, frame · **Mood:** dark, editorial  
@@ -412,8 +904,152 @@ Word-by-word pop-in captions; *starred* words sit on a solid highlight box.
 | `position` | `"center"` | bottom \| center \| top |
 | `highlightColor` | `"#d23a2c"` | box colour behind highlighted words |
 | `size` | `64` |  |
-| `variant` | `"kinetic"` | kinetic (word pop + highlight boxes) \| premium (calm line, words brighten as spoken, soft scrim) |
-| `accent` | `"#E9C27A"` | premium: colour of *starred* words |
+| `variant` | `"kinetic"` | kinetic (word pop + highlight boxes) \| premium (calm line, words brighten as spoken, soft scrim) \| slam (huge left-aligned chunks split by \|, {keyword} on a colour block, optional secondLines) \| toast (UI notification pill with live dot) \| frosted-bar (blurred glass slab + accent line) \| terminal (LOG tag, > prompt, words typed with the voice) \| print (glyph-drop headline with offset overprint shadow) \| karaoke (outline words fill as sung) \| rise (calm per-word fade + rise) |
+| `accent` | `"#E9C27A"` | premium/toast/terminal/karaoke: accent colour (starred words, dot, tag, current word) |
+
+### `kinetic-type-slam` — Kinetic type slam (phrases)
+
+![kinetic-type-slam](../gallery/kinetic-type-slam.jpg)
+
+Huge 2-4 word phrases land one word per beat: each word rises through its own mask with a 1.25→1 (or 0.6→1) scale punch, they stack (or justify full-width, or swap in place), one accent word takes the brand colour, then the whole line is shoved off the top by the next phrase while the camera creeps in.
+
+**Use for:** Hooks for shorts, launch films, manifestos and title sequences: pass `lines` (accent word per line), pick `layout`, set `beatFrames` to your music grid.  
+**Rebuilt from:** prompt-corpus: kinetic-type-slam (52 cases), awesome-opus5-5-videos prompts (MIT) — technique only  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** —  
+**Capabilities:** paints its own background · text: `lines` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `lines` | `[{"text":"Make it punchy","accent":"punchy"},{"text":"One…` | [{text, accent?: word or index, at?: start frame}] — 2-4 words each |
+| `layout` | `"stack"` | 'stack' words stacked at one size · 'fill' each word justified to full width · 'center' one word at a time |
+| `beatFrames` | `10` | frames per word (6-15; match your beat grid) |
+| `holdBeats` | `1.4` | beats a finished line holds before being pushed off |
+| `font` | `"display"` | 'display' \| 'sans' \| 'grotesk' \| 'serif' \| 'mono' |
+| `align` | `"center"` | 'left' \| 'center' for stack |
+| `tracking` | `-0.03` | letter-spacing in em (-0.02…-0.04) |
+| `uppercase` | `true` |  |
+| `capHeight` | `0.28` | cap height of the biggest word as a fraction of frame height (0.25-0.45) |
+| `entryScale` | `1.25` | start scale of even words (1.25 punch-in); odd words use ≤0.6 pop-up |
+| `push` | `0.06` | camera push-in over the whole clip (0.06 = +6 %) |
+| `shake` | `5` | landing shake in px (0 = none) |
+| `flash` | `true` | accent-colour flash on accent-word impact |
+| `showIndex` | `true` | small 01/04 line counter |
+| `background` | `"#0E0E10"` | background colour |
+| `ink` | `"#F3EFE6"` | text colour |
+| `accent` | `"#FF4D12"` | accent word colour |
+
+### `knife-cut` — Knife cut (strike a row out)
+
+![knife-cut](../gallery/knife-cut.jpg)
+
+A thin red rule shoots across a list row in three frames, then the row collapses vertically to its own midline and is gone; the rows below re-flow into the freed space nearest first and the running total counts down. Precise Swiss deletion.
+
+**Use for:** Removing text, bullets, prices or features with a precise non-fade beat: "budget cut", quote tidy-ups, feature trimming; pairs with kinetic captions.  
+**Rebuilt from:** lemo-opuscar styles/swiss-motion demo/film.js drawPosterText cut (MIT / CC BY 4.0, LemoLab)  
+**Default length:** 130 frames (4.3 s @ 30 fps)
+
+**Roles:** type · **Mood:** 3d  
+**Capabilities:** paints its own background · text: `title`, `items` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Quote"` | heading above the list |
+| `items` | `[{"label":"Setup fee","amount":240},{"label":"Premium sup…` | rows: label + numeric amount |
+| `cuts` | `[1,3]` | indexes of the rows to strike out |
+| `cutAt` | `[40,78]` | frame each cut line lands (one per cut) |
+| `currency` | `"$"` | currency symbol for amounts |
+| `totalLabel` | `"Total"` | label of the running-total row |
+| `direction` | `"ltr"` | 'ltr' or 'rtl' knife direction |
+| `lineFrames` | `3` | frames the rule takes to cross |
+| `collapseFrames` | `6` | frames the collapse takes |
+| `background` | `"#ece8df"` | page colour |
+| `ink` | `"#111111"` | text colour |
+| `signal` | `"#e5322d"` | knife and total accent colour |
+| `muted` | `"#8f8b82"` | hairline colour |
+
+### `letters-become-image` — Letters become image
+
+![letters-become-image](../gallery/letters-become-image.jpg)
+
+A typed sentence on a phosphor terminal breaks apart: its letters fly as particles into the cells of a picture made only of those letters, landing bottom-to-top with a flash on each landing while the source letters dim.
+
+**Use for:** Text-to-image climaxes: a manifesto becomes a city, a product name becomes the product, a recipe becomes the dish.  
+**Rebuilt from:** lemo-opuscar styles/ascii-crt demo/main.js letter-fall block + term.js (MIT, LemoLab), analysis/sources/lemo-styles-a.md §3 letters-become-image  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** photo, pixel, playful, ui  
+**Capabilities:** paints its own background · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `sentence` | `"Every city is made of small lights"` | the typed sentence; the picture is built only from its letters |
+| `src` | `""` | public/ image to build (empty = procedural night plate) |
+| `seed` | `2` | procedural plate seed |
+| `palette` | `"dusk"` | procedural plate palette |
+| `cols` | `84` | picture columns in landscape (portrait uses 60 %) |
+| `typeStart` | `4` | frame typing starts |
+| `splitAt` | `66` | frame the sentence breaks apart (≈1.5 s after typing ends) |
+| `flightFrames` | `18` | flight time of one letter |
+| `spreadFrames` | `52` | frames from the first landing row to the last |
+| `order` | `"bottomUp"` | bottomUp = ground lands first, random = scattered |
+| `phosphorLo` | `"#FF6605"` | dim phosphor colour |
+| `phosphorMid` | `"#FFB000"` | mid phosphor colour (cursor) |
+| `phosphorHi` | `"#FFEBB8"` | bright phosphor colour (sentence) |
+| `background` | `"#090604"` | unlit glass colour |
+
+### `logo-assemble` — Logo assemble (wireframe, shards lock in)
+
+![logo-assemble](../gallery/logo-assemble.jpg)
+
+The logo draws on as a triangle wireframe, then faceted shards fly in from depth (or scatter) with a stagger, overshoot about 2 % and lock into place; a soft thud (camera punch, glow and ring) and a diagonal light sweep follow, then a tracked tagline. Works from a word or from an image / SVG logo.
+
+**Use for:** Logo stings, brand intros and end cards; set text to the brand name or src to a logo file.  
+**Rebuilt from:** prompt-corpus research: logo-assemble (12 cases, ideas only; original implementation)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** blueprint, photo  
+**Capabilities:** paints its own background · text: `text`, `tagline` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `text` | `"Northwind"` | brand name (used when src is empty) |
+| `src` | `""` | public/ path or URL of a logo image / SVG (overrides text) |
+| `logoAspect` | `1` | width / height of the src logo |
+| `fontRole` | `"display"` | font role for the text logo: sans \| display \| grotesk \| serif \| mono |
+| `weight` | `400` | font weight for the text logo |
+| `tagline` | `"BUILT PIECE BY PIECE"` | tracked line under the logo ("" = none) |
+| `color` | `"#F2F5FF"` | logo colour |
+| `accent` | `"#5B8CFF"` | wireframe / glow / in-flight tint colour |
+| `background` | `"#0B0F1C"` | background colour |
+| `shardCount` | `90` | approximate number of shards (40-200) |
+| `origin` | `"depth"` | 'depth' (fly from the camera side) \| 'scatter' (fly in from all around) |
+| `wireframe` | `true` | show the wireframe stage first |
+| `sweep` | `true` | light sweep after the lock |
+| `seed` | `4` | randomness seed |
+
+### `marquee-ticker` — Marquee ticker
+
+![marquee-ticker](../gallery/marquee-ticker.jpg)
+
+Endless horizontal bands of big uppercase text (solid, outline or pill-logo style) scrolling seamlessly with star/dot/arrow separators — one band, or several tilted and crossing in opposite directions — wiping in staggered.
+
+**Use for:** Hype reels, event promos, client-logo walls (pill style), website section dividers, "now playing" bars; replace the items with your own words.  
+**Rebuilt from:** prompt-corpus: awesome-opus5-5-videos (MIT) — marquee / ticker cases (5), original implementation  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** ui  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `bands` | `[{"items":["New drop","Limited run","Free shipping","Ship…` | [{items[], speed(px/s at 1080), direction(1 right\|-1 left), tilt(deg), bg, ink, style(solid\|outline\|pill), offsetY(-0.5..0.5 of frame height), height?}] |
+| `separator` | `"star"` | star \| dot \| slash \| arrow \| none — glyph between items |
+| `font` | `"display"` | font role: display \| sans \| grotesk \| serif \| comic \| rounded \| instrument ... |
+| `background` | `"#E94E2C"` | colour behind the bands |
+| `grid` | `true` | faint dot grid on the background |
+| `stagger` | `8` | frames between each band wiping in |
 
 ### `mask-rise-title` — Mask-rise title
 
@@ -425,14 +1061,14 @@ Editorial title whose letters rise out of baseline masks with motion blur; chapt
 **Rebuilt from:** video17 0:06.0-0:06.6, video17 0:38.7-0:42.8, video3 0:16.6-0:17.4  
 **Default length:** 180 frames (6.0 s @ 30 fps)
 
-**Roles:** type · **Mood:** light, editorial  
-**Capabilities:** overlay (`{"backdrop":"none","background":"transparent"}`) · text: `chapter`, `fromChapter`, `lines`, `sideCopy`, `sideMono` · image: `src` · weight: light  
+**Roles:** type · **Mood:** light, nature, editorial  
+**Capabilities:** overlay (`{"backdrop":"none","background":"transparent"}`) · text: `chapter`, `fromChapter`, `lines`, `sideCopy`, `sideMono`, `text`, `subtitle` · image: `src` · weight: light  
 **Pairs well with:** `fireworks`, `glass-pane-grid`, `duotone`, `confetti-burst`  
 **Avoid:** Change chapter / lines / sideCopy / sideMono (defaults like STAGING, 12 PRINCIPLES are sample text).  
 
 | prop | default | notes |
 |---|---|---|
-| `variant` | `"chapter"` | chapter (numeral + title + typed subtitle) \| stack (end-card lines + side column) |
+| `variant` | `"chapter"` | chapter (numeral + title + typed subtitle) \| stack (end-card lines + side column) \| water (caps rise from a thin waterline, damped overshoot + splash dots) \| numeral (giant numeral climbing into a clip window in eased steps) \| vertical (vertical word lockup + side line) \| breathing (end card: dot drops, headline rises, rule, typed eyebrow, breathing dot with rings) |
 | `chapter` | `{"number":"03","title":"STAGING","subtitle":"— One idea. …` | {number, title, kicker?, subtitle?} shown (after the swap if fromChapter is set) |
 | `fromChapter` | `{"number":"02","title":"ANTICIPATION","subtitle":"— Wind …` | previous chapter shown first and swapped out at swapAt (null = enter fresh, numeral rolls from 00) |
 | `swapAt` | `78` | frame the previous title exits upward |
@@ -453,6 +1089,17 @@ Editorial title whose letters rise out of baseline masks with motion blur; chapt
 | `exit` | `true` | compress (chapter) or skew-slide (stack) out over the last 12 frames |
 | `backdrop` | `"cream"` | cream \| ink \| dunes \| … (plain background colour for cream) |
 | `src` | `""` |  |
+| `text` | `""` | variants water / numeral / vertical / breathing: the headline ('' = a built-in sample word per variant) |
+| `eyebrow` | `""` | breathing: mono eyebrow typed above the headline behind a block cursor |
+| `subtitle` | `""` | water / numeral / breathing: sub-line |
+| `sideLine` | `""` | vertical: small tracked caps line running alongside the vertical word |
+| `dotColor` | `"#ED3821"` | breathing: accent dot colour (also its rings and the rule tick) |
+| `breathPeriod` | `1` | breathing: seconds per breath (dot swells, ring emitted) |
+| `steps` | `4` | numeral: number of eased climb steps |
+| `stepFrames` | `8` | numeral: frames per step |
+| `exitAt` | `0` | water / numeral / vertical / breathing: frame to exit (0 = the last 12 frames when exit is true) |
+| `letterStepFrames` | `2` | vertical: frames between letters (2) |
+| `font` | `"display"` | water / numeral / vertical / breathing: display \| sans \| serif \| instrument \| rounded \| grotesk |
 
 ### `neon-sign` — Neon sign ignite
 
@@ -483,6 +1130,68 @@ Dark plum plate on a brick wall; rounded neon lettering strikes on letter by let
 | `tracking` | `0.08` | letter spacing in em for the main font |
 | `pullBack` | `true` | start tight on the plate and pull back after ignition |
 | `seed` | `5` | changes the ignition order and stutters |
+| `script` | `false` | script mode: a cursive neon word is traced on as unlit glass with a hot head, then the tube strikes on with a ballast flicker (uses the first line; default lines render "Midnight") |
+| `scriptFont` | `"hand"` | script: font role of the cursive word (hand = Caveat) |
+| `traceFrames` | `24` | script: frames the trace takes (≈0.8 s in the source) |
+| `strikeEnvelope` | `[1,0.15,1,1,0.08,0.5,0.85,1]` | script: per-frame brightness levels after the trace, then hum |
+| `glassColor` | `"#5f4653"` | script: colour of the unlit glass tube |
+| `rotation` | `-8` | script: tilt in degrees (−8 italic placement) |
+| `noPlate` | `false` | script: transparent background so the neon floats over another scene |
+
+### `news-strap` — News strap (broadcast lower third)
+
+![news-strap](../gallery/news-strap.jpg)
+
+Persistent broadcast lower third: lemon category tab on a paper strap with a lemon left bar, ink headline + olive caps sub-line, ink end block with the channel name, offset drop shadow and a mono source line; content changes flip vertically and the tab flashes on a new category. Overlay-capable (backdrop "none").
+
+**Use for:** News / market / update videos, podcast name straps (PROFILE tab), changelog bulletins — one strap that holds the headline for the whole programme.  
+**Rebuilt from:** lemo-opuscar styles/news-package (MIT code, CC BY 4.0 docs, LemoLab) — demo/main.js strap/cornerTag/credit  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** type, accent · **Mood:** paper  
+**Capabilities:** overlay (`{"background":"transparent","backdrop":"none"}`) · text: `items` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `items` | `[{"at":0,"tab":"Markets","headline":"Northwind shares cli…` | strap states [{at (frame), tab, tab2?, headline, sub, source?, tag?}] — tag shows the top-left ILLUSTRATION-style corner tag |
+| `channel` | `"Lumen"` | channel name in the end block |
+| `accent` | `"#F2CF1D"` | lemon accent (tab, bars, channel name) |
+| `paper` | `"#F4F1E8"` | strap paper colour |
+| `ink` | `"#121417"` | ink / end block colour |
+| `olive` | `"#6E5A1E"` | sub-line colour |
+| `gold` | `"#D4B064"` | corner-tag accent |
+| `inAt` | `6` | frame the strap wipes in |
+| `outAt` | `0` | frame it wipes out (0 = never; straps hold for the programme) |
+| `changeMode` | `"flip"` | "flip" (vertical flip) or "cut" |
+| `backdrop` | `"studio"` | "studio" (ink studio with glow, fins and dot grid) or "none" (overlay) |
+| `background` | `"transparent"` | background when backdrop is "none" (default transparent) |
+
+### `newsreel-ident` — Newsreel ident (searchlights & globe)
+
+![newsreel-ident](../gallery/newsreel-ident.jpg)
+
+Late-1920s newsreel opener: searchlight beams snap on with a flash and sweep from the bottom corners, a 36-wedge sunburst turns slowly, a shaded wireframe globe grows and spins, the channel name lands in Art-Deco silver lettering with a big overshoot over a spaced subtitle, and an iris closes on the globe.
+
+**Use for:** Vintage intros and outros for history channels, anniversaries, retro launches, "this week in…" shows; reprise it as the end card.  
+**Rebuilt from:** lemo-opuscar styles/newsreel (MIT code, CC BY 4.0 docs, LemoLab) — demo/index.html sceneLogo/globe/sunburst/beams/silverText  
+**Default length:** 120 frames (4.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** blueprint, nature, playful  
+**Capabilities:** paints its own background · text: `title`, `subtitle`, `tagline` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"World in Review"` | Art-Deco silver title |
+| `subtitle` | `"Sound news of the week"` | spaced caps line under the title |
+| `tagline` | `"Presenting"` | small line above the globe ("" to hide) |
+| `beamsAt` | `5` | frame the searchlights snap on |
+| `globe` | `true` | show the wireframe globe |
+| `globeSpin` | `1.4` | globe spin speed (rad/s) |
+| `irisOut` | `true` | iris to black at the end |
+| `gate` | `1.37` | pillarbox gate aspect (0 = none) |
+| `damage` | `1` | projector damage 0..1 (flicker, scratches, dust, grain) |
+| `silver` | `["#FFFFFF","#D9D4CA","#9E978A","#EFEBE2"]` | four stops of the silver lettering gradient |
+| `background` | `"#000000"` | outside-gate colour |
 
 ### `number-counter` — Number counter
 
@@ -495,14 +1204,14 @@ Huge thin-mono counter that ticks or odometer-rolls through dwell keyframes, wit
 **Default length:** 180 frames (6.0 s @ 30 fps)
 
 **Roles:** type · **Mood:** dark, hud  
-**Capabilities:** overlay (`{"backdrop":"none"}`) · text: `keyframes`, `label`, `unit`, `prefix`, `readoutLabels` · image: `src` · weight: light  
+**Capabilities:** overlay (`{"backdrop":"none"}`) · text: `keyframes`, `label`, `unit`, `prefix`, `readoutLabels`, `kicker` · image: `src` · weight: light  
 **Pairs well with:** `star-glint`, `flow-lines`, `confetti-burst`, `iso-bar-chart`  
 **Avoid:** Set label, unit ('' to hide 'm'), readouts [] and keyframes — defaults are the DEPTH dive sample.  
 
 | prop | default | notes |
 |---|---|---|
 | `keyframes` | `[[0,0],[14,0],[62,760],[96,868],[168,10935],[180,10935]]` | [[frame, value], …] monotone-cubic; put two close keys to dwell (slow down) near a landmark |
-| `mode` | `"roll"` | roll (odometer digit strips with motion blur) \| tick (re-typeset each frame) |
+| `mode` | `"roll"` | roll (odometer digit strips with motion blur) \| tick (re-typeset each frame) \| lock (digits spin, lock one by one) \| scramble (glyph noise + trail + drop) \| flap (split-flap tiles) \| clock (time-lapse clock) |
 | `label` | `"DEPTH"` | small tracked label above the number |
 | `unit` | `"m"` | unit after the number ("" = none) |
 | `prefix` | `""` | text before the number (e.g. "$", "×") |
@@ -520,6 +1229,139 @@ Huge thin-mono counter that ticks or odometer-rolls through dwell keyframes, wit
 | `backdrop` | `"ocean"` | ocean \| ink \| dunes \| … scene behind |
 | `linkBackdrop` | `true` | ocean backdrop darkens with the value (log scale) like a dive |
 | `src` | `""` | optional public/ image behind |
+| `lockStart` | `14` | lock / scramble / flap modes: frame the first character locks (or flips) |
+| `lockStep` | `5` | lock mode: frames between one character locking and the next (a sixteenth note at your tempo) |
+| `lockOrder` | `"ltr"` | lock / scramble: ltr \| rtl character lock order |
+| `glyphs` | `""` | scramble: glyph set the unlocked digits flicker through (empty = digits) |
+| `accentOnLock` | `false` | locked characters flash in the accent colour for 6 frames |
+| `flashFrame` | `false` | one-frame brightness flash when a character locks |
+| `progressBar` | `false` | thin accent progress bar under the number while it locks |
+| `flapFrom` | `null` | flap mode: starting value (default = first keyframe value); ends on the max keyframe |
+| `flapStagger` | `3` | flap mode: frames between tiles starting to flip |
+| `flipFrames` | `8` | flap mode: frames one tile flip takes (0.26 s = 8) |
+| `tileColor` | `"#2B3038"` | flap mode: tile colour |
+| `callout` | `""` | flap mode: text that pops under the number after the last flip (e.g. "×2") |
+| `clockStart` | `25200` | clock mode: start time in seconds since midnight (25200 = 07:00) |
+| `clockRate` | `[[0,24],[90,24],[120,1]]` | clock mode: [[frame, rate]] time-lapse speed; the clock integrates it |
+| `speedTag` | `true` | clock mode: show ×N TIME-LAPSE / ×1 REAL TIME tag |
+| `block` | `""` | block background colour behind the number (hook look, e.g. #FFD60A); "" = none |
+| `blockColor` | `"#111111"` | number colour on the block |
+| `kicker` | `""` | hook line slamming in above the number |
+| `rollDuration` | `0.45` | block hook: seconds of the scale slam |
+
+### `paper-strip-title` — Paper strip title (scroll unroll + seal)
+
+![paper-strip-title](../gallery/paper-strip-title.jpg)
+
+Vertical columns of brush calligraphy on cut gold-paper strips unroll from their anchor edge one per beat — the strip is uncovered, glyphs never squash — each casting a soft shadow, then a small red seal stamps beside the last column; a horizontal serif mode unrolls lines the same way.
+
+**Use for:** East-Asian festival titles, poems, recipes, letters, wedding / anniversary cards; any "unrolling scroll" title over a dark scene.  
+**Rebuilt from:** lemo-opuscar styles/paper-lantern (MIT code, CC BY 4.0 docs, LemoLab) — demo/src/shots/s17 poem reveal, s13 note reveal  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** type, accent · **Mood:** paper, editorial  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `columns` | `["月满人团圆","灯下共此时"]` | vertical: one string per column (right to left); horizontal: one per line |
+| `vertical` | `true` | vertical CJK columns (true) or horizontal serif lines |
+| `stripColor` | `"#F1DBAC"` | paper strip colour (odd columns) |
+| `stripColor2` | `"#F3D998"` | paper strip colour (even columns) |
+| `inkColor` | `"#3A2A1A"` | calligraphy ink |
+| `seal` | `"印"` | seal glyph ("" to hide) |
+| `sealColor` | `"#B3302A"` | seal red |
+| `startFrame` | `6` | delay before the first column |
+| `columnFrames` | `38` | frames each column takes to unroll |
+| `stagger` | `16` | frames between columns (or land them on spoken words) |
+| `size` | `160` | glyph size in u |
+| `anchor` | `"top"` | edge the strips grow from |
+| `backdrop` | `"#121a38"` | backdrop colour behind the strips |
+| `background` | `"backdrop"` | "backdrop" or "transparent" (overlay over any scene, e.g. lightbox-stack) |
+
+### `pixel-logo-drop` — Pixel logo drop
+
+![pixel-logo-drop](../gallery/pixel-logo-drop.jpg)
+
+A chunky gold pixel-glyph logo falls with gravity, lands on a white flash frame, squashes and rebounds in 2-frame steps with a screen shake, puffs dithered dust and sparks, gets a diagonal shine sweep and corner glints; a red ribbon unfolds under it, types a subtitle and PRESS START blinks.
+
+**Use for:** Retro title cards, game-jam and stream intros, "achievement unlocked" end cards.  
+**Rebuilt from:** mg-styles-15 demos/20-pixel/film.js LG glyphs, drawLogo, drawRibbon, drawPress (MIT), video 20-pixel 7.2-8.5 s  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** pixel  
+**Capabilities:** paints its own background · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"PIXEL QUEST"` | logo text (caps, 5x7 pixel glyphs; wraps per word in portrait) |
+| `subtitle` | `"A TINY ADVENTURE"` | text typed on the ribbon (empty = no ribbon) |
+| `pressStart` | `"PRESS START"` | blinking line at the bottom (empty = none) |
+| `fillRamp` | `["#fff3a0","#ffd23a","#f0a020","#c86414"]` | four gold colours, light (top rows) to dark (bottom rows) |
+| `outline` | `"#2a1030"` | outline colour |
+| `ribbonColor` | `"#d92b3a"` | ribbon colour |
+| `background` | `"#0b0a1f"` | base backdrop colour |
+| `dropAt` | `14` | frame the logo starts falling |
+| `shineAt` | `44` | frame the shine band starts |
+| `glints` | `true` | four-point glints after the shine |
+| `seed` | `5` | seed for stars, dust and sparks |
+
+### `ransom-note-type` — Ransom-note type
+
+![ransom-note-type](../gallery/ransom-note-type.jpg)
+
+Each letter sits on its own scrap of paper (newsprint, red, black, white) with a different typeface, slightly rotated and jittered, slapped onto kraft one by one; then a diagonal black band with condensed caps, a torn masthead strip and a speech scrap slap in.
+
+**Use for:** Punk and editorial titles, music promos, meme captions and zine-style hero words. Distinct from comic-burst and stamp-slam.  
+**Rebuilt from:** mg-styles-15 demos/06-collage/index.html (MIT, drawBang / speechScrap / chip / tornStrip / band)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** paper, editorial  
+**Capabilities:** paints its own background · text: `text` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `text` | `"Make some noise"` | the headline; every letter gets its own scrap |
+| `tiles` | `["red","black","paper","news"]` | scrap styles cycled over letters: red \| black \| paper \| news |
+| `band` | `"Special edition"` | text of the diagonal band (empty to hide) |
+| `masthead` | `"The Paper"` | torn strip masthead (shown at the top) |
+| `speech` | `"Hey!"` | speech scrap text (empty to hide) |
+| `at` | `6` | start frame |
+| `stepFrames` | `5` | frames between letters (5 = one per 16th at 90 bpm) |
+| `seed` | `4` | jitter seed |
+| `background` | `"#B89A72"` | kraft table colour |
+| `red` | `"#D2261C"` | red scrap colour |
+| `ink` | `"#16130F"` | black scrap / type colour |
+| `paper` | `"#F4EFE4"` | white scrap colour |
+
+### `rundown-board` — Rundown board (today in this video)
+
+News rundown: a date block (huge numerals, lemon month, mono week, title) pushes up out of masks while ink story rows with lemon number blocks flip open one per beat with a light sweep; the first row pulses; in recap a lemon tick disc pops onto each row.
+
+**Use for:** "Today in this video" agendas, episode chapter lists, top-N intros and tick-off recaps at the end.  
+**Rebuilt from:** lemo-opuscar styles/news-package (MIT code, CC BY 4.0 docs, LemoLab) — demo/main.js rundown  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** editorial  
+**Capabilities:** overlay (`{"backdrop":"none","background":"transparent"}`) · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `date` | `{"big":"12–18","month":"March","week":"Week 11"}` | date block {big numerals, month, week} |
+| `title` | `"This week"` | block title |
+| `subtitle` | `"The stories we are following"` | caps line under the title |
+| `rows` | `[{"title":"Northwind posts record quarter","sub":"Markets…` | story rows [{n?, title, sub, date}] (3–6) |
+| `mode` | `"both"` | "open" (rows flip in), "recap" (rows already in, ticks pop) or "both" (open then tick off) |
+| `startFrame` | `0` | delay |
+| `rowEvery` | `12` | frames between row flips (one per beat) |
+| `tickAt` | `120` | frame the first tick pops (mode both) |
+| `accent` | `"#F2CF1D"` | lemon accent |
+| `gold` | `"#D4B064"` | gold sub-lines |
+| `ink` | `"#121417"` | ink background |
+| `paper` | `"#F4F1E8"` | paper text |
+| `highlightFirst` | `true` | pulse an outline on the first row |
+| `backdrop` | `"studio"` | "studio" or "none" (overlay) |
+| `background` | `"transparent"` | background when backdrop is "none" |
 
 ### `scene-tag` — Scene index tag
 
@@ -547,6 +1389,43 @@ Small glass pill in a corner with an index number, a hairline and a name; slides
 | `inAt` | `6` |  |
 | `outBefore` | `4` |  |
 | `background` | `"#1a2230"` | "transparent" to overlay (default shows a preview colour) |
+| `variant` | `"pill"` | pill (default) \| fighter (slanted halftone name plate + sub-bar; name, family = sub-line, color, side, drift, subDelay) \| terminal (typed '> ID' box; index = id, name = description, color = box fill, charsPerSecond) \| badge (pill logo with cat ears + episode tag; name, episode, ears, idleBob, twitchAt) \| flag (bottom event bar; index + name, color) |
+| `color` | `"#2567D2"` | fighter / terminal / badge / flag: main fill colour |
+| `side` | `"right"` | fighter: which side the plate slides in from |
+| `drift` | `0.03` | fighter: slow drift while held, as a fraction of the width |
+| `subDelay` | `12` | fighter: frames before the sub-bar appears |
+| `charsPerSecond` | `0` | terminal: typing speed (0 = 40, or 110 when the tag lives < 1.5 s) |
+| `episode` | `"EP.07"` | badge: episode tag text ("" hides) |
+| `ears` | `true` | badge: cat-ear triangles |
+| `idleBob` | `3` | badge: idle bob in px |
+| `twitchAt` | `[50,90]` | badge: frames at which an ear twitches |
+
+### `slice-assemble-glyph` — Slice-assemble glyph
+
+On black, a big word cut into 8–10 horizontal slices of different heights flies in from both sides at different speeds (some overshoot or sit misaligned like a glitch) and locks into place; a mono caption decodes under it and a red dot pops on at its top-right.
+
+**Use for:** Punchy logo / word reveals with a clean glitch flavour; display type and CJK titles; chapter openers on dark.  
+**Rebuilt from:** video x2 0:07.20-0:07.60 (chapter 04 TYPE, glyph slice-in)  
+**Default length:** 120 frames (4.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** playful, editorial, night  
+**Capabilities:** paints its own background · text: `text`, `caption`, `label` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `text` | `"FLOW"` | the word / glyphs to assemble (CJK works if a system font has the glyphs) |
+| `caption` | `"MOTION DESIGN"` | mono caption that decodes under the word ("" = none) |
+| `slices` | `9` | number of horizontal slices |
+| `spread` | `1` | scale of the slices’ start offsets (1 = 0.3–0.6 W) |
+| `frames` | `16` | assembly window in frames (each slice flies for 45–90 % of it, starts in its first 40 %) |
+| `font` | `"display"` | display (Archivo Black) \| sans \| grotesk |
+| `color` | `"#EADED8"` | glyph colour |
+| `background` | `"#0C0B10"` | background colour |
+| `dotColor` | `"#FC491D"` | accent dot colour |
+| `glitchAt` | `[70,102]` | frames where a short glitch re-slice happens while holding ([] = none) |
+| `seed` | `4` | slice layout seed |
+| `hud` | `true` | show the reel HUD |
+| `label` | `"04 — TYPE"` | HUD chapter label |
 
 ### `stamp-slam` — Stamp slam + keyword pop
 
@@ -558,7 +1437,7 @@ A rotated vermilion label slams down from 1.3x like a rubber stamp over the scen
 **Rebuilt from:** video10 0:34.7-0:34.9, video10 0:17.0-0:17.2, video19 0:10-0:12, video21 0:26.7  
 **Default length:** 150 frames (5.0 s @ 30 fps)
 
-**Roles:** type · **Mood:** mid, editorial  
+**Roles:** type · **Mood:** mid, nature, editorial  
 **Capabilities:** overlay (`{"backdrop":"none"}`) · text: `lines`, `preTitle`, `keyword` · image: `src` · weight: light  
 **Pairs well with:** `glitch-image`, `duotone`, `lightning-flash`  
 **Avoid:** Change lines / preTitle / keyword (defaults LONDON 1736 / GIN are sample text). Not a default choice for every title.  
@@ -585,6 +1464,41 @@ A rotated vermilion label slams down from 1.3x like a rubber stamp over the scen
 | `push` | `0.06` | slow scene push-in amount over the clip |
 | `backdrop` | `"dusk"` | dusk \| peaks \| warm \| comic \| … procedural scene behind |
 | `src` | `""` | optional public/ image as the scene |
+| `variant` | `"stamp"` | stamp (slam) \| seal (small square seal, glyph lines knocked out in the text colour, wet -> dry fade; try color '#B02E22', textColor '#f3ead8', size 40, lines ['朱','印'] or 2-4 letters) |
+| `ink` | `"clean"` | clean (default multiply print) \| rough (displaced edge + mottled ink, use with doubleBorder, slamScale 2.6, flash 0.4, shakeAmp 2) |
+| `doubleBorder` | `false` | second inner rule inside the cream border (rough-ink verdict stamps) |
+| `flash` | `0` | white flash 0..0.5 on the slam frame |
+| `slamScale` | `1.3` | scale the stamp slams in from (1.3 default; 2.6 = heavy slam) |
+| `shakeAmp` | `1` | multiplier for the camera jolt on the slam |
+
+### `sting-bug` — News sting → channel bug
+
+Broadcast sting: lemon slashes zip across a dark studio, a sheared lemon name plate slams in with overshoot as its letters drop in, an ellipse ring and a shake land the hit, the wordmark and mono dateline open from the centre, a glint sweeps, then the plate flies to the corner and stays as the channel bug.
+
+**Use for:** Intros for weekly updates, newsletters-as-video, YouTube news channels — opening and persistent branding in one object.  
+**Rebuilt from:** lemo-opuscar styles/news-package (MIT code, CC BY 4.0 docs, LemoLab) — demo/main.js shotSting/stingLogo/plate/bug/studioBg  
+**Default length:** 90 frames (3.0 s @ 30 fps)
+
+**Roles:** type, accent · **Mood:** night  
+**Capabilities:** overlay (`{"backdrop":"none","background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `name` | `"Lumen"` | plate letters (short brand name, 3–7 letters) |
+| `wordmark` | `[["DAILY ","#F4F1E8"],["BRIEF","#F2CF1D"]]` | wordmark segments [[text, colour], …] under the plate and beside the bug |
+| `dateline` | `"Monday · 14 March"` | mono dateline under the wordmark |
+| `accent` | `"#F2CF1D"` | lemon accent (slashes, ring) |
+| `accentLight` | `"#F8DE4A"` | plate gradient top |
+| `accentDark` | `"#D8B30C"` | plate gradient bottom |
+| `gold` | `"#D4B064"` | gold bar / dateline colour |
+| `ink` | `"#121417"` | ink (studio, letters) |
+| `paper` | `"#F4F1E8"` | paper colour for light text |
+| `bugCorner` | `"tr"` | "tr" or "tl" corner for the bug |
+| `bugScale` | `0.327` | bug size relative to the plate |
+| `holdBug` | `true` | fly to the corner and stay as the bug |
+| `startFrame` | `0` | delay before the sting |
+| `backdrop` | `"studio"` | "studio" or "none" (overlay) |
+| `background` | `"transparent"` | background when backdrop is "none" |
 
 ### `story-caption-box` — Story caption box
 
@@ -593,17 +1507,17 @@ A rotated vermilion label slams down from 1.3x like a rubber stamp over the scen
 Double-ruled black narrative caption box under a letterboxed scene (RPG-style typing), or a yellow comic time-stamp plate ("7:00 AM  RISE AND SHINE").
 
 **Use for:** Story narration, game cutscene text, timeline time-stamps and location/time chyrons.  
-**Rebuilt from:** video21 0:17.2-0:18.2, video12 0:02-1:30  
+**Rebuilt from:** video21 0:17.2-0:18.2, video12 0:02-1:30, lemo-opuscar styles hd-2d, spy-titles, stained-glass (MIT, LemoLab)  
 **Default length:** 210 frames (7.0 s @ 30 fps)
 
-**Roles:** type · **Mood:** dark, comic, cinematic, editorial  
+**Roles:** type · **Mood:** dark, paper, comic, cinematic, editorial  
 **Capabilities:** overlay (`{"backdrop":"none"}`) · text: `items` · image: `src` · weight: light  
 **Pairs well with:** `ken-burns`, `film-look`, `light-sweep`, `pixel-dither`  
 
 | prop | default | notes |
 |---|---|---|
-| `variant` | `"box"` | box (video21 narrative box) \| plate (video12 time-stamp plate) |
-| `items` | `[]` | [{text, tag?}] shown in order; plate uses tag as the time and text as the label; [] = built-in sample |
+| `variant` | `"box"` | box (video21 narrative box) \| plate (video12 time-stamp plate) \| ornate (RPG dialogue: gold border, corner ornaments, name plate) \| bubble (speech bubble, tail to speaker) \| banderole (parchment ribbon unfurls) \| paper-strip (cut-paper subtitle strip) |
+| `items` | `[]` | [{text, tag?, name?, sub?, speaker?:[x,y]}] shown in order; plate uses tag as the time; ornate name = name plate; bubble sub = second language line, speaker = tail target as frame fractions; [] = built-in sample |
 | `framesPerItem` | `66` | frames each caption stays |
 | `startFrame` | `8` | frame the first caption appears |
 | `reveal` | `"type"` | box: type (RPG typing + ▼) \| instant (video21) \| fade |
@@ -617,6 +1531,61 @@ Double-ruled black narrative caption box under a letterboxed scene (RPG-style ty
 | `size` | `34` | caption text size in px at 1080p (plate scales with it) |
 | `backdrop` | `"auto"` | auto (aurora pixel night for box, comic room for plate) \| any backdrop kind |
 | `src` | `""` | optional public/ image as the scene |
+| `accent` | `"#D8C28E"` | ornate: gold border / ornament / name colour |
+| `paper` | `""` | ornate/bubble/paper-strip: fill or text colour of the paper (empty = per-variant default) |
+| `ink` | `""` | bubble/paper-strip/banderole: outline + text ink (empty = per-variant default) |
+
+### `type-architecture` — Type architecture (credits as a set)
+
+One line of credits fills the frame as a set: letters stand as black cut-paper pillars, words ride as train carriages on wheels (or colonnade bays) on a flat red ground with telegraph wires behind, while a silhouette agent runs the rooftops, leaps the word gaps and ducks behind the line; the camera opens wide, trucks with the chase and pulls back.
+
+**Use for:** Conference programmes, team rosters, festival line-ups, feature lists: "credits as a set" for any short named list; a very distinctive opener.  
+**Rebuilt from:** lemo-opuscar styles/spy-titles demo/scenes.js, glyph.js (MIT, LemoLab)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** paper, nature, editorial  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `line` | `"Northwind Express"` | the line of text (short; 2-3 words works best) |
+| `mode` | `"train"` | 'train' carriages + wheels, 'colonnade' plinths + capitals, 'ledge' ground slab, 'plain' |
+| `figure` | `true` | show the running silhouette agent |
+| `ground` | `"#c8321e"` | flat ground colour |
+| `ink` | `"#1b1714"` | cut-paper black |
+| `paper` | `"#efe4c9"` | cream for rails, wires and hubs |
+| `accent` | `"#e2a52a"` | the agent's tie |
+| `openWideFrames` | `24` | frame the camera starts moving in from the wide establishing view |
+| `speed` | `1` | runner speed multiplier |
+| `seed` | `3` | letter re-cut seed |
+
+### `type-marquee-field` — Type marquee field
+
+A heavy grotesk word rises letter by letter from a baseline mask (a red dot replaces one letter), then outline and solid rows of the word fill the frame, marquee-scrolling in alternating directions while the whole field rolls ≈ −8° and pushes in.
+
+**Use for:** Kinetic-type backgrounds for a brand word, poster-style title cards, a "type" chapter in a principles reel.  
+**Rebuilt from:** video x2 0:05.95-0:07.05 (chapter 04 TYPE)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** —  
+**Capabilities:** paints its own background · text: `word`, `label` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `word` | `"MOTION"` | the hero word (repeated in every row) |
+| `dotLetter` | `"O"` | letter replaced by the accent dot (first occurrence; empty = none) |
+| `font` | `"display"` | display (Archivo Black) \| sans (Inter ExtraBold) \| grotesk (Space Grotesk Bold) |
+| `background` | `"#EDE9E1"` | paper colour (centre) |
+| `vignette` | `"#CDC9C1"` | vignette colour at the corners |
+| `ink` | `"#1E181E"` | type / HUD ink |
+| `dotColor` | `"#FC491D"` | accent dot colour |
+| `outlineEvery` | `2` | rows alternate outline/solid with this period (1 = all outline, 0 = all solid) |
+| `speed` | `0.15` | marquee speed in frame widths per second (alternating direction per row) |
+| `roll` | `-8` | final roll of the field in degrees |
+| `push` | `1.12` | final push-in scale |
+| `rowsAt` | `20` | frame the rows start fading in (roll/push follow) |
+| `hud` | `true` | show the reel HUD (crop marks, label, timecode, segment bar) |
+| `label` | `"04 — TYPE"` | HUD chapter label |
 
 ### `typewriter-code` — Typewriter code window
 
@@ -628,7 +1597,7 @@ macOS-style code editor or terminal window that types syntax-coloured code with 
 **Rebuilt from:** video8 0:05-0:30, video17 0:00-0:43 footer, video13 0:00-0:20  
 **Default length:** 180 frames (6.0 s @ 30 fps)
 
-**Roles:** type · **Mood:** mid, hud  
+**Roles:** type · **Mood:** mid, paper, hud  
 **Capabilities:** overlay (`{"backdrop":"none"}`) · text: `lines`, `title` · image: `src` · weight: light  
 **Pairs well with:** `glitch-image`, `hud-chrome`, `radial-blueprint`  
 
@@ -649,6 +1618,13 @@ macOS-style code editor or terminal window that types syntax-coloured code with 
 | `cursorColor` | `"#e6e6e6"` | block cursor colour (video17 uses red #ED3821) |
 | `backdrop` | `"auto"` | auto \| dunes \| warm \| ink \| cream \| peaks \| dusk \| ocean \| none — procedural scene behind the panel |
 | `src` | `""` | optional public/ image behind the panel (overrides backdrop) |
+| `theme` | `"dark"` | dark \| paper (light editor card, teal accents) |
+| `highlightLines` | `[]` | code-run-sync: 0-based lines a pale teal band steps through after typing ends, e.g. [4,5,6,7] |
+| `highlightEvery` | `10` | frames the band rests on each line |
+| `consoleLines` | `[]` | serial-monitor / console pane below the code, lines appended one by one while it runs; the play button turns into a red stop |
+| `runAt` | `-1` | frame the Run is pressed (-1 = shortly after typing ends) |
+| `consoleEvery` | `9` | frames between console lines |
+| `chips` | `false` | numeric literals on small rounded chips |
 
 ### `typewriter-signature` — Typewriter signature
 
@@ -682,8 +1658,42 @@ Small lowercase credit typed into a corner two frames per character, no cursor; 
 | `background` | `"#15100E"` | scene colour (use "transparent" to overlay) |
 | `decor` | `true` | draw a faint flower-of-life construction behind the credit |
 | `decorColor` | `"#6f86d8"` |  |
+| `mode` | `"type"` | type (typed on) \| decode (random symbols resolve into the real letters, then break back into symbols) |
+| `decodeFrames` | `20` | decode: frames the resolve takes (≈20 ms per char in the source) |
+| `reseedEvery` | `2` | decode: frames between re-randomising unresolved glyphs |
+| `pool` | `""` | decode: glyph pool (empty = brackets, symbols, letters) |
+| `direction` | `"ltr"` | decode: ltr \| center-out \| random resolve order |
+| `decodeOut` | `8` | decode: frames the break-back-to-symbols exit takes at scrambleAt (0 = no decode exit) |
 
 ## transition
+
+### `match-cut` — Match cut (shape continues)
+
+A record button in an app screen becomes a sun in a sunrise scene at exactly the same position and size: the shape is held 3 frames across the cut (scaled 1 -> 1.6 first), then scene B opens through a clip-path that grows from that shape to the full frame while the sun drifts to its rest position.
+
+**Use for:** Premium launch films, showreels and one-shot explainers: copy the rect/clip-path maths into any scene change so a button, screen or circle continues as a shape in the next scene (pairs with cursor-driver and ui-shape-morph).  
+**Rebuilt from:** prompt-corpus: match-cut (31 cases), awesome-opus5-5-videos prompts (MIT) — technique only  
+**Default length:** 120 frames (4.0 s @ 30 fps)
+
+**Roles:** transition · **Mood:** nature  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `shape` | `"circle"` | 'circle' \| 'rounded' \| 'rect' |
+| `from` | `{"x":50,"y":56,"w":300,"h":300}` | matched shape in scene A: {x,y in % of frame centre, w,h in u} |
+| `to` | `{"x":50,"y":40,"w":340,"h":340}` | where the shape comes to rest in scene B |
+| `cutAt` | `46` | frame of the hard cut |
+| `holdFrames` | `3` | frames the matched shape is held across the cut (2-4) |
+| `expandFrames` | `26` | frames for B to open to full frame |
+| `scaleThrough` | `1.6` | scale of the matched shape just before the cut (1 = none) |
+| `titleA` | `"Ready when you are"` | headline in scene A |
+| `titleB` | `"A new day"` | headline in scene B |
+| `imageB` | `""` | optional public image path for scene B (replaces the procedural sunrise) |
+| `colorA` | `"#ECE9E3"` | scene A background |
+| `colorB` | `"#FFB27A"` | scene B sky top colour |
+| `shapeA` | `"#1B1B1F"` | matched shape colour in A |
+| `shapeB` | `"#FFE3A8"` | matched shape colour in B |
 
 ### `transition-reel` — Transition reel
 
@@ -693,7 +1703,7 @@ Every scene transition in the library, one after another, between contrasting la
 
 **Use for:** Previewing and choosing transitions; each panel names the transition (and variant) that revealed it.  
 **Rebuilt from:** video1, video4, video6, video8, video9, video10, video11, video14, video16, video17, video18, video19, video20, video21  
-**Default length:** 1858 frames (61.9 s @ 30 fps)
+**Default length:** 4266 frames (142.2 s @ 30 fps)
 
 **Roles:** transition · **Mood:** —  
 **Capabilities:** paints its own background · text: `title` · weight: light  
@@ -707,6 +1717,38 @@ Every scene transition in the library, one after another, between contrasting la
 
 ## shape
 
+### `atom-model` — Atom / molecule model
+
+![atom-model](../gallery/atom-model.jpg)
+
+Bohr atom with a jiggling nucleus of shaded protons and neutrons and electron shells on tilted 3D orbit rings (60 / 0 / -60 deg) that pass behind and in front, electrons with glowing trails; or a rotating ball-and-stick molecule (water, methane, CO2, ammonia, benzene) with CPK colours.
+
+**Use for:** Chemistry / physics explainers, end stage of a scale-dive, science and materials brands.  
+**Rebuilt from:** prompt-corpus research: atom-model (21 cases, ideas only; original implementation)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, nature, hud  
+**Capabilities:** paints its own background · text: `title`, `caption` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `kind` | `"bohr"` | 'bohr' (nucleus + orbits) \| 'molecule' (ball and stick) |
+| `element` | `"C"` | bohr: H He Li C N O Ne Na Si Cl Fe (sets nucleus + shells) |
+| `shells` | `[]` | bohr: electrons per shell, overrides the element, e.g. [2,8,1] |
+| `molecule` | `"water"` | molecule preset: water \| methane \| co2 \| ammonia \| benzene |
+| `atoms` | `[]` | custom molecule atoms [{el,x,y,z}] (units ~ bond lengths) |
+| `bonds` | `[]` | custom molecule bonds [[i,j],...] |
+| `title` | `""` | caption title (default: element / molecule name) |
+| `caption` | `""` | caption line (default: particle counts) |
+| `rotation` | `22` | scene rotation in deg / s |
+| `electronPeriod` | `48` | frames per orbit of the innermost shell (30-60) |
+| `protonColor` | `"#F0506E"` | proton colour (also the nucleus glow) |
+| `neutronColor` | `"#5B8CFF"` | neutron colour |
+| `electronColor` | `"#5CE1E6"` | electron + trail colour |
+| `orbitColor` | `"#9FB4E8"` | orbit ring colour |
+| `background` | `"#0B1226"` | background colour |
+| `glow` | `1` | electron / nucleus glow strength 0-1.5 |
+
 ### `bouncing-ball` — Bouncing ball (squash, anticipation, crack, hop)
 
 ![bouncing-ball](../gallery/bouncing-ball.jpg)
@@ -718,12 +1760,12 @@ A red ball over a dark dev-HUD: gravity bounces with velocity stretch and 1-fram
 **Default length:** 120 frames (4.0 s @ 30 fps)
 
 **Roles:** subject · **Mood:** dark, hud, playful, night  
-**Capabilities:** paints its own background · text: `title`, `subtitle` · weight: light  
+**Capabilities:** paints its own background · text: `title`, `subtitle`, `labels` · weight: light  
 **Pairs well with:** `hud-chrome`, `easing-graph`, `onion-skin-arc`  
 
 | prop | default | notes |
 |---|---|---|
-| `mode` | `"bounce"` | 'bounce' (gravity bounces) \| 'anticipation' (charge gauge + launch) \| 'crack' (exaggerated drop, impact frame, ground crack + debris) \| 'hop' (beat hops, a note per landing) |
+| `mode` | `"bounce"` | 'bounce' (gravity bounces) \| 'anticipation' (charge gauge + launch) \| 'crack' (exaggerated drop, impact frame, ground crack + debris) \| 'hop' (beat hops, a note per landing) \| 'timeline' (timing chart: ticks, dot trail, live squash readout) \| 'slime' (glossy jelly hopper with eyes, puffs, chroma rim) \| 'impact' (flat-vector drop: speed streaks, burst rays, ground rings, launch) |
 | `background` | `""` | background colour; '' = mode default (ink / pink for hop; crack flips to cream) |
 | `color` | `"#ED3821"` | ball colour |
 | `radius` | `69.5` | ball radius in u (1080-short-side px) |
@@ -739,6 +1781,20 @@ A red ball over a dark dev-HUD: gravity bounces with velocity stretch and 1-fram
 | `subtitle` | `""` | small line under the title |
 | `code` | `""` | live code comment typed in the footer |
 | `seed` | `4` | crack / debris randomness |
+| `period` | `0.5` | timeline mode: seconds per bounce (0.5 measured) |
+| `apex` | `0.31` | timeline mode: apex height as a fraction of the frame height |
+| `trail` | `"dots"` | timeline mode: 'dots' keeps a grey dot every 2 frames (spacing chart) \| 'none' |
+| `labels` | `""` | timeline mode: leader-line label text ("" = live sy / sx readout) |
+| `bounces` | `0` | timeline mode: bounces across the axis (0 = fit the duration) |
+| `eyes` | `"square"` | slime mode: 'square' \| 'ii' \| 'x' \| 'closed' |
+| `puffs` | `true` | slime mode: white dust puffs at each landing |
+| `rim` | `true` | slime mode: red / cyan chromatic rim copies |
+| `rays` | `7` | impact mode: burst ray count (two colours) |
+| `rings` | `3` | impact mode: expanding ground rings per impact |
+| `ground` | `"line"` | impact mode: 'line' \| 'band' |
+| `launchAt` | `0` | impact mode: frame of the stretch launch (0 = frame 31 @30 fps) |
+| `accent` | `"#F5C518"` | impact mode: first ray colour |
+| `accent2` | `"#E8553B"` | impact mode: second ground-ring colour |
 
 ### `branch-grow` — Branching growth (dendrites / tree / network)
 
@@ -756,7 +1812,7 @@ A glowing recursive branching structure draws itself level by level from the tru
 
 | prop | default | notes |
 |---|---|---|
-| `layout` | `"neuron"` | 'neuron' (dendrites up, roots down, inside a reticle) \| 'tree' (one tree from the bottom) \| 'radial' (network from the centre) |
+| `layout` | `"neuron"` | 'neuron' (dendrites up, roots down, inside a reticle) \| 'tree' (one tree from the bottom) \| 'radial' (network from the centre) \| 'explosion' (one line splits on every beat subdivision: 1 -> 2 -> 4 ... up to 1024 branches, shockwave rings) |
 | `depth` | `6` | recursion depth (levels) |
 | `angleSpread` | `28` | branch angle from the parent in degrees (25-35 measured) |
 | `lengthDecay` | `0.74` | child length / parent length (0.72 measured) |
@@ -770,6 +1826,71 @@ A glowing recursive branching structure draws itself level by level from the tru
 | `label` | `"dendrites · synapses form"` | typed mono label |
 | `sublabel` | `"one cell, thousands of connections"` | second label line |
 | `seed` | `3` | branch randomness |
+| `splitOn` | `"eighth"` | explosion: beat \| eighth (switches to sixteenth for the second half) \| sixteenth — how often every branch splits |
+| `bpm` | `150` | explosion: tempo that sets the split interval |
+| `maxDepth` | `9` | explosion: number of split levels (2-10; 10 = 1024 branches) |
+| `rings` | `[]` | explosion: extra shockwave ring times in frames after startAt (rings also fire at the start and the final split) |
+
+### `brush-paint-in` — Watercolour brush paint-in
+
+![brush-paint-in](../gallery/brush-paint-in.jpg)
+
+Any path set (a plant sprig by default) paints itself in stroke by stroke: each stroke is a translucent variable-width ribbon with thin bristle tracks that break into dashes and end early (dry-brush flying white), overlaps darken, and the finished painting sways gently.
+
+**Use for:** Paint-on reveals of icons, logos, plants, horizons and illustrations in warm editorial / field-journal looks; hand-made accents for nature, craft, wellness and education brands.  
+**Rebuilt from:** lemo-opuscar styles/watercolor demo/engine.js mk/drawS/drawList (MIT, LemoLab) — own SVG build  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, nature, playful, night  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `paths` | `[]` | [{pts:[[x,y]..] (0-1000 design space) \| d:'svg path', color, width, profile}] — empty = built-in plant sprig |
+| `colors` | `["#4f7a4b","#c4462f","#6b5a3c","#d7b277"]` | fallback colours cycled over paths without a colour |
+| `width` | `44` | default stroke width in design units |
+| `profile` | `"auto"` | width profile: 'brush'\|'leaf'\|'even'\|'tip'\|'trunk'\|'auto' |
+| `bristles` | `true` | dry-brush bristle tracks |
+| `rough` | `0.22` | width noise 0-0.5 |
+| `opacity` | `1` | overall stroke opacity |
+| `order` | `"given"` | 'given'\|'top-down'\|'radial'\|'byLength' |
+| `startFrame` | `14` | frame painting starts |
+| `durationFrames` | `140` | frames the whole painting takes |
+| `sway` | `1.4` | degrees of idle sway after finishing (0 = still) |
+| `paper` | `"#8a7350"` | paper fibre tint |
+| `background` | `"#F3EDE0"` | paper colour |
+| `seed` | `7` | randomness seed |
+
+### `burin-engrave-hatch` — Burin engrave hatch
+
+![burin-engrave-hatch](../gallery/burin-engrave-hatch.jpg)
+
+Any SVG shape becomes a copperplate engraving that cuts itself in order on laid paper: swelling outline runs, then parallel hatch lines whose width follows a lit distance-field tone, a crossing family in the half-tones, a lozenge family in the darks and a hatched cast shadow; roman capitals are cut glyph by glyph below.
+
+**Use for:** Heritage logo or product reveals, museum labels, banknote / certificate looks, editorial illustration from any SVG path.  
+**Rebuilt from:** lemo-opuscar styles/engraving (MIT, LemoLab) — demo/engine/burin.js hatch/outline/formTone, index.js engraveShape, plate.js  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, blueprint, night  
+**Capabilities:** paints its own background · text: `title`, `subtitle`, `kicker` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `path` | `"M440 110 L560 110 L556 140 C548 150 540 160 538 200 C536…` | SVG path d of the subject (closed subpaths are hatched, open ones become outline strokes); auto-fitted |
+| `title` | `"PLATE IV · THE AMPHORA"` | roman-capital caption cut glyph by glyph |
+| `subtitle` | `"a storage jar, after the antique"` | italic line under the caption |
+| `kicker` | `"CABINET OF OBJECTS · VESSELS"` | small tracked caps line at the top |
+| `spacing` | `3.6` | hatch spacing in px@1080 (≈ figure height / 180) |
+| `wMax` | `1.7` | widest burin line in px@1080 |
+| `angle` | `-0.6` | first hatch family angle (radians) |
+| `lightX` | `-0.6` | light direction x (toward the light, screen space) |
+| `lightY` | `-0.7` | light direction y |
+| `passes` | `3` | 1–3 hatch families (3 = hatch + cross + lozenge) |
+| `shadow` | `true` | hatched cast shadow on the ground |
+| `duration` | `5` | seconds for the whole cut |
+| `ink` | `"#1C1510"` | ink colour |
+| `paper` | `"#F1E8D2"` | paper colour |
+| `push` | `0.9` | extra loupe zoom at the start (0 = locked plate) |
 
 ### `call-response` — Call & response (two spheres)
 
@@ -800,6 +1921,34 @@ Blue and pink glossy spheres take turns pinging rings, flash a colour-swap halo,
 | `sparkleColor` | `"#FFF6B0"` |  |
 | `paper` | `true` | paper grain + vignette |
 
+### `cel-shade-crescent` — Cel shade crescent
+
+![cel-shade-crescent](../gallery/cel-shade-crescent.jpg)
+
+Flat shapes become 80s anime cels: a hard shadow crescent, a hard highlight crescent, a saturated neon rim and a coloured outline are built up step by step, then the light swings round and the crescents re-cut.
+
+**Use for:** Show or demo the cel-shading primitive; copy the CelShape recipe (clipPath + shape-minus-translated-copy) to give any flat character or prop an anime look with one prop.  
+**Rebuilt from:** lemo-opuscar styles/cel-anime-80s/demo/cel.js (MIT, LemoLab)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** neon, comic, playful, night  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `colors` | `["#2F6FE2","#FF6B6B","#8D5BFF"]` | fill colours of the three demo shapes (shade/highlight/line are derived from each fill) |
+| `rim` | `"#FF3FA4"` | saturated rim-light colour on the shadow edge |
+| `light` | `233` | light direction in degrees (0 = from the right, 90 = from below, 233 = upper-left) |
+| `swing` | `70` | degrees the light swings back and forth after the build |
+| `shadeOff` | `14` | shadow crescent offset in shape units (shape is about 200 wide) |
+| `hiOff` | `6` | highlight crescent offset |
+| `rimOff` | `4.5` | rim offset |
+| `lineW` | `3.4` | outline width |
+| `closeUp` | `false` | true = outline x0.55 as for extreme close-ups |
+| `labels` | `true` | show the five step chips |
+| `background` | `"#130D1F"` | backdrop colour |
+| `bottom` | `"FLAT FILL + SHADOW + HIGHLIGHT + RIM + COLOURED LINE"` | caption line at the bottom (empty = none) |
+
 ### `cell-division` — Cell division doubling
 
 ![cell-division](../gallery/cell-division.jpg)
@@ -828,6 +1977,36 @@ Glossy gold nuclei bud and split inside an egg outline, doubling every few frame
 | `showCount` | `true` | show the running count under the tree |
 | `seed` | `6` |  |
 
+### `comet-pulse-guide` — Comet pulse guide
+
+![comet-pulse-guide](../gallery/comet-pulse-guide.jpg)
+
+Light pulses travel a dark channel (spiral, ring, wave, circuit trace or your own path) as comets — narrow white-hot head, long exponential tail, hue drifting from accent A to B with age; near-zero idle glow, pulses fired on a beat pattern, up to 8 alive, optional wrap. Overlay-capable with background: transparent.
+
+**Use for:** Data or energy flowing: charging, network traffic, pipelines, audio-to-light; overlay pulses on UI diagrams and product shots.  
+**Rebuilt from:** lemo-opuscar styles/glass-product (MIT, LemoLab) — demo/product.js comet pulse shader  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** neon, hud, night  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `label` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `path` | `""` | own polyline as 'x y x y …' in a 0–100 box (used when shape = 'path') |
+| `shape` | `"spiral"` | channel: spiral \| ring \| wave \| circuit \| path |
+| `colorA` | `"#62DCFF"` | young pulse colour |
+| `colorB` | `"#A98BFF"` | old pulse colour (hue drifts A→B with age) |
+| `background` | `"#010306"` | backdrop; 'transparent' = overlay on host content |
+| `pulses` | `[]` | explicit pulse start times in seconds (overrides bpm pattern) |
+| `speed` | `620` | pulse speed in px@1080 per second |
+| `width` | `7` | head width in px@1080 |
+| `wrap` | `true` | pulses wrap around the channel |
+| `idleGlow` | `0.05` | brightness of the empty channel 0..1 |
+| `bpm` | `120` | tempo of the default pattern |
+| `loopBeats` | `[0,0.75,1,1.5]` | beats inside each bar when a pulse fires (demo bass pattern) |
+| `label` | `"hear the light"` | small tracked caption (hidden when overlaying) |
+| `channelColor` | `""` | idle channel colour (defaults to colorA) |
+
 ### `compass-construct` — Compass geometry construct
 
 ![compass-construct](../gallery/compass-construct.jpg)
@@ -855,6 +2034,70 @@ A drafting compass sweeps a circle and the six Seed-of-Life petals, a ruler draw
 | `vesica` | `true` | add the vertical vesica lens and two gold nodes |
 | `implode` | `true` | end by spinning -60 deg, shrinking and un-drawing into a point |
 | `seed` | `6` |  |
+
+### `crayon-hatch-fill` — Crayon hatch fill
+
+![crayon-hatch-fill](../gallery/crayon-hatch-fill.jpg)
+
+A hand-drawn bar chart on toothy paper: indigo crayon outlines draw on, then each bar is coloured in with back-and-forth zig-zag wax strokes that overshoot the line row by row; the hero bar gets a cross-hatch, values are hand-lettered, lines boil at 12 fps.
+
+**Use for:** Colouring-in as an action: kids/education charts, playful reports, filling a bar, region or silhouette by hand.  
+**Rebuilt from:** lemo-opuscar styles/crayon-book (MIT, LemoLab) — demo/crayon.js fill(), line()  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, photo, hud  
+**Capabilities:** paints its own background · text: `title`, `labels`, `unit` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Books we read"` | hand-lettered title |
+| `labels` | `["Spring","Summer","Autumn","Winter"]` | one label per bar |
+| `values` | `[12,19,15,27]` | bar values (up to 8) |
+| `colors` | `["#79ACD9","#F5C63C","#EC8A3C","#D4483C"]` | crayon colour per bar (cycled) |
+| `unit` | `""` | suffix after each value, e.g. "%" |
+| `highlight` | `3` | index of the hero bar (red value + cross-hatch), -1 for none |
+| `angle` | `0.62` | hatch angle in radians (0.62 = source) |
+| `gap` | `10.5` | hatch row spacing in px@1080 |
+| `pressure` | `0.66` | crayon pressure 0..1 (light = speckled, heavy = near-solid) |
+| `overshoot` | `7` | how far strokes run past the outline (px@1080) |
+| `cross` | `true` | lighter cross-hatch pass on the hero bar |
+| `boil` | `true` | lines re-jitter 12 times a second |
+| `paperColor` | `"#F4EFE3"` | drawing paper colour |
+| `inkColor` | `"#2D3263"` | outline / lettering crayon (never black) |
+| `stagger` | `30` | frames between bars |
+
+### `dash-flow-field` — Dash flow field
+
+![dash-flow-field](../gallery/dash-flow-field.jpg)
+
+A grid of rounded cream dashes on ultramarine turns to follow a vector field around a wandering red dot — circling it (vortex), pointing at it (radial), circling again — while rings of longer lime dashes ripple outward and dashes near the dot shrink to dots.
+
+**Use for:** Ambient "rhythm / data flow / magnetic field" backgrounds, interactive-feeling hero loops (the attractor reads like a cursor), music or pulse beats.  
+**Rebuilt from:** video x2 0:10.25-0:11.55 (chapter 06 RHYTHM)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** paints its own background · text: `label` · weight: heavy  
+
+| prop | default | notes |
+|---|---|---|
+| `pitch` | `80` | grid spacing in u (both axes) |
+| `dashLength` | `32` | dash length in u |
+| `thickness` | `10` | dash thickness in u (round caps) |
+| `modes` | `[{"at":0,"mode":"vortex"},{"at":60,"mode":"radial"},{"at"…` | field keyframes [{at: frame, mode: vortex \| radial \| flow}] |
+| `blendFrames` | `8` | frames to blend between field modes |
+| `rippleEvery` | `24` | frames between lime ripple rings (0 = none) |
+| `rippleSpeed` | `0.45` | ripple speed in frame widths per second |
+| `rippleBoost` | `24` | extra dash length (u) inside a ripple ring |
+| `wander` | `1` | attractor wander amount (0 = stays at the centre) |
+| `background` | `"#2034F4"` | field colour (centre) |
+| `vignette` | `"#1C2EDA"` | field colour at the corners |
+| `dashColor` | `"#E8E6DC"` | dash colour |
+| `rippleColor` | `"#D2FC36"` | ripple dash colour |
+| `dotColor` | `"#F6481E"` | attractor dot colour |
+| `dotSize` | `50` | attractor dot diameter in u |
+| `hud` | `true` | show the reel HUD |
+| `label` | `"06 — RHYTHM"` | HUD chapter label |
 
 ### `easing-graph` — Easing graph + compare tracks
 
@@ -886,6 +2129,34 @@ A linear black ball and an eased red ball race along two tracks with per-frame s
 | `title` | `"SLOW IN & SLOW OUT"` |  |
 | `subtitle` | `"Ease into every pose. Ease out of it."` |  |
 | `code` | `"x = x0 + Δx·ease(u) // same frames, different spacing"` |  |
+| `lanes` | `[]` | lane race instead of the two tracks: any of 'linear','ease-out','ease-in','bezier' (uses easing),'spring','back','steps', e.g. ['linear','ease-out','bezier','spring']; [] = classic A/B |
+
+### `exploded-view-balloons` — Exploded view with balloons
+
+![exploded-view-balloons](../gallery/exploded-view-balloons.jpg)
+
+A drawn blueprint assembly comes apart part by part, one per beat; each part trails a leader line and a numbered balloon, a parts list fills in on the side, then the parts click back together and the balloons fade.
+
+**Use for:** Product teardowns, feature lists, "what's inside" hardware or SaaS architecture diagrams.  
+**Rebuilt from:** lemo-opuscar styles/blueprint demo/machine.js, sheet.js parts list (MIT, LemoLab), analysis/sources/lemo-styles-a.md §5 exploded-view-balloons  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** blueprint  
+**Capabilities:** paints its own background · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `parts` | `[]` | [{d, label, qty, dir:[x,y], dist}] SVG paths in a 0..100 box, back to front; empty = built-in winch |
+| `explodeAt` | `42` | frame the first part lifts |
+| `returnAt` | `150` | frame the parts start returning (last part first) |
+| `beatFrames` | `8` | frames per beat (one part per beat) |
+| `lineColor` | `"#E7F0F9"` | line work colour |
+| `accent` | `"#E7F0F9"` | balloon ring colour |
+| `paperDark` | `"#18336B"` | paper dark ramp end |
+| `paperLight` | `"#2A58A6"` | paper light ramp end |
+| `title` | `"The Hand Winch"` | hand-lettered sheet title |
+| `seed` | `5` | paper seed |
+| `camera` | `true` | pull the camera back while exploded |
 
 ### `flat-to-3d-sphere` — Flat disc to 3D sphere
 
@@ -941,6 +2212,36 @@ Procedural hatched cog wheels pop in and mesh, counter-rotating at the correct t
 | `inkColor` | `""` | outline colour ("" = style default) |
 | `hatch` | `true` | pencil hatching on the faces |
 | `origin` | `[]` | [x, y] of the root gear as fractions of the frame ([] = default) |
+
+### `grid-beat-construct` — Grid beat construct
+
+![grid-beat-construct](../gallery/grid-beat-construct.jpg)
+
+A cream sheet rules its module grid from the centre outward; Bauhaus primitives (disc, bar, triangle, square, semicircle, quarter-disc) land, slide, flip, scale and rotate in one per beat, each preceded by a crosshair target; the finished composition then turns upright in a clock-escapement of 7.5 degree ticks and locks into a poster with title, subtitle and folio.
+
+**Use for:** Beat-synced kinetic posters, music promos, logo builds from primitives and Swiss / rational explainer intros.  
+**Rebuilt from:** mg-styles-15 demos/09-bauhaus/film.js (MIT, gridProg / target / groupAngle) + cues.json; video 0-6 s  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** paints its own background · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `module` | `0` | module size in px at 1080 (0 = auto: 1/16 width) |
+| `bpm` | `120` | beats per minute: one primitive lands per beat |
+| `palette` | `["#D2261C","#16130F","#1F4E9C","#F2B31B"]` | reference palette (shapes carry their own colours) |
+| `shapes` | `[{"kind":"disc","x":-2,"y":-2,"w":3,"h":3,"color":"#D2261…` | cues: kind disc\|bar\|tri\|square\|semi\|quarter, x/y centre in modules from the composition centre, w/h modules, colour, verb land\|slide\|flip\|scale\|rotate |
+| `title` | `"Construct"` | poster title |
+| `subtitle` | `"Form follows the beat"` | small mono line |
+| `folio` | `"No. 01 / Grid study"` | folio in the corner |
+| `turn` | `true` | build sideways then turn upright in escapement ticks |
+| `showTargets` | `true` | crosshair target before each landing |
+| `escapementTeeth` | `12` | teeth in the 90 degree turn (12 = 7.5 degrees each) |
+| `paper` | `"#EFE7D6"` | sheet colour |
+| `ink` | `"#16130F"` | rule / type colour |
+| `startFrame` | `34` | frame of the first beat |
+| `compScale` | `0.8` | scale of the shape composition relative to the module grid (0.8) |
 
 ### `heart-draw-fill` — Icon draw, fill & glow (heart)
 
@@ -1002,6 +2303,30 @@ Cream wax hexagon edges grow segment by segment with node balls and compass-circ
 | `extrude` | `true` | end by tilting the comb into perspective and extruding prisms |
 | `seed` | `6` |  |
 
+### `ink-brush-stroke` — Ink brush stroke
+
+![ink-brush-stroke](../gallery/ink-brush-stroke.jpg)
+
+Sumi brushstrokes paint themselves on rice paper: a wet loaded body with a darker contour side, bristle tracks that break into flying white at the dry tail, soft edge bleed; presets for a decisive swoosh, an underline, an ensō circle and a bamboo sprig, or pass your own paths.
+
+**Use for:** Hand-made accent strokes, underlines, logo swooshes, dividers; the foundation stroke for any brush or calligraphy look.  
+**Rebuilt from:** lemo-opuscar styles/ink-wash (MIT, LemoLab) — demo/ink.js brush engine, STYLE.md  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** paper, night  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `caption` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `strokes` | `[]` | custom strokes: {path [[x,y,pressure]..] in 0..1, width (u), dry 0–0.7, tone 0–1, at, dur, profile brush\|tip\|even\|lens\|fan\|rise, darkSide -1\|0\|1, color?} — empty uses the preset |
+| `preset` | `"bamboo"` | built-in stroke sets: 'swoosh' \| 'underline' \| 'enso' \| 'bamboo' \| 'none' |
+| `caption` | `"one breath, one stroke"` | small italic serif line with a vermilion square ("" = none) |
+| `color` | `"#131110"` | ink colour |
+| `background` | `"paper"` | 'paper' (warm rice paper), any colour, or 'transparent' for an overlay |
+| `paper` | `true` | draw the procedural rice-paper texture |
+| `bleed` | `1` | wet edge bleed strength (0 = crisp) |
+| `seed` | `3` | bristle randomness seed |
+
 ### `line-draw-on` — Line-art draw-on
 
 ![line-draw-on](../gallery/line-draw-on.jpg)
@@ -1012,7 +2337,7 @@ Line art constructs itself stroke by stroke with a pen nib riding each tip, then
 **Rebuilt from:** video20 2:52.5-2:55 (blueprint), video1 1:03.1-1:04.6 (crease recolour), video10 0:23.0-0:23.65, video19 engrave-stroke-draw  
 **Default length:** 180 frames (6.0 s @ 30 fps)
 
-**Roles:** subject · **Mood:** mid, blueprint  
+**Roles:** subject · **Mood:** mid, paper, blueprint  
 **Capabilities:** paints its own background · text: `caption` · weight: light  
 **Pairs well with:** `chapter-header`, `callout-labels`, `gears`  
 
@@ -1034,6 +2359,19 @@ Line art constructs itself stroke by stroke with a pen nib riding each tip, then
 | `fillOpacity` | `0.28` | highlighted closed shapes get a soft fill of the highlight colour |
 | `caption` | `"ELEVATION A  ·  1:100"` | small mono title block typed after the drawing ("" to hide) |
 | `margin` | `0.1` | margin around the drawing as a fraction of the frame |
+| `medium` | `"clean"` | stroke style: clean (default) \| cable (thick outlined round cables with highlight + connector-cap pop; draws a breadboard demo when no paths) \| crayon (wobbly tapered wax lines that keep boiling at boilFps) \| fineliner (tapered pen, overshoot + skips) |
+| `surface` | `"blueprint"` | blueprint (default) \| whiteboard \| chalkboard \| paper — swaps background, ink and highlight colours, grid off |
+| `hand` | `"none"` | marker \| pen \| chalk — a hand holding the tool follows the active stroke tip and lifts between strokes (replaces the nib dot) |
+| `cables` | `[]` | medium cable: [{from:[x,y], to:[x,y], color?, lift?}] in a 1000x640 space (lift = arc height as a fraction of 640) |
+| `wobble` | `1.4` | crayon / fineliner: line wobble in px |
+| `boilFps` | `12` | crayon: re-seed rate of the wobble (12 = hand-drawn boil) |
+| `taper` | `0.55` | crayon / fineliner: how much both stroke ends thin out (0..1) |
+| `overshoot` | `0` | fineliner: px the pen overshoots each stroke end |
+| `gapChance` | `0` | fineliner: 0..1 chance a stroke skips a small gap mid-way |
+| `seed` | `3` | noise seed for wobble / gaps |
+| `retractAt` | `0` | frame to start removing the drawing (0 = never): cables split into pieces that shrink to nothing; crayon / fineliner erase from the tail |
+| `retractFrames` | `14` | frames each retract takes |
+| `retractPieces` | `3` | cable pieces the stroke splits into when retracting |
 
 ### `metaball-heatmap` — Metaball heat-map / goo
 
@@ -1051,7 +2389,7 @@ A liquid splat spreads and oozes, rendered as heat-map contour bands (maroon cor
 
 | prop | default | notes |
 |---|---|---|
-| `style` | `"heatmap"` | "heatmap" (iso-contour bands) or "goo" (gooey blobs with RGB-split rim) |
+| `style` | `"heatmap"` | "heatmap" (iso-contour bands), "goo" (gooey blobs with RGB-split rim) or "merge" (puddles hop into one mass, fuse, marble, leap and splat) |
 | `ballCount` | `12` | number of metaball lobes (tendrils and droplets scale with it) |
 | `colors` | `[]` | heatmap: 5 bands rim->core; goo: [blob, rim A, rim B] ([] = source palette) |
 | `background` | `""` | background colour ("" = starfield navy / orange) |
@@ -1060,6 +2398,139 @@ A liquid splat spreads and oozes, rendered as heat-map contour bands (maroon cor
 | `rgbSplit` | `true` | goo: red/green channel-split rim |
 | `stars` | `true` | heatmap: starfield specks |
 | `seed` | `2` |  |
+| `puddles` | `3` | merge style: number of separate puddles that hop into one central mass (area-conserving growth) |
+| `puddleColors` | `[]` | merge: puddle colours ([] = coral, amber, teal, violet, mint); the first colour is the mass colour, the others marble inside it |
+| `hopAt` | `14` | merge: frame the first puddle hops |
+| `hopStagger` | `14` | merge: frames between hops |
+| `hopFrames` | `22` | merge: frames one ballistic hop takes |
+| `leapAt` | `-1` | merge: frame the fused mass leaps (a thread stretches and snaps, then it splats); -1 = no leap |
+| `leapHeight` | `0.28` | merge: leap height as a fraction of the short side |
+| `snapFrames` | `18` | merge: frame offset into the leap where the thread snaps |
+| `marble` | `true` | merge: original colours swirl inside the mass |
+| `wobble` | `14` | merge: wobble amplitude in % after each landing |
+
+### `motif-grid-pattern` — Motif grid pattern (identity backdrop)
+
+![motif-grid-pattern](../gallery/motif-grid-pattern.jpg)
+
+Brandable identity backdrop: square cells of big discs, half-discs and 14 small geometric motifs in five tones of one hue; whole rows slide against each other, breathe and jump a quarter cell on the beat, with a faint diagonal light sweep. One prop swaps the whole colour.
+
+**Use for:** Event, sports and launch identity backgrounds, website hero sections, chapter colour cards; low spread under text, high spread for hero cards.  
+**Rebuilt from:** lemo-opuscar styles/pictogram-motion (MIT code, CC BY 4.0 docs, LemoLab) — demo/engine.js G.pattern/G.drawPattern  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `hue` | `"#D8B21A"` | base hue; five tones are mixed toward black / white from it |
+| `tones` | `[]` | or five explicit tones [t0 darkest … t4 lightest] (overrides hue) |
+| `spread` | `0.6` | contrast of the pattern against the ground (0.42 under text, 0.95 hero) |
+| `cell` | `180` | cell size in u (180 = six rows at 1080p) |
+| `density` | `0.5` | share of cells with a small motif |
+| `motifs` | `["quarter","fish","dots","tri","sunset","arcs","wheel","c…` | allow-list of motif kinds: quarter, fish, dots, tri, sunset, arcs, wheel, checker, crescent, swave, gradq, bars, half, ring |
+| `rowDrift` | `26` | row drift speed (px/s at 1080p) |
+| `bpm` | `150` | tempo for the quarter-cell beat jumps |
+| `beatJump` | `true` | rows jump a quarter cell on each beat |
+| `sweep` | `true` | faint diagonal light sweep |
+| `seed` | `7` | layout seed |
+| `background` | `"tone"` | "tone" (t1 ground) or "transparent" (shapes only) |
+
+### `nib-follow-camera` — One-line drawing, nib-follow camera
+
+![nib-follow-camera](../gallery/nib-follow-camera.jpg)
+
+A single continuous ink line draws a whole scene with real pen dynamics — thin on fast travels, fat and pooled at slow corners, a soaked bleed, one red accent stretch, a soft pen shadow at the nib — while the camera glides after the drawing point with lag and anticipation and pulls back at the end to reveal the whole picture.
+
+**Use for:** Minimal brand stories, signature / logo reveals, life-milestone films, "one continuous process" explainers; pass your own polyline for a custom picture.  
+**Rebuilt from:** lemo-opuscar styles/one-line (MIT code, CC BY 4.0 docs, LemoLab) — demo/cam.js camAt, ink.js prepare/drawLine, geom.js  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo, nature  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `caption` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `paths` | `""` | JSON array of polylines [[[x,y],…],…] in a 1920×1080 world (smoothed through a spline); empty = built-in sailboat scene |
+| `paper` | `"#F4EFE4"` | paper colour |
+| `ink` | `"#1D1A17"` | ink colour |
+| `accent` | `"#B3332B"` | accent colour for one stretch |
+| `accentRange` | `[0.47,0.56]` | accent stretch [from, to] as fractions of total line length |
+| `baseWidth` | `5.2` | base line width (world px) |
+| `curvatureK` | `1.6` | how much sharp turns slow the pen (0 = constant speed) |
+| `bleed` | `0.22` | soaked-edge opacity |
+| `penShadow` | `true` | soft shadow wedge at the nib |
+| `drawStart` | `4` | frame the line starts |
+| `drawEnd` | `0` | frame it finishes (0 = auto: duration − reveal) |
+| `revealFrames` | `50` | pull-back reveal length |
+| `openZoom` | `3.4` | macro zoom at the start |
+| `travelZoom` | `1.9` | zoom during travel |
+| `caption` | `"It all starts with one line."` | handwritten caption at the end ("" to hide) |
+| `captionAt` | `200` | caption frame |
+| `pool` | `true` | ink pools where the pen moves slowly |
+| `seed` | `3` | width-noise seed |
+| `background` | `"paper"` | "paper" or a colour / "transparent" |
+
+### `oblique-extrude-drawing` — Oblique extrude drawing
+
+![oblique-extrude-drawing](../gallery/oblique-extrude-drawing.jpg)
+
+On cyanotype blueprint paper, a flat line elevation draws on in drafting order, then turns into a thick oblique drawing as the depth animates 0 → 0.5 with hidden lines vanishing correctly; parts explode along the depth axis with hand-lettered labels, a dimension and a title block.
+
+**Use for:** Plan → object reveals without three.js: flat-pack furniture, lamps, circuit boards, product diagrams, patents.  
+**Rebuilt from:** lemo-opuscar styles/blueprint demo/draw.js S(), solid() (MIT, LemoLab), analysis/sources/lemo-styles-a.md §5 oblique-extrude-drawing  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, blueprint, 3d  
+**Capabilities:** paints its own background · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `parts` | `[]` | [{d, name?, dz?, explode?}] SVG paths in a 0..100 box, rear to front; dz = relative thickness, explode = offset along depth on the explode beat; empty = built-in desk lamp |
+| `k` | `0.5` | final oblique depth factor (0.5 = cavalier/2) |
+| `angle` | `35` | receding axis angle in degrees (30–45) |
+| `drawFrames` | `44` | frames for the flat elevation to draw on |
+| `extrudeAt` | `64` | frame the extrusion starts |
+| `extrudeFrames` | `36` | extrusion duration |
+| `explodeAt` | `118` | frame parts fly apart along the depth axis (set past the duration to skip) |
+| `title` | `"The Desk Lamp"` | hand-lettered title in the block |
+| `subtitle` | `"PATENT PENDING · FIG. 1 · SCALE 1:4"` | mono line under the title |
+| `note` | `"REV.1 — add one (1) bulb."` | witty marginal note (empty = none) |
+| `lineColor` | `"#E7F0F9"` | line work colour |
+| `paperDark` | `"#18336B"` | cyanotype paper dark ramp end |
+| `paperLight` | `"#2A58A6"` | cyanotype paper light ramp end |
+| `seed` | `3` | paper texture seed |
+
+### `one-line-journey` — One-line journey
+
+![one-line-journey](../gallery/one-line-journey.jpg)
+
+A single gold line with a glowing pen tip travels through a chain of figures (seed, plant, building, skyline, wave, ring) as one continuous path; a virtual camera rides the tip zoomed in and pulls back as the drawing grows, older parts dim to ~35 %, the clock breathes on each figure, and the finished drawing relights under a tracked title.
+
+**Use for:** Luxury, architecture, finance and founder-story films; agents can feed brand-specific path pieces for a one-stroke story.  
+**Rebuilt from:** mg-styles-15 demos/02-line-art/film.js camera + PIECES (MIT)  
+**Default length:** 330 frames (11.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** nature  
+**Capabilities:** paints its own background · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `pieces` | `[{"weight":1,"pts":[[-140,0],[40,0],[170,0]]},{"weight":1…` | ordered figures [{pts:[[x,y,corner?]…] \| d:"svg path", weight}] in world units (ground y=0, y down); the pen continues from piece to piece |
+| `background` | `"#0E1B33"` | centre colour of the backdrop gradient |
+| `color` | `"#E8C46A"` | line and glow colour |
+| `lineWidth` | `3.4` | line width in screen px at 1080p |
+| `zoomKeys` | `[[0,5],[0.9,3.4],[2.4,2.4],[4.4,1.7],[6.4,1.25],[8.2,1]]` | [[clock seconds, zoom]…] camera zoom (1 = whole drawing fits), interpolated in log space |
+| `dimTo` | `0.35` | opacity older line fades to (0-1) |
+| `holdAfter` | `[2,3,4,5]` | piece indices after which the clock holds (punctuation) then runs ~2x to catch up |
+| `holdSec` | `0.15` | seconds of each hold |
+| `drawStart` | `0.3` | clock second the pen starts |
+| `drawEnd` | `8.2` | clock second the last piece is finished |
+| `follow` | `0.8` | camera smoothing window in seconds (gaussian) |
+| `bank` | `0.016` | camera roll (radians) while drawing the wave piece |
+| `title` | `"Northwind"` | tracked title that appears after the drawing |
+| `subtitle` | `"one continuous line"` | small line under the title |
 
 ### `onion-skin-arc` — Onion-skin arc (straight ahead vs pose to pose)
 
@@ -1148,6 +2619,36 @@ Dark violet field of hundreds of cyan+pink dot pairs pinging small rings; the ca
 | `stars` | `true` | faint star specks in the background |
 | `seed` | `4` |  |
 
+### `papercut-rosette` — Papercut rosette (fold · cut · unfold)
+
+![papercut-rosette](../gallery/papercut-rosette.jpg)
+
+A square of red paper folds three times in snappy flaps down to a wedge, scissors trim a scalloped edge and cut saw-tooth bands, crescents, slits and coins out as holes, then the wedge unfolds in three quick snaps into an 8-fold round window flower that blooms with a warm flash, turns slowly and sheds fluttering red scraps.
+
+**Use for:** Lunar New Year and festive greetings, "one becomes many" metaphors, emblem / logo-style reveals, a slow decorative spinning backdrop (mode static).  
+**Rebuilt from:** lemo-opuscar styles/papercut-red (MIT code, CC BY 4.0 docs, LemoLab) — demo/tuanhua.js, demo/fold.js, demo/motifs.js  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, 3d, nature  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `color` | `"#D2201F"` | paper red (front) |
+| `backColor` | `"#DE3B30"` | paper back side (lighter, shows on folded flaps) |
+| `paper` | `"#1C2446"` | background paper colour when background is "paper" |
+| `motifs` | `["saw","crescent","slit","coin","petal","dots"]` | cut motifs: saw, crescent, slit, coin, petal, dots |
+| `title` | `"Good Fortune"` | title under the rosette after the bloom ("" to hide) |
+| `titleColor` | `"#FFF1D6"` | title colour |
+| `foldAt` | `4` | frame the first fold starts |
+| `cutAt` | `52` | frame the scissors start |
+| `cutFrames` | `60` | length of the cutting phase |
+| `unfoldAt` | `122` | frame the unfold starts |
+| `spin` | `0.12` | slow spin after the bloom (deg/frame) |
+| `scraps` | `26` | red paper scraps fluttering down |
+| `mode` | `"full"` | "full" (fold-cut-unfold), "unfold-only" or "static" (finished rosette, slow spin) |
+| `background` | `"paper"` | "paper" or any colour / "transparent" |
+
 ### `petal-bloom` — Petal bloom (lotus / radial)
 
 ![petal-bloom](../gallery/petal-bloom.jpg)
@@ -1190,7 +2691,7 @@ A red ball swoops across a blue field trailing five lagging pastel ribbons; when
 
 | prop | default | notes |
 |---|---|---|
-| `style` | `"ribbons"` | 'ribbons' (video17 ball + lagging ribbons) \| 'neon' (video11 orbiting neon tube trails with beads) |
+| `style` | `"ribbons"` | 'ribbons' (video17 ball + lagging ribbons) \| 'neon' (video11 orbiting neon tube trails with beads) \| 'dabs' (ribbon of impasto knife dabs flying along a Bezier, dripping and fading) |
 | `background` | `""` | background colour ('' = blue for ribbons, plaza terracotta for neon) |
 | `ballColor` | `"#ED3821"` |  |
 | `colors` | `["#FFFFFF","#C9B6F2","#F7A7CC","#F5CA1E","#FFFFFF"]` | ribbon colours (one ribbon each) |
@@ -1207,6 +2708,13 @@ A red ball swoops across a blue field trailing five lagging pastel ribbons; when
 | `title` | `"FOLLOW THROUGH\n& OVERLAPPING ACTION"` |  |
 | `subtitle` | `"Nothing stops all at once."` |  |
 | `code` | `"strand[i].pos = ball.pos(t - i·Δ) // drag & settle"` |  |
+| `bezier` | `[[0.12,0.72],[0.3,0.12],[0.7,0.95],[0.88,0.3]]` | dabs: cubic Bezier [[x,y]x4] as frame fractions (source -> target) |
+| `dabs` | `26` | dabs: number of knife dabs in the ribbon (16-30) |
+| `dabLife` | `90` | dabs: frames a dab stays before it washes away |
+| `dabCols` | `["#F8C850","#F0A030","#FFDF80","#E88A28"]` | dabs: colour ramp the dabs blend through (gold by default) |
+| `drip` | `0.7` | dabs: share of dabs that drip (0..1) |
+| `dabWidth` | `[20,64]` | dabs: [min, max] dab width in u (envelope peaks mid-ribbon) |
+| `seed` | `4` | dabs: random seed |
 
 ### `rose-curve-trace` — Rose-curve pendulum trace
 
@@ -1236,6 +2744,93 @@ A red ball swings on a dotted pendulum string tracing petal loops; the outlines 
 | `number` | `"07"` | chapter number label ("" to hide) |
 | `title` | `"ARCS"` | chapter title label ("" to hide) |
 
+### `scissor-cut` — Scissor cut
+
+![scissor-cut](../gallery/scissor-cut.jpg)
+
+A dashed "cut along the line" guide draws across an image, a pair of scissors travels it snipping five times, then the cut piece separates: it lifts away, flips over or falls, revealing a coloured panel beneath.
+
+**Use for:** Price-cut and coupon promos, "cut through the noise" reveals, before/after splits and paper-collage transitions into a reveal.  
+**Rebuilt from:** mg-styles-15 demos/06-collage/index.html (MIT, scissors() / CUT)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, photo  
+**Capabilities:** paints its own background · text: `title`, `subtitle` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Cut the noise"` | headline on the sheet |
+| `subtitle` | `"Prices slashed this week"` | small caps line under it |
+| `revealText` | `"50% off"` | word revealed under the cut |
+| `src` | `""` | optional image path (public/) used instead of the drawn sheet |
+| `path` | `[[0,0.58],[0.2,0.46],[0.42,0.6],[0.64,0.44],[0.82,0.56],[…` | cut line as [x,y] points in 0-1 sheet fractions, left edge to right edge |
+| `snips` | `5` | number of snips (one per 6 frames) |
+| `at` | `4` | start frame |
+| `separate` | `"lift"` | lift \| flip \| fall: what the cut piece does afterwards |
+| `color` | `"#D2261C"` | accent / reveal colour |
+| `ink` | `"#16130F"` | line and type colour |
+| `background` | `"#B89A72"` | table colour |
+| `paper` | `"#F2ECDF"` | paper colour |
+| `scissorSize` | `0.2` | scissors length as a fraction of sheet width |
+
+### `shape-morph-chain` — Shape morph chain
+
+![shape-morph-chain](../gallery/shape-morph-chain.jpg)
+
+A solid flat icon (mug, sun, paper plane, pin, heart, star) morphs into the next through a circle, rotating and stretching on the way; its sub-parts (steam, rays, wing folds, highlights) morph in lockstep through constant-count slots, and the field colour changes with each shape. Any SVG outline can be fed in.
+
+**Use for:** Product-to-benefit explainers, logo reveals and icon sequences for slides: the core visual-storytelling grammar of one shape becoming the next.  
+**Rebuilt from:** mg-styles-15 demos/08-morph/index.html (sampleD, resamplePoly, bestShift, alignTo) (MIT)  
+**Default length:** 300 frames (10.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, nature  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `shapes` | `[{"name":"Mug","fill":"#FF7A59","partFill":"#FFB199","bg"…` | shapes[{name, fill, partFill, bg, body: svg path d, hole?: path d, parts?: path d[] (max 8)}] in a ±100 box |
+| `via` | `"circle"` | 'circle' \| 'capsule' \| 'none': the shape every outline passes through |
+| `holdFrames` | `28` | frames each icon rests |
+| `morphFrames` | `22` | frames of each morph (halves ~ 0.35 s at 30 fps) |
+| `startAt` | `8` | frame the first morph cycle starts |
+| `squash` | `0.13` | stretch along travel at mid-morph (0.12-0.14) |
+| `rotate` | `22` | degrees of twist at mid-morph (18-26) |
+| `points` | `160` | outline resolution of the body (more = smoother) |
+| `showLabels` | `true` | show the icon name and progress dots |
+
+### `sketch-shade-in` — Sketch shade-in
+
+![sketch-shade-in](../gallery/sketch-shade-in.jpg)
+
+Everyday objects drawn as bare black ink lines on a book page; an ink sun icon switches on and the shading arrives in a few tenths of a second — white clay fills, pen cross-hatching on the shadow sides and soft cast shadows — then the light drifts so the shadows swing.
+
+**Use for:** The "render pass" reveal from sketch to finished look: product or architecture visualisation, before/after, an ink-and-clay NPR finish for an explainer.  
+**Rebuilt from:** video x3 2.45-3.20 s (sun icon, fill + hatch, cast shadows)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, 3d, nature  
+**Capabilities:** paints its own background · text: `caption` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `objects` | `["block","spring","mug","battery","balloon"]` | objects left to right: 'block' \| 'spring' \| 'mug' \| 'battery' \| 'balloon' \| 'ball' \| 'jar' (portrait splits into two rows) |
+| `drawFrames` | `20` | frames for each object’s ink lines to draw on (staggered 3 f) |
+| `sunAt` | `26` | frame the sun icon draws (source 2.45 s) |
+| `shadeAt` | `36` | frame the clay fill + hatching start (source 2.70 s) |
+| `shadeFrames` | `12` | frames for the fill + hatch fade (easeInOutQuad; source 0.4 s) |
+| `hatchSpacing` | `5.5` | hatch line spacing in u (source ≈ 5 px at 1280 w) |
+| `hatchAngle` | `12` | hatch angle in degrees (second direction at +70°) |
+| `lightAngle` | `20` | cast-shadow direction on the page in degrees (0 = right, 90 = toward camera) |
+| `lightDrift` | `25` | degrees the light swings after the shade-in |
+| `shadowOpacity` | `0.25` | cast shadow darkness (source ≈ 0.25) |
+| `sunIcon` | `true` | show the ink sun icon |
+| `caption` | `"Fig. 3  Light switches on: fill, hatch, shadow."` | italic figure caption ("" hides) |
+| `paper` | `"#EFEDE9"` | page colour |
+| `ink` | `"#1E1E1E"` | ink line colour |
+| `clay` | `"#F4F2EE"` | clay fill colour |
+| `yaw` | `-16` | 3/4 view yaw in degrees (drifts +6°) |
+| `pitch` | `24` | camera elevation in degrees |
+
 ### `sonar-ping` — Sonar ping + echo window
 
 ![sonar-ping](../gallery/sonar-ping.jpg)
@@ -1247,7 +2842,7 @@ Glossy dot on paper emits sonar rings; echo arcs return and pop open a circular 
 **Default length:** 150 frames (5.0 s @ 30 fps) · best 144
 
 **Roles:** subject · **Mood:** light, paper  
-**Capabilities:** paints its own background · seamless loop · image: `windowImages` · weight: light  
+**Capabilities:** paints its own background · seamless loop · text: `unit` · image: `windowImages` · weight: light  
 **Pairs well with:** `starfield-night`, `chat-bubbles`, `embers`  
 **Note:** windowSize 0 + echoAngles [] + pings/pingEvery multiple of the length = a clean loading loop.  
 
@@ -1265,6 +2860,17 @@ Glossy dot on paper emits sonar rings; echo arcs return and pop open a circular 
 | `windowColors` | `["#2b6e8f","#3b2a6b","#a34b6b"]` |  |
 | `windowSize` | `0.53` | window diameter as a fraction of the short side |
 | `paper` | `true` |  |
+| `projection` | `"flat"` | flat \| iso (rings and echo arcs lie on an isometric ground: ellipses with ry = 0.5 rx) |
+| `measure` | `false` | draw a measurement gizmo: dashed line from the sensor to a handle on a target, live distance pill, ground ellipses and echo arcs pulsing back |
+| `targetFrom` | `[0.5,0.78]` | measure: [x, y] (0..1) where the obstacle starts |
+| `target` | `[0.76,0.34]` | measure: [x, y] (0..1) where the obstacle ends up |
+| `moveStart` | `12` | measure: frame the obstacle starts moving |
+| `moveFrames` | `27` | measure: frames the obstacle takes to move (the label counts live) |
+| `unitScale` | `60` | measure: label units per short-side length |
+| `unit` | `"cm"` | measure: unit text (cm, m, ft ...) |
+| `lineColor` | `"#2FA493"` | measure: line / handle / ground ring colour |
+| `echoColor` | `"#E5A24C"` | measure: echo arc colour |
+| `pillColor` | `"#181B30"` | measure: label pill colour |
 
 ### `speed-lines` — Manga speed lines + impact frame
 
@@ -1276,8 +2882,8 @@ Manga focus lines converge on a subject over a halftone comic backdrop, re-rando
 **Rebuilt from:** video12 0:07.87-0:08.27 impact-frame (BONK) + radial-speed-lines, video12 1:03.1 CRASH, video17 0:28.15 impact-frame  
 **Default length:** 90 frames (3.0 s @ 30 fps)
 
-**Roles:** subject · **Mood:** mid, comic  
-**Capabilities:** paints its own background · text: `label` · weight: light  
+**Roles:** subject · **Mood:** mid, comic, nature  
+**Capabilities:** paints its own background · text: `label`, `footnote` · weight: light  
 **Pairs well with:** `comic-burst`, `stamp-slam`, `comic-halftone`  
 
 | prop | default | notes |
@@ -1298,6 +2904,24 @@ Manga focus lines converge on a subject over a halftone comic backdrop, re-rando
 | `subjectColor` | `"#E57016"` |  |
 | `halftone` | `true` | comic halftone dot screen on the backdrop |
 | `seed` | `2` | line randomness |
+| `mode` | `"manga"` | manga (default focus lines + impact frame) \| super (full-screen special-move cut-in: two-tone sunburst, halftone, sparkle with cubes, slammed move name in `label`) \| carved (woodcut gouge-ray burst from `focus` on black) |
+| `rayCount` | `32` | super / carved: number of rays (super 28-36, carved ~36) |
+| `rayColors` | `["#E05123","#E7AA54"]` | super: [dark ray, light ray] colours (orange #E05123/#E7AA54, blue #1D6FE0/#4FC1F6) |
+| `rayTurn` | `10` | super: sunburst rotation in deg/s |
+| `footnote` | `""` | super: tiny italic footnote under the move name (e.g. '*allegedly') |
+| `emitPoint` | `[0.5,0.18]` | super: [x,y] where the sparkle bursts and spits cubes |
+| `cubes` | `8` | super: number of cubes the sparkle spits |
+| `labelColor` | `"#FFFFFF"` | super: move-name fill colour |
+| `carveInner` | `0.1` | carved: inner radius as a fraction of the short side |
+| `carveOuter` | `0.5` | carved: outer radius as a fraction of the short side |
+| `carveWidth` | `10` | carved: gouge width px at 1080p |
+| `carveBend` | `0.25` | carved: ray bend (radians over its length) |
+| `revealFrames` | `18` | carved: frames the burst takes to carve out from the centre |
+| `plateColor` | `""` | carved: colour plate (e.g. copper #C8703A) that floods the carved white; '' = none |
+| `plateAt` | `24` | carved: frame the plate starts flooding in |
+| `withdrawAt` | `-1` | carved: frame the plate withdraws to a single highlight (-1 = never) |
+| `carveBg` | `"#0B0907"` | carved: block colour (black wood) |
+| `carveInk` | `"#F4EFE6"` | carved: colour of the carved rays |
 
 ### `sprout-grow` — Sprout grow row
 
@@ -1360,7 +2984,154 @@ Small glowing agents with wavy sine tails swim in along dotted S-curves and stop
 | `finalLabel` | `"two become one"` | typed label after fusion |
 | `seed` | `4` | layout randomness |
 
+### `toon-cel-shape` — Toon cel shapes (mid-century print)
+
+![toon-cel-shape](../gallery/toon-cel-shape.jpg)
+
+Mid-century limited-animation card: flat icon fills printed off-register and re-jittering on twos, broken pressure-varying ink lines that write themselves on, dry-brush tooth, a starburst behind each icon and a two-plate slab title.
+
+**Use for:** Warm 1950s educational-film icons, help-centre / onboarding steps, retro product explainers; the toon look for any icon set.  
+**Rebuilt from:** lemo-opuscar styles/midcentury-toon (MIT code, CC BY 4.0 docs, LemoLab) — engine/toon.js ink/shape/reg/text  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** pixel, comic  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `items`, `kicker`, `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `items` | `[{"icon":"bulb","color":"#E8B43A","label":"Idea"},{"icon"…` | icons [{icon: star\|heart\|kidney\|boomerang\|drop\|cloud\|house\|circle\|burst\|bulb\|leaf\|blob, color, label?}] |
+| `kicker` | `"Chapter one"` | small spaced caps line above the title ("" to hide) |
+| `title` | `"Good Ideas"` | slab title printed in two plates ("" to hide) |
+| `paper` | `"#F4EAD5"` | paper colour (floor) |
+| `ground` | `"#EBC66C"` | one ground colour plane behind the icons |
+| `ink` | `"#2B2420"` | ink line colour |
+| `plate` | `"#E4613F"` | title colour plate (offset behind the ink text) |
+| `lineWidth` | `4.5` | ink width in u (3–5) |
+| `breaks` | `0.18` | share of gaps in the ink line 0..0.4 |
+| `wob` | `0.4` | line width breathing 0..0.8 |
+| `jitter` | `1` | register jitter multiplier (0 = locked register) |
+| `tooth` | `0.35` | dry-brush tooth inside fills 0..0.6 |
+| `drawFrames` | `20` | frames for each ink line to write on |
+| `stagger` | `12` | frames between icons |
+| `startFrame` | `0` | delay before the first icon |
+| `shadow` | `true` | flat drop shadow under each icon |
+| `sparkles` | `true` | four-point atomic sparkles |
+| `seed` | `0` | variation seed |
+| `background` | `"paper"` | "paper" or "transparent" (overlay: icons + title only) |
+
 ## fx
+
+### `backlit-cutout` — Backlit paper cut-out (holes are light)
+
+![backlit-cutout](../gallery/backlit-cutout.jpg)
+
+In a dark paper night scene a hanging cut-out — a rosette window flower, a lantern or a word — lights up from behind: the paper glows deep red, every cut hole burns warm white with a two-level bloom and soft rays, and the hole pattern is projected across the ground as squashed light, with a candle flicker.
+
+**Use for:** Night reveals, "an idea shines through", lantern / Diwali / Lunar New Year moments, a word or emblem projected as light; overlay over dark scenes with background "transparent".  
+**Rebuilt from:** lemo-opuscar styles/papercut-red (MIT code, CC BY 4.0 docs, LemoLab) — demo/light.js glowWindow/bloom/rays/lightMasked  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** accent · **Mood:** paper, nature, night  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `text` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `shape` | `"rosette"` | "rosette" (8-fold window flower), "lantern" or "text" (word cut out of a red card) |
+| `text` | `"Light"` | the word when shape is "text" |
+| `lightColors` | `["#FFF6D6","#FFC46E","#EC782E"]` | backlight ramp [centre, mid, edge] |
+| `transmission` | `"#B51D18"` | paper colour when lit |
+| `ambient` | `"#3A1420"` | paper colour before ignite |
+| `ground` | `"#29356E"` | ground paper colour (night background) |
+| `groundY` | `0.8` | ground line 0..1 of the height |
+| `igniteAt` | `30` | frame the light comes on |
+| `flicker` | `0.06` | candle flicker amount |
+| `bloom` | `0.55` | bloom strength |
+| `rays` | `true` | soft light rays |
+| `project` | `true` | project the hole pattern onto the ground |
+| `background` | `"night"` | "night" (indigo paper scene), any colour, or "transparent" (overlay) |
+
+### `beam-clash` — Beam clash
+
+![beam-clash](../gallery/beam-clash.jpg)
+
+Two fighters fire white-core energy beams in their own colours that meet mid-frame in a jittering four-point star flare spraying spark streaks, with a blurred reflection on the glossy neon floor, a "DEAD EVEN!" pop and a white-out bloom at the end.
+
+**Use for:** "Two forces are equal / competing" metaphors, head-to-head finales, energy-transfer diagrams.  
+**Rebuilt from:** video x7 21.25-23.55 s (beam clash, contact jitter, white-out) — original fighters  
+**Default length:** 75 frames (2.5 s @ 30 fps)
+
+**Roles:** subject · **Mood:** neon, night  
+**Capabilities:** paints its own background · text: `text` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `leftColor` | `"#E66154"` | left beam / fighter colour |
+| `rightColor` | `"#3598F6"` | right beam / fighter colour |
+| `contact` | `0.5` | where the beams meet between the fighters (0..1) |
+| `jitter` | `0.02` | contact jitter as a fraction of width |
+| `sparks` | `16` | spark streaks around the flare |
+| `reflection` | `true` | blurred reflection on the floor |
+| `text` | `"DEAD EVEN!"` | exclamation that pops in above ("" = none) |
+| `textAt` | `22` | frame the exclamation pops |
+| `bloomAt` | `68` | frame of the 3-frame white-out bloom (0 = none) |
+| `fighters` | `true` | draw the two original fighters at the beam ends |
+| `grain` | `true` | spray-grain speckle |
+| `seed` | `3` | spark seed |
+
+### `beat-punch-zoom` — Beat punch zoom
+
+![beat-punch-zoom](../gallery/beat-punch-zoom.jpg)
+
+Music-synced camera kick: the whole frame punches a few percent toward a chosen point on every accent (ticks, hits, slams at different amplitudes, summed and capped) and relaxes in ~5 frames. Demo: a candy sunburst stage where a toy star squashes on each slam with a star-ring-lines burst; or feed any image with src.
+
+**Use for:** Universal music-energy layer for promos, recaps and social cuts; wrap any footage, image or composition in beat punches.  
+**Rebuilt from:** lemo-opuscar styles/game-show (MIT, LemoLab) — demo/main_v1.js punch(), main_b.js camera; also used by halftone-dossier  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo, nature  
+**Capabilities:** paints its own background · text: `word` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `bpm` | `150` | tempo of the accent grid |
+| `pattern` | `"S.t.h.t."` | one char per eighth note, looped: 'S' slam, 'h' hit, 't' tick, '.' rest |
+| `tick` | `0.008` | tick punch amplitude |
+| `hit` | `0.02` | hit punch amplitude |
+| `slam` | `0.045` | slam punch amplitude |
+| `cap` | `0.06` | cap on summed simultaneous punches (frame edges never show) |
+| `originX` | `0.5` | punch origin x (0..1 of width) |
+| `originY` | `0.5` | punch origin y (0..1 of height) |
+| `src` | `""` | optional image (public/ path or URL) that receives the punches instead of the demo stage |
+| `overlayDemo` | `true` | draw the candy demo stage when src is empty |
+| `hue` | `"#3FB8AF"` | demo stage hue |
+| `word` | `"Perfect!"` | demo judgement word |
+| `background` | `"#26264A"` | colour behind everything |
+
+### `circuit-traces` — Circuit traces
+
+![circuit-traces](../gallery/circuit-traces.jpg)
+
+A faint glowing PCB pattern — thin traces with 45° bends ending in round pads — draws itself over the ground (flat or squashed onto the iso plane), then breathes at low opacity under the scene.
+
+**Use for:** "AI / tech layer over the real world" overlay on maps, photos and product shots; background texture that says "computed".  
+**Rebuilt from:** video x6 2.57 s, 9.2-9.5 s (draw-on), 16-46 s (breathing under the armies)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** accent · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `label` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `background` | `"transparent"` | backdrop; 'transparent' (default) overlays the host content |
+| `color` | `"#E8FFE0"` | trace colour |
+| `density` | `1` | trace count multiplier |
+| `drawFrames` | `20` | frames each trace takes to draw on |
+| `projection` | `"iso"` | 'flat' \| 'iso' (squashed onto the ground plane) |
+| `pulse` | `true` | breathe at 0.3 Hz after the draw-on |
+| `glow` | `4` | glow blur in px at 1080p |
+| `label` | `""` | optional mono caption under the pattern |
+| `demoScene` | `true` | paint the painterly battlefield behind (preview only; turn off as an overlay) |
+| `seed` | `8` | walk seed |
 
 ### `confetti-burst` — Confetti burst
 
@@ -1400,6 +3171,131 @@ Flat circles, rings, squares and capsules explode radially from a point with dra
 | `showSubject` | `true` | draw the hero ball that pops (scene mode only) |
 | `subjectColor` | `"#ED3821"` | hero ball colour |
 | `seed` | `3` | random seed |
+
+### `copper-proof-pull` — Copper proof pull
+
+![copper-proof-pull](../gallery/copper-proof-pull.jpg)
+
+ECU of polished warm copper with hairline scratches and a blurred four-pane window reflection: a burin cuts glinting grooves (dark trough, bright burr) with a curling swarf ribbon while the camera pulls back over the mirrored plate; then a paper sheet sweeps across with a curled edge and the image is revealed printed true, with an engraved title.
+
+**Use for:** "The secret comes out / draft becomes final / die and strike" reveals: stamps, coins, certificates, heritage brands, craft stories.  
+**Rebuilt from:** lemo-opuscar styles/engraving (MIT, LemoLab) — demo/engine/copper.js drawCopper, copperLight, drawGrooves, drawBurin, drawSwarf  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, photo, night  
+**Capabilities:** paints its own background · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"PROOF · FIRST STATE"` | roman caption cut on the proof |
+| `subtitle` | `"pulled from the copper"` | italic line under it |
+| `cutDuration` | `3.4` | seconds of burin cutting on the copper |
+| `peelAt` | `3.6` | second the paper starts to sweep across |
+| `peelDuration` | `0.9` | seconds of the sweep (~0.7–1) |
+| `push` | `1.4` | extra loupe zoom at the start |
+| `ink` | `"#1C1510"` | printing ink colour |
+| `paper` | `"#F1E8D2"` | paper colour |
+| `copperA` | `"#5E2A12"` | copper gradient start |
+| `copperB` | `"#94502C"` | copper gradient middle |
+| `copperC` | `"#4E220E"` | copper gradient end |
+
+### `crayon-wax-shader` — Crayon wax shader
+
+![crayon-wax-shader](../gallery/crayon-wax-shader.jpg)
+
+Wax-crayon-on-toothy-paper look as a layer: a picture-book garden (sun, cloud, flowers, grass) is outlined, coloured lightly so the wax only catches the paper tooth, then coloured over hard until near-solid; embossed paper, fibre grooves, 12 fps boil. With src, any picture is coloured in by big zig-zag strokes through the same filter.
+
+**Use for:** A hand-made crayon style layer for kids content, picture books, greeting cards; turn a photo into a crayon drawing.  
+**Rebuilt from:** lemo-opuscar styles/crayon-book (MIT, LemoLab) — demo/gl.js tooth / wax adhesion / emboss, demo/crayon.js  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, photo, nature  
+**Capabilities:** paints its own background · text: `caption` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `src` | `""` | optional picture (public/ path or URL) rendered as wax crayon; empty = the procedural garden |
+| `caption` | `"colour outside the lines"` | printed words, written letter by letter at the bottom |
+| `pressure` | `0.42` | first, light colouring pressure 0..1 (speckled) |
+| `heavyPressure` | `0.95` | second, pressed-hard pressure 0..1 (near-solid) |
+| `toothScale` | `1` | paper tooth size multiplier |
+| `emboss` | `0.6` | paper emboss strength 0..1 |
+| `paperColor` | `"#F4EFE3"` | drawing paper colour |
+| `inkColor` | `"#2D3263"` | outline crayon colour |
+| `boil` | `true` | lines re-jitter 12 times a second |
+| `colors` | `["#F5C63C","#EE8EA4","#62A24C","#EC8A3C","#79ACD9"]` | [sun, petals, leaves, flower centre, cloud] crayon colours |
+
+### `cyanotype-water-bloom` — Cyanotype water bloom
+
+![cyanotype-water-bloom](../gallery/cyanotype-water-bloom.jpg)
+
+Water drops fall onto a cyanotype blueprint and bloom into deeper, more saturated blue stains with pale tide-line rims; the white line work inside each stain goes soft, and a drop on the signature makes the ink bleed.
+
+**Use for:** Rain / flood / emotion beats on any paper-based motion; a melancholy turn in a blueprint or patent story.  
+**Rebuilt from:** lemo-opuscar styles/blueprint demo/paper.js wet branch (MIT, LemoLab), analysis/sources/lemo-styles-a.md §5 cyanotype-water-bloom  
+**Default length:** 165 frames (5.5 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, blueprint, nature  
+**Capabilities:** paints its own background · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `drops` | `[]` | [{x, y, at, r}] drop positions (0..1), landing frames and stain radii in px at 1080; empty = four default drops, the last on the signature |
+| `title` | `"The Cloud Catcher"` | hand-lettered sheet title |
+| `signature` | `"A. Northwind"` | signature that bleeds when the last drop hits it |
+| `note` | `"FIG. 2 · WORKS BEAUTIFULLY. NO CLOUDS YET."` | mono caption bottom-left |
+| `lineColor` | `"#E7F0F9"` | line work colour |
+| `paperDark` | `"#18336B"` | paper dark ramp end |
+| `paperLight` | `"#2A58A6"` | paper light ramp end |
+| `seed` | `4` | paper + stain displacement seed |
+
+### `data-view-flash` — Data view flash
+
+![data-view-flash](../gallery/data-view-flash.jpg)
+
+Beat-synced 1–5-frame "data" flashes: the painterly army close-up cuts to the same units as flat glyphs on near-black noise (with an occasional RGB-split frame) and straight back, hiding each faction change inside a flash.
+
+**Use for:** Rhythmic "under the hood / what the AI sees" accents; hiding hard cuts on music beats.  
+**Rebuilt from:** video x6 13.8-26.4 s (12 flashes at ≈ 92 BPM, 1-5 frames each)  
+**Default length:** 160 frames (5.3 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `bpm` | `92` | flash tempo (one flash per beat) |
+| `flashFrames` | `[2,1,3,1,5,1,2,1]` | flash lengths in frames, cycled per beat (1–5) |
+| `rgbSplit` | `true` | add a ±8 px red/blue split on the second flash frame |
+| `background` | `"#0C0C10"` | data-view background |
+| `factions` | `[{"name":"NOVA","color":"#E58682","unit":"#BE6E6C","chip"…` | armies to cut between (shot changes every 4 beats, hidden in a flash) |
+| `unitsPerArmy` | `84` | units per close-up |
+| `push` | `3.5` | camera push during each 4-beat shot in %/s |
+| `seed` | `6` | layout seed (match army-formation / tactical-map) |
+
+### `drop-splash-crown` — Drop splash crown
+
+![drop-splash-crown](../gallery/drop-splash-crown.jpg)
+
+A glossy drop falls stretched onto a polished floor, squashes into a lens and throws a crown of tapered tendrils; the tips bead up and pinch off as secondary droplets that fly and land as small beads or melt into the puddle while the stubs recoil, all mirrored in the floor; a second smaller drop lands in the puddle.
+
+**Use for:** Drink, food and cosmetics ads, logo openers, "drop" product launches and loader hits.  
+**Rebuilt from:** mg-styles-15 demos/07-liquid/js/scene.js makeDroplet, emitDroplet, tendrilState (MIT), video 07-liquid 0.3-1.7 s  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** nature  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `drops` | `[{"t":22,"x":0.5,"size":1,"hue":335},{"t":96,"x":0.43,"si…` | list of {t: impact frame, x: 0..1 across the frame, size, hue 0-360} |
+| `crown` | `{"count":7,"height":1}` | {count: tendrils (6-8 looks right), height: multiplier} |
+| `secondaries` | `true` | tips pinch off into flying droplets |
+| `floorY` | `0.74` | floor line as a fraction of the frame height |
+| `reflection` | `0.35` | mirror strength in the floor 0..1 (0 = none) |
+| `cameraMacro` | `true` | macro framing: bigger drop and crown |
+| `light` | `225` | key light azimuth in degrees |
+| `background` | `"#0a1024"` | backdrop base colour |
 
 ### `electric-arcs` — Electric arcs
 
@@ -1450,7 +3346,7 @@ Doodle reaction icons (! ? lightbulb hearts sweat-drop music notes) pop in over 
 **Rebuilt from:** video20 emote-icon-pop, video22 cheer-bounce-emotes floating notes  
 **Default length:** 150 frames (5.0 s @ 30 fps)
 
-**Roles:** accent · **Mood:** light, paper, playful  
+**Roles:** accent · **Mood:** light, paper, nature, playful, night  
 **Capabilities:** overlay (`{"background":"transparent","showSubject":false}`) · weight: light  
 **Pairs well with:** `box-bot`, `chat-bubbles`, `perspective-grid`  
 
@@ -1460,7 +3356,7 @@ Doodle reaction icons (! ? lightbulb hearts sweat-drop music notes) pop in over 
 | `x` | `0.5` | emote anchor x (0..1) — the point the icons pop over |
 | `y` | `0.3` | emote anchor y (0..1) |
 | `delay` | `8` | frame the first emote pops |
-| `icons` | `["!","?","bulb","heart"]` | sequence of icons: '!', '?', '!?', 'bulb', 'heart', 'sweat', 'note' (each starts the frame after the previous ends) |
+| `icons` | `["!","?","bulb","heart"]` | sequence of icons: '!', '?', '!?', 'bulb', 'heart', 'sweat', 'note' + round-2 set: 'ticks' (flickering manga action strokes), 'anger' (vein), 'steam' (rising puffs), 'zzz', 'dots' (typing bubble), 'stars' (orbiting), 'spark', 'cloud' (personal rain cloud); each starts the frame after the previous ends |
 | `hold` | `22` | frames each icon holds (0.6-1.2 s) |
 | `size` | `1` | icon size multiplier |
 | `ink` | `"#2e2a26"` | ink line colour |
@@ -1470,6 +3366,62 @@ Doodle reaction icons (! ? lightbulb hearts sweat-drop music notes) pop in over 
 | `sweat` | `"#7DB3E0"` | sweat-drop colour |
 | `showSubject` | `true` | draw the reacting box-bot under the icons (scene mode only) |
 | `seed` | `2` | random seed (line boil) |
+
+### `eraser-rewind` — Eraser rewind (undo wipe)
+
+![eraser-rewind](../gallery/eraser-rewind.jpg)
+
+A charcoal felt eraser slides along a zig-zag path at constant speed and wipes a wide band of hand-drawn ink, leaving a faint ghost; then a corrected line is written in. Reads as "undo / rewind time" or a clean whiteboard wipe.
+
+**Use for:** Undo / rewind beats, "what if we hadn't…" storytelling, clean wipes between whiteboard sections, correcting a wrong answer on screen.  
+**Rebuilt from:** lemo-opuscar styles/whiteboard demo engine (MIT, LemoLab) — Timeline.erase / zigzag / drawEraser, own SVG mask build  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper  
+**Capabilities:** paints its own background · text: `text`, `label` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `background` | `"#F2EFE8"` | board colour |
+| `ink` | `"#26282C"` | ink colour of the drawing that gets erased |
+| `accent` | `"#E5462F"` | accent colour (highlight, new text, label) |
+| `text` | `"we expected 2x growth…"` | handwritten line(s) under the chart, \n for more lines |
+| `after` | `"Start again."` | text written after the wipe (empty = none) |
+| `passes` | `5` | zig-zag passes |
+| `width` | `170` | eraser band width in px (90-230) |
+| `strength` | `0.9` | how much ink is removed (0.9 leaves a 10 % ghost) |
+| `startFrame` | `62` | frame the eraser starts |
+| `durationFrames` | `80` | frames the wipe takes |
+| `box` | `[0.08,0.1,0.84,0.72]` | [x, y, w, h] erase area as frame fractions |
+| `label` | `"UNDO"` | tiny label on the eraser |
+
+### `explosion-burst` — Explosion burst
+
+![explosion-burst](../gallery/explosion-burst.jpg)
+
+Two-frame flash, a fireball that swells in 12 frames and then rolls while cooling yellow to red to soot with turbulent edges, rising smoke puffs, a shockwave ring that outruns the frame in about 10 frames, glowing debris with streaks, drifting embers and a decaying camera shake; or a cartoon version with a spiky flash, scalloped ink-outlined clouds, chunky debris on twos and optional comic text.
+
+**Use for:** Game trailers, dramatic reveals, comedy beats, history / battle stories, "blow up the old way" transitions.  
+**Rebuilt from:** prompt-corpus research: explosion-burst (21 cases, ideas only; original implementation)  
+**Default length:** 120 frames (4.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** comic, playful  
+**Capabilities:** paints its own background · text: `text` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `style` | `"real"` | 'real' (turbulent fireball) \| 'cartoon' (spiky flat shapes on twos) |
+| `palette` | `"fire"` | 'fire' \| 'plasma' \| 'toxic' |
+| `at` | `8` | detonation frame |
+| `originX` | `0.5` | blast centre x (0-1 of width) |
+| `originY` | `0.58` | blast centre y (0-1 of height) |
+| `scale` | `1` | blast size multiplier |
+| `debris` | `56` | number of debris pieces |
+| `smoke` | `true` | rolling smoke puffs |
+| `shake` | `1` | camera shake strength (0 = none) |
+| `text` | `""` | cartoon only: comic word above the blast (e.g. a sound effect) |
+| `seed` | `7` | randomness seed |
+| `background` | `"#0B0807"` | scene colour behind the blast; use a dark base or composite with screen blending |
 
 ### `eyes-blink` — Eyes blink & look
 
@@ -1492,7 +3444,8 @@ A pair of cartoon eyes on a red ball blinks, darts between look targets and swit
 | `x` | `0.5` | character: eye-pair centre x (0..1) |
 | `y` | `0.47` | character: eye-pair centre y (0..1) |
 | `delay` | `0` | frame offset for the whole timeline |
-| `eyeStyle` | `"oval"` | oval (v17 black ovals) \| sclera (v2 white eyes with moving pupils and lids) |
+| `eyeStyle` | `"oval"` | oval (v17 black ovals) \| sclera (v2 white eyes with moving pupils and lids) \| round-2 eye library: happy closed sleepy narrow angry determined sad teary cry heart x swirl spark shades scared dot |
+| `eyes` | `[]` | [left, right] eye styles for mismatched pairs, e.g. ['oval','x'] or ['heart','heart']; [] = both use eyeStyle |
 | `size` | `1` | size multiplier |
 | `spacing` | `1` | distance between the two eyes multiplier |
 | `color` | `"#0B0D0C"` | eye / ink colour |
@@ -1510,6 +3463,144 @@ A pair of cartoon eyes on a red ball blinks, darts between look targets and swit
 | `glowColor` | `"#4CB040"` | watching: eye glow colour |
 | `coreColor` | `"#C8F0A0"` | watching: bright iris core colour |
 | `seed` | `8` | random seed |
+
+### `fire-flames` — Fire flames (cartoon / real / lava)
+
+![fire-flames](../gallery/fire-flames.jpg)
+
+A fire bed that licks upward with 6-10 Hz flicker and 15 % height variance: flat layered red / orange / yellow tongues (cartoon), soft additive gradient layers with heat glow and embers (real), or dark crust with pulsing glowing cracks and gooey rising lava blobs. Overlay-capable.
+
+**Use for:** Hearths and campfire ambience, danger beats, hot deals, forge / craft stories, lava worlds; drop over a dark scene with overlay=true.  
+**Rebuilt from:** prompt-corpus research: fire-flames (20 cases, ideas only; original implementation)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** accent · **Mood:** comic, playful, night  
+**Capabilities:** overlay (`{"overlay":true}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `style` | `"cartoon"` | 'cartoon' \| 'real' \| 'lava' |
+| `intensity` | `1` | flame height / glow 0-1.5 |
+| `position` | `"bottom"` | 'bottom' (floor of the frame) \| 'center' (lower middle) |
+| `width` | `0.8` | fraction of the frame width the fire spans |
+| `tongues` | `7` | number of flame tongues (lava: blob density follows it) |
+| `flicker` | `1` | flicker speed multiplier (1 = about 7-8 Hz) |
+| `sparks` | `true` | rising sparks / embers |
+| `overlay` | `false` | true = transparent background so it can sit over any scene |
+| `outer` | `"#E5391C"` | outer flame colour |
+| `mid` | `"#FF8A1F"` | middle flame colour |
+| `inner` | `"#FFD84A"` | hot core colour |
+| `background` | `"#150A08"` | background colour (ignored when overlay) |
+| `seed` | `3` | randomness seed |
+
+### `focus-desaturate` — Focus desaturate
+
+![focus-desaturate](../gallery/focus-desaturate.jpg)
+
+At the key moment the whole scene greys toward warm cream (mix with luma and #E9DFCB) while one subject keeps full colour and gets a dashed ring and label. Default scene is a flat isometric town with one red-roofed house as the subject; with src it greys an image except a kept circle.
+
+**Use for:** "This one" moments — one user, one store, one product, one data point in a busy scene.  
+**Rebuilt from:** lemo-opuscar styles/iso-infographic (MIT, LemoLab) — engine.js colour pipeline (desat + keep flag)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo, 3d  
+**Capabilities:** paints its own background · text: `label`, `sublabel` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `at` | `54` | frame the desaturation starts |
+| `dur` | `36` | frames to fully desaturate (30–60) |
+| `amount` | `1` | 0..1 how grey the rest gets |
+| `tint` | `"#E9DFCB"` | cream the rest greys toward |
+| `label` | `"Corner bakery"` | label on the kept subject |
+| `sublabel` | `"our first customer"` | second label line |
+| `src` | `""` | optional image in public/ — greyed except the keep circle |
+| `keep` | `[0.5,0.5,0.18]` | image mode: kept circle [x, y, r] as fractions (r of the short side) |
+| `subjectColor` | `"#CF5140"` | procedural mode: the subject roof colour |
+| `background` | `"#F2E6D0"` | ground colour |
+| `seed` | `4` | town layout seed |
+
+### `frame-blend-timelapse` — Frame-blend time-lapse
+
+![frame-blend-timelapse](../gallery/frame-blend-timelapse.jpg)
+
+A keyed speed ramp (1x to 70x and a hard brake to 0.3x) integrated to source time, each frame an average of blended sub-frames: headlights become continuous lines, clouds turn to water, the sky runs through the day, then everything snaps sharp.
+
+**Use for:** Hyperlapse and time-lapse looks, "time flies" beats, light-trail backgrounds; the same speed-integration + sub-frame-average recipe applies to any procedural child.  
+**Rebuilt from:** lemo-opuscar styles/city-symphony/demo/tools/prep.py (MIT, LemoLab); STYLE.md sections 5 and 8  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** nature, night  
+**Capabilities:** paints its own background · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `speedKeys` | `[[0,1],[0.8,1],[1.6,30],[3.6,70],[4.4,2.2],[4.95,0.3]]` | speed keyframes [[seconds, multiplier], ...] — smoothstep (log-space) between keys; 0.3 - 75 |
+| `blend` | `20` | cap on sub-frames averaged per output frame (8 - 30) |
+| `shutter` | `1` | fraction of the frame interval that is sampled (1 = 360 degrees; ~0.4 for noon clouds) |
+| `lanes` | `4` | road lanes (even number, half each way) |
+| `hourStart` | `14` | clock hour at source time zero (the sky and window lights follow it) |
+| `showHud` | `true` | speed / clock / curve readout |
+| `src` | `""` | optional still image (public/) used as the sky + skyline plate behind the road |
+| `seed` | `4` | seed for buildings, clouds and cars |
+| `background` | `"#070B1C"` | fallback background |
+
+### `frame-breakout` — Frame breakout
+
+![frame-breakout](../gallery/frame-breakout.jpg)
+
+A framed woodblock-style print sits on a tan mount; the red koi inside grows, leaps and pushes out past the top border while the rest of the picture stays clipped to the frame — the camera tilts up into the mount and widens to follow, holds the almost-frozen crest outside the frame, then falls toward the lens with a camera push and small roll, bursts into foam that fills the screen and fades to bare paper. Clip is bound left/right/bottom but open on the break edge.
+
+**Use for:** Thumbnail-style "pop out of the frame" moments for any framed media: a product leaving a phone screen, a character leaping from a comic panel, a chart line breaking its axis box; dramatic climaxes.  
+**Rebuilt from:** lemo-opuscar styles/ukiyoe/DEMO.md climax beats; STYLE.md §6 §8 (MIT, LemoLab) — original koi + print  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, photo, playful  
+**Capabilities:** paints its own background · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `src` | `""` | optional subject image in public/ (transparent PNG) instead of the built-in koi |
+| `breakEdge` | `"top"` | which border the subject escapes: top or right |
+| `growAt` | `14` | frame when the subject starts growing |
+| `riseAt` | `52` | frame when it starts to rise and the camera tilts |
+| `hangAt` | `112` | frame the crest hangs outside the frame (near frozen) |
+| `fallAt` | `150` | frame it falls toward the lens |
+| `foamAt` | `188` | frame the foam bursts |
+| `jitter` | `1` | subject jitter amount (hang uses ×0.25) |
+| `endWash` | `true` | fade the foam to bare paper at the end |
+| `subjectColor` | `"#E4572A"` | koi body colour |
+| `mount` | `"#C9B690"` | mount colour around the print |
+| `paper` | `"#EEE2C6"` | paper colour |
+| `ink` | `"#231F1C"` | outline ink |
+| `sea` | `"#1D3A66"` | sea blue |
+| `sun` | `"#B8412F"` | sun colour |
+| `seed` | `3` | texture seed |
+
+### `freeze-frame-brackets` — Freeze-frame brackets
+
+![freeze-frame-brackets](../gallery/freeze-frame-brackets.jpg)
+
+The footage stops dead with a white flash, a small punch-in and colour draining to 45 %; yellow corner brackets close in on the subject and a timecode chip with a red pause mark slides in top-right.
+
+**Use for:** "Wait — look at this" moments in reaction videos, tutorials, sports, news and explainers.  
+**Rebuilt from:** lemo-opuscar styles/caption-news demo/main.js shotFreeze() (MIT, LemoLab), analysis/sources/lemo-styles-a.md §8 freeze-frame-brackets  
+**Default length:** 120 frames (4.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo, nature, hud  
+**Capabilities:** paints its own background · text: `label` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `src` | `""` | public/ photo (empty = procedural footage with a crossing bird) |
+| `seed` | `6` | procedural plate seed |
+| `palette` | `"dusk"` | procedural plate palette |
+| `freezeAt` | `46` | frame the picture freezes |
+| `focus` | `[0.5,0.45]` | [x, y] 0..1 bracket centre for a supplied photo (procedural footage tracks the bird) |
+| `timecode` | `"00:01:32:14"` | timecode on the chip |
+| `label` | `"THERE."` | bold caption under the brackets (empty = none) |
+| `accent` | `"#FFD21F"` | bracket colour |
+| `subject` | `true` | draw the moving subject on procedural footage |
 
 ### `giant-eye-reveal` — Giant eye reveal
 
@@ -1546,6 +3637,403 @@ In darkness a huge reptilian eye opens from a cyan slit through an almond lid ma
 | `scales` | `true` | draw lit scales around the eye |
 | `seed` | `9` | random seed |
 
+### `glass-crack-mend` — Glass crack and mend (re-leading)
+
+![glass-crack-mend](../gallery/glass-crack-mend.jpg)
+
+A leaded stained-glass pane takes a blow: nine white-hot jagged cracks race out from the impact in a quarter second with a flash and a 2-frame shake, then groups of glass slide along the leads into a new arrangement, one group per beat with a weld spark, and the cracks turn into dark mending lead lines.
+
+**Use for:** Turning points: reinvention, injury and recovery, a restored building, a before/after pivot; works over any image via `src`.  
+**Rebuilt from:** lemo-opuscar styles/stained-glass demo/story.js (CRACKS, WELDS, crackAfter) + STYLE.md (MIT, LemoLab)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** night  
+**Capabilities:** paints its own background · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `impact` | `{"x":0.46,"y":0.42}` | impact point as 0..1 of the window |
+| `cols` | `6` | glass columns |
+| `rows` | `4` | glass rows |
+| `cracks` | `9` | number of primary cracks |
+| `crackAt` | `30` | frame of the blow |
+| `groupAt` | `[58,76,94,112]` | start frame of each re-lead group (one slide per entry) |
+| `slideFrames` | `15` | frames each slide takes |
+| `mend` | `true` | turn the cracks into lead lines |
+| `flash` | `0.85` | white flash strength 0..1 |
+| `colors` | `["#1f5f9e","#b3262f","#d9a22b","#2e7d4f","#6b3a8c","#e076…` | jewel glass colours |
+| `lead` | `"#1d1f23"` | lead came colour |
+| `background` | `"#14121a"` | wall behind the window |
+| `src` | `""` | optional image shown through the glass (public path); empty = coloured glass |
+| `seed` | `5` | seed for colours and cracks |
+
+### `grease-pencil-mark` — Grease pencil marks
+
+![grease-pencil-mark](../gallery/grease-pencil-mark.jpg)
+
+Hand-made telestration: a warm-white grease pencil draws a wobbly overshooting ring around a detail, quick arrows with barbs, crosses and soft-lead underlines — each stroke doubled by a thinner offset pass so it reads waxy; optionally freezes an image with a short jolt first. Transparent overlay by default.
+
+**Use for:** "Look here" evidence circles for documentaries, sports telestration on stills, tutorial screenshots, annotated archive photos.  
+**Rebuilt from:** lemo-opuscar styles/newsreel (MIT code, CC BY 4.0 docs, LemoLab) — demo/index.html pencil/ring/lineP/pencilDark  
+**Default length:** 120 frames (4.0 s @ 30 fps)
+
+**Roles:** accent · **Mood:** paper, photo, cinematic, editorial  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `marks` | `[{"type":"ring","at":[0.62,0.38],"rx":0.1,"ry":0.07,"rot"…` | annotations [{type: ring\|arrow\|underline\|cross, at: [x,y] 0..1, to? (arrow), rx/ry (size), rot, start (frame), dur?, label?}] |
+| `color` | `"rgba(250,248,240,0.92)"` | pencil colour (warm white; use a dark tone on paper) |
+| `width` | `7` | stroke width in u |
+| `double` | `true` | second thinner offset pass (waxy look) |
+| `freezeSrc` | `""` | optional image to freeze and jolt under the marks |
+| `joltAmp` | `16` | freeze jolt amplitude in u |
+| `labelColor` | `"#F3EEE4"` | label colour |
+| `seed` | `5` | wobble seed |
+| `background` | `"transparent"` | default "transparent" (overlay); any colour for standalone |
+
+### `impact-frame` — Impact frame (flash, shake, punch)
+
+![impact-frame](../gallery/impact-frame.jpg)
+
+On each hit: one inverted frame, one white frame, a decaying camera shake, a 1.06 to 1 zoom punch, a chromatic RGB split and a burst of speed lines with a shock ring; the default scene slams one giant word per hit (READY / SET / GO) on a new colour with an anticipation ring closing before every beat.
+
+**Use for:** Beat drops, fight and comedy shorts, stat slams, game trailers. Set `scene: false` and `background: "transparent"` to lay the flash + speed lines over other layers; pairs with comic-burst and speed-lines.  
+**Rebuilt from:** prompt corpus x18 (hit: inverted/white frames, decaying shake, zoom punch, chroma split)  
+**Default length:** 140 frames (4.7 s @ 30 fps)
+
+**Roles:** accent · **Mood:** comic  
+**Capabilities:** overlay (`{"scene":false,"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `scene` | `true` | draw the built-in word scene (false = effect layers only, for overlaying) |
+| `at` | `[30,66,102]` | frames of the impacts |
+| `words` | `["READY","SET","GO!"]` | one giant word per impact |
+| `colors` | `["#f4efe4","#ffd23f","#15151c"]` | background colour per impact (cycled) |
+| `inkColor` | `"#15151c"` | word colour on light backgrounds |
+| `accent` | `"#ff3b30"` | speed-line / ring / shadow colour |
+| `strength` | `1` | overall hit strength (1 = shake 2% of the frame, flash, 1.06 punch) |
+| `ramp` | `0.35` | extra strength added per successive hit |
+| `flash` | `"both"` | 'invert' \| 'white' \| 'both' \| 'none' |
+| `lines` | `true` | draw the speed-line burst |
+| `chroma` | `true` | chromatic RGB split on the hit |
+| `background` | `"transparent"` | backdrop when `scene` is off ("transparent" to overlay) |
+
+### `ink-blot-stop` — Ink blot (pen stop)
+
+![ink-blot-stop](../gallery/ink-blot-stop.jpg)
+
+Where the pen stops, ink soaks into the paper as a growing teardrop: the tip stays at the nib, the belly sags downward, the rim is irregular with a darker tide line; several blots with their own timing and optional handwritten words. Transparent overlay by default.
+
+**Use for:** A hesitation / loss / signature beat in ink, pencil, ink-wash or woodcut styles; punctuation in hand-drawn explainers.  
+**Rebuilt from:** lemo-opuscar styles/one-line (MIT code, CC BY 4.0 docs, LemoLab) — demo/ink.js drawBlots  
+**Default length:** 120 frames (4.0 s @ 30 fps)
+
+**Roles:** accent · **Mood:** paper, night  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `blots` | `[{"x":0.38,"y":0.42,"start":6,"dur":46,"size":3.2},{"x":0…` | blots [{x, y (0..1), start (frame), dur?, size? (1 = small), label?}] |
+| `color` | `"#1D1A17"` | ink colour |
+| `lineWidth` | `5` | the stopped line's width in u (sets the initial dot) |
+| `tideLine` | `0.9` | darker rim strength 0..1 |
+| `labelColor` | `"#1D1A17"` | handwritten label colour |
+| `paper` | `"#F4EFE4"` | paper colour when background is "paper" |
+| `seed` | `11` | rim-noise seed |
+| `background` | `"paper"` | "paper", "transparent" (overlay) or any colour |
+
+### `ink-brush-boil` — Ink brush boil
+
+![ink-brush-boil](../gallery/ink-brush-boil.jpg)
+
+A doodle (light bulb, mug, star, heart or your own strokes) inks itself on warm paper with real brush lines — tapered ends, pressure wobble, heavier on the shadow side — then flat fills drop in off-register, a hatched shadow scratches in, a hand-lettered caption writes on, and every line keeps breathing (re-drawn each exposure).
+
+**Use for:** Hand-made, craft or "drawn for you" moments: ideas (bulb), coffee breaks, ratings, love/likes, or any line art you feed as strokes; the kit upgrades any doodle to brush ink.  
+**Rebuilt from:** mg-styles-15 05-cel-boil engine.js boil/outline/inkW/inkLoop/hatch (MIT, Vincentwei1021) — technique after mg-styles-15  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, editorial  
+**Capabilities:** paints its own background · text: `caption` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `background` | `"#F4E9D0"` | paper colour |
+| `subject` | `"bulb"` | bulb \| mug \| star \| heart \| custom (uses `strokes`) |
+| `strokes` | `[]` | custom: list of strokes, each a list of [x,y] in 0..1; a stroke whose last point equals its first is a filled loop |
+| `caption` | `"bright idea"` | hand-lettered caption under the drawing ("" to hide) |
+| `ink` | `"#1C1613"` | ink colour |
+| `fillColors` | `["#E5402B","#FFC425","#3B2A22","#B9B0A2"]` | flat fill colours (subject parts pick by index; first is also the underline) |
+| `inkWidth` | `1` | brush width multiplier (6 px base at 1080p) |
+| `boilAmp` | `1` | boil amplitude multiplier (2.3 px base) |
+| `boilScale` | `1` | boil noise scale multiplier (70 px base; bigger = smoother wobble) |
+| `boilEvery` | `2` | frames per drawing (2 = on twos, 3 = on threes) |
+| `taper` | `1` | taper length multiplier (14 px in / 26 px out) |
+| `heavySide` | `0.35` | extra weight on the lower-right shadow side (0–1) |
+| `offRegister` | `5` | colour-to-line misregistration in px |
+| `drawDuration` | `70` | frames to ink the whole drawing |
+| `hatch` | `true` | hatched cast shadow |
+| `size` | `1` | drawing scale |
+| `slate` | `true` | show the drawing counter |
+| `seed` | `1` | variation seed |
+
+### `long-exposure-trails` — Long-exposure trails
+
+![long-exposure-trails](../gallery/long-exposure-trails.jpg)
+
+Dusk city with a road bending to the horizon: moving lights leave long glowing streaks like a long-exposure photograph — warm white headlights streaming toward the viewer and red tail-lights streaming away, each trail a tapered additive-glow line that fades toward its tail and grows with perspective, plus a brighter hero car. Overlay-capable: set background transparent (or give a src plate) and your own light paths.
+
+**Use for:** Night-city intros, logistics / delivery routes, "data packets" metaphors, festive lantern scenes, traffic and motion energy over any dark plate.  
+**Rebuilt from:** lemo-opuscar styles/tilt-shift/STYLE.md §8 long-exposure light; DEMO.md dawn car trail (MIT, LemoLab)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** accent · **Mood:** photo, night  
+**Capabilities:** overlay (`{"background":"transparent"}`) · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `paths` | `[{"pts":[[0.51,0.665],[0.56,0.72],[0.63,0.8],[0.72,0.9],[…` | light paths: {pts:[[x,y]…] (0-1 of the frame), color, count, speed (path fractions/s), offset (px), delay, perspective, reverse, hero} |
+| `trail` | `3` | trail length in seconds of world time (1–4) |
+| `width` | `4.5` | light core width in px at 1080p |
+| `glow` | `14` | additive glow radius in px at 1080p |
+| `rate` | `1` | time-lapse rate multiplier (higher = longer-looking streaks) |
+| `background` | `"#0B0D22"` | plate colour, or "transparent" to overlay on a host scene |
+| `src` | `""` | optional plate image in public/ (replaces the procedural dusk city) |
+| `headColor` | `"#FFF1C9"` | default head-light colour (warm white) |
+| `tailColor` | `"#FF3B30"` | default tail-light colour (red) |
+| `intensity` | `1` | overall trail opacity 0–1.5 |
+| `hero` | `true` | enlarge paths flagged hero |
+
+### `loupe-magnify` — Loupe magnify (light table)
+
+![loupe-magnify](../gallery/loupe-magnify.jpg)
+
+A black-rimmed magnifier with a bevel highlight and clear acrylic skirt drops onto a document on a backlit light table, reads a line at 2.5× with colour fringing at the rim, glides to the key figure (underlined and ringed in the signal colour), then the camera pushes through the lens.
+
+**Use for:** The "look closer" beat in an explainer or evidence film: a contract clause, a receipt, a product detail, a screenshot or a map.  
+**Rebuilt from:** lemo-opuscar styles/archive-lighttable demo/film.js lens branch (MIT, LemoLab), analysis/sources/lemo-styles-a.md §1 loupe-magnify  
+**Default length:** 165 frames (5.5 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** paints its own background · text: `title`, `lines` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `src` | `""` | optional public/ image to inspect instead of the procedural document (fills the page area) |
+| `org` | `"NORTHWIND HARBOUR AUTHORITY"` | document letterhead (small caps line) |
+| `title` | `"Report on the New Crossing"` | document title |
+| `meta` | `"Ref. NH-2041 · Filed 14 March · Page 3 of 12"` | reference / date line under the title |
+| `lines` | `["The survey team walked the full length of the channel o…` | body lines of the document (one string per printed line) |
+| `keyLine` | `6` | index of the line that holds the key figure (underlined after the glide) |
+| `keyNumber` | `"1,208"` | text inside the key line that gets ringed (e.g. "1,208") |
+| `focus` | `[]` | lens stops as [[x,y],[x,y]] in 0..1 page coordinates; empty = meta line then the key figure |
+| `magnify` | `2.5` | lens magnification (2.5 in the source) |
+| `fringe` | `1` | lateral colour fringe strength (0 = none, 1 = ±1.1 % per channel) |
+| `landAt` | `10` | frame the loupe lands (0.4 s drop, scale 1.35 → 1) |
+| `glideAt` | `62` | frame it lifts and glides to the second stop |
+| `pushAt` | `118` | frame the camera starts pushing through the lens |
+| `pushThrough` | `true` | end by pushing through the lens until the rim leaves frame |
+| `accent` | `"#FF5A1F"` | signal colour for the underline and ring (use sparingly) |
+| `table` | `"#F7F9FB"` | light-table diffuser colour |
+| `desk` | `"#0E0F11"` | dark desk colour |
+
+### `magnifier-loupe` — Magnifier reading loupe
+
+![magnifier-loupe](../gallery/magnifier-loupe.jpg)
+
+A thin round glass lens wanders across textbook text like a reading cursor, magnifying it 1.6× with a slight barrel bulge, a prismatic orange/magenta rim fringe with tinted ghost text, a white edge highlight and a small magnifier icon; it follows its path with a soft critically damped lag. Works over any `src` image, or as glass only over host content (backdrop "none").
+
+**Use for:** Drawing attention to fine print, a definition, a UI detail or a chart value; "look closer" and "read along" beats in explainers and product tours.  
+**Rebuilt from:** video x3 13.9-20.0 (magnifier-loupe)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** accent · **Mood:** photo  
+**Capabilities:** overlay (`{"background":"transparent","backdrop":"transparent"}`) · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `src` | `""` | image to read over (public/ path or URL); empty = procedural textbook page |
+| `backdrop` | `"book"` | "book" procedural textbook \| "none" = transparent overlay: only the glass is drawn (no magnified copy) |
+| `path` | `[[1.05,0.95,0],[0.3,0.14,26],[0.16,0.19,12],[0.74,0.19,40…` | lens path as [x, y, travelFrames] in 0..1 of the reading area (left page, or the whole frame with src) |
+| `zoom` | `1.6` | magnification (1.6 = source) |
+| `bulge` | `0.12` | barrel bulge: extra magnification at the centre (0 = flat) |
+| `size` | `250` | lens diameter in u |
+| `lag` | `0.1` | follow lag in seconds (critically damped) |
+| `fringe` | `1` | prismatic rim strength (0 = none) |
+| `fringeOuter` | `"#F6BC7C"` | outer fringe colour (orange) |
+| `fringeInner` | `"#E38AE8"` | inner fringe colour (magenta) |
+| `icon` | `true` | show the small magnifier icon at the centre |
+| `drift` | `0.02` | slow camera push on the backdrop over the clip |
+| `background` | `"transparent"` | colour behind the glass in overlay mode ("transparent") |
+
+### `marker-ring-arrow` — Marker ring and arrow
+
+![marker-ring-arrow](../gallery/marker-ring-arrow.jpg)
+
+Broadcast-telestrator annotations drawn live without a freeze: glowing fluorescent marker arrows (solid for what happened, dashed with an open chevron for what was intended), a perspective ring with rotating dashes, a translucent dashed area, and a comet with a fading tapered trail behind a moving point — every stroke has a dark outline, colour glow, colour core and white highlight. Overlay-capable: set background to transparent and scene to none.
+
+**Use for:** Annotating any video, map, chart or UI capture; sports analysis, "what happened vs what should have", callouts and pointers; a punchy alternative to pencil / blueprint annotation looks.  
+**Rebuilt from:** lemo-opuscar styles/telestrator/demo/index.html — marker, partial, ring, comet, trail (MIT, LemoLab)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** accent · **Mood:** night  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `items` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `items` | `[{"type":"ring","x":0.46,"y":0.5,"r":0.075,"color":"did",…` | annotations: {type:"arrow"\|"ring"\|"comet"\|"area", pts:[[x,y]…] (0-1 of the frame) or x,y,r, color (role name or hex), at (s), dur (s), dash, wobble} |
+| `palette` | `{"did":"#FFD400","plan":"#2BE3FF","alert":"#FF3B7A","focu…` | colour roles: did = what happened, plan = intended (dashed), alert, focus |
+| `weight` | `8` | marker core width in px at 1080p (6-9) |
+| `scene` | `"pitch"` | demo backdrop: pitch, grid or none (use none + transparent background to overlay) |
+| `background` | `"#142A20"` | backdrop colour, or "transparent" for a pure overlay |
+| `ringSquash` | `0.42` | ring height / width — lower = flatter perspective ring |
+| `trail` | `0.6` | comet trail window in seconds (≤ 0.6) |
+| `boil` | `true` | wobble re-seeds at 12 fps (hand-drawn feel) |
+
+### `palette-reink` — Palette re-ink (squeegee recolour)
+
+![palette-reink](../gallery/palette-reink.jpg)
+
+A finished screen-print poster of a lake under mountains is pulled again: a wide tilted squeegee crosses the sheet in about a third of a second and behind it every ink has changed (noon, golden hour, dusk), geometry identical; the big number swaps with the palette.
+
+**Use for:** Time passing (day/night hours), seasons, product colourways, A/B variants — any "same thing, new palette" beat.  
+**Rebuilt from:** lemo-opuscar styles/silkscreen-poster STYLE.md §5/§8 + DEMO.md "7 h" swap (MIT, LemoLab)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** paints its own background · text: `labels` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `palettes` | `["noon","golden","dusk"]` | palette names (dawn, noon, golden, dusk, harbour, winter) or inline objects; one per re-ink + the first |
+| `at` | `[44,100]` | frame each re-ink starts (one per palette after the first) |
+| `frames` | `11` | frames the blade takes to cross the sheet |
+| `angle` | `-12` | blade tilt in degrees |
+| `tail` | `30` | depth of the ragged ink front in poster units |
+| `header` | `"Hours at the lake"` | tracked line at the top of the poster |
+| `name` | `"Northwind Lake"` | big name in the info band |
+| `labels` | `["7 H","13 H","19 H"]` | big number per palette |
+| `stats` | `[{"label":"Light","value":"Soft"},{"label":"Wind","value"…` | info-band stat blocks |
+| `background` | `"#e9e3d6"` | page colour behind the poster |
+| `paper` | `"#f4efe4"` | poster paper colour |
+| `blade` | `true` | draw the squeegee |
+| `seed` | `3` | landscape seed |
+
+### `physics-pile` — Physics pile (falling, stacking shapes)
+
+![physics-pile](../gallery/physics-pile.jpg)
+
+Colourful circles, rounded boxes and triangles (or letter tiles from a word) drop in one after another, bounce, tumble, stack and settle in a box, bowl or on the floor; a deterministic pre-simulated 2D rigid-body sim at 120 Hz sampled per frame, with small impact marks and exported collision frames for sound effects.
+
+**Use for:** Playful product demos, logos or words that fall into a heap, music-from-collisions, data drops (one body per item), toy / game stories.  
+**Rebuilt from:** prompt-corpus research: physics-pile (18 cases, ideas only; original implementation)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud, playful  
+**Capabilities:** paints its own background · text: `text` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `count` | `26` | number of bodies (ignored when text is set) |
+| `shapes` | `["circle","box","tri"]` | mix of 'circle' \| 'box' \| 'tri' |
+| `text` | `""` | letters that fall as tiles instead of shapes (e.g. a brand name) |
+| `size` | `112` | body size in u (1u = 1px at 1080 on the short side) |
+| `container` | `"box"` | 'box' (walls + floor) \| 'bowl' (slanted) \| 'floor' |
+| `restitution` | `0.38` | bounciness 0.2-0.5 |
+| `friction` | `0.55` | surface friction 0-1 |
+| `spawnEvery` | `3` | frames between spawns |
+| `startFrame` | `6` | frame of the first spawn |
+| `colors` | `["#FF6B4A","#FFC145","#3DD6A3","#4D8BFF","#B26BFF","#FF7E…` | body colours, cycled |
+| `background` | `"#F3EEE4"` | background colour |
+| `ink` | `"#2A2622"` | wall / impact / letter colour |
+| `impacts` | `true` | draw small impact bursts at hard collisions |
+| `seed` | `5` | randomness seed |
+
+### `portal-glow` — Portal glow
+
+![portal-glow](../gallery/portal-glow.jpg)
+
+A golden ring between paper-stone ruins with a four-point star at its centre, slowly rotating light rays, a pulsing glow, a shimmering basin pool, winking glints and rising motes, ending in a warm white-out bloom.
+
+**Use for:** "The goal / destination / unlock" beat, level-ups and launches; ends in a white-out you can cut on.  
+**Rebuilt from:** video x5 48.3-53.9 s (star-portal ruins + burnout), video x5 30.4-35.8 s (cave ripple glow)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `background` | `"#182C4B"` | night sky colour |
+| `color` | `"#EDCB6A"` | ring / star gold |
+| `glow` | `"#FFF0B8"` | light colour (rays, halo, pool) |
+| `x` | `0.5` | ring centre x (fraction of width) |
+| `y` | `0.42` | ring centre y (fraction of height) |
+| `size` | `0.36` | ring diameter as a fraction of the short side |
+| `rays` | `20` | number of light rays behind the star (16–24) |
+| `raySpeed` | `6` | ray rotation in degrees per second |
+| `pulse` | `0.1` | pulse depth (0.1 = 0.9–1.0 opacity at 0.5 Hz) |
+| `bloomAt` | `164` | frame the light blooms into a white-out (0 = never) |
+| `bloomColor` | `"#FBF4E0"` | white-out colour ('#FBF4E0' warm, '#F5F9FA' cool) |
+| `ruins` | `true` | draw the stone pillars, carvings and glints |
+| `stone` | `"#C8A866"` | pillar stone colour |
+| `seed` | `4` | layout seed |
+
+### `practical-light-shadow-jump` — Practical light shadow jump
+
+![practical-light-shadow-jump](../gallery/practical-light-shadow-jump.jpg)
+
+A cold, dim room with two figures beside an unlit lantern. On the switch-on beat the light ignites (0 to 1 in ~.3 s with a flicker overshoot), the glow blooms, the figures turn toward it and their shadows swing out across the floor from their feet while the mood flips from cold blue to warm. Source can be lantern, lamp or screen.
+
+**Use for:** "Switching on" moments: product power-on, store opening, an idea lighting up, a story turning from dark to hopeful.  
+**Rebuilt from:** lemo-opuscar styles/hd-2d STYLE.md §5/§8, DEMO.md (MIT, LemoLab), lemo-styles-a hd-2d: practical-light-shadow-jump  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** night  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `switchAt` | `42` | frame the light ignites |
+| `source` | `"lantern"` | lantern \| lamp \| screen |
+| `warm` | `"#FFAE4A"` | light colour (ignored for screen, which is cool white-blue) |
+| `cold` | `"#1B2552"` | colour of the unlit room darkness |
+| `strength` | `1` | overall light intensity 0.6–1.3 |
+| `figures` | `2` | one or two characters |
+| `floorColor` | `"#5A4A56"` | floor colour |
+| `wallColor` | `"#6E6288"` | wall colour |
+
+### `registration-snap` — Registration snap (loose print layers clamp)
+
+![registration-snap](../gallery/registration-snap.jpg)
+
+A crane down a screen-print: the ink layers hang loose as separate paper sheets with paper-white gaps, thickness shadows and depth parallax, then clamp into perfect register on one loud hit (2-frame shake and flash) before the key facts print in.
+
+**Use for:** The "everything locks into place" beat before a date, price or launch fact; multi-plane parallax that does not look like moving mountains.  
+**Rebuilt from:** lemo-opuscar styles/silkscreen-poster DEMO.md climb shot + STYLE.md §5/§8 (MIT, LemoLab)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `palette` | `"harbour"` | poster palette name or object |
+| `planes` | `7` | how many ink layers hang loose (2-7) |
+| `loosenFrom` | `0` | frame the sheets start to hang loose |
+| `snapAt` | `84` | frame of the clamp hit |
+| `depthScale` | `0.16` | parallax strength between planes |
+| `gap` | `3` | paper gap between planes in poster units |
+| `shadow` | `9` | thickness shadow size in poster units |
+| `header` | `"Opening night"` | tracked line at the top |
+| `name` | `"Harbour Lights"` | info-band name |
+| `number` | `"21"` | info-band big number |
+| `stats` | `[{"label":"Doors","value":"19:00"},{"label":"Entry","valu…` | info-band stat blocks printed after the snap |
+| `background` | `"#e9e3d6"` | page colour |
+| `paper` | `"#f4efe4"` | paper colour |
+| `seed` | `3` | landscape seed |
+
 ### `scribble-ball` — Scribble ball
 
 ![scribble-ball](../gallery/scribble-ball.jpg)
@@ -1578,6 +4066,62 @@ A boiling tangle of open ink loops, regenerated every 2 frames, floats over an u
 | `fade` | `6` | fade in/out frames (0.2 s) |
 | `showSubject` | `true` | draw the upset box-bot underneath (scene mode only) |
 | `seed` | `5` | random seed |
+| `elementBoil` | `false` | per-element line boil: each ink loop keeps its own random stream and re-draws only on its own staggered beat (no all-over shimmer) |
+
+### `sdf-liquid-shade` — SDF liquid shade
+
+![sdf-liquid-shade](../gallery/sdf-liquid-shade.jpg)
+
+Coloured metaballs orbit and fuse into thick glossy jelly: smooth necks that blend their colours, dome-shaped diffuse shading from a key light, a hard specular highlight, a broad softbox sheen, a saturated translucent rim and a fading floor reflection.
+
+**Use for:** The shading look under liquid motions: drops, logo melts, blob loaders, liquid buttons and transitions; also a standalone glossy-goo background.  
+**Rebuilt from:** mg-styles-15 demos/07-liquid/js/shaders.js shadeLiquid / fadd (MIT), video 07-liquid 0-10 s  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `colors` | `["#ff4d8d","#ffb02e","#2ee6c8","#7a5cff","#ff6a3d","#3aa0…` | ball colours (hex), cycled over the balls |
+| `count` | `5` | number of balls |
+| `light` | `225` | key light azimuth in degrees (225 = upper left) |
+| `gloss` | `1` | specular strength |
+| `rim` | `0.55` | saturated rim glow strength 0..1 |
+| `reflection` | `0.3` | floor reflection strength 0..1 (0 = none) |
+| `speed` | `1` | orbit speed multiplier |
+| `blur` | `14` | merge softness in px at 1080 (bigger = longer necks) |
+| `seed` | `4` | seed for orbits and sizes |
+| `background` | `"#0d0820"` | backdrop base colour |
+
+### `smear-frame` — Smear frame
+
+![smear-frame](../gallery/smear-frame.jpg)
+
+Hand-animation smears: a red ink ball (or the flame mascot, or a star) holds on twos, anticipates, then whips to its next spot in one stretched dry-brush smear drawing followed by one "multiples" drawing of overlapping copies, landing with squash, trailing speed lines and an impact star on the slam.
+
+**Use for:** Instant "animator craft" accents on hits, whooshes and logo slams; the multiples / smear grammar for any fast move in a hand-drawn piece.  
+**Rebuilt from:** mg-styles-15 05-cel-boil 0.29-0.46 s, scene.js drawStrikeSmear / smearUp (MIT, Vincentwei1021) — technique after mg-styles-15  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** accent · **Mood:** paper, comic, playful, ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `background` | `"#F4E9D0"` | paper colour ('transparent' to overlay) |
+| `subject` | `"ball"` | ball \| flame \| star |
+| `color` | `"#E5402B"` | subject fill colour |
+| `accent` | `"#FFC425"` | impact star / inner flame colour |
+| `ink` | `"#1C1613"` | ink colour |
+| `stretch` | `1` | smear length as a fraction of the move (1 ≈ 90 %) |
+| `multiples` | `3` | copies in the multiples drawing (3–4) |
+| `streaks` | `5` | dry-brush streaks inside the smear |
+| `size` | `1` | subject size multiplier |
+| `holdFrames` | `20` | frames held (on twos) at each station before the next whip |
+| `ground` | `true` | ink ground line and contact shadow |
+| `slate` | `true` | show exposure + drawing counter |
+| `seed` | `1` | variation seed |
 
 ### `smoke-puffs` — Smoke puffs
 
@@ -1688,12 +4232,217 @@ A six-spike specular "ting" with soft bloom flashes on a blade tip, shimmers thr
 | `showSubject` | `true` | draw the etched sword-and-army scene (scene mode only) |
 | `ink` | `"#2D3A6F"` | etching ink colour for the scene |
 | `seed` | `1` | random seed |
+| `trail` | `0` | guide-star trail: number of tiny shrinking stars popping on one by one behind the glint, then twinkling (0 = none; try 6 with spikeAngles [0,90,180,270], style flare, color #D6B65D, bloomColor #FFF3C4) |
+| `trailSpacing` | `0.025` | trail: spacing between trail stars as a fraction of width |
+| `trailAngle` | `125` | trail: direction in degrees the trail leaves the glint (90 = straight down) |
+| `trailCurve` | `0.3` | trail: arc bend (degrees per star x30) |
+| `trailStagger` | `4` | trail: frames between stars popping on |
+| `lens` | `0` | anamorphic lens flare 0..1: horizontal streak + 5 hexagonal ghosts along the line through the frame centre |
+
+### `sticker-cutout` — Sticker cut-out (die-cut border)
+
+![sticker-cutout](../gallery/sticker-cutout.jpg)
+
+Paper-sticker finish for any subject: a thick rounded off-white die-cut border, a thin grey cardboard edge peeking out below, paper grain and a soft cut-out-shaped shadow; icons, words and transparent images slap down one by one with a back-ease and sway gently.
+
+**Use for:** Kids / game / social sticker moments, scrapbook explainers, craft-made icon sets; wrap a product PNG to make it a sticker.  
+**Rebuilt from:** lemo-opuscar styles/paper-popup (MIT code, CC BY 4.0 docs, LemoLab) — demo/paper.js finishCut, cutmesh.js  
+**Default length:** 120 frames (4.0 s @ 30 fps)
+
+**Roles:** accent · **Mood:** paper, nature  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `items` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `items` | `[{"kind":"icon","icon":"heart","x":0.25,"y":0.36,"size":0…` | stickers [{kind: icon\|text\|src, icon? (FlatIcon kind: heart, star, coffee, leaf, sun, moon, bolt, gear, chat, check, flame…), text?, src?, color?, x, y (0..1), size (fraction of short side), rot (deg), at (frame)}] |
+| `border` | `14` | die-cut border width in u (12–16) |
+| `color` | `"#FFFDF7"` | border colour |
+| `edge` | `"#B9AD9C"` | cardboard edge colour |
+| `shadow` | `0.3` | cut-out shadow opacity |
+| `ink` | `"#3A2A24"` | outline ink for icons / text |
+| `grain` | `0.18` | paper grain amount |
+| `sway` | `1.5` | idle sway in degrees |
+| `paper` | `"#E9DCC3"` | desk paper colour |
+| `background` | `"paper"` | "paper" or "transparent" (overlay) |
+
+### `swirl-portal` — Swirl portal (goo-rim toon hole)
+
+![swirl-portal](../gallery/swirl-portal.jpg)
+
+A vertical oval hole in the world with a lumpy thickly outlined goo rim, five spiral arms in two alternating tints rotating inside, a pale hot core, orbiting sparks, drips off the bottom and flat rings of glow; pops open with an overshoot and boils on threes.
+
+**Use for:** A "jump" device: a product teleporting between use cases, a meanwhile-in-another-universe beat, a doorway reveal for a picture (src inside the core), a playful CTA hole. Pairs with portal-wipe. Overlay-capable.  
+**Rebuilt from:** lemo-opuscar styles/scifi-toon demo/worlds.js (portal), demo/main.js (popOpen), DEMO.md "The portal" (MIT, LemoLab)  
+**Default length:** 120 frames (4.0 s @ 30 fps)
+
+**Roles:** accent · **Mood:** 3d, comic, playful  
+**Capabilities:** overlay (`{"background":"transparent"}`) · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `x` | `0.5` | centre x (0..1 of frame width) |
+| `y` | `0.5` | centre y (0..1 of frame height) |
+| `radius` | `400` | radius in u (1u = 1px of a 1080 short side) |
+| `openAt` | `5` | frame the pop-open starts (-1 = use `open` directly, 0..1, for a transition driver) |
+| `open` | `1` | manual open amount 0..1+ when openAt = -1 |
+| `spin` | `1` | arm spin speed multiplier |
+| `ovalX` | `0.74` | x-scale: 0.74 oval, 1.0 for a wipe |
+| `colors` | `{"rim":"#241a46","armA":"#6f55f0","armB":"#ff6fae","core"…` | {rim, armA, armB, core, glow} (non-green by default) |
+| `sparks` | `12` | orbiting spark count |
+| `drips` | `true` | drips off the bottom once open |
+| `wash` | `0.12` | full-frame flat tint alpha while open |
+| `boil` | `true` | wobble the outline on threes |
+| `src` | `""` | optional image shown through the hole instead of the arms |
+| `background` | `"#1f2547"` | backdrop colour; empty string = transparent overlay |
+| `seed` | `4` | rim lump seed |
+
+### `tape-stutter` — Tape stutter
+
+![tape-stutter](../gallery/tape-stutter.jpg)
+
+The picture behaves like worn tape: it steps down to 15 fps while tracking, jolts two or three frames backwards, drags at 15 fps into the drop and winds down at half speed; a cassette demo with a source-time curve and OSD makes each skipped frame visible.
+
+**Use for:** Pre-drop tension, retro / found-tape feel and rhythm edits: wrap any motion in `TapeRemap` with the same segments, or reuse the remap curve for a tape-stop ending.  
+**Rebuilt from:** mg-styles-15 demos/10-synthwave sceneTime + audio.py tape_stop (MIT), video 10-synthwave 0-3 s  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo, 3d, pixel  
+**Capabilities:** paints its own background · text: `label` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `segments` | `[{"from":30,"to":96,"mode":"step"},{"from":96,"to":99,"mo…` | list of {from,to,mode} in frames; mode = normal \| step (hold every Nth frame) \| reverse (rewind blip) \| half (half speed) |
+| `stepEvery` | `2` | frames held per step in step / half modes (2 = 15 fps at 30) |
+| `jitter` | `10` | horizontal picture jitter in px while the tape misbehaves |
+| `showGraph` | `true` | show the source-time curve and playhead |
+| `label` | `"MIXTAPE 90"` | text on the cassette label |
+| `body` | `"#2a2145"` | cassette body colour |
+| `accent` | `"#35e0c0"` | accent colour (label stripe, meter, curve) |
+| `background` | `"#07040f"` | backdrop colour |
+
+### `theatre-gate` — Theatre gate (framed film print)
+
+![theatre-gate](../gallery/theatre-gate.jpg)
+
+Frames any picture or motion as a film being shown: a 4:3 print in a rounded aperture with a soft dark rim, flanked by deep red-brown velvet drapes lit by the screen spill and footlights, with curtains that part at the start and close at the end.
+
+**Use for:** Frames any motion as "a film being shown": retro launches, the-story-so-far, nostalgia pieces; solves 4:3 content inside 16:9 frames; wraps other motions via `layers`.  
+**Rebuilt from:** lemo-opuscar styles/silent-film demo/engine/cards.js (theatre), DEMO.md "Frame", poster.jpg (MIT, LemoLab)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo, pixel, cinematic, night  
+**Capabilities:** paints its own background · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `layers` | `[]` | motions to show inside the aperture [{motion, props, from, duration, ...}] (rendered full-frame and clipped) |
+| `src` | `""` | image for the print (public path or URL); empty + no layers = procedural plate |
+| `aspect` | `1.3333` | aperture width/height (4/3) |
+| `openAt` | `8` | frame the curtains start to part |
+| `openFrames` | `46` | frames to part |
+| `closeAt` | `132` | frame the curtains start to close (-1 = stay open) |
+| `closeFrames` | `44` | frames to close |
+| `drapeColor` | `"#3a1410"` | velvet colour |
+| `footlights` | `true` | warm footlight glow along the bottom |
+| `spill` | `1` | screen spill on the drapes (0..1.5) |
+| `radius` | `22` | aperture corner radius in u |
+| `grade` | `true` | sepia print grade |
+| `damage` | `1` | print damage 0..1 (scratches, dust, flicker) |
+| `seed` | `3` | procedural plate seed |
+
+### `vhs-crt-pass` — VHS CRT pass
+
+![vhs-crt-pass](../gallery/vhs-crt-pass.jpg)
+
+Soft VHS-on-CRT playback over a night scene: smeared chroma with the red shifted right, scanlines, RGB grille, phosphor glow, dark corners, noise, a power-on opening and tracking-noise tears.
+
+**Use for:** Retro, 80s, found-footage and synthwave looks over any picture; use overlay:true for a scanline/grille/corner/noise finish over other layers; the power-on and tracking bursts double as a tape transition.  
+**Rebuilt from:** lemo-opuscar core/post/crt.js + styles/cel-anime-80s/demo/post.js (MIT, LemoLab)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** accent · **Mood:** neon, photo, pixel, hud, night  
+**Capabilities:** overlay (`{"overlay":true}`) · text: `title`, `subtitle` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `src` | `""` | optional image path (public/) to put through the tape pass instead of the demo scene |
+| `title` | `"NIGHT SHIFT"` | big demo-scene title (ignored with src) |
+| `subtitle` | `"Last train leaves at midnight."` | cream-yellow subtitle composited inside the pass (empty = none) |
+| `scan` | `0.18` | scanline darkness 0..1 (3 px period) |
+| `grille` | `0.06` | RGB phosphor grille strength 0..1 |
+| `bleed` | `7` | chroma horizontal smear width in px (at 1080) |
+| `rshift` | `2` | red-chroma shift to the right in px |
+| `glow` | `0.35` | phosphor glow amount 0..1 |
+| `corner` | `0.28` | corner darkening 0..1 |
+| `noise` | `0.018` | per-frame noise amount |
+| `powerOn` | `[0,20]` | [startFrame, endFrame] of the CRT power-on opening (equal = off) |
+| `tracking` | `[[70,82],[118,123]]` | list of [startFrame, endFrame] tracking-noise bursts |
+| `overlay` | `false` | true = transparent finish only (grille, scanlines, corners, noise, bursts) to layer over other motions |
+| `seed` | `3` | seed for the demo scene and tear offsets |
+| `background` | `"#0b0814"` | scene background colour |
+
+### `wash-bloom-colour` — Wash bloom colour
+
+![wash-bloom-colour](../gallery/wash-bloom-colour.jpg)
+
+A copperplate print of a pear is cut in black line, then transparent watercolour blooms region by region from where the brush touched — ragged wet front, spill past the line, off-register, darker tide-line, backruns and granulation — multiplied under the ink, with an engraved title and a script note.
+
+**Use for:** "Colour arrives" climax for line art: botanical / natural-history plates, maps, product sketches, heritage brands.  
+**Rebuilt from:** lemo-opuscar styles/engraving (MIT, LemoLab) — demo/engine/wash.js Wash, burin.js, plate.js  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** nature, playful, night  
+**Capabilities:** paints its own background · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"PLATE VII · THE PEAR"` | engraved roman caption |
+| `latin` | `"Pyrus communis"` | italic line under it |
+| `note` | `"Coloured by hand, after the print."` | copperplate script note, written left to right after the colour |
+| `bodyColor` | `"#D9962A"` | wash colour of the fruit |
+| `blushColor` | `"#C8674A"` | wash colour of the blush |
+| `leafColor` | `"#7E9A52"` | wash colour of the leaf |
+| `stemColor` | `"#8A6242"` | wash colour of the stem |
+| `printDuration` | `2.2` | seconds for the black line print to cut itself |
+| `colourAt` | `2.6` | second the first region starts to bloom |
+| `regionDuration` | `1.4` | seconds per region bloom (1.25–1.6) |
+| `stagger` | `0.42` | seconds between regions |
+| `ink` | `"#1C1510"` | ink colour |
+| `paper` | `"#F1E8D2"` | paper colour |
+
+### `wax-resist-reveal` — Wax resist reveal
+
+![wax-resist-reveal](../gallery/wax-resist-reveal.jpg)
+
+Crayon picture-book page (hills, lighthouse, moon) drawn on toothy paper; a broad ultramarine watercolour wash sweeps across with bristle streaks and a dark wet front, and hundreds of white-wax stars plus a hidden hand-lettered message appear exactly where it passes, each uncovered star glinting.
+
+**Use for:** Reveal a hidden message, thank-you names or a feature: greeting cards, kids brands, bedtime stories, education.  
+**Rebuilt from:** lemo-opuscar styles/crayon-book (MIT, LemoLab) — demo/gl.js FS_WASH wax resist, demo/crayon.js  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, photo, nature, night  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `message` | `"make a wish"` | the hidden message written in white wax (short) |
+| `stars` | `150` | number of white-wax stars |
+| `washColor` | `"#2B3576"` | watercolour colour (ultramarine default; try rose #9B3B5A or sap green #2F5A3A) |
+| `direction` | `"right"` | wash sweep direction: right or down |
+| `washStart` | `82` | frame the brush enters |
+| `washDuration` | `88` | frames for the sweep (2–3 s) |
+| `paperColor` | `"#F4EFE3"` | paper colour |
+| `inkColor` | `"#2D3263"` | outline crayon colour |
+| `hillColors` | `["#62A24C","#6A5AA6"]` | two crayon colours for the hills |
+| `scene` | `true` | draw the picture-book scene (false = only paper, wax and wash) |
+| `beam` | `true` | the lighthouse beam is coloured in after the wash |
+| `seed` | `3` | star layout seed |
 
 ### `mix` — Mix (layer motions together)
 
 ![mix](../gallery/mix.jpg)
 
-Stacks any motions in one frame: backdrop + subject + text + accent, each with its own timing, opacity and blend mode.
+Stacks any motions in one frame: backdrop + subject + text + accent, each with its own timing, opacity and blend mode. Per-layer extras: knock-out halo, beat breathe (squash/stretch on the beat) and stop-motion stepping / boil.
 
 **Use for:** Building a richer shot out of several motions at once (e.g. aurora sky + neon sign + embers, or a photo look + callouts + captions).  
 **Rebuilt from:** library  
@@ -1705,7 +4454,7 @@ Stacks any motions in one frame: backdrop + subject + text + accent, each with i
 | prop | default | notes |
 |---|---|---|
 | `background` | `"#05070d"` | colour under all layers |
-| `layers` | `[{"motion":"aurora","props":{"pixelSize":0}},{"motion":"b…` | [{motion, props?, from?, duration?, offset?, opacity?, blend?, scale?, x?, y?}] bottom to top |
+| `layers` | `[{"motion":"aurora","props":{"pixelSize":0}},{"motion":"b…` | [{motion, props?, from?, duration?, offset?, opacity?, blend?, scale?, x?, y?, style?, halo?, breathe?, stepFps?, jitterPx?, jitterDeg?, boilFps?}] bottom to top. Extras: halo {size px, color, stamps} knock-out rim; breathe {amp 0.06, bpm \| beatFrames, phase, onTwos, pivot bottom\|center\|top, peak [{from,to,mult}], freeze [{from,to}]} squash/stretch on the beat; stepFps (quantise the layer to N fps, e.g. 12), jitterPx / jitterDeg (seeded per-step wobble), boilFps (boil clock) |
 
 ## environment
 
@@ -1783,7 +4532,7 @@ Underwater: a rippling caustic web at the surface, swaying light shafts and drif
 
 | prop | default | notes |
 |---|---|---|
-| `mode` | `"underwater"` | "underwater" (surface web + god-rays), "pool" (full-frame caustic texture), "beam" (window light shaft + dust) |
+| `mode` | `"underwater"` | "underwater" (surface web + god-rays), "pool" (full-frame caustic texture), "beam" (window light shaft + dust), "floor" (dark glossy floor: dancing RGB-fringed filaments, lens ring, coloured beat rings) |
 | `background` | `"#11577E"` | CSS background; "transparent" = overlay (only light elements are drawn) |
 | `backdrop` | `true` | paint the procedural water / room |
 | `lineColor` | `"#CFF3F8"` | caustic web line colour (pool source: #cfeff0) |
@@ -1795,6 +4544,11 @@ Underwater: a rippling caustic web at the surface, swaying light shafts and drif
 | `fadeDepth` | `0.42` | fraction of height the surface caustics reach before fading (underwater) |
 | `intro` | `true` | pool mode: open on a wire grid that switches to caustics in 3 frames |
 | `seed` | `1` | random seed |
+| `rgbSplit` | `1` | floor mode: chromatic fringe strength of the filaments (0 = single colour) |
+| `lensRing` | `true` | floor mode: ring-shaped lens caustic around the centre |
+| `waveEvents` | `[]` | floor mode: frames at which a coloured ring spreads out (empty = every ~36 frames) |
+| `accentA` | `"#FF4F9A"` | floor mode: ring colour near the centre |
+| `accentB` | `"#3FB6FF"` | floor mode: ring colour at the outer radius |
 
 ### `city-skyline` — City skyline (window flicker, dusk to night)
 
@@ -1822,6 +4576,43 @@ Seeded procedural city: three depth rows of buildings with setbacks, water tanks
 | `windowColor` | `"#f2d27a"` | lit window colour |
 | `traffic` | `true` | cars with head/tail lights on the street |
 | `seed` | `"metro"` | city seed |
+| `lightsMode` | `"flicker"` | 'flicker' (default, windows toggle randomly) \| 'sequence' (every window lights once, one by one on the cadence, with a white bloom pop, until the city glows) |
+| `lightsStart` | `20` | sequence: first frame a window can light |
+| `lightsSpan` | `110` | sequence: frames over which all windows have lit |
+| `cadence` | `3` | sequence: lighting steps every N frames (2-4 = steady cadence; match the beat) |
+| `glowColor` | `""` | sequence: lit window / glow colour (empty = windowColor) |
+
+### `conveyor-flow` — Conveyor flow
+
+![conveyor-flow](../gallery/conveyor-flow.jpg)
+
+Storybook workshop doors swing open and identical products (cassettes, boxes, cards or your image) roll out one after another on a wooden perspective belt toward the lower right, growing with depth at an even spacing while slats scroll and rollers turn.
+
+**Use for:** "Output / production / shipping" metaphors: many generated items (videos, orders, builds) leaving a system; pass itemSrc for your own product.  
+**Rebuilt from:** video x4 0:19.6-0:24.1 (conveyor-flow)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** photo, ui  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `background` | `"scene"` | 'scene' = procedural gouache street + workshop, or a CSS colour (belt + items only) |
+| `item` | `"cassette"` | built-in item: cassette \| box \| card |
+| `itemSrc` | `""` | optional image (public/ path or URL) used as the item instead |
+| `colors` | `["#7C6E8A","#C9584A","#4F7F9A","#D29A3A","#5F8A6A"]` | item body colours, cycled |
+| `startAt` | `12` | frame the first item leaves the doors |
+| `gapFrames` | `18` | frames between items (≈ 0.6 s) |
+| `travelFrames` | `90` | frames for an item to ride the whole belt (≈ 3 s) |
+| `count` | `0` | number of items (0 = endless) |
+| `perspective` | `2.5` | near/far depth ratio: items grow 1/perspective → 1 |
+| `itemSize` | `230` | item width at the near end, in u |
+| `openDoors` | `true` | swing the workshop doors open at the start |
+| `sign` | `""` | text on the plaque above the door (empty = blank) |
+| `beltColor` | `"#9C7652"` | belt slat colour |
+| `railColor` | `"#5F7678"` | belt rail colour |
+| `ticks` | `true` | small action ticks over the door as each item appears |
+| `seed` | `5` | town / cloud seed |
 
 ### `curl-flow` — Curl-flow swirl
 
@@ -1900,7 +4691,7 @@ Golden additive sparks rising and twinkling over a fire glow; "motes" = slow sof
 
 | prop | default | notes |
 |---|---|---|
-| `mode` | `"sparks"` | "sparks" (fast golden sparks), "motes" (slow glowing dots), "gold" (spinning gold flecks) |
+| `mode` | `"sparks"` | "sparks" (fast golden sparks), "motes" (slow glowing dots), "gold" (spinning gold flecks), "fireflies" (40-60 warm dots wandering on smooth noise paths, each with a short comet tail, blinking at its own rate) |
 | `background` | `"#070405"` | CSS background; "transparent" = overlay (particles use screen blend) |
 | `backdrop` | `true` | paint the procedural dark fire-glow (or Klimt) backdrop |
 | `color` | `""` | particle colour; empty = mode default (#FFD79A / #FF9A4A / #E2B84A) |
@@ -1911,6 +4702,9 @@ Golden additive sparks rising and twinkling over a fire glow; "motes" = slow sof
 | `wind` | `0.3` | sideways drift (positive = right) |
 | `glow` | `true` | soft glow halos and fire glow |
 | `seed` | `1` | random seed |
+| `tail` | `6` | fireflies: number of trail dots behind each firefly (6) |
+| `blink` | `2.2` | fireflies: average blink period in seconds (1.5-3) |
+| `band` | `[0.15,0.75]` | fireflies: [top, bottom] vertical band 0..1 the swarm wanders in |
 
 ### `falling-petals` — Falling petals / leaves / papers
 
@@ -2049,7 +4843,7 @@ Wavy streamlines: wind lines with end curls across a sky, rising heat wiggles ov
 
 | prop | default | notes |
 |---|---|---|
-| `mode` | `"wind"` | "wind", "heat", "steam" or "waves" |
+| `mode` | `"wind"` | "wind", "heat", "steam", "waves" or "ink-curls" (wind drawn as ~@ ink curls spawning behind a moving object that draw on, then erase from the tail, with falling leaf dabs) |
 | `background` | `"#A2C0D4"` | CSS background; "transparent" = overlay (lines only) |
 | `backdrop` | `true` | paint the mode scene (sky / desert road / kitchen bowl / paper) |
 | `color` | `""` | line colour; empty = mode default (#5A6FAE / white / white / ink #2B2622) |
@@ -2061,6 +4855,42 @@ Wavy streamlines: wind lines with end curls across a sky, rising heat wiggles ov
 | `sources` | `[]` | steam: [[x, y], ...] emitter positions as frame fractions (default bowl at [0.5, 0.66]) |
 | `fade` | `true` | waves: 0.35 s fade in at the start and out at the end (wipe use) |
 | `seed` | `1` | random seed |
+| `followPath` | `[]` | ink-curls: [[x, y], ...] frame fractions the hero object travels along (empty = a gentle wave left to right) |
+| `spawnEvery` | `12` | ink-curls: frames between curl spawns (one per beat, e.g. 12) |
+| `drawFrames` | `12` | ink-curls: frames a curl takes to draw on (0.4 s = 12) |
+| `life` | `42` | ink-curls: frames before a curl has erased itself from its tail |
+| `curlSize` | `1` | ink-curls: curl size multiplier |
+| `dabs` | `8` | ink-curls: number of leaf-shaped wash dabs tumbling after the hero |
+| `dabColors` | `[]` | ink-curls: foliage colours for the dabs (empty = greens / ochre) |
+
+### `fog-clouds` — Fog and clouds (parallax)
+
+![fog-clouds](../gallery/fog-clouds.jpg)
+
+Three parallax layers of drifting noise-built clouds (lit white cumulus with soft grey undersides), low ground fog over dark ridges, or a wide soft mist; layer speeds run 1 : 2 : 4, blur grows toward the front and a screen-blended sun glow scatters through them.
+
+**Use for:** Skies for heroes, passing through clouds, mood and ambience; overlay-capable (`background: "transparent"`) over any scene or website hero.  
+**Rebuilt from:** prompt corpus x23 (layered drifting clouds / ground fog, parallax, light scattering)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** backdrop, accent · **Mood:** 3d, nature, night  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `style` | `"cumulus"` | 'cumulus' \| 'fog' \| 'mist' |
+| `colors` | `["#ffffff","#93a6cc"]` | [light, shade] cloud colours (fog / mist use the light colour only) |
+| `speed` | `22` | back-layer drift in px per second at 1080p (mid layer x2, front x4) |
+| `density` | `0.5` | cloud coverage 0..1 |
+| `opacity` | `1` | overall layer opacity multiplier |
+| `blur` | `20` | edge softness in px (grows toward the front layer) |
+| `layers` | `3` | number of parallax layers (1-4) |
+| `sun` | `true` | screen-blended sun scatter glow |
+| `sunColor` | `"#fff0c2"` | sun glow colour |
+| `sunPos` | `[0.78,0.2]` | [x, y] of the sun as fractions of the frame |
+| `background` | `"auto"` | 'auto' (sky gradient for the style) \| 'transparent' \| any CSS background |
+| `ridge` | `true` | dark ridge silhouettes behind fog / mist (auto background only) |
+| `seed` | `5` | noise seed |
 
 ### `grass-field` — Grass field (teal blades + golden leaves)
 
@@ -2123,6 +4953,94 @@ Red dragonflies zig-zag over a sunny lotus pond in fast expo-eased darts separat
 | `scene` | `true` | paint the pond / meadow background (false = transparent overlay) |
 | `seed` | `"pond"` | random seed |
 
+### `lamp-screen` — Lamp screen (shadow-theatre cloth)
+
+![lamp-screen](../gallery/lamp-screen.jpg)
+
+A warm cotton shadow-theatre screen in a lacquered stage frame (optional blurred audience heads) lit from behind by flickering oil lamps; the pierced subject is transmitted light: dyes glow, holes shine, overlaps darken. More lamps bleach the cloth, snuffing steps it back to gold.
+
+**Use for:** The light is the world: lights switching on one by one (servers, city, a fever), folklore and heritage explainers, festival openers; turns any silhouette or icon set into a warm theatre scene.  
+**Rebuilt from:** lemo-opuscar styles/shadow-puppet demo/gl.js, demo/main.js (lamps, exposure), DEMO.md "Rendering constants" (MIT, LemoLab)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** night  
+**Capabilities:** paints its own background · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `lamps` | `[{"x":0.3,"y":0.46},{"x":0.7,"y":0.46},{"x":0.5,"y":0.62}]` | lamp positions [{x,y}] as fractions of the frame |
+| `igniteAt` | `[8,40,66]` | frame each lamp ignites (flare overshoot) |
+| `snuffAt` | `[-1,124,110]` | frame each lamp is snuffed (-1 = never; 0.35 s gutter + smoke) |
+| `subject` | `"temple"` | built-in transmission layer: 'temple', 'lanterns' or 'none' |
+| `src` | `""` | optional image used as the transmission layer (dark = shadow) |
+| `subjectAt` | `22` | frame the subject is pressed onto the cloth |
+| `stage` | `true` | lacquered lintel, pillars and gold cloud curls |
+| `audience` | `true` | blurred audience heads along the bottom |
+| `frameColor` | `"#52200e"` | lacquer colour |
+| `goldColor` | `"#d9a441"` | gold curls colour |
+| `dyeColor` | `"#b3261b"` | transparent dye colour (glows when lit) |
+| `inkColor` | `"#2a1209"` | opaque hide colour |
+| `weave` | `1` | cloth weave and blotch strength |
+| `tremor` | `1` | hand tremor strength |
+| `seed` | `3` | tremor / audience seed |
+
+### `light-band-window` — Light-band stained-glass window
+
+![light-band-window](../gallery/light-band-window.jpg)
+
+A tall leaded window with four lancets and a rose in a dark ashlar wall: a soft band of coloured sunlight travels across it (dawn, noon, afternoon, dusk, moon) so the lit lancet glows jewel-bright with a shaft, dust and a floor patch while the others go dark and milky and freeze their figures.
+
+**Use for:** Light as time: recipe steps, the seasons of a farm, factory shifts, chapters of a biography, a product line-up lit in turn; strong heritage or holiday look.  
+**Rebuilt from:** lemo-opuscar styles/stained-glass demo/comp.js, window.js, scene.js (MIT, LemoLab)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** nature, editorial, night  
+**Capabilities:** paints its own background · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `panes` | `[{"caption":"DAWN","sky":"#e0663f","sky2":"#f3b85a","sun"…` | one object per lancet: caption, sky, sky2, sun, hill, accent colours (2-5 lancets) |
+| `schedule` | `[{"at":0,"sunU":0.06,"color":"#ff9a62","intensity":0.75},…` | sun path keys: at (frame), sunU (0..1 across the window), colour, intensity |
+| `bandWidth` | `10` | extra band width beyond a lancet, in u |
+| `soft` | `28` | band edge softness in u |
+| `rose` | `true` | show the rose window (dark at night) |
+| `shafts` | `true` | light shafts, dust and floor patch |
+| `dust` | `28` | number of dust motes in each shaft |
+| `freezeUnlit` | `true` | only the lit pane animates |
+| `title` | `"HOURS OF THE DAY"` | carved string-course text (empty = none) |
+| `wall` | `"#3a3942"` | stone colour |
+| `lead` | `"#14131a"` | lead came colour |
+| `seed` | `4` | wall and dust seed |
+
+### `lightbox-stack` — Paper-cut lightbox (纸雕灯)
+
+![lightbox-stack](../gallery/lightbox-stack.jpg)
+
+A glowing paper-cut lamp scene in eight stacked sheets: starry pulp sky, a moon with halo, auspicious clouds with carved spirals, two mountain ranges, a village whose warm windows switch on one by one, a river with a broken moon trail, a dark tree and reeds, and blurred hanging lanterns that flicker — each sheet casting a soft shadow on the one behind while the lamp turns on back-to-front and the camera creeps in.
+
+**Use for:** Festival greetings (Mid-Autumn, Diwali, holidays), gift and brand stories, cosy website hero backgrounds (reduced-motion still = lamp fully on).  
+**Rebuilt from:** lemo-opuscar styles/paper-lantern (MIT code, CC BY 4.0 docs, LemoLab) — demo/src/paper.js, stage.js, art.js, shots/s01_night.js  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** paper, nature, night  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `ladder` | `"night"` | paper value ladder: "night" (indigo), "desert", "winter" or "violet" (far city) |
+| `light` | `{"x":0.64,"y":0.3,"color":"","radius":0.85}` | backlight point {x, y (0..1), color ("" = ladder default), radius} |
+| `moon` | `true` | moon + halo + river trail |
+| `windows` | `8` | how many village windows switch on |
+| `lanternCount` | `3` | hanging foreground lanterns |
+| `lampOnAt` | `10` | frame the lamp starts turning on (moon first) |
+| `lampOnStagger` | `13` | frames between each sheet lighting, back to front |
+| `windowsAt` | `90` | frame the first window switches on |
+| `dolly` | `0.08` | slow dolly-in amount |
+| `drift` | `10` | lateral parallax drift in u |
+| `stars` | `60` | star count |
+| `seed` | `7` | scene seed (ridges, houses, reeds) |
+| `background` | `"auto"` | "auto" (ladder sky) or any colour |
+
 ### `lightning-flash` — Lightning flash relight
 
 ![lightning-flash](../gallery/lightning-flash.jpg)
@@ -2153,6 +5071,147 @@ A rainy night house scene is relit by lightning: a forked bolt draws on, the fra
 | `shake` | `6` | camera jolt in px on strike frames |
 | `seed` | `1` | random seed (changes bolt shapes) |
 
+### `mesh-gradient-bg` — Mesh gradient backdrop
+
+![mesh-gradient-bg](../gallery/mesh-gradient-bg.jpg)
+
+Big soft pools of violet, blue, cyan and magenta light drifting slowly over an indigo-black base, gently breathing, with an optional ripple of light and fine grain: the 2025-26 tech-brand backdrop.
+
+**Use for:** Hero sections, AI product pages, keynote slides and any video that needs a calm premium moving backdrop. Cheap CSS mode: safe as a website MotionBackground (overlay=true for transparent base).  
+**Rebuilt from:** mg-styles-15 demos/12-aurora-glass (MIT, FS_AURORA + BLOBS loops)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** backdrop, accent · **Mood:** nature, ui  
+**Capabilities:** overlay (`{"overlay":true}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `colors` | `["#7c3aed","#2563eb","#06b6d4","#d946ef"]` | pool colours (cycled over the blobs) |
+| `base` | `"#07061c"` | base colour behind the pools |
+| `blobs` | `7` | number of light pools (5-9) |
+| `speed` | `2.2` | drift speed multiplier (1 = 24-40 s loops, default 2.2 so an 8 s clip visibly moves) |
+| `warp` | `90` | shape breathing / rotation amplitude, 0 = rigid |
+| `rippleAt` | `90` | frame of a light ripple that pushes the pools outward (-1 = none) |
+| `grain` | `0.16` | film-grain opacity 0-0.4 |
+| `motes` | `28` | tiny drifting dust specks |
+| `seed` | `7` | layout seed |
+| `overlay` | `false` | transparent base so it layers over host content |
+
+### `mode7-floor-perspective` — Mode-7 lobby floor
+
+![mode7-floor-perspective](../gallery/mode7-floor-perspective.jpg)
+
+An art-deco lobby in true one-point perspective: a checkered marble floor with a burgundy runner slides under a dollying camera, with depth darkening, gold pilasters and glowing sconces receding on both walls, warm mirrored glow pools and a sunburst door at the end of the hall.
+
+**Use for:** Instant lobby / stage / hallway depth behind titles or characters: hotels, galas, luxury, theatre, "walk into the event" openers.  
+**Rebuilt from:** lemo-opuscar styles/art-deco demo/scenes/lobby.js mode-7 floor (MIT, LemoLab), analysis/sources/lemo-styles-a.md §2 mode7-floor-perspective  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** nature, playful, night  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `tileA` | `"#e8dcc4"` | light marble tile colour |
+| `tileB` | `"#15110c"` | dark marble tile colour |
+| `runner` | `"#5c1420"` | centre runner colour (gold-edged) |
+| `wall` | `"#1D3B33"` | wall colour (deep emerald by default) |
+| `ceiling` | `"#0b0907"` | ceiling colour |
+| `glow` | `"#ffc45c"` | sconce / door / reflection glow colour |
+| `speed` | `2.4` | dolly speed in tiles per second |
+| `camY` | `1.6` | camera eye height in tiles (lower = more floor drama) |
+| `hallWidth` | `9` | hall width in tiles |
+| `sway` | `0.35` | gentle lateral camera sway in tiles |
+| `endDoor` | `true` | show the glowing sunburst door at the end of the hall |
+
+### `outrun-grid` — Outrun grid
+
+![outrun-grid](../gallery/outrun-grid.jpg)
+
+One-point-perspective neon floor grid scrolling toward the camera to a hot horizon, a banded retro sun with scrolling cut-out stripes, ridged wireframe mountains, palm silhouettes and reflector posts whipping past, a starry sky with a shooting star and a tail-lit car; beats fire a bright shock line across the floor and pump the sun.
+
+**Use for:** Retro / synthwave backdrop for music, gaming and 80s-themed promos, or a website hero loop (export to webm on mobile).  
+**Rebuilt from:** mg-styles-15 demos/10-synthwave/index.html (MIT); video 1-4 s  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** neon, blueprint, pixel, nature, night  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `speed` | `22` | floor travel speed in world units per second (it ramps in over the first second) |
+| `gridColor` | `"#ff3fb4"` | floor grid colour |
+| `glowColor` | `"#35e8ff"` | mountain / palm rim colour |
+| `sunColors` | `["#ffe45e","#ff7a3d","#ff2f8e"]` | sun gradient top, middle, bottom |
+| `skyColors` | `["#0a0220","#3b0a63","#c2146f"]` | sky gradient zenith, mid, horizon |
+| `sunRise` | `40` | frames for the sun to rise |
+| `mountains` | `true` | ridged wireframe mountains |
+| `palms` | `true` | palm silhouettes whipping past |
+| `posts` | `true` | reflector posts along the road |
+| `pulses` | `[50,95,140]` | frames of kick hits: shock line across the floor + sun pump |
+| `car` | `true` | tail-lit car from behind |
+| `stars` | `110` | number of stars |
+| `horizonY` | `0.52` | horizon height as a fraction of the frame |
+| `seed` | `5` | mountain / star seed |
+
+### `paper-cutout-layers` — Paper cut-out layers (stop-motion)
+
+![paper-cutout-layers](../gallery/paper-cutout-layers.jpg)
+
+A scene built from flat coloured paper layers with deckled edges and soft drop shadows that grow with depth, fibre grain over everything: layers slide up with a 4-8 degree rotation that settles to 0, a sun, clouds, three hills, a paper sea and a sailboat bob and drift in parallax, a paper-cut title lands last, all stepped on twos (12 fps stop-motion).
+
+**Use for:** Kids / education explainers, festive greetings, charity stories and warm brand films: pass your own `layers` (shapes or text) and `palette`; reuse `paperShape` / `DeckleFilter` / `paperShadow` from r2-pr1-kit to give any SVG scene the paper look. For a fixed pop-up landscape see paper-diorama.  
+**Rebuilt from:** prompt-corpus: paper-cutout-layers (20 cases), awesome-opus5-5-videos prompts (MIT) — technique only  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** paper, 3d, nature  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `layers` | `[{"kind":"rect","color":0,"x":50,"y":50,"w":124,"h":110,"…` | [{kind:'rect'\|'circle'\|'hill'\|'wave'\|'cloud'\|'tree'\|'star'\|'blob'\|'sail'\|'ring'\|'text', color: hex \| palette index, x, y (centre, % of frame), w (bands: % of frame width; objects: % of the short side; text: % of frame width), h? (bands: % of frame height), depth 0-4, delay?, rot?, text?}] |
+| `palette` | `["#F7E3C3","#F4A261","#FFFDF6","#9CCBB4","#66AA90","#3F86…` | colours that layers can reference by index |
+| `step` | `2` | hold each drawing for n frames (2 = 12 fps stop-motion) |
+| `shadow` | `1` | drop-shadow strength (0 = none, 1 = default) |
+| `drift` | `22` | camera parallax drift in u |
+| `edge` | `5` | deckled-edge roughness in u (0 = clean) |
+| `grain` | `0.5` | paper fibre overlay opacity |
+| `seed` | `3` | edge / hill shape seed |
+| `background` | `"#F7E3C3"` | table colour behind the layers |
+
+### `paper-diorama` — Paper diorama
+
+![paper-diorama](../gallery/paper-diorama.jpg)
+
+A pop-up-book landscape of 8 cut-paper layers with fibre texture, torn light rims and soft inter-layer shadows; a slow multiplane dolly, a walking paper critter on a stone bridge, a flowing stream and a golden guide star that ignites and leaves a trail.
+
+**Use for:** Storybook / brand-journey openers, children’s education, calm website hero loops and chapter backgrounds with a title in the sky band.  
+**Rebuilt from:** video x5 0:00-0:06 (alpine sunset scene, measured dolly 6.5-11 s), video x5 every scene (layer stack, palette)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** paper, nature  
+**Capabilities:** paints its own background · text: `title` · image: `heroSrc` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `palette` | `"sunset"` | 'sunset' (warm dusk) \| 'moonlit' (night, stars, moon) \| 'dawn' (pale morning) |
+| `heroAction` | `"walk"` | critter pose: 'walk' (in place) \| 'sit' \| 'stand' \| 'look-up' |
+| `species` | `"fox"` | critter recolour: 'fox' \| 'cat' \| 'wolf' \| 'hare' |
+| `showHero` | `true` | show the paper critter on the bridge |
+| `heroSrc` | `""` | optional public/ image (transparent PNG) to stand on the bridge instead of the critter |
+| `heroX` | `0.31` | hero x as a fraction of width (keep it on the left third, eye line to the star) |
+| `ambient` | `["water"]` | ambient loops: any of 'water', 'stars', 'fireflies', 'rain' |
+| `guideStar` | `true` | show the golden guide star |
+| `starAt` | `46` | frame the guide star ignites (bloom + sparkle spray + trail) |
+| `starX` | `0.65` | guide star x (fraction of width) |
+| `starY` | `0.075` | guide star y (fraction of height) |
+| `dolly` | `1.6` | push-in rate in %/s at depth 1 (far layers move 40 %) |
+| `pan` | `27` | lateral truck in px/s at depth 1 (0 = pure push-in) |
+| `dof` | `4` | blur (px at 1080p) on the nearest foreground layer |
+| `title` | `""` | optional title set in the sky band (Fraunces) |
+| `titleColor` | `"#FFF6E8"` | title colour |
+| `seed` | `3` | layout seed (mountains, trees, flowers) |
+
 ### `parallax-landscape` — Parallax landscape truck / speed-run
 
 ![parallax-landscape](../gallery/parallax-landscape.jpg)
@@ -2180,6 +5239,71 @@ Layered flat-vector landscape (sky and clouds, two mountain ranges, distant fiel
 | `streaks` | `true` | horizontal light streaks at speed (speed-run) |
 | `grain` | `0.06` | film grain opacity |
 | `seed` | `"valley"` | landscape seed |
+| `finish` | `"flat"` | 'flat' (default) \| 'papercut' (flat paper sheets from a tonal ladder, back sheets glowing and light, front near-black, each casting a soft shadow on the next; grass and tufts are dropped) |
+| `paperFamily` | `"indigo"` | papercut: 'indigo' \| 'rice' \| 'jade' \| 'black' tonal ladder |
+| `shadow` | `1` | papercut: shadow strength multiplier (1 = 2.6 / 3.6 px blur 5) |
+
+### `popup-layer-rise` — Pop-up layer rise
+
+![popup-layer-rise](../gallery/popup-layer-rise.jpg)
+
+A cut-paper landscape assembles like a pop-up book: over the existing sky each paper layer slides up into place, far layers first and the nearest last from furthest down (easeOutCubic, no overshoot), then holds with a slow dolly and drops back out near-first with motion blur.
+
+**Use for:** "Opening the book" intros for any layered illustration, chapter openers, exploded-view build-ins and slide build-ins.  
+**Rebuilt from:** video x5 0:00-0:01.2 (phase-correlated layer rise), video x5 47.6-48.3 s (reversed inside the layer swap)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** paper, nature  
+**Capabilities:** paints its own background · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `palette` | `"sunset"` | 'sunset' \| 'moonlit' \| 'dawn' |
+| `direction` | `"up"` | 'up' = layers rise from below (pop-up book) \| 'down' = layers drop in from above |
+| `stagger` | `4` | frames between layers (back to front) |
+| `duration` | `22` | frames each layer takes to land (easeOutCubic) |
+| `riseBase` | `0.09` | travel of the farthest layer as a fraction of height |
+| `risePerDepth` | `0.1` | extra travel per unit depth (the nearest layer travels riseBase + risePerDepth) |
+| `exitAt` | `118` | frame the layers drop back out near-first (0 = no exit) |
+| `exitFrames` | `12` | frames each layer takes to drop out (easeInCubic) |
+| `heroAction` | `"look-up"` | critter pose: 'walk' \| 'sit' \| 'stand' \| 'look-up' |
+| `species` | `"fox"` | critter recolour: 'fox' \| 'cat' \| 'wolf' \| 'hare' |
+| `showHero` | `true` | show the paper critter |
+| `ambient` | `["water"]` | any of 'water', 'stars', 'fireflies', 'rain' |
+| `guideStar` | `true` | golden guide star ignites once the scene has landed |
+| `title` | `""` | optional title in the sky band (fades in after the build) |
+| `titleColor` | `"#FFF6E8"` | title colour |
+| `dolly` | `1.2` | push-in rate %/s once assembled |
+| `seed` | `5` | layout seed |
+
+### `print-wave` — Print wave
+
+![print-wave](../gallery/print-wave.jpg)
+
+An original woodblock-style wave: a tall wall of water in bokashi blues (pale crest → Prussian → deep trough) with offset banding and grouped broken white flow lines along the back slope, a hollow shaded under the curling lip, a scalloped foam rim, fractal claws (each splits into three fingers that split again, tips hooking inward) over a pale back layer, spray in clusters, and a background sea of banded curls. It swells, curls and hangs with jitter ×0.25; nature steps at 8 fps. Paper, double border, ink outlines.
+
+**Use for:** Dramatic climax or backdrop for Japanese-themed content, "a wave of …" metaphors (sales surge, data flood, demand spike); pairs with frame-breakout.  
+**Rebuilt from:** lemo-opuscar styles/ukiyoe/demo/wave.js + DEMO.md (MIT, LemoLab) — original composition, not the Great Wave  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** paper, 3d, nature  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `height` | `1` | wave height multiplier (0.6–1.2) |
+| `crestAt` | `90` | frame the swell reaches its crest |
+| `clawDepth` | `2` | claw recursion 1–3 (each level splits into 3 fingers) |
+| `spray` | `1` | spray amount 0–1.5 |
+| `stepFps` | `8` | nature frame rate (8 = hold 3–4 frames) |
+| `border` | `true` | draw the paper margin + double border (off for a full-bleed layer) |
+| `seed` | `5` | claw / foam / texture seed |
+| `paper` | `"#EEE2C6"` | paper colour |
+| `ink` | `"#231F1C"` | key-line ink |
+| `light` | `"#8DB0C6"` | pale blue (crest) |
+| `mid` | `"#1D3A66"` | Prussian blue |
+| `deep` | `"#0F2344"` | deep trough blue |
+| `foam` | `"#F4EBD3"` | foam / claw colour |
 
 ### `rain` — Rain
 
@@ -2191,7 +5315,7 @@ Night street in the rain: 3 parallax layers of slanted streaks, lamp-lit cone, g
 **Rebuilt from:** video1 34.9-41.7, video14 109.75-115.2, video16 46.0-52.2, 75.9-80.1  
 **Default length:** 180 frames (6.0 s @ 30 fps)
 
-**Roles:** backdrop, accent · **Mood:** dark, nature, night  
+**Roles:** backdrop, accent · **Mood:** dark, neon, nature, night  
 **Capabilities:** overlay (`{"background":"transparent","backdrop":false}`) · weight: light  
 **Pairs well with:** `light-sweep`, `city-skyline`, `lightning-flash`, `story-caption-box`  
 
@@ -2211,6 +5335,38 @@ Night street in the rain: 3 parallax layers of slanted streaks, lamp-lit cone, g
 | `lamp` | `true` | street lamp with volumetric cone that lights the streaks |
 | `lampColor` | `"#F0904F"` | sodium lamp colour |
 | `seed` | `1` | random seed |
+| `reflection` | `"none"` | wet-ground reflection of the lights: none \| streaks (neon-noir: blurred flipped streaks + ripple bands) \| dabs (painterly stacked knife dabs, shimmering on twos) |
+| `reflectionColors` | `["#4FB0F0","#F05FA0","#F0C44F"]` | colours of the extra reflected neon lights (each adds one column) |
+| `reflectionAlpha` | `1` | reflection strength multiplier |
+
+### `rocket-launch` — Rocket launch
+
+![rocket-launch](../gallery/rocket-launch.jpg)
+
+Countdown on a dusk launch pad, ignition with billowing ground smoke and a flickering plume, an ease-in lift-off and a camera that tilts up to follow the rocket as the sky turns to space, leaving a smoke trail.
+
+**Use for:** Launch metaphors for product releases, "we shipped" reveals, space / science education; pair with number-counter or a title for the label.  
+**Rebuilt from:** prompt-corpus: awesome-opus5-5-videos (MIT) — rocket launch metaphor cases (8), original implementation  
+**Default length:** 300 frames (10.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** nature, hud, night  
+**Capabilities:** paints its own background · text: `label`, `sublabel` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `countdown` | `3` | seconds counted down before ignition (0 = no countdown) |
+| `label` | `"LIFTOFF"` | big word shown once airborne |
+| `sublabel` | `"all systems go"` | small mono line under the label |
+| `seed` | `5` | seed for smoke, clouds and stars |
+| `skyTop` | `"#2E3470"` | sky colour at the zenith while still on the ground |
+| `skyHorizon` | `"#F2A06B"` | sky colour at the horizon (dusk glow) |
+| `space` | `"#04061A"` | colour the sky fades to at altitude |
+| `rocketColor` | `"#F2F4FA"` | rocket body colour |
+| `accent` | `"#E8503F"` | nose cone / fins colour |
+| `flameColor` | `"#FFA23A"` | plume and smoke-glow colour |
+| `ink` | `"#FFFFFF"` | text colour |
+| `smoke` | `1` | ground smoke amount (0.3-1.5) |
+| `shake` | `1` | pre-lift vibration strength (0 = steady) |
 
 ### `snowfall` — Snowfall
 
@@ -2228,7 +5384,7 @@ Layered snow drifting diagonally over a dusk snowy landscape; blizzard mode stre
 
 | prop | default | notes |
 |---|---|---|
-| `mode` | `"drift"` | "drift" (soft layered snow) or "blizzard" (horizontal pixel snow + white-out) |
+| `mode` | `"drift"` | "drift" (soft layered snow), "blizzard" (horizontal pixel snow + white-out) or "stab" (woodcut teardrop flecks on black; background "#3A5D80" default becomes near-black) |
 | `background` | `"#3A5D80"` | CSS background; "transparent" = overlay (no painted landscape) |
 | `backdrop` | `true` | paint the procedural landscape / white-out |
 | `color` | `"#FFFFFF"` | flake colour |
@@ -2239,6 +5395,11 @@ Layered snow drifting diagonally over a dusk snowy landscape; blizzard mode stre
 | `streaks` | `0` | extra fast wind streak lines in drift mode (video2 hydrant look), e.g. 120 |
 | `pixelSize` | `6` | blizzard pixel size in px at 1080p (6 = source) |
 | `seed` | `1` | random seed |
+| `freezeAt` | `-1` | stab: frame at which the flecks freeze mid-air (-1 = never) |
+| `reinkFrom` | `-1` | stab: frame the flecks start being inked back in one by one (-1 = off) |
+| `reinkStagger` | `0.4` | stab: frames between re-inked flecks |
+| `angle` | `12` | stab: shared fall angle in degrees |
+| `sizeRange` | `[4,11]` | stab: [min, max] fleck radius in px at 1080p |
 
 ### `starfield-night` — Starfield night
 
@@ -2269,6 +5430,37 @@ Dark teal night sky with twinkling cream stars, a grainy crescent moon that fade
 | `grass` | `true` | swaying teal grass silhouette along the bottom |
 | `grain` | `true` | static print speckle over the frame |
 | `seed` | `1` | random seed |
+| `ripple` | `null` | {x, y, at}: a wave of brightened twinkles spreads from that point (0..1 fractions) starting at that frame - a "star arriving home" / payoff accent; null = off |
+| `rippleSpeed` | `1100` | ripple speed in px/s at 1080p (1100) |
+
+### `studio-sweep` — Studio sweep (graphite seamless backdrop)
+
+![studio-sweep](../gallery/studio-sweep.jpg)
+
+A dark graphite photographic seamless: a soft radial gradient with the floor implied only by a blurred contact shadow beneath a glossy subject, and a slow narrow softbox light sweep gliding across the set.
+
+**Use for:** Instant premium packshot background for product cut-outs (src PNG with alpha), logos and 3D motions; set `subject: "none"` for a bare backdrop.  
+**Rebuilt from:** lemo-opuscar styles/teardown STYLE.md §2–3, demo/src/main.js sweep light (MIT, LemoLab)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** photo, night  
+**Capabilities:** paints its own background · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `center` | `"#34363a"` | gradient centre colour |
+| `edge` | `"#0d0e10"` | gradient edge colour |
+| `centerAt` | `[0.5,0.42]` | gradient centre as 0..1 [x, y] |
+| `radius` | `0.9` | gradient radius as a fraction of the frame |
+| `shadow` | `0.38` | contact shadow opacity |
+| `sweep` | `true` | run the softbox sweep |
+| `sweepFrames` | `126` | length of the sweep in frames (4.2 s default) |
+| `sweepIntensity` | `0.3` | peak sweep strength (0.3 of key) |
+| `subject` | `"sphere"` | demo subject: 'sphere', 'slab' or 'none' |
+| `subjectColor` | `"#8b9099"` | demo subject metal colour |
+| `src` | `""` | optional alpha PNG (public path) shown instead of the demo subject |
+| `focus` | `[0.5,0.46]` | subject position as 0..1 [x, y] |
+| `scale` | `1` | subject size multiplier |
 
 ### `sun-rise-set` — Sun rise / sun set
 
@@ -2301,6 +5493,9 @@ Sunrise: a huge orange gradient disc rises from behind teal grass with an ease-o
 | `moon` | `true` | crescent moon that sinks and fades as the sun rises |
 | `bands` | `["#8d5f88","#a76a82","#bb727d","#d08a80","#dcab8c","#f5ed…` | sunset sky band colours, top to horizon (set) |
 | `duskBands` | `["#423463","#563d6e","#6e4672","#8a5272","#a8636a","#d08a…` | the same bands at full dusk (set) |
+| `bandStyle` | `"wobble"` | set mode: 'wobble' (default soft wobbly band tops) \| 'thinning' (flat colour stepping into the next via thinning stripes — instant screen-print sky, no gradients) |
+| `sunRings` | `0` | set mode: concentric rings around the sun disc (0 = none, 2-3 = print look) |
+| `stripes` | `5` | set mode, bandStyle 'thinning': stripes per band transition (5) |
 | `land` | `["#65536e","#50425e","#3f344c"]` | land layer colours far to near (set) |
 | `grain` | `0.07` | film grain opacity |
 | `seed` | `"sun"` | random seed |
@@ -2331,6 +5526,9 @@ A simple procedural hillside village whose sky gradient and colour grade keyfram
 | `moon` | `true` | moon rising at night |
 | `hills` | `["#9db4c4","#7fa37a","#5f8f4f"]` | hill colours far, mid, near (before grading) |
 | `seed` | `"village"` | random seed |
+| `season` | `"off"` | off (day to night) \| cycle (spring -> summer -> autumn -> winter with petals, leaves, snow) \| spring \| summer \| autumn \| winter (one fixed season) |
+| `seasonFrames` | `0` | cycle: frames per season (0 = split the duration in four; 2-4 s each is typical) |
+| `seasonFade` | `18` | cycle: crossfade frames between seasons (≈30 in the source) |
 
 ### `topdown-terrain` — Top-down terrain scroll
 
@@ -2361,6 +5559,74 @@ Bird’s-eye view: a fixed paper crane (with hatched cast shadow and streaming d
 | `trailColor` | `"#8688ad"` | trail colour |
 | `grain` | `0.06` | paper grain opacity |
 | `seed` | `"journey"` | terrain seed |
+
+### `toy-town-traffic` — Toy-town traffic
+
+![toy-town-traffic](../gallery/toy-town-traffic.jpg)
+
+A seeded miniature city seen from a high oblique angle: blocks of low-rise buildings with coloured roofs and blue shadows, parks with round bright trees and ponds, crosswalks, and dozens of little cars that flow, queue at red lights and surge on green (IDM car-following simulated deterministically), pedestrians gathering at corners. Actors step at 8 / 12 Hz under the time-lapse while the camera rotates smoothly, a tilt-shift focus band follows the red hero car, and a time-lapse clock ramps from ×6 down to ×1 real time.
+
+**Use for:** Mobility / logistics / smart-city / real-estate explainers, "rush hour" metaphors for queues and load, satisfying looping backgrounds; nothing else in the library animates a traffic system.  
+**Rebuilt from:** lemo-opuscar styles/tilt-shift/demo/traffic.js, story.js, main.js stepT (MIT, LemoLab)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** —  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `seed` | `5` | town layout + car colours seed |
+| `blocks` | `[4,3]` | [columns, rows] of city blocks (swapped automatically in portrait) |
+| `density` | `0.55` | traffic density 0–1 |
+| `rate` | `[[0,6],[5.2,6],[6.8,1.2]]` | time-lapse rate keyframes [[seconds, rate]] — ≥6 steps at 8 Hz, 2–6 at 12 Hz, <2 smooth; drop to ~1 for the real-time detail |
+| `lightCycle` | `16` | traffic-light cycle in world seconds |
+| `view` | `"oblique"` | oblique (high three-quarter) or top (straight down) |
+| `rotation` | `3.5` | camera rotation in degrees per second |
+| `pitch` | `52` | oblique pitch in degrees (45–58) |
+| `follow` | `true` | tilt-shift band follows the red hero car |
+| `band` | `{"center":0.55,"width":0.08,"falloff":0.28,"maxBlur":15}` | tilt-shift band: centre (when not following), width, falloff (fractions of height), maxBlur px at 1080p |
+| `heroColor` | `"#E23B2E"` | hero car colour |
+| `carColors` | `["#F4F4F2","#C9CED4","#2B2F36","#D6382C","#2E6FD0","#F2C2…` | colour pool for the other cars |
+| `walls` | `["#F6E7C8","#F1CFA8","#F4B9A0","#CDE3D0","#BFD7EA","#F8E0…` | building wall colours |
+| `roofs` | `["#C8673A","#4F7FB8","#3F8F86","#E39B3C","#7C5A9A","#B84A…` | building roof colours |
+| `asphalt` | `"#4B4E53"` | road colour |
+| `grass` | `"#6FA24A"` | park / ground colour |
+| `water` | `"#2F78C8"` | pond colour |
+| `clock` | `true` | show the time-lapse clock chip |
+| `saturation` | `1.3` | miniature colour boost (1.3–1.7) |
+| `vignette` | `0.35` | edge darkening 0–0.6 |
+
+### `window-glow-sequence` — Window glow sequence
+
+![window-glow-sequence](../gallery/window-glow-sequence.jpg)
+
+A storybook brick workshop powers up: its arched windows turn golden one after another with a warm bloom and one flicker, action ticks flicker over the roof hopper, the tower cog speeds up and smoke puffs rise as a giant hand withdraws.
+
+**Use for:** "It's alive / powering up / open for business" beats; light the windows of any building image (src + windows) — factories, shops, houses, city shots.  
+**Rebuilt from:** video x4 0:07.5-0:10.5 (window-glow-sequence, action-ticks)  
+**Default length:** 120 frames (4.0 s @ 30 fps)
+
+**Roles:** backdrop, accent · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `background` | `"scene"` | 'scene' = procedural gouache street + workshop, 'transparent' = glow overlay only, or a CSS colour |
+| `src` | `""` | optional building picture (public/ path or URL); then list its windows in `windows` |
+| `windows` | `[]` | normalised frame rects [{x, y, w, h, shape: arch\|round\|rect}] to light; empty = the procedural workshop windows |
+| `order` | `"ltr"` | lighting order: ltr \| rtl \| random \| center-out |
+| `startAt` | `24` | frame the first window lights |
+| `stagger` | `6` | frames between windows (≈ 0.2 s) |
+| `fadeFrames` | `5` | fade-in length per window |
+| `flicker` | `3` | index of the window that flickers once after lighting (-1 = none) |
+| `glowColor` | `"#F2C66E"` | bloom colour |
+| `hand` | `true` | show the giant creator hand withdrawing at the top |
+| `ticks` | `true` | flicker action ticks over the hopper (or at tickAt) |
+| `tickAt` | `[]` | normalised [x, y] for the action ticks (empty = above the hopper) |
+| `sign` | `""` | text on the blank plaque above the door (empty = blank) |
+| `smoke` | `true` | tower smoke puffs after power-up |
+| `push` | `0.035` | slow camera push-in amount over the shot |
+| `seed` | `3` | town / cloud / random-order seed |
 
 ## character
 
@@ -2410,7 +5676,7 @@ Orange cube mascot with dark rectangular eyes, little arms and four stubby legs 
 | prop | default | notes |
 |---|---|---|
 | `style` | `"sketch"` | 'sketch' (v20 pencil on paper) \| 'clean' (v13 sunny toon) \| 'toon' (v12 comic synthwave) |
-| `script` | `[{"action":"walk","to":0.5,"frames":54},{"action":"look",…` | sequence of actions: {action:'walk'\|'run', to?\|dx?, frames} {action:'hop', dx?, height?, frames} {action:'look', dir:-1\|1} {action:'emote', icon:'?'\|'!'\|'heart'\|'bulb'\|'sweat'\|'scribble'\|'sparkle'\|'zzz'} {action:'wave'} {action:'turn', yaw} {action:'blink'} {action:'idle'\|'expression', expression?} |
+| `script` | `[{"action":"walk","to":0.5,"frames":54},{"action":"look",…` | sequence of actions: {action:'walk'\|'run', to?\|dx?, frames} {action:'hop', dx?, height?, frames} {action:'look', dir:-1\|1} {action:'emote', icon:'?'\|'!'\|'heart'\|'bulb'\|'sweat'\|'scribble'\|'sparkle'\|'zzz'} {action:'wave'} {action:'turn', yaw} {action:'blink'} {action:'idle'\|'expression', expression?} {action:'hop-spin', dx?, height?, frames} (hop with a full 360 degree turn) |
 | `startX` | `0.16` | start position as a fraction of frame width |
 | `size` | `0.26` | body width as a fraction of the short side |
 | `bodyColor` | `""` | override body colour ('' = style default) |
@@ -2422,6 +5688,130 @@ Orange cube mascot with dark rectangular eyes, little arms and four stubby legs 
 | `onTwos` | `true` | step the character every 2nd frame (12/15 fps hand-animated feel) |
 | `background` | `""` | override background colour ('' = style default) |
 | `floorY` | `0` | ground line as a fraction of height (0 = auto) |
+| `hat` | `"none"` | wardrobe: none \| party \| wizard \| crown \| helmet \| cap \| tophat \| beanie (follows the body) |
+| `hatColor` | `""` | hat colour ('' = hat default) |
+| `mood` | `"none"` | body-colour mood tint: none \| fear (pale) \| anger (red) \| sad (blue) \| love (pink) \| disgust (green) \| pride (gold) |
+| `tint` | `""` | custom tint colour mixed into the body (overrides mood) |
+| `tintK` | `0.5` | tint mix amount 0..1 (0.5) |
+| `gloom` | `0` | indigo gloom lines hanging from the forehead 0..1 |
+| `blush` | `0` | blush cheeks 0..1 |
+
+### `character-rig-2d` — Character rig 2D (presenter)
+
+![character-rig-2d](../gallery/character-rig-2d.jpg)
+
+A flat-vector humanoid presenter on a jointed rig: walks in, idles with a 1.5 s breathing bob, blinks every 2-5 s, lip-flaps through four mouth shapes from text or an amplitude array, and plays cue actions (wave, point, nod, shrug, cheer, walk, talk). Body parts can be swapped for your own images.
+
+**Use for:** Presenters, mascots, explainers with a host and story shorts: set `say`/`amplitude` for speech, `cues` for gestures, colours for the brand, `parts` for a custom character.  
+**Rebuilt from:** prompt-corpus: character-rig-2d (56 cases), awesome-opus5-5-videos prompts (MIT) — technique only  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** playful  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `cues` | `[{"at":52,"action":"wave","dur":44},{"at":128,"action":"p…` | [{at, action: 'wave'\|'point'\|'nod'\|'shrug'\|'cheer'\|'walk'\|'talk'\|'idle', dur?}] |
+| `say` | `"Hi there, welcome to the show. Let me walk you through it."` | text whose letters drive the 4 mouth shapes (empty = silent) |
+| `sayAt` | `58` | frame the speech starts |
+| `charFrames` | `3` | frames per character of `say` |
+| `amplitude` | `[]` | optional per-frame audio amplitude 0..1 (30 fps) for real lip-flap; overrides `say` |
+| `walkInFrames` | `48` | frames of the walk-in from the left (0 = already standing) |
+| `facing` | `"right"` | 'right' \| 'left' |
+| `parts` | `{}` | optional image paths per part: head, torso, armL, armR, legL, legR (replace the vector part) |
+| `skin` | `"#E9B38D"` | skin colour |
+| `hair` | `"#3B2A22"` | hair colour |
+| `shirt` | `"#2F7F86"` | shirt colour |
+| `pants` | `"#2D3748"` | trousers colour |
+| `shoes` | `"#E8E2D6"` | shoe colour |
+| `accent` | `"#F2C14E"` | collar accent |
+| `background` | `"#F4EBDD"` | wall colour |
+| `floor` | `"#D9C9B2"` | floor colour |
+| `seed` | `7` | blink timing seed |
+| `showFloor` | `true` | draw the floor and shadow |
+
+### `collage-puppet` — Collage puppet
+
+![collage-puppet](../gallery/collage-puppet.jpg)
+
+A cut-out engraving portrait split into scalp lid, face and jaw: the jaw flaps between three stepped poses to "talk", dashed cut lines and scissors snip across the forehead, then the scalp flips open on a brass brad to reveal a torn wedge of space from which a rocket, planet, bird, rose and butterfly spill out one per beat, with ransom-letter chips and paper confetti. Animated on twos at 12 fps on kraft paper.
+
+**Use for:** Monty-Python style comedy beats, music and street-culture promos, "mind blown" explainers. Pass faceSrc / revealSrc / spillSrcs to use your own cut-outs.  
+**Rebuilt from:** mg-styles-15 demos/06-collage/index.html (MIT; drawHead, MOUTH, LIDF, SPILL) + work/prep.py  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, 3d, nature, playful  
+**Capabilities:** paints its own background · text: `caption` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `faceSrc` | `""` | optional cut-out portrait (public/ path, transparent PNG ~380x540); default is a drawn engraving-style head |
+| `revealSrc` | `""` | optional image revealed under the lid (default: a nebula) |
+| `spillSrcs` | `[]` | up to 5 optional cut-outs that spill out (default: rocket, planet, bird, rose, butterfly) |
+| `talkAt` | `26` | frame the jaw starts flapping (3 flaps) |
+| `cutAt` | `66` | frame the dashed cut line appears; scissors snip 5 times after it |
+| `openAt` | `132` | frame the lid pops open |
+| `endTalkAt` | `182` | frame of the closing jaw flaps (and the caption band) |
+| `speech` | `"Ahem"` | speech scrap beside the mouth during the first talk (empty to hide) |
+| `bang` | `"BANG!"` | ransom-letter chips that pop when the lid opens |
+| `caption` | `"Mind blown"` | diagonal black band text at the end (empty to hide) |
+| `seed` | `3` | jitter / confetti seed |
+| `background` | `"#B89A72"` | kraft table colour |
+| `red` | `"#D2261C"` | page red |
+| `ink` | `"#16130F"` | ink colour |
+| `paper` | `"#F4EFE4"` | paper-white scissor rim colour |
+
+### `colour-model-relight` — Colour-model relight
+
+![colour-model-relight](../gallery/colour-model-relight.jpg)
+
+One cel character re-lit through day, dawn, night, backlit and silhouette by multiplying each paint role separately (fills, shadows, lines, hand-set skin), beside the muddy result of a single filter over the whole frame.
+
+**Use for:** Reuse the same character or asset across times of day and moods without a frame filter; copy relight(palette, set) from r2-la1-kit into your own character motions as a timeOfDay prop.  
+**Rebuilt from:** lemo-opuscar styles/cel-anime-80s/demo/pal.js (MIT, LemoLab)  
+**Default length:** 160 frames (5.3 s @ 30 fps)
+
+**Roles:** subject · **Mood:** comic, playful, night  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `sets` | `["day","dawn","night","backlit","silhouette"]` | sequence of light sets: day \| dawn \| night \| backlit \| silhouette (30 frames each, blended) |
+| `jacket` | `"#2F6FE2"` | jacket fill colour (shade and line colours are derived) |
+| `scarf` | `"#FF6B6B"` | hero accent colour — stays readable in every set |
+| `hair` | `"#5B3A9E"` | hair fill colour |
+| `skin` | `"#F0C7A8"` | daylight skin colour (each set overrides it by hand) |
+| `compare` | `true` | true = left panel shows one filter over the whole frame, right panel the per-role relight |
+| `swatches` | `true` | show the set chips at the bottom |
+| `background` | `"#0E0A18"` | page colour behind the panels |
+
+### `creator-hand` — Creator hand
+
+![creator-hand](../gallery/creator-hand.jpg)
+
+A giant storybook hand in a chunky red ribbed sweater reaches in from the edge, unpins a light-bulb idea card from a corkboard, carries it on a slow S-curve on twos and drops it onto a closed laptop in a warm gouache desk room.
+
+**Use for:** "Your input enters the product" promo beat, tutorial hands, a big friendly hand acting on a small illustrated world; overlay it (background transparent) over any shot.  
+**Rebuilt from:** video x4 0:00-0:04.5 (creator-hand)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `background` | `"desk"` | 'desk' = procedural storybook desk room, 'transparent' = overlay (hand + card only), or any CSS colour |
+| `from` | `"right"` | edge the arm enters from: right \| left \| top |
+| `onTwos` | `true` | hold each hand drawing for 2 frames (hand-made 12 drawings/s feel) |
+| `sleeveColor` | `"#D2714E"` | sweater colour |
+| `cuffColor` | `"#C5613F"` | ribbed cuff colour |
+| `skin` | `"#E8C497"` | skin tone |
+| `cardIcon` | `"bulb"` | doodle on the carried card: bulb \| star \| heart \| none |
+| `cardColor` | `"#FBF6EA"` | card paper colour |
+| `cardSrc` | `""` | optional image (public/ path or URL) printed on the card instead of the doodle |
+| `handSize` | `250` | hand length in u (1u = 1 px on a 1080 short side) |
+| `ink` | `"#3E2A20"` | outline ink colour |
+| `seed` | `4` | seed for the corkboard notes and textures |
 
 ### `crowd-bob` — Crowd stomp / cheer
 
@@ -2440,7 +5830,7 @@ A massed perspective crowd of box-bots, ink-etched soldiers or paper dolls; the 
 | prop | default | notes |
 |---|---|---|
 | `character` | `"boxbot"` | 'boxbot' (v12 synthwave clones) \| 'soldier' (v5 blue ink etching) \| 'doll' (v20 paper sketch) |
-| `mode` | `"stomp"` | 'stomp' synchronised hop (v5) \| 'cheer' random-phase arms-up bob with hearts (v20) |
+| `mode` | `"stomp"` | 'stomp' synchronised hop (v5) \| 'cheer' random-phase arms-up bob with hearts (v20) \| 'beans' (toy bean contestants drop from the sky one per half-beat, hop on the beat, shout on accents) |
 | `crane` | `true` | camera cranes up and tilts down to reveal the crowd |
 | `craneStart` | `14` |  |
 | `craneFrames` | `66` | length of the crane move (easeInOutCubic) |
@@ -2454,6 +5844,129 @@ A massed perspective crowd of box-bots, ink-etched soldiers or paper dolls; the 
 | `heroExcluded` | `true` | front-centre hero stays still (v5) |
 | `seed` | `7` |  |
 | `background` | `""` |  |
+| `beans` | `10` | beans: number of contestants (2-24) |
+| `bpm` | `120` | beans: tempo for the drops and hops |
+| `names` | `[]` | beans: name-tag texts in order ([] = built-in names) |
+| `hop` | `1` | beans: hop height multiplier |
+| `shoutEvery` | `4` | beans: every Nth beat is an accent where all beans shout (0 = never) |
+
+### `flame-sprite` — Flame sprite
+
+![flame-sprite](../gallery/flame-sprite.jpg)
+
+A hand-inked flame mascot (red outer, yellow core, paper-white glint, dot eyes, rubber-hose arms with white gloves) wakes on a cream paper stage, looks around, hops three times along red dotted arc guides with squash and stretch, throws a ta-da with sparkles, squashes to a pancake and pops back with a wink — all on ones, twos and threes with boiling ink.
+
+**Use for:** A warm mascot for energy, ideas, "spark" and craft metaphors; intros, explainers and stickers with hand-animation charm.  
+**Rebuilt from:** mg-styles-15 05-cel-boil 1.0-6.5 s (MIT, Vincentwei1021) — technique after mg-styles-15; own character design  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, 3d, comic, playful  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `background` | `"#F4E9D0"` | paper colour |
+| `outer` | `"#E5402B"` | outer flame colour |
+| `inner` | `"#FFC425"` | inner flame colour |
+| `ink` | `"#1C1613"` | ink line colour |
+| `poolColor` | `"#F3DC93"` | stepped light-pool colour behind the flame |
+| `boxTop` | `"#E5402B"` | stage box top colour |
+| `boxFront` | `"#FFC425"` | stage box front colour |
+| `showBox` | `true` | draw the inked box the flame stands on |
+| `arms` | `true` | rubber-hose arms with gloves |
+| `expression` | `"auto"` | 'auto' runs the acting script; or lock a face: neutral \| happy \| sleepy \| determined \| squeezed |
+| `flicker` | `0.4` | how much the flame tongues lick between drawings (0–1) |
+| `boilAmp` | `1` | line-boil strength multiplier |
+| `size` | `1` | flame size multiplier |
+| `slate` | `true` | show the scene slate and drawing counter |
+| `sceneLabel` | `"SC. 01"` | slate text top-left |
+| `seed` | `1` | variation seed |
+
+### `flat-person-desk` — Flat person at desk
+
+![flat-person-desk](../gallery/flat-person-desk.jpg)
+
+A geometric flat-vector person with round glasses works at a laptop in a cosy sunflower room (window with skyline and sun, framed print, swaying pendant lamp, plant, steaming mug); the room pops in with springs, they type and blink, the phone pings with a bell bubble, their head snaps round with an "!" mark, they reach for the phone and break into a smile, bobbing on the beat.
+
+**Use for:** A reusable "user" moment for app, SaaS and notification explainers; pairs with sms-thread, chat-bubbles and kinetic-captions.  
+**Rebuilt from:** mg-styles-15 01-flat-vector 3.8-5.0 s, index.html updInterior / mkArm (MIT, Vincentwei1021) — technique after mg-styles-15; own character design  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** nature, playful, ui  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `wall` | `"#F7C934"` | room wall colour |
+| `desk` | `"#2B2BFF"` | desk colour |
+| `skin` | `"#F6B48F"` | skin tone |
+| `hair` | `"#151433"` | hair colour |
+| `shirt` | `"#2EE6A8"` | top colour |
+| `ink` | `"#151433"` | dark line / laptop colour |
+| `accent` | `"#FF5A4E"` | notification / sun / mug accent colour |
+| `sky` | `"#2B2BFF"` | window sky + print colour |
+| `frameColor` | `"#3FF2A6"` | picture frame colour |
+| `plant` | `"#2ED18E"` | plant leaf colour |
+| `pingAt` | `66` | frame the phone pings |
+| `expression` | `"auto"` | 'auto' runs the acting; or neutral \| surprised \| smile |
+| `message` | `""` | optional tiny word on the phone screen after the ping |
+| `glasses` | `true` | round glasses |
+
+### `paper-critter-rig` — Paper critter rig
+
+![paper-critter-rig](../gallery/paper-critter-rig.jpg)
+
+An original paper-cut critter (fox-like by default) made of overlapping scale-shaped paper pieces, with walk-in-place, stand, sit and look-up poses, tail swish, head tilts and ear flicks, paper rims and a contact shadow on a mossy paper ledge.
+
+**Use for:** A reusable storybook hero for explainers, kids’ content and brand journeys; a mascot in a paper world.  
+**Rebuilt from:** video x5 0:02-0:06 (walk), 0:12.5-0:17.5 (sit idle) — original design  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, playful  
+**Capabilities:** overlay (`{"scene":false,"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `pose` | `"cycle"` | 'cycle' (walk → stand → sit → look-up) \| 'walk' \| 'stand' \| 'sit' \| 'look-up' |
+| `species` | `"fox"` | palette preset: 'fox' \| 'cat' \| 'wolf' \| 'hare' |
+| `bodyColor` | `""` | override body colour (hex), shade is derived |
+| `facing` | `"right"` | 'right' \| 'left' |
+| `size` | `1` | critter size multiplier (1 = 46 % of the short side) |
+| `stride` | `0.9` | seconds per walk stride |
+| `palette` | `"moonlit"` | scene palette: 'sunset' \| 'moonlit' \| 'dawn' |
+| `scene` | `true` | draw the paper ledge / mountains / sky (false = plain background, use background "transparent" for an overlay) |
+| `background` | `"#182C4B"` | background when scene is off ('transparent' for an overlay) |
+| `fireflies` | `true` | drifting fireflies |
+| `star` | `true` | golden guide star in the sky |
+| `seed` | `2` | scene seed |
+
+### `pictogram-figure` — Pictogram figure (geometric athlete)
+
+![pictogram-figure](../gallery/pictogram-figure.jpg)
+
+Faceless geometric pictogram figure — round-capped bars and a disc head driven by beat-timed key poses (run, walk, jump, throw, kick, lift, wave, cheer) — far-side limbs tinted toward the background, standing on a big sun disc with a light sweep over a low-contrast motif grid, assembled from horizontal bands that slide into register.
+
+**Use for:** "Person doing X" icon animation for explainers, onboarding, sports, workplace steps, fitness and safety instructions — any brand colour, no character design needed.  
+**Rebuilt from:** lemo-opuscar styles/pictogram-motion (MIT code, CC BY 4.0 docs, LemoLab) — demo/engine.js joints/drawFigure/keyPose/runCycle/walkCycle  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** nature  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `label` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `action` | `"run"` | run \| walk \| jump \| throw \| kick \| lift \| wave \| cheer |
+| `bpm` | `150` | tempo; key poses are timed in beats |
+| `hue` | `"#D8B21A"` | chapter hue (five tones derived from it) |
+| `figure` | `"auto"` | figure colour ("auto" = dark ink) |
+| `farMix` | `0.42` | how far the far-side limbs mix toward the background |
+| `disc` | `true` | big sun disc behind the figure |
+| `sweep` | `true` | light sweep across the disc |
+| `assemble` | `true` | arrive by horizontal bands sliding into register |
+| `label` | `"Sprint"` | big title beside the figure ("" to hide) |
+| `meta` | `"06 / 43"` | mono index line above the title |
+| `pattern` | `true` | low-contrast motif grid in the background |
+| `background` | `"tone"` | "tone" or "transparent" |
 
 ### `sign-drop` — Sign drop & swing
 
@@ -2482,6 +5995,90 @@ A neon, comic banner or wooden sign drops in on ropes with a springy bounce, swi
 | `restAngle` | `0` | resting tilt in degrees (v12 banner hangs at about -10) |
 | `width` | `0.6` | sign width as a fraction of frame width (landscape) |
 | `exit` | `false` | pull the sign back up at the end |
+
+### `silhouette-runner` — Silhouette runner (cut-paper chase)
+
+![silhouette-runner](../gallery/silhouette-runner.jpg)
+
+A flat black cut-paper agent with a streaming red tie sprints on twos across red rooftops under a paper moon, leaping the gaps, chased by a taller villain in a wide brim whose red coat lining flashes as he runs.
+
+**Use for:** Chases, heists, couriers on a deadline, detective or spy-themed explainers and title sequences.  
+**Rebuilt from:** lemo-opuscar styles/spy-titles (chars.js, DEMO.md "Silhouette figures") (MIT, LemoLab)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, playful, night  
+**Capabilities:** paints its own background · text: `caption` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `action` | `"chase"` | 'chase' (agent + villain), 'run' (agent only) or 'walk' |
+| `caption` | `"Tonight, the courier runs out of roof."` | subtitle strip text (empty = none) |
+| `background` | `"#141216"` | night sky colour |
+| `ground` | `"#c8321e"` | rooftop colour (flat red) |
+| `ink` | `"#111014"` | silhouette colour |
+| `accentColor` | `"#d8261c"` | the only colour on the figures: tie and coat lining |
+| `objectColor` | `"#e0a526"` | mustard windows and the carried case |
+| `moon` | `true` | show the big paper moon |
+| `moonColor` | `"#efe6d2"` | moon / caption paper colour |
+| `speed` | `1` | run speed multiplier |
+| `scale` | `1` | figure size multiplier |
+| `seed` | `3` | rooftop layout seed |
+
+### `stickman-rig` — Stickman rig
+
+![stickman-rig](../gallery/stickman-rig.jpg)
+
+Round-capped stick figures with circle heads walk, run, punch, kick, fall, cheer, moonwalk, wave and dance from a joint-angle pose library with 2-bone IK legs; lines boil on twos and strikes trigger impact frames (flash, burst, hit-stop shake).
+
+**Use for:** Comedy and meme shorts, fight parodies, process explainers with people, "someone does a thing" beats where a full character is overkill.  
+**Rebuilt from:** prompt-corpus: awesome-opus5-5-videos (MIT) — stick-figure comedy / fight-parody / process cases (5), original implementation  
+**Default length:** 270 frames (9.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** playful, night  
+**Capabilities:** paints its own background · text: `title`, `caption` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `actors` | `[{"name":"blue","color":"#2F6BFF","track":[{"at":0,"pose"…` | [{name?, color, track:[{at, pose, x, face?, speed?}]}] — pose: idle\|walk\|run\|punch\|kick\|fall\|cheer\|moonwalk\|wave\|dance\|think\|getup; x: -1..1 across the ground; face: 1 right, -1 left |
+| `background` | `"#F4F1EA"` | background colour |
+| `groundColor` | `"#25232A"` | ground line colour |
+| `ink` | `"#1D1B22"` | text / impact colour |
+| `height` | `1` | figure size multiplier |
+| `stroke` | `8` | limb stroke width (px at 1080) |
+| `boil` | `1.6` | line-boil jitter in px (on twos; 0 = steady) |
+| `impacts` | `true` | flash + burst + hit-stop shake when a punch or kick lands |
+| `title` | `"STICK FIGHT"` | comic-lettered title |
+| `caption` | `"round one"` | handwritten sub-caption |
+
+### `toon-object-character` — Toon object character
+
+![toon-object-character](../gallery/toon-object-character.jpg)
+
+An everyday object (mug, box, bottle, can) becomes a 1930s rubber-hose cartoon character: pie eyes and a big mouth on its front, black noodle arms and legs, white four-finger gloves, huge round shoes, boiling ink outlines and a steam carrier that shows the mood; it walks in, hops with squash and stretch, points, waves and cheers.
+
+**Use for:** Product mascots from the host's own product shape (mug, bottle, box), retro ads, kids content; a second character family beside box-bot.  
+**Rebuilt from:** lemo-opuscar styles/rubber-hose demo/chars.js + toon.js ideas, STYLE.md §2 anatomy (MIT / CC BY 4.0, LemoLab); original redraw  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** pixel, comic, playful  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `body` | `"mug"` | 'mug' \| 'box3d' \| 'bottle' \| 'can' |
+| `color` | `"#F2EEE2"` | body fill colour (greyscale or brand) |
+| `ink` | `"#16130F"` | outline / limb colour |
+| `accent` | `"#E5788A"` | mouth tongue, heart steam and bottle cap colour |
+| `background` | `"#E9E3D3"` | backdrop colour |
+| `floor` | `"#7A7466"` | floor line colour |
+| `expressions` | `[{"at":0,"mouth":"smile","brows":"happy","steam":"lazy"},…` | [{at, mouth:'smile\|grin\|o\|wavy\|pucker\|tongue', brows:'none\|happy\|worried\|angry\|up', steam:'lazy\|bitter\|alarm\|wilted\|heart\|none', look:[x,y]}] |
+| `script` | `[{"at":0,"action":"walk","dur":56,"x":0},{"at":56,"action…` | [{at, dur, action:'idle\|walk\|run\|hop\|point\|wave\|cheer', x?}] ; x = horizontal target (fraction of the frame width) reached at the end of the segment |
+| `startX` | `-0.62` | starting x as a fraction of the frame width (0 = centre) |
+| `bpm` | `100` | beat-breathe tempo |
+| `boil` | `1.2` | ink boil amplitude in character units (0 = off) |
+| `onTwos` | `true` | boil on 3 drawings at 12 fps |
+| `size` | `1` | character scale multiplier |
+| `shadow` | `true` | floor shadow |
 
 ### `walker-world-scroll` — Walker world scroll (era wipe)
 
@@ -2512,6 +6109,34 @@ A chibi explorer in a bucket hat walks in place at 37.5 % W while procedural era
 
 ## data
 
+### `axis-ratchet-rescale` — Axis ratchet rescale
+
+![axis-ratchet-rescale](../gallery/axis-ratchet-rescale.jpg)
+
+A pencil chart draws calmly until one value pierces the top frame line — torn red scar, 2-frame punch-in, decaying shake — holds the break for a beat, then the y-axis rescales in 4 ratchet clicks with every tick and mark sliding to its new position.
+
+**Use for:** "Record-breaking" moments — a viral spike, price bubble, flood level, heat record — in any chart story; pairs with number-counter.  
+**Rebuilt from:** lemo-opuscar styles/dataviz (MIT, LemoLab) — STYLE.md "Breaking the frame", DEMO.md Shots  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, hud  
+**Capabilities:** paints its own background · text: `title`, `subtitle`, `unit` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `values` | `[19.1,22.9,22.2,27,28.2,23.8,26.7,25.2,29.6,28.9,33.2,40,…` | the series; one value should exceed domainBefore |
+| `spikeIndex` | `23` | index of the record value (-1 = third from last) |
+| `ticks` | `4` | number of y-axis divisions |
+| `domainBefore` | `90` | y domain before the rescale (the spike must overshoot it) |
+| `domainAfter` | `160` | y domain after the 4 ratchet clicks |
+| `title` | `"Then came March"` | serif headline |
+| `subtitle` | `"DAILY VISITS, THOUSANDS · ONE MARK PER DAY"` | mono kicker |
+| `unit` | `"k"` | unit label above the axis |
+| `note` | `"off the chart"` | handwritten red note at the spike |
+| `accent` | `"#A8283A"` | spike colour |
+| `seed` | `9` | pencil wobble seed |
+| `background` | `"#F6F3EC"` | paper colour |
+
 ### `beat-montage` — Accelerating beat montage
 
 ![beat-montage](../gallery/beat-montage.jpg)
@@ -2540,6 +6165,343 @@ Hard-cut image montage whose cuts accelerate 12 f -> 6 f -> 3 f, a persistent ce
 | `paper` | `"#ECE4D7"` |  |
 | `ringColor` | `"#7AA8E0"` |  |
 | `seed` | `2` |  |
+| `mode` | `"images"` | images (default) \| shapes (graphic match cuts: one circle keeps its centre and size while it becomes a wheel, roulette, pupil, moon, keyhole, target; steps [10,8,6,4] + dotColor as accent) |
+| `reverse` | `false` | replay the shots in reverse order with contracting rings (rewind / flashback; combine with steps [4,2]) |
+| `shapePalette` | `["#E8584A","#2B6CB0","#F2C94C","#1F7A5C","#7B4FB8","#ECE4…` | shapes mode: background colours cycled per shot |
+
+### `chip-stack-bars` — Chip stack bars
+
+![chip-stack-bars](../gallery/chip-stack-bars.jpg)
+
+Horizontal bars built from labelled unit chips, one chip per item: each row has a tiny tracked label above and a rolling count at the end, rows grow left to right chip by chip (about one chip per frame), and the highlighted row uses the accent colour with a gentle wave once complete.
+
+**Use for:** A unit-chart (isotype) alternative to bar charts for counts of things that have names: parts per system, features per tier, ingredients per category.  
+**Rebuilt from:** mg-styles-15 demos/19-paperclip/index.html CATS / chart section (MIT)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud  
+**Capabilities:** paints its own background · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `rows` | `[{"label":"STRUCTURE","items":["Al","Fe","Ti","Mg","Cu","…` | rows[{label, items: string[] (chip texts), accent?: true}] |
+| `title` | `"What goes inside"` | headline |
+| `subtitle` | `"ONE CHIP PER ITEM"` | small tracked line under the headline |
+| `background` | `"#EEF1F4"` | page colour |
+| `chipColor` | `"#25313D"` | chip colour |
+| `accentColor` | `"#FF5A36"` | accent row colour |
+| `startAt` | `16` | frame the first row starts |
+| `rowGap` | `12` | frames between row starts |
+| `chipFrames` | `1.2` | frames per chip (1 = one chip per frame) |
+
+### `crowd-tracks` — Crowd tracks
+
+![crowd-tracks](../gallery/crowd-tracks.jpg)
+
+A locked-off concourse plate darkens and desaturates while every walker becomes a glowing sodium-orange dot trailing a decaying polyline of where it just was, linked to its nearest neighbour — people as data — with a lock-digit footfall count.
+
+**Use for:** Footfall / mobility / network-activity explainers, smart-city and retail-analytics films, "everyone is connected" beats; drop a crowd still into `src`.  
+**Rebuilt from:** lemo-opuscar styles/city-symphony (MIT, LemoLab) — render.py Trails, lock_digits; poster docs/frames/city-symphony.jpg  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** cinematic, hud, playful, editorial, night  
+**Capabilities:** paints its own background · text: `caption` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `agents` | `300` | number of walkers |
+| `color` | `"#D9772F"` | trail / dot / link colour (sodium orange) |
+| `decay` | `0.9` | trail alpha multiplier per frame of age (0.9 = source) |
+| `trail` | `26` | trail length in frames |
+| `linkRadius` | `70` | max distance (u) for nearest-neighbour links |
+| `speed` | `4` | time-lapse factor on walking speed |
+| `revealAt` | `16` | frame where the plate starts darkening and the tracks appear |
+| `number` | `"128,406"` | counter value (digits lock left→right one per sixteenth); empty = no text |
+| `caption` | `"FOOTFALL · ONE MORNING"` | tracked line under the rule |
+| `sub` | `"CONCOURSE B · NORTHWIND STATION"` | small tracked line |
+| `src` | `""` | optional public/ crowd still used as the plate (procedural concourse otherwise) |
+| `seed` | `7` | walker layout seed |
+
+### `dot-tally` — Dot tally (people as dots)
+
+![dot-tally](../gallery/dot-tally.jpg)
+
+One dot per person in labelled groups; selected dots turn one by one from filled cream discs into open red rings while a huge counter runs; the total and a two-symbol legend land at the end.
+
+**Use for:** Casualties, survey answers ("37 of 100 said…"), seats won, users affected, failure rates — a restrained alternative to a bar chart an agent can generate from two numbers.  
+**Rebuilt from:** lemo-opuscar styles/visual-investigation demo sPeople() (MIT, LemoLab) — idea, own SVG build  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `groups` | `[{"label":"Customers","count":72,"marked":26},{"label":"P…` | [{label, count, marked}] one grid per group; `marked` dots turn |
+| `cols` | `18` | dots per row |
+| `background` | `"#0F1012"` | background colour |
+| `ink` | `"#ECEAE4"` | colour of the filled dots and text |
+| `accent` | `"#FF4A2E"` | colour of marked dots and the big number |
+| `markStyle` | `"ring"` | 'ring' \| 'fill' \| 'cross' |
+| `markStart` | `50` | frame the first dot turns |
+| `stagger` | `0.9` | frames between marked dots |
+| `groupGap` | `14` | frames pause between groups |
+| `shuffle` | `true` | mark in seeded random order (false = row order) |
+| `total` | `""` | text for the final big figure (default: number of marked dots) |
+| `totalLabel` | `""` | line under the figure (default "of N") |
+| `legend` | `["unaffected","affected"]` | [unmarked label, marked label] |
+| `seed` | `5` | shuffle seed |
+
+### `dot-to-stripes-morph` — Dot-to-stripes morph
+
+![dot-to-stripes-morph](../gallery/dot-to-stripes-morph.jpg)
+
+A hand-drawn pencil dot chart on cream paper sweeps mark by mark into a full-height warming-stripes band: each dot falls to the band centre, stretches into its coloured stripe and loses its ink ring, while the graphite line fades and a handwritten note returns as a tiny pencil tick.
+
+**Use for:** Climate / finance / health "the whole century in one band" reveals; the ramp centre, span and colours are props so it stays brand-safe.  
+**Rebuilt from:** lemo-opuscar styles/dataviz (MIT, LemoLab) — engine.js morphMark, valueColor, rampRGB, dataDot  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, hud  
+**Capabilities:** paints its own background · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `values` | `[-0.2,-0.12,-0.21,-0.13,-0.05,-0.21,-0.17,-0.21,-0.19,0.0…` | the series (one mark each) |
+| `startLabel` | `"1978"` | label under the first mark |
+| `endLabel` | `"2025"` | label under the last mark |
+| `title` | `"Every summer since 1978"` | serif headline |
+| `subtitle` | `"ANOMALY VS 1951–80 MEAN, °C · ONE MARK PER YEAR"` | mono kicker under it |
+| `centre` | `0.22` | ramp centre (reference mean) |
+| `half` | `0.85` | symmetric half-span of the diverging ramp |
+| `morphAt` | `110` | frame where the sweep starts |
+| `sweep` | `1.9` | sweep duration in seconds |
+| `noteIndex` | `-1` | which mark gets the handwritten ring note (-1 = the last one) |
+| `note` | `"the hottest yet"` | handwritten note text (empty = none) |
+| `seed` | `5` | pencil wobble seed |
+| `background` | `"#F6F3EC"` | paper colour |
+
+### `empty-next-cell` — Empty next cell
+
+![empty-next-cell](../gallery/empty-next-cell.jpg)
+
+After a short run of pencil data marks, a dashed red rectangle draws itself around the next empty slot with a handwritten "?", holds, then widens into a frame-within-frame end card for the value nobody knows yet.
+
+**Use for:** Forecasts, "what's next" end cards, upcoming launches / quarters / seasons at the end of any chart story.  
+**Rebuilt from:** lemo-opuscar styles/dataviz (MIT, LemoLab) — engine.js dashedCell  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, hud  
+**Capabilities:** paints its own background · text: `labels`, `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `values` | `[34,41,38,47,52,49,58,63]` | the known series (one mark per slot; the dashed cell sits after the last) |
+| `labels` | `["Q1 ’24","Q1 ’26"]` | [first, last+1] slot labels; the second is the unknown slot in the accent colour |
+| `title` | `"Eight quarters in"` | serif headline |
+| `subtitle` | `"NEW TEAMS PER QUARTER"` | mono kicker |
+| `question` | `"?"` | handwritten text inside the cell |
+| `cardTitle` | `"Q1 2026 — your guess"` | end-card line once widened |
+| `cardSub` | `"THE NEXT CELL IS STILL EMPTY"` | end-card mono line |
+| `widenAt` | `120` | frame where the cell widens into the end card (0 = never) |
+| `color` | `"#A8283A"` | pencil colour of the dashed cell (red = records/warnings) |
+| `seed` | `3` | pencil jitter seed |
+| `background` | `"#F6F3EC"` | paper colour |
+
+### `energy-jar-fill` — Energy jar fill
+
+![energy-jar-fill](../gallery/energy-jar-fill.jpg)
+
+Ink-line glass jars on a clay shelf rack light up one by one: saturated self-lit liquid rises with a meniscus, its glow spills onto the shelf, panels and label cards, and handwritten values count up, then everything drains.
+
+**Use for:** Visualising stores and quantities (energy, budget, storage, progress) as glowing jars — a physical alternative to a bar chart in explainers and lessons.  
+**Rebuilt from:** video x3 3:40-4:60 (3.4-4.6 s, 5.6-6.2 s, 22-28 s)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, 3d, nature, hud, ui  
+**Capabilities:** paints its own background · text: `title`, `caption` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `jars` | `[{"label":"Gravitational","color":"#7E2AE4","value":14,"u…` | jar list in reading order (top row first): {label, color, value (full value shown on the card), unit} |
+| `timeline` | `[{"jar":0,"level":0.78,"at":8},{"jar":1,"level":0.62,"at"…` | fill / drain events: {jar (index), level 0..1, at (frame)}; level 0 drains |
+| `drainAt` | `150` | frame where every lit jar drains (staggered 3 f); 0 = never |
+| `fillFrames` | `12` | frames for a fill (easeOutCubic; source 0.35-0.45 s) |
+| `drainFrames` | `9` | frames for a drain (easeInCubic; source 0.3 s) |
+| `cols` | `4` | jars per shelf |
+| `rows` | `2` | number of shelves (1-3) |
+| `eyebrow` | `"Lesson 1"` | small letter-spaced eyebrow above the title ("" hides) |
+| `title` | `"Energy stores"` | serif italic title top-left ("" hides) |
+| `caption` | `"Fig. 1  Eight stores on one shelf. Each jar lights when …` | italic figure caption bottom-left ("" hides) |
+| `glow` | `1` | glow spill strength (0 = none, 1 = source) |
+| `labels` | `true` | show the paper label cards with handwritten values |
+| `sun` | `true` | show the ink sun icon |
+| `paper` | `"#EFEDE9"` | page paper colour |
+| `ink` | `"#1E1E1E"` | line / text ink colour |
+| `yaw` | `-20` | 3/4 view yaw in degrees (drifts +7° over the clip) |
+| `pitch` | `28` | camera elevation in degrees |
+
+### `flow-diagram` — Flow diagram (packets on edges)
+
+![flow-diagram](../gallery/flow-diagram.jpg)
+
+Rounded boxes with icons joined by arrows that draw on in sequence (14 f each, 5 f stagger); glowing packets or labelled chips travel the edges, each receiving node pulses 1 -> 1.08 -> 1 and a highlight ring follows the active step. Auto-lays out left-to-right (top-to-bottom on portrait) from the edge graph; blueprint / paper / dark themes.
+
+**Use for:** How-it-works explainers (APIs, AI agents, networks, payments), onboarding and architecture videos: pass `nodes` + `edges`; optionally `steps` to script which edge fires when.  
+**Rebuilt from:** prompt-corpus: flow-diagram (31 cases), awesome-opus5-5-videos prompts (MIT) — technique only  
+**Default length:** 270 frames (9.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, blueprint, hud, playful, night  
+**Capabilities:** paints its own background · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `nodes` | `[{"id":"app","label":"Your app","icon":"user"},{"id":"gw"…` | [{id, label, icon?: bolt\|shield\|chart\|chat\|globe\|spark\|lock\|cog\|user\|db\|cloud\|star\|queue\|server\|mail, x?, y? in % of frame}] (3-7 nodes) |
+| `edges` | `[{"from":"app","to":"gw","label":"request"},{"from":"gw",…` | [{from, to, label?}] — a label turns the packet into a chip |
+| `steps` | `[]` | [{at: frame, edge?: 'a>b' \| index, node?: id}] — empty = auto: packets fire layer by layer and loop |
+| `direction` | `"auto"` | 'auto' (vertical on portrait) \| 'horizontal' \| 'vertical' |
+| `theme` | `"blueprint"` | 'blueprint' \| 'paper' \| 'dark' |
+| `accent` | `""` | highlight colour (empty = theme default) |
+| `packetColor` | `""` | packet colour (empty = accent) |
+| `drawFrames` | `14` | frames to draw one edge |
+| `stagger` | `5` | frames between edge starts |
+| `stepFrames` | `28` | frames per step / packet travel |
+| `loop` | `true` | repeat the steps |
+| `title` | `""` | optional heading |
+
+### `function-plot` — Function plot (curve, tangent, area)
+
+![function-plot](../gallery/function-plot.jpg)
+
+Maths-explainer plot on dark slate: axes draw on, a curve from a safe expression string traces left to right with a glowing head, a tangent (or a secant that shrinks into the tangent) slides along it with a slope readout, then Riemann bars melt into a filled area with a running integral.
+
+**Use for:** Maths and physics teaching, finance curves, "explain the formula" and derivative / integral explainers.  
+**Rebuilt from:** prompt-corpus research: function-plot (16 cases, ideas only; original implementation)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** night  
+**Capabilities:** paints its own background · text: `title`, `xLabel`, `yLabel` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `fn` | `"sin(x) + x/3"` | expression in x: + - * / ^, sin cos tan exp ln sqrt abs, pi, e, implicit "2x" |
+| `points` | `[]` | optional [[x,y],...] data instead of fn (linearly interpolated) |
+| `domain` | `[-6,6]` | x range [min, max] |
+| `range` | `null` | y range [min, max]; null = auto from the curve |
+| `tangentMode` | `"secant"` | 'tangent' \| 'secant' (shrinking h) \| 'none' |
+| `tangentFrom` | `-4.6` | x where the tangent starts sliding |
+| `tangentTo` | `3.2` | x where it stops |
+| `fillArea` | `[-1,4]` | [a, b] integral to fill, or null for none |
+| `riemann` | `10` | number of Riemann bars that melt into the area (0 = none) |
+| `title` | `"f(x) = sin x + x/3"` | formula caption (top left) |
+| `xLabel` | `"x"` | x axis label |
+| `yLabel` | `"f(x)"` | y axis label |
+| `showGrid` | `true` | faint grid |
+| `background` | `"#1C1C1C"` | background colour |
+| `ink` | `"#F2F2F2"` | axes / text colour |
+| `curveColor` | `"#58C4DD"` | curve colour |
+| `tangentColor` | `"#FFFF00"` | tangent / readout colour |
+| `areaColor` | `"#83C167"` | area colour |
+
+### `grid-exception` — Grid exception (the one that breaks out)
+
+![grid-exception](../gallery/grid-exception.jpg)
+
+Swiss grid poster where everything moves in exact eased snaps and one red circle hesitates, then breaks out in the only linear move, growing and pausing mid-flight before landing off the grid; a mono readout flips from on grid to red off grid, the other elements re-flow nearest-first and the grid lines extend to fill the frame.
+
+**Use for:** "One product or person that breaks the mould" stories, the outlier in the data, launch films: a system plus one exception.  
+**Rebuilt from:** lemo-opuscar styles/swiss-motion demo/film.js (circleState, flight, drawCircle, gridState) + DEMO.md arc (MIT / CC BY 4.0, LemoLab)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** ui  
+**Capabilities:** paints its own background · text: `items` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `cols` | `6` | grid columns |
+| `rows` | `8` | grid rows |
+| `items` | `[{"id":"a","col":0,"row":0,"w":2,"h":2,"kind":"block"},{"…` | grid elements: id, col, row, w, h (cells), kind block\|bar\|ring\|text (+ text) |
+| `exceptionFrom` | `[5,0]` | start cell [col,row] of the red circle |
+| `exceptionTo` | `[0.9,3.1]` | landing position [col,row] — non-integer lands off grid |
+| `endDiameter` | `2.2` | circle diameter in cells at landing |
+| `reflowTo` | `{"c":[3,1],"f":[2,5]}` | ids of elements that move out of the way: id -> [col,row] |
+| `hesitateAt` | `56` | frame of the twitch |
+| `breakAt` | `84` | frame the flight starts |
+| `pauseFrames` | `4` | mid-flight pause in frames |
+| `flightFrames` | `36` | moving frames of the whole flight |
+| `reflowFrom` | `122` | frame the re-flow starts |
+| `page` | `"#e6e3dc"` | page colour |
+| `paper` | `"#fbfaf6"` | poster colour |
+| `ink` | `"#111111"` | element colour |
+| `muted` | `"#bdb9ae"` | grid line colour |
+| `signal` | `"#e5322d"` | exception colour |
+
+### `grid-score` — Grid score (poster is the score)
+
+![grid-score](../gallery/grid-score.jpg)
+
+A Swiss poster whose modular grid draws on column by column, black note bars step down a diagonal over lighter second-voice bars; the whole sheet rotates 90 degrees, pitch labels and step numbers wipe in and a red playhead sweeps, turning each bar red on the frame it is played and pulsing a ring on the red circle.
+
+**Use for:** Music or audio brand films, event posters, timetables, "your data is the design" reveals, spec sheets; a data-driven Swiss poster instead of a generic bar chart.  
+**Rebuilt from:** lemo-opuscar styles/swiss-motion demo/film.js (buildUnits, drawUnits, gridState, drawScoreLabels) + DEMO.md (MIT / CC BY 4.0, LemoLab)  
+**Default length:** 300 frames (10.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud  
+**Capabilities:** paints its own background · text: `title`, `caption` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `cols` | `7` | grid columns (pitches or categories) |
+| `rows` | `16` | grid rows (time steps) |
+| `notes` | `[{"col":0,"row":0,"len":2,"voice":"main"},{"col":1,"row":…` | bars: col, row, len, voice main\|second (main bars turn red when played) |
+| `pitchLabels` | `["C","D","E","F","G","A","B"]` | label per column, shown after the rotation |
+| `circle` | `{"col":3,"row":14}` | cell of the red circle that pulses when hit |
+| `title` | `"SCORE N.7"` | tracked heading on the poster |
+| `caption` | `"7 PITCHES / 16 STEPS / 2 VOICES"` | mono caption at the foot of the poster |
+| `gridStart` | `6` | frame the grid starts drawing |
+| `barsStart` | `34` | frame the first bars land |
+| `rotateAt` | `100` | frame the 90 degree rotation starts |
+| `rotateFrames` | `28` | rotation length in frames |
+| `labelsAt` | `140` | frame the labels start to wipe in |
+| `playFrom` | `176` | frame the playhead starts |
+| `playFrames` | `112` | frames the playhead takes to sweep all rows |
+| `page` | `"#e6e3dc"` | page colour |
+| `paper` | `"#fbfaf6"` | poster colour |
+| `ink` | `"#111111"` | bar and text colour |
+| `second` | `"#cfcdc6"` | second-voice bar colour |
+| `signal` | `"#e5322d"` | playhead, played bars and circle colour |
+
+### `ground-plane-ruler` — Ground-plane ruler
+
+![ground-plane-ruler](../gallery/ground-plane-ruler.jpg)
+
+A measuring tape is laid on the ground of a photograph in true one-point perspective, its ticks crowding toward the horizon, while a big mono counter runs and lands on the measured distance.
+
+**Use for:** Distances, spans and heights on real photos — sports, architecture, travel, history ("the first flight covered 120 ft").  
+**Rebuilt from:** lemo-opuscar styles/archive-lighttable demo/film.js measure() (MIT, LemoLab), analysis/sources/lemo-styles-a.md §1 ground-plane-ruler  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo, hud, playful  
+**Capabilities:** paints its own background · text: `unit`, `label` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `src` | `""` | public/ photo with a visible ground plane (empty = procedural archive beach) |
+| `horizonY` | `0.5` | horizon height as a fraction of the frame height (match your photo) |
+| `vanishX` | `0.56` | vanishing point x as a fraction of the width |
+| `value` | `260` | measured length in units (the counter lands here) |
+| `unit` | `"M"` | unit label after the number |
+| `label` | `"DISTANCE COVERED"` | caption above the counter |
+| `tickEvery` | `10` | units between minor ticks |
+| `labelEvery` | `50` | units between numbered major ticks |
+| `startDistance` | `14` | ground distance from the camera to the tape start (bigger = flatter perspective) |
+| `startX` | `-2.2` | lateral ground position of the tape start (units, negative = left) |
+| `endX` | `9` | lateral ground position of the tape end |
+| `tapeWidth` | `0.8` | tape width in ground units |
+| `startAt` | `22` | frame the tape starts running |
+| `runFrames` | `78` | frames for the tape to reach its end |
+| `accent` | `"#FF5A1F"` | tape / signal colour |
+| `mono` | `true` | grade a supplied photo to silver-gelatin greys |
 
 ### `iso-bar-chart` — Isometric bar-chart staircase
 
@@ -2572,6 +6534,40 @@ Data-driven clay-isometric bar chart on a tiled floor; a white eyed blob hops do
 | `background` | `"#E9E1D6"` | backdrop colour behind the floor |
 | `pillarColor` | `"#E5BDA6"` | lift pillar colour |
 | `seed` | `7` | confetti / ripple jitter seed |
+| `floorIntro` | `"none"` | 'none' (default) \| 'ring-drop' (floor tiles fall in rings expanding from the centre: 0.3 s fall with a spin that settles flat at contact, squash, two tiny bounces, cyan rim flash) |
+| `ringEvery` | `7` | ring-drop: frames between rings (0.25 s = 7) |
+| `ringExtent` | `4` | ring-drop: tile margin around the bars in cells |
+| `rimColor` | `"#38C8E8"` | ring-drop: outline flash colour on landing |
+
+### `isotype-count` — Isotype count
+
+![isotype-count](../gallery/isotype-count.jpg)
+
+Isotype statistic: identical flat icons pop in with a back-ease overshoot into a grid, bar, row or heart silhouette, accelerating from quarter notes to 16ths while a big count-up number runs in sync; a highlighted subset turns accent and a legend reads "icon = N".
+
+**Use for:** Stats that feel physical — users, litres, votes, homes — for explainers, reports and pitch decks.  
+**Rebuilt from:** lemo-opuscar styles/iso-infographic (MIT, LemoLab) — engine.js ICON/iconGrid, DEMO.md Isotype numbers  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud  
+**Capabilities:** paints its own background · text: `title`, `icon` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"People served each day"` | caps line above the number |
+| `count` | `60` | number of icons (≤ 400) |
+| `highlight` | `15` | how many icons (from the first) turn the accent colour |
+| `unitValue` | `1000` | value of one icon (count-up = icons × this) |
+| `unitLabel` | `"people"` | legend unit ("1 icon = N unitLabel") |
+| `highlightLabel` | `"first-time visitors"` | legend label for the highlighted subset |
+| `icon` | `"person"` | 'person' \| 'drop' \| 'house' \| 'cup' \| 'box' \| 'tree' |
+| `arrangement` | `"grid"` | 'grid' \| 'bar' \| 'row' \| 'heart' (silhouette) |
+| `bpm` | `100` | beat grid for the pops (accelerates to 16ths and waves) |
+| `start` | `14` | frame of the first pop |
+| `color` | `"#3C7FB1"` | icon colour |
+| `accent` | `"#CF5140"` | highlight colour |
+| `background` | `"#F2E6D0"` | ground colour |
+| `ink` | `"#2E2522"` | text colour |
 
 ### `live-chart` — Live chart / ECG traces
 
@@ -2589,7 +6585,7 @@ Line charts that draw live with a glowing head dot: growth curve + synapse curve
 
 | prop | default | notes |
 |---|---|---|
-| `mode` | `"trace"` | 'trace' (growth + synapses + ECG), 'sync' (dual heartbeat sync), 'decline' (quality chart + gauge) |
+| `mode` | `"trace"` | 'trace' (growth + synapses + ECG), 'sync' (dual heartbeat sync), 'decline' (quality chart + gauge), 'threshold' (line steps toward a dashed limit, final point breaks it with shake, ring, readout panel + stamp), 'scope' (phosphor oscilloscope: beat-repainted trace with echoes, graticule, CRT-off exit) |
 | `data` | `[0.05,0.12,0.3,0.6,1,1.5,2.1,2.7,3.1,3.4]` | trace: main curve values (one sample revealed per 0.25 s) |
 | `declineValues` | `[1,0.93,0.97,0.8,0.84,0.62,0.66,0.45,0.32]` | decline: values of the falling red line |
 | `title` | `"fetal growth"` | trace: chart title; decline: monitor title ('QUALITY' also names the gauge REASONING EFFORT) |
@@ -2607,6 +6603,11 @@ Line charts that draw live with a glowing head dot: growth curve + synapse curve
 | `gaugeFrom` | `0.85` | decline: needle start 0..1 (0 = LOW, 1 = HIGH) |
 | `gaugeTo` | `0.5` | decline: needle end 0..1 |
 | `background` | `"#020414"` | background colour (trace / decline) |
+| `series` | `[]` | threshold: 0..1 values of the line ([] = built-in climb that breaks the limit on the last point) |
+| `threshold` | `0.72` | threshold: height of the dashed limit line, 0..1 |
+| `stamp` | `"BREAK"` | threshold: stamp text that lands on the readout panel |
+| `echoes` | `4` | scope: number of fading previous sweeps kept on screen |
+| `graticule` | `true` | scope: draw the glass graticule over the trace |
 
 ### `map-route` — Map route
 
@@ -2619,13 +6620,13 @@ Top-down illustrated paper map (fields, river, trees, blossoms) with a marker fl
 **Default length:** 270 frames (9.0 s @ 30 fps)
 
 **Roles:** subject · **Mood:** light, paper, nature  
-**Capabilities:** paints its own background · text: `waypoints` · weight: light  
+**Capabilities:** paints its own background · text: `waypoints`, `unit` · image: `src` · weight: light  
 **Pairs well with:** `chapter-header`, `number-counter`, `story-caption-box`  
 
 | prop | default | notes |
 |---|---|---|
 | `waypoints` | `[{"x":-0.62,"y":0.55,"label":"Hive"},{"x":-0.18,"y":0.12,…` | route stops {x, y, label} in map space -1..1 (first = start, last = bearing target) |
-| `style` | `"flight"` | flight = smooth curve; hop = straight legs with hop arcs, popping dots and landing rings |
+| `style` | `"flight"` | flight = smooth curve; hop = straight legs with hop arcs, popping dots and landing rings; range = ticked measuring line A to B over imagery (camera chases the tip, pulls back, reading lands) |
 | `trail` | `"dots"` | dots \| dash (marching) \| line |
 | `marker` | `"bee"` | bee \| pin \| dot |
 | `showBearing` | `true` | red bearing vector, angle arc and distance ticks from the start |
@@ -2637,6 +6638,135 @@ Top-down illustrated paper map (fields, river, trees, blossoms) with a marker fl
 | `vectorColor` | `"#C83230"` |  |
 | `sunColor` | `"#E8A93A"` |  |
 | `zoom` | `1` | camera zoom |
+| `from` | `[0.2,0.68]` | range: start point as frame fractions [x, y] |
+| `to` | `[0.8,0.32]` | range: end point as frame fractions [x, y] |
+| `unit` | `"km"` | range: unit shown after the rolling value |
+| `src` | `""` | range: public/ image used as the ground (empty = procedural satellite-style ground) |
+| `corridor` | `true` | range: light a corridor along the line and dim the rest |
+| `chase` | `true` | range: camera follows the line tip then pulls back |
+| `labelA` | `"A"` | range: label of the start marker |
+| `labelB` | `"B"` | range: label of the end marker |
+
+### `neural-net-layers` — Neural net layers
+
+![neural-net-layers](../gallery/neural-net-layers.jpg)
+
+Columns of neuron circles joined by weighted connections: an activation wave flows layer by layer as glowing pulses (blue to yellow), line widths show the weights, and an output bar chart (softmax) updates; it repeats with fresh inputs.
+
+**Use for:** AI / machine-learning explainers, ML courses, "how the model decides" beats, product AI-feature launch videos.  
+**Rebuilt from:** prompt-corpus: awesome-opus5-5-videos (MIT) — neural network explainers (9 cases), original implementation  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud  
+**Capabilities:** paints its own background · text: `labels`, `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `layers` | `[5,7,7,4]` | neurons per layer, e.g. [5,7,7,4] (2-7 layers, up to 14 each); the last is the output |
+| `inputs` | `[]` | optional input values 0..1 for the first pass (empty = seeded) |
+| `labels` | `["cat","dog","bird","fish"]` | output class names (bar chart rows) |
+| `title` | `"How a network decides"` | title text |
+| `subtitle` | `"forward pass · weights · activations"` | small mono caption under the title |
+| `cycle` | `80` | frames per forward pass (a new input is fed each pass) |
+| `travel` | `12` | frames the activation takes to cross one layer (8-12) |
+| `showWeights` | `true` | line thickness + hue show each weight (false = uniform lines) |
+| `seed` | `7` | seed for weights and inputs |
+| `background` | `"#0B1020"` | background colour |
+| `ink` | `"#DCE4FF"` | text / outline colour |
+| `ramp` | `["#2B5BFF","#2FD0E0","#F7E15A"]` | activation colour ramp (low -> high), 2-4 colours |
+| `positive` | `"#5C8DFF"` | positive-weight connection colour |
+| `negative` | `"#FF9A4A"` | negative-weight connection colour |
+
+### `node-network` — Node network
+
+![node-network](../gallery/node-network.jpg)
+
+A force-laid community graph grows: nodes pop in and glow, links draw between them, clusters take their colours, and counters tick as connections outgrow members (network effect); a shortest path then lights up hop by hop.
+
+**Use for:** Network effects, communities, knowledge graphs, AI agents, social-proof and "everything connects" beats.  
+**Rebuilt from:** prompt-corpus: awesome-opus5-5-videos (MIT) — network-effect / knowledge-graph cases (5), original implementation  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud  
+**Capabilities:** paints its own background · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `count` | `64` | number of nodes (20-140) |
+| `clusters` | `4` | number of communities (colours) |
+| `seed` | `11` | seed for the graph and its layout |
+| `growthCurve` | `"quadratic"` | linear \| quadratic \| exponential — how quickly nodes arrive over time |
+| `highlightPath` | `true` | light up a shortest path between two members at the end |
+| `nodesLabel` | `"members"` | label under the node counter |
+| `linksLabel` | `"connections"` | label under the link counter |
+| `potentialLabel` | `"possible links"` | label under the n(n-1)/2 counter |
+| `title` | `"The network effect"` | title text |
+| `background` | `"#0A0F1E"` | background colour |
+| `ink` | `"#E3E9FF"` | text colour |
+| `colors` | `["#4F8BFF","#31D0C0","#B07CFF","#FF8FB1"]` | cluster colours (cycled) |
+| `linkColor` | `"#8FA4D8"` | tint of the links inside a cluster |
+| `accent` | `"#FFD84D"` | highlight-path and potential-links colour |
+| `drift` | `1` | strength of the slow positional drift (0 = static) |
+
+### `orbit-system` — Orbit system
+
+![orbit-system](../gallery/orbit-system.jpg)
+
+A glowing star and five bodies (one ringed, one with a moon) on dashed elliptical orbits moving at Kepler-ish speeds with name labels and orbit counters and an elapsed-years readout, then a smooth zoom into one body with a spec card.
+
+**Use for:** Astronomy teaching, "ecosystem" metaphors for products (a platform and its satellites), timelines of cycles, a hero background for space or science topics.  
+**Rebuilt from:** prompt-corpus: orbit-system (16 cases, awesome-opus5-5-videos)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud, night  
+**Capabilities:** paints its own background · text: `title`, `subtitle`, `unit` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"A small system"` | headline (top-left, hidden while zoomed) |
+| `subtitle` | `"Five bodies, one star"` | mono sub-line |
+| `starName` | `"Helio"` | label under the star ("" for none) |
+| `bodies` | `[{"name":"Ember","a":0.7,"e":0.12,"r":7,"color":"#d9a066"…` | bodies [{name,a (semi-major axis, AU-like),e (eccentricity),period (optional; defaults to a^1.5),r (px at 1080),color,ring?,moon?}] |
+| `background` | `"#070b1a"` | space colour |
+| `starColor` | `"#ffc857"` | star / sun colour |
+| `inkColor` | `"#e6ecff"` | labels, orbit lines and text |
+| `accent` | `"#ffc857"` | spec-card rule colour |
+| `timeScale` | `0.35` | simulated years per second of video |
+| `tilt` | `0.52` | orbit-plane squash 0.25 (edge-on) .. 1 (top-down) |
+| `focus` | `"Azur"` | body name to zoom into ("" = no zoom) |
+| `focusAt` | `150` | frame the zoom starts (-1 = never) |
+| `focusFrames` | `46` | zoom duration in frames |
+| `unit` | `"yr"` | period unit label |
+| `labels` | `true` | show name + period + orbit counter next to each body |
+| `counter` | `true` | show the elapsed-time readout |
+| `stars` | `90` | background star count |
+| `seed` | `5` | start angles / star field seed |
+
+### `overhead-trail-mandala` — Overhead trail mandala
+
+![overhead-trail-mandala](../gallery/overhead-trail-mandala.jpg)
+
+Top-down 8-panel umbrellas dance in counter-rotating rings on grey cobbles, swelling on every downbeat of a waltz, while each drips its colour as dashed dabs along its path; the camera rotates and cranes out until the trails read as a coloured mandala.
+
+**Use for:** Choreography, routes and "many paths make a pattern": delivery networks, community, team dashboards, movement maps.  
+**Rebuilt from:** lemo-opuscar styles/impasto/demo/film.js l.284-297, docs/frames/impasto.jpg (MIT, LemoLab)  
+**Default length:** 270 frames (9.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `count` | `21` | number of umbrellas (spread over the rings) |
+| `rings` | `3` | number of dance rings (1–4) |
+| `bpm` | `96` | waltz tempo; rings swell on each bar of three |
+| `palette` | `["#E8503A","#F2A93B","#2F9E8F","#3E6FD8","#C2458F","#7BB6…` | umbrella / trail colours |
+| `ground` | `"#8D9096"` | cobble colour |
+| `umbrellaR` | `84` | umbrella radius in px at 1080p (the original is 128–150, fewer umbrellas) |
+| `dabEvery` | `0.125` | trail dab spacing in beats (0.125 = every eighth of a beat) |
+| `zoomFrom` | `1.7` | camera zoom at the start |
+| `zoomTo` | `0.72` | camera zoom at the end (crane out) |
+| `seed` | `4` | cobble layout seed |
 
 ### `panel-triptych` — Panel triptych collide
 
@@ -2664,6 +6794,37 @@ Navy grid backdrop; three coloured panel outlines draw on clockwise, pictures sl
 | `background` | `"#0b1018"` |  |
 | `gridSize` | `90` | backdrop grid spacing in px at 1080p |
 | `seed` | `3` |  |
+| `litAt` | `[]` | lit-panel grid: frames at which panel i lights its accent border + label (e.g. on the spoken word); [] = always lit |
+| `litRise` | `0` | panels rise this many px at 1080p, staggered (0 = no rise) |
+
+### `periodic-table-lightup` — Periodic table light-up
+
+![periodic-table-lightup](../gallery/periodic-table-lightup.jpg)
+
+The 118-element periodic table as rounded tiles; the chosen elements light up one per frame in ink with a pop, a second group lights in the accent colour, a big count-up "N /118" ticks beside the table, and a soft shimmer sweeps the lit tiles. Switch to a custom grid for any category matrix.
+
+**Use for:** "How many X of Y" science and finance explainers and data storytelling (elements used in a phone, states served, features in a matrix).  
+**Rebuilt from:** mg-styles-15 demos/19-paperclip/index.html tiles / TP / USED (MIT)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud  
+**Capabilities:** paints its own background · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `grid` | `"periodic"` | 'periodic' (built-in 118 layout) or 'custom' (use cells) |
+| `cells` | `[]` | custom grid cells [{label, row, col}] (col 1-based, row 1-based; fractional rows allowed) |
+| `lit` | `"H Li B C N O F Na Mg Al Si P S Cl K Ca Ti Cr Mn Fe Co Ni…` | space-separated labels that light in ink |
+| `accent` | `"Ru Rh Pd Pt Ir Os Re Eu Tb Dy Er"` | space-separated labels that light in the accent colour afterwards |
+| `order` | `"sequence"` | 'sequence' (grid order) \| 'random' \| 'by-row' |
+| `stagger` | `1.1` | frames between tiles lighting |
+| `startAt` | `14` | frame the first tile lights |
+| `accentAt` | `90` | earliest frame the accent group starts |
+| `title` | `"ELEMENTS IN USE"` | small caption above the counter |
+| `background` | `"#EEF1F4"` | page colour |
+| `litColor` | `"#25313D"` | lit tile fill |
+| `accentColor` | `"#FF5A36"` | accent tile fill |
+| `seed` | `3` | seed for random order |
 
 ### `perspective-grid` — Hand-drawn perspective board
 
@@ -2697,6 +6858,33 @@ Pen strokes draw a perspective trapezoid board, coloured-pencil hatch fills squa
 | `pullback` | `1.35` | starting zoom of the camera pull-back (1 = none) |
 | `seed` | `2` |  |
 
+### `ride-dimension-line` — Ride the dimension line
+
+![ride-dimension-line](../gallery/ride-dimension-line.jpg)
+
+Quantities drawn as real lengths to one scale on a whiteboard: blue dimension arrows shoot from a shared start line while the camera rides their tips, arrowheads tap on landing, items short of the red limit line get struck through with a dashed shortfall, then the camera pulls back to the whole judgement frame and a verdict lands.
+
+**Use for:** Comparisons in real units — spans, ranges, distances, prices against a budget — that read better than bar charts.  
+**Rebuilt from:** lemo-opuscar styles/briefing-board demo/kit/board.js ink kind dim; DEMO.md judgement frames (MIT / CC BY 4.0, LemoLab), analysis/sources/lemo-styles-a.md §7 ride-dimension-line  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud, ui  
+**Capabilities:** paints its own background · text: `items`, `unit`, `verdict` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `items` | `[{"label":"Beam bridge","value":330},{"label":"Arch bridg…` | [{label, value}] one dimension line each, drawn to one shared scale |
+| `unit` | `"m"` | unit after each value |
+| `limit` | `1000` | limit / requirement value (dashed red line); items below it fail |
+| `limitLabel` | `"needed: 1,000 m"` | marker label at the limit line |
+| `verdict` | `"The ship decides the span."` | red marker verdict after the pull-back (empty = none) |
+| `measure` | `"#1F4FC8"` | measurement ink (blue) |
+| `fail` | `"#D33A21"` | decision ink (red) |
+| `ink` | `"#23272E"` | graphite ink for labels |
+| `itemFrames` | `34` | frames between items |
+| `rideCamera` | `true` | camera rides the arrow tips (false = whole frame from the start) |
+| `background` | `"#F3F1EB"` | board colour |
+
 ### `science-reticle` — Science HUD reticle
 
 ![science-reticle](../gallery/science-reticle.jpg)
@@ -2708,7 +6896,7 @@ Instrument overlay (rings, spokes, tick ring, axis, scale bar) builds around a p
 **Default length:** 210 frames (7.0 s @ 30 fps)
 
 **Roles:** subject · **Mood:** dark, hud  
-**Capabilities:** paints its own background · text: `labels`, `scaleLabel` · weight: light  
+**Capabilities:** paints its own background · text: `labels`, `scaleLabel` · image: `src` · weight: light  
 **Pairs well with:** `callout-labels`, `number-counter`, `caustics-godrays`  
 
 | prop | default | notes |
@@ -2722,6 +6910,43 @@ Instrument overlay (rings, spokes, tick ring, axis, scale bar) builds around a p
 | `accent` | `"#8B8DB8"` | leader line colour |
 | `background` | `"#020414"` |  |
 | `seed` | `3` |  |
+| `mode` | `"reticle"` | 'reticle' (instrument overlay around a cell / planet) \| 'lock' (four corner brackets wander over an image, snap onto a target with overshoot + ping, label leader, then open out to frame a title) |
+| `src` | `""` | lock: public/ image behind the brackets (empty = procedural plate) |
+| `target` | `[0.62,0.55]` | lock: target point as frame fractions [x, y] |
+| `lockAt` | `40` | lock: frame the brackets snap onto the target |
+| `searchFrames` | `40` | lock: informational; the snap happens at lockAt |
+| `overshoot` | `0.08` | lock: snap overshoot (about 0.08) |
+| `lockLabel` | `"TARGET 01"` | lock: label on the leader line after the lock |
+| `openTo` | `[0.2,0.38,0.6,0.24]` | lock: [x, y, w, h] frame fractions the brackets open out to |
+| `openAt` | `120` | lock: frame the brackets open out (-1 = never) |
+| `openTitle` | `"Lumen"` | lock: title shown inside the opened frame |
+
+### `section-profile-chart` — Section profile chart
+
+![section-profile-chart](../gallery/section-profile-chart.jpg)
+
+A vertical plane slices one feature of a raking-lit survey surface; its profile glows on the ground while a dimensioned 2D chart of the real returns (scattered points, a fitted line, height and width dimension lines) appears in the right third, joined by a dashed leader, and the measured reading pops in the accent colour.
+
+**Use for:** Engineering clearances, product dimensions, terrain cross-sections and evidence-style explainers.  
+**Rebuilt from:** lemo-opuscar styles/lidar-survey/demo/film.js drawSection, STYLE.md §8 (MIT, LemoLab), lemo-styles-a lidar-survey: section-profile-chart  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** nature, hud  
+**Capabilities:** paints its own background · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `profile` | `[]` | optional measured profile as [[x, z], …] in metres (default: sampled from the surface) |
+| `units` | `"m"` | unit label |
+| `reading` | `""` | text of the popped reading (default: measured height + units) |
+| `anchor3d` | `[0,0]` | plan position [x, y] of the section and its feature |
+| `accent` | `"#FFB347"` | glow, fit line and reading colour |
+| `title` | `"Section A-A"` | chart heading |
+| `startAt` | `18` | frame the plane starts sweeping |
+| `size` | `200` | terrain size in metres |
+| `seed` | `8` | terrain seed |
+| `background` | `"#07090B"` | backdrop colour |
+| `surface` | `"#2A2D2F"` | low-ground colour of the lit surface |
 
 ### `thumbnail-mosaic` — Thumbnail mosaic (disc / grid / recap)
 
@@ -2739,7 +6964,7 @@ Dozens of thumbnails as a tilted glowing disc of rings, a gapless wall you zoom 
 
 | prop | default | notes |
 |---|---|---|
-| `layout` | `"disc"` | 'disc' (video4 ring disc), 'grid' (video2 mosaic wall), 'recap' (video14 monitor grid) |
+| `layout` | `"disc"` | 'disc' (video4 ring disc), 'grid' (video2 mosaic wall), 'recap' (video14 monitor grid), 'spiral-count' (3x3 windows light in spiral order while the centre counter climbs; the centre lights last in red) |
 | `images` | `["demo/koi.jpg","demo/jellyfish.jpg","demo/lighthouse.jpg…` | public/ image paths cycled through the thumbnails (empty = all procedural scenes) |
 | `procedural` | `0.45` | 0..1 share of thumbnails drawn as procedural mini scenes instead of images |
 | `seed` | `4` |  |
@@ -2751,8 +6976,148 @@ Dozens of thumbnails as a tilted glowing disc of rings, a gapless wall you zoom 
 | `accent` | `"#E546AA"` | disc pink ring / sparkle colour |
 | `dotColor` | `"#3780E7"` | final centre dot colour |
 | `duotone` | `["#1F4FA0","#E8EEF8"]` | disc: [shadow, highlight] of the duotone recolour before the pop-out |
+| `cols` | `3` | spiral-count: grid side (3 = 3x3, 2-6) |
+| `beat` | `12` | spiral-count: frames per lit cell |
+| `lastColor` | `"#D8392B"` | spiral-count: colour of the last cell / final counter |
+
+### `timeline-ruler` — Timeline ruler with event cards
+
+![timeline-ruler](../gallery/timeline-ruler.jpg)
+
+A ruler of years glides under a fixed playhead dot; every event pins a card (date, image or gradient, title, one line) with a spring pop while the camera pans between events and the big odometer year counter rolls through the years in between. Horizontal on 16:9/1:1, vertical on 9:16.
+
+**Use for:** Company history, product roadmaps, "history of X" videos and about-us sections: pass `events` (date, title, body, optional image).  
+**Rebuilt from:** prompt-corpus: timeline-ruler (44 cases), awesome-opus5-5-videos prompts (MIT) — technique only  
+**Default length:** 524 frames (17.5 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo, hud, ui  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `events` | `[{"date":"1998","title":"The first sketch","body":"Two pe…` | [{date: "1998" (a 4-digit year is parsed), title, body?, image?: public path, icon?: name}] |
+| `orientation` | `"auto"` | 'auto' (vertical on portrait) \| 'horizontal' \| 'vertical' |
+| `scale` | `"linear"` | 'linear' = gaps proportional to years (clamped) · 'even' = equal gaps |
+| `cardStyle` | `"light"` | 'light' \| 'dark' |
+| `panFrames` | `26` | camera pan between events (20-30) |
+| `holdFrames` | `58` | hold on each event (45-75) |
+| `showCounter` | `true` | show the odometer year counter |
+| `background` | `"#F1ECE2"` | background colour |
+| `ink` | `"#1A1A1F"` | ruler / counter colour |
+| `accent` | `"#E4572E"` | playhead, markers and dates |
+
+### `token-pipeline` — Token pipeline
+
+![token-pipeline](../gallery/token-pipeline.jpg)
+
+A glass-lab pipeline: glowing cubes swirl in a source bulb, stream one by one through an arched tube, spiral down a gold-ringed glass coil and reach a dropper that swells a drop, glints and drips it into a labelled flask, while the camera follows the flow and pulls back to reveal the whole lab.
+
+**Use for:** Training / build / pipeline explainers ("your data goes in…"), product origin stories, "tokens in, model out" moments.  
+**Rebuilt from:** video x7 0.0-3.75 s (bulb, tube, coil, dropper, flask)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** nature, hud  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `background` | `"#070A24"` | scene background |
+| `cubeColor` | `"#F27A2E"` | token cube colour |
+| `outputColor` | `"#47AFF7"` | drop / flask liquid colour |
+| `glass` | `"#CFE6FF"` | glass tint |
+| `gold` | `"#D49A4A"` | coil rings / dropper colour |
+| `count` | `34` | cubes that travel the pipeline |
+| `gap` | `2` | frames between cubes leaving the bulb |
+| `speed` | `1.5` | cube speed along the tubes (world units per second) |
+| `sourceLabel` | `"DATA"` | paper tag on the source bulb |
+| `targetLabel` | `"v2.0"` | paper tag on the flask |
+| `dropAt` | `96` | frame the drop releases (it swells for 15 frames before) |
+| `seed` | `2` | swirl seed |
+
+### `transfer-arc` — Transfer arc
+
+![transfer-arc](../gallery/transfer-arc.jpg)
+
+A thick gradient tube arches out of one glowing ink-line jar and draws itself into the next; the target fills as the arc lands, the source drops a little, and chained arcs carry the energy purple → blue → orange → pink with light flowing along them.
+
+**Use for:** Showing flows and transfers between containers — energy between stores, money between accounts, data between services — in explainers and lessons.  
+**Rebuilt from:** video x3 3.9-4.6 s, 11.6-13.3 s (transfer arcs between jars)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, hud  
+**Capabilities:** paints its own background · text: `title`, `caption` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `jars` | `[{"label":"Gravitational","color":"#7E2AE4","value":15,"u…` | jars on the shelf, left to right: {label, color, value (shown when full), unit} |
+| `startJar` | `0` | index of the jar that is full at the start |
+| `startLevel` | `0.8` | its fill level 0..1 |
+| `chain` | `[{"from":0,"to":1,"at":22},{"from":1,"to":2,"at":56},{"fr…` | transfer steps {from, to, at (frame the arc starts drawing)} |
+| `drawFrames` | `9` | frames for an arc to draw (easeInOutCubic; source 0.3 s) |
+| `fillFrames` | `12` | frames for the target fill (starts at 80 % of the draw) |
+| `sourceDrop` | `0.1` | fraction of its level the source loses per transfer |
+| `resetAt` | `150` | frame where arcs fade and all jars drain (0 = never) |
+| `arcHeight` | `0.6` | arc apex above the rims, in jar spacings |
+| `arcWidth` | `1` | tube thickness multiplier |
+| `flow` | `true` | light pulses flow along drawn arcs |
+| `eyebrow` | `"Transfers"` | small letter-spaced eyebrow ("" hides) |
+| `title` | `"Energy moves between stores"` | serif italic title ("" hides) |
+| `caption` | `"Fig. 2  Each arc carries energy on to the next store."` | italic figure caption ("" hides) |
+| `labels` | `true` | show label cards with handwritten values |
+| `sun` | `true` | show the ink sun icon |
+| `paper` | `"#EFEDE9"` | page paper colour |
+| `ink` | `"#1E1E1E"` | line / text ink colour |
+| `yaw` | `-18` | 3/4 view yaw in degrees (drifts +6°) |
+| `pitch` | `26` | camera elevation in degrees |
 
 ## ui
+
+### `agent-log-panel` — Agent log panel
+
+A dark translucent side panel with a white hairline frame and a turn header, scrolling an agent conversation log: avatar dots, coloured name chips, typed mono messages with highlighted @mentions, reply rows, collapsible report rows and communication-phase dividers.
+
+**Use for:** Showing agent reasoning or chat history next to the action; multi-agent demos, customer-support and simulation promos; overlay-capable.  
+**Rebuilt from:** video x6 29-47 s (left conversation log)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** hud, ui, night  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `messages`, `headerRight` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `background` | `"transparent"` | backdrop; 'transparent' (default) overlays the host content |
+| `messages` | `[{"author":"General Nova","text":"@SOLDIERS All archers f…` | log entries {author, text, replies?, report? (collapsible row), divider? (phase divider)} |
+| `colors` | `{"General Nova":"#E58682","Archon Vega":"#CBB8F5","Genera…` | chip colour per author |
+| `chipText` | `{}` | chip text colour per author (default dark) |
+| `header` | `"TURN: 18/31   ACTION"` | panel header left text |
+| `headerRight` | `"MANUAL ▷   ⛶"` | panel header right text |
+| `typeSpeed` | `50` | typing speed in chars/s |
+| `every` | `24` | frames between messages |
+| `width` | `0.25` | panel width as a fraction of frame width (landscape) |
+| `demoScene` | `true` | paint the painterly battlefield behind (preview only; turn off as an overlay) |
+| `seed` | `12` | scene seed |
+
+### `board-print-drop` — Board print drop
+
+Cut-out photo prints are lowered onto an enamel whiteboard from the camera side, land with a tiny bounce and spin settle while their soft shadows tighten, get pinned by two clacking magnets, and marker captions write themselves under each.
+
+**Use for:** Evidence boards, mood boards, case studies, "here's what we tested" product comparisons — physical and premium.  
+**Rebuilt from:** lemo-opuscar styles/briefing-board demo/kit/board.js arrive drop / snap, height shadows (MIT, LemoLab), analysis/sources/lemo-styles-a.md §7 board-print-drop  
+**Default length:** 165 frames (5.5 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo, playful, editorial  
+**Capabilities:** paints its own background · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `prints` | `[{"x":0.22,"y":0.5,"w":0.24,"rot":-2.5,"at":14,"label":"B…` | [{src?, seed?, x, y, w, rot, at, label}] centre x/y (0..1), width as a fraction of frame width, rotation in degrees, landing start frame and marker caption; no src = procedural scene |
+| `dropFrames` | `18` | frames for one drop (0.6 s in the source) |
+| `light` | `[0.45,0.8]` | light vector [x, y] for the height shadows |
+| `magnetColors` | `["#1F4FC8","#D33A21","#23272E"]` | magnet colours |
+| `ink` | `"#23272E"` | graphite marker colour |
+| `accent` | `"#D33A21"` | red marker colour (last caption — the decision) |
+| `title` | `"Which span fits?"` | marker headline top-left (empty = none) |
+| `background` | `"#8F8B83"` | wall colour behind the board |
 
 ### `browser-mockup` — Browser mockup with living hero
 
@@ -2790,6 +7155,13 @@ Rounded, shadowed browser window on a blue-grey backdrop showing a landing page 
 | `chrome` | `true` | show the browser top bar (traffic lights + URL) |
 | `cursor` | `true` |  |
 | `scroll` | `0.5` | how far the page scrolls (fraction of the viewport, 0 = no scroll) |
+| `device` | `"browser"` | browser (default floating window) \| laptop (aluminium laptop on the desk whose lid opens toward the camera, screen fading up to the page) |
+| `lidFrames` | `14` | laptop: frames the lid takes to open |
+| `lidAt` | `4` | laptop: frame the lid starts opening |
+| `deviceColor` | `"#CBAE93"` | laptop: aluminium colour |
+| `cursorPath` | `[]` | [{t0, t1, to:[x,y] fractions of the viewport, arc px}] scripted cursor glide on arcs between waypoints (overrides the default CTA click path) |
+| `clicks` | `[]` | frames at which the cursor clicks (dip + tiny camera push); used with cursorPath |
+| `clickPush` | `0.012` | camera push amount on a click (0.012 = 1.2 %) |
 
 ### `card-fan` — Card fan: deal & play / connect
 
@@ -2820,6 +7192,58 @@ Cards deal from a pile into a fanned hand, one is hovered, played to centre and 
 | `labels` | `["CONNECT","REASON"]` | connect mode: [first label, final label] |
 | `accent` | `"#4777D2"` | connect mode rail / capsule colour |
 
+### `card-stack-cascade` — Card stack cascade (bento + focus)
+
+Feature cards scale in from 30 % with a fade, staggered 4 f apart, into a bento grid (or a row, or a fanned deck) with a gentle idle float; then one card flies to the centre and grows to ~60 % of the frame while the rest dim to 40 % and defocus, and everything settles back.
+
+**Use for:** Feature overviews in launch videos, website sections, pricing / plan reveals: pass `cards` (title, body, icon, span "2x1"), choose `layout`, set `focusIndex`.  
+**Rebuilt from:** prompt-corpus: card-stack-cascade (35 cases), awesome-opus5-5-videos prompts (MIT) — technique only  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** ui  
+**Capabilities:** paints its own background · text: `cards` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `cards` | `[{"title":"Realtime sync","body":"Every change lands on e…` | [{title, body?, icon?: bolt\|shield\|chart\|chat\|globe\|spark\|lock\|cog\|user\|db\|cloud\|star, image?: public path, span?: "2x1" \| number of columns}] |
+| `layout` | `"bento"` | 'bento' grid \| 'row' \| 'stack' (fanned deck) |
+| `focusAt` | `104` | frame when the focused card flies to the centre |
+| `focusIndex` | `1` | which card is focused (0-based) |
+| `unfocusAt` | `176` | frame when everything settles back (0 = never) |
+| `stagger` | `4` | frames between card entrances (3-5) |
+| `dimTo` | `0.4` | opacity of the other cards during focus |
+| `dark` | `false` | dark theme |
+| `accent` | `"#5B5FEF"` | focused card accent |
+| `background` | `""` | background colour (empty = theme default) |
+
+### `carousel-3d` — Carousel 3D
+
+Cards or clips on a 3D ring rotate past the camera over a glossy floor with mirrored reflections; a motion-blurred whip lands the hero card face-on, which pushes forward while the others dim.
+
+**Use for:** Portfolio reels, product galleries, template showcases, "pick from the collection" beats.  
+**Rebuilt from:** prompt-corpus: awesome-opus5-5-videos (MIT) — 3D ring gallery cases (6), original implementation  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, ui  
+**Capabilities:** paints its own background · text: `items`, `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `items` | `[{"title":"Northwind","subtitle":"brand system"},{"title"…` | [{src?, title?, subtitle?, color?}] cards on the ring (src = public/ image; without it a procedural poster card is drawn); 3-12 items |
+| `heroIndex` | `2` | index of the card the whip lands on |
+| `whipAt` | `62` | frame the whip starts |
+| `whipFrames` | `20` | whip length in frames (8-24) |
+| `radius` | `1` | ring radius multiplier (1 = cards just clear each other) |
+| `idleSpeed` | `0.4` | idle turn speed in rad/s before the whip |
+| `cardAspect` | `0.78` | card width / height |
+| `reflection` | `true` | mirrored floor reflections |
+| `motionBlur` | `1` | directional blur strength during the whip (0 = off) |
+| `background` | `"#0A0B12"` | background colour |
+| `floor` | `"#10121D"` | floor colour |
+| `accent` | `"#5B7CFF"` | spotlight / floor glow colour |
+| `ink` | `"#FFFFFF"` | text colour |
+| `title` | `"Selected work"` | title at the top |
+
 ### `chat-bubbles` — Chat bubbles, chips & thought bubble
 
 ![chat-bubbles](../gallery/chat-bubbles.jpg)
@@ -2844,6 +7268,498 @@ Chat bubbles and comment / prompt chips pop in one by one around a box-bot, a sp
 | `verdictColor` | `"#7DFDB0"` | verdict chip colour |
 | `showBot` | `true` | draw the orange box-bot speaker |
 | `background` | `"#12031f"` |  |
+
+### `circuit-rebuild` — Circuit rebuild
+
+Isometric hardware assembly on drafting paper that rebuilds itself on every step: old parts and cables pop off and retract, the camera re-frames, then base pieces slide in, small parts drop with a tiny bounce, large props grow from a floor tile and cables grow last. Step card and header stay fixed.
+
+**Use for:** Step-by-step product / hardware / architecture explainers ("add a database, then a cache"), onboarding tours, kit unboxing, any "here is step N" sequence.  
+**Rebuilt from:** video x8 0:00.9-0:01.9, 0:04.2-0:06.4, 0:08.2-0:08.9, 0:20.1-0:20.75, 0:29-0:30.9, 0:37.9-0:38.7, 0:53.7-0:54.75  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, 3d, playful  
+**Capabilities:** paints its own background · text: `headerRight` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `steps` | `[{"title":"Blink an LED","text":"Wire a resistor and an L…` | array of {title, text, parts:[{id, kind, fp?:[x,y,w,d,h], z?}]}; kinds: board breadboard resistor led button sensor wall motor servo light car ball. Parts are diffed by id between steps. |
+| `stepAt` | `[0,70,140]` | start frame of each step |
+| `teardownFrames` | `5` | frames the outgoing parts take to leave (0.12-0.2 s) |
+| `stagger` | `3` | frames between incoming parts |
+| `cables` | `true` | draw cables from the board pin to each part pin (grow last, retract on teardown) |
+| `header` | `"Basics"` | dark top bar word |
+| `headerRight` | `"LAB 01"` | small right-aligned label in the top bar |
+| `card` | `true` | show the step info card at the bottom |
+| `background` | `"#F4ECDB"` | paper colour |
+| `grid` | `true` | draw the isometric drafting-paper grid |
+| `reframeFrames` | `20` | frames of the camera re-frame (easeInOutCubic) |
+| `margin` | `0.08` | auto-frame margin as a fraction of the viewport |
+
+### `clock-calendar` — Clock and calendar time-lapse
+
+An analog clock whose hands sweep from one time to another over a night-dawn-day-dusk sky tint with a digital readout, beside a wall calendar whose pages flip (or tear off) day by day while the date rolls, ending with a pulse ring and a circled final date.
+
+**Use for:** Deadlines, "a day in the life" and history-in-a-day stories, countdowns, project timelines, "X days later" beats. Use mode to show only the clock or only the calendar.  
+**Rebuilt from:** prompt-corpus: clock-calendar (13 cases, awesome-opus5-5-videos)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** nature, night  
+**Capabilities:** paints its own background · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `mode` | `"both"` | 'clock' \| 'calendar' \| 'both' |
+| `from` | `"08:00"` | clock start time HH:MM |
+| `to` | `"18:30"` | clock end time HH:MM (past midnight if earlier than from) |
+| `fromDate` | `"2025-03-03"` | calendar start date YYYY-MM-DD |
+| `toDate` | `"2025-03-14"` | calendar end date YYYY-MM-DD |
+| `flip` | `"flip"` | 'flip' (page hinges up, 8 frames) \| 'tear' (page tears off and flies away) |
+| `title` | `"One working week"` | headline |
+| `subtitle` | `"Twelve days in six seconds"` | mono sub-line |
+| `background` | `"#efe7d8"` | flat background when sky is off |
+| `sky` | `true` | tint the background by time of day (clock modes) |
+| `paper` | `"#fbf7ee"` | clock face / calendar page colour |
+| `ink` | `"#1b1a22"` | clock numerals, hands and calendar text colour |
+| `accent` | `"#e8472b"` | header band, weekend days, seconds hand, end circle |
+| `holdStart` | `14` | frames held before the time-lapse starts |
+| `holdEnd` | `40` | frames held after it ends (pulse + circle) |
+| `flipFrames` | `8` | page flip length in frames |
+| `seconds` | `true` | show the sweeping seconds hand |
+
+### `command-palette-type` — Command palette typing
+
+A dot grows into a search / prompt bar, a caret types the query with jittered keystrokes while matching suggestions stagger in and filter themselves, Enter presses the bar (scale 0.97 plus an accent glow), the list collapses and a result card slides in and streams its answer with tag chips.
+
+**Use for:** AI products, search tools and SaaS demos: the "user types a prompt and gets an answer" shot. Pairs with cursor-driver and ui-shape-morph.  
+**Rebuilt from:** prompt corpus x18 (prompt bar types, suggestions filter, enter -> result card)  
+**Default length:** 270 frames (9.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** ui  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `placeholder` | `"Search or ask anything"` | placeholder text shown in the empty bar |
+| `query` | `"summarize the q3 roadmap"` | the typed text |
+| `suggestions` | `["Summarize the Q3 roadmap","Summarize the meeting notes"…` | suggestion rows; rows that stop matching the typed words collapse away |
+| `resultTitle` | `"Q3 roadmap, summarized"` | result card title |
+| `resultBody` | `"Three themes shape the quarter: faster onboarding, a cal…` | result text, streamed in |
+| `resultTags` | `["Roadmap","Q3","Draft"]` | chips under the result |
+| `resultImage` | `""` | optional thumbnail for the result (public/ path or URL) |
+| `theme` | `"dark"` | 'dark' \| 'light' |
+| `accent` | `"#7c8cff"` | caret / highlight / glow colour |
+| `background` | `""` | page colour (empty = theme default) |
+| `typeStart` | `40` | frame typing begins |
+| `charFrames` | `2.5` | frames per character (2-3 feels human) |
+| `enterGap` | `16` | frames between the last character and Enter |
+
+### `cursor-driver` — Cursor driver (operated UI)
+
+A pointer glides on bowed ease-in-out hops, presses with a 0.88x squash and a ripple ring, drags a slider and types into a field, so UI demos look operated. With the demo card on, the settings UI reacts to it (field text, slider, toggle, save button); with `demo:false` and a transparent background it is a pure overlay for your own keys.
+
+**Use for:** Every UI demo, SaaS launch, tutorial and app preview: lay it over browser-mockup / device-mockup / ui-shape-morph with keys in % of the frame; key host reactions off `cursorEvents(keys)`.  
+**Rebuilt from:** prompt-corpus: cursor-driver (36 cases), awesome-opus5-5-videos prompts (MIT) — technique only  
+**Default length:** 300 frames (10.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `keys` | `[]` | [{frame (arrival), x, y (% of frame), action:'move'\|'click'\|'drag'\|'type', text?, target?}] — empty = the built-in demo track |
+| `style` | `"arrow"` | 'arrow' \| 'hand' \| 'touch' |
+| `color` | `"#111111"` | cursor fill colour |
+| `size` | `34` | cursor height in u |
+| `rippleColor` | `"#4F5BD5"` | click ripple colour |
+| `demo` | `true` | draw the reactive demo settings card under the cursor |
+| `demoText` | `"hello@northwind.co"` | text typed into the demo field |
+| `accent` | `"#4F5BD5"` | demo UI accent |
+| `background` | `"#EDEBE7"` | canvas colour; 'transparent' for overlay use |
+| `dark` | `false` | dark demo card |
+
+### `device-mockup` — Device mockup (phone, tablet, laptop, watch)
+
+A CSS-built phone, android, tablet, laptop or watch with your screen content (a picture, a tall screenshot that scrolls, or a built-in app UI): it tilts in from 25 degrees and settles on a soft floor shadow, sways gently, then flips over to show a second panel while an optional headline fades in beside it.
+
+**Use for:** App launches, feature tours, testimonials, store previews: makes a host screenshot look shipped. Pass `src` (and `src2` for the flip side) and `device`.  
+**Rebuilt from:** prompt corpus x18 (device frame with real screen content, 3D tilt entry, flip to second panel)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo, 3d, ui  
+**Capabilities:** paints its own background · text: `headline`, `brand` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `device` | `"iphone"` | 'iphone' \| 'android' \| 'tablet' \| 'laptop' \| 'watch' |
+| `src` | `""` | screen image (public/ path or URL); empty = built-in app UI |
+| `src2` | `""` | image on the flip side (default: reuse src, or the second built-in panel) |
+| `fit` | `"cover"` | 'cover' (fill the screen) \| 'scroll' (fit width and scroll a tall screenshot) |
+| `scroll` | `[0,1]` | [from, to] scroll position 0..1 of the overflow (tall screenshot or built-in list) |
+| `scrollFrames` | `[26,96]` | [start, end] frames of the scroll |
+| `tilt` | `25` | entry rotateY in degrees (25 -> 0) |
+| `flipAt` | `112` | frame the device flips to its second panel (0 = never) |
+| `headline` | `""` | optional headline beside / above the device |
+| `subline` | `""` | optional sub line under the headline |
+| `bodyColor` | `"#1c1e26"` | device body colour |
+| `accent` | `"#4f6bff"` | accent colour of the built-in UI (and watch strap) |
+| `background` | `"#dfe5f5"` | backdrop colour |
+| `background2` | `"#b9c4e6"` | backdrop edge colour |
+| `textColor` | `"#16203f"` | headline colour |
+| `size` | `1` | device size multiplier |
+| `brand` | `"Lumen"` | name shown in the built-in UI |
+
+### `glass-lesson-card` — Glass lesson cards
+
+Frosted-glass lesson cards float top-left over an open textbook on a felt desk — red-brown letter-spaced eyebrow, serif heading, body / key-word list / ticked checklist — and swap LESSON → EQUATION → KEY WORDS → PREDICT → WHY? with a crossfade and an 8 px upward drift. Backdrop "none" turns it into a transparent overlay.
+
+**Use for:** Lesson, step and definition overlays for educational explainers, product tours and course trailers; the card system of an "interactive lesson" video.  
+**Rebuilt from:** video x3 13.9-22.0 (glass-lesson-card)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** editorial, ui  
+**Capabilities:** overlay (`{"background":"transparent","backdrop":"transparent"}`) · text: `cards` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `cards` | `[{"eyebrow":"Lesson 1","heading":"Energy stores","body":[…` | list of {eyebrow, heading, body?: string[], items?: [{term, def}], checklist?: string[], tick?: index}; "E_p" in a heading renders a subscript |
+| `startAt` | `6` | frame the first card fades in |
+| `holdFrames` | `45` | frames each card stays before the next replaces it (the last one holds to the end) |
+| `position` | `"top-left"` | top-left \| top-right \| bottom-left \| bottom-right (portrait always centres the card at the top) |
+| `width` | `660` | card width in u (clamped to the frame) |
+| `backdrop` | `"book"` | "book" procedural textbook spread on a felt desk \| "none" = transparent overlay (CSS backdrop blur over host content) |
+| `drift` | `0.03` | slow camera push on the backdrop over the whole clip (0.03 = 3 %) |
+| `eyebrowColor` | `"#683836"` | eyebrow (small caps) colour |
+| `headingColor` | `"#22211A"` | heading colour |
+| `bodyColor` | `"#3B3B38"` | body text colour |
+| `tickColor` | `"#2E7D3A"` | checklist tick colour |
+| `background` | `"transparent"` | colour behind the cards when backdrop is "none" ("transparent" to overlay) |
+
+### `glass-ui-cards` — Glass UI cards
+
+Frosted glass cards float in 3D with parallax over a drifting mesh-gradient: blurred saturated backdrop, faint white fill, 1px rim highlight, a broad diagonal sheen and a catch-light circling the edge; inside, a chat with a streamed reply, a voice waveform with a glowing orb, and toggle / slider / chips.
+
+**Use for:** AI-assistant demos, app feature films and website heroes that want a translucent, premium UI look.  
+**Rebuilt from:** mg-styles-15 demos/12-aurora-glass (MIT, FS_CARD, cards/riseA)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, ui  
+**Capabilities:** paints its own background · text: `cards` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `cards` | `[{"kind":"chat","x":-270,"y":-40,"z":40,"tilt":-2.5,"w":5…` | cards: kind chat\|voice\|controls, x/y offsets (px at 1080), z depth, tilt degrees, w/h size (portrait re-stacks them vertically) |
+| `userText` | `"Plan my launch week"` | user message bubble |
+| `replyText` | `"Sure. I drafted a five day plan, booked the review on Tu…` | assistant reply streamed word by word |
+| `frost` | `30` | backdrop blur in px (30) |
+| `tint` | `0.085` | white fill opacity (0.085) |
+| `lightDir` | `125` | light direction in degrees (rim highlight faces it) |
+| `accent` | `"#8b5cf6"` | accent colour for bubbles, toggles, orb |
+| `colors` | `["#6d28d9","#2563eb","#06b6d4","#c026d3"]` | backdrop pool colours |
+| `base` | `"#07061c"` | backdrop base colour |
+| `orbitDeg` | `6` | camera parallax swing in degrees |
+| `seed` | `11` | backdrop seed |
+
+### `icon-grid-burst` — Icon grid burst
+
+A 2x2 grid of flat colour cells with numbered small-caps labels; on every beat one cell bursts alive (bars grow, a check draws, a heart pops, a coin flips) while a hero dot hops onto the active icon; then the cells round to circles, merge to the centre and become a logo lockup.
+
+**Use for:** Four benefits in four beats for product promos, feature recaps and slides; ends on a brand lockup.  
+**Rebuilt from:** mg-styles-15 demos/01-flat-vector (updIcons) video 5.5-8.0 s (MIT)  
+**Default length:** 230 frames (7.7 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `cells` | `[{"icon":"bars","label":"01 PROGRESS","color":"#FF6B5A"},…` | cells[{icon: bars\|check\|heart\|coin\|<svg path d in a ±90 box>, label, color}] (1-6) |
+| `background` | `"#FFF3E0"` | page colour |
+| `ink` | `"#24224A"` | hero dot / logo ink colour |
+| `firstBeat` | `26` | frame of the first burst |
+| `beatEvery` | `18` | frames between bursts (15 = 120 bpm) |
+| `collapseAt` | `140` | frame the cells collapse to circles |
+| `collapseTo` | `"logo"` | 'logo' merges into a logo lockup, 'none' keeps the grid |
+| `logoText` | `"Lumen"` | wordmark under the logo ring |
+
+### `inspector-popover` — Inspector popover
+
+A floating property card next to a selected isometric object: title with close ×, one-line description, segmented chips (active chip navy), a teal slider whose knob and value move with the dragged object, a toggle, and a "+ ZOOM TO IT" button with a hint. It scales/fades in on click, swaps chips in one frame and fades out on step change.
+
+**Use for:** Product UI demos, design-tool and configurator promos, "tweak a parameter" explainers.  
+**Rebuilt from:** video x8 0:15.5-0:20.2, 0:44-0:53.8  
+**Default length:** 170 frames (5.7 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, ui  
+**Capabilities:** paints its own background · text: `title`, `unit` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"DISTANCE TARGET"` | card title |
+| `description` | `"Pick what the sensor sees and slide it closer or further…` | one-line description |
+| `chips` | `["Car","Box","Ball","Wall"]` | segmented chip labels (car, box, ball, wall, sensor, servo, led, motor pick the scene object) |
+| `activeChip` | `0` | initially active chip index |
+| `switchChipTo` | `2` | chip index to switch to at switchAt (-1 = never) |
+| `switchAt` | `92` | frame of the 1-frame chip swap |
+| `sliderLabel` | `"Distance"` | slider caption |
+| `sliderFrom` | `17` | slider value at the start of the drag |
+| `sliderTo` | `50` | slider value after the drag |
+| `sliderMin` | `5` | slider minimum |
+| `sliderMax` | `60` | slider maximum |
+| `unit` | `"cm"` | value unit |
+| `sliderAt` | `36` | frame the drag starts (0.9 s long) |
+| `toggle` | `"Drive back and forth while running"` | toggle label |
+| `toggleAt` | `112` | frame the toggle switches on |
+| `button` | `"+ Zoom to it"` | button label |
+| `hint` | `"or drag it in the scene"` | teal hint next to the button |
+| `openAt` | `16` | frame the object is clicked and the card opens |
+| `closeAt` | `154` | frame the card fades out (step change) |
+| `accent` | `"#21A69A"` | teal accent |
+| `navy` | `"#181B30"` | active chip colour |
+| `background` | `"#F4ECDB"` | paper colour |
+| `scene` | `true` | draw the iso scene with the selected object (off = card only) |
+
+### `iso-actuators` — Iso actuators
+
+Small isometric hardware tiles that come alive when running: an LED blinking with a glow, a DC-motor fan ramping its PWM until the blades blur into a disc, a servo horn sweeping with a live degree pill, a traffic light switching green / yellow / red by a distance reading, and a toy car driving back and forth with its ground ring following.
+
+**Use for:** IoT / maker / robotics content, "the code drives the hardware" explanations, playful product UIs; pair with circuit-rebuild or code-run-sync.  
+**Rebuilt from:** video x8 0:01.9-0:04.2, 0:20.75-0:29, 0:30.9-0:37.9, 0:38.7-0:53.7  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, 3d, playful  
+**Capabilities:** paints its own background · text: `labels` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `kinds` | `["led","motor","servo","trafficLight","car"]` | actuator tiles in order: 'led' \| 'motor' \| 'servo' \| 'trafficLight' \| 'car' (any other part kind just sits on a tile) |
+| `labels` | `[]` | optional tile label per kind (default per-kind captions) |
+| `speed` | `1` | signal clock multiplier |
+| `values` | `true` | show the live value pills (HIGH/LOW, PWM, degrees, cm, position) |
+| `background` | `"#F4ECDB"` | paper colour |
+| `accent` | `"#21A69A"` | ground ring / accent colour |
+| `startAt` | `24` | frame the hardware starts running |
+| `stagger` | `5` | frames between tiles popping in |
+| `grid` | `true` | draw the isometric drafting-paper grid |
+| `columns` | `0` | tile columns (0 = auto: 3 landscape, 2 portrait) |
+
+### `keystroke-hud` — Keystroke HUD
+
+KeyCastr-style frosted-glass key caps (shift, cmd, a letter, return, esc ...) pop in at the bottom as each shortcut is pressed, the last key dips like a real press, the combo holds about a second, stacks beside the next one and fades. Over a soft demo editor by default; backdrop none = transparent overlay.
+
+**Use for:** Tutorials, dev-tool and productivity-app demos, screen recordings that need the shortcuts shown; lay over a real recording with backdrop none.  
+**Rebuilt from:** lemo-opuscar styles/living-screencast STYLE.md §4 + demo/main.js HUD (MIT, LemoLab) — cap 4 % H, radius 8 px, rgba(255,255,255,.7) + blur 12, pop .12 s, hold ~1 s  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** hud, playful  
+**Capabilities:** overlay (`{"backdrop":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `keys` | `[{"t":0.7,"combo":"⌘ K"},{"t":2.2,"combo":"⇧ ⌘ M"},{"t":3…` | array of {t seconds, combo}: tokens separated by space or +, e.g. "⇧ ⌘ M", "cmd+shift+p", "ctrl alt delete", "esc" |
+| `hold` | `1` | seconds a combo stays fully visible |
+| `size` | `1.3` | key cap size multiplier |
+| `position` | `"bottom"` | bottom \| top |
+| `glass` | `"rgba(255,255,255,0.7)"` | cap fill (rgba) — frosted glass |
+| `ink` | `"#1D1D26"` | glyph colour |
+| `backdrop` | `"demo"` | demo = soft editor mock behind; none = transparent overlay |
+| `accent` | `"#7048E8"` | reserved accent colour |
+| `seed` | `4` | demo backdrop seed |
+
+### `lesson-carousel` — Lesson carousel
+
+Course / playlist navigation: a bottom strip of lesson cards with isometric part thumbnails and labels like "3. READ A SENSOR ›", teal check badges popping on completed lessons, a teal outline on the active card, arrow buttons that slide the strip by three cards, and a cursor that clicks the next card. A big preview of the active lesson sits above the strip.
+
+**Use for:** Course / playlist / step navigation in app promos; a chapter selector at the bottom of an explainer.  
+**Rebuilt from:** video x8 0:00.9, 0:06.7-0:07.0, 0:20.1, 0:29, 0:37.9, 0:53.7  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, playful, editorial, ui  
+**Capabilities:** paints its own background · text: `items` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `items` | `[{"label":"Blink an LED","thumb":"led"},{"label":"Press a…` | array of {label, thumb}; thumb = part kind: board led button sensor motor servo light car wall resistor breadboard ball |
+| `start` | `1` | index of the initially active lesson |
+| `activeAt` | `[48,140]` | frames at which the cursor clicks the next lesson (active moves +1, previous gets a check) |
+| `scrollAt` | `[94]` | frames at which the cursor clicks the right arrow and the strip scrolls |
+| `scrollBy` | `3` | cards per scroll |
+| `completed` | `[0]` | indices that already carry the check badge |
+| `accent` | `"#21A69A"` | teal accent (outline, badge) |
+| `cursor` | `true` | show the cursor that clicks |
+| `background` | `"#F4ECDB"` | paper colour |
+| `heading` | `"Basics"` | heading word at the top left |
+| `preview` | `true` | show the large preview of the active lesson above the strip |
+| `visible` | `0` | cards visible in the strip (0 = auto: 5 landscape, 3 portrait) |
+
+### `liquid-glass-lens` — Liquid glass lens
+
+A capsule of clear thick glass (iOS-26 "Liquid Glass") is born from a UI toggle knob, glides over a product page magnifying it, bends the picture at its rounded bezel, splits colours into thin rainbow fringes, casts a soft shadow with a caustic glow, and ends as the "O" ring of a wordmark.
+
+**Use for:** The hero wow for product launches, a lens gliding over any screenshot or website hero, and a logo end card where the lens becomes a letter.  
+**Rebuilt from:** mg-styles-15 demos/12-aurora-glass/shaders.js FS_LENS (MIT)  
+**Default length:** 200 frames (6.7 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo, nature, ui  
+**Capabilities:** overlay (`{"overlay":true}`) · text: `headline` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `path` | `[[0.84,0.2,10],[0.5,0.4,56],[0.26,0.58,84],[0.64,0.78,114]]` | lens keys [x, y, frame] with x,y as 0-1 fractions of the frame; eased between keys |
+| `size` | `100` | lens half-height in px at 1080 |
+| `aspect` | `2.3` | capsule length / height (1 = circle) |
+| `bezel` | `0.85` | bezel width as a fraction of the half-height (0.3-1) |
+| `ior` | `1.35` | index of refraction: strength of the rim bending (1.2-1.6) |
+| `dispersion` | `0.07` | rainbow fringing amount (0 = none, 0.07 default) |
+| `magnify` | `1.28` | interior magnification (1.15-1.3) |
+| `from` | `"bead"` | 'bead' = grows out of the toggle knob \| 'none' |
+| `toRing` | `true` | end as the O ring of the wordmark |
+| `ringIndex` | `-1` | wordmark letter index that becomes the ring (-1 = last O) |
+| `ringAt` | `134` | frame the lens heads for the wordmark |
+| `wordmark` | `"Studio"` | end-card wordmark (also the nav logo) |
+| `headline` | `"Make it\|crystal clear."` | two headline lines separated by \| |
+| `subline` | `"Interfaces made of light."` | sentence under the headline |
+| `overlay` | `false` | draw only the lens chrome (shadow + rim) with a transparent background, no refracted copy |
+| `background` | `"#0b0824"` | backdrop colour |
+| `colors` | `["#7c3aed","#06b6d4","#f472b6"]` | three accent colours for the page glows and cards |
+
+### `magnet-pin` — Magnet pin (board token)
+
+A glossy round magnet (an orange map pin with a white dot and a specular highlight) drops onto a board with a shrinking blurred shadow and a click ripple, slides between labelled spots with a small lift, then sinks (tilts and drops) or lifts off.
+
+**Use for:** The hero token on any board or map: you-are-here, a delivery truck, a player piece, a "we are here" marker; pairs with map-route and board-camera.  
+**Rebuilt from:** lemo-opuscar styles/whiteboard demo engine (MIT, LemoLab) — drawPinMagnet, own SVG build  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `background` | `"#F3F0E9"` | board colour |
+| `shape` | `"pin"` | 'pin' \| 'disc' \| 'icon' |
+| `color` | `"#F26B2A"` | magnet colour |
+| `ink` | `"#2A2C31"` | ink for grid, spots and labels |
+| `keys` | `[{"frame":24,"x":0.22,"y":0.64,"action":"drop"},{"frame":…` | [{frame, x, y (0-1 fractions), action:'drop'\|'slide'\|'lift'\|'sink'}] in order |
+| `spots` | `[{"x":0.22,"y":0.64,"label":"Start"},{"x":0.5,"y":0.36,"l…` | [{x, y, label}] labelled places on the board (replace the sample labels) |
+| `showRoute` | `true` | dotted route between keyed positions |
+| `size` | `150` | pin size in px |
+
+### `notification-stack` — Notification stack (iOS / macOS / Android / toast)
+
+System notifications slide in on a 10-frame spring and stack — newest on top, older ones compress behind (7 px offset, 0.96 scale per level, max 4 visible) or list in full — with a red counter badge that pops on each arrival. iOS lock-screen banners with a clock, macOS corner cards, Android heads-up cards or a plain toast pill; light or dark, or transparent as an overlay.
+
+**Use for:** Social proof ("new order!"), app demos, urgency hooks in ads, "your inbox in 10 seconds" gags; pass your own items.  
+**Rebuilt from:** prompt-corpus research: notification-stack (16 cases, ideas only; original implementation)  
+**Default length:** 200 frames (6.7 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** ui, night  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `items` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `items` | `[{"app":"Northwind Shop","icon":"cart","color":"#FF7A45",…` | notifications [{app, icon (bell\|chat\|mail\|cart\|heart\|check\|calendar\|card\|bolt\|user), color, title, body, at (frame), time}] |
+| `platform` | `"ios"` | 'ios' \| 'macos' \| 'android' \| 'toast' |
+| `layout` | `"stack"` | 'stack' (older cards compress behind) \| 'list' (full cards pushed down / up) |
+| `position` | `"auto"` | 'auto' \| 'top' \| 'bottom' |
+| `theme` | `"light"` | 'light' \| 'dark' card surfaces |
+| `maxVisible` | `4` | cards kept visible before the oldest drops out |
+| `badge` | `true` | counter badge on the stack (hidden for toast) |
+| `clock` | `"9:41"` | ios lock-screen time ("" = hide the clock) |
+| `date` | `"Tuesday, 14 October"` | ios lock-screen date line |
+| `background` | `"#1B2A5E"` | wallpaper base colour, or 'transparent' to use as an overlay |
+
+### `planned-vs-heard-checklist` — Planned vs heard checklist
+
+A dark milestone checklist with planned T− times: each row ticks with an accent check as the running clock passes it, and a red "heard −32.1" tag with a tiny waveform pops when the call is actually heard — schedule vs reality in one box.
+
+**Use for:** Launch checklists, project timelines, run-of-show vs reality, onboarding steps, release-day minute-by-minute; overlay-capable (background transparent).  
+**Rebuilt from:** lemo-opuscar styles/countdown (MIT, LemoLab) — demo/index.html drawCheck, CHECK table  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** ui, night  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `items`, `title`, `subtitle`, `footnote` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `items` | `[{"label":"Hand-over to auto sequence","sub":"GO FOR AUTO…` | [{label, sub, planned, heard?}] planned/heard in seconds relative to zero |
+| `startSeconds` | `-36` | clock value at frame 0 (seconds, negative = before zero) |
+| `title` | `"Countdown milestones"` | panel title |
+| `subtitle` | `"CHECKLIST"` | small mono tag after the title |
+| `footnote` | `"PLANNED TIMES AS PUBLISHED · RED TAG = ACTUALLY CALLED OUT"` | honesty line at the bottom |
+| `heardWord` | `"heard"` | word on the red tag |
+| `accent` | `"#FF5B1F"` | check / clock accent |
+| `alert` | `"#FF3B30"` | heard-tag colour |
+| `background` | `"#06080A"` | page colour or 'transparent' |
+| `clock` | `true` | show the running T− clock above the list |
+
+### `player-toolbar` — Lesson player toolbar
+
+Frosted glass pill toolbar centred at the bottom like a lesson / media player — menu, back, play→pause, a serif step caption that swaps with a quick fade, a dot pager whose active dash slides along, next, mute, contrast and course icons — over an open textbook on a felt desk. Backdrop "none" = transparent caption-bar overlay.
+
+**Use for:** Making a narrated explainer, tutorial or product walkthrough feel like a real interactive player; an on-screen caption bar with step progress.  
+**Rebuilt from:** video x3 0.0-28.3 (player-toolbar)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** playful, editorial, ui  
+**Capabilities:** overlay (`{"background":"transparent","backdrop":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `steps` | `["Energy stores","Every object here keeps its energy in a…` | caption per step (wraps to two lines); the pager shows one dot per step (max 7) |
+| `numbered` | `true` | prefix each caption with its step number in the accent colour |
+| `startAt` | `12` | frame the first caption appears |
+| `stepFrames` | `45` | frames per step before the next caption |
+| `width` | `1110` | pill width in u (clamped to the frame; compact layout below 1400 u drops two icons) |
+| `backdrop` | `"book"` | "book" procedural textbook spread on a felt desk \| "none" = transparent overlay (CSS backdrop blur over host content) |
+| `ink` | `"#2B2B2B"` | icon and caption colour |
+| `numberColor` | `"#733843"` | step number colour |
+| `glassTop` | `"rgba(226,231,225,0.84)"` | glass fill at the top (rgba) |
+| `glassBottom` | `"rgba(199,206,199,0.80)"` | glass fill at the bottom (rgba) |
+| `background` | `"transparent"` | colour behind the toolbar when backdrop is "none" ("transparent" to overlay) |
+
+### `remix-thumbnail-shelf` — Remix thumbnail shelf
+
+Each finished item plays centre stage then shrinks to x0.27 into the next slot of a shelf along the bottom while a month ribbon on top tracks it; at the end the title lands and all thumbnails bounce together on the beat.
+
+**Use for:** Year-in-review, release recaps, "everything we shipped" montages and portfolio roundups.  
+**Rebuilt from:** lemo-opuscar styles/game-show DEMO.md Remix + main_b.js item() (MIT, LemoLab)  
+**Default length:** 270 frames (9.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** playful  
+**Capabilities:** paints its own background · text: `items`, `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `items` | `[{"label":"Search","month":0,"color":"#E8486B","kind":"ba…` | list of {label, month (0-11), color, kind: bars\|ring\|line\|badge\|grid, value (caption), src (optional image)} |
+| `title` | `"THE YEAR SO FAR"` | text that lands at the climax while all thumbnails bounce |
+| `hold` | `26` | frames each item plays centre stage |
+| `shrink` | `12` | frames the shrink into its shelf slot takes (ease in-out) |
+| `months` | `["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","O…` | twelve ribbon labels |
+| `accent` | `"#FFD23F"` | ribbon marker / completed dot colour |
+| `background` | `"#0B0E24"` | stage colour |
+
+### `screen-recorder-camera` — Screen recorder camera
+
+Screen-Studio-style camera inside a mock app recording: eased auto-zoom pushes in to the cursor and caret, a slow drift at rest, whip-pans between panes with directional motion blur, zoom never below 1 and the viewport clamped inside the content. A cursor glides on arcs and clicks (ripple + dip) while the app reacts: search types, a chart tooltip appears, a publish toast slides in.
+
+**Use for:** Make any UI demo look like a premium product recording: SaaS walkthroughs, feature launches, tutorials; edit keys to aim the camera at your own panes.  
+**Rebuilt from:** lemo-opuscar styles/living-screencast demo/main.js l.30-36 (MIT, LemoLab) — blur sigma = min(36, max(0, |v px/frame| - 30)*.3), push-in 1 -> 1.6-2.4x, drift +-10-20 px  
+**Default length:** 270 frames (9.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud, ui  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `keys` | `[{"t":0.9,"x":0.644,"y":0.1,"zoom":2.3,"dur":0.9,"click":…` | camera keyframes {t seconds the move starts, x, y focus on the window (0-1), zoom (>= 1), dur seconds, click: cursor clicks on arrival}; short dur = whip-pan with motion blur |
+| `appName` | `"Northwind"` | name shown in the mock app |
+| `query` | `"q3 revenue"` | text typed into the search field after the first click |
+| `accent` | `"#5B5FEF"` | app accent colour |
+| `wallpaper` | `["#3B5BDB","#C2255C"]` | two hex colours of the desktop wallpaper gradient |
+| `cursor` | `true` | show the gliding cursor with click ripples |
+| `blur` | `true` | directional motion blur on fast camera moves |
+| `drift` | `1` | slow rest drift multiplier (0 = locked) |
+| `seed` | `3` | chart data seed |
 
 ### `sms-thread` — SMS thread on a phone
 
@@ -2883,6 +7799,29 @@ A phone rises in beside a headline; a missed-call alert, typing dots and SMS bub
 | `phoneHeight` | `0.72` | landscape phone height as a fraction of frame height |
 | `grain` | `0.05` | film grain opacity |
 
+### `snap-grid-collapse` — Snap grid collapse
+
+Hundreds of scattered file icons, photo tiles and app icons drift, then fly in one beat along curved typed paths with coloured trails into a perfect grid — each type to its own rows, back-overshoot along the final tangent, spring-settled rotation — and only then the container, hairline grid and a lime light sweep appear, with a caption.
+
+**Use for:** The "we organise it all" promise for SaaS, CMS, schedulers, file managers and inbox tools; the effect after ui-accumulation-storm.  
+**Rebuilt from:** lemo-opuscar styles/dark-keynote (MIT, LemoLab) — demo/engine.js snapGrid, assignSlots, flyPose, trail; demo/world.js  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo, editorial, ui, night  
+**Capabilities:** paints its own background · text: `caption` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `beat` | `1.2` | second of the beat the flight lands on (flights start just before it) |
+| `flight` | `0.7` | seconds per element flight (0.5–0.8) |
+| `rowsFiles` | `4` | grid rows of file icons |
+| `rowsPhotos` | `3` | grid rows of photos |
+| `rowsApps` | `3` | grid rows of app icons |
+| `accent` | `"#B7F34A"` | the single brand accent (sweep, landing flash) |
+| `caption` | `"Everything in its place."` | caption under the grid |
+| `trail` | `true` | coloured flight trails per type |
+| `seed` | `2` | scatter seed |
+
 ### `split-compare` — Split-screen compare
 
 ![split-compare](../gallery/split-compare.jpg)
@@ -2907,7 +7846,7 @@ Presentation layout: headline, two perfectly synced panels (line-art vs colour b
 | `right` | `{"label":"Full render","color":"#76c8fb","desc":"Light, c…` | same for the right (bottom) panel |
 | `image` | `"demo/lighthouse.jpg"` | public/ image shown in both panels when a side has no own src (empty = procedural plate) |
 | `seed` | `4` | procedural plate seed |
-| `layout` | `"panels"` | 'panels' = two side-by-side (stacked in portrait) panels, 'wipe' = one frame with a moving divider |
+| `layout` | `"panels"` | 'panels' = two side-by-side (stacked in portrait) panels, 'wipe' = one frame with a moving divider, 'ledger' = full-bleed halves: divider drops, the bad half desaturates with a red tint, two counters race, a stamp lands on the divider |
 | `introWipe` | `true` | divider draws on and the panels open outward from it |
 | `push` | `0.14` | shared camera push amount over the whole motion (0.14 = +14 %) |
 | `fadeOut` | `false` | panels fade to black over the last 0.5 s (chrome stays) |
@@ -2915,8 +7854,193 @@ Presentation layout: headline, two perfectly synced panels (line-art vs colour b
 | `headlineColor` | `"#f8e2c0"` |  |
 | `textColor` | `"#e8e4df"` |  |
 | `dividerColor` | `"#35342d"` |  |
+| `counters` | `[{"label":"Before","value":1240,"unit":"ms","bad":true},{…` | ledger: [{label, value, unit?, prefix?, bad?, decimals?}] for the two halves; bad = desaturated + red tint |
+| `stamp` | `"FIXED"` | ledger: stamp text on the divider after both counters settle |
+| `dividerDrop` | `10` | ledger: frames the divider takes to drop in |
+| `stampColor` | `"#E5484D"` | ledger: stamp colour |
+| `badTint` | `"#B8281E"` | ledger: red tint multiplied over the bad half |
+
+### `talking-head-pip` — Talking head PiP
+
+The speaker (your video, or a built-in presenter stand-in) starts full-frame then shrinks into a circular or rounded picture-in-picture in a corner with an accent ring, while B-roll cards slide through the main frame and captions stay clear of the window.
+
+**Use for:** Course videos, creator explainers, product walkthroughs with a host; pair with caption-style motions for subtitles.  
+**Rebuilt from:** prompt-corpus: awesome-opus5-5-videos (MIT) — talking-head + B-roll cases (5), original implementation  
+**Default length:** 270 frames (9.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo, editorial, ui  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `videoSrc` | `""` | speaker footage (public/ path or URL); empty = built-in presenter stand-in |
+| `videoStartFrom` | `0` | frame to start the footage from |
+| `muted` | `false` | mute the footage audio |
+| `scenes` | `[{"title":"The big idea","caption":"Start with one clear …` | [{title, image?, caption?}] B-roll cards shown in turn (image = public/ path, else a procedural illustration) |
+| `corner` | `"bottom-right"` | bottom-right \| bottom-left \| top-right \| top-left |
+| `shape` | `"circle"` | circle \| rounded |
+| `diameter` | `0.26` | PiP size as a fraction of the short side (0.22-0.28) |
+| `margin` | `0.045` | corner margin as a fraction of the short side |
+| `shrinkAt` | `36` | frame the speaker starts shrinking into the corner |
+| `ring` | `5` | accent ring width in px |
+| `ringColor` | `"#FFC933"` | accent ring colour |
+| `background` | `"#10131F"` | background colour |
+| `accent` | `"#3E6BFF"` | colour behind the stand-in presenter |
+| `ink` | `"#FFFFFF"` | caption text colour |
+| `captions` | `true` | show captions (kept clear of the PiP) |
+| `speakerName` | `""` | optional small name tag by the PiP |
+
+### `tv-wall-switch-on` — TV wall switch-on
+
+A cosy wooden shelf wall of five retro CRT TVs (3 over 2) switches on one by one — bright line, grey-white flash with a slight bulge, picture fading up — each playing its own looping clip behind scanlines, vignette and a warm cast; later one screen cuts to a new clip.
+
+**Use for:** Showcasing many outputs (videos, testimonials, products, social proof) in one warm composition; pass up to five `images`.  
+**Rebuilt from:** video x4 0:24.1-0:29.9 (tv-wall-switch-on)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo, pixel, hud  
+**Capabilities:** paints its own background · image: `images` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `images` | `[]` | up to 5 screen images (public/ paths or URLs), order top-left → bottom-right; empty slots use procedural clips |
+| `scenes` | `["sunset","flower","lake","puppy","sea"]` | procedural clips per screen: sunset \| flower \| lake \| puppy \| sea \| balloon |
+| `onTimes` | `[5,14,22,32,39]` | switch-on frame per screen (measured 0.15 / 0.48 / 0.73 / 1.08 / 1.31 s) |
+| `cutAt` | `84` | frame one screen cuts to a new clip |
+| `cutScreen` | `2` | index of the screen that cuts (-1 = none) |
+| `cutScene` | `"balloon"` | procedural clip it cuts to |
+| `scanlines` | `0.08` | scanline opacity |
+| `wall` | `"#FDEBCB"` | wall colour |
+| `cabinet` | `"#C98D58"` | TV cabinet wood colour |
+| `push` | `0.03` | slow camera push-in amount |
+| `seed` | `6` | seed for cassette stacks |
+
+### `ui-accumulation-storm` — UI accumulation storm
+
+Dark keynote stage: notification cards, file icons, landscape photo tiles, app icons and red badges spawn faster and faster (drop+bounce, fling, slide-in, pop) with 2.5D depth and parallax, burying a quiet note with a lime caret; a red unread counter races, the pile trembles, light dims — the "too much" problem act.
+
+**Use for:** The problem act of SaaS ads and explainers (inbox overload, file chaos, notification fatigue); pair with snap-grid-collapse as cause → effect.  
+**Rebuilt from:** lemo-opuscar styles/dark-keynote (MIT, LemoLab) — demo/world.js generator, demo/engine.js UI kit (notif, fileIcon, photo, appIcon, badge)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo, nature, playful, ui, night  
+**Capabilities:** paints its own background · text: `counterLabel` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `count` | `200` | number of UI elements spawned |
+| `seed` | `4` | layout seed |
+| `accel` | `0.5` | spawn acceleration exponent (<1 = faster and faster) |
+| `spawnEnd` | `5.6` | second the last element lands |
+| `freezeAt` | `0` | second to freeze everything mid-air (0 = never) |
+| `note` | `"One thing at a time"` | text in the quiet note that gets buried |
+| `accent` | `"#B7F34A"` | brand accent (caret) |
+| `counterLabel` | `"UNREAD"` | label of the red counter pill |
+| `tremble` | `3` | tension tremble in px@1080 at full pile |
+| `pullBack` | `0.35` | extra zoom at the start, pulled back over the act |
+
+### `ui-shape-morph` — UI shape morph (one shape, many states)
+
+One rounded rectangle never cuts: it grows from a button into a loader, a check, a pill, a player, a slider, a toggle, tabs, a chart, a search box and a toast and back, one change per beat on spring physics (leading edges stiffer than trailing edges so it stretches), content cross-blurring inside while the camera keeps the active state framed; the last frame equals the first.
+
+**Use for:** Product promos, app-store previews, onboarding heroes and "what our app does" loops: edit the `states` table (kind, label, size, radius, colour), set `accent` and `beatFrames` to your music; pairs with cursor-driver.  
+**Rebuilt from:** prompt-corpus: ui-shape-morph (22 cases), awesome-opus5-5-videos prompts (MIT) — technique only  
+**Default length:** 205 frames (6.8 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud, ui  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `states` | `[{"kind":"button","label":"Get started","width":300,"heig…` | [{kind:'button'\|'loader'\|'check'\|'pill'\|'player'\|'slider'\|'toggle'\|'tabs'\|'chart'\|'search'\|'toast', label, width, height, radius (u), color, content?}] — end with a copy of the first state to loop |
+| `accent` | `"#4F5BD5"` | accent used inside sliders, charts, search caret |
+| `background` | `"#EDEBE7"` | canvas colour (warm grey or near-black) |
+| `ink` | `"#17171B"` | text colour on light states |
+| `fontFamily` | `""` | UI font family (empty = Inter) |
+| `beatFrames` | `15` | frames per state change (15 = 120 BPM) |
+| `startFrame` | `10` | frame of the first change |
+| `frameFill` | `0.6` | fraction of the frame the active state fills (0.6) |
+| `cursor` | `true` | show a small cursor that operates each state |
+
+### `versus-roster` — Versus roster
+
+A row of square contender portraits separated by "vs", each in white corner brackets with a small name above; cards cut in from black, then each one in turn scales up while a mono bio types in below it, on a Klein-blue terminal screen with a scramble-decoded header and blackletter call to action.
+
+**Use for:** "Four contenders" intros for comparisons, tournaments, model or product line-ups and team introductions.  
+**Rebuilt from:** video x6 4.6-8.1 s (four generals "vs" roster, hover bios)  
+**Default length:** 130 frames (4.3 s @ 30 fps)
+
+**Roles:** subject · **Mood:** ui  
+**Capabilities:** paints its own background · text: `cards`, `brand` · image: `images` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `background` | `"#1206A5"` | screen colour (Klein blue) |
+| `cards` | `[{"name":"General Onyx","bio":"Cold, fast and blunt. I st…` | contenders: {name, bio, src?} (src = public/ image path; otherwise an abstract generated portrait) |
+| `images` | `[]` | portrait images by index (alternative to cards[].src) |
+| `colors` | `["#8D8AB8","#A9D9D0","#CBB8F5","#E58682"]` | accent colour per contender (name highlight while hovered, avatar tint) |
+| `header` | `"#82   THE BATTLE FOR ASCENDANCY"` | mono header above the row (scramble-decodes in) |
+| `cta` | `"Enter the Simulation"` | blackletter call to action, shown as [ … ] |
+| `brand` | `"Project Lumen"` | top-left blackletter brand, shown as [ … ] |
+| `corner` | `"SIMULATION 82"` | top-right mono label |
+| `separator` | `"vs"` | text between cards |
+| `bracketColor` | `"#FFFFFF"` | corner bracket colour |
+| `hoverStart` | `26` | frame the first card enlarges |
+| `hoverEvery` | `24` | frames each card stays enlarged |
+| `ghost` | `true` | faint prompt-template panels behind |
 
 ## hud
+
+### `agent-roster` — Agent roster
+
+![agent-roster](../gallery/agent-roster.jpg)
+
+A 2×2 block of agent status cards (portrait, name, points, coloured status chip with animated dots, a 7-digit token counter ticking up, a thin progress bar) that slides in from the left, plus a bottom-right row of line-icon controls.
+
+**Use for:** Multi-agent dashboards, leaderboards and AI benchmark videos; overlay-capable with background "transparent".  
+**Rebuilt from:** video x6 10.5-47 s (sponsor roster cards + control bar)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** hud, playful, ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `background` | `"transparent"` | backdrop; 'transparent' (default) overlays the host content |
+| `agents` | `[{"name":"Nova","color":"#E58682","status":"CRUSHING...",…` | up to 4 agents {name, color, status, points, tokens, rate (tokens/s)}; status ending in "..." animates its dots |
+| `chipText` | `{"Onyx":"#FFFFFF"}` | chip text colour per agent (default dark) |
+| `sponsor` | `"[ SPONSOR ]"` | small label above the block |
+| `controls` | `true` | bottom-right line-icon control row |
+| `hudLabel` | `"HUD ON"` | label under the eye icon ('HUD ON' / 'HUD OFF') |
+| `inAt` | `4` | frame the cards slide in |
+| `demoScene` | `true` | paint the painterly battlefield behind (preview only; turn off as an overlay) |
+| `seed` | `11` | scene seed |
+
+### `alert-reink-wave` — Alert re-ink wave
+
+![alert-reink-wave](../gallery/alert-reink-wave.jpg)
+
+A cyan radar HUD scans while a contact closes in; at the climax a ring expands from the target and everything inside it is re-inked from cyan to orange (a feathered mask edge, a thin white-hot front and a soft orange annulus ride the wave), the readouts flip to the alert copy and true reds (the REC dot) keep their colour.
+
+**Use for:** The climax beat of any HUD, alert or "status changed" moment; generalises to any palette swap (day to night, calm to alarm, brand A to brand B).  
+**Rebuilt from:** mg-styles-15 demos/22-hud/js/post.js COMP_FS reink / uWave (MIT)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `fromPalette` | `{"main":"#19E6FF","hot":"#B8F8FF","dim":"#0E6F80","bg":"#…` | palette before the wave {main, hot, dim, bg} |
+| `toPalette` | `{"main":"#FF7A1A","hot":"#FFDBB3","dim":"#8A3A0A","bg":"#…` | palette after the wave {main, hot, dim, bg} |
+| `at` | `96` | frame the wave leaves the target |
+| `duration` | `20` | frames for the wave to cross the frame (~0.45 s to 1300 px) |
+| `originX` | `0.5` | wave origin x as fraction of width |
+| `originY` | `0.5` | wave origin y as fraction of height |
+| `fromLabel` | `"ALL CLEAR"` | status copy before the wave |
+| `toLabel` | `"THREAT DETECTED"` | status copy after the wave |
+| `callSign` | `"SENTINEL-7 // OVERWATCH"` | header call sign |
+| `keepRed` | `true` | true reds (REC dot) are exempt from the re-ink |
 
 ### `callout-labels` — Callout labels
 
@@ -2934,13 +8058,68 @@ Staggered annotation callouts — dot, leader line and typed mono label — over
 
 | prop | default | notes |
 |---|---|---|
-| `variant` | `"leader"` | leader \| room \| tag \| medallion |
+| `variant` | `"leader"` | leader \| room \| tag \| medallion \| dimension (engineering dimension lines measuring a moving part) \| magnifier (paper-ring magnifier disc showing a zoomed copy of the subject, dashed leader, star tag) |
 | `items` | `[]` | callouts {x, y, label, sublabel?, ex?, ey?, icon?}: x,y anchor as frame fractions (0..1); ex,ey label offset in px@1080 (leader) or plan-anchor offset (medallion); room titles split lines with "/"; [] = built-in demo |
 | `src` | `""` | optional public/ image used as the subject instead of the procedural one |
 | `stagger` | `10.5` | frames between callouts (0.35 s = 10.5) |
 | `medallionReveal` | `"pop"` | pop (scale from a preview dot) or pie (clockwise wipe + tangent leaders) |
 | `accent` | `"#E24D0F"` | accent colour (room label, medallion highlights) |
 | `ink` | `"#0B0D0C"` | line / text colour for leader and room callouts |
+| `measure` | `[]` | dimension variant: [{p1:[x,y], p2:[x,y], p2To?:[x,y] (part moves over the clip), offset?: px@1080, label?: 'text with {v} = measured value'}], [] = built-in demo |
+| `measureScale` | `0.25` | dimension variant: value units per px@1080 for {v} (0.25 = mm) |
+| `zoom` | `1.9` | magnifier variant: zoom of the disc content (items[].zoom overrides); items {x,y target, label, sublabel, ex,ey disc offset px, r} |
+
+### `cam-chip-sync-badge` — Cam chip + sync badge
+
+![cam-chip-sync-badge](../gallery/cam-chip-sync-badge.jpg)
+
+Per-feed labelling for split screens: a chip top-left (square sync dot, CAM code, name, mono sub) wipes in, a badge top-right pops — ● LIVE SYNC, ○ SAME WINDOW (hatched grey) or RETIMED — with a running timecode; mid-way one feed re-syncs and flashes. Transparent background = overlay.
+
+**Use for:** Honest multi-source footage labelling over any split screen, multicam recap, surveillance / CCTV look or UGC wall.  
+**Rebuilt from:** lemo-opuscar styles/countdown (MIT, LemoLab) — demo/index.html chip, syncBadge, STYLE.md §8  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** hud, night  
+**Capabilities:** overlay (`{"background":"transparent"}`) · image: `images` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `cams` | `[{"code":"CAM 1","name":"Harbour","sub":"WIDE","sync":"li…` | [{code, name, sub, sync: live\|window\|retimed}] one per feed (up to 4 in the grid) |
+| `layout` | `"grid"` | 'grid' = up to 4 cells, 'single' = one big chip + badge for a full-frame shot |
+| `images` | `["demo/koi.jpg","demo/jellyfish.jpg","demo/lighthouse.jpg…` | demo feed images (only with background "demo") |
+| `background` | `"demo"` | 'demo' = procedural/demo feeds under the chrome, 'transparent' = overlay only, or a colour |
+| `resyncIndex` | `2` | which feed re-syncs mid-way (-1 = none) |
+| `resyncAt` | `100` | frame of the re-sync (dot + badge turn accent, border flash) |
+| `timecode` | `true` | show a running timecode with a REC dot per feed |
+| `startTime` | `"14:02:00"` | timecode start hh:mm:ss |
+| `accent` | `"#FF5B1F"` | accent colour (synced dot, LIVE badge) |
+
+### `day-ring-dial` — Day ring dial
+
+![day-ring-dial](../gallery/day-ring-dial.jpg)
+
+A small thin 24-hour ring in the corner with an orange hand and a 3-hour arc that runs with the day of a time-lapse city (sky, sun and lit windows follow it), freezes and dims on a slow passage, then spins backwards on a rewind.
+
+**Use for:** A "day in the life" clock for time-lapse films, shift / operations timelines or any time-of-day structure; overlay it (background transparent) on footage.  
+**Rebuilt from:** lemo-opuscar styles/city-symphony (MIT, LemoLab) — render.py dial_hour/draw_dial  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** cinematic, nature, hud, editorial  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `hourKeys` | `[[0,4.5],[70,12],[100,16],[140,16],[168,22.5],[194,7],[21…` | [[frame, hour], ...] linearly interpolated; decreasing hours spin the hand backwards (rewind); hours may exceed 24 |
+| `dimRanges` | `[[100,140]]` | [[fromFrame, toFrame], ...] where the dial dims to ~40 % (slow passage / brake) |
+| `position` | `"bottom-right"` | bottom-right \| bottom-left \| top-right \| top-left |
+| `size` | `62` | ring radius in u (62 ≈ 11 % H diameter) |
+| `accent` | `"#D9772F"` | hand / arc colour (sodium orange) |
+| `dimColor` | `"#B9B4AC"` | ring, ticks and labels colour |
+| `readout` | `true` | show hh:mm under the ring |
+| `title` | `"ONE DAY"` | left-aligned tracked title (empty = none) |
+| `subtitle` | `"NORTHWIND · 24 HOURS"` | small tracked line under the title |
+| `background` | `"plate"` | 'plate' = procedural time-lapse city that follows the dial, 'transparent' = overlay, or any CSS colour |
+| `seed` | `3` | skyline / clouds seed |
 
 ### `era-dial` — Era dial counter
 
@@ -2966,6 +8145,85 @@ Gear-ringed blueprint dial that turns a notch per era while the date plate rolls
 | `line` | `"#DADDE5"` |  |
 | `gears` | `true` | hatched background gears |
 | `showLabels` | `true` | show the era label above the window |
+
+### `event-feed` — Event feed
+
+![event-feed](../gallery/event-feed.jpg)
+
+A kill-feed style stack of one-line event chips in a corner: each actor name sits in its coloured chip with the verb in white mono; new lines flash in at the top, older ones slide down and fade out after a few seconds.
+
+**Use for:** Live-event tickers (deploys, sales, alerts, game kills) over dashboards, gameplay or product demos; overlay-capable with background "transparent".  
+**Rebuilt from:** video x6 33-47 s (kill feed, top right)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** hud  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `background` | `"transparent"` | backdrop colour; 'transparent' (default) overlays the host content |
+| `events` | `[]` | explicit events [{t: frame, a, verb, b}] (empty = a generated demo feed) |
+| `colors` | `{"Nova":"#E58682","Atlas":"#A9D9D0","Vega":"#CBB8F5","Ony…` | chip colour per actor name |
+| `chipText` | `{"Onyx":"#FFFFFF"}` | chip text colour per actor (default dark) |
+| `maxLines` | `6` | maximum visible lines |
+| `ttlFrames` | `90` | frames a line lives before fading |
+| `align` | `"right"` | 'right' \| 'left' corner |
+| `every` | `14` | frames between generated demo events |
+| `demoScene` | `true` | paint the painterly battlefield behind (preview only; turn off as an overlay) |
+| `seed` | `9` | demo feed seed |
+
+### `fight-hud` — Fight HUD
+
+![fight-hud](../gallery/fight-hud.jpg)
+
+A two-player fighting-game HUD: slanted red and blue health bars with a crescent-moon (or countdown) emblem between them and italic caps names, draining with a delayed white damage-ghost; the default preview stages two original fighters trading a hit on a neon arcade floor.
+
+**Use for:** Any head-to-head comparison staged as a game: benchmark battles, A/B tests, product duels; overlay-capable with background "transparent" and demoScene off.  
+**Rebuilt from:** video x7 14.55-25.35 s (health bars, moon emblem, damage ghost) — original fighters  
+**Default length:** 120 frames (4.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** neon, nature, hud, ui, night  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `background` | `"transparent"` | backdrop when demoScene is off ('transparent' = overlay) |
+| `players` | `[{"name":"Ember","color":"#99322E","color2":"#CB665D","hp…` | two players {name, color, color2, hpKeys: [[frame, hp 0..1], …]} — hp eases 6 f, ghost follows 8 f later |
+| `emblem` | `"moon"` | 'moon' (crescent face) \| 'timer' (counts down from timerFrom seconds) |
+| `timerFrom` | `60` | timer start in seconds |
+| `skew` | `6` | bar skew in degrees |
+| `demoScene` | `true` | stage the neon floor and two original fighters behind the HUD (preview; turn off as an overlay) |
+| `grain` | `true` | spray-grain speckle (demo scene only) |
+| `seed` | `5` | grain seed |
+
+### `game-hud` — Game HUD (bars, score, combo, minimap)
+
+![game-hud](../gallery/game-hud.jpg)
+
+A video-game overlay: health, mana and xp bars that drain in eased steps with a lagging white damage ghost and a red screen pulse, a level badge, a score that counts up in pops, a combo counter that slams from 1.4x with shake, a sweeping radar minimap with blips, a kill feed that slides in and out and a LEVEL UP banner; three skins (arcade, modern, pixel).
+
+**Use for:** Game trailers, gamified product demos and esports-style highlights; `background: "transparent"` overlays it on footage. Rename the labels and feed text for your own story.  
+**Rebuilt from:** prompt corpus x24 (health bar drain with ghost, combo slam, minimap, kill feed, level-up)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** 3d, pixel, nature, hud, ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `bars` | `[{"label":"HP","color":"#ff4a5a","from":1,"to":0.36,"step…` | [{label, color, from, to, steps:[frames]}] each step moves the bar an equal share from `from` to `to` (drain = white ghost lags behind) |
+| `score` | `128450` | final score (counts up on every combo tick) |
+| `comboAt` | `[46,62,78,94,110,126]` | frames of the combo ticks (the counter shows from the 2nd) |
+| `feed` | `["You>Drone 04","You>Brute 11","Mira>Sentry 02","You>Ward…` | kill-feed lines, 'Actor>Target' |
+| `feedAt` | `56` | frame the first feed line appears (26 frames between lines) |
+| `levelUp` | `"LEVEL UP!"` | banner text ("" = no banner) |
+| `levelAt` | `150` | frame of the level-up banner |
+| `level` | `7` | level shown on the badge before the level-up |
+| `minimap` | `true` | show the radar minimap |
+| `theme` | `"arcade"` | 'arcade' \| 'modern' \| 'pixel' |
+| `accent` | `"#ff5a3c"` | badge / combo / feed accent colour |
+| `background` | `"#0c1030"` | backdrop colour ("transparent" to overlay on footage) |
+| `scoreLabel` | `"SCORE"` | label above the score |
 
 ### `hud-chrome` — HUD chrome overlay
 
@@ -2998,6 +8256,97 @@ Overlay HUD: corner crop marks, header with red counter, live timecode, typed co
 | `showRuler` | `true` | right-side progress ruler with "0N / 0L" counter |
 | `showProgress` | `true` | bottom hairline progress bar with chapter ticks |
 | `rulerUnit` | `""` | word after the ruler counter, e.g. "ROOMS" |
+| `variant` | `"chrome"` | chrome (default) \| reel (crop marks, "NN — LABEL alt", timecode with beat dot, footer, segmented progress; chapters may carry labelAlt) \| camcorder (bitmap OSD: REC, battery, clock, date, title) \| survey (quiet top-left mono block) \| subtitle (diagonal brackets + voice bars plate) \| dev (only the counter / phase badge slots) |
+| `rec` | `true` | camcorder: blinking REC dot at 1 Hz |
+| `battery` | `3` | camcorder: 0-3 bars (blinks at 0) |
+| `clock` | `"23:58"` | camcorder: start time "HH:MM" (24 h) shown as "PM 11:58" |
+| `date` | `"SEP.27.1996"` | camcorder: date stamp |
+| `titleText` | `""` | camcorder: title-generator caption over the first shot ("" = none) |
+| `jumps` | `[]` | camcorder: [{at, toTime}] - the clock jumps to toTime at that frame (time-jump evidence) |
+| `surveyLines` | `["LAKE MORROW  44.52N  7.18W","AREA 142 KM2","ELEVATION D…` | survey: 3-4 mono lines, top-left |
+| `subtitle2` | `"Signal acquired. Stand by for descent."` | subtitle variant: the caption text |
+| `voiceBars` | `4` | subtitle: number of voice bars |
+| `hudCounter` | `null` | dev slot (any variant): {value,total,unit,pad,sub} top-left zero-padded counter "0817 / 1200 VOXELS"; null = off |
+| `phases` | `[]` | dev slot: [{from, label, color?}] top-right phase badge that swaps instantly (READY = black, others accent) |
+| `frameCounter` | `false` | dev slot: "029 / 720" frame counter under the badge |
+| `progressSegments` | `0` | reel: number of progress segments (0 = one per chapter) |
+
+### `magnification-roundel` — Magnification roundel
+
+![magnification-roundel](../gallery/magnification-roundel.jpg)
+
+Over an engraved figure, a double-ruled ring is scribed around a detail, the inside re-draws magnified on a ruled-line ground, then the roundel flies on an eased arc to a margin slot trailing a hairline leader back to a dot on the part; FIG numbers, italic terms and script notes are cut on landing.
+
+**Use for:** Detail insets for any explainer: product feature zooms, anatomy, map insets, museum plates; style-agnostic loupe callouts.  
+**Rebuilt from:** lemo-opuscar styles/engraving (MIT, LemoLab) — demo/engine/plate.js roundelFrame, leader; burin.js  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** ui  
+**Capabilities:** paints its own background · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"THE PEAR, EXAMINED."` | engraved plate title |
+| `figures` | `[{"label":"The stem","term":"pedunculus","note":"Woody, s…` | per roundel: {label (roman caps), term (italic), note (script)} |
+| `anchors` | `[[0.52,0.04],[0.78,-0.12],[0.73,0.5]]` | per roundel [x, y] on the figure, as fractions of its bounding box |
+| `zooms` | `[3.2,2.6,2.2]` | magnification per roundel |
+| `radius` | `120` | landed roundel radius in px@1080 |
+| `startAt` | `2.4` | second the first ring is scribed |
+| `stagger` | `1.7` | seconds between roundels |
+| `flight` | `1.1` | seconds of the arc flight to the margin |
+| `ink` | `"#1C1510"` | ink colour |
+| `paper` | `"#F1E8D2"` | paper colour |
+
+### `mission-clock` — Mission clock
+
+![mission-clock](../gallery/mission-clock.jpg)
+
+A T−00:04.0 countdown in fixed condensed slots: accent T−, grey tenths, a ten-segment bar draining every second, new seconds dropping in; at zero it flips to an accent block with dark T+ and an "elapsed" header and a warm flash, while a control strip of named segments fills on each hand-over.
+
+**Use for:** Launches, deadlines, sales ending, live events, sports and "go time" beats; a reusable countdown HUD (background transparent to overlay).  
+**Rebuilt from:** lemo-opuscar styles/countdown (MIT, LemoLab) — demo/index.html drawClock, HANDS  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** nature, hud, night  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `caption` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `startSeconds` | `-4.3` | clock value at frame 0 in seconds (negative = T−, zero is where it inverts) |
+| `rate` | `1` | clock seconds per real second (1 = real time) |
+| `hours` | `false` | HH:MM:SS instead of MM:SS |
+| `segments` | `[{"label":"GROUND","at":0},{"label":"VEHICLE","at":24},{"…` | control strip [{label, at: frame}] — the active segment fills on its hand-over with a warm flash |
+| `header` | `"COUNTDOWN"` | header before zero |
+| `elapsedHeader` | `"MISSION ELAPSED"` | header after zero (inverted state) |
+| `caption` | `"NORTHWIND-1 · PAD 2 · SAME CLOCK FOR EVERY FEED"` | mono line under the clock (empty = none) |
+| `accent` | `"#FF5B1F"` | accent colour (T−, bar, inverted fill) |
+| `background` | `"#06080A"` | page colour or 'transparent' |
+| `size` | `1` | scale multiplier |
+| `flash` | `true` | full-frame warm flash at zero |
+
+### `news-bug-source-tag` — News bug + source tag
+
+![news-bug-source-tag](../gallery/news-bug-source-tag.jpg)
+
+Attribution overlay: a top-left channel bug (accent square, channel, topic), a "SOURCE · publisher · date" chip that slides in under it while a figure is on screen, and a small "Video: author · licence" credit chip top-right. Set backdrop to "transparent" to layer it over any motion.
+
+**Use for:** Attribution agents can always attach — data sources, CC BY credits, channel branding — over news, explainer and documentary shots.  
+**Rebuilt from:** lemo-opuscar styles/caption-news demo/main.js bug(), sourceTag(), credit() (MIT, LemoLab), analysis/sources/lemo-styles-a.md §8 news-bug-source-tag  
+**Default length:** 120 frames (4.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** hud  
+**Capabilities:** overlay (`{"backdrop":"transparent"}`) · text: `credit` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `channel` | `"Northwind News"` | channel name in the bug |
+| `topic` | `"Housing"` | topic after the divider |
+| `source` | `"Regional Statistics Office · 14 Mar 2026"` | publisher · date shown in the SOURCE chip |
+| `credit` | `"Video: A. Moreno · CC BY 4.0"` | credit chip text top-right (empty = none) |
+| `accent` | `"#FFC21A"` | bug square + SOURCE block colour |
+| `sourceAt` | `24` | frame the source chip slides in (0.2 s) |
+| `sourceOutAt` | `104` | frame it slides out |
+| `backdrop` | `"footage"` | "footage" = procedural preview plate, "transparent" = overlay, or any CSS colour |
 
 ### `powers-of-ten` — Powers-of-ten zoom
 
@@ -3023,6 +8372,35 @@ Continuous exponential pull-back (or push-in) through nested blueprint drawings 
 | `accent` | `"#4777D2"` |  |
 | `line` | `"#DADDE5"` |  |
 | `hud` | `true` | scale readout and level list |
+| `easing` | `"sine"` | continuous mode move curve: sine \| linear (constant log-zoom, orbit-dive) \| inOut \| expo |
+| `camRoll` | `0` | degrees the whole camera rolls while zooming (e.g. 90 for an orbit dive, 0 = none) |
+| `holdStart` | `0` | fraction of the clip (0..0.4) the first level holds before the move starts |
+
+### `prompt-wall` — Prompt wall
+
+![prompt-wall](../gallery/prompt-wall.jpg)
+
+A saturated Klein-blue terminal backdrop filled with faint wireframe boxes of prompt-template fragments in three depth tiers that type in, live a few seconds and fade, with corner brackets, scanlines and an optional scramble-decoded blackletter title.
+
+**Use for:** "The AI is thinking / system prompt" backdrops behind titles, techy section backgrounds on websites, agent and simulation promos.  
+**Rebuilt from:** video x6 4.3-8.3 s (ghost prompt panels behind the roster)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** blueprint, 3d, hud  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `background` | `"#1206A5"` | screen colour ('transparent' for an overlay over another motion) |
+| `ink` | `"#615DC9"` | ghost text colour |
+| `frameColor` | `"#5C5BA0"` | wireframe box colour |
+| `snippets` | `[]` | text fragments; 'HEADER\|body' puts a small header line on top (empty = built-in neutral prompt templates) |
+| `density` | `2` | boxes spawned per tick (1–3) |
+| `every` | `9` | frames between new boxes (9 ≈ 0.3 s) |
+| `title` | `""` | optional centred title, shown as [ TITLE ] in pixel blackletter, scramble-decoded in |
+| `titleColor` | `"#FFF6E2"` | title colour |
+| `scanlines` | `true` | faint CRT scanlines |
+| `seed` | `82` | layout seed |
 
 ### `radial-blueprint` — Radial blueprint plan
 
@@ -3056,6 +8434,111 @@ Dark blueprint: a blue dot pings, the camera snaps back to a seeded circular lib
 | `labelColor` | `"#7FA2E6"` | category label colour |
 | `scanlines` | `true` | engraved scanline texture behind |
 
+### `spec-chip-rail` — Spec chip rail
+
+![spec-chip-rail](../gallery/spec-chip-rail.jpg)
+
+Hologram spec sheet: each value rolls from garbage glyphs into the real number on a big card (locks right-to-left, turns amber with a 1-frame flash), then the card shrinks into a compact chip that slides into a side rail and stays; chips accumulate, then a weight/price block and CTA box lock up. A cyan drone wireframe turns on a projector pad behind.
+
+**Use for:** Spec sheets, feature checklists, pricing summaries — keeps every fact on screen long enough to read.  
+**Rebuilt from:** lemo-opuscar styles/hologram-hud (MIT, LemoLab) — hud.js chip/rollText, DEMO.md structure, poster  
+**Default length:** 330 frames (11.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** blueprint, hud  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle`, `items` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"LUMEN"` | product name (big light caps) |
+| `subtitle` | `"D1 · COMPACT DRONE"` | mono line under the title |
+| `items` | `[{"label":"Flight time","value":"42","unit":"min","detail…` | specs in order: {label, value, unit, detail, part?} — part highlights the holo drone part (battery\|camera\|body\|rotorFL\|rotorFR\|rotorBL\|rotorBR) |
+| `start` | `26` | frame the first card appears |
+| `every` | `72` | frames per spec (card in, roll, hold, dock) |
+| `lockup` | `{"label1":"Weight","value1":"0.89","unit1":"kg","label2":…` | final block: two label/value/unit pairs and a CTA line |
+| `showModel` | `true` | show the hologram drone wireframe behind |
+| `background` | `"#020709"` | stage colour, or "transparent" for an overlay |
+| `hue` | `188` | line hue (188 cyan) |
+| `accent` | `38` | value hue (38 amber) |
+
+### `sync-grid` — Sync grid (evidence on one clock)
+
+![sync-grid](../gallery/sync-grid.jpg)
+
+Three evidence columns (report log / dashcam / CCTV) side by side under one huge monospaced stopwatch; each column cuts in with a flash only when its source starts on the event clock, so the grid fills as time runs. At the sync point everything freezes, the key column gets a red border and a word, a red dashed line runs across the pictures and the stopwatch becomes a big red verdict.
+
+**Use for:** Dashcam + CCTV + log comparisons, "which happened first", sports replays, launch/telemetry reconstructions, A/B latency demos (three apps responding to one tap), product race comparisons.  
+**Rebuilt from:** lemo-opuscar styles/visual-investigation demo sRun() / playhead() (MIT, LemoLab) — idea, own build  
+**Default length:** 270 frames (9.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo, 3d  
+**Capabilities:** paints its own background · text: `verdict` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `columns` | `[{"tag":"Incident log","kind":"text","text":"unit 4 dispa…` | [{tag, kind:'text'\|'dashcam'\|'cctv'\|'image'\|'video', src?, text? (lines), startsAt (event seconds)}] |
+| `clock` | `[[0,0],[40,6],[100,20],[170,32]]` | [[frame, eventSeconds]] piecewise-linear event clock (can run faster than real time) |
+| `syncAt` | `32` | event second at which everything freezes |
+| `syncColumn` | `2` | index of the column that gets the red border and word |
+| `syncWord` | `"Same moment"` | word on the synced column |
+| `verdict` | `"32 s"` | big red text that replaces the stopwatch |
+| `format` | `"T+"` | 'T+' counter or 'hh:mm:ss' wall clock |
+| `startClock` | `"14:02:10"` | wall clock at event second 0 (format hh:mm:ss) |
+| `background` | `"#0B0C0F"` | background colour |
+| `ink` | `"#ECEAE4"` | text colour |
+| `accent` | `"#FF3B2F"` | red/accent colour |
+
+### `target-lock-box` — Target lock box
+
+![target-lock-box](../gallery/target-lock-box.jpg)
+
+Sci-fi target lock: an oversized faint square rotated 45° snaps onto a part in .22 s, flashes white for 3 frames, drops an anchor ring and a "TGT 01 · LOCK" mono tag; the camera whips to the next target. Default subject is a cyan hologram drone wireframe on a projector pad; works over images or as a transparent overlay.
+
+**Use for:** "Look here now" pointers for product features, UI walkthroughs, sports/video analysis and spec explainers.  
+**Rebuilt from:** lemo-opuscar styles/hologram-hud (MIT, LemoLab) — hud.js target box, DEMO.md motion numbers  
+**Default length:** 170 frames (5.7 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** blueprint, hud  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `targets` | `[{"label":"Rotor guard","part":"rotorFR","at":36},{"label…` | locks in order: {label, part (holo part: body\|battery\|camera\|rotorFL\|rotorFR\|rotorBL\|rotorBR) or rect [x,y,w,h] in 0..1 frame fractions, at (lock frame)} |
+| `subject` | `"holo"` | 'holo' = built-in hologram drone wireframe, 'image' = show src, 'none' = boxes only (use rect targets) |
+| `src` | `""` | image in public/ for subject 'image' (targets then need rect) |
+| `background` | `"#020709"` | stage colour, or "transparent" to overlay the boxes on your own footage |
+| `hue` | `188` | hologram line hue (188 = cyan) |
+| `accent` | `38` | accent hue (38 = amber) |
+| `showChrome` | `true` | corner brackets and mono readouts |
+| `title` | `"LUMEN D1"` | product name in the HUD header |
+| `whip` | `0.32` | 0..0.6 how far the camera whips toward each target |
+
+### `target-lock` — Target lock
+
+![target-lock](../gallery/target-lock.jpg)
+
+Candidate boxes with ids and rising MATCH % appear over a scene half a second apart; four L-brackets fly in from the frame corners, close in and snap onto the target (1.4 to 1.0 scale), a lock ratchet ring fills, then a "TARGET LOCKED" banner opens from the centre with coordinates typing below. Works over a built-in crate scene, your image, or transparent as an overlay.
+
+**Use for:** Gaming edits, tech reviews ("found the bug") and product highlights on a screenshot, face or map; pairs with target-lock-box (different 45-degree style).  
+**Rebuilt from:** mg-styles-15 demos/22-hud/js/hud.js brackets() / acquire() / banner() (MIT)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** photo, hud  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `label` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `target` | `{"x":0.56,"y":0.5,"size":220}` | lock target {x, y as fractions of the frame, size in px at 1080p} |
+| `candidates` | `[{"x":0.26,"y":0.4,"size":150,"id":"ID-0412","match":38},…` | candidate boxes [{x, y, size, id, match}] shown 0.5 s apart; match >= 90 uses the accent colour |
+| `label` | `"TARGET LOCKED"` | banner text (scramble-decoded) |
+| `coords` | `"X 0.560 · Y 0.500 · CONF 97.4%"` | line typed under the banner |
+| `src` | `""` | optional image (public/ path) used as the backdrop instead of the crate scene |
+| `background` | `"#101A2C"` | scene colour; 'transparent' renders only the HUD for use as an overlay |
+| `accent` | `"#3CF2FF"` | candidate / grid colour |
+| `lockColor` | `"#FFD23F"` | bracket-lock, ratchet and banner colour |
+| `firstCandidate` | `12` | frame the first candidate appears |
+| `candidateEvery` | `15` | frames between candidates (15 = 0.5 s) |
+| `lockAt` | `112` | frame the brackets snap on (they start 13 frames earlier) |
+
 ### `zoom-tunnel` — Zoom-through tunnel
 
 ![zoom-tunnel](../gallery/zoom-tunnel.jpg)
@@ -3084,7 +8567,632 @@ Blueprint radar target opens into a tunnel of outlined capsule rings; the camera
 | `accent` | `"#4777D2"` |  |
 | `line` | `"#DADDE5"` |  |
 
+## camera
+
+### `auto-frame-camera` — Auto-frame camera
+
+![auto-frame-camera](../gallery/auto-frame-camera.jpg)
+
+Self-framing camera for build-up diagrams: as blocks are added the isometric scene pans and zooms (0.7 s easeInOutCubic) so the current assembly always fills the viewport with a constant margin, while the header and readouts never move. Dashed guides show the margin box and the content bounds.
+
+**Use for:** Keeps any multi-step build-up diagram readable without hand-keyed cameras; the same `fitCamera` / `autoFrameAt` helpers (src/core/r2-x58-kit.tsx) drive any step-based motion.  
+**Rebuilt from:** video x8 0:01.0-0:01.8, 0:54.3-0:54.75  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `steps` | `[{"title":"One client","blocks":[{"id":"client","label":"…` | array of {title, blocks:[{id,label,x,y,w,d,h,color}], links:[{from,to}]}; blocks are diffed by id between steps |
+| `stepAt` | `[0,55,110,170]` | start frame of each step (the camera starts moving here) |
+| `margin` | `0.08` | margin around the content as a fraction of the viewport |
+| `frames` | `21` | re-frame duration in frames (0.6-0.8 s) |
+| `minScale` | `0.4` | smallest zoom |
+| `maxScale` | `3` | largest zoom |
+| `guides` | `true` | show the dashed margin box and content bounds |
+| `zoomReadout` | `true` | show the live zoom pill |
+| `header` | `"Auto frame"` | top bar word |
+| `background` | `"#F4ECDB"` | paper colour |
+| `palette` | `["#4D588A","#21A69A","#E5A24C","#C56E60","#3F64B5","#7A8F…` | block colours |
+
+### `board-camera` — Board camera (one huge board, one long dolly)
+
+![board-camera](../gallery/board-camera.jpg)
+
+A very large board holds every idea in its own region; the camera dollies between regions with log-zoom weighting and small rolls, pushes into one symbol, then pulls back past the board edge to show the whole lesson hanging on a wall in an aluminium frame with a pen tray. Directional motion blur appears when the camera moves fast.
+
+**Use for:** Turns hand-drawn motions into one continuous explainer: course intros, "how it works" product videos, onboarding; the full-board pull-back is a natural recap / end card. Regions can host any library motion via `layers`.  
+**Rebuilt from:** lemo-opuscar styles/whiteboard demo/engine/wb.js Camera / applyCam / Board.render (MIT, LemoLab) — own implementation  
+**Default length:** 400 frames (13.3 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `regions` | `[{"id":"r1","x":400,"y":500,"w":2300,"h":1700,"title":"Ga…` | [{id, x, y, w, h (board px), title, doodle:bars\|cycle\|tree\|bulb\|gear\|wave, at (draw-in frame), layers? (LayerSpec[] to host library motions)}] |
+| `camera` | `[[0,1550,1350,0.62,0,"hold"],[52,1550,1350,0.62,0,"hold"]…` | [[frame, x, y, zoom, rollDeg, ease]] ease arrives at the key: 'quintic'\|'cubic'\|'inOut'\|'linear'\|'hold' |
+| `boardW` | `8000` | board width in world px |
+| `boardH` | `4500` | board height in world px |
+| `boardColor` | `"#F7F5EF"` | board surface colour |
+| `wallColor` | `"#D8D3CA"` | wall colour seen on pull-back |
+| `ink` | `"#26282C"` | ink colour |
+| `accents` | `["#E5462F","#2F6FD0","#2E9A5B","#E39A1B","#7A4FC4","#E546…` | accent colours cycled over regions |
+| `frame` | `true` | aluminium frame + pen tray when zoomed out |
+| `motionBlur` | `9` | max blur px when the camera is fast (0 = off) |
+
+### `canvas-flythrough` — Canvas flythrough
+
+![canvas-flythrough](../gallery/canvas-flythrough.jpg)
+
+One tall layout holding every section; a virtual camera flies between stations with a van Wijk smooth zoom (zooming out slightly while travelling, settling on a long ease, speed-proportional camera blur) and at the end pulls all the way out to reveal the whole canvas was a phone screen.
+
+**Use for:** Explainers, product tours and pitch one-shot infographics: lay out sections as one canvas, list the stations, and let the camera do the storytelling.  
+**Rebuilt from:** mg-styles-15 demos/19-paperclip cam() / camBlur() + cues.json cam (MIT)  
+**Default length:** 270 frames (9.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** ui  
+**Capabilities:** paints its own background · text: `badge`, `cards` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `keys` | `[{"t":0,"dur":0,"x":600,"y":360,"w":1050,"move":"drift"},…` | camera stations [{t: arrival frame, dur: travel frames before arrival, x,y: world centre (canvas is 1200x2600), w: visible world width in portrait (widened to at most 1.15x the canvas in landscape; 0 = fit whole canvas), move: 'drift'\|'fly'\|'pull'}] |
+| `frameStyle` | `"phone"` | 'phone' wraps the canvas in a device bezel for the final pull-out reveal, 'none' leaves it flat |
+| `background` | `"#FAF7F2"` | canvas colour |
+| `accent` | `"#F2542D"` | brand accent |
+| `ink` | `"#1B1B2F"` | text colour |
+| `heading` | `["Work that","moves at","your speed."]` | hero headline lines (3) |
+| `badge` | `"NEW · VERSION 2"` | small pill above the headline |
+| `cards` | `[{"title":"Plan","body":"Everything in one clear view","c…` | feature cards [{title, body, color}] (3) |
+| `stats` | `[{"value":"98%","label":"FASTER SETUP"},{"value":"12k","l…` | two big stats [{value, label}] |
+| `cta` | `"Start free today"` | button text at the bottom |
+| `blur` | `true` | speed-proportional camera blur while flying |
+
+### `time-remap-clock` — Time remap clock
+
+![time-remap-clock](../gallery/time-remap-clock.jpg)
+
+Explains and demonstrates the punctuation-hold clock: two balls on a track, one on the constant timeline, one on the remapped clock that eases to a full stop on each hold, then runs up to ~2x to catch back up; a live speed graph shows the dip, the stop and the sin² catch-up. The same pure remap (buildTimeRemap in src/core/r2-mg1b-kit.tsx) can drive any motion for musical breaths.
+
+**Use for:** Visualising or tuning holds / slow-mo on beats; template for retiming any library motion without drifting off the timeline.  
+**Rebuilt from:** mg-styles-15 demos/02-line-art/film.js CT / camClock + demos/04-3d-render R(t) (MIT)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** paints its own background · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `holds` | `[{"at":1.6,"dur":0.4},{"at":3.6,"dur":0.4},{"at":5.5,"dur…` | holds [{at seconds on the timeline, dur seconds}] |
+| `easeIn` | `0.133` | seconds easing into each hold |
+| `release` | `0.9` | seconds of the catch-up run after each hold |
+| `length` | `7.5` | timeline length in seconds shown on the track |
+| `background` | `"#10142A"` | page colour |
+| `color` | `"#6C8CFF"` | timeline colour |
+| `remapColor` | `"#FFB44D"` | remapped clock colour |
+| `title` | `"Time remap"` | heading |
+
+## texture
+
+### `hide-carve-patterns` — Hide-carve patterns (openwork library)
+
+The openwork vocabulary of shadow theatre on lit cloth: crescent fish-scale holes, diamond lattice, coin holes, cloud scrolls, meander bands, bead lines, tapered rain slits and leaf holes, each hide piece pressed on and cut by a sweeping knife.
+
+**Use for:** Makes generated silhouettes (animals, buildings, logos) read as crafted lace instead of clip-art; the carve.* path generators (scales, lattice, coins, cloud, meander, taper, beads) in r2-lb2-kit are reusable for papercut and folk looks.  
+**Rebuilt from:** lemo-opuscar styles/shadow-puppet demo/carve.js (MIT, LemoLab)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** paper, nature  
+**Capabilities:** paints its own background · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `patterns` | `["scales","lattice","coins","clouds","meander","beads","s…` | which cells to show: 'scales' \| 'lattice' \| 'coins' \| 'clouds' \| 'meander' \| 'beads' \| 'slits' \| 'leaves' |
+| `title` | `"Hide carving"` | heading (empty = none) |
+| `labels` | `true` | pattern names under each piece |
+| `hideColor` | `"#1a100a"` | hide colour |
+| `inkColor` | `"#2a1209"` | label and heading colour |
+| `startAt` | `8` | frame the first piece presses on |
+| `stagger` | `7` | frames between pieces |
+| `seed` | `5` | variation seed |
+
 ## 3d
+
+### `accum-render-3d` — Accumulation render 3D
+
+![accum-render-3d](../gallery/accum-render-3d.jpg)
+
+Film-quality three.js frames by brute force: every frame is rendered N times with sub-pixel camera jitter (anti-aliasing), a jittered sun (soft area shadows) and sub-frame time offsets (true motion blur), then averaged in a float buffer — shown on a candy studio scene with a fast-spinning torus knot and an orbiting chrome ball, optionally split against the raw 1-sample render.
+
+**Use for:** A Blender-like finish for 3D shots and a drop-in AccumPass pattern (copy the component) for any three.js motion that needs real motion blur and soft shadows; preview uses 2 samples, renders use all.  
+**Rebuilt from:** mg-styles-15 03-isometric js/render.js accumulation pass (MIT, Vincentwei1021) — technique after mg-styles-15  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, pixel, cinematic, nature  
+**Capabilities:** paints its own background · weight: heavy  
+
+| prop | default | notes |
+|---|---|---|
+| `background` | `"#F1E4EC"` | cyc / floor colour |
+| `objectColor` | `"#FF5AA6"` | torus-knot colour |
+| `accentColor` | `"#C9CAD6"` | orbiting ball colour |
+| `rimColor` | `"#FF6FAE"` | rim light colour |
+| `samples` | `12` | renders averaged per frame (render-time; preview always uses 2) |
+| `shutter` | `0.8` | shutter fraction of a frame covered by the sub-frame samples (0–1) |
+| `jitterPx` | `1.6` | sub-pixel camera jitter in px (anti-aliasing) |
+| `sunJitter` | `1.6` | sun position jitter in world units (soft shadow size) |
+| `spin` | `5` | torus-knot spin speed (rad/s) — faster = more visible motion blur |
+| `compare` | `true` | split screen: left = 1 sample, right = accumulated |
+| `labels` | `true` | caption pills |
+| `seed` | `1` | unused variation seed (kept for spec compatibility) |
+
+### `book-open-3d` — Book open 3D
+
+![book-open-3d](../gallery/book-open-3d.jpg)
+
+A closed cloth hardback on a felt desk mat swings its cover open round the spine, two leaves turn over with a bend, and the camera pushes in and levels out onto a lesson spread whose figure then draws itself in ink.
+
+**Use for:** Textbook, storybook or "chapter 1" openers; education products; any brand story told as a book.  
+**Rebuilt from:** video x3 0.30-1.60 s (cover open, page turns, camera push)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, editorial  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `coverColor` | `"#D6A73C"` | cloth cover colour |
+| `coverTitle` | `"Small Physics"` | title on the cover and the title page |
+| `coverSubtitle` | `"a pocket book about energy"` | italic subtitle under the title |
+| `coverArt` | `""` | optional image for the cover inset (public/ path or URL); procedural ink jar drawing if empty |
+| `lessonEyebrow` | `"Lesson 1"` | small caps eyebrow on the left page |
+| `lessonTitle` | `"Energy stores"` | heading of the lesson spread |
+| `lessonBody` | `"Energy is never made or lost. It sits in stores and move…` | body paragraph on the left page |
+| `equation` | `"E = m g h"` | boxed italic equation on the left page ("" hides) |
+| `figureCaption` | `"Fig. 1  Eight things, each with a store of its own."` | italic caption under the right-page figure |
+| `figureSrc` | `""` | optional image for the right-page figure; procedural ink rack drawing (drawn on) if empty |
+| `contents` | `["Energy stores","Moving energy","Heat and light","Spring…` | chapter titles on the contents leaf |
+| `turns` | `2` | leaves that turn after the cover (0-2) |
+| `openAt` | `12` | frame the cover starts to open (source 0.40 s) |
+| `speed` | `1` | timing multiplier for everything after openAt (1 = source) |
+| `matColor` | `"#8FA194"` | felt desk mat colour |
+| `deskColor` | `"#BEB3A2"` | wooden desk colour |
+| `paper` | `"#EFEDE9"` | page paper colour |
+| `ink` | `"#1E1E1E"` | page ink colour |
+| `ribbon` | `true` | show the bookmark ribbon |
+
+### `brick-collapse-physics` — Brick collapse physics
+
+![brick-collapse-physics](../gallery/brick-collapse-physics.jpg)
+
+A built brick tower creaks, tips about its base edge and breaks into independent bricks that bounce with restitution 0.3 and settle flat; the camera shakes on impact and tilts down to the rubble. Deterministic pre-simulated rigid bodies, bricks stepped at 12 fps.
+
+**Use for:** Failure / pivot beats, "break it to rebuild it", playful destruction before a rebuild.  
+**Rebuilt from:** lemo-opuscar styles/brick-toy demo/rockets.js collapse (MIT, LemoLab), analysis/sources/lemo-styles-a.md §6 brick-collapse-physics  
+**Default length:** 165 frames (5.5 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, playful  
+**Capabilities:** paints its own background · text: `caption` · weight: heavy  
+
+| prop | default | notes |
+|---|---|---|
+| `width` | `8` | tower width in studs |
+| `height` | `10` | tower height in brick rows |
+| `palette` | `["#c91a09","#f2cd37","#0055bf","#f2f2ee"]` | brick colours |
+| `pushAt` | `28` | frame the creak/tip starts |
+| `pushDir` | `1` | 1 = tips right, -1 = tips left |
+| `seed` | `11` | brick layout + scatter seed |
+| `background` | `"#cfd4d8"` | studio wall colour |
+| `desk` | `"#9b958c"` | desk colour |
+| `caption` | `"Well. Back to the drawing board."` | subtitle pill after the dust settles (empty = none) |
+| `stepFps` | `12` | stop-motion stepping of brick movement |
+
+### `brick-fx-fire-smoke` — Brick FX: fire & smoke
+
+![brick-fx-fire-smoke](../gallery/brick-fx-fire-smoke.jpg)
+
+Stop-motion brick VFX on a toy rocket launch: the flame is 8–20 translucent orange round plates re-seeded every drawing at 12 fps, the smoke is white round bricks that grow and roll outward — no particles, no gradients — as the rocket shivers and lifts off.
+
+**Use for:** Launch beats, "we have lift-off", stop-motion VFX vocabulary reusable across brick / clay / papercraft looks.  
+**Rebuilt from:** lemo-opuscar styles/brick-toy demo/rockets.js fire & smoke (MIT, LemoLab), analysis/sources/lemo-styles-a.md §6 brick-fx-fire-smoke  
+**Default length:** 165 frames (5.5 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d  
+**Capabilities:** paints its own background · text: `caption` · weight: heavy  
+
+| prop | default | notes |
+|---|---|---|
+| `kind` | `"fire"` | fire = flame + smoke, smoke = smoke only, water = cool splash plates + smoke |
+| `rate` | `3` | frames between smoke puffs |
+| `liftAt` | `52` | frame the rocket lifts off (ignition 12 frames earlier) |
+| `palette` | `["#ff5a00","#ffa200","#ffd84a"]` | flame plate colours (hot → bright) |
+| `smokeColor` | `"#f2f2ee"` | smoke brick colour |
+| `rocketColors` | `[]` | reserved |
+| `background` | `"#cfd4d8"` | studio wall colour |
+| `desk` | `"#9b958c"` | desk colour |
+| `caption` | `"And every launch starts with one brick."` | subtitle pill (empty = none) |
+| `stepFps` | `12` | stop-motion re-seed rate of the flame drawings |
+| `seed` | `7` | FX seed |
+
+### `brick-rebuild-morph` — Brick rebuild morph
+
+![brick-rebuild-morph](../gallery/brick-rebuild-morph.jpg)
+
+The same set of glossy toy bricks lifts off one word and reassembles into a different one: bricks matched by size and colour arc across on staggered 8ths and snap on landing, with spare bricks flying in from bins behind the baseplate.
+
+**Use for:** Transformation stories in a playful material: career change, before/after, rebrand, a word re-spelled.  
+**Rebuilt from:** lemo-opuscar styles/brick-toy "Rebuild into something else" + engine (MIT code / CC BY 4.0 docs, LemoLab), analysis/sources/lemo-styles-a.md §6 brick-rebuild-morph  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, ui  
+**Capabilities:** paints its own background · weight: heavy  
+
+| prop | default | notes |
+|---|---|---|
+| `from` | `"WORK"` | the first word (5×7 pixel font) |
+| `to` | `"PLAY"` | the word it rebuilds into |
+| `palette` | `["#c91a09","#f2cd37","#0055bf","#237841"]` | brick colours (one per letter) |
+| `morphAt` | `52` | frame the morph starts |
+| `stagger` | `2` | frames between brick departures |
+| `flightFrames` | `22` | flight time of one brick |
+| `stepFps` | `12` | stop-motion stepping of brick movement |
+| `background` | `"#cfd4d8"` | studio wall colour |
+| `desk` | `"#9b958c"` | desk colour |
+| `captionFrom` | `"It spelled one thing for years…"` | subtitle shown with the first word |
+| `captionTo` | `"…until we rebuilt it."` | subtitle shown after the rebuild |
+| `seed` | `5` | matching / flight seed |
+
+### `brick-snap-build` — Brick snap build
+
+![brick-snap-build](../gallery/brick-snap-build.jpg)
+
+Stop-motion macro toy bricks fly in on arcs, one per beat, and click into place with a tiny overshoot, stacking into a word (or custom voxel list) on a studded baseplate; bricks step at 12 fps while the camera glides on ones.
+
+**Use for:** "Built from the ground up" brand / product / logo builds, education and kids' content, countdowns.  
+**Rebuilt from:** lemo-opuscar styles/brick-toy demo/bricks.js, main.js (MIT, LemoLab), analysis/sources/lemo-styles-a.md §6 brick-snap-build  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d  
+**Capabilities:** paints its own background · text: `text`, `caption` · weight: heavy  
+
+| prop | default | notes |
+|---|---|---|
+| `text` | `"BUILD"` | word built from bricks via a 5×7 pixel font (A–Z 0–9, ♥) |
+| `bricks` | `[]` | custom brick list [{x,y,z,w,d,h,color}] in stud units (y up, h 1.2 = brick); overrides text |
+| `palette` | `["#c91a09","#f2cd37","#0055bf","#237841","#f2f2ee"]` | brick colours |
+| `colorBy` | `"letter"` | letter = one colour per letter, row = per row stripes, random = scattered |
+| `beatFrames` | `2` | frames between brick landings |
+| `startAt` | `10` | frame the first brick lands |
+| `stepFps` | `12` | stop-motion stepping of brick movement (12 = on twos at 24) |
+| `background` | `"#cfd4d8"` | studio wall colour |
+| `desk` | `"#9b958c"` | desk colour |
+| `caption` | `"Built brick by brick."` | subtitle pill under the build (empty = none) |
+| `seed` | `3` | flight path / colour seed |
+
+### `chart-to-installation` — Chart to installation (crane to top view)
+
+![chart-to-installation](../gallery/chart-to-installation.jpg)
+
+Two series of physical plate stacks spiral around a walnut dial; the camera tracks the spiral while they assemble, then cranes back and up to a ~70° top view where the stacks read as one data sculpture and the inlaid tick ring and years become the typography, with an end card beside it.
+
+**Use for:** Signature ending / summary shot for any physical-data film: a decade of values revealed as one installation.  
+**Rebuilt from:** lemo-opuscar styles/data-physical (MIT, LemoLab)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, hud  
+**Capabilities:** paints its own background · text: `labels`, `title`, `kicker`, `verdict` · weight: heavy  
+
+| prop | default | notes |
+|---|---|---|
+| `labels` | `["2016","2017","2018","2019","2020","2021","2022","2023",…` | period labels inlaid on the dial (one per stack pair) |
+| `valuesA` | `[120,150,190,230,280,340,400,470,540,620]` | outer-ring series values |
+| `valuesB` | `[180,200,220,240,270,300,330,360,390,420]` | inner-ring series values |
+| `nameA` | `"Series A"` | outer series name |
+| `nameB` | `"Series B"` | inner series name |
+| `materialA` | `"aluminium"` | aluminium \| acrylic \| brass \| oak \| stone \| copper |
+| `materialB` | `"acrylic"` | aluminium \| acrylic \| brass \| oak \| stone \| copper |
+| `unit` | `10` | value per plate |
+| `rulerEvery` | `10` | every Nth plate is brass |
+| `title` | `"Two spirals"` | end-card title |
+| `kicker` | `"A decade, stacked"` | tracked caps line above the title |
+| `verdict` | `"2025 · Series A is 1.5× Series B"` | accent verdict line under the rule |
+| `background` | `"#e4d7c6"` | studio sweep colour |
+| `accent` | `"#d4521c"` | verdict colour |
+| `craneAt` | `96` | frame the 4 s crane to the top view starts |
+| `seed` | `5` | jitter seed |
+
+### `cloner-bed-ripple` — Cloner bed ripple
+
+![cloner-bed-ripple](../gallery/cloner-bed-ripple.jpg)
+
+A dense pin-art bed of glossy two-tone candy capsules in soft pastel studio light; effector bands roll across it raising and tilting the pills along the height gradient, and timed impacts send damped ripple rings racing outward — a satisfying C4D-cloner ASMR field.
+
+**Use for:** Satisfying backdrop or floor for product idents, logo stings and hero sections; pair with jelly-type-drop for the full candy ident.  
+**Rebuilt from:** mg-styles-15 04-3d-render 0.0-5.5 s, blender/sim.py sweep/ring/wave_height (MIT, Vincentwei1021) — technique after mg-styles-15  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d  
+**Capabilities:** paints its own background · weight: heavy  
+
+| prop | default | notes |
+|---|---|---|
+| `background` | `"#F1E4EC"` | cyc / floor colour |
+| `capColor` | `"#EBDCCD"` | capsule top colour (cream) |
+| `bodyColor` | `"#C6B9F3"` | capsule flipped/under colour (lilac) |
+| `rimColor` | `"#FF6FAE"` | pink rim-light colour |
+| `cols` | `76` | pills across |
+| `rows` | `56` | pills deep |
+| `sweeps` | `3` | how many effector bands roll through |
+| `sweepEvery` | `2.2` | seconds between sweep bands |
+| `impacts` | `[{"x":-3,"z":1,"at":1.6,"amp":0.7},{"x":4,"z":-2,"at":4.2…` | ripple sources: {x, z, at (s), amp} |
+| `amp` | `1` | global height multiplier |
+| `camera` | `"low"` | low 3/4 (dolly) \| high \| macro |
+| `grain` | `true` | film grain + vignette finish |
+| `seed` | `1` | pill jitter seed |
+
+### `colour-ignition-wave` — Colour ignition wave
+
+![colour-ignition-wave](../gallery/colour-ignition-wave.jpg)
+
+A matte white clay isometric city waits; the exposure dips, the hero tower flashes and a cyan pulse ring races out across the ground — as it reaches each object, colour climbs its facade from the ground behind a thin bright scan line, empty tiles hop and flip to their coloured undersides, windows light and the camera kicks.
+
+**Use for:** A universal "before → after / switched on / launch" hero moment for product, city, platform and data dioramas.  
+**Rebuilt from:** mg-styles-15 03-isometric 6.0-6.5 s, world.js clayMat / flash delay / two-faced tiles (MIT, Vincentwei1021) — technique after mg-styles-15  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, hud  
+**Capabilities:** paints its own background · weight: heavy  
+
+| prop | default | notes |
+|---|---|---|
+| `map` | `["gtghgthggtgu","grrrrrrrrrrg","hrbbpbbpbbrw","grbbpbbpbb…` | rows of map chars (see iso-city-build): r road, b block, p plaza, c core, w water, t tree, h house, s solar, u turbine, g grass |
+| `background` | `["#EEEAFC","#DAD3F7","#C4BAEF"]` | background gradient stops |
+| `igniteAt` | `1.4` | seconds until the hit |
+| `origin` | `[0,0]` | [x, z] grid offset from the centre where the pulse starts |
+| `speed` | `6.5` | pulse front speed in tiles per second |
+| `climbSpeed` | `9` | how fast colour climbs a facade (tiles per second) |
+| `clayColor` | `"#F1EEFA"` | pre-colour clay |
+| `scanColor` | `"#62F0F2"` | pulse ring / scan line colour |
+| `zoomKick` | `true` | camera punch on the hit |
+| `zoom` | `1` | camera zoom multiplier |
+| `seed` | `1` | building heights / colours seed |
+
+### `exploded-stack` — Exploded stack (teardown 3D)
+
+![exploded-stack](../gallery/exploded-stack.jpg)
+
+A stack of five flat layers (base, battery, board with chips, keyboard with keycaps, glass top) sits on a dark seamless; they lift apart top-first with a stagger while the keys and chips ripple up, the camera orbits and a leader-line label column cascades in; hold with a gentle float, then it closes bottom-first with each part landing with a tiny mechanical dip.
+
+**Use for:** Hardware launches, "what is inside" explainers, layered architecture (UI, API, DB as slabs), feature stacks on landing pages; any product screenshot can be one layer via src.  
+**Rebuilt from:** lemo-opuscar styles/teardown demo/src/main.js, timeline.js, overlay.js (MIT, LemoLab)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, playful, ui, night  
+**Capabilities:** paints its own background · weight: heavy  
+
+| prop | default | notes |
+|---|---|---|
+| `layers` | `[{"name":"Chassis","spec":"Machined aluminium","w":2.3,"d…` | bottom to top: name, spec, w, d, h (3D units), colour, optional src image on top face, optional parts grid (cols, rows, size, height, colour) |
+| `openAt` | `24` | frame the top layer starts to lift |
+| `closeAt` | `150` | frame the bottom layer starts to close |
+| `stagger` | `5` | frames between layers |
+| `wave` | `14` | frames the part ripple takes to cross a surface |
+| `spread` | `0.34` | gap between lifted layers (3D units) |
+| `orbitFrom` | `-31` | camera azimuth at the start, degrees |
+| `orbitTo` | `18` | camera azimuth when open, degrees |
+| `float` | `0.012` | gentle float amplitude while open |
+| `labels` | `true` | show the leader-line label column |
+| `accent` | `"#ff7a1a"` | label index colour |
+| `background` | `"#34363a"` | seamless centre colour |
+| `edge` | `"#0d0e10"` | seamless edge colour |
+
+### `exploded-view-3d` — Exploded view (3D parts, labels, cutaway)
+
+![exploded-view-3d](../gallery/exploded-view-3d.jpg)
+
+A real three.js assembly (end cap, battery, circuit board with chips, motor, shaft, spinning gear, front plate inside a hollow housing sleeve) lit by a studio environment separates part by part along its axis with a 3-frame stagger while the camera orbits and numbered leader-line labels project from the 3D parts, then reassembles; the cutaway variant stays closed and a clip plane slices the shell open.
+
+**Use for:** Hardware launches, engineering and teaching explainers, "how it is made" and product feature call-outs. Replace `parts` (mesh box / cyl / tube / gear / board / sphere / ring) to explode your own object; the axis turns vertical in portrait.  
+**Rebuilt from:** prompt corpus x17 (procedural 3D object separates into labelled parts, orbits, reassembles; cutaway slices it open)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d  
+**Capabilities:** paints its own background · weight: heavy  
+
+| prop | default | notes |
+|---|---|---|
+| `parts` | `[{"name":"End cap","spec":"anodised alloy","mesh":"cyl","…` | [{name, spec?, mesh:"box\|cyl\|tube\|gear\|board\|sphere\|ring", pos:[x,y,z], size:[...], dir:[dx,dy,dz], dist, color, spin?, shell?, metal?}] x is the assembly axis; size = box [x,y,z], cyl [radius,length], tube [outerR,length,innerR], gear [R,thickness,teeth] |
+| `variant` | `"explode"` | 'explode' (parts separate) \| 'cutaway' (closed assembly, shell parts sliced open by a clip plane) |
+| `explodeAt` | `26` | frame the first part starts to move (or the cut starts) |
+| `reassembleAt` | `176` | frame the parts start coming back |
+| `stagger` | `3` | frames between consecutive parts |
+| `orbitSpeed` | `4` | camera orbit speed, degrees per second |
+| `startAzimuth` | `14` | starting camera azimuth in degrees |
+| `elevation` | `16` | camera elevation in degrees |
+| `labels` | `true` | numbered leader-line labels |
+| `accent` | `"#7cf0ff"` | label / leader colour |
+| `background` | `"#1f2736"` | backdrop centre colour |
+| `backgroundEdge` | `"#090c13"` | backdrop corner colour |
+| `scale` | `1` | zoom multiplier (>1 = closer) |
+
+### `faceted-sea` — Faceted sea
+
+![faceted-sea](../gallery/faceted-sea.jpg)
+
+An endless low-poly ocean in orthographic view: every triangle glints on its own, a turquoise shallow rim and foam ring wrap a tiny hex islet that rises from the water, a boat bobs on the wave function, and the far water dissolves into a horizonless pastel sky while the light drifts from day to dusk.
+
+**Use for:** Calm 3D backdrop for island / travel / logistics / calm-brand heroes and diorama scenes; a looping website hero; put title words in HTML over it.  
+**Rebuilt from:** lemo-opuscar styles/lowpoly-island demo/sea.js + post.js (MIT, LemoLab) — wave function, shallow rim, depth haze, time-of-day keys  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, nature  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `timeStart` | `"day"` | time of day at the start: dawn \| day \| dusk \| night |
+| `timeEnd` | `"dusk"` | time of day at the end (the light eases from start to end) |
+| `azimuthStart` | `38` | camera azimuth at the start (degrees) |
+| `azimuthEnd` | `58` | camera azimuth at the end (slow turntable) |
+| `elevation` | `32` | camera elevation in degrees (25-35 day, 20-25 night, 50 map-like) |
+| `zoom` | `13` | orthographic frustum height in world units (12-16 = island scale) |
+| `amplitude` | `1` | wave height multiplier |
+| `sparkle` | `1` | per-facet glint strength |
+| `glint` | `0.5` | sun specular strength on the facets (too high = white flashes) |
+| `foam` | `1` | foam ring around land (0 = none) |
+| `islet` | `true` | show the small hex islet (drives the shallow rim and foam) |
+| `boat` | `true` | a small boat circling the islet |
+| `speed` | `1` | wave speed multiplier |
+| `seed` | `3` | facet jitter / star seed |
+
+### `glass-strip-sweep` — Glass strip-light sweep
+
+![glass-strip-sweep](../gallery/glass-strip-sweep.jpg)
+
+A dark glass product in black space: a tall strip light passes behind the camera and its reflection slides across the object, drawing a thin white contour with rainbow fringing at the edges; between sweeps only side-strip silhouettes remain.
+
+**Use for:** Premium product reveals for SaaS / hardware brands, app-icon glass hero, launch-film openers.  
+**Rebuilt from:** lemo-opuscar styles/glass-product/demo/studio.js, STYLE.md section 2 (MIT, LemoLab)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, nature, night  
+**Capabilities:** paints its own background · text: `title`, `kicker` · weight: heavy  
+
+| prop | default | notes |
+|---|---|---|
+| `object` | `"bottle"` | bottle \| vase \| orb \| slab (built-in geometry) |
+| `material` | `"clear"` | clear \| frosted \| chrome \| satin |
+| `passes` | `[8,78]` | start frames of each strip sweep |
+| `passFrames` | `60` | frames one sweep takes (arc -1.35 to +1.35 rad) |
+| `dispersion` | `0.035` | rainbow fringe strength (rad of environment offset per channel; 0 = off) |
+| `sideStrips` | `1` | intensity of the permanent side strips that draw the silhouette |
+| `title` | `"LUMEN"` | ultra-thin tracked product name (empty = none) |
+| `kicker` | `"INTRODUCING"` | small tracked caps above the name |
+| `orbit` | `0.28` | slow camera orbit amplitude in rad |
+| `background` | `"#000000"` | space colour |
+
+### `globe-3d` — Globe (3D, day/night, arcs)
+
+![globe-3d](../gallery/globe-3d.jpg)
+
+A shaded three.js Earth (procedural land and ocean, soft day/night terminator with warm city lights, atmosphere rim) turns slowly; glowing arcs lift off the surface and fly between cities along great circles with pulsing markers and name labels, then the camera swings to a focus lat/lon and zooms in with a coordinates caption.
+
+**Use for:** Global reach stats, travel and logistics routes, climate and space explainers, "we ship worldwide" beats. Use `textureSrc` for a real equirectangular map; set `background: "transparent"` to overlay.  
+**Rebuilt from:** prompt corpus x25 (globe with arcs, terminator, focus zoom), original coarse coastline data  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** 3d, nature, editorial, night  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: heavy  
+
+| prop | default | notes |
+|---|---|---|
+| `points` | `[{"name":"London","lat":51.5,"lon":-0.1},{"name":"New Yor…` | [{name, lat, lon, color?}] markers (only points used by an arc get a marker/label) |
+| `arcs` | `[{"from":"Dubai","to":"Singapore","at":10},{"from":"Nairo…` | [{from, to, at?, color?}] great-circle flights; from/to are point names or indexes, at = start frame |
+| `focus` | `{"lat":49,"lon":9,"at":140,"label":"Europe","zoom":1.45}` | {lat, lon, at, label?, zoom?} camera swings and zooms to this place from frame `at`; null = never |
+| `textureSrc` | `""` | optional equirectangular day-map image (public/ path or URL); empty = procedural Earth |
+| `background` | `"#04070f"` | backdrop outer colour ("transparent" to overlay the globe on your own scene) |
+| `backgroundEdge` | `"#0d1b3a"` | backdrop centre glow colour |
+| `oceanColor` | `"#0f3b78"` | deep ocean colour |
+| `landColor` | `"#3f8a4d"` | lowland colour |
+| `atmosphereColor` | `"#6cb6ff"` | atmosphere rim colour |
+| `arcColor` | `"#ffc65a"` | arc / caption accent colour |
+| `markerColor` | `"#ffe9a8"` | marker colour |
+| `nightLights` | `true` | show city lights on the night side |
+| `lightColor` | `"#ffc873"` | city-light colour |
+| `spin` | `9` | rotation speed, degrees per second (eastward) |
+| `startLon` | `60` | longitude facing the camera at frame 0 |
+| `tilt` | `18` | camera latitude (degrees above the equator) |
+| `labels` | `true` | show city name labels |
+| `stars` | `true` | draw a faint starfield behind the globe |
+| `size` | `1` | globe size multiplier (1 = about 80% of the short side) |
+
+### `hex-island-grow` — Hex island grow
+
+![hex-island-grow](../gallery/hex-island-grow.jpg)
+
+A flat-shaded low-poly hex island builds itself in an orthographic turntable: tiles rise from a faceted sea with a splash ring and damped overshoot, houses stack floor by floor with bounce and squash and get prism roofs, trees pop, a windmill turns, lamps and windows light as the day drifts to dusk.
+
+**Use for:** "Growth" stories — a startup year, city planning, community, a product ecosystem; a satisfying loop for websites; pair with the faceted-sea look.  
+**Rebuilt from:** lemo-opuscar styles/lowpoly-island demo/world.js (MIT, LemoLab) — hex layout, rise/drop/pop arrival curves, one event per slot  
+**Default length:** 300 frames (10.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, playful  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `radius` | `2` | island radius in hex rings (1-3); 2 = 19 tiles |
+| `buildings` | `5` | number of houses (1-3 floors each, prism roofs) |
+| `trees` | `6` | number of pines / round trees |
+| `windmill` | `true` | add a turning windmill |
+| `lamps` | `2` | number of lamp posts (glow at dusk) |
+| `boat` | `true` | a boat sails around the island once it is built |
+| `bpm` | `120` | build tempo: one tile per 16th note, floors per 8th |
+| `azimuthStart` | `40` | camera azimuth at the start (degrees) |
+| `azimuthEnd` | `95` | camera azimuth at the end (turntable sweep) |
+| `elevation` | `33` | camera elevation (30-35 build view) |
+| `zoom` | `9.5` | orthographic frustum height (12-16 island scale) |
+| `timeStart` | `"day"` | time of day at the start: dawn \| day \| dusk \| night |
+| `timeEnd` | `"dusk"` | time of day at the end (windows light as it darkens) |
+| `seed` | `7` | layout / heights / colours seed |
+| `palette` | `{"sand":"#F3DFAB","sandSide":"#E2C68E","grass":"#93C96C",…` | sand, sandSide, grass, earth, walls[], roofs[], pine[], leaves[] hex colours |
+
+### `holo-globe` — Holographic globe
+
+![holo-globe](../gallery/holo-globe.jpg)
+
+A wireframe Earth in cyan: coastlines draw on, a 10 degree graticule, fibonacci-dotted land, fresnel atmosphere, tilted orbit rings and a scan band; it turns onto a target, a beam and surface rings mark it, then the camera dives to a regional map with city dots and moving sea tracks.
+
+**Use for:** Geo explainers, news intros, cyber / defence and logistics films. Pairs with target-lock and supply-route-map. transparent=true for an overlay.  
+**Rebuilt from:** mg-styles-15 demos/22-hud/js/holo.js (MIT), Natural Earth 50m land (public domain)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** blueprint, hud  
+**Capabilities:** paints its own background · text: `label` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `background` | `"#020b12"` | backdrop colour |
+| `color` | `"#00E5FF"` | hologram colour (additive look) |
+| `targetLat` | `1.4` | target latitude, degrees north |
+| `targetLon` | `104` | target longitude, degrees east |
+| `label` | `"TARGET 01"` | target label text |
+| `turnAt` | `22` | frame the globe starts turning onto the target (1 s hermite) |
+| `diveAt` | `120` | frame of the dive into the regional map |
+| `dots` | `1900` | fibonacci sample count for the dotted land |
+| `graticule` | `true` | 10 degree lat/lon grid |
+| `scanPeriod` | `60` | frames per scan-band sweep (60 = 2 s) |
+| `cities` | `34` | city dots on the regional map |
+| `tracks` | `9` | moving sea tracks on the regional map |
+| `transparent` | `false` | overlay mode (no background) |
+| `seed` | `3` | seed for cities and tracks |
+
+### `holo-solid-ignite` — Holo solid ignite
+
+![holo-solid-ignite](../gallery/holo-solid-ignite.jpg)
+
+A cyan hologram wireframe builds up through a scan plane, then ignites into a translucent solid: faces fill with edge-bright Fresnel and scrolling interlace lines, a light wave climbs the model, lines thicken then settle, and a projector beam with rays and dust motes rises from the pad while it turntables.
+
+**Use for:** The once-per-film "the whole thing is ready" launch beat for products, apps and logos.  
+**Rebuilt from:** lemo-opuscar styles/hologram-hud (MIT, LemoLab) — holo.js Fresnel faces + beam, STYLE.md  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** blueprint, 3d, hud  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `tagline` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"LUMEN D1"` | product name revealed after ignition |
+| `tagline` | `"READY FOR FLIGHT"` | mono line under the title |
+| `igniteAt` | `62` | frame the wireframe ignites into a solid |
+| `turns` | `0.55` | turntable turns over the whole duration |
+| `background` | `"#020709"` | stage colour, or "transparent" for an overlay |
+| `hue` | `188` | hologram hue (188 cyan) |
+| `accent` | `38` | accent hue |
+| `beam` | `true` | projector beam with rays and dust |
+| `motes` | `70` | number of dust motes in the beam |
+| `fill` | `0.55` | face fill strength (0.2–0.5) |
 
 ### `iso-blocks-3d` — Iso blocks (3D clay)
 
@@ -3114,6 +9222,243 @@ Soft clay isometric 3D bar chart: a white ball with eyes hops down the bars pain
 | `ballColor` | `"#F9F4EE"` | ball body colour |
 | `hopHeight` | `0.75` | hop arc height (world units, 1 = one cell) |
 | `zoomOut` | `0.62` | camera zoom at the reveal (1 = close follow) |
+
+### `iso-city-build` — Iso city build
+
+![iso-city-build](../gallery/iso-city-build.jpg)
+
+A pastel isometric island builds itself in true orthographic 3D: floor tiles fall in rings from the centre with spin, squash and a cyan rim flash, the soil slab slides under, buildings, houses, trees, solar fields and wind turbines grow along a sweep front with overshoot and lagged roofs, a navy hero tower stacks in segments and lights up, windows glow, cars loop the ring road, drones ferry packets, and the camera pulls back to float the island top-right.
+
+**Use for:** Smart-city, platform, ecosystem and architecture explainers; "watch it grow" openers; pass your own map rows and leave room for a title after the pull-back.  
+**Rebuilt from:** mg-styles-15 03-isometric 0.0-8.8 s, world.js / main.js / anim.js (MIT, Vincentwei1021) — technique after mg-styles-15  
+**Default length:** 300 frames (10.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d  
+**Capabilities:** paints its own background · weight: heavy  
+
+| prop | default | notes |
+|---|---|---|
+| `map` | `["gtghgthggtgu","grrrrrrrrrrg","hrbbpbbpbbrw","grbbpbbpbb…` | rows of map chars: r road, b block, p plaza, c core (2x2 hero tower), w water, t tree, h house, s solar, u turbine, g grass |
+| `background` | `["#EEEAFC","#DAD3F7","#C4BAEF"]` | background gradient stops (top -> bottom) |
+| `heroTower` | `true` | stack the navy hero tower on the c cells |
+| `traffic` | `8` | cars looping the ring road |
+| `drones` | `3` | drones carrying packets from the tower |
+| `clouds` | `true` | floating clouds |
+| `pullback` | `true` | camera pulls back at 7.75 s to leave room for a title |
+| `pullTo` | `"top-right"` | where the island floats after the pull-back: top-right \| center \| top-left |
+| `speed` | `1` | timeline speed multiplier |
+| `zoom` | `1` | camera zoom multiplier |
+| `seed` | `1` | building heights / colours seed |
+
+### `jelly-type-drop` — Jelly type drop
+
+![jelly-type-drop](../gallery/jelly-type-drop.jpg)
+
+Inflated glossy candy letters fall one per beat into a soft bed of two-tone capsules, sink past the surface, wobble back up with jelly squash-and-stretch and fire a damped ripple ring through the pill field on every landing; a late wave can hop the whole word again in reading order.
+
+**Use for:** Playful brand word reveals and candy idents; with cloner-bed-ripple gives the full C4D-ident look in the browser.  
+**Rebuilt from:** mg-styles-15 04-3d-render 0.3-3.8 s, blender/sim.py bed_force / letter_track (MIT, Vincentwei1021) — technique after mg-styles-15  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, ui  
+**Capabilities:** paints its own background · text: `text` · weight: heavy  
+
+| prop | default | notes |
+|---|---|---|
+| `text` | `"soft"` | the word (lowercase reads most candy-like, up to 10 letters) |
+| `background` | `"#F1E4EC"` | cyc colour |
+| `letterColor` | `"#FF5AA6"` | letter material colour |
+| `capColor` | `"#EBDCCD"` | pill top colour |
+| `bodyColor` | `"#C6B9F3"` | pill under colour |
+| `rimColor` | `"#FF6FAE"` | pink rim-light colour |
+| `material` | `"gummy"` | gummy (sheen) \| plastic (clearcoat) \| chrome |
+| `beats` | `[0.5,1.5,2,2.5]` | drop time in seconds per letter (cycles if shorter than the word) |
+| `dropHeight` | `5.5` | fall height in world units |
+| `jiggle` | `1` | jelly wobble amount |
+| `size` | `1` | letter size multiplier |
+| `relift` | `true` | a late wave hops the letters again in reading order |
+| `grain` | `true` | film grain + vignette finish |
+| `seed` | `1` | unused variation seed (kept for spec compatibility) |
+
+### `last-object-drop` — Last object drop (engraved brass puck)
+
+![last-object-drop](../gallery/last-object-drop.jpg)
+
+A single brass puck engraved with the final number falls with gravity into the centre of a walnut dial ringed by plate stacks, unwinds its yaw, lands with one tiny damped bounce while its shadow tightens; the room dims for a breath before the hit and an accent verdict settles.
+
+**Use for:** Totals, ratios and "target met" endings for data films; the one heavy object that closes the argument.  
+**Rebuilt from:** lemo-opuscar styles/data-physical (MIT, LemoLab)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, hud, playful  
+**Capabilities:** paints its own background · text: `label`, `caption` · weight: heavy  
+
+| prop | default | notes |
+|---|---|---|
+| `value` | `"×1.86"` | big engraved number on the puck face |
+| `label` | `"SERIES A ÷ SERIES B"` | engraved line under the number |
+| `topLine` | `"2025"` | small engraved line above the number (e.g. a year) |
+| `material` | `"brass"` | puck material: brass \| copper \| aluminium \| stone \| oak |
+| `dropAt` | `40` | frame the fall starts (lands 15 frames later) |
+| `stacks` | `10` | number of context stack pairs ringed around the dial (0 = bare dial) |
+| `stackMaterialA` | `"aluminium"` | outer stack material |
+| `stackMaterialB` | `"acrylic"` | inner stack material |
+| `caption` | `"2025 · Series A is 1.86× Series B"` | accent verdict line that settles after the landing |
+| `background` | `"#e4d7c6"` | studio sweep colour |
+| `accent` | `"#d4521c"` | verdict colour |
+| `seed` | `4` | jitter seed |
+
+### `lidar-canopy-peel` — Lidar canopy peel
+
+![lidar-canopy-peel](../gallery/lidar-canopy-peel.jpg)
+
+A dense teal-to-pale point-cloud forest. A horizontal cut plane steps down on the beat; returns above it lift, glow white and vanish, a bright rim marks where the plane meets the crowns, and a height ruler with a canopy-height histogram tracks the cut. Bare-earth scan stripes remain at the end. Procedural seeded forest, slow orbit camera.
+
+**Use for:** Archaeology / forestry / engineering reveals; "strip away the noise to find what matters" in product and brand stories.  
+**Rebuilt from:** lemo-opuscar styles/lidar-survey/demo/film.js point shader (MIT, LemoLab), lemo-styles-a lidar-survey: lidar-canopy-peel  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, nature, hud  
+**Capabilities:** paints its own background · text: `label` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `trees` | `26` | number of procedural trees |
+| `seed` | `7` | forest seed |
+| `cutKeys` | `[30,25,20,15,10,5,0]` | cut-plane heights in metres, one step per entry (30 → 0) |
+| `stepFrames` | `24` | frames per step (the move takes 45 % of it, then holds) |
+| `startAt` | `26` | frame the first step starts |
+| `ramp` | `["#1F3F35","#5C9A7A","#E2F3DC"]` | three height-ramp colours low → mid → high |
+| `background` | `"#05080A"` | backdrop colour |
+| `rulerSide` | `"right"` | right \| left |
+| `label` | `"Canopy returns, plot 07"` | caption (small caps, bottom corner) |
+| `size` | `80` | plot edge length in metres |
+| `orbit` | `0.07` | camera orbit speed in rad/s |
+
+### `light-beam-ribbon` — Light beam ribbon
+
+![light-beam-ribbon](../gallery/light-beam-ribbon.jpg)
+
+A soft volumetric beam sweeps like a clock hand from a lighthouse lamp over a night sea: a camera-facing additive ribbon with a Gaussian profile, a root-bright core and a wide halo, tilted 7 degrees down, while the faceted water under it lights in a band with per-facet sparkles. An overlay mode draws only the beam.
+
+**Use for:** Night scenes, "spotlight on X", searching / discovery / guidance metaphors, lighthouse and projector beats; overlay mode sweeps a beam across any host scene.  
+**Rebuilt from:** lemo-opuscar styles/lowpoly-island demo/world.js l.175-177 + sea.js beam-lit water (MIT, LemoLab)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** 3d, cinematic, nature, night  
+**Capabilities:** overlay (`{"overlay":true}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `bpm` | `120` | tempo used to time the sweep |
+| `beatsPerTurn` | `12` | beats for one full 360 degree turn (12 = a slow clock hand) |
+| `startAngle` | `-30` | beam azimuth at frame 0 (degrees, ground plane) |
+| `beamColor` | `"#FFE7A8"` | beam hex colour |
+| `beamLength` | `20` | beam length in world units |
+| `tiltDeg` | `7` | degrees the beam points below horizontal |
+| `beamWidth` | `1` | beam width multiplier |
+| `intensity` | `1` | beam + water-glow strength |
+| `lighthouse` | `true` | draw the lighthouse the beam comes from |
+| `overlay` | `false` | draw only the beam on a transparent background (host scene shows through) |
+| `timeStart` | `"dusk"` | time of day at the start: dawn \| day \| dusk \| night |
+| `timeEnd` | `"night"` | time of day at the end |
+| `azimuthStart` | `35` | camera azimuth at the start |
+| `azimuthEnd` | `55` | camera azimuth at the end |
+| `elevation` | `25` | camera elevation (20-25 night shows more sky and stars) |
+| `zoom` | `12` | orthographic frustum height |
+| `seed` | `5` | facet jitter / star seed |
+
+### `liminal-corridor-3d` — Liminal office corridor (3D)
+
+![liminal-corridor-3d](../gallery/liminal-corridor-3d.jpg)
+
+A handheld camcorder walks an endless, empty office of mustard wallpaper partitions on a 2.4 m grid under a drop ceiling of fluorescent troffers (a few dead, a few flickering), the far corridors fading into dark fog, one red EXIT sign far ahead and a REC / clock OSD.
+
+**Use for:** Liminal / uncanny backdrops for horror-lite, mystery, "corporate dread" satire and found-footage openers.  
+**Rebuilt from:** lemo-opuscar styles/backrooms demo/world.js, tex.js, main.js handheld rig (MIT, LemoLab), analysis/sources/lemo-styles-a.md §4 liminal-corridor-3d  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, photo, 3d, night  
+**Capabilities:** paints its own background · weight: heavy  
+
+| prop | default | notes |
+|---|---|---|
+| `seed` | `7` | layout seed (partition placement, dead / flickering panels) |
+| `wallpaper` | `"#d5bd66"` | wallpaper colour (pool tile #9fc7c0, school #b9c49a for alternatives) |
+| `trim` | `"#4d3d26"` | baseboard colour |
+| `carpet` | `"#8c763c"` | carpet colour |
+| `ceiling` | `"#d9d3b8"` | ceiling tile colour |
+| `signal` | `"#ff2a1a"` | the one signal colour (EXIT sign) |
+| `fogColor` | `"#1c180b"` | fog / background colour (dark) |
+| `fogDensity` | `0.085` | exponential fog density (higher = darker far corridors) |
+| `speed` | `1.1` | walking speed in m/s |
+| `fear` | `0.3` | 0..1 extra handheld tremor |
+| `osd` | `true` | camcorder REC / battery / clock / date overlay |
+| `clock` | `"PM 11:58"` | OSD clock text |
+| `date` | `"SEP.27.1996"` | OSD date text |
+
+### `ocean-surface-3d` — Ocean surface 3D
+
+A perspective sea built from Gerstner waves with analytic normals, fresnel sky reflection, sparkling sun glitter, crest foam and horizon fog under a gradient sky and sun glow; low-skim, high or drifting camera.
+
+**Use for:** Travel, maritime and calm brand heroes, film openers, looping website backgrounds (put the words in HTML over it). For a stylised low-poly sea use faceted-sea instead.  
+**Rebuilt from:** prompt-corpus: awesome-opus5-5-videos (MIT) — Gerstner ocean cases (9), original implementation  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, cinematic, nature  
+**Capabilities:** paints its own background · text: `title`, `subtitle` · weight: heavy  
+
+| prop | default | notes |
+|---|---|---|
+| `deepColor` | `"#03203A"` | deep water colour |
+| `shallowColor` | `"#12889E"` | shallow / crest scattering colour |
+| `skyZenith` | `"#2459A8"` | sky colour overhead (also what the sea reflects) |
+| `skyHorizon` | `"#B4D2E8"` | sky + fog colour at the horizon |
+| `sunColor` | `"#FFE9C2"` | sun and glitter colour |
+| `sunElevation` | `11` | sun height above the horizon in degrees (low = long glitter path) |
+| `sunAzimuth` | `6` | sun direction in degrees (0 = straight ahead) |
+| `waveHeight` | `0.8` | wave amplitude multiplier (0.3 calm - 2 rough) |
+| `steepness` | `0.3` | Gerstner steepness 0.2-0.4 (sharper crests, more foam) |
+| `speed` | `1` | wave time scale |
+| `foam` | `1` | crest foam amount (0 = none) |
+| `glitter` | `1` | sun glitter intensity (0 = none) |
+| `fog` | `0.55` | horizon fog density |
+| `camera` | `"low"` | low (skim) \| high (look-down) \| drift (slow sway) |
+| `title` | `""` | optional serif title over the sea (empty = none) |
+| `subtitle` | `""` | optional mono subtitle |
+| `ink` | `"#FFFFFF"` | title colour |
+
+### `particle-shape-morph` — Particle shape morph
+
+![particle-shape-morph](../gallery/particle-shape-morph.jpg)
+
+A title glyph dissolves into ≈ 5 k sand-like particles that sweep (left first) into a rotating Fibonacci sphere around a red core, open into a tilted spinning torus, then collapse into a tiny glowing core with an orange bloom, while a mono caption tracks N and the stage.
+
+**Use for:** "Ideas / data take shape" beats, logo-to-particle intros, tech-product hero loops; the collapse hands off to a shockwave or flash transition.  
+**Rebuilt from:** video x2 0:07.75-0:09.95 (chapter 05 PARTICLE)  
+**Default length:** 205 frames (6.8 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, hud, editorial  
+**Capabilities:** paints its own background · text: `text`, `label` · weight: heavy  
+
+| prop | default | notes |
+|---|---|---|
+| `text` | `"FLOW"` | word the particles start as (sampled from the rendered font) |
+| `count` | `5200` | number of particles (200–12000) |
+| `shapes` | `["glyph","sphere","torus"]` | shape sequence: glyph \| sphere \| torus \| ring \| cube (glyph only makes sense first) |
+| `holdFrames` | `40` | frames each shape holds (the first glyph holds half of it) |
+| `morphFrames` | `30` | frames per morph (glyph → first shape is 20 % longer, swept left to right) |
+| `collapse` | `true` | end by collapsing everything into the glowing core |
+| `colors` | `["#E8E2D8","#FC491D","#D2FC36"]` | particle colours |
+| `colorMix` | `[85,8,7]` | relative share of each colour (default 85 / 8 / 7 %) |
+| `background` | `"#0C0B10"` | background colour |
+| `coreColor` | `"#FC491D"` | core dot and bloom colour |
+| `rotation` | `30` | rotation speed of the 3D shapes in degrees per second |
+| `particleSize` | `3` | particle diameter in u (randomised ±30 %) |
+| `captions` | `true` | show the mono "N = … · A → B" caption |
+| `hud` | `true` | show the reel HUD |
+| `label` | `"05 — PARTICLE"` | HUD chapter label |
+| `seed` | `3` | sampling / colour seed |
 
 ### `plan-tilt` — Plan tilt to 3D
 
@@ -3147,6 +9492,39 @@ An ink floor plan draws on top-down, then the camera tilts to eye level as the w
 | `showTitle` | `true` | show the headline over the plan |
 | `walkIn` | `true` | dolly through the doorway before craning back up |
 
+### `plinth-progress-ring` — Plinth progress ring
+
+![plinth-progress-ring](../gallery/plinth-progress-ring.jpg)
+
+A round matte studio plinth whose ~120-notch ring lights orange clockwise as a clay-voxel model is placed, stays lit while the model exists and drains grey while it lifts away: a progress / loading indicator that lives in the scene.
+
+**Use for:** A loading / unlocking / onboarding-step indicator on a product pedestal; bind `progress` (0..1) to a counter, or leave it at -1 to auto-run fill, hold and drain.  
+**Rebuilt from:** video x1 0:00.5-0:03.3 (fill), 0:09.3-0:11.0 (drain)  
+**Default length:** 170 frames (5.7 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, nature  
+**Capabilities:** paints its own background · text: `label` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `progress` | `-1` | ring fill 0..1 (model builds to this fraction); -1 = automatic fill, hold, drain |
+| `count` | `120` | number of notches on the ring |
+| `preset` | `"critter"` | built-in voxel model: 'critter' \| 'heart' \| 'cube' |
+| `cells` | `[]` | custom model [[x,y,z,slot],...] (overrides preset) |
+| `modelColor` | `"#E0764C"` | voxel colour |
+| `accent` | `"#F47A2D"` | lit notch colour |
+| `idleColor` | `"#C9C1B8"` | unlit notch colour |
+| `background` | `"#F3F1ED"` | studio backdrop colour |
+| `plinthColor` | `"#E6E0DB"` | plinth colour |
+| `fillStart` | `12` | frame the fill starts (auto mode) |
+| `fillFrames` | `90` | frames to fill the ring (auto mode) |
+| `holdFrames` | `22` | frames the full ring is held before the lift |
+| `liftFrames` | `36` | frames of the lift / drain |
+| `drain` | `true` | lift the model away and drain the ring at the end (loop seam) |
+| `percent` | `true` | show the small mono percentage readout |
+| `label` | `"PLACING"` | readout label word |
+| `seed` | `7` | voxel placement shuffle seed |
+
 ### `pointcloud-orbit` — Point cloud orbit
 
 ![pointcloud-orbit](../gallery/pointcloud-orbit.jpg)
@@ -3157,7 +9535,7 @@ An image (default: a procedural swordswoman) becomes a 3D cloud of coloured bead
 **Rebuilt from:** video18 0:09-0:12  
 **Default length:** 240 frames (8.0 s @ 30 fps)
 
-**Roles:** subject · **Mood:** dark, photo, 3d  
+**Roles:** subject · **Mood:** dark, photo, 3d, hud  
 **Capabilities:** paints its own background · image: `src` · weight: heavy  
 **Pairs well with:** `blur-in-title`, `film-look`, `embers`  
 **Note:** Pass src for your own subject (a cut-out PNG works best).  
@@ -3177,6 +9555,193 @@ An image (default: a procedural swordswoman) becomes a 3D cloud of coloured bead
 | `turbulence` | `0.8` | noise turbulence amplitude |
 | `fringe` | `0.07` | RGB rim split on each bead (0 = off) |
 | `keyDark` | `0.06` | for images: luminance below this is keyed out (0 = keep all) |
+| `scan` | `false` | photo-to-points scan: a bright seam sweeps left to right; ahead of it the picture is a flat plate of beads, behind it the 3D relief stands up |
+| `scanStart` | `20` | scan: frame the seam starts |
+| `scanFrames` | `90` | scan: frames the seam takes to cross (~3 s = 90) |
+| `seamColor` | `"#D4FFF0"` | scan: seam colour (#D4FFF0) |
+| `craneTilt` | `0` | degrees the camera tilts up during the scan (0 = default gentle pitch); e.g. 44 for a nadir-to-oblique crane |
+
+### `popup-spread` — Pop-up book spread
+
+![popup-spread](../gallery/popup-spread.jpg)
+
+An open pop-up book on a walnut desk: flat cut-paper cards with die-cut borders flip up around their bottom edges with a springy overshoot — back row first, then forward — sway gently with soft contact shadows, and fold back down in the same order at the end. CSS-3D (no WebGL), so it is light enough for web heroes.
+
+**Use for:** Children's stories, game trailers, feature-set 'unboxing', onboarding chapters, kids' edtech, playful website heroes.  
+**Rebuilt from:** lemo-opuscar styles/paper-popup (MIT code, CC BY 4.0 docs, LemoLab) — demo/sets.js popper/updatePops, DEMO.md motion numbers  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, 3d, playful, ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `pieces` | `[{"art":"cloud","x":0.22,"z":0,"scale":0.7},{"art":"sun",…` | cards [{art: hill\|pine\|tree\|mushHouse\|cloud\|sun\|sign\|fence\|flower, x (0..1 across the spread), z (0 back … 1 front), scale, color?, label? (sign text)}] |
+| `spreadColor` | `"#86C763"` | page ground colour |
+| `skyColor` | `"#9FD8F2"` | sky band at the back of the page |
+| `riseAt` | `10` | frame the back row starts rising |
+| `stagger` | `36` | frames of delay from back (z 0) to front (z 1) |
+| `foldAt` | `200` | frame the cards start folding down (beyond duration = never) |
+| `tilt` | `52` | book tilt in degrees (how far we look down onto the page) |
+| `sway` | `2.5` | idle sway in degrees |
+| `ink` | `"#3A2A24"` | outline ink (dark brown, never black) |
+| `desk` | `"#5A3A22"` | desk wood colour |
+| `border` | `12` | die-cut border width (art units) |
+| `background` | `"desk"` | "desk" or any colour / "transparent" |
+
+### `product-turntable-3d` — Product turntable (3D hero shot)
+
+![product-turntable-3d](../gallery/product-turntable-3d.jpg)
+
+A procedural can, bottle, box or phone (with your label image or a generated label) rises onto a seamless peach sweep lit by an image-based studio, orbits slowly 40 degrees while a key-light streak crosses its glossy surface, a soft contact shadow and floor reflection ground it, and a hero headline fades in beside it.
+
+**Use for:** E-commerce, product launches, packaging reveals and hero sections: set `labelSrc` to your label artwork (for a phone, your screen), `colors` and the headline.  
+**Rebuilt from:** prompt corpus x15 (product on a seamless sweep, three-point light, slow orbit, light streak, reflection)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo, 3d, playful, ui  
+**Capabilities:** paints its own background · text: `headline` · weight: heavy  
+
+| prop | default | notes |
+|---|---|---|
+| `shape` | `"can"` | 'can' \| 'bottle' \| 'box' \| 'phone' |
+| `labelSrc` | `""` | label / box-face / phone-screen image (public/ path or URL); empty = generated label |
+| `colors` | `["#ffd23f","#ff7a3c","#1d6b4a"]` | [label colour A, label colour B (also bottle glass), accent] |
+| `bodyColor` | `"#d9dde2"` | metal body colour (can, phone) |
+| `background` | `["#f7e3d3","#e8b697"]` | [top, floor] sweep colours |
+| `orbit` | `40` | degrees the product turns across the clip (20-40) |
+| `startYaw` | `-26` | starting rotation in degrees |
+| `lightSweepAt` | `40` | frame the key-light streak starts crossing the product (45 frames) |
+| `reflection` | `0.22` | floor reflection strength 0..1 |
+| `headline` | `"Sparkling Lemon"` | hero headline ("" with an empty subline = product only, centred) |
+| `subline` | `"Crisp, cold and made with real citrus."` | line under the headline |
+| `textAt` | `64` | frame the type starts fading in |
+| `textColor` | `""` | type colour (empty = auto contrast) |
+| `size` | `1` | product scale multiplier |
+
+### `shockwave-flip-field` — Shockwave flip field
+
+![shockwave-flip-field](../gallery/shockwave-flip-field.jpg)
+
+A heavy chrome ball glides in, hangs for a beat, then slams into a bed of two-tone candy capsules: a shock front races outward and every pill it reaches leaps, tumbles half a turn and lands showing its other colour — the whole field recolours as the ring passes, nearby pills fly off frame, the camera kicks and the moment plays in brief slow motion.
+
+**Use for:** A hero "state change" beat: brand colour takeover, before/after, launch moments; strong for idents and thumbnails.  
+**Rebuilt from:** mg-styles-15 04-3d-render 5.6-7.8 s, blender/sim.py + cues.json ball/shock (MIT, Vincentwei1021) — technique after mg-styles-15  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d  
+**Capabilities:** paints its own background · weight: heavy  
+
+| prop | default | notes |
+|---|---|---|
+| `background` | `"#F1E4EC"` | cyc colour |
+| `capColor` | `"#EBDCCD"` | pill colour before the flip (cream) |
+| `flipColor` | `"#C6B9F3"` | pill colour after the flip (the takeover colour) |
+| `ballColor` | `"#C9CAD6"` | chrome ball tint |
+| `rimColor` | `"#FF6FAE"` | pink rim-light colour |
+| `impactAt` | `1.6` | seconds until the slam |
+| `impact` | `[0,-1]` | [x, z] impact point in world units |
+| `speed` | `5` | shock front speed (units per second) |
+| `flingRatio` | `0.35` | fraction of nearby pills that fly off frame |
+| `slowMo` | `true` | brief 0.35x slow-mo just after the hit, then catch-up |
+| `cols` | `76` | pills across |
+| `rows` | `56` | pills deep |
+| `grain` | `true` | film grain + vignette finish |
+| `seed` | `1` | unused variation seed (kept for spec compatibility) |
+
+### `stack-plates-3d` — Stack of plates (data physicalization)
+
+![stack-plates-3d](../gallery/stack-plates-3d.jpg)
+
+Data series as stacks of real thin plates — brushed aluminium and milky acrylic with a brass ruler plate every 10th — assembling piece by piece on a walnut base in a warm studio, then the newest increase feeds in plate by plate while pinned readings roll with the landings.
+
+**Use for:** Premium annual-report / ESG / investor / energy / budget numbers built as countable physical objects.  
+**Rebuilt from:** lemo-opuscar styles/data-physical (MIT, LemoLab)  
+**Default length:** 220 frames (7.3 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, hud, ui  
+**Capabilities:** paints its own background · text: `title` · weight: heavy  
+
+| prop | default | notes |
+|---|---|---|
+| `series` | `[{"label":"Series A","material":"aluminium","value":420},…` | stacks: {label, material: aluminium\|acrylic\|brass\|oak\|stone\|copper, value} |
+| `unit` | `10` | value represented by one plate |
+| `unitLabel` | `"GW"` | unit text shown after values |
+| `rulerEvery` | `10` | every Nth plate is brass (a physical ruler) |
+| `feedSeries` | `0` | index of the series fed plate-by-plate at the end (−1 = none) |
+| `feedValue` | `120` | how much value arrives during the feed |
+| `title` | `"Built, plate by plate"` | headline top-left |
+| `sourceLine` | `"SOURCE: ANNUAL CAPACITY REPORT · 2026"` | small mono source credit bottom-left |
+| `background` | `"#e2d5c4"` | studio sweep colour |
+| `accent` | `"#d4521c"` | underline / verdict accent |
+| `seed` | `7` | jitter seed |
+
+### `studio-plinth-stage` — Studio plinth stage
+
+![studio-plinth-stage](../gallery/studio-plinth-stage.jpg)
+
+Seamless warm studio backdrop with a soft vignette and a round matte plinth with a bevelled top and notch ring, lit by one soft key from the upper left so shadows fall right/back; an original subject turns on it like a product turntable.
+
+**Use for:** A neutral turntable stage for products, logos, mascots and 3D charts; use `subject: "none"` for a clean studio backdrop under your own content.  
+**Rebuilt from:** video x1 whole video (stage, backdrop, plinth, key light)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, ui  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `subject` | `"orb"` | 'orb' \| 'bottle' \| 'cube' \| 'knot' \| 'stack' \| 'none' |
+| `subjectColor` | `"#E0764C"` | main subject colour |
+| `accentColor` | `"#3F4B66"` | secondary subject colour |
+| `background` | `"#F3F1ED"` | backdrop centre colour |
+| `edge` | `"#E2E1DA"` | backdrop corner colour |
+| `plinthColor` | `"#E6E0DB"` | plinth colour |
+| `ring` | `true` | show the notch ring |
+| `ringColor` | `"#F47A2D"` | lit notch colour |
+| `ringIdle` | `"#C9C1B8"` | unlit notch colour |
+| `ringLoop` | `false` | run a lit sweep around the ring (4 s loop) |
+| `spin` | `30` | subject turntable speed, degrees per second |
+| `orbit` | `0` | camera orbit speed, degrees per second (0 = locked-off) |
+| `elevation` | `20` | camera elevation above the plinth plane, degrees |
+| `floatAmp` | `0.25` | subject hover amplitude in plinth units |
+| `entrance` | `18` | frames of the pop-in of the subject |
+
+### `sun-shadow-measure` — Sun shadow measure
+
+![sun-shadow-measure](../gallery/sun-shadow-measure.jpg)
+
+A low winter sun swings across a white massing model while a clock readout runs; shadow sides go deep projected blue. Then one tower's shadow is traced as a cool fill with a bright edge while a range line with 100 m ticks grows from its base to the tip and a counter lands; the roofs inside the shadow ping on one by one.
+
+**Use for:** Shadow-impact stories for a new building, solar-panel roof ranking, "daylight in a courtyard", sundial / education pieces, any measured "how far does it reach" beat.  
+**Rebuilt from:** lemo-opuscar styles/white-model (MIT, LemoLab) — sun light, shadow trace, range line, DEMO.md shot 9, own NOAA solar-position + analytic prism shadows  
+**Default length:** 330 frames (11.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** nature  
+**Capabilities:** paints its own background · text: `unit`, `label` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `seed` | `4` | city seed (same model as white-model-projection) |
+| `lat` | `51.5` | latitude in degrees |
+| `lon` | `-0.12` | longitude in degrees (east positive) |
+| `date` | `"2026-12-21"` | ISO date for the sun path |
+| `tz` | `0` | timezone offset in hours (clock times are local) |
+| `timeKeys` | `[[0,"10:55"],[175,"12:40"]]` | [[frame, "HH:MM"]] clock keys (linear) |
+| `subject` | `"tallest"` | 'tallest' or a building index |
+| `traceAt` | `190` | frame the shadow trace begins |
+| `traceFrames` | `52` | frames the trace takes |
+| `pingAt` | `252` | frame the roof pings start |
+| `pingEvery` | `3` | frames between pings |
+| `measure` | `777` | the length printed at the end of the trace (scales the metres) |
+| `unit` | `"m"` | unit text beside the counter |
+| `tickEvery` | `100` | tick spacing on the range line, in units |
+| `amber` | `"#ffb347"` | colour of the earlier data layer (old buildings) |
+| `trace` | `"#1a38a6"` | reserved: trace tint |
+| `label` | `"Winter solstice · sun time"` | small caption above the clock |
+| `camera` | `[[0,208,54,19.5],[330,232,48,17.5]]` | [[frame, azimuthDeg, elevationDeg, distance]] |
+| `zoom` | `0.95` | model size in frame |
+| `background` | `["#07090d","#1b1f29"]` | [inner, outer] room colours |
 
 ### `terrain-build-3d` — Terrain build (3D)
 
@@ -3205,7 +9770,147 @@ A procedural mountain heightmap rebuilds itself in labelled stages — flat, noi
 | `sunElevation` | `7` | final sun elevation in degrees (low = golden hour) |
 | `sunAzimuth` | `104` | final sun azimuth in degrees (90 = from screen right) |
 | `snowLine` | `13` | height above which snow settles (world units, hero peak ≈ 32) |
+| `look` | `"natural"` | natural (default) \| contours (illuminated topographic iso-lines on a dark void: no sky, clouds or lens; the build stages still run) |
+| `camera` | `"fly"` | fly (default fly-by) \| dive (camera dives from above down the canyon toward the lowest point) |
+| `trail` | `false` | a glowing orange route descending the steepest slope during the fly-by (the spark path) |
+| `contourColor` | `"#8fc9ff"` | contours: iso-line colour |
+| `contourStep` | `1.6` | contours: height between lines in world units (hero peak ~ 32) |
+| `trailColor` | `"#ff8a2a"` | trail colour |
 | `colors` | `{"rock":"#6e6a66","scree":"#9a948c","grass":"#4f6a3a","sn…` | rock / scree / grass / snow / clay / sun / zenith / horizon / cloudShadow / cloudLight |
+
+### `voxel-burst-swirl` — Voxel burst swirl
+
+![voxel-burst-swirl](../gallery/voxel-burst-swirl.jpg)
+
+Clay-studio three.js scene: an original voxel creature on a round plinth shatters into ~1.1 k tumbling cubes that fly into a thick ring, orbit the plinth with the black eye voxels still readable, then lift top-first out of frame while the notch ring drains, leaving the empty stage (or fall / scatter / reassemble).
+
+**Use for:** A dramatic "disrupt / transform / remix" beat, data turning into particles, or a loop outro that returns to the empty stage; reverse it for a gather-in intro.  
+**Rebuilt from:** video x1 0:07.2-0:11.1 (burst, swirl, lift)  
+**Default length:** 135 frames (4.5 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, nature, playful  
+**Capabilities:** paints its own background · text: `unit` · weight: heavy  
+
+| prop | default | notes |
+|---|---|---|
+| `preset` | `"critter"` | built-in model: 'critter' (original voxel creature) \| 'cube' \| 'heart' |
+| `cells` | `[]` | custom model as [[x,y,z,colourSlot],...] (y up, +z faces camera); overrides preset |
+| `voxelColor` | `"#E0764C"` | body voxel colour |
+| `eyeColor` | `"#050301"` | eye / detail voxel colour |
+| `background` | `"#F3F1ED"` | studio backdrop centre colour |
+| `plinthColor` | `"#E6E0DB"` | plinth colour |
+| `accent` | `"#F47A2D"` | lit notch colour of the ring |
+| `burstAt` | `12` | frame the model shatters |
+| `burstFrames` | `15` | explosion length (easeOutCubic) |
+| `orbitFrames` | `37` | how long the cloud orbits before the exit |
+| `orbitSpeed` | `50` | orbit speed in degrees per second |
+| `liftFrames` | `52` | exit length (top of the cloud leads by 9 frames) |
+| `ringRadius` | `15` | mean ring radius in voxels (plinth radius = 14) |
+| `ringHeight` | `1` | vertical thickness multiplier of the cloud |
+| `tumble` | `1` | cube tumble speed multiplier (90–360 °/s at 1) |
+| `exit` | `"lift"` | 'lift' \| 'fall' \| 'scatter' \| 'reassemble' |
+| `reverse` | `false` | play backwards: the cloud gathers into the creature (intro) |
+| `seed` | `11` | cloud layout seed |
+| `hud` | `true` | show the mono counter + phase badge HUD |
+| `unit` | `"VOXELS"` | counter unit word |
+| `subline` | `"VOXEL STUDIO / BURST / 4.5 S"` | grey HUD sub-line |
+
+### `voxel-diorama` — Voxel diorama
+
+A voxel island with beach, grass, rock, block trees and a little hut builds itself as cubes drop in waves (low and central first, decorations last) in a sea of bobbing water cubes on a slab, under drifting cube clouds, with a slow orbiting camera, soft shadows and a cube-count caption.
+
+**Use for:** Gaming content, playful brand "worlds", kids explainers, a loader or intro that builds a place. Pass heightmap (rows of integer column heights) to build your own terrain.  
+**Rebuilt from:** prompt-corpus: voxel-diorama (11 cases, awesome-opus5-5-videos)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, 3d, nature, editorial  
+**Capabilities:** paints its own background · text: `title`, `subtitle` · weight: heavy  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Voxel Isle"` | caption headline ("" for none) |
+| `subtitle` | `"built one cube at a time"` | caption sub-line |
+| `heightmap` | `[]` | optional rows of integer column heights (0 = sea); empty = generated island |
+| `size` | `22` | generated island grid size (cells) |
+| `seed` | `7` | terrain / tree / cloud seed |
+| `trees` | `6` | number of block trees |
+| `houses` | `1` | number of huts |
+| `maxHeight` | `6` | peak height of the generated terrain in cubes |
+| `buildAt` | `12` | frame the first cube starts to fall |
+| `buildFrames` | `78` | frames over which the build runs (1-3 s) |
+| `fallFrames` | `14` | fall time of each cube |
+| `dropHeight` | `22` | drop height in cubes |
+| `orbit` | `15` | camera orbit speed in degrees per second |
+| `yaw` | `35` | start camera azimuth in degrees |
+| `elevation` | `32` | camera elevation in degrees |
+| `clouds` | `3` | drifting cube clouds |
+| `hud` | `true` | show the "n / total cubes" counter |
+| `skyTop` | `"#8ed3f2"` | sky gradient top |
+| `skyBottom` | `"#eaf8ff"` | sky gradient bottom |
+| `inkColor` | `"#173a4f"` | caption colour |
+| `palette` | `{"water":"#3b9fd1","waterLight":"#4aa9d9","sand":"#f3dca4…` | colour overrides {water,waterLight,sand,grass,grass2,rock,snow,dirt,wood,leaf,leaf2,roof,wall,cloud} |
+
+### `voxel-rain-build` — Voxel rain build
+
+![voxel-rain-build](../gallery/voxel-rain-build.jpg)
+
+Clay-studio three.js scene: ~1.1 k rounded orange cubes rain from above the frame and stack bottom-up into an original voxel creature on a round white plinth, while the plinth notch ring fills and a mono HUD counts the voxels; the creature then blinks and looks around.
+
+**Use for:** An "assembling the product / team / feature" beat, a loader that builds a mascot or logo, or the opening of a voxel-studio loop.  
+**Rebuilt from:** video x1 0:00.25-0:03.30 (build), 0:03.25-0:07.25 (blink / look)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, nature, hud, playful  
+**Capabilities:** paints its own background · text: `unit` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `preset` | `"critter"` | built-in model: 'critter' (original voxel creature) \| 'cube' \| 'heart' |
+| `cells` | `[]` | custom model as [[x,y,z,colourSlot],...] (y up, +z faces camera, slot 0 body / 1 eyes); overrides preset |
+| `voxelColor` | `"#E0764C"` | body voxel colour (slot 0) |
+| `eyeColor` | `"#050301"` | eye / detail voxel colour (slot 1) |
+| `background` | `"#F3F1ED"` | studio backdrop centre colour |
+| `plinthColor` | `"#E6E0DB"` | plinth colour |
+| `accent` | `"#F47A2D"` | lit notch colour of the progress ring |
+| `buildStart` | `15` | frame the first voxel lands |
+| `buildFrames` | `83` | frames from first to last landing |
+| `fallFrames` | `15` | fall time of one voxel (easeInQuad) |
+| `dropHeight` | `32` | how far (in voxels) each cube falls |
+| `order` | `"bottom-up"` | 'bottom-up' \| 'random' \| 'radial' |
+| `seed` | `7` | shuffle / jitter seed |
+| `hud` | `true` | show the mono counter + phase badge HUD |
+| `unit` | `"VOXELS"` | counter unit word |
+| `subline` | `"VOXEL STUDIO / BUILD / 5 S"` | grey HUD sub-line |
+| `ring` | `true` | show the notch progress ring |
+
+### `white-model-projection` — White model projection (data as light)
+
+![white-model-projection](../gallery/white-model-projection.jpg)
+
+A white massing model of a city on a dark plinth in a dark room. House lights snap off, a projector strikes with a flicker and a warm wash spreads from its axis lighting one set of buildings amber; a second layer pops buildings on one by one with a white flash, a rising level of light colours every facade by height, and a final pick-out lights one tower alone. The model never changes, only the light.
+
+**Use for:** Data-as-light hero for urban planning, real-estate portfolios ("our sites by year"), campus plans, flood/height studies, infra and B2B brands; any "data on a physical model" museum-style piece.  
+**Rebuilt from:** lemo-opuscar styles/white-model (MIT, LemoLab) — studio.js projLight / buildCity, DEMO.md, own procedural city + SVG orbit renderer  
+**Default length:** 330 frames (11.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud, night  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `background` | `["#080A0E","#1F2129","#3B393F"]` | [centre, mid, edge] room colours |
+| `plinth` | `"#17181A"` | plinth top colour |
+| `water` | `"#1A2129"` | river inlay colour |
+| `seed` | `4` | city seed (procedural massing model) |
+| `layers` | `[{"mode":"wash","at":38,"dur":70,"select":"year<1925","co…` | [{mode:'wash'\|'grow'\|'level'\|'pick', at(frame), dur, select('all'\|'tower'\|'block'\|'tallest'\|'year<1940'\|'h>1.5'\|'rank<0.5'), color, ramp(level colours), spread(frames)}] |
+| `camera` | `[[0,205,40,19],[330,238,34,16.5]]` | [[frame, azimuthDeg, elevationDeg, distance]] orbit keys |
+| `lightsOutAt` | `16` | frame the house lights snap off |
+| `strikeAt` | `30` | frame the projector strikes (flicker) |
+| `lightsUpAt` | `312` | frame the house lights come back and the data ends |
+| `readouts` | `[{"from":40,"to":118,"name":"01 · Before 1925","figure":"…` | [{from,to,name,figure,label}] left-third readout; empty figure = count of buildings in the matching layer (replace with your numbers) |
+| `showReadout` | `true` | show the readout block |
+| `zoom` | `0.95` | model size in frame |
+| `bloom` | `0.55` | glow of lit buildings 0..1 |
 
 ### `wireframe-build` — Wireframe build
 
@@ -3235,8 +9940,713 @@ A glowing amber wireframe galleon lifts out of a parchment blueprint part by par
 | `lineWidth` | `1.4` | core wire width in px at 1080 |
 | `sparks` | `260` | number of spark particles |
 | `orbit` | `70` | camera orbit sweep in degrees |
+| `variant` | `"blueprint"` | blueprint (default) \| holo (hologram: hue-coloured additive wireframe grows through a glowing scan plane over a projector pad; no parchment, solids or masts) |
+| `hue` | `188` | holo: wire hue in degrees (188 cyan, 38 amber, 300 magenta) |
+| `pad` | `true` | holo: projector pad rings and the rising scan plane |
+
+## document
+
+### `doc-highlight-evidence` — Document highlight evidence
+
+![doc-highlight-evidence](../gallery/doc-highlight-evidence.jpg)
+
+A document page lies tilted on a dark desk and pushes in; a yellow highlighter sweeps the key sentence (multiply), then the figure it states slams beside the page as a big honey block with a pull-quote mark under a tightening vignette. Variant reading-light: a warm brightness band grows over the line while the page pushes in hard.
+
+**Use for:** Evidence / receipt beats for explainers, investor updates, legal and policy videos — "the report says it".  
+**Rebuilt from:** lemo-opuscar styles/caption-news demo/main.js paper(), shotDoc6(); city-symphony tools/render.py page_frame() (MIT, LemoLab), analysis/sources/lemo-styles-a.md §8 doc-highlight-evidence  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** night  
+**Capabilities:** paints its own background · text: `title`, `lines` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `pageSrc` | `""` | public/ image of a rendered page (empty = procedural document) |
+| `variant` | `"highlighter"` | highlighter = marker sweep + number block; reading-light = brightness band + strong push |
+| `org` | `"NORTHWIND HARBOUR AUTHORITY"` | letterhead line |
+| `title` | `"Report on the New Crossing"` | document title |
+| `meta` | `"Ref. NH-2041 · Filed 14 March · Page 3 of 12"` | reference / date line |
+| `lines` | `["The survey team walked the full length of the channel o…` | body lines (one per printed line) |
+| `keyLine` | `6` | index of the highlighted line |
+| `calloutValue` | `"1,208"` | big number in the accent block |
+| `calloutUnit` | `"m"` | unit after the number |
+| `calloutLabel` | `"CLEAR SPAN REQUIRED"` | caps label in the block |
+| `accent` | `"#FFC21A"` | highlighter / block colour |
+| `tilt` | `-0.7` | page tilt in degrees |
+| `markAt` | `24` | frame the highlighter starts (block slams ~1 s later) |
+| `desk` | `"#23221E"` | desk colour |
+| `quoteMark` | `true` | show a pull-quote mark on the block |
+
+### `document-marker-highlight` — Document marker highlight
+
+![document-marker-highlight](../gallery/document-marker-highlight.jpg)
+
+A tilted typed document slams onto an ink ground; a red highlighter bar sweeps across one exact sentence (multiply, rough edges), a hand-drawn red ellipse circles the heading, then the key number slams in huge on a red block beside the page — constructivist ink, paper and one red.
+
+**Use for:** Evidence explainers, legal/finance/news videos, "the report says…" beats, investor updates. (A dark-desk yellow-highlighter take lives in doc-highlight-evidence.)  
+**Rebuilt from:** lemo-opuscar styles/kino-montage (MIT, LemoLab) — STYLE.md §6 document close-up, DEMO.md shot 8  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper  
+**Capabilities:** paints its own background · text: `unit`, `caption` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `header` | `"Northwind Works · Report No. 7"` | small mono header line of the page |
+| `heading` | `"Progress report"` | page heading (gets the red ellipse) |
+| `date` | `"Filed 12 March — Construction office"` | mono line under the heading |
+| `paragraphs` | `["Steel for the upper floors arrived on time and crews ke…` | body paragraphs (typed, wrapped automatically) |
+| `ledger` | `["Floors framed, week 1\|4","Floors framed, week 2\|5","Flo…` | table rows under the text, 'label\|value' |
+| `highlight` | `1` | index of the paragraph the red marker sweeps over |
+| `number` | `"4"` | key number repeated huge on the red block |
+| `unit` | `"floors / week"` | unit beside the number |
+| `caption` | `"Average pace of the steel frame"` | mono caption under the number |
+| `tilt` | `-4` | page tilt in degrees (3–6 either way) |
+| `red` | `"#D52B1E"` | the one red |
+| `ink` | `"#141210"` | ink colour |
+| `paper` | `"#EDE4D0"` | paper colour |
+| `ground` | `"ink"` | 'ink' (dark ground) or 'paper' |
+
+### `evidence-board` — Evidence board
+
+![evidence-board](../gallery/evidence-board.jpg)
+
+Five evidence tiles cut in one by one with a flash — a document strip with a highlighted line, a freeze frame with corner brackets, ring and loupe, a photo with a ring, a waveform tile with a quote and a play-line, a report quote — then each sends a thin red dashed link to the same zone of a line-drawn schematic, the zone fills red, and ✓ badges land on each tile a beat apart.
+
+**Use for:** "N sources agree" moments: fact-checks, incident reports, product teardowns ("reviews, benchmarks and the spec sheet all point to the battery"), investigative explainers, legal / compliance stories.  
+**Rebuilt from:** lemo-opuscar styles/visual-investigation five-source section, badge(), wave(), schematic() (MIT, LemoLab)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** blueprint, photo  
+**Capabilities:** paints its own background · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `sources` | `[{"kind":"doc","tag":"REPORT · P.14","highlight":3},{"kin…` | up to 5 tiles: {kind: doc\|photo\|video\|audio\|quote, tag, quote, highlight (doc line), ring [x,y,r] fractions, peaks[]} |
+| `target` | `{"cols":8,"rows":5,"zone":{"x":5,"y":1,"w":2,"h":2},"labe…` | schematic: cols, rows, zone {x,y,w,h in cells}, label, numbers |
+| `layout` | `"board5"` | board5 (tiles around the schematic), grid2x2, or row |
+| `title` | `"Five sources · one location"` | small caption top-left |
+| `tileAt` | `12` | frame the first tile cuts in (others follow 9 frames apart) |
+| `linkStart` | `70` | frame the first link starts drawing (16 frames apart) |
+| `badgeStart` | `176` | frame the first ✓ badge lands (4 frames apart) |
+| `accent` | `"#E5484D"` | link / ring / badge colour |
+| `ground` | `"#14171B"` | board background |
+| `text` | `"#ECEAE4"` | main text / line colour |
+| `seed` | `3` | waveform + document seed |
+
+### `lift-the-flap` — Lift the flap
+
+![lift-the-flap](../gallery/lift-the-flap.jpg)
+
+Textbook page: a PREDICT question gets its answer ticked, a cursor taps a cream paper flap ("Lift the flap to see the answer", hand-drawn "lift here" arrow), the corner peeks, then the flap flips up about its top edge toward the viewer in ≈ 0.15 s with a darker underside and a growing shadow, folds away into a small tab and reveals the printed answer; a marker sweep highlights the key phrase and a handwritten note pops in.
+
+**Use for:** Quiz and answer reveals, "before you guess…" moments, myth-vs-fact beats and interactive-feeling explainers.  
+**Rebuilt from:** video x3 19.55-19.80 (lift-the-flap), video x3 13.5-22.0 (predict / why cards)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, 3d, night  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `header` | `"ENERGY · LESSON 1"` | faint running head at the top of the page ("" hides it and the page rule) |
+| `eyebrow` | `"Predict"` | small caps label above the question ("" hides it) |
+| `question` | `"A book slides off the shelf and lands on the floor. Wher…` | the question asked before the reveal |
+| `options` | `["It has been used up","In the thermal stores around it",…` | answer choices with checkboxes ([] hides them) |
+| `tick` | `1` | index of the option that gets ticked (-1 = none) |
+| `flapEyebrow` | `"Why?"` | small caps label on the flap and above the answer |
+| `flapTitle` | `"Lift the flap to see the answer"` | big line printed on the flap |
+| `flapSub` | `"…after you have made your prediction."` | italic line under it |
+| `hint` | `"lift here"` | handwritten hint next to the arrow |
+| `answer` | `"Nothing is used up. As the book falls, its gravitational…` | answer paragraph printed under the flap |
+| `highlight` | `"Nothing is used up."` | part of the answer that gets a marker sweep ("" = none) |
+| `note` | `"you were right!"` | handwritten margin note after the reveal ("" = none) |
+| `openAt` | `60` | frame the flap flips up |
+| `frames` | `5` | flip duration in frames (5 ≈ 0.15 s, the source) |
+| `cursor` | `true` | show the pointer that taps the flap |
+| `background` | `"#EFEDE9"` | page paper colour |
+| `flapColor` | `"#F2EEE4"` | flap paper colour |
+| `undersideColor` | `"#D9D2C2"` | flap underside colour |
+| `ink` | `"#22211A"` | text ink colour |
+| `accent` | `"#683836"` | eyebrow colour |
+| `markerColor` | `"#F2D57E"` | highlighter colour |
+
+### `line-light-up` — Line light-up (backlit document)
+
+![line-light-up](../gallery/line-light-up.jpg)
+
+A backlit document on a light table: the camera eases in, one line of type brightens left-to-right while the rest of the page dims, an underline draws under it, the figure is ringed in the signal colour and lifts into a dark reading card with label and source.
+
+**Use for:** Quoting a source document on screen — contracts, receipts, patents, reports, clippings — for documentary, news and explainer videos.  
+**Rebuilt from:** lemo-opuscar styles/archive-lighttable demo/film.js band(), paper(), annot() (MIT, LemoLab), analysis/sources/lemo-styles-a.md §1 line-light-up  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** cinematic, editorial, night  
+**Capabilities:** paints its own background · text: `title`, `lines` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `org` | `"NORTHWIND HARBOUR AUTHORITY"` | letterhead line |
+| `title` | `"Report on the New Crossing"` | document title |
+| `meta` | `"Ref. NH-2041 · Filed 14 March · Page 3 of 12"` | reference / date line |
+| `lines` | `["The survey team walked the full length of the channel o…` | body lines (one string per printed line) |
+| `keyLine` | `6` | index of the line that lights up |
+| `keyNumber` | `"1,208"` | the figure inside that line that is ringed and lifted |
+| `cardLabel` | `"CLEAR SPAN REQUIRED"` | reading-card label (caps) |
+| `cardValue` | `"1,208 m"` | value shown big on the card (the lifted figure lands here) |
+| `cardSource` | `"Source: NH-2041, p. 3"` | source line typed on the card |
+| `accent` | `"#FF5A1F"` | signal colour (underline, ring, leader, card edge) |
+| `sweepAt` | `36` | frame the light band starts sweeping (camera push ends here) |
+| `zoom` | `1.75` | camera zoom on the line |
+| `table` | `"#F7F9FB"` | light-table colour |
+| `desk` | `"#0E0F11"` | desk colour |
+
+### `mugshot-height-chart` — Mugshot height chart
+
+![mugshot-height-chart](../gallery/mugshot-height-chart.jpg)
+
+A round kawaii suspect rises in front of a height chart with cm labels at both edges, inside a blue halftone halo, holding a navy name plate (name, case no., charge); two camera flashes make it squint, a big "99+" stat and a profile block slide in on the sides, on mottled archive paper with a slow push-in.
+
+**Use for:** "Meet the suspect" intros with humour — a new feature, a bug, a species, a product, a team member; pass `src` for a photo.  
+**Rebuilt from:** lemo-opuscar styles/halftone-dossier (MIT, LemoLab) — demo/index.html S3 mugshot, halftone(), boil filter; poster.jpg  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, pixel, comic, hud, playful  
+**Capabilities:** paints its own background · text: `keyword` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `name` | `"NIBBLES, H."` | name on the plate (mono caps) |
+| `caseNo` | `"CASE No.2026-NW-001"` | case number (plate + top-left) |
+| `charge` | `"Charge:"` | charge prefix on the plate |
+| `keyword` | `"snack theft"` | yellow charge keyword |
+| `stat` | `"99+"` | big stat on the left |
+| `statLabel` | `"counts · no regrets"` | line under the stat |
+| `statKicker` | `"PRIORS"` | pink kicker above the stat |
+| `profileTitle` | `"Nibbles"` | profile name (right block) |
+| `profileLines` | `["Golden · 140 g","Speciality:"]` | profile lines; the keyword is appended to the last one in pink |
+| `profileKeyword` | `"cheek storage"` | pink keyword at the end of the profile |
+| `date` | `"2026.10"` | date in the REC box |
+| `flashes` | `[30,60]` | frames of camera flashes (.95 → 0 over .3 s; the subject squints) |
+| `bodyColor` | `"#F58A34"` | suspect body colour |
+| `haloColor` | `"#2E55D6"` | halftone halo ink |
+| `src` | `""` | optional public/ photo shown in a rounded cut-out instead of the drawn suspect |
+| `background` | `"#F4ECDD"` | paper colour |
+
+### `redaction-bars` — Redaction bars
+
+![redaction-bars](../gallery/redaction-bars.jpg)
+
+A typed case-file page on cream paper: navy ink bars print over chosen words with a 2-frame stamp kick, then lift one by one (slide-and-peel with a back ease) to reveal a yellow-highlighted word — some stay hidden — and a red DECLASSIFIED stamp slams at the end.
+
+**Use for:** Leaks, spoilers, surprise reveals, compliance and privacy explainers, true-crime style beats.  
+**Rebuilt from:** lemo-opuscar styles/halftone-dossier (MIT, LemoLab) — STYLE.md §8 Redaction, stamp ink filter  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper  
+**Capabilities:** paints its own background · text: `title`, `text` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `caseNo` | `"Case file 07 · Northwind"` | small mono line over the title |
+| `title` | `"Courier report"` | heading with a pink misregistered shadow |
+| `text` | `"On the night of [12 March] the courier left [Harbor Gate…` | body text; wrap words in [square brackets] to redact them |
+| `reveal` | `[0,2,3]` | which redactions lift (0-based, in order); the rest stay hidden |
+| `printAt` | `16` | frame the first bar prints |
+| `printGap` | `4` | frames between bar prints |
+| `liftAt` | `62` | frame the first bar lifts |
+| `liftGap` | `20` | frames between lifts |
+| `stamp` | `"Declassified"` | stamp word at the end ("" = none) |
+| `stampAt` | `130` | frame the stamp slams |
+| `paper` | `"#F4ECDD"` | paper colour |
+| `ink` | `"#1D2340"` | text ink |
+| `bar` | `"#1D2340"` | redaction bar colour |
+| `highlight` | `"#FFC628"` | highlighter under revealed words |
+| `stampColor` | `"#E8384F"` | stamp ink |
+
+### `screenprint-poster` — Screen-print poster (builds one ink at a time)
+
+![screenprint-poster](../gallery/screenprint-poster.jpg)
+
+A portrait poster builds one ink at a time under a squeegee on the beat: stepped-band sky, a concentric sun ring, far ridge with a lit facet, mid hills and near pines, then the info band stamps in its header, name, big number, rule and stats row; layers sit slightly out of register and the screen frame lifts away from the finished print.
+
+**Use for:** Event posters (headline, date, venue, CTA), destination or trail guides, product drops with colourways, seasonal-hours notices: a reusable information motion with strong craft appeal. Swap palette and stats for each print.  
+**Rebuilt from:** lemo-opuscar styles/silkscreen-poster demo/engine/poster.js, scenes.js, silk.js, DEMO.md "Poster template" (MIT, LemoLab)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, nature  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `header` | `"Lakeside Trail"` | tracked-out line printed in the sky |
+| `name` | `"Mirror Lake"` | big name in the info band (auto-fits) |
+| `number` | `"01"` | large two-digit number in the accent ink |
+| `stats` | `[{"label":"Distance","value":"6.4 km"},{"label":"Climb","…` | info row [{label, value}] (2-4 items fit) |
+| `palette` | `"dusk"` | 'dawn' \| 'noon' \| 'golden' \| 'dusk' \| 'harbour' \| 'winter' or {sky1, sky2, far, mid, near, sun, glow?} |
+| `paper` | `"#F3ECDD"` | paper colour |
+| `wall` | `"#5e4433"` | studio wall colour |
+| `bpm` | `100` | one ink pull per beat at this tempo |
+| `startFrame` | `8` | frame of the first pull |
+| `squeegee` | `true` | show the squeegee blade on each pull |
+| `screenFrame` | `true` | show the screen frame (lifts off when done) |
+| `misregister` | `1` | layer offset strength (0 = perfect register) |
+| `seed` | `3` | landscape seed (ridge, pines, glints) |
+
+## game
+
+### `army-formation` — Army formation
+
+![army-formation](../gallery/army-formation.jpg)
+
+A painterly isometric battlefield with four faction armies of tiny unit sprites around banner shields: they spawn as white placeholders, flood with faction colour, bob, march inwards and trade arcing arrow volleys, with a selection ring on one army and a centre-out "initialised" title in red brackets.
+
+**Use for:** "AI models / teams / products compete" stories, strategy explainers, market-share battles, game trailers.  
+**Rebuilt from:** video x6 9.3-13.8 s (spawn, colour flood, selection ring, title), video x6 13.8-46.9 s (marching armies, volleys)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d  
+**Capabilities:** paints its own background · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `factions` | `[{"name":"NOVA","color":"#E58682","unit":"#BE6E6C","chip"…` | up to 4 armies {name, color, unit, chip, glyph}: unit = sprite colour, color = banner tint, glyph = star \| ring \| diamond \| bolt |
+| `unitsPerArmy` | `96` | units per army block (rows of 12) |
+| `spawnAt` | `8` | frame the units pop in as white placeholders (colour floods ~15 frames later) |
+| `march` | `0.25` | ground units per second the blocks advance towards the centre |
+| `volleys` | `true` | arcing arrow volleys between armies |
+| `select` | `1` | index of the army that gets the selection ring (-1 = none) |
+| `selectLabel` | `"ATLAS BASTION"` | label on the selection leader line |
+| `title` | `"SIMULATION ONLINE"` | centre title in red corner brackets ("" = none) |
+| `subtitle` | `"BATTLE BEGIN   CONQUER"` | second line under the title |
+| `titleAt` | `66` | frame the title reveals centre-out (holds ~2 s) |
+| `push` | `2` | camera push-in in %/s |
+| `grass` | `"#7FA35A"` | plateau grass colour |
+| `seed` | `6` | layout seed |
+
+### `candy-set-backdrop` — Candy set backdrop
+
+![candy-set-backdrop](../gallery/candy-set-backdrop.jpg)
+
+Full-bleed game-show set: one saturated candy hue with a same-hue lighter pattern — slowly scrolling diagonal stripes, offset polka dots or a rotating sunburst — plus a darker floor band with an ink line, a hopping "GAME 1" pill, star bursts and beat punches; the hue hard-cuts with a white flash every two bars.
+
+**Use for:** Instant loud backdrop for quizzes, kids content, sales promos, chapter cards; pairs with kinetic-captions, comic-burst and bean mascots.  
+**Rebuilt from:** lemo-opuscar styles/game-show (MIT, LemoLab) — demo/main_v1.js stripes, dots, raysEl, punch, burst  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** nature, night  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `variant` | `"rays"` | pattern: stripes \| dots \| rays |
+| `hues` | `["#6B4FBB","#3FB8AF","#FF5A5F","#4D7CFE"]` | one hue per section (hard cut every 2 bars) |
+| `sections` | `4` | how many hue sections the duration is cut into (informational) |
+| `bpm` | `150` | tempo for scroll, hops and punches (150 = source) |
+| `floor` | `true` | darker floor band with the 8 px ink line |
+| `tag` | `"GAME 1"` | text in the cream pill |
+| `showTag` | `true` | show the pill |
+| `punch` | `true` | beat-punch camera + star bursts on downbeats |
+| `scrollSpeed` | `1` | pattern scroll/rotate speed multiplier |
+| `rays` | `20` | ray count for the sunburst variant |
+| `patternLift` | `0.12` | how much lighter the pattern is than the hue (0..1) |
+| `background` | `"#000"` | behind the set (visible only if the set were transparent) |
+
+### `fuse-beat-timer` — Fuse beat timer
+
+![fuse-beat-timer](../gallery/fuse-beat-timer.jpg)
+
+A rope fuse along the bottom with one knot per beat; a sparkling spark spawning star particles travels along it so it passes every knot exactly on the beat, charring the rope, toward a rocket (that launches) or a bomb (that bursts). A big beats-left numeral pops on every beat over a violet sunburst stage.
+
+**Use for:** Countdowns for quizzes, challenges and limited-time offers; on-beat timers; game-show / microgame formats; set stage=false to overlay the fuse on any scene.  
+**Rebuilt from:** lemo-opuscar styles/microgame demo/hud.js (MIT, LemoLab) — fuse timer, hard-shadow toon parts  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** comic, nature, hud, playful, night  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `beats` | `8` | number of beats = number of knots (4-8 typical) |
+| `bpm` | `120` | tempo; the spark travels one knot per beat |
+| `startFrame` | `24` | frame the spark is lit |
+| `endIcon` | `"rocket"` | rocket \| bomb |
+| `freezeBeat` | `-1` | freeze the spark at this beat (replays); -1 = run to the end |
+| `stage` | `true` | paint the violet sunburst stage; false = transparent overlay (fuse + numeral only) |
+| `showCount` | `true` | show the big beats-left numeral |
+| `readyText` | `"READY?"` | word shown before the spark is lit |
+| `doneText` | `"GO!"` | word shown when the fuse reaches the icon |
+| `rope` | `"#D9A85A"` | rope colour |
+| `spark` | `"#FFC928"` | spark colour (reserved) |
+| `seed` | `4` | particle seed |
+
+### `lit-pixel-sprite` — Lit pixel sprites
+
+![lit-pixel-sprite](../gallery/lit-pixel-sprite.jpg)
+
+Flat low-res pixel characters with 1-px selout outlines step through 4-frame walk cycles and 2-frame idles on a dusk plaza. Two practical lamps and a drifting lantern tint their colours as they pass, posterised light pools band across the floor, and each sprite casts sheared shadows away from every nearby light while the camera drifts smoothly.
+
+**Use for:** Retro-game storytelling, pixel mascots in a lit set, HD-2D mood; pairs with pixel-dither.  
+**Rebuilt from:** lemo-opuscar styles/hd-2d demo chars.js / px.js / kit.js (MIT, LemoLab), lemo-styles-a hd-2d: lit-pixel-sprite  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** pixel, playful, night  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `pixel` | `10` | screen px per sprite pixel at 1080p (5–10) |
+| `lightColor` | `"#FFB35A"` | warm lamp colour |
+| `ambient` | `"#6A76AE"` | cool ambient light colour (the unlit tint) |
+| `floorColor` | `"#3A3A5E"` | floor tile colour |
+| `wallColor` | `"#2B2850"` | back wall colour |
+| `chars` | `4` | number of characters 1–4 (the last one idles) |
+| `camera` | `70` | smooth camera sway in px (0 = locked) |
+| `walkFps` | `8` | walk-cycle frames per second (6–10) |
+| `seed` | `3` | walker speed/phase seed |
+
+### `lives-counter` — Lives counter
+
+![lives-counter](../gallery/lives-counter.jpg)
+
+A dark rounded toon panel (ink outline, hard shadow) with hero-head icons: on a loss one icon cracks in five frames, shards fly, it shakes and greys while a slam caption announces it; the last life blinks at 2 Hz under a top-spot light; a gain re-lights an icon with a pop.
+
+**Use for:** Battery / retries / chances metaphors, gamified explainers, quiz shows, "you only get three tries" beats.  
+**Rebuilt from:** lemo-opuscar styles/microgame STYLE.md "Lives as UI" + demo/hud.js (MIT, LemoLab)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** comic, hud, editorial, night  
+**Capabilities:** paints its own background · text: `icon`, `label` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `lives` | `3` | lives at frame 0 |
+| `max` | `3` | number of icons |
+| `icon` | `"pilot"` | pilot \| heart \| star |
+| `events` | `[{"t":1.4,"delta":-1},{"t":3.4,"delta":-1},{"t":6,"delta"…` | array of {t seconds, delta} (-1 = lose a life, +1 = gain one) |
+| `spotlight` | `true` | top-spot light on the last remaining life |
+| `stage` | `true` | paint the violet sunburst stage; false = transparent overlay |
+| `label` | `"LIVES"` | tab label on the panel |
+| `lossText` | `"OUCH!"` | slam caption on a loss |
+| `lastText` | `"LAST LIFE!"` | slam caption when one life remains |
+| `gainText` | `"+1 LIFE"` | slam caption on a gain |
+| `panel` | `"#1B0B45"` | panel fill colour |
+| `seed` | `2` | shard seed |
+
+### `loot-reveal` — Loot reveal
+
+Mobile-game reward moment: a wooden chest (or sealed card / medallion) drops in, shakes in three escalating beats while rarity-coloured light leaks out, bursts with a 2-frame flash, shockwave, god rays and particles, then an item card rises, flips to a faceted gem (or your image), stars pop in and a title banner stamps on.
+
+**Use for:** Achievements, onboarding rewards, "you unlocked X" moments in apps, giveaway reveals and promo hooks. Set rarity for the colour set, image for the item art and title for the banner.  
+**Rebuilt from:** prompt-corpus: loot-reveal (11 cases, awesome-opus5-5-videos)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo, 3d, night  
+**Capabilities:** paints its own background · text: `title` · image: `image` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Aurora Gem"` | item name on the banner |
+| `image` | `""` | optional public/ path or URL for the item art (falls back to a faceted gem) |
+| `rarity` | `"legendary"` | 'common' #9AA4B1 \| 'rare' #3B82F6 \| 'epic' #A855F7 \| 'legendary' #F59E0B (also sets 1-4 stars) |
+| `container` | `"chest"` | 'chest' \| 'card' (sealed card flips open) \| 'badge' (medallion splits) |
+| `foundLabel` | `"You unlocked"` | small line above the banner |
+| `rarityLabel` | `""` | override the rarity word on the card ("" = from rarity) |
+| `accent` | `""` | override the rarity colour (hex, "" = from rarity) |
+| `background` | `"#0b0e1e"` | dark base colour (tinted by the rarity colour) |
+| `shakeBeats` | `3` | number of escalating shake beats before the burst |
+| `particles` | `70` | burst particle count |
+| `seed` | `4` | particle seed |
+
+### `palette-lut-grade` — Palette LUT grade
+
+![palette-lut-grade](../gallery/palette-lut-grade.jpg)
+
+A pixel lakeside scene changes time of day by swapping palette slots, not by fading: day, afternoon, golden, sunset, dusk, night, each in two 1/3 steps; a dithered night front rolls in toward a lantern and a dithered light pool re-lights the nearby cabin and ground; water slots colour-cycle and stars twinkle.
+
+**Use for:** Honest pixel-art day/night, mood shifts and spotlight effects that never leave the palette; the grading model for any pixel scene (slot-indexed art + per-stage colour table).  
+**Rebuilt from:** mg-styles-15 demos/20-pixel/film.js env table, makeLUT, waveR/lightAt (MIT), video 20-pixel 1.6-8.3 s  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** pixel, nature, night  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `stagesAt` | `[22,46,70,94,124]` | five frames: when afternoon, golden, sunset, dusk and night start |
+| `nightWave` | `true` | night arrives as a dithered ring rolling in toward the lantern (false = plain 1/3-step change) |
+| `lightPool` | `true` | after night, the lantern re-lights nearby materials with a dithered falloff |
+| `label` | `true` | show the current stage name in pixel text |
+| `palette` | `[]` | optional hex overrides for the daylight slot colours (38 slots, see SLOT order in r2-mg2b-kit) |
+| `seed` | `4` | seed for clouds, trees and ground texture |
+
+### `pixel-platformer-scene` — Pixel platformer scene
+
+![pixel-platformer-scene](../gallery/pixel-platformer-scene.jpg)
+
+Attract-mode pixel platformer in crisp 180p index colour: parallax mountains, clouds, forest hills with a colour-cycling waterfall, a scrolling ground with a river and sagging plank bridge, a chibi hero running, jumping, grabbing coins and stomping slimes, with +100 / +500 popups and a SCORE / COIN HUD.
+
+**Use for:** Gaming channels, indie-game trailers, "level up" beats in explainers and nostalgic brand ads; set `events` to land coins and stomps on the music.  
+**Rebuilt from:** mg-styles-15 demos/20-pixel/film.js (MIT), video 20-pixel 0.3-4.4 s  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** pixel, nature, hud  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `events` | `[{"t":30,"kind":"coin"},{"t":56,"kind":"coin"},{"t":84,"k…` | list of {t (frame the hero meets it), kind: coin \| stomp \| jump \| stop}; stop = decelerate and stand |
+| `scrollSpeed` | `1.25` | world scroll in pixels per frame (180p picture) |
+| `heroColor` | `""` | hero suit colour (hex); empty = default red |
+| `palette` | `[]` | optional hex overrides for the 38 palette slots (see SLOT order in r2-mg2b-kit); empty = daylight palette |
+| `stagesAt` | `[]` | frames at which the day shifts to afternoon, golden, sunset, dusk, night (empty = stay daytime) |
+| `hud` | `true` | show the SCORE / COIN counters |
+| `crt` | `true` | scanlines + vignette over the upscaled pixels |
+| `seed` | `3` | seed for clouds, trees and ground texture |
+
+### `pixel-reward-burst` — Pixel reward burst
+
+![pixel-reward-burst](../gallery/pixel-reward-burst.jpg)
+
+A pixel treasure chest shakes while the view steps in by whole-number zooms (x6, x8, x10, x12) with "?" and "!" bubbles and two lid hops, then bursts open: palette flash, a rotating fan of dithered light rays that grows and collapses in stepped drops, a ballistic coin fountain and a gem that rises and glows.
+
+**Use for:** Unlock / reward / reveal beats in gamified product videos, giveaways and "new feature" reveals.  
+**Rebuilt from:** mg-styles-15 demos/20-pixel/film.js drawRays, fountPos, zoomAt, chest states (MIT), video 20-pixel 5.9-7.2 s  
+**Default length:** 120 frames (4.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** pixel  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `at` | `34` | frame of the burst (flash) |
+| `item` | `"gem"` | rising reward: gem \| star \| heart |
+| `itemColor` | `"#35e0ff"` | item colour |
+| `rayColors` | `["#ffe27a","#fff6c8"]` | two ray colours, outer and inner |
+| `fountainCount` | `16` | coins in the fountain |
+| `zoomSteps` | `[6,8,10,12]` | four whole-number zoom levels before the burst |
+| `emotes` | `true` | show the ? and ! speech bubbles |
+| `seed` | `2` | seed for the coin fountain |
+
+### `pixel-sprite-scene` — Pixel sprite scene (state machine)
+
+![pixel-sprite-scene](../gallery/pixel-sprite-scene.jpg)
+
+A native ~160x90 pixel night scene with dithered sky bands, twinkling stars, a pixel moon, stepped mountains and a ground line; a procedural wizard / knight / cat sprite loops idle, charge, cast, recover with palette-stepped particles, a 1 px moon rim light, 10 fps character timing and 1-2 px screen shake on the cast.
+
+**Use for:** Retro game promos, indie-dev trailers, nostalgic social posts and loading loops. Pass `sprite`, `palette` and `states` to retheme; for a lit-set storytelling look use lit-pixel-sprite instead.  
+**Rebuilt from:** prompt-corpus: pixel-sprite-scene (40 cases), awesome-opus5-5-videos prompts (MIT) — technique only  
+**Default length:** 220 frames (7.3 s @ 30 fps)
+
+**Roles:** subject · **Mood:** pixel, nature, playful, night  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `sprite` | `"wizard"` | 'wizard' \| 'knight' \| 'cat' \| 'custom' (customArt + customPalette) |
+| `customArt` | `[]` | rows of characters for a custom sprite, e.g. ["..oo..","ohhho."] (.=transparent) |
+| `customPalette` | `{}` | map char -> hex colour for customArt |
+| `states` | `[{"name":"idle","frames":36},{"name":"charge","frames":42…` | [{name:'idle'\|'charge'\|'cast'\|'recover', frames}] looped in order |
+| `palette` | `{"sky":["#090C24","#0F1538","#17205A","#25347F","#3B4FA0"…` | scene palette: sky[] bands (top->horizon), star, moon, far/near mountains, ground, hero colours, magic, rim |
+| `particles` | `26` | particle count (0 = none) |
+| `pixelFactor` | `12` | screen px per logical pixel at 1080 (12 = 160x90) |
+| `spriteScale` | `2` | integer scale of the sprite (2 = chunky 2x2 pixels) |
+| `animFps` | `10` | character / particle animation rate (8-12) |
+| `shake` | `2` | screen-shake px on the cast (0-2) |
+| `moonSide` | `"right"` | 'left' \| 'right' (also the rim-light side) |
+| `seed` | `11` | star / particle seed |
+
+### `rocket-to-moon` — Rocket to moon
+
+![rocket-to-moon](../gallery/rocket-to-moon.jpg)
+
+A launch end card: the hero shoots up off a lantern-lit stage on a light trail, a one-frame flash cuts to space, it streaks to a big halftoned crescent moon and plants as a shrinking four-spike flare while the moon glows blue and the product name and "NOW LAUNCHED" pop in.
+
+**Use for:** "Launched / shipped / now live" end cards for product launches and release videos.  
+**Rebuilt from:** video x7 28.70-32.10 s (launch, space streak, moon flare, title) — original hero and copy  
+**Default length:** 105 frames (3.5 s @ 30 fps)
+
+**Roles:** subject · **Mood:** comic, nature, night  
+**Capabilities:** paints its own background · text: `title`, `subtitle` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Lumen 3 Pro"` | product name that pops in at the lower left |
+| `subtitle` | `"Now launched"` | small tracked line under the title |
+| `color` | `"#3598F6"` | hero / trail colour |
+| `src` | `""` | optional public/ image for the hero (default an original slime orb) |
+| `cutAt` | `27` | frame of the cut from the stage to space |
+| `moonGlow` | `"#1D3FA8"` | colour the moon's dark side lights up with |
+| `seed` | `4` | star seed |
+
+### `rpg-menu-ui` — RPG menu UI
+
+![rpg-menu-ui](../gallery/rpg-menu-ui.jpg)
+
+Game systems as narration at native 320x180: FIGHT/ITEM/MAGIC/RUN with a bobbing hand cursor that hesitates, a party window with HP ticking down (red when low, greyed member, blinking KO), a level-up stat roll, a save-file list choosing NEW FILE and an item-get box, on a dithered blue window skin.
+
+**Use for:** "Level up" product or skill announcements, comparison as a stat screen, career or version histories as save files, playful UI for game studios and dev content.  
+**Rebuilt from:** lemo-opuscar styles/pixel-rpg demo/ui.js + main.js + STYLE.md section 8 (MIT / CC BY 4.0, LemoLab)  
+**Default length:** 300 frames (10.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** pixel, playful, ui  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `screens` | `[{"type":"battle","t0":0,"dur":100},{"type":"levelup","t0…` | sequence of {type: battle\|levelup\|save\|item, t0 start frame, dur frames} |
+| `skin` | `"blue"` | window skin: blue \| night \| cream |
+| `party` | `[{"name":"Ada","hp":120,"hpTo":34,"maxHp":150},{"name":"B…` | battle party rows {name, hp, hpTo (hp after the hit, first member only), maxHp, dim} |
+| `item` | `"Elixir"` | name shown in the item-get box |
+| `accent` | `"#FFD23F"` | selection highlight colour |
+| `showCues` | `false` | show tiny SFX cue tags (cursor, select, HP tick, fanfare, item get) for sound design |
+| `background` | `"#05060F"` | letterbox colour |
+
+### `tactical-map` — Tactical map
+
+![tactical-map](../gallery/tactical-map.jpg)
+
+A "HUD OFF" symbolic battle view: coloured glyph clusters (circles, triangles, hexagons) drift on a near-black isometric grid with stepped white selection rectangles, dashed command links, a floating command box and horizontal glitch bands on entry.
+
+**Use for:** Abstract strategy diagrams, "simulation view" of any system, a data-overlay twin of a scene (pairs with army-formation).  
+**Rebuilt from:** video x6 36.13-37.13 s, 47.10-47.35 s (tactical view), video x6 40.10-40.25 s (tactical flash)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, hud  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `background` | `"#030309"` | near-black plane colour |
+| `factions` | `[{"name":"NOVA","color":"#E58682","unit":"#BE6E6C","chip"…` | up to 4 armies (chip colour is used for the glyphs) |
+| `unitsPerArmy` | `96` | glyphs per cluster |
+| `march` | `0.3` | ground units per second the clusters drift inwards |
+| `grid` | `true` | faint isometric grid lines |
+| `links` | `true` | dashed command links between cluster leads |
+| `selections` | `3` | number of stepped white selection rectangles |
+| `glitchAt` | `[0,70,140]` | frames with a horizontal glitch-band burst |
+| `commandBox` | `"CMD GRD: HOLD LINE"` | text of the floating command box ("" = none) |
+| `seed` | `6` | layout seed (match army-formation for an exact HUD-ON/OFF pair) |
+
+### `vs-splash` — VS splash
+
+![vs-splash](../gallery/vs-splash.jpg)
+
+A fighting-game versus card: blue and red striped panels slam shut along a steep diagonal with a white divider, a dark VS badge with a gold crescent springs in, a brush word pops above, judge mascots wobble below, and "FIGHT!" slams in over radial speed lines while the card dims.
+
+**Use for:** Any A-vs-B comparison (products, models, plans, teams), sports / esports promos and battle intros.  
+**Rebuilt from:** video x7 12.47-14.55 s (VS card + FIGHT! slam) — original fighters  
+**Default length:** 90 frames (3.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** comic, playful, night  
+**Capabilities:** paints its own background · text: `left`, `right` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `left` | `{"name":"Ember","color":"#D21851","color2":"#AE1549"}` | left fighter {name, color, color2 (stripe tones), src? (portrait image; default an original critter)} |
+| `right` | `{"name":"Splash","color":"#152FA2","color2":"#2349CC"}` | right fighter (default an original slime orb) |
+| `badgeText` | `"VS"` | text in the round centre badge |
+| `topText` | `"SHOWDOWN"` | word above the badge ("" = none) |
+| `slamText` | `"FIGHT!"` | word slammed over everything at slamAt ("" with slamAt 0 = never) |
+| `slamAt` | `52` | frame of the slam (0 = none) |
+| `diagonalDeg` | `70` | split angle from horizontal |
+| `grain` | `true` | spray-grain speckle over everything |
+| `seed` | `7` | speckle seed |
 
 ## image
+
+### `ascii-image-grid` — ASCII image grid (phosphor CRT)
+
+![ascii-image-grid](../gallery/ascii-image-grid.jpg)
+
+An image or procedural scene rebuilt as amber phosphor glyphs on a strict monospace grid: brightness becomes glyph ink density and dim/normal/bold attributes, dark areas stay empty; rows type in, then the sample window slowly pushes in under constant-size glyphs.
+
+**Use for:** A logo, product or photo in a terminal aesthetic for dev tools, hacker, retro-computing and data brands.  
+**Rebuilt from:** lemo-opuscar styles/ascii-crt demo/term.js makeRamp, pick, cellsFromImage (MIT, LemoLab), analysis/sources/lemo-styles-a.md §3 ascii-image-grid  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** photo, pixel, night  
+**Capabilities:** paints its own background · text: `title` · image: `src` · weight: medium  
+
+| prop | default | notes |
+|---|---|---|
+| `src` | `""` | public/ image to convert (empty = procedural plate) |
+| `seed` | `2` | procedural plate seed |
+| `palette` | `"dusk"` | procedural plate palette |
+| `cols` | `132` | grid columns in landscape (portrait uses ~62 %); 80–240 |
+| `charset` | `""` | restrict glyphs to these characters, e.g. a sentence ("a picture made only of these words"); empty = full density ramp |
+| `phosphorLo` | `"#FF6605"` | dim phosphor colour (amber #FF6605, green P1 #1F8F3A) |
+| `phosphorMid` | `"#FFB000"` | mid phosphor colour |
+| `phosphorHi` | `"#FFEBB8"` | overexposed phosphor colour |
+| `background` | `"#090604"` | unlit glass colour (warm near-black) |
+| `reveal` | `"rows"` | rows = typed top to bottom, random = cells pop in, none = already on |
+| `revealFrames` | `40` | reveal duration |
+| `push` | `1.18` | grid-camera push over the whole duration (1 = none) |
+| `dither` | `0.65` | Bayer + hash dither amount (0.6–0.7 in the source) |
+| `title` | `"HARBOUR.LOG"` | typed terminal title top-left with block cursor (empty = none) |
+
+### `autofocus-hunt` — Autofocus hunt
+
+![autofocus-hunt](../gallery/autofocus-hunt.jpg)
+
+Camcorder autofocus hunting on a liminal office corridor (or any image): blur → snaps sharp → slips → locks, then a zoom from 52° to 27° and a second hunt; a far figure is visible only inside the first sharp window. REC / AF / zoom OSD and focus brackets.
+
+**Use for:** Suspense reveals, "did you see that?" beats, found-footage openers, product reveals with a lens feel.  
+**Rebuilt from:** lemo-opuscar styles/backrooms demo/story.js focus curve + core/three/post.js CoC (MIT, LemoLab), analysis/sources/lemo-styles-a.md §4 autofocus-hunt  
+**Default length:** 165 frames (5.5 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** photo  
+**Capabilities:** paints its own background · image: `src` · weight: medium  
+
+| prop | default | notes |
+|---|---|---|
+| `src` | `""` | public/ image to focus-hunt (empty = procedural corridor) |
+| `focusKeys` | `[[0,0.28],[14,0.3],[26,1.7],[36,0.72],[46,1.3],[56,0.94],…` | [[frame, focusDistance]] with 1 = the subject in focus; overshoot past 1 and back for a hunt |
+| `zoomAt` | `92` | frame the optical zoom starts |
+| `zoomFrames` | `34` | zoom duration |
+| `fovFrom` | `52` | start field of view in degrees |
+| `fovTo` | `27` | end field of view in degrees (zoom = tan(from/2)/tan(to/2)) |
+| `zoomFocus` | `[0.66,0.46]` | [x, y] 0..1 the zoom centres on |
+| `maxBlur` | `26` | maximum blur radius (px at 1080) |
+| `reveal` | `true` | show the far figure only while sharp between revealFrom and revealTo |
+| `revealFrom` | `58` | first frame the hidden figure may appear |
+| `revealTo` | `92` | last frame the hidden figure may appear |
+| `notice` | `["NOTICE","Lights stay on after 6 PM.","Keep to the marke…` | printed notice on the wall: title line then rules |
+| `wallpaper` | `"#d5bd66"` | corridor wallpaper colour |
+| `carpet` | `"#8c763c"` | carpet colour |
+| `signal` | `"#ff2a1a"` | EXIT sign colour (the only signal colour) |
+| `osd` | `true` | camcorder REC / AF / zoom overlay and focus brackets |
+
+### `brush-stroke-reveal` — Brush-stroke reveal
+
+![brush-stroke-reveal](../gallery/brush-stroke-reveal.jpg)
+
+A picture is uncovered by thick brush strokes sweeping across the frame (zigzag rows, a spiral or diagonal passes): each stroke leads with a wet ink fringe, its edge breaks into dry-brush bristle streaks, and ink pools at the stroke ends; the revealed image (or a painted sunrise) drifts in slowly and a title lands when the last stroke ends.
+
+**Use for:** Ink / painterly titles, heritage and cultural stories, festival greetings, art-brand reveals: pass `src` and `title`, or your own `strokes` as 0-1 coordinates.  
+**Rebuilt from:** prompt corpus x24 (brush strokes reveal shapes and images, ink pooling)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** photo, nature  
+**Capabilities:** paints its own background · text: `title`, `subtitle` · image: `src` · weight: medium  
+
+| prop | default | notes |
+|---|---|---|
+| `src` | `""` | image to reveal (public/ path or URL); empty = painted sunrise |
+| `mode` | `"zigzag"` | auto strokes: 'zigzag' \| 'spiral' \| 'diagonal' (ignored when `strokes` is given) |
+| `strokes` | `[]` | [{pts:[[x,y]...] (0-1 of frame), width? (fraction of short side), at?, frames?}] custom stroke paths |
+| `title` | `"Morning Light"` | title revealed with the picture ("" = none) |
+| `subtitle` | `"A new season"` | small caps line above the title |
+| `inkColor` | `"#1d2230"` | wet ink fringe colour |
+| `paper` | `"#efe6d3"` | paper colour behind the strokes |
+| `strokeFrames` | `12` | frames one stroke takes to sweep (8-14 feels like a real stroke) |
+| `stagger` | `9` | frames between consecutive strokes |
+| `width` | `0.12` | stroke width as a fraction of the short side (0.06-0.18) |
+| `bristle` | `1` | dry-brush streak density (0 = clean edge) |
+| `roughness` | `1` | edge displacement multiplier |
+| `zoom` | `1.05` | slow push-in scale applied to the revealed image |
+| `palette` | `["#f6c28b","#f2e0c0","#fff4d4","#6f8f94","#3f6a73","#2c4f…` | painted-sunrise colours: [sky top, sky low, sun, ridge 1, ridge 2, lake] |
+| `textColor` | `"#fff6e6"` | title colour |
 
 ### `comic-halftone` — Comic halftone post FX
 
@@ -3271,6 +10681,31 @@ Print-comic finish over an image: posterised toon colour, 45° halftone ink dots
 | `vignette` | `0.35` | corner darkening |
 | `grain` | `0.06` | grain amount |
 
+### `crayon-pressure-pass` — Crayon pressure pass
+
+![crayon-pressure-pass](../gallery/crayon-pressure-pass.jpg)
+
+A child's crayon drawing draws itself: waxy strokes skip over a procedural paper tooth (light pressure leaves gaps, heavy fills in), zig-zag hatching overshoots the lines, the paper grain is embossed from the top-left and the indigo wobbly outlines boil on twos.
+
+**Use for:** Kids / edu / family brands, "hand-drawn by a child" moments, playful onboarding and recap drawings; the wax filter idea works on any stroke art.  
+**Rebuilt from:** lemo-opuscar styles/microgame demo/glpass.js crayon (MIT, LemoLab) — deposit = tooth > 1 - 1.22*pressure, SVG feTurbulence approximation  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** paper, nature, photo  
+**Capabilities:** paints its own background · text: `text` · weight: medium  
+
+| prop | default | notes |
+|---|---|---|
+| `text` | `"yay!"` | handwritten word written in magenta crayon |
+| `paper` | `"#F4EFE3"` | paper colour |
+| `outline` | `"#3B3D9A"` | outline crayon colour (indigo) |
+| `crayons` | `["#F6C21A","#F08A24","#E0453A","#4FA24A","#2F7A3D","#3F7F…` | nine hex colours: yellow, orange, red, green, dark green, blue, light blue, brown, magenta |
+| `pressure` | `1` | pressure multiplier (below 1 = more skipped grain) |
+| `boil` | `8` | line-boil steps per second (8 = on twos at 30 fps) |
+| `tooth` | `1` | paper tooth scale (higher = finer grain) |
+| `emboss` | `0.35` | strength of the embossed paper grain 0-1 |
+| `seed` | `3` | hatching / wobble seed |
+
 ### `dot-matrix` — Dot matrix / halftone / particle image
 
 ![dot-matrix](../gallery/dot-matrix.jpg)
@@ -3282,7 +10717,7 @@ Image resampled to a grid of dots — LED billboard, print halftone duotone, glo
 **Default length:** 150 frames (5.0 s @ 30 fps)
 
 **Roles:** backdrop · **Mood:** dark, photo, comic  
-**Capabilities:** paints its own background · image: `src` · weight: medium  
+**Capabilities:** paints its own background · text: `text` · image: `src` · weight: medium  
 **Pairs well with:** `neon-sign`, `beat-montage`, `kinetic-captions`  
 
 | prop | default | notes |
@@ -3290,7 +10725,7 @@ Image resampled to a grid of dots — LED billboard, print halftone duotone, glo
 | `src` | `""` | public/ image path; empty = procedural plate (sampled analytically) |
 | `seed` | `1` | procedural plate / jitter seed |
 | `palette` | `"dusk"` | procedural plate palette: dusk \| night \| dawn |
-| `style` | `"led"` | led \| halftone \| glow \| pointillism |
+| `style` | `"led"` | led \| halftone \| glow \| pointillism \| field (analytic Ben-Day density field) \| tiles (flipping mosaic tiles with grout) \| text (words spelled by a cell grid) |
 | `pitch` | `26` | legible dot pitch in px at 1080p (led 26, halftone 13–29, glow 12–18); auto-raised to keep ≤ 5000 dots |
 | `ramp` | `[150,90,60,40]` | coarser pitches stepped through before the legible one ([] = no ramp) |
 | `stepFrames` | `6` | frames per ramp step (half-beats: 5–6) |
@@ -3307,6 +10742,24 @@ Image resampled to a grid of dots — LED billboard, print halftone duotone, glo
 | `body` | `"#FFC861"` | glow: particle body colour (gold #FFC861, violet #D88BFF, white) |
 | `maxRadius` | `18` | glow: max particle radius in px at 1080p |
 | `glow` | `1` | glow: blurred bloom copy strength 0..1 |
+| `field` | `"radial"` | style 'field' (Ben-Day density field, no image): radial halo \| edge (dots crowd the frame border) \| ramp (left to right) |
+| `fieldLayers` | `[{"color":"#EB1458","angle":15,"step":22,"k":0.7},{"color…` | style 'field': overprinted layers [{color, angle deg, step px at 1080p, k dot size 0..1}] (multiply on paper) |
+| `fieldRadius` | `0.8` | field: halo radius / edge band, relative (0.8) |
+| `fieldPow` | `1.2` | field: density fall-off exponent (1.2) |
+| `fieldSwell` | `0.06` | field: breathing amplitude of the halo (dots swell = emotion), 0 = static |
+| `fieldCenter` | `[0.5,0.5]` | field radial: halo centre [x,y] 0..1 |
+| `tileSize` | `3` | style 'tiles': tile size in % of the short side |
+| `tileShape` | `"square"` | tiles: square \| round \| circle |
+| `grout` | `2` | tiles: grout width px at 1080p (bgDot colour shows on the unflipped back of each tile) |
+| `flipFrames` | `8` | tiles: frames a tile flip takes |
+| `flipOrder` | `"radial"` | tiles: radial (from the centre) \| random \| sweep (left to right) |
+| `flipStart` | `6` | tiles: first flip frame |
+| `flipSpan` | `60` | tiles: frames over which the flips are staggered |
+| `text` | `"SCALE"` | style 'text': words spelled out by lit cells (panel colour is the floor) |
+| `textGrid` | `160` | text: cells across the width |
+| `textWave` | `1` | text: speed of the lattice flicker waves |
+| `zoomFrom` | `6` | text: camera crane start zoom (1 = none, 6 = macro to wide) |
+| `textColor` | `"#7FD6FF"` | text: lit cell colour |
 
 ### `duotone` — Duotone recolour
 
@@ -3318,7 +10771,7 @@ A full-colour image cross-fades into a 2–3 colour brand ramp (blue, pink-viole
 **Rebuilt from:** video4 0:17 duotone-recolor, video5 ink-etching-tint, video21 0:15.9 madness-flash-tint, video16 0:44.6-0:46 grade-to-night  
 **Default length:** 120 frames (4.0 s @ 30 fps)
 
-**Roles:** backdrop · **Mood:** mid, photo, night  
+**Roles:** backdrop · **Mood:** mid, paper, photo, night  
 **Capabilities:** paints its own background · text: `word` · image: `src` · weight: medium  
 **Pairs well with:** `mask-rise-title`, `stamp-slam`, `film-look`  
 
@@ -3336,6 +10789,11 @@ A full-colour image cross-fades into a 2–3 colour brand ramp (blue, pink-viole
 | `word` | `""` | madness: word that flickers on (+0.30 s for 2 f, off 3 f, then steady), e.g. 狂気 |
 | `wordColor` | `"#DA4F4D"` | madness: word colour |
 | `grain` | `0.03` | film grain amount |
+| `sCurve` | `0` | S-curve contrast strength for the ramp (0 = preset; 0.32 print grade, 0.18 documents) |
+| `flicker` | `0` | archive-film brightness flicker amount (0.025 = +-2.5 %) |
+| `paperFibre` | `0` | paper-fibre texture multiplied over the print 0..1 (0.5 = print grade) |
+| `redOverlay` | `""` | spot-colour layer multiplied over the recolour (e.g. #D23A2A constructivist red); empty = none |
+| `redAmount` | `0.4` | opacity of the redOverlay layer |
 
 ### `film-look` — Film finishing stack
 
@@ -3372,6 +10830,23 @@ Cinematic finish over an image: bloom on highlights, radial chromatic fringe, gr
 | `aspect` | `2.39` | letterbox picture aspect (2.39) |
 | `weave` | `0.6` | gate weave jitter in px |
 | `push` | `1` | slow push-in in %/s |
+| `look` | `"film"` | preset on top of untouched props: film (default) \| print (damaged nitrate print: scratches, dust, hair, burn, sepia, flicker) \| crt (scanlines, roll band, slice glitch, fringe) \| projector (rounded 1.37 gate, flicker, scratches) |
+| `scratches` | `0` | vertical emulsion scratches 0..1 (0 = off, ~0.6 print) |
+| `dust` | `0` | dust specks per frame 0..2 |
+| `hair` | `false` | a hair that lives in the gate for a few frames now and then |
+| `burn` | `0` | brown burn creeping in from the edges 0..1 |
+| `sepia` | `0` | sepia / silver colour veil 0..1 |
+| `flicker` | `0` | whole-frame exposure flicker 0..2 (print flicker 1) |
+| `crank` | `1` | print damage speed multiplier (1 = normal) |
+| `scanlines` | `0` | CRT scanline strength 0..1 |
+| `rollBand` | `0` | rolling interference band 0..1 |
+| `sliceGlitch` | `0` | horizontal slice glitches 0..1 |
+| `phosphor` | `""` | monochrome phosphor tint colour (e.g. #33ff66); empty = off |
+| `curvature` | `0` | curved-glass edge darkening 0..0.1 (0.045 = CRT) |
+| `impactFlashAt` | `-1` | frame of a white-hot impact flash (-1 = none) |
+| `gate` | `0` | projector gate aspect (1.37 = academy); 0 = off. Black surround with rounded corners |
+| `gateRadius` | `22` | gate corner radius px at 1080p |
+| `gateSoft` | `0` | gate rim softness px at 1080p |
 
 ### `glass-pane-grid` — Mondrian glass pane grid
 
@@ -3402,6 +10877,13 @@ A black-leaded Mondrian grid draws on over an image; each glass pane offsets, sc
 | `driftDuration` | `60` | frames for the refraction offsets to ease in (easeInQuad), then a slow drift continues |
 | `start` | `10` | frame the leading starts drawing on |
 | `sheen` | `1` | glass sheen / bevel highlight strength |
+| `mode` | `"panes"` | 'panes' (Mondrian refraction grid) \| 'leaded' (stained-glass panel: lozenge lattice of jewel pieces, dark lead with solder blobs, streaky glass, backlight band) |
+| `cellSize` | `56` | leaded: piece size in px at 1080p (30-80) |
+| `lead` | `6` | leaded: lead came width in px at 1080p |
+| `leadColor` | `"#0c0a0c"` | leaded: lead colour |
+| `jewels` | `["#1f4fa8","#a8202c","#d6a323","#2e7d4f","#6b3a8c","#2a8c…` | leaded: jewel colour palette the pieces cycle through |
+| `backlight` | `0.6` | leaded: strength of the backlight band sweeping across |
+| `bandAt` | `-1` | leaded: frame the backlight band starts (-1 = start + 30) |
 
 ### `glitch-image` — Glitch image bursts
 
@@ -3414,7 +10896,7 @@ An image hit by timed digital-glitch bursts: RGB-split band displacement, datamo
 **Default length:** 150 frames (5.0 s @ 30 fps)
 
 **Roles:** backdrop · **Mood:** mid, photo, hud  
-**Capabilities:** paints its own background · text: `bursts` · image: `src` · weight: medium  
+**Capabilities:** paints its own background · text: `bursts`, `caption` · image: `src` · weight: medium  
 **Pairs well with:** `stamp-slam`, `typewriter-code`, `electric-arcs`  
 
 | prop | default | notes |
@@ -3432,6 +10914,74 @@ An image hit by timed digital-glitch bursts: RGB-split band displacement, datamo
 | `echoCount` | `8` | number of chroma echo copies (6–10) |
 | `push` | `1` | slow push-in in %/s |
 | `grain` | `0.035` | film grain amount |
+| `look` | `"clean"` | 'clean' (default) \| 'vhs' (1990s camcorder tape: chroma shifted + smeared, edge halos, lifted blacks, streaky noise, wobble, head-switching band, dropouts, 4:3 pillarbox) |
+| `aspect` | `"4:3"` | vhs: '4:3' pillarbox bars \| 'full' |
+| `jitter` | `0.5` | vhs: line wobble in px |
+| `chromaShift` | `3` | vhs: chroma shift to the right in px |
+| `edgeRing` | `0.35` | vhs: edge-enhancement halo strength 0..1 |
+| `agcNoise` | `1` | vhs: streaky noise density multiplier |
+| `dropouts` | `1` | vhs: white dropout streak density multiplier |
+| `tapeFps` | `15` | vhs: wobble / noise refresh rate |
+| `trackingTearAt` | `[]` | vhs: frames at which a tracking-tear band slips sideways |
+| `mode` | `"glitch"` | 'glitch' (default, burst toolkit) \| 'silhouette' (a solid colour silhouette filled with scrolling code, stepping through poses, glitch-tile bursts, typed caption on black) |
+| `color` | `"#1A16E0"` | silhouette: fill colour |
+| `textFill` | `"#9FB4FF"` | silhouette: colour of the scrolling code text in the fill |
+| `silBursts` | `[20,50,80,110]` | silhouette: frames at which tile bursts spray out |
+| `poses` | `[]` | silhouette: [{rot, sx, sy, dx}] stepped every ~3.5 frames (empty = seeded micro-poses) |
+| `caption` | `"northwind.ai"` | silhouette: mono caption typed beside the silhouette with a "_" cursor |
+
+### `grid-multiply` — Grid multiply
+
+![grid-multiply](../gallery/grid-multiply.jpg)
+
+The frame splits 1×2 → 2×2 → 3×3 → 4×4 on the beat; each stage lights its cells in a scattered order over the previous stage (never black), the last beat re-cuts every cell every sixteenth, then it slams back to one picture.
+
+**Use for:** Montage climaxes, "everything at once" beats, product-range / UGC / location walls synced to music; pass your own `images`.  
+**Rebuilt from:** lemo-opuscar styles/city-symphony (MIT, LemoLab) — render.py grid_plate, ORDER9/ORDER16  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** photo  
+**Capabilities:** paints its own background · text: `stages` · image: `images` · weight: medium  
+
+| prop | default | notes |
+|---|---|---|
+| `images` | `["demo/koi.jpg","demo/jellyfish.jpg","demo/lighthouse.jpg…` | public/ image paths cycled through the cells (empty = procedural scenes) |
+| `stages` | `[{"at":0,"cols":1,"rows":1},{"at":15,"cols":2,"rows":1},{…` | [{at: frame, cols, rows}] — one stage per half bar or bar; cols/rows swap in portrait |
+| `bpm` | `120` | tempo: the 1×2 halves light half a beat apart, cells fill on sixteenths (≤ 0.3 s per stage) |
+| `gutter` | `6` | black gutter width in u |
+| `frantic` | `true` | on the last beat re-cut every cell every sixteenth |
+| `franticAt` | `150` | frame where the frantic re-cutting starts |
+| `endFullAt` | `168` | frame where it slams back to one full picture (0 = never) |
+| `push` | `0.05` | slow zoom per second inside each cell |
+| `grade` | `true` | release-print finish: contrast, desaturation, grain, vignette and 1.85 matte |
+| `seed` | `1` | crop / procedural seed |
+
+### `handscroll-reveal` — Handscroll reveal
+
+![handscroll-reveal](../gallery/handscroll-reveal.jpg)
+
+A long ink-wash landscape pans right-to-left like an unrolling Chinese handscroll (procedural mountains, pines, a lone boat — or your images printed on the paper), then the camera pulls back to the whole scroll mounted on silk with wooden rollers on a dark table, and a vermilion seal stamps the end.
+
+**Use for:** Timelines, histories, journeys, supply chains — any linear story shown as one continuous artwork.  
+**Rebuilt from:** lemo-opuscar styles/ink-wash (MIT, LemoLab) — STYLE.md §6/§8, DEMO.md ending  
+**Default length:** 330 frames (11.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** paper, nature, night, photo  
+**Capabilities:** paints its own background · text: `title` · image: `images` · weight: medium  
+
+| prop | default | notes |
+|---|---|---|
+| `images` | `[]` | optional public/ images, one per panel (printed into the scroll); empty slots paint procedural ink landscapes |
+| `panels` | `4` | number of panels in the scroll |
+| `title` | `"RIVER OF HOURS"` | vertical title column on the first panel |
+| `sealGlyph` | `"印"` | character inside the vermilion seal |
+| `direction` | `1` | 1 = pan right-to-left (classic), -1 = left-to-right |
+| `panSpeed` | `7` | pan speed (≈ panel-widths per 10 s) |
+| `pullbackAt` | `190` | frame the pull-back to the mounted scroll starts |
+| `mountColor` | `"#C9A86333"` | sheen colour behind the mounted scroll |
+| `silkColor` | `"#8A6D3B"` | silk mount colour |
+| `tableColor` | `"#17120C"` | table / background colour |
+| `seed` | `5` | landscape seed |
 
 ### `ken-burns` — Ken Burns push / pull / tilt
 
@@ -3470,6 +11020,73 @@ Slow push, pull, pan or tall tilt-up across a still plate with handheld noise, a
 | `paper` | `0.06` | paper fibre multiply amount (0.06 ≈ source) |
 | `vignette` | `0.3` | corner darkening 0..1 |
 | `fadeIn` | `0` | fade from black over this many frames (tall-tilt source: 18) |
+| `punches` | `[]` | stepped beat punch-ins [{at: frame, zoom}] e.g. [{at:60,zoom:1.4},{at:75,zoom:2},{at:90,zoom:2.9}] |
+| `kick` | `[]` | damped kick shakes on hits [{at: frame, amp: px}] |
+| `rig` | `0` | handheld camcorder rig amount (0 = off, 1 = documentary): gait bob, sway, roll, breathing, tremor |
+| `gait` | `1.8` | rig: footsteps per second |
+| `fear` | `[0]` | rig: fear keys 0..1 spread across the duration; tremor grows with fear |
+| `holdBreath` | `[]` | rig: [[fromFrame, toFrame]] ranges where bob and breathing freeze |
+| `layers` | `[]` | multi-plane dolly: [{src, depth 0..1}] full-frame (transparent png) layers, far to near; near layers push faster |
+| `depthRate` | `2` | multi-plane: %/s zoom at depth 1 (far layers move 40 % of it) |
+
+### `knife-colour-relay` — Knife colour relay
+
+![knife-colour-relay](../gallery/knife-colour-relay.jpg)
+
+A cool-grey, wet-looking palette-knife painting is re-laid in colour stroke by stroke by a wave spreading from a point: each stroke sweeps from grey to colour along its own length. Strokes in exceptionMask (default: the red umbrella) stay in colour from the start, the one-colour exception. Set revealSpeed 0 for exception-only, exceptionMask [] for a pure wave.
+
+**Use for:** "The world wakes up", rebrand, recovery, season turning — a story beat; or "everything grey except this one thing".  
+**Rebuilt from:** lemo-opuscar styles/impasto/demo/engine/impasto.js reveal sweep (MIT, LemoLab), lemo-styles-a impasto: knife-colour-relay / one-colour-exception  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** photo  
+**Capabilities:** paints its own background · image: `src` · weight: medium  
+
+| prop | default | notes |
+|---|---|---|
+| `src` | `""` | optional image in public/ — grey copy with a colour wave (procedural landscape when empty) |
+| `revealOrigin` | `[0.36,0.78]` | wave origin [x, y] as fractions of the frame |
+| `revealSpeed` | `19` | wave speed in u per frame (0 = never reveal, exception only) |
+| `revealAt` | `56` | frame the wave starts |
+| `revDur` | `14` | frames each stroke takes to turn to colour |
+| `exceptionMask` | `["umbrella"]` | scene groups kept in colour: umbrella, house, tree, river, sun, sky, hills, field |
+| `strokeScale` | `1` | stroke size multiplier |
+| `lightAngle` | `225` | raking-light direction in degrees |
+| `spec` | `0.22` | ridge highlight strength |
+| `seed` | `5` | stroke layout seed |
+| `palette` | `{}` | override scene colours (see knife-paint-plate) |
+| `canvas` | `"#CBC9C6"` | bare canvas colour between strokes |
+
+### `knife-paint-plate` — Knife paint plate
+
+![knife-paint-plate](../gallery/knife-paint-plate.jpg)
+
+An illustration becomes a palette-knife oil painting: a slanted mosaic of flat paint planes (coarse underpainting, then detail strokes only where the picture needs it) with lit ridges from a raking light and canvas weave showing through. Strokes paint on in a diagonal sweep, each growing along its own length; the raking light drifts afterwards. Default plate is a procedural river landscape; with src the picture is knife-filtered with ridge texture.
+
+**Use for:** Premium oil-painting look for heroes, art/culture brands and emotional ads; a paint-on reveal for any image.  
+**Rebuilt from:** lemo-opuscar styles/impasto/demo/engine/impasto.js, plate.js (MIT, LemoLab)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** photo, nature  
+**Capabilities:** paints its own background · image: `src` · weight: medium  
+
+| prop | default | notes |
+|---|---|---|
+| `src` | `""` | optional image in public/ — knife-filtered with ridge overlay (the procedural landscape is used when empty) |
+| `strokeScale` | `1` | stroke size multiplier (0.7 fine … 1.6 chunky) |
+| `lightAngle` | `225` | raking-light direction in degrees (225 = from upper left) |
+| `lightElevation` | `0.5` | 0..1 ridge relief strength |
+| `spec` | `0.22` | ridge highlight strength 0.16–0.3 |
+| `grey` | `0` | 0..1 how much of the colour is replaced by cool grey |
+| `appearAt` | `4` | frame the paint-on sweep starts |
+| `appearDur` | `80` | frames the sweep takes to cross the plate |
+| `seed` | `5` | stroke layout seed |
+| `palette` | `{}` | override scene colours: {skyTop, skyLow, sun, hillFar, hillNear, field, river, leaf, leafHi, wall, roof, door, umbrella …} |
+| `canvas` | `"#D9CDB5"` | bare canvas colour showing between strokes |
+| `lightKeys` | `[]` | raking-light elevation keyframes [[frame, 0..1], ...]; a LOW elevation = grazing light = stronger ridge glints (peak beat) |
+| `rakingAt` | `0` | frame of a raking-light peak: the light drops to a grazing angle so every ridge glints, then settles (0 = off) |
+| `rakingLow` | `0.15` | elevation at the bottom of the dip (0.15) |
+| `rakingDur` | `60` | frames the dip takes in total (~2 s = 60) |
 
 ### `light-sweep` — Night light sweep
 
@@ -3481,7 +11098,7 @@ Cinematic night lighting: headlights sweep across a rain-streaked window, sodium
 **Rebuilt from:** video16 0:56.5-0:57.6 headlight-sweep, video16 light-cone-volumetric + rain-overlay, video16 door-light-flood  
 **Default length:** 150 frames (5.0 s @ 30 fps)
 
-**Roles:** backdrop · **Mood:** dark, photo, cinematic, nature, night  
+**Roles:** backdrop · **Mood:** dark, neon, photo, cinematic, nature, night  
 **Capabilities:** paints its own background · image: `src` · weight: medium  
 **Pairs well with:** `rain`, `film-look`, `story-caption-box`  
 
@@ -3489,7 +11106,7 @@ Cinematic night lighting: headlights sweep across a rain-streaked window, sodium
 |---|---|---|
 | `src` | `""` | public/ image for the outside view (window / street / doorway); empty = procedural night (dawn for door) |
 | `seed` | `1` | procedural plate / rain / droplet seed |
-| `mode` | `"headlight"` | headlight \| streetlamp \| door |
+| `mode` | `"headlight"` | headlight \| streetlamp \| door \| reveal (dim picture lit by a passing soft diagonal band of light) \| neon (bands of coloured light slide across a held picture) |
 | `color` | `"#E8F4FF"` | headlight beam colour |
 | `beamSpread` | `20` | headlight wedge spread in degrees (20) |
 | `rain` | `0.8` | rain density multiplier (0 = dry) |
@@ -3499,6 +11116,102 @@ Cinematic night lighting: headlights sweep across a rain-streaked window, sodium
 | `figure` | `true` | door: a figure steps into the doorway and casts a long shadow |
 | `push` | `1` | slow push-in in %/s |
 | `grain` | `0.08` | film grain amount |
+| `sweepStart` | `10` | reveal: frame the sweep starts |
+| `sweepFrames` | `39` | reveal: frames the sweep takes (~1.3 s = 39) |
+| `base` | `0.07` | reveal: brightness of the unlit picture (0.07) |
+| `soft` | `0.26` | reveal: band softness as a fraction of the sweep (0.26) |
+| `angle` | `0.62` | reveal: band tilt in radians (0.62) |
+| `glint` | `0.2` | reveal: glint riding the front, 0 = none (<= 0.2) |
+| `keep` | `true` | reveal: stay lit after the band passes (false = the band lights only what it covers) |
+| `bands` | `["#FF3DB4","#2FE6FF","#FFC93D"]` | neon: band colours (magenta / cyan / gold) |
+| `bandDir` | `"ltr"` | neon: ltr \| rtl |
+| `bandFrames` | `24` | neon: frames one band takes to cross |
+| `bandWidth` | `0.16` | neon: band width as a fraction of the frame diagonal |
+| `palette` | `"night"` | procedural plate palette when no src (dusk \| night \| dawn) |
+
+### `negative-develop-reveal` — Negative develop reveal
+
+![negative-develop-reveal](../gallery/negative-develop-reveal.jpg)
+
+A photo lies on a backlit light table as a warm amber glass negative; a circular develop front with a thin orange edge spreads from one point and turns it into a silver-gelatin (or colour) positive.
+
+**Use for:** Before/after reveals: archive photos, "the real picture" moments, X-ray → product, a teaser image coming into view.  
+**Rebuilt from:** lemo-opuscar styles/archive-lighttable demo/film.js negative() + lens develop front (MIT, LemoLab), analysis/sources/lemo-styles-a.md §1 negative-develop-reveal  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** photo, cinematic, editorial, night  
+**Capabilities:** paints its own background · text: `label` · image: `src` · weight: medium  
+
+| prop | default | notes |
+|---|---|---|
+| `src` | `""` | public/ image to develop (empty = procedural city plate) |
+| `seed` | `4` | procedural plate seed |
+| `palette` | `"dusk"` | procedural plate palette (dusk / night / dawn) |
+| `origin` | `[0.62,0.42]` | [x, y] 0..1 inside the photo where the develop front starts |
+| `developAt` | `34` | frame the front starts |
+| `developFrames` | `30` | front duration (24 = the source 0.8 s) |
+| `mode` | `"fullframe"` | fullframe = the whole plate develops; lens = only a loupe-sized disc develops |
+| `mono` | `true` | true = silver-gelatin greys (archive), false = keep the colour of the photo |
+| `tint` | `"#FAEDD6"` | negative glass tint (multiplier colour; default ≈ 0.98/0.93/0.84) |
+| `edgeColor` | `"#FF9E5C"` | colour of the warm ring riding the front |
+| `label` | `"PLATE 07 · GLASS NEGATIVE"` | mono caption under the plate (empty = none) |
+| `table` | `"#F7F9FB"` | light-table colour |
+| `desk` | `"#0E0F11"` | desk colour |
+
+### `perspective-flatten` — Perspective flatten
+
+![perspective-flatten](../gallery/perspective-flatten.jpg)
+
+An oblique broadcast-style photo of a pitch un-tilts smoothly (a true homography, ease-in-out) into a straight top-down chalk board — the photo fades as a dark board with chalk lines and a faint grid takes over, the players become ring marks at their real positions, and shot markers drop onto the board one after another. Give it src + imagePoints + boardPoints to flatten your own photo of a pitch, court, floor, desk or whiteboard.
+
+**Use for:** Turning any oblique photo into a map or plan: sports shot maps, floor plans from a room photo, a whiteboard photo straightened into a clean diagram, real-estate site plans. A strong "how did they do that" moment.  
+**Rebuilt from:** lemo-opuscar styles/telestrator/demo/index.html — shotMap / flatten mesh (MIT, LemoLab), demo/tools/homography.py concept  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** photo, night  
+**Capabilities:** paints its own background · text: `label` · image: `src` · weight: medium  
+
+| prop | default | notes |
+|---|---|---|
+| `src` | `""` | optional photo in public/ — flattened with the homography from imagePoints → boardPoints (default: the built-in oblique pitch) |
+| `board` | `"pitch"` | chalk board preset: pitch (105×68 m), court (28×15 m) or floor (12×8 m plan) |
+| `imagePoints` | `[]` | photo control points as [x,y] fractions of the frame (≥ 4, same order as boardPoints); empty = built-in camera |
+| `boardPoints` | `[]` | the same points in board units (metres for the presets); empty = corners, mid-line and quarter points |
+| `at` | `0.7` | seconds before the flatten starts |
+| `dur` | `1.2` | flatten duration in seconds (~0.9–1.4) |
+| `markers` | `[{"board":[88,30],"color":"#FF5A4D","size":1.9,"label":"x…` | dots that drop on the board: {board:[u,v] \| img:[x,y], color, size (m), at (s), label} |
+| `label` | `""` | board caption (default per preset) |
+| `boardColor` | `"#0C1411"` | board background |
+| `chalk` | `"#F4F1E8"` | chalk line colour |
+| `grid` | `60` | grid cell in px at 1080p |
+| `showPlayers` | `true` | ring marks at the photo's player positions after the flatten |
+| `background` | `"#0C1411"` | colour outside the board |
+
+### `photomontage-tower` — Photomontage tower
+
+![photomontage-tower](../gallery/photomontage-tower.jpg)
+
+Constructivist photomontage: print-graded photo strips slam in from alternate sides on 16th notes as the floors of a tower, an ink beam under each, paper-bordered cut-out figures land on every other floor; the camera climbs, a big floor counter runs and turns red while it rests on dated anchors with captions, a deco crown tops it, then the camera pulls back to the whole tower.
+
+**Use for:** "People built this" — company growth, team milestones, user photos stacked into a product, building or logo.  
+**Rebuilt from:** lemo-opuscar styles/kino-montage (MIT, LemoLab) — STYLE.md §6 photomontage tower, DEMO.md shot 14  
+**Default length:** 330 frames (11.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** paper, photo, cinematic, editorial  
+**Capabilities:** paints its own background · text: `counterLabel`, `title` · image: `images` · weight: medium  
+
+| prop | default | notes |
+|---|---|---|
+| `floors` | `24` | number of floors (strips) in the tower |
+| `images` | `[]` | optional photos in public/ used for the strips in turn (print-graded); empty = procedural archive scenes |
+| `anchors` | `[{"floor":10,"label":"Week 4","caption":"The frame passes…` | counter rests: {floor, label, caption} — building pauses while the caption is up |
+| `counterLabel` | `"Floor"` | ink tab over the counter |
+| `title` | `"Northwind Tower"` | caps line under the counter |
+| `bpm` | `120` | beat grid (floors on 16ths, then 8ths) |
+| `crown` | `true` | deco crown and red flag on top |
+| `red` | `"#D52B1E"` | the one red |
+| `ink` | `"#141210"` | ink colour |
+| `paper` | `"#EDE4D0"` | paper colour |
 
 ### `pixel-dither` — Pixelate + Bayer dither look
 
@@ -3530,6 +11243,393 @@ Image rendered as chunky 6 px pixel art with 2x2 Bayer ordered dither, a 5–8 c
 | `grain` | `0.035` | grain amount (0.03–0.04) |
 | `vignette` | `0.55` | corner darkening (0.55 in the source) |
 | `fadeIn` | `18` | fade from black over this many frames |
+| `ladder` | `[]` | palette collapse: colour-depth steps, one per stepFrames after collapseAt, e.g. ['c16','c8','gb4','c2','faded'] (presets full 24 steps \| c16 \| c8 resampled from colors \| gb4 \| c2 \| faded fixed blue-greys, or a hex ramp string '#000,#445,#aab'); [] = off |
+| `stepFrames` | `15` | palette collapse: frames per step (a beat, 15 = 0.5 s) |
+| `collapseAt` | `30` | palette collapse: frame of the first step |
+
+### `press-lift` — Press and lift (entrance / exit preset)
+
+![press-lift](../gallery/press-lift.jpg)
+
+Arrivals come in large and blurry, as if held near the lamp, then snap sharp onto the screen with a thud; exits grow, blur and fade into light like lifting a puppet away. Shown on three paper tags over a lamp-lit cloth.
+
+**Use for:** A universal comes-into-focus / fades-into-memory entrance for any layer: a rumour growing, a deadline pressing in, forgotten items lifting away. Copy the numbers (scale 2.6 -> 1, blur 34 -> 0, 0.55 s; lift 1 -> 1.9, 0.9 s) onto any wrapper.  
+**Rebuilt from:** lemo-opuscar styles/shadow-puppet demo/main.js (sun pieces), STYLE.md §5 (MIT, LemoLab)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** paper, 3d, photo  
+**Capabilities:** paints its own background · text: `items` · image: `images` · weight: medium  
+
+| prop | default | notes |
+|---|---|---|
+| `items` | `["A rumour grows","The deadline presses in","Old plans li…` | tag texts (one tag per item) |
+| `images` | `[]` | optional image per tag (public path or URL) |
+| `pressFrames` | `17` | press-on frames (0.55 s = 17) |
+| `liftFrames` | `27` | lift-off frames (0.9 s = 27) |
+| `fromScale` | `2.6` | press-on start scale |
+| `toScale` | `1.9` | lift-off end scale |
+| `maxBlur` | `34` | blur in u at the far end |
+| `firstInAt` | `8` | frame the first tag starts to press on |
+| `stagger` | `16` | frames between tags pressing on |
+| `liftAt` | `92` | frame the first tag starts to lift off |
+| `liftStagger` | `12` | frames between tags lifting off |
+| `thud` | `true` | small squash and ring at the snap |
+| `background` | `"#120805"` | backdrop colour |
+| `colors` | `["#b3261b","#d9a441","#2a7f78"]` | tag accent colours |
+| `paper` | `"#f1e3c3"` | tag paper colour |
+| `ink` | `"#2a1209"` | tag text colour |
+
+### `proportion-sweep` — Proportion sweep
+
+![proportion-sweep](../gallery/proportion-sweep.jpg)
+
+A bright honey bar sweeps across live footage to X % of the width; everything it has passed turns grey and dark, the percentage slams in on the dark side, then a caption chunk lands with its keyword on a yellow block.
+
+**Use for:** Any "X % of …" statistic over a photo or video — share lost, churn, coverage — instantly readable with the sound off.  
+**Rebuilt from:** lemo-opuscar styles/caption-news demo/main.js shotHalf() (MIT, LemoLab), analysis/sources/lemo-styles-a.md §8 proportion-sweep  
+**Default length:** 120 frames (4.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** photo, cinematic, hud, editorial, night  
+**Capabilities:** paints its own background · text: `label`, `caption`, `keyword` · image: `src` · weight: medium  
+
+| prop | default | notes |
+|---|---|---|
+| `src` | `""` | public/ photo (empty = procedural footage plate) |
+| `seed` | `6` | procedural plate seed |
+| `palette` | `"dusk"` | procedural plate palette |
+| `percent` | `38` | share of the width that goes dark (0–100) |
+| `direction` | `"fromRight"` | fromRight = the bar sweeps in from the right edge, fromLeft = from the left |
+| `accent` | `"#FFC21A"` | bar + keyword block colour (honey) |
+| `label` | `"OF HOMES STILL OFFLINE"` | caps label under the number |
+| `caption` | `"Two in five homes are still dark"` | caption line slammed in after the number |
+| `keyword` | `"still dark"` | substring of the caption shown on the accent block |
+| `sweepAt` | `14` | frame the sweep starts |
+| `darkFilter` | `"grayscale(1) brightness(0.26) contrast(1.1)"` | CSS filter for the passed side |
+
+### `riso-plate-reveal` — Riso plate reveal
+
+![riso-plate-reveal](../gallery/riso-plate-reveal.jpg)
+
+A risograph print inked one colour at a time: first only the blue plate exists; then a roller sweeps across and the yellow plate inks in left to right with a heavier band at its edge (the blank-paper scarf lights up); later the pink plate arrives and the overprint colours appear. Registration offsets and a kick on each arrival.
+
+**Use for:** Brand / product reveals where a new colour is a new feature, history timelines (one ink per era), "colour returning" recoveries, zine and indie title intros. Pass `src` to print any image in three plates.  
+**Rebuilt from:** lemo-opuscar styles/risograph demo/riso.js (uGate, uSweep, band), STYLE.md §8 "Plates as narrative" (MIT / CC BY 4.0, LemoLab); original implementation  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** paper, photo, pixel, comic  
+**Capabilities:** paints its own background · text: `title` · image: `src` · weight: medium  
+
+| prop | default | notes |
+|---|---|---|
+| `inks` | `["#0078BF","#FFE800","#FF48B0"]` | plate colours in print order (up to 3) |
+| `arrivals` | `[{"plate":0,"at":0,"sweepFrames":0,"from":"left"},{"plate…` | [{plate, at, sweepFrames, from:'left'\|'right'}] frame each plate arrives and how long the roller sweep takes (0 = fades in) |
+| `paper` | `"#F3EEDF"` | paper colour (blank-paper areas keep it) |
+| `surround` | `"#DDD6C4"` | colour around the sheet |
+| `src` | `""` | optional image (public path) to print in three plates instead of the built-in poster |
+| `title` | `"Night walk"` | title printed in the third plate of the built-in poster |
+| `registration` | `1` | plate mis-registration in px (0 = perfect) |
+| `kick` | `5` | px kick of a plate on arrival |
+| `band` | `0.45` | extra ink density of the roller edge band (0..1) |
+| `grain` | `true` | paper grain texture |
+| `thresholds` | `[]` | image mode: per-plate darkness thresholds (0..1; defaults 0.58 / 0.95 / 0.74 for blue / yellow / pink) |
+
+### `spinning-headline` — Spinning headline (newsreel paper)
+
+![spinning-headline](../gallery/spinning-headline.jpg)
+
+A newspaper spins out of the dark desk into the lens — growing and decelerating through 2.5 turns with faint motion-blur ghosts — slams flat with a jolt, pushes toward the headline, punches in on a beat, and a warm-white grease-pencil ring is drawn around the detail; all inside a flickering 1.37:1 projector gate.
+
+**Use for:** "The headline said…" beats in history, PR, legal, true-crime and news explainers; works with your own front-page image.  
+**Rebuilt from:** lemo-opuscar styles/newsreel (MIT code, CC BY 4.0 docs, LemoLab) — demo/index.html scenePaper  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** paper, cinematic, night, photo  
+**Capabilities:** paints its own background · text: `headline` · image: `src` · weight: medium  
+
+| prop | default | notes |
+|---|---|---|
+| `src` | `""` | optional newspaper / telegram / poster image (replaces the procedural front page) |
+| `masthead` | `"The Northwind Herald"` | procedural paper: masthead |
+| `headline` | `"CANAL OPENS AT LAST"` | procedural paper: big headline |
+| `subhead` | `"Ten thousand turn out for the first crossing"` | procedural paper: subhead |
+| `dateline` | `"MONDAY, MARCH 14, 1927"` | procedural paper: dateline |
+| `focus` | `[0.5,0.26]` | push target [x, y] 0..1 of the paper |
+| `punchAt` | `84` | frame of the punch-in |
+| `punchFocus` | `[0.5,0.26]` | punch-in target [x, y] |
+| `punchScale` | `2.1` | punch-in scale |
+| `flyFrames` | `36` | frames for the spin-in |
+| `turns` | `2.5` | revolutions during the fly |
+| `ghosts` | `3` | motion-blur ghost copies (0–3) |
+| `ringAt` | `100` | frame the grease ring starts |
+| `ring` | `true` | draw the grease-pencil ring |
+| `ringColor` | `"rgba(250,248,240,0.92)"` | ring colour |
+| `gate` | `1.37` | pillarbox gate aspect (0 = none) |
+| `damage` | `1` | projector damage amount 0..1 (flicker, scratches, dust, grain) |
+| `seed` | `3` | variation seed |
+| `background` | `"#000000"` | outside-gate colour |
+
+### `split-grid-countdown` — Split-grid countdown
+
+![split-grid-countdown](../gallery/split-grid-countdown.jpg)
+
+One shot splits into 2, then 4, then a 3×3 wall of synced cameras (chips + LIVE SYNC badges) around a big T− clock as zero approaches — new cells pop from dashed STANDBY slots — and at zero every cell slides to its tile and fuses into one full-screen picture with a warm flash.
+
+**Use for:** Launches, product drops, election / sports / score countdowns, multi-camera event recaps and "many sources agree" evidence beats; pass your own `images`.  
+**Rebuilt from:** lemo-opuscar styles/countdown (MIT, LemoLab) — demo/index.html LAY/layoutAt/render merge, chip, syncBadge, drawClock  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** photo, night  
+**Capabilities:** paints its own background · image: `images` · weight: medium  
+
+| prop | default | notes |
+|---|---|---|
+| `images` | `["demo/koi.jpg","demo/jellyfish.jpg","demo/lighthouse.jpg…` | public/ image paths for the camera feeds (cycled; empty = procedural scenes) |
+| `mergeSrc` | `""` | the full-screen shot everything fuses into at zero (default: the third image) |
+| `cams` | `[{"code":"CAM 1","name":"Pad wide","sub":"WIDE","sync":"l…` | [{code, name, sub, sync: live\|window\|retimed}] chip + honest sync badge per feed |
+| `zeroFrame` | `186` | frame of T−0: cells merge (0.42 s) and the clock inverts |
+| `splitAt` | `30` | frame of the 1→2 split |
+| `quadAt` | `66` | frame of the 2×2 layout |
+| `wallAt` | `102` | frame of the 3×3 wall (clock moves to the centre cell) |
+| `popEvery` | `8` | frames between new wall cells connecting |
+| `accent` | `"#FF5B1F"` | accent colour (T−, synced dots, landing flash) |
+| `header` | `"COUNTDOWN"` | clock header text |
+| `background` | `"#06080A"` | ground colour |
+
+### `sticker-cutout-burst` — Sticker cutout burst
+
+![sticker-cutout-burst](../gallery/sticker-cutout-burst.jpg)
+
+A subject cut-out becomes a die-cut sticker with a jagged white border and dark keyline, slammed onto spinning pink and yellow radial rays with boiling shiver marks and puffs, while a yellow spiky burst with a pink back-burst pops a shock caption character by character; on the freeze it turns into a tilted photo card on a cyan stripe board.
+
+**Use for:** Meme / reaction freeze-frame moments, product hero stickers and thumbnails in motion; give it a transparent PNG as `src`.  
+**Rebuilt from:** mg-styles-15 demos/18-hanazi burstD, raysD, focusD, puff, card + assets/prep*.py matte (MIT), video 18-hanazi 6.0-7.6 s  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** photo, comic, playful, editorial, night  
+**Capabilities:** paints its own background · text: `caption` · image: `src` · weight: medium  
+
+| prop | default | notes |
+|---|---|---|
+| `src` | `""` | transparent PNG cut-out (public/ path); empty = a drawn peach |
+| `caption` | `"WOW!!"` | shock word inside the burst (short) |
+| `subcaption` | `"is this normal?!"` | small pill line (empty = none) |
+| `rayColors` | `["#FF3D7F","#FFE14D"]` | alternating ray colours |
+| `rayCount` | `24` | number of ray wedges |
+| `burstColors` | `["#FFF15A","#FF3D7F"]` | [burst fill, back-burst fill] |
+| `spikes` | `14` | spikes on the burst |
+| `borderColor` | `"#ffffff"` | sticker border colour |
+| `keyline` | `"#1A1030"` | keyline / outline ink colour |
+| `marks` | `true` | shiver marks and puffs around the sticker |
+| `freezeToCard` | `true` | freeze, then turn the sticker into a photo card on a stripe board |
+| `freezeAt` | `84` | frame of the freeze |
+| `cardTilt` | `-6` | card tilt in degrees |
+| `boardColors` | `["#16B9F0","#ffffff"]` | stripe board colours |
+| `seed` | `3` | seed for burst jitter and the sticker edge |
+
+### `sticker-slap` — Sticker slap
+
+![sticker-slap](../gallery/sticker-slap.jpg)
+
+Photo or icon cut-outs with a thick white outline drop onto the page from above the camera: large, tilted and blurred with a wide soft shadow, then land flat with a tiny squash and a two-cycle wobble while the shadow tightens on contact and the whole page jolts a few pixels.
+
+**Use for:** The universal photo-to-sticker treatment for explainers, social posts and product callouts. Give transparent PNG cut-outs as src; overlay-capable with background transparent.  
+**Rebuilt from:** mg-styles-15 demos/19-paperclip slap() / shadow(), tools/stickers.py cutout(), 06-collage rimmed() (MIT)  
+**Default length:** 120 frames (4.0 s @ 30 fps)
+
+**Roles:** backdrop, accent · **Mood:** photo, pixel  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `items`, `title` · weight: medium  
+
+| prop | default | notes |
+|---|---|---|
+| `items` | `[{"kind":"cup","src":"","x":0,"y":0.02,"size":440,"at":22…` | stickers[{kind: cup\|bolt\|flower\|camera (procedural fallback), src: transparent PNG path (optional), x,y: offset from centre as fraction of width/height, size, at: landing frame, rot: resting degrees}] |
+| `background` | `"#F3ECE0"` | page colour ('transparent' to use as an overlay) |
+| `title` | `"FRESH DROP"` | big faint word behind the stickers |
+| `outline` | `11` | white outline thickness in px at 1080p (8-12) |
+| `outlineColor` | `"#FFFFFF"` | outline colour |
+| `shadowColor` | `"#2A1F14"` | drop shadow colour |
+| `slapFrames` | `7` | frames of the drop (0.2 s = 6-7) |
+| `fromScale` | `1.3` | start scale (above the camera) |
+| `fromRotate` | `6` | start tilt in degrees |
+| `wobble` | `true` | two-cycle wobble after landing |
+| `jolt` | `6` | page jolt in px at each landing (4-8) |
+
+### `telestrator-freeze` — Telestrator freeze (analysis board)
+
+![telestrator-freeze](../gallery/telestrator-freeze.jpg)
+
+Footage, a still or the built-in demo pitch freezes with a white flash and a small zoom punch, colour drains and cools and everything outside a focus ellipse darkens; a yellow ring draws clockwise under the subject with a rotating dashed outer ring and light beam, a glowing marker arrow draws along a path, a red space patch fades in and a black label card wipes open; then play resumes.
+
+**Use for:** Sports and gameplay analysis, UX screen-recording teardowns ("freeze the recording and circle the button"), product demos, coaching, CCTV-style explainers over any footage or screenshot.  
+**Rebuilt from:** lemo-opuscar styles/telestrator demo/index.html (ring, marker, tag, grade, spot, flash) + STYLE.md §6, §9.1–9.2 (MIT / CC BY 4.0, LemoLab)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** photo, nature, night  
+**Capabilities:** paints its own background · text: `labels` · image: `src` · weight: medium  
+
+| prop | default | notes |
+|---|---|---|
+| `src` | `""` | optional still image (public path) to freeze on; empty = demo pitch |
+| `videoSrc` | `""` | optional video (public path): plays, freezes at freezeAt for holdFrames, then resumes |
+| `freezeAt` | `30` | frame the picture freezes |
+| `holdFrames` | `70` | frames the freeze lasts (1.8-2.4 s typical) |
+| `focus` | `{"cx":0.52,"cy":0.62,"rx":0.3,"ry":0.28}` | focus ellipse as 0..1 of the frame: cx, cy, rx, ry — outside it darkens |
+| `rings` | `[{"x":0.459,"y":0.675,"r":0.06,"color":"#FFD400","at":6,"…` | rings under subjects: x, y (0..1), r (fraction of height), color, at (frames after freeze), beam |
+| `arrows` | `[{"pts":[[0.48,0.64],[0.6,0.55],[0.74,0.51]],"color":"#FF…` | marker arrows: pts [[x,y]...] 0..1, color, at, dash, arrow |
+| `areas` | `[{"poly":[[0.62,0.46],[0.8,0.46],[0.86,0.6],[0.66,0.62]],…` | translucent space patches: poly [[x,y]...], at, color |
+| `labels` | `[{"x":0.06,"y":0.09,"title":"OVERLAP RUN","sub":"SPACE BE…` | label cards: x, y (0..1 top-left), title, sub, color, at |
+| `flash` | `0.6` | white flash strength 0..1 |
+| `seed` | `5` | demo pitch seed |
+
+### `tilt-shift-diorama` — Tilt-shift diorama
+
+![tilt-shift-diorama](../gallery/tilt-shift-diorama.jpg)
+
+A high three-quarter view of a little lit isometric town (cars, windows warming up, a train looping the track) where only a horizontal band is sharp and everything above and below melts into blur, with boosted saturation and vignette so it reads as a tabletop model. The sharp band follows the train. With src it applies the same tilt-shift to any picture.
+
+**Use for:** Miniature look over any city / landscape plate, map overviews, "toy world" openers; overlay-capable as an image filter.  
+**Rebuilt from:** lemo-opuscar styles/hd-2d/demo/post_ts.js tilt-shift term (MIT, LemoLab), lemo-styles-a hd-2d: tilt-shift-diorama (2D strip fallback)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** photo, 3d, nature  
+**Capabilities:** paints its own background · image: `src` · weight: medium  
+
+| prop | default | notes |
+|---|---|---|
+| `src` | `""` | optional image in public/ to tilt-shift instead of the built-in town |
+| `center` | `0.4` | band centre as a fraction of height (used when follow is false or with src) |
+| `width` | `0.1` | half-width of the fully sharp band (fraction of height, ~.1) |
+| `falloff` | `0.3` | distance from sharp to maximum blur (fraction of height, ~.3) |
+| `maxBlur` | `17` | maximum blur diameter in px at 1080p (16–18) |
+| `follow` | `true` | procedural scene only: band follows the train head (clamped .2–.8) |
+| `saturation` | `1.3` | colour boost that sells the miniature (1.15–1.4) |
+| `trainColor` | `"#D9472F"` | loco colour |
+| `seed` | `4` | town layout seed |
+| `background` | `"#CFE0D2"` | ground colour around the board |
+
+### `torn-paper-collage` — Torn-paper collage
+
+![torn-paper-collage](../gallery/torn-paper-collage.jpg)
+
+Photos (procedural scenes by default), a circle, a star and a label strip with torn white edges, taped corners and halftone slap onto a kraft dotted board one by one with a one-frame overshoot, boil on twos with a little jitter, then a black torn headline strip stamps on.
+
+**Use for:** Editorial explainers, music videos, zine-style social posts and recaps that show host photos: pass your images in pieces[].src and your words in headline.  
+**Rebuilt from:** prompt-corpus: torn-paper-collage (10 cases, awesome-opus5-5-videos)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** paper, photo, comic, editorial  
+**Capabilities:** paints its own background · text: `headline` · weight: medium  
+
+| prop | default | notes |
+|---|---|---|
+| `pieces` | `[{"kind":"photo","scene":0,"x":0.3,"y":0.42,"px":0.36,"py…` | pieces [{kind:photo\|circle\|star\|blob\|note, src?(public path), scene?(procedural 0-3), x,y (0-1 landscape centre), px,py (portrait centre), w,h (px at 1080), rot, tape:top\|corner\|both\|none, color?, label?(note), delay?}] |
+| `headline` | `"Paste it up"` | black torn strip text ("" for none) |
+| `background` | `"#e6dcc8"` | board colour |
+| `paperColor` | `"#f7f2e8"` | torn paper rim colour |
+| `inkColor` | `"#16130f"` | strip + note ink |
+| `tapeColor` | `"#f3e29a"` | tape strip colour (drawn at 72 % alpha) |
+| `palette` | `[]` | reserved (scene colours are built in) |
+| `step` | `2` | hold each drawing for N frames (2 = on twos) |
+| `jitter` | `1.5` | max rotation jitter in degrees |
+| `tear` | `11` | torn edge displacement in px at 1080 (6-12) |
+| `halftone` | `0.3` | halftone dot screen strength 0-1 |
+| `stagger` | `7` | frames between pieces slapping on |
+| `seed` | `3` | torn edges / jitter seed |
+
+### `wash-arrival` — Wash arrival
+
+![wash-arrival](../gallery/wash-arrival.jpg)
+
+A hillside village by a lake sits as a pure ink sketch on cream paper; colour then floods outward from a little walker along the path and from the sunrise like watercolour on wet paper — an irregular cauliflower front with a darker pooled tide line just behind it, granulation, a brief wet sheen and a wash slightly off-register from the line. Whatever the sources touch becomes painted; the rest stays line until colour arrives (everything is flooded by floodAt). Give lineSrc / colorSrc to reveal your own picture.
+
+**Use for:** "Colour follows the product / runner / sunrise" storytelling, sketch → finished-render reveals for architecture and real estate, onboarding illustrations that come alive.  
+**Rebuilt from:** lemo-opuscar styles/urban-sketch/demo/engine.js arrivalField + compositor; STYLE.md §8 (MIT, LemoLab)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** paper, photo, nature, night  
+**Capabilities:** paints its own background · weight: medium  
+
+| prop | default | notes |
+|---|---|---|
+| `lineSrc` | `""` | optional line-art image in public/ (dark lines on white) — used as the ink layer |
+| `colorSrc` | `""` | optional colour image in public/ — the paint layer (an ink layer is derived from its edges when lineSrc is empty) |
+| `sources` | `[{"x":0,"y":0,"t":0.5,"v":200,"R":160,"path":[[80,630],[2…` | colour sources in a 1000×620 design space: {x,y,t (s), v (units/s), R (reach), sy (vertical stretch), path:[[x,y]…] + t1 for a moving source} |
+| `amp` | `170` | front irregularity (noise offset in design units) |
+| `creep` | `0.01` | seconds per unit beyond the reach radius |
+| `floodAt` | `6.4` | seconds by which any unpainted area is flooded |
+| `front` | `0.2` | tide-line width in seconds |
+| `paper` | `"#F5EEDE"` | paper colour |
+| `ink` | `"#2B2520"` | line colour |
+| `accent` | `"#C8553D"` | the one coloured thing (walker coat) |
+| `walker` | `true` | draw the little walker that rides the path source |
+| `seed` | `4` | noise seed |
+
+### `woodblock-print-reveal` — Woodblock print reveal
+
+![woodblock-print-reveal](../gallery/woodblock-print-reveal.jpg)
+
+On a blank washi sheet an original ukiyo-e harbour print is "printed": the black key-line block lands first, then each colour block (blues, sea bands, green, ochre, vermilion) is revealed by a ragged diagonal baren-sweep in 12 quantised steps, sliding a few pixels into slightly imperfect register, with woodgrain, baren unevenness and goma-zuri specks in every block; a double border draws, the title cartouche drops in and a chipped red seal stamps. Nature moves on eights. With src the photo is posterised into luminance blocks and printed the same way.
+
+**Use for:** "Printing" a logo, illustration, map or product shot into existence; heritage / craft / Japanese-themed openers; any multi-layer reveal (riso, screen-print).  
+**Rebuilt from:** lemo-opuscar styles/ukiyoe/demo/print.js, STYLE.md §5 §8 (MIT, LemoLab) — original composition, not a famous print  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** paper, photo, pixel, nature  
+**Capabilities:** paints its own background · text: `title`, `subtitle` · image: `src` · weight: medium  
+
+| prop | default | notes |
+|---|---|---|
+| `src` | `""` | optional image in public/ — posterised into 5 luminance blocks and printed instead of the built-in harbour |
+| `title` | `"Harbour at first light"` | cartouche title |
+| `subtitle` | `"a woodblock study"` | cartouche second line |
+| `sealText` | `"MG"` | 1–3 characters on the red seal |
+| `start` | `0.2` | seconds before the first block prints |
+| `speed` | `1` | print pace multiplier (1 = ~0.35 s per block) |
+| `grain` | `0.7` | woodgrain strength 0–2 |
+| `speck` | `1` | goma-zuri speck strength 0–2 |
+| `baren` | `0.8` | baren-rub unevenness 0–2 |
+| `misregister` | `1` | block registration offset multiplier (0 = perfect register) |
+| `push` | `0.04` | slow camera push over the clip (0.04 = 4 %) |
+| `paper` | `"#EEE2C6"` | washi colour |
+| `ink` | `"#231F1C"` | key-block ink |
+| `prussian` | `"#1D3A66"` | deep blue |
+| `light` | `"#8DB0C6"` | pale blue |
+| `beni` | `"#B8412F"` | vermilion |
+| `ochre` | `"#CF9F4A"` | ochre / straw |
+| `green` | `"#7A9650"` | green |
+| `seed` | `4` | texture + reveal-noise seed |
+
+### `woodcut-carve` — Woodcut carve (form-following knife cuts)
+
+![woodcut-carve](../gallery/woodcut-carve.jpg)
+
+A picture turns into a white-line woodcut: thousands of separate knife cuts that wrap around forms (along the isophotes), wide where the image is bright and absent where it is dark, carved in live from highlights to shadows, then printed on paper with a ragged block edge, ink speckle and an optional copper colour plate glowing out of the brightest cuts. Default is a procedural moonlit-hills picture; pass `src` for any image.
+
+**Use for:** A very crafted treatment for book trailers, folk / heritage brands, history explainers and editorial portraits: give it any still and it carves it live. Pairs with ken-burns for a push.  
+**Rebuilt from:** lemo-opuscar styles/woodcut demo/engine filter.js, hatch.js, knife.js, print.js (MIT, LemoLab) — own SVG implementation  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** paper, photo, night  
+**Capabilities:** paints its own background · image: `src` · weight: medium  
+
+| prop | default | notes |
+|---|---|---|
+| `src` | `""` | image path (public/ or URL); empty = built-in moonlit-hills picture |
+| `sp` | `7.5` | spacing between cuts in px at 1080 (5 = fine, 10 = bold) |
+| `black` | `0.12` | tone below which nothing is cut (0-1) |
+| `white` | `1` | tone at which cuts reach full width (0-1) |
+| `gamma` | `1` | tone curve before cutting |
+| `a0` | `0.45` | fallback cut angle in radians where the picture has no direction |
+| `reveal` | `"light"` | carve order: 'light' (highlights first) \| 'radial' \| 'down' |
+| `startFrame` | `14` | frame carving starts |
+| `durationFrames` | `150` | frames carving takes |
+| `ink` | `"#0F0E0D"` | block ink colour |
+| `paper` | `"#EFE8D8"` | paper colour (also the colour of the cuts) |
+| `plateColor` | `"#E0702B"` | colour plate printed in the brightest cuts ("" = none) |
+| `plateAbove` | `0.8` | tone above which cuts take the colour plate (0-1) |
+| `plateFrames` | `[150,205]` | [from, to] frames the colour plate fades in |
+| `seed` | `3` | randomness seed |
+| `margin` | `0.05` | paper margin as a fraction of the short side |
+| `maxCuts` | `4200` | cap on the number of cuts (performance) |
 
 ### `xray-scan` — X-ray scan reveal
 
@@ -3550,7 +11650,7 @@ A glowing vertical scan beam (or an inky organic blob / hatched hole) sweeps acr
 | `src` | `""` | public/ image path (edge-detected into an x-ray); empty = procedural plate drawn as line art |
 | `seed` | `1` | procedural plate seed |
 | `palette` | `"dusk"` | procedural plate palette: dusk \| night \| dawn |
-| `mode` | `"beam"` | beam \| blob \| hole |
+| `mode` | `"beam"` | beam \| blob \| hole \| cutaway (half-section drawing of an object: hatched cut walls around a glowing core) |
 | `look` | `"blueprint"` | blueprint (lavender on navy) \| xray (cyan on deep blue) |
 | `speed` | `0.75` | beam speed in frame-widths per second (0.75 measured) |
 | `start` | `14` | frame the first reveal starts |
@@ -3562,4 +11662,1035 @@ A glowing vertical scan beam (or an inky organic blob / hatched hole) sweeps acr
 | `reticle` | `true` | draw construction circles / reticle over the x-ray |
 | `bristleColor` | `"#10131C"` | blob / hole ink edge colour |
 | `push` | `1.2` | slow push-in in %/s |
+| `words` | `[]` | beam mode karaoke cursor: [{text, at}] words laid across the frame; the beam's leading edge advances on each word's `at` frame, revealing the word cut into the x-ray layer |
+| `object` | `"battery"` | cutaway: battery \| pipe \| cell |
+| `coreColor` | `"#2DFF71"` | cutaway: emissive core colour (#2DFF71) |
+| `inkColor` | `"#1d1b17"` | cutaway: line / hatch ink |
+| `clayColor` | `"#e8e1d2"` | cutaway: clay body colour |
+| `orbitDeg` | `8` | cutaway: slow camera drift in degrees over the shot |
+| `cutAngle` | `180` | cutaway: cut extent in degrees (180 = half section) |
+
+## map
+
+### `coverage-route` — Coverage route (floor plan)
+
+![coverage-route](../gallery/coverage-route.jpg)
+
+Top-down mid-century floor plan: a robot route draws itself region by region — a wall-follow loop, then back-and-forth lanes that flow around furniture without crossing, curls at every U-turn, stars and dots popping between lanes, a dotted return to the dock — while the camera pulls back and counter-rotates to reveal a patterned whole.
+
+**Use for:** Robot vacuums / mowers, delivery rounds, sprinkler or cleaning coverage, "how the algorithm covers the space" payoffs.  
+**Rebuilt from:** lemo-opuscar styles/midcentury-toon (MIT code, CC BY 4.0 docs, LemoLab) — demo/film.js laneY/buildPath/planProgress  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** comic, playful, night  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `items`, `caption` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `zones` | `[{"x0":0,"x1":0.38,"color":"#F3D37F","label":"Living room…` | regions drawn one per beat [{x0, x1 (0..1 of room width), color, label}] |
+| `items` | `[{"shape":"sofa","x":0.17,"y":0.28,"rx":0.1,"ry":0.07,"co…` | furniture obstacles [{shape: round\|sofa\|plant\|rect, x, y (0..1), rx, ry (fraction of room), color}] |
+| `dock` | `[0.04,0.9]` | dock position [x, y] 0..1 of the room |
+| `laneGap` | `82` | lane spacing in u |
+| `curl` | `11` | curl radius at U-turns in u (0 = none) |
+| `wallLoop` | `true` | start with one wall-follow loop |
+| `startFrame` | `6` | delay before drawing |
+| `loopFrames` | `30` | frames for the wall loop |
+| `zoneFrames` | `46` | frames per zone |
+| `returnFrames` | `18` | frames for the dotted return home |
+| `pullback` | `3.4` | starting camera zoom (pulls back to 1) |
+| `roll` | `-6` | starting counter-rotation in degrees |
+| `routeColor` | `"#3FA7A0"` | route (product) colour |
+| `routeEdge` | `"#1B5753"` | darker off-register edge under the route |
+| `robotColor` | `"#3FA7A0"` | robot body colour |
+| `decor` | `true` | stars and dots revealed between lanes |
+| `floor` | `"#F4EAD5"` | floor colour |
+| `wall` | `"#2B2420"` | wall outline colour |
+| `ink` | `"#2B2420"` | ink colour |
+| `caption` | `"One pass. Every corner."` | caption card after the return ("" to hide) |
+| `showLabels` | `true` | zone labels |
+| `background` | `"#E6D8BC"` | colour outside the room, or "transparent" |
+
+### `hairline-feature-trace` — Hairline feature trace
+
+![hairline-feature-trace](../gallery/hairline-feature-trace.jpg)
+
+On a dark raking-lit survey surface, 1-px amber hairlines light up along traced features in order (compound walls, a sinuous road, a pipe run, a boundary loop). Each line has a bright head glow at the drawing front and a faint halo behind, stays crisp at any distance, and is draped on the terrain while the camera drifts.
+
+**Use for:** Route, network and boundary reveals on terrains and maps; complements map-route and topdown-terrain.  
+**Rebuilt from:** lemo-opuscar styles/lidar-survey/demo/film.js surface shader (MIT, LemoLab), lemo-styles-a lidar-survey: hairline-feature-trace  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** nature, night  
+**Capabilities:** paints its own background · text: `labels` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `amber` | `"#FFB347"` | hairline colour |
+| `speed` | `5.5` | draw speed in plan units per frame (200-unit plot) |
+| `gap` | `8` | frames between features |
+| `startAt` | `14` | frame the first feature starts |
+| `labels` | `["Walls","Roads","Pipes","Boundary"]` | four feature labels in order |
+| `size` | `200` | terrain plot size in metres |
+| `seed` | `6` | terrain seed |
+| `background` | `"#07090B"` | backdrop colour |
+| `surface` | `"#2A2D2F"` | low-ground colour of the lit surface |
+
+### `iso-diorama-board` — Iso diorama board
+
+![iso-diorama-board](../gallery/iso-diorama-board.jpg)
+
+A floating flat-isometric diorama board (cream top, soil strata and a blue water corner on its front edges) builds up: stations drop in with a squash — farm, plant, port, city — trees pop, then a dashed ink route draws far-to-near with a red subject cube riding it; label pins with values pop at each stop and a legend card locks the total. Flat three-tone shading, no outlines.
+
+**Use for:** Supply chains, onboarding flows, product journeys, "how X works" explainers as one premium map.  
+**Rebuilt from:** lemo-opuscar styles/iso-infographic (MIT, LemoLab) — engine.js projection/tri, world.js board, DEMO.md  
+**Default length:** 300 frames (10.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, nature  
+**Capabilities:** paints its own background · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"From bean to cup"` | board title (top-left and on the legend) |
+| `stations` | `[{"pos":[0.16,0.84],"label":"Harvest","value":"1,600","un…` | route stops in order: {pos [x,y] 0..1 on the board, label, value, unit, kind farm\|plant\|port\|city\|shop} |
+| `total` | `"11,000 km"` | legend total value |
+| `totalLabel` | `"Total"` | legend total label |
+| `bpm` | `100` | pace of the route (one leg ≈ 2.2 beats) |
+| `palette` | `{"ground":"#F2E6D0","boardTop":"#FBF4E6","sea":"#5A9BCB",…` | ground, boardTop, sea and subject (accent) colours |
+| `seed` | `7` | tree / route-curve seed |
+| `zoomOut` | `true` | pull back to the legend card at the end |
+
+### `map-mask-reveal` — Map mask reveal
+
+![map-mask-reveal](../gallery/map-mask-reveal.jpg)
+
+A choropleth map fills in west to east; one region is outlined in the accent with a leader label, the camera pushes into it, then a photo of the place grows out of the region's own outline until it fills the frame.
+
+**Use for:** Location stories, store / branch reveals, travel and real-estate videos, regional news.  
+**Rebuilt from:** lemo-opuscar styles/caption-news demo/main.js shotMap(); tools/map_prep.py (MIT, LemoLab), analysis/sources/lemo-styles-a.md §8 map-mask-reveal  
+**Default length:** 165 frames (5.5 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo  
+**Capabilities:** paints its own background · text: `label`, `title` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `regions` | `40` | approximate number of procedural regions |
+| `regionIndex` | `-1` | index of the highlighted region (-1 = an inland default) |
+| `label` | `"Northwind County"` | region name (leader label and final caption) |
+| `value` | `"+18 % new homes"` | figure under the name |
+| `src` | `""` | public/ photo of the place (empty = procedural plate) |
+| `seed` | `4` | map shape + values seed |
+| `palette` | `"dusk"` | procedural photo palette |
+| `low` | `"#3a3a34"` | choropleth low colour |
+| `high` | `"#FFC21A"` | choropleth high colour |
+| `accent` | `"#FF4A3D"` | region outline colour |
+| `background` | `"#0E0E0C"` | sea / background colour |
+| `pushAt` | `70` | frame the camera push starts (1.3 s) |
+| `maskAt` | `112` | frame the photo starts growing out of the outline |
+| `title` | `"Where the homes went up"` | headline over the map |
+
+### `painted-choropleth` — Painted choropleth map
+
+![painted-choropleth](../gallery/painted-choropleth.jpg)
+
+A painted island map: the coastline is brushed in, then regions fill with quantised watercolour bands (wobbly wash edges, three-pass look) driven by station data; the field can morph through time (e.g. 50 Ma to today) with a radial fill reveal, a huge serif year label and a band legend.
+
+**Use for:** Climate / data stories in a warm editorial look; election or survey maps for softer brands; "how X spread" maps. Pass your own `stations` and bands.  
+**Rebuilt from:** lemo-opuscar styles/watercolor demo/main.js map section (MIT, LemoLab) — own SVG build, procedural island  
+**Default length:** 270 frames (9.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, nature, hud, editorial  
+**Capabilities:** paints its own background · text: `title`, `subtitle`, `unit`, `finalLabel` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Annual rainfall"` | title text |
+| `subtitle` | `"a painted field map"` | italic line under the title |
+| `unit` | `"mm"` | unit appended to legend values |
+| `bands` | `[150,300,650,1150,2000,4000]` | ascending thresholds; band k starts at bands[k] |
+| `colors` | `["#CF7C4F","#CDA35F","#B3B07A","#7F9A6C","#46705A","#2F5A…` | band colours (same length as bands) |
+| `stations` | `[]` | [{x (0-1000), y (0-700), value}] data points; empty = built-in demo field |
+| `timeKeys` | `[[90,0.25],[225,1]]` | [[frame, multiplier]] the field is scaled by this multiplier over time |
+| `yearFrom` | `50` | label number at the first time key |
+| `yearTo` | `0` | label number at the last time key |
+| `yearUnit` | `"Ma"` | label unit (e.g. Ma, AD, years) |
+| `finalLabel` | `"Today"` | label shown once the morph ends ("" = keep number) |
+| `reveal` | `"radial"` | 'radial' fill reveal or 'coast' |
+| `passes` | `2` | wash passes 1-3 (more = softer, slower) |
+| `background` | `"#F3EDE0"` | paper colour |
+| `ink` | `"#3A3226"` | ink colour |
+| `seed` | `11` | island + wash seed |
+
+### `time-rings` — Time rings (dated scan passes)
+
+![time-rings](../gallery/time-rings.jpg)
+
+A locked top-down view where soft scan passes sweep down the frame, each swapping in an older or newer dated plate and leaving that date's outline as a thin white ring with a year label; the lost band flashes, a light runs the newest outline, the rest dims, and an amber reading rolls in and lands.
+
+**Use for:** Before/after-over-time evidence on images: glacier retreat, city sprawl, construction progress, deforestation, a product growing on a map, a photo series of a building site.  
+**Rebuilt from:** lemo-opuscar styles/satellite-briefing demo/engine.js, overlay.js, film.js, DEMO.md shot 5 (MIT / CC BY 4.0, LemoLab)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `plates` | `[{"date":"1984"},{"date":"1994"},{"date":"2004"},{"date":…` | 4-8 dated plates [{src?, date, outline?: [[x,y]...] in 0..1 of the frame}]; no src = procedural terrain; no outline = procedural subject outline |
+| `spacing` | `[1.2,0.9,0.7,0.55,0.9]` | seconds between scan starts (accelerate then brake) |
+| `direction` | `"forward"` | 'forward' (as listed) or 'rewind' (reverse the list) |
+| `reading` | `{"label":"Surface lost","from":0,"to":47,"unit":"%","note…` | amber reading {label, from, to, unit, note, decimals} |
+| `accent` | `"#FFB020"` | reading colour |
+| `ringColor` | `"#F2F5F6"` | outline hairline colour |
+| `grade` | `true` | analyst grade on the image layer only (marks stay white) |
+| `labels` | `true` | year labels on rings |
+| `dim` | `0.4` | dimming outside the subject (0..1) |
+| `creep` | `{"scaleFrom":1.2,"scaleTo":1.42,"rotate":-5}` | camera creep {scaleFrom, scaleTo, rotate degrees} |
+| `groundColor` | `"#8f6e4c"` | procedural ground colour |
+| `subjectColor` | `"#c9d8de"` | procedural subject colour |
+| `startFrame` | `14` | first scan frame |
+| `seed` | `5` | procedural terrain seed |
+
+## mascot
+
+### `beat-dance` — Beat dance (Nib + crew)
+
+![beat-dance](../gallery/beat-dance.jpg)
+
+Nib dances on the music under a pulsing spotlight — bounce, hop, raise-the-roof, sway, a drawn spin through its key views on beat 4, wave, walk, run, stomp, shimmy or a mix that changes every two bars — with an optional back-up crew offset so nobody twins.
+
+**Use for:** Music videos, celebration / success states, party end cards, “we shipped it” moments synced to the host’s tempo.  
+**Rebuilt from:** ClaudeAnimationBase src/clawd.js move()/dancer() (MIT): dy = −|sin(π·beat)|·A, squash = max(0, 1 − 3.5·frac)·k  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** comic, playful  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `dance` | `"mix"` | dance style: bounce \| hop \| roof \| sway \| spin \| wave \| walk \| run \| idle \| stomp \| shimmy \| mix |
+| `emotion` | `"happy"` | face/mood while dancing (happy, cool, excited, starstruck…) |
+| `crew` | `2` | back-up dancers (0–6), each with its own seed and phase |
+| `crewColors` | `["#3A9C98","#D9614C","#7B5CA8","#E0A23A"]` | body colours of the crew |
+| `hats` | `["","party","party"]` | hat per dancer (lead first): '' \| party \| crown \| top \| beanie \| headphones \| halo \| wizard \| bow \| flower \| cap |
+| `bpm` | `120` | tempo the idle motions and dances lock to |
+| `offsetSec` | `0` | time of the first beat (s) |
+| `spotlight` | `true` | beat-pulsing spotlight on the lead |
+| `showStyle` | `false` | print the current dance style + BPM |
+| `size` | `0.4` | lead height as a fraction of the frame height |
+| `bodyColor` | `"#3F63C9"` | Nib body colour (pass the host brand colour) |
+| `inkColor` | `"#1E1B2E"` | outline / features colour |
+| `accent` | `"#F2B84B"` | curl-tip + prop accent colour |
+| `look` | `"ink-wash"` | 'ink-wash' (boiling hand-inked edge) or 'clean' (flat vector) |
+| `background` | `"paper"` | 'paper', 'transparent' or any colour |
+
+### `chomp-lid` — Chomp on the beat (Nib muncher)
+
+![chomp-lid](../gallery/chomp-lid.jpg)
+
+Nib opens its mouth into a huge toothy D (teeth always sized to the gap) and snaps it shut on the beat, munching labelled blocks that arc in from the side one per bite, with a squash on each chomp and a spray of crumbs.
+
+**Use for:** “Eats your data / bugs / inbox” metaphors, rage or hunger beats, music-synced munching for promos.  
+**Rebuilt from:** ClaudeAnimationBase src/clawd.js lunchbox() (MIT): teeth height min(.8u, .42·gap), dark interior + tongue; re-designed as a mouth chomp for Nib  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** comic, hud, playful  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `items` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `items` | `["DATA","BUGS","TODO","SPAM","LOGS"]` | labels on the blocks it eats (cycles) |
+| `everyBeats` | `2` | beats per bite |
+| `emotion` | `"determined"` | eyes/brows/body mood while chomping (determined, furious, excited, mischief…) |
+| `bpm` | `120` | tempo the idle motions and dances lock to |
+| `offsetSec` | `0.5` | time of the first beat (s) |
+| `itemColor` | `"#F2B84B"` | block colour |
+| `size` | `0.44` | character height as a fraction of the frame height |
+| `bodyColor` | `"#3F63C9"` | Nib body colour (pass the host brand colour) |
+| `inkColor` | `"#1E1B2E"` | outline / features colour |
+| `accent` | `"#F2B84B"` | curl-tip + prop accent colour |
+| `look` | `"ink-wash"` | 'ink-wash' (boiling hand-inked edge) or 'clean' (flat vector) |
+| `background` | `"paper"` | 'paper', 'transparent' or any colour |
+
+### `emotion-idle-beat` — Emotion idles on the beat (Nib line-up)
+
+![emotion-idle-beat](../gallery/emotion-idle-beat.jpg)
+
+A line-up of Nib mascots, each in a different mood, each moving with its own body language (bounce, sob per beat, cool nod, furious tremble, slow sleepy breath) locked to one tempo, over beat-pulsing floor spots and a four-dot metronome.
+
+**Use for:** Keep characters alive on long holds in sync with the host’s music; compare moods; a playful “how are you feeling?” beat or poll result.  
+**Rebuilt from:** ClaudeAnimationBase src/clawd.js EMO[*].body + _b() beat helpers (MIT); character original  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** playful  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `emotions` | `["happy","cry","cool","furious","sleepy"]` | moods in the line-up (any of neutral, happy, excited, laugh, love, shy, proud, smug, relieved, sad, cry, angry, furious, scared, surprised, confused, thinking, idea, determined, sleepy, bored, nervous, suspicious, disgusted, dizzy, cool, starstruck, ko, playful, mischief, hopeful) |
+| `colors` | `["#3F63C9","#3A9C98","#7B5CA8","#D9614C","#E0A23A"]` | body colour per character (cycles) |
+| `labels` | `true` | print each mood name |
+| `metronome` | `true` | show the 4-beat metronome + BPM readout |
+| `bpm` | `120` | tempo the idle motions and dances lock to |
+| `offsetSec` | `0` | time of the first beat (s) |
+| `inkColor` | `"#1E1B2E"` | outline / features colour |
+| `accent` | `"#F2B84B"` | curl-tip + prop accent colour |
+| `look` | `"ink-wash"` | 'ink-wash' (boiling hand-inked edge) or 'clean' (flat vector) |
+| `background` | `"paper"` | 'paper', 'transparent' or any colour |
+
+### `emotion-sheet` — Mascot emotion sheet (Nib)
+
+![emotion-sheet](../gallery/emotion-sheet.jpg)
+
+A model sheet of the ink-drop mascot Nib: all 31 named emotions in a labelled grid, every one alive on the beat (idle body language, blinks, emotes); also a views, dances or hats sheet.
+
+**Use for:** Pick an emotion by eye (agent reference image), mascot style guides, documentation thumbnails, library showcase.  
+**Rebuilt from:** ClaudeAnimationBase src/sheets.js + docs/emotions.jpg layout (MIT); character original  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** comic, playful  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `sheet` | `"emotions"` | 'emotions' (31 moods) \| 'views' (front, q, side, qback, back) \| 'dances' (12 beat dances) \| 'hats' (wardrobe) |
+| `emotions` | `[]` | subset of emotion names to show (empty = all 31, in table order) |
+| `labels` | `true` | print the name under each cell |
+| `showFamily` | `false` | also print the emotion family (joy, low, hot, alarm, mind, sly) |
+| `highlight` | `""` | name of one cell to ring in the accent colour |
+| `columns` | `0` | grid columns (0 = auto: 8 landscape, 6 square, 4 portrait) |
+| `title` | `""` | optional sheet title |
+| `background` | `"paper"` | 'paper', 'transparent' or any colour |
+| `bodyColor` | `"#3F63C9"` | Nib body colour (pass the host brand colour) |
+| `inkColor` | `"#1E1B2E"` | outline / features colour |
+| `accent` | `"#F2B84B"` | curl-tip + prop accent colour |
+| `look` | `"ink-wash"` | 'ink-wash' (boiling hand-inked edge) or 'clean' (flat vector) |
+| `bpm` | `120` | tempo the idle motions and dances lock to |
+| `offsetSec` | `0` | time of the first beat (s) |
+
+### `emotion-timeline` — Acted emotion timeline (Nib)
+
+![emotion-timeline](../gallery/emotion-timeline.jpg)
+
+Nib acts a chain of moods without ever snapping: eyes squint shut before each key, the face swaps under them, a squash-and-stretch take sized to the new mood fires, the pose overshoots into its new idle, colour and blush cross-fade and the new emote pops; an optional key strip shows the keys and playhead.
+
+**Use for:** A whole reaction beat from one prop — reveals, “wait… what?… oh!” moments, onboarding hosts, explainers.  
+**Rebuilt from:** ClaudeAnimationBase src/clawd.js emotions() (MIT): squint .1 s / release .14 s, backOut .4 s, colour .3 s, emote .06–.32 s  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** comic, playful  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `keys` | `[{"at":0,"emotion":"sleepy"},{"at":34,"emotion":"surprise…` | mood keys [{at: frame, emotion, look?: [x,y], emote?}] — emotions: neutral, happy, excited, laugh, love, shy, proud, smug, relieved, sad, cry, angry, furious, scared, surprised, confused, thinking, idea, determined, sleepy, bored, nervous, suspicious, disgusted, dizzy, cool, starstruck, ko, playful, mischief, hopeful; keys closer than 12 frames are pushed apart |
+| `showTimeline` | `true` | draw the key strip, playhead and current mood name (turn off for a clean shot) |
+| `size` | `0.42` | character height as a fraction of the frame height |
+| `takeScale` | `1` | multiplies every reaction take |
+| `bpm` | `120` | tempo the idle motions and dances lock to |
+| `offsetSec` | `0` | time of the first beat (s) |
+| `bodyColor` | `"#3F63C9"` | Nib body colour (pass the host brand colour) |
+| `inkColor` | `"#1E1B2E"` | outline / features colour |
+| `accent` | `"#F2B84B"` | curl-tip + prop accent colour |
+| `look` | `"ink-wash"` | 'ink-wash' (boiling hand-inked edge) or 'clean' (flat vector) |
+| `seed` | `1` | per-character seed (blink clock, dance mix order) |
+| `background` | `"paper"` | 'paper', 'transparent' or any colour |
+
+### `mascot-nib` — Mascot Nib (31 emotions)
+
+![mascot-nib](../gallery/mascot-nib.jpg)
+
+Nib, the library’s hand-inked ink-drop mascot with a springy curl, round eyes, brows and noodle arms, drops in and stays alive in any of 31 named emotions (face, colour shift, emote mark and its own beat-locked body language); can follow an action script (walk, run, hop, jump, feel, turn, dance, take, wave, look, emote).
+
+**Use for:** Explainer host, onboarding/empty/error/success states, reaction shots, end cards — pick a mood by name (`emotion`) or act a sequence (`script`, `emotions`).  
+**Rebuilt from:** ClaudeAnimationBase src/clawd.js EMO/feel/emotions/move + src/core.js take/jump (MIT); character original  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** accent · **Mood:** comic, playful  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `emotion` | `"happy"` | starting mood: neutral \| happy \| excited \| laugh \| love \| shy \| proud \| smug \| relieved \| sad \| cry \| angry \| furious \| scared \| surprised \| confused \| thinking \| idea \| determined \| sleepy \| bored \| nervous \| suspicious \| disgusted \| dizzy \| cool \| starstruck \| ko \| playful \| mischief \| hopeful |
+| `emotions` | `[]` | acted mood changes [{at: frame, emotion, look?: [x,y], emote?}] (blink-swap, take, overshoot, colour fade) |
+| `script` | `[]` | actions in order: {action:'walk'\|'run', to?: 0..1, dx?, frames?} {action:'hop'\|'jump', to?, dx?, height?} {action:'feel', emotion} {action:'turn', view:'front'\|'q'\|'side'\|'qback'\|'back'} {action:'dance', style, beats} {action:'take', size} {action:'wave'} {action:'look', dir} {action:'emote', emote} {action:'idle', frames} |
+| `x` | `0.5` | ground point x (0..1 of width) |
+| `y` | `0.84` | ground line y (0..1 of height) |
+| `size` | `0.5` | character height as a fraction of the frame height (0.42 = medium shot) |
+| `view` | `"front"` | drawn key view: 'front' \| 'q' (3/4) \| 'side' \| 'qback' \| 'back' |
+| `flip` | `false` | mirror (face left) |
+| `dance` | `""` | beat dance: '' \| bounce \| hop \| roof \| sway \| spin \| wave \| walk \| run \| idle \| stomp \| shimmy \| mix |
+| `hat` | `""` | '' \| party \| crown \| top \| beanie \| headphones \| halo \| wizard \| bow \| flower \| cap |
+| `entrance` | `"drop"` | 'drop' (falls in and squashes), 'pop' (scales in) or 'none' |
+| `bpm` | `120` | tempo the idle motions and dances lock to |
+| `offsetSec` | `0` | time of the first beat (s) |
+| `bodyColor` | `"#3F63C9"` | Nib body colour (pass the host brand colour) |
+| `shadeColor` | `"#2B4596"` | body shade colour |
+| `lightColor` | `"#93AEF2"` | highlight colour |
+| `inkColor` | `"#1E1B2E"` | outline / features colour |
+| `accent` | `"#F2B84B"` | curl-tip + prop accent colour |
+| `cheekColor` | `"#F28AA0"` | blush colour |
+| `look` | `"ink-wash"` | 'ink-wash' (boiling hand-inked edge) or 'clean' (flat vector) |
+| `onTwos` | `false` | hold each drawing two frames (hand-drawn timing) |
+| `takeScale` | `1` | multiplies every reaction take (0 = no squash/stretch takes) |
+| `seed` | `1` | per-character seed (blink clock, dance mix order) |
+| `background` | `"paper"` | 'paper', 'transparent' (overlay on your scene) or any colour |
+
+### `pixel-mascot-on-ui` — Pixel mascot on UI
+
+![pixel-mascot-on-ui](../gallery/pixel-mascot-on-ui.jpg)
+
+A chunky pixel-art mascot lives inside a crisp redrawn task-app window: it hops onto the top edges of the heading, input box, list rows and button with wind-up squash, parabolic arc, air stretch and damped landing squash plus dust, walks with a 9 Hz leg swap, blinks, breathes on the beat, and every action changes the real UI (typing with a pencil, checkboxes tick with sparkles, the button presses and hearts float). Original sprite, editable as character rows.
+
+**Use for:** Product walkthroughs, app-store previews and onboarding videos with a brand mascot; pairs with box-bot.  
+**Rebuilt from:** lemo-opuscar styles/living-screencast/demo/film.js Actor, clawd.js (MIT, LemoLab) — mechanics only; the sprite is original  
+**Default length:** 300 frames (10.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, pixel, playful, ui  
+**Capabilities:** paints its own background · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `steps` | `[{"to":"heading","x":0.12,"at":0},{"to":"input","x":0.6,"…` | mascot route: [{to: heading\|input\|row0\|row1\|row2\|button, x: 0..1 along the top edge, at: frame}] — a jump if the surface changes, a walk along the same edge |
+| `sprite` | `["..a......a..",".aa......aa.",".bbbbbbbbbb.","bbbbbbbbbb…` | sprite rows of characters (12 wide; last row = legs) |
+| `spritePalette` | `{"a":"#3FA88C","b":"#5FD0B0","e":"#23323A","c":"#F59DB0",…` | character → colour map for the sprite rows |
+| `title` | `"Today"` | heading text |
+| `doneTitle` | `"All done"` | heading after the button press |
+| `inputText` | `"Plan the launch"` | text typed into the input |
+| `placeholder` | `"Add a task..."` | input placeholder |
+| `rows` | `["Draft the announcement","Review the numbers","Send the …` | list row labels (up to 3) |
+| `button` | `"Finish"` | button label |
+| `doneButton` | `"Saved"` | button label after the press |
+| `accent` | `"#5B6CE0"` | UI accent colour (keep it different from the mascot hue) |
+| `wallpaper` | `["#F1D9C8","#D5BFAB"]` | desktop gradient [top-left, bottom-right] |
+| `bpm` | `96` | beat the mascot breathes on |
+| `spritePx` | `8` | design-space size of one sprite pixel (6–12) |
+
+### `smear-trail` — Smear trail dash (Nib)
+
+![smear-trail](../gallery/smear-trail.jpg)
+
+Nib dashes in so fast the drawing smears: the body stretches wide, dry-brush streaks of its own colour and thin ink speed lines trail behind, the eyes collapse to dashes; it skids to a stop in a dust puff, does a take, then zips off the other side.
+
+**Use for:** Fast entrances/exits, whooshes and dashes that read on twos; a cartoon “zoom in, zoom out” beat. Transparent background overlays it on any scene.  
+**Rebuilt from:** ClaudeAnimationBase src/clawd.js smearTrail() (MIT): 4 streaks 1.5u apart, length (3–6)u·k, body widens k·.35  
+**Default length:** 110 frames (3.7 s @ 30 fps)
+
+**Roles:** accent · **Mood:** comic, playful  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `dashIn` | `14` | frames for the dash in (fewer = faster, more smear) |
+| `dashOut` | `11` | frames for the exit dash |
+| `stopAt` | `0.5` | where it skids to a stop (0..1 of width) |
+| `emotion` | `"excited"` | mood after the surprise take, before it zips off |
+| `speedLines` | `true` | ink speed lines while moving fast |
+| `dust` | `true` | dust puff on the skid |
+| `size` | `0.42` | character height as a fraction of the frame height |
+| `bodyColor` | `"#3F63C9"` | Nib body colour (pass the host brand colour) |
+| `inkColor` | `"#1E1B2E"` | outline / features colour |
+| `accent` | `"#F2B84B"` | curl-tip + prop accent colour |
+| `look` | `"ink-wash"` | 'ink-wash' (boiling hand-inked edge) or 'clean' (flat vector) |
+| `background` | `"paper"` | 'paper', 'transparent' (overlay) or any colour |
+
+## music
+
+### `audio-spectrum` — Audio spectrum (bars / circle / wave / scope)
+
+![audio-spectrum](../gallery/audio-spectrum.jpg)
+
+Audio-reactive visualiser: rounded gradient bars with peak-hold caps, a circular spectrum around a pulsing disc, a layered mirrored wave, or a green-phosphor oscilloscope, driven by the real soundtrack (64-128 log-spaced bins, release smoothing, peak hold) or by a synthetic beat when no file is given. Exports useAudioEnergy() to drive other motions.
+
+**Use for:** Music promos, podcast and audiogram clips, DJ / event ads, lyric-video backdrops; pass the same soundtrack path the composition plays.  
+**Rebuilt from:** prompt-corpus research: audio-spectrum (13 cases, ideas only; original implementation)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** paints its own background · text: `title`, `caption` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `src` | `""` | soundtrack path under public/ (or URL); empty = synthetic beat |
+| `playAudio` | `false` | also play the file in this layer (leave false if the composition already plays it) |
+| `mode` | `"bars"` | 'bars' \| 'circle' \| 'wave' \| 'scope' |
+| `bins` | `64` | number of frequency bands (32-128) |
+| `smoothing` | `0.72` | release smoothing 0.5-0.9 (attack is instant) |
+| `peakHold` | `8` | frames the peak caps hold before falling |
+| `sensitivity` | `1` | input gain multiplier |
+| `bpm` | `118` | tempo of the synthetic beat (and the scope readout) |
+| `mirror` | `false` | bars: grow up and down from the centre line |
+| `colors` | `["#7CF5C8","#5B8CFF","#FF6FB5"]` | gradient colours across the spectrum (scope uses the first) |
+| `title` | `"Night Signal"` | title text |
+| `caption` | `"LIVE MIX"` | small caption |
+| `background` | `"#0A0C16"` | background colour |
+| `seed` | `3` | synthetic beat seed |
+
+### `beat-camera` — Beat camera (snap reframes)
+
+![beat-camera](../gallery/beat-camera.jpg)
+
+The camera never floats: on every beat (or downbeat) it snaps to a new framing — punch-in, roll, whip, orbit, push — each move caught by a damped spring, with a +4 % punch on the kicks and a hair of shake that dies before the next cut; demoed over an engraved plinth table and a heavy title, and usable as a wrapper around any motion in a mix.
+
+**Use for:** Makes any static motion feel edited to music — wrap a scene in a `mix` with this on top, or use it as the demo explains; promos, recaps, music videos.  
+**Rebuilt from:** pdoom-video app/src/scenes/prompt.ts shots + engine/util.ts springStep (MIT): 1 − e^(−ζωt)·cos(ω√(1−ζ²)t), settle before the cut  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent","showSubject":false}`) · text: `title`, `caption` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"ON THE BEAT"` | demo headline |
+| `caption` | `"CAMERA · SNAP REFRAME PER BEAT"` | demo mono caption |
+| `bpm` | `120` | tempo used when `beats` has no beat list |
+| `offsetSec` | `0.3` | time of the first beat in seconds (aligns the grid to your song) |
+| `beats` | `{}` | beat data: {bpm, offsetSec, beatsPerBar} or a list of beat times (s), or a full analysis {beats, downbeats, sections, onsets:{kick,snare,hat:[[t,strength]]}} |
+| `on` | `"beat"` | re-frame on every 'beat', 'downbeat' or every two bars ('bar2') |
+| `moves` | `["punch","roll","whip","orbit","push"]` | allowed moves: punch \| roll \| whip \| orbit \| push \| low \| tilt (seeded pick per beat) |
+| `intensity` | `1` | how far each reframe goes (0.5 subtle … 1.5 aggressive) |
+| `punch` | `0.04` | extra zoom on each kick (0.04 = +4 %) |
+| `shake` | `7` | post-cut shake in px (decays with half-life 0.05 s) |
+| `background` | `"#0A0A0B"` | frame colour, or 'transparent' with showSubject false to use purely as an overlay wrapper |
+| `ink` | `"#EEE9DF"` |  |
+| `accent` | `"#FF4D12"` |  |
+| `showSubject` | `true` | draw the demo subject (false = empty camera rig for compositing) |
+| `hud` | `true` | bar/beat readout |
+| `seed` | `1` | shot order |
+
+### `beat-grid` — Beat grid (music clock HUD)
+
+![beat-grid](../gallery/beat-grid.jpg)
+
+A deadpan music clock: a huge BPM readout, four bar squares that flash on each beat, a beat/bar phase dial, and a scrolling ruler of beats and eighths with section blocks and kick/snare/hat lanes lighting as they cross the playhead — the beat grid every music motion in the library syncs to.
+
+**Use for:** Music-production / DJ / metronome visuals, “how the edit is cut to the beat” explainers, a beat HUD overlay; feed it your song’s `beats` analysis to check sync.  
+**Rebuilt from:** pdoom-video app/src/engine/audio.ts beatAt/barAt/hit/section + data/audio.json schema (MIT)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** accent · **Mood:** hud  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `bpm` | `120` | tempo used when `beats` has no beat list |
+| `offsetSec` | `0.5` | time of the first beat in seconds (aligns the grid to your song) |
+| `beats` | `{}` | beat data: {bpm, offsetSec, beatsPerBar} or a list of beat times (s), or a full analysis {beats, downbeats, sections, onsets:{kick,snare,hat:[[t,strength]]}} |
+| `sections` | `[{"name":"intro","start":0,"end":2.5},{"name":"verse","st…` | song sections [{name, start, end}] in seconds (used when `beats` has none) |
+| `background` | `"#0A0A0B"` | frame colour or 'transparent' (HUD overlay) |
+| `ink` | `"#EEE9DF"` | type / tick colour |
+| `accent` | `"#FF4D12"` | hit colour |
+| `window` | `4` | seconds of music visible on the ruler |
+| `lanes` | `true` | show kick / snare / hat onset lanes (synthesised from the grid when no onsets are given) |
+
+### `engraving-hatch` — Engraving hatch (white-line plate)
+
+![engraving-hatch](../gallery/engraving-hatch.jpg)
+
+A white-line scratchboard engraving cuts itself on near-black: contour lines follow the form of a slowly turning sphere (or a ridge terrain), each line swelling where the light hits and thinning to a hair in shadow, a ground plate with a cast shadow, a hot orange rim light (or spark path) as the only glowing thing, deadpan figure labels.
+
+**Use for:** Treatise / banknote / scientific-plate looks, “engraved” product or concept renders, premium editorial backdrops behind lyrics or titles.  
+**Rebuilt from:** pdoom-video app/src/engine/glsl/common.ts hatch()/engrave(), ilya-glsl.ts band-limited spacing (MIT); SVG re-expression  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** nature, editorial  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `caption` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `subject` | `"sphere"` | 'sphere' (contour latitudes, rim light) or 'terrain' (ridge profile lines + orange spark path) |
+| `lines` | `64` | number of engraved lines (auto-limited so they never get closer than ~2 px — no moiré) |
+| `lightSpeed` | `0.35` | how fast the light orbits (rad/s) |
+| `spin` | `0.18` | how fast the sphere nods on its tilt axis |
+| `engraveSec` | `3` | seconds for the plate to cut itself in |
+| `background` | `"#0A0A0B"` | plate colour or 'transparent' |
+| `ink` | `"#EEE9DF"` | line colour (bone on ink = white-line engraving) |
+| `rim` | `"#FF4D12"` | rim light / spark colour |
+| `caption` | `"FIG. 3 — ENGRAVED SPHERE"` | figure caption |
+| `labels` | `true` | mono figure labels |
+
+### `guilloche-note` — Guilloché banknote
+
+![guilloche-note](../gallery/guilloche-note.jpg)
+
+A banknote engraves itself on bone paper: lathe-work waves and a woven border band draw on, interlaced guilloché rosettes (r = R + a·sin(nθ + φ)) slowly turn, a portrait oval fills with line-relief engraving (horizontal lines lifted and thickened by the picture), serial numbers type in hazard orange and a seal stamps on.
+
+**Use for:** Money / finance / stock videos, certificates, vouchers, premium end cards; pass a `src` image to put any subject in the relief oval.  
+**Rebuilt from:** pdoom-video app/src/scenes/ascent-note.ts + plate fig06 (MIT); original note design and copy  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper, photo  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Northwind Reserve"` | issuer line across the top |
+| `subtitle` | `"Payable to the bearer on demand"` | small line along the bottom |
+| `denomination` | `"100"` | value printed in the rosette and corners |
+| `serial` | `"NW 482 913 A"` | serial number (types on in the accent colour) |
+| `src` | `""` | optional picture for the line-relief oval (public/ path or URL); empty = procedural sun-over-mountains emblem |
+| `paper` | `"#EEE9DF"` | note paper colour |
+| `ink` | `"#2A2622"` | engraving ink |
+| `accent` | `"#FF4D12"` | serial / seal / inner rosette colour |
+| `lobes` | `12` | rosette lobes (6–18) |
+| `curves` | `36` | curves per rosette (20–60) |
+| `background` | `"#121214"` | colour behind the note or 'transparent' |
+
+### `lyric-anchored-timeline` — Lyric-anchored cuts (edit by lyric text)
+
+![lyric-anchored-timeline](../gallery/lyric-anchored-timeline.jpg)
+
+A lyric video whose scenes are placed by lyric text, not timestamps: each scene names a fragment of its line and cuts on the last beat (or downbeat) before that line’s first word, then integrates the words its own way (orange field, outline fill, rubber-stamped, stacked); an edit strip shows beats, word blocks and the snapped cut markers.
+
+**Use for:** Author a whole lyric video or captioned promo by lyric text — re-time the song and every cut still lands on the beat; teach “cut on the beat” editing.  
+**Rebuilt from:** pdoom-video app/src/timeline.ts cut(q) = last beat ≤ first word (+20 ms), engine/lyrics.ts get(text) (MIT)  
+**Default length:** 510 frames (17.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** paints its own background · text: `lines` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `scenes` | `[{"lyric":"city lights","snap":"beat","look":"outline"},{…` | [{lyric: 'words from the line', snap: 'beat'\|'downbeat'\|'none', nth?, look: 'field'\|'outline'\|'stamp'\|'stack', background?, ink?}] — each scene starts at its line's snapped cut |
+| `lines` | `["Turn the city lights up one more time","Every heartbeat…` | plain lyric lines (used when `lyrics` is empty): timed onto the beat grid, words on eighth notes |
+| `lyrics` | `[]` | timed lyrics: [{text, start, end, words?: [{text, start, end, syl?:[[a,b]]}]}] in seconds; words without times are estimated |
+| `bpm` | `120` | tempo used when `beats` has no beat list |
+| `offsetSec` | `0.5` | time of the first beat in seconds (aligns the grid to your song) |
+| `beats` | `{}` | beat data: {bpm, offsetSec, beatsPerBar} or a list of beat times (s), or a full analysis {beats, downbeats, sections, onsets:{kick,snare,hat:[[t,strength]]}} |
+| `accent` | `"#FF4D12"` | signal colour (current word, cut markers) |
+| `editStrip` | `true` | show the edit strip (beats, words, cut markers, playhead) — turn off for the clean video |
+| `cutFlash` | `true` | two-frame invert flash on every cut |
+
+### `lyric-on-path` — Lyric on a path (spark / fuse)
+
+![lyric-on-path](../gallery/lyric-on-path.jpg)
+
+An orange spark with a white-hot core drags a hairline curve across the frame and the lyric rides it: each word appears on the path, tilted to the tangent, exactly as it is sung; in the fuse variant the burning front makes words glow as it passes, then they char to ash and crumble off the line.
+
+**Use for:** Text that follows a chart line, a fuse, a route or a timeline; lyric videos, countdown fuses, “descending into the data” beats.  
+**Rebuilt from:** pdoom-video app/src/scenes/loss.ts + fuse.ts + _motifs.ts spark (MIT)  
+**Default length:** 300 frames (10.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** nature, hud  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `lines` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `lines` | `["Turn the city lights up one more time","Every heartbeat…` | plain lyric lines (used when `lyrics` is empty): timed onto the beat grid, words on eighth notes |
+| `lyrics` | `[]` | timed lyrics: [{text, start, end, words?: [{text, start, end, syl?:[[a,b]]}]}] in seconds; words without times are estimated |
+| `bpm` | `120` | tempo used when `beats` has no beat list |
+| `offsetSec` | `0.3` | time of the first beat in seconds (aligns the grid to your song) |
+| `beats` | `{}` | beat data: {bpm, offsetSec, beatsPerBar} or a list of beat times (s), or a full analysis {beats, downbeats, sections, onsets:{kick,snare,hat:[[t,strength]]}} |
+| `variant` | `"curve"` | 'curve' (words light as sung on a descending line) or 'fuse' (burn front ignites then chars the words) |
+| `path` | `""` | custom path as normalised points 'x,y x,y …' (0..1); empty = procedural curve |
+| `background` | `"#0A0A0B"` | frame colour or 'transparent' |
+| `ink` | `"#EEE9DF"` | line + rested word colour |
+| `accent` | `"#FF4D12"` | spark / sung word colour |
+| `ashColor` | `"#55504B"` | charred word colour (fuse) |
+| `size` | `34` | word size in u |
+| `labels` | `true` | tiny mono footnote ticks along the path |
+| `seed` | `2` | curve shape + sputter variety |
+
+### `lyric-timing` — Lyric timing lane (word + syllable sync)
+
+![lyric-timing](../gallery/lyric-timing.jpg)
+
+A DAW-style lyric lane: every word is a block sized to its sung duration scrolling past a playhead on a beat grid, filling as it is sung (split at syllables, dashed when estimated), with line brackets, confidence bars, a word readout and the current line lighting word by word above.
+
+**Use for:** Show / check word timing for karaoke and captions, “how the lyric video is synced” explainers, music-tech UI; doubles as a QA view for your lyrics.json.  
+**Rebuilt from:** pdoom-video app/src/engine/lyrics.ts wordProgress/lineCharProgress + data/lyrics.json schema (MIT; no lyric content used)  
+**Default length:** 300 frames (10.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** nature, editorial  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `lines` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `lines` | `["Turn the city lights up one more time","Every heartbeat…` | plain lyric lines (used when `lyrics` is empty): timed onto the beat grid, words on eighth notes |
+| `lyrics` | `[]` | timed lyrics: [{text, start, end, words?: [{text, start, end, syl?:[[a,b]]}]}] in seconds; words without times are estimated |
+| `bpm` | `120` | tempo used when `beats` has no beat list |
+| `offsetSec` | `0.5` | time of the first beat in seconds (aligns the grid to your song) |
+| `beats` | `{}` | beat data: {bpm, offsetSec, beatsPerBar} or a list of beat times (s), or a full analysis {beats, downbeats, sections, onsets:{kick,snare,hat:[[t,strength]]}} |
+| `window` | `5` | seconds visible across the lane |
+| `background` | `"#0A0A0B"` | frame colour or 'transparent' |
+| `ink` | `"#EEE9DF"` | type / block colour |
+| `accent` | `"#FF4D12"` | current word + playhead colour |
+| `showLine` | `true` | show the current line above the lane, lighting word by word |
+
+### `lyric-video` — Lyric video (karaoke + beat)
+
+![lyric-video](../gallery/lyric-video.jpg)
+
+Big lyric lines set left in a heavy variable grotesk; unsung words wait as hairline outlines and fill solid at the singer’s speed (syllable-aware), the current word lights hazard orange and creeps, the type breathes on every kick, a beat ruler and bar counter tick along the bottom.
+
+**Use for:** Lyric videos, word-synced song captions, music promos: pass `lyrics` (word timings) or just `lines` + `bpm`/`offsetSec`.  
+**Rebuilt from:** pdoom-video docs/TREATMENT.md karaoke rules + engine/lyrics.ts (MIT), pdoom-video plates fig02/fig12 (karaoke-fill look)  
+**Default length:** 510 frames (17.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** nature, playful, editorial  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `lines` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `lines` | `["Turn the city lights up one more time","Every heartbeat…` | plain lyric lines (used when `lyrics` is empty): timed onto the beat grid, words on eighth notes |
+| `lyrics` | `[]` | timed lyrics: [{text, start, end, words?: [{text, start, end, syl?:[[a,b]]}]}] in seconds; words without times are estimated |
+| `bpm` | `120` | tempo used when `beats` has no beat list |
+| `offsetSec` | `0.5` | time of the first beat in seconds (aligns the grid to your song) |
+| `beats` | `{}` | beat data: {bpm, offsetSec, beatsPerBar} or a list of beat times (s), or a full analysis {beats, downbeats, sections, onsets:{kick,snare,hat:[[t,strength]]}} |
+| `beatsPerLine` | `8` | when timing plain `lines`: beats per line (8 = two bars) |
+| `background` | `"#0A0A0B"` | frame colour, or 'transparent' to lay the lyrics over footage |
+| `ink` | `"#EEE9DF"` | bone type colour (sung words) |
+| `accent` | `"#FF4D12"` | colour of the word being sung |
+| `unsung` | `"outline"` | 'outline' (hairline outline) or 'dim' (30 % ink) for words not yet sung |
+| `align` | `"left"` | 'left' (treatise default) or 'center' |
+| `beatReact` | `1` | how hard the type and background react to the beat (0 = still) |
+| `showGrid` | `true` | show the beat ruler + bar counter at the bottom |
+| `size` | `118` | lyric size in u (auto-shrinks so the longest word fits) |
+
+### `shutter-blur` — Shutter motion blur (wrapper demo)
+
+![shutter-blur](../gallery/shutter-blur.jpg)
+
+Real shutter motion blur: a word whips through the frame once per bar and a ball swings below, rendered as the average of N sub-frame samples over a fractional-frame shutter so fast moves leave true streaks; split-screen compares the stepped original with the blurred pass. The `<ShutterBlur>` wrapper works around any deterministic motion.
+
+**Use for:** Premium finish for type slams, whips and crash zooms — wrap just the hit moments (cost scales with samples).  
+**Rebuilt from:** pdoom-video README.md + docs/ENGINE.md motion blur and sampling (MIT): 0.2-frame shutter, 12 still / 36 move / 108+ whip samples  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** cinematic  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `words` | `["WHIP","PAN","SLAM"]` | one word per bar for the whip demo |
+| `samples` | `12` | sub-frame renders averaged per frame (12 subtle · 36 camera move · 108 whips; render cost ×samples) |
+| `shutter` | `0.9` | shutter length in frames (0.5–1 natural, >1 dreamy) |
+| `compare` | `true` | split screen: left stepped, right blurred (false = full-frame blurred) |
+| `bpm` | `120` | tempo used when `beats` has no beat list |
+| `offsetSec` | `0.2` | time of the first beat in seconds (aligns the grid to your song) |
+| `beats` | `{}` | beat data: {bpm, offsetSec, beatsPerBar} or a list of beat times (s), or a full analysis {beats, downbeats, sections, onsets:{kick,snare,hat:[[t,strength]]}} |
+| `background` | `"#0A0A0B"` | frame colour or 'transparent' |
+| `ink` | `"#EEE9DF"` | type colour |
+| `accent` | `"#FF4D12"` | ball / label colour |
+
+### `stage-curtain` — Painted stage + curtains
+
+![stage-curtain](../gallery/stage-curtain.jpg)
+
+A hand-painted storybook theatre: a slowly rotating two-colour sunburst backdrop, a wooden plank floor, spotlight cones swinging and pulsing on the beat, footlights, and velvet side curtains with a scalloped valance that sweep open at the start and close at the end — with Nib dancing centre stage (or empty, or as a front-only frame over your own scene).
+
+**Use for:** “And now…” announcements, show/reveal framing, open/close bookends, a recurring chorus set, kids’ and storybook videos.  
+**Rebuilt from:** idea only: PDoomVideo stage set as summarised in analysis/sources/pdoom.md (no licence — original implementation)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** nature, playful  
+**Capabilities:** overlay (`{"background":"transparent","backdrop":"none"}`) · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"TONIGHT ONLY"` | painted marquee line over the stage (empty = none) |
+| `performer` | `"nib"` | 'nib' (the library mascot dances centre stage) or 'none' |
+| `dance` | `"mix"` | Nib dance style (bounce, hop, roof, sway, spin, wave, stomp, shimmy, mix …) |
+| `emotion` | `"happy"` | Nib mood |
+| `backdrop` | `"sunburst"` | 'sunburst' (painted set + floor) or 'none' (front-only frame: curtains, valance, footlights) |
+| `colors` | `["#E8AA38","#F3D27A"]` | two sunburst colours |
+| `curtainColor` | `"#B3263A"` | velvet colour |
+| `floorColor` | `"#9A6A44"` | stage floor colour |
+| `spots` | `["#FFF2C4","#FFE1A8","#FFF2C4"]` | spotlight colours (one cone each) |
+| `alarm` | `false` | red alarm wash pulsing on the beat |
+| `openFrames` | `36` | frames for the curtains to open |
+| `closeFrames` | `30` | frames for the curtains to close at the end |
+| `bpm` | `120` | beat for spot pulses and the dance |
+| `offsetSec` | `0` | first beat (s) |
+| `rays` | `24` | sunburst ray count |
+| `background` | `"#2B2233"` | colour behind everything, or 'transparent' with backdrop 'none' to frame another motion |
+
+### `time-stutter` — Time stutter (DJ retrig)
+
+![time-stutter](../gallery/time-stutter.jpg)
+
+DJ-style time stutter: the scene — a sweeping clock hand and a word sliding through — plays normally, then the last beat retrigs ×3 like a spun-back record (with an accent flash and a ⟲ REPEAT counter), and time carries on shifted so nothing is skipped; the OUT→SRC readout shows the remap. The `<TimeRemap>` wrapper stutters any motion.
+
+**Use for:** Emphasis edits on a word like “repeat”, pre-drop tension, promo retrigs; wrap any motion and list the stutter points.  
+**Rebuilt from:** pdoom-video app/src/scenes/bureau.ts beat stutter ×3 (MIT)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `word`, `caption` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `word` | `"REPEAT"` | the sliding word in the demo scene |
+| `caption` | `"TIME REMAP"` | small caption over the clock |
+| `stutters` | `[{"at":60,"length":15,"repeats":3},{"at":165,"length":8,"…` | stutter points [{at: output frame, length: frames of the loop, repeats}] — applied in order |
+| `flash` | `true` | accent flash on each retrig |
+| `showClock` | `true` | OUT→SRC frame readout |
+| `bpm` | `120` | tempo used when `beats` has no beat list |
+| `offsetSec` | `0` | time of the first beat in seconds (aligns the grid to your song) |
+| `beats` | `{}` | beat data: {bpm, offsetSec, beatsPerBar} or a list of beat times (s), or a full analysis {beats, downbeats, sections, onsets:{kick,snare,hat:[[t,strength]]}} |
+| `background` | `"#0A0A0B"` | frame colour or 'transparent' |
+| `ink` | `"#EEE9DF"` | scene colour |
+| `accent` | `"#FF4D12"` | second hand / retrig colour |
+
+### `token-sampler-prompt` — Token sampler prompt (LLM typing)
+
+![token-sampler-prompt](../gallery/token-sampler-prompt.jpg)
+
+A thin prompt field in a dark void types a phrase token by token on the beat (or on sung-word starts): just before each token a tiny next-token distribution flickers above the caret and the sampled candidate lights orange, the camera re-frames between caret, text and field with a hair of kick per token, and ⏎ fires a flash-zoom on the closing downbeat.
+
+**Use for:** AI-product videos, “how an LLM picks the next word” explainers, prompt demos; feed `lyrics` to type exactly on the vocal.  
+**Rebuilt from:** pdoom-video app/src/scenes/prompt.ts + prompt-data.ts (MIT): candidate flicker ~0.16 s ahead, camera zoom 1.25–2.7 with ±0.03 rad roll  
+**Default length:** 270 frames (9.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** nature, night  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `text` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `text` | `"turn the city lights up one more time"` | the phrase to type (split on spaces, timed to the beat) when `tokens`/`lyrics` are empty |
+| `tokens` | `[]` | explicit stream [{text, at?: seconds, dist?: [[candidate, p]], pick?}] — give real distributions (and jokes) here |
+| `lyrics` | `[]` | timed lyrics: [{text, start, end, words?: [{text, start, end, syl?:[[a,b]]}]}] in seconds; words without times are estimated |
+| `bpm` | `120` | tempo used when `beats` has no beat list |
+| `offsetSec` | `0.4` | time of the first beat in seconds (aligns the grid to your song) |
+| `beats` | `{}` | beat data: {bpm, offsetSec, beatsPerBar} or a list of beat times (s), or a full analysis {beats, downbeats, sections, onsets:{kick,snare,hat:[[t,strength]]}} |
+| `tokensPerBeat` | `1` | typing speed when timing from the grid |
+| `background` | `"#0A0A0B"` | frame colour or 'transparent' |
+| `ink` | `"#EEE9DF"` | typed-text colour |
+| `dim` | `"#5E5B57"` | field / idle-candidate colour |
+| `accent` | `"#FF4D12"` | sampled token + caret colour |
+| `backdrop` | `"rings"` | 'void' (plain) or 'rings' (tunnel rings pulling in behind) |
+| `camera` | `true` | beat-cut camera reframes between caret, text and field |
+| `enterKey` | `true` | show ⏎ and fire the flash-zoom exit on the downbeat after the last token |
+| `seed` | `3` | placeholder-distribution and shot variety |
+
+### `token-tree` — Token tree (what the model could have said)
+
+![token-tree](../gallery/token-tree.jpg)
+
+A sentence is generated token by token on the beat along a bright chosen path while every node sprouts dim alternative branches with their tokens and probabilities that keep branching into the dark; the camera rides the tip, then pulls back in beat steps until the whole tree is in frame, the last token set in italic serif.
+
+**Use for:** LLM explainers (“what the model could have said”), decision trees, branching-story or A/B moments; pairs with token-sampler-prompt.  
+**Rebuilt from:** pdoom-video app/src/scenes/loom-tree.ts (MIT); original sentence and alternatives  
+**Default length:** 300 frames (10.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** editorial, night  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `path` | `[{"token":"The","p":0.62,"alts":[["A",0.21],["Our",0.07],…` | the chosen tokens in order [{token, p, alts: [[alternative, p], …]}] |
+| `bpm` | `120` | tempo used when `beats` has no beat list |
+| `offsetSec` | `0.3` | time of the first beat in seconds (aligns the grid to your song) |
+| `beats` | `{}` | beat data: {bpm, offsetSec, beatsPerBar} or a list of beat times (s), or a full analysis {beats, downbeats, sections, onsets:{kick,snare,hat:[[t,strength]]}} |
+| `beatsPerToken` | `1` | beats between tokens |
+| `depth` | `3` | how deep the dim alternatives keep branching (1–3) |
+| `background` | `"#0A0A0B"` | frame colour or 'transparent' |
+| `ink` | `"#EEE9DF"` | token text colour |
+| `dim` | `"#5E5B57"` | branch / probability colour |
+| `accent` | `"#FF4D12"` | chosen path colour |
+| `serifToken` | `true` | set the final token in italic serif |
+| `seed` | `4` | sub-branch variety |
+
+### `width-pressure-type` — Width pressure type (condensing slab)
+
+![width-pressure-type](../gallery/width-pressure-type.jpg)
+
+A lyric packed into the broadcast title-safe box condenses on every kick — variable width 125→62, weight 300→900, tracking collapsing, more copies stacking with shrinking leading until the box is a solid slab — then bursts through title-safe, action-safe and finally the frame while a deadpan mono QC log complains and a counter races upward.
+
+**Use for:** “Pressure / scale / too much” beats in explainers, launch videos and hype reels; a typographic crescendo synced to the music.  
+**Rebuilt from:** pdoom-video app/src/scenes/dense-press.ts + plate fig12 (MIT): width steps on the kick with a horizontal squeeze spring  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `lines` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `lines` | `["MORE AND MORE","OF EVERYTHING","ALL AT ONCE"]` | the text block (each entry one row, duplicated as pressure builds) |
+| `bpm` | `120` | tempo used when `beats` has no beat list |
+| `offsetSec` | `0.3` | time of the first beat in seconds (aligns the grid to your song) |
+| `beats` | `{}` | beat data: {bpm, offsetSec, beatsPerBar} or a list of beat times (s), or a full analysis {beats, downbeats, sections, onsets:{kick,snare,hat:[[t,strength]]}} |
+| `widthFrom` | `125` | variable-font width at the start (125 = widest) |
+| `widthTo` | `62` | width under full pressure (62 = most condensed) |
+| `weightFrom` | `300` | weight at the start |
+| `weightTo` | `900` | weight under full pressure |
+| `maxCopies` | `4` | how many copies of the block may stack |
+| `burstBeats` | `[8,11,14]` | beat indices where the slab bursts a safe area (3rd = through the frame, crop marks splay) |
+| `background` | `"#0A0A0B"` | frame colour or 'transparent' |
+| `ink` | `"#EEE9DF"` | primary type tone |
+| `dim` | `"#9C978F"` | alternating copy tone |
+| `accent` | `"#FF4D12"` | warning colour |
+| `safeAreas` | `true` | draw title/action-safe boxes and crop marks |
+| `qcLog` | `true` | deadpan mono QC log bottom-left |
+| `counterTo` | `20000` | the racing counter’s final value |
+
+### `word-slam-hook` — Word slam hook (one word per beat)
+
+![word-slam-hook](../gallery/word-slam-hook.jpg)
+
+A hook phrase plays one giant word per beat: each word slams in full-frame in heavy variable grotesk over type-specimen guides (baseline / cap-height hairlines, deadpan mono labels), with a two-frame invert flash, screen shake and punch zoom on every hit; four escalation variants up to a strobing maximal pass, and the last word can roll into a giant number.
+
+**Use for:** Chorus hooks, promo taglines, sports and hype edits — the “one word per beat” staple; set `variant` 1→4 to escalate each repeat.  
+**Rebuilt from:** pdoom-video app/src/scenes/hook.ts slam/retrig/punch (MIT): scale hold·(1+amt·(1−outExpo(t/0.16))), creep 1+0.035·t, shake hl 0.05 s  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `words` | `["TURN","IT","UP","ONE","MORE","TIME"]` | the hook, one entry per slam |
+| `variant` | `1` | 1 clean bone-on-ink · 2 ink-on-orange, heavier · 3 breakdown (hairline, tiny, slow) · 4 maximal (strobing field, echo outlines, re-slams every beat) |
+| `everyBeats` | `1` | beats per word (1 = every beat, 2 = every other) |
+| `startBeat` | `0` | beat index of the first slam |
+| `bpm` | `120` | tempo used when `beats` has no beat list |
+| `offsetSec` | `0.15` | time of the first beat in seconds (aligns the grid to your song) |
+| `beats` | `{}` | beat data: {bpm, offsetSec, beatsPerBar} or a list of beat times (s), or a full analysis {beats, downbeats, sections, onsets:{kick,snare,hat:[[t,strength]]}} |
+| `ink` | `"#EEE9DF"` | type colour |
+| `field` | `"#0A0A0B"` | background colour |
+| `accent` | `"#FF4D12"` | signal colour (finale number, variant 2 field) |
+| `guides` | `true` | type-specimen hairlines + mono labels |
+| `invertFrames` | `2` | frames of inverted flash on each slam (0 = off) |
+| `shake` | `14` | screen shake in px per slam |
+| `finale` | `null` | roll the last word into a number: {value, from, decimals} or null |
+
+## product
+
+### `exploded-view-snap` — Exploded view snap
+
+![exploded-view-snap](../gallery/exploded-view-snap.jpg)
+
+A product's parts float apart along one diagonal axis (tilting, spinning, hovering with a slow drift), then all snap back together in a quarter second on a beat with a click cluster, a micro-shake, the screen lighting up and a camera push.
+
+**Use for:** Modular products, architecture "how it fits together", feature stacks, layered UI explainers - land the snap on a downbeat.  
+**Rebuilt from:** lemo-opuscar styles/glass-product/demo/product.js explode(); DEMO.md motion numbers (MIT, LemoLab)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `parts` | `[{"label":"Cover glass","kind":"glass","color":"#A9D2F2"}…` | ordered top to bottom: {label, kind: glass\|screen\|board\|battery\|frame\|base, color} |
+| `axis` | `40` | explode axis angle from vertical in degrees (about 40 gives the diagonal) |
+| `spread` | `2.1` | total spread of the stack when open, in product widths (about 2) |
+| `tOpen` | `10` | frame the opening starts |
+| `openFrames` | `90` | frames of the ease-out apart (90 = 3 s) |
+| `hoverFrames` | `22` | frames of hover with +3 % drift (22 = 0.75 s) |
+| `snapFrames` | `8` | frames of the ease-in snap shut (8 = quarter second) - put its end on the beat |
+| `push` | `0.4` | extra camera push after the snap (0.4 = +40 %) |
+| `labels` | `true` | show leader-line labels while open |
+| `accent` | `"#FF5A36"` | leader / click-burst colour |
+| `background` | `"#E6EAF2"` | studio colour |
+
+### `frost-to-clear` — Frost to clear
+
+![frost-to-clear](../gallery/frost-to-clear.jpg)
+
+A frosted glass shell clears: roughness drops 0.4 to 0.015 and transmission rises to 1 over about 1.2 s, the blurred white-tinted ghost of the mechanism inside sharpens into crisp gears, with live material readouts.
+
+**Use for:** Privacy / transparency features, "honest breakdown" reveals, glass-material product films.  
+**Rebuilt from:** lemo-opuscar styles/glass-product STYLE.md section 8 (MIT, LemoLab)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** paints its own background · text: `title` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"NOTHING TO HIDE"` | headline under the card |
+| `innerLabel` | `"OPEN BY DESIGN"` | caption inside the shell |
+| `src` | `""` | optional image (public/) shown inside the shell instead of the gears |
+| `roughFrom` | `0.4` | starting roughness (frosted) |
+| `roughTo` | `0.015` | final roughness (clear) |
+| `transFrom` | `0.85` | starting transmission |
+| `clearAt` | `26` | frame the clearing starts |
+| `clearFrames` | `36` | frames the ease in-out takes (36 = 1.2 s) |
+| `inner` | `"gears"` | inner layer kind (gears) |
+| `accent` | `"#FF6B4A"` | accent colour |
+| `background` | `"#0C1424"` | backdrop colour |
+
+### `iso-cutaway` — Iso cutaway
+
+![iso-cutaway](../gallery/iso-cutaway.jpg)
+
+A flat isometric building: a dashed cut line draws across its near wall, the skin slides out along its normal and fades, then the second wall and the roof follow; hatched cream/ink section rims stay on the cut edges and the floors inside (machines, desks, little people) pop up, each with a leader callout.
+
+**Use for:** Show what is inside a product, server, building, factory or package — floor-by-floor explainers.  
+**Rebuilt from:** lemo-opuscar styles/iso-infographic (MIT, LemoLab) — DEMO.md cutaway timing, engine.js cutLine/hatch  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d  
+**Capabilities:** paints its own background · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Inside the roastery"` | title top-left |
+| `floors` | `[{"label":"Green beans","value":"12 t stored","color":"#7…` | floors bottom-up: {label, value, color (machines)} |
+| `wallColor` | `"#E4D6BC"` | wall base colour (three tones derived) |
+| `roofColor` | `"#3C7FB1"` | roof colour |
+| `cutAt` | `30` | frame the first cut line starts |
+| `background` | `"#F2E6D0"` | ground colour |
+| `accent` | `"#CF5140"` | cut line + title rule colour |
+
+### `liquid-pour-fill` — Liquid pour fill
+
+Four ingredients pour into a tall glass one after another as a stream with a splash, each layer rising with an eased level and a decaying sine meniscus while a panel counts every amount up in ml, shows STEP 01 / 04 and ends on the finished-drink title.
+
+**Use for:** Recipe and cooking explainers, product composition ("what is inside"), and "mix of factors" metaphors. Choose the glass (highball, rocks, coupe, jar) and list your own ingredients.  
+**Rebuilt from:** prompt-corpus: liquid-pour-fill (9 cases, awesome-opus5-5-videos)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `ingredients` | `[{"name":"Grenadine","amount":15,"unit":"ml","color":"#d4…` | ingredients [{name, amount, unit, color}] in pour order (densest first layers best) |
+| `glass` | `"highball"` | 'highball' \| 'rocks' \| 'coupe' \| 'jar' |
+| `stepLabel` | `"STEP"` | word before the step counter |
+| `finalTitle` | `"Sunrise cooler"` | title shown when the glass is full |
+| `finalSubtitle` | `""` | sub-line under the final title ("" = total volume) |
+| `background` | `"#10151f"` | backdrop colour |
+| `inkColor` | `"#f2eee6"` | panel text colour |
+| `accent` | `"#ffb347"` | step counter / progress colour |
+| `pourFrames` | `42` | frames per ingredient (min 34): stream in 8, rise 22, stream out |
+| `ice` | `0` | number of ice cubes dropped in first (0-4) |
+| `bubbles` | `true` | rising bubbles in the liquid |
+| `fill` | `0.96` | how full the glass ends up 0-1 |
+| `seed` | `3` | ice / bubble seed |
+
+### `sunburst-hero` — Sunburst hero (mid-century reveal)
+
+![sunburst-hero](../gallery/sunburst-hero.jpg)
+
+Retro product reveal: translucent wedge rays spin out to the frame edge, a cream disc opens behind the product with a back-ease and a broken ink rim, atomic sparkles twinkle on twos, and a two-plate "Meet …" script title with a slab subtitle prints beside it.
+
+**Use for:** "Meet X." product intros, CTA / QR end frames, award moments and retro brand films; behind any subject as an overlay.  
+**Rebuilt from:** lemo-opuscar styles/midcentury-toon (MIT code, CC BY 4.0 docs, LemoLab) — demo/film.js sceneHook, engine/toon.js rays/sparkle  
+**Default length:** 120 frames (4.0 s @ 30 fps)
+
+**Roles:** accent · **Mood:** pixel, comic, nature  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Meet Lumen."` | script title (two plates) |
+| `subtitle` | `"Your new home helper"` | slab subtitle (wraps to two lines in landscape) |
+| `src` | `""` | optional product image (transparent PNG) shown in the disc; default draws a toon gadget |
+| `productColor` | `"#3FA7A0"` | colour of the default gadget |
+| `rays` | `30` | number of ray wedges |
+| `rayColor` | `"#F3D37F"` | ray tint |
+| `rayAlpha` | `0.55` | ray opacity |
+| `ground` | `"#E8B43A"` | ground colour plane |
+| `floor` | `"#EFD9A4"` | floor colour under the horizon |
+| `discColor` | `"#FBF1DC"` | disc behind the subject |
+| `discR` | `300` | disc radius in u |
+| `sparkles` | `4` | number of 4-point sparkles |
+| `sparkleColors` | `["#E4613F","#FFFFFF","#2B2420","#E4613F"]` | sparkle colours (cycled) |
+| `ink` | `"#2B2420"` | ink colour |
+| `plate` | `"#E4613F"` | subtitle colour (ink plate behind it) |
+| `startFrame` | `0` | delay before the reveal |
+| `spin` | `0.06` | ray rotation speed (rad/s) |
+| `background` | `"ground"` | "ground" or "transparent" (overlay: rays + disc + sparkles + subject + titles) |
 

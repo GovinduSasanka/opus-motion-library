@@ -5,6 +5,7 @@ import {rng} from '../../core/random';
 import {FilmGrain, useStage} from '../../core/stage';
 import {TFont, eoc, tfonts} from '../../core/text-kit';
 import {defineMotion} from '../../core/types';
+import {DECODE_POOL, decodeGlyph, decodeRanks} from '../../core/r2-e2-text-kit';
 
 /**
  * Corner credit typed on (video1 / video6 "opus 5.5"): one character every 2 frames at full
@@ -29,6 +30,12 @@ type Props = {
   background: string;
   decor: boolean;
   decorColor: string;
+  mode: 'type' | 'decode';
+  decodeFrames: number;
+  reseedEvery: number;
+  pool: string;
+  direction: 'ltr' | 'center-out' | 'random';
+  decodeOut: number;
 };
 
 const LOOKALIKE: Record<string, string> = {
@@ -81,7 +88,14 @@ const TypewriterSignature: React.FC<Props> = (p) => {
   const appearAt = (i: number) => p.startFrame + Math.floor(i / p.charsPerStep) * p.framesPerChar + (firstSpace > 0 && i >= firstSpace ? p.wordPause : 0);
   const sAt = p.scrambleAt > 0 ? p.scrambleAt : durationInFrames - 14;
   const sp = p.scrambleOut ? clamp((frame - sAt) / 7) : 0;
-  const scr = p.scrambleOut && frame >= sAt;
+  const decode = p.mode === 'decode';
+  const scr = !decode && p.scrambleOut && frame >= sAt;
+  const ranks = decodeRanks(chars.length, p.direction, 3);
+  const dn = chars.length;
+  const resIn = Math.floor(clamp((frame - p.startFrame) / Math.max(1, p.decodeFrames)) * (dn + 1));
+  const resOut = decode && p.decodeOut > 0 ? Math.floor((1 - clamp((frame - sAt) / p.decodeOut)) * (dn + 1)) : dn + 1;
+  const resolvedCount = Math.min(resIn, resOut);
+  const decOutFade = decode && p.decodeOut > 0 ? 1 - clamp((frame - sAt - p.decodeOut) / 4) : 1;
   const fid = `tsig-${Math.round(sp * 100)}`;
   const pos = p.position;
   const margin = 0.08;
@@ -116,10 +130,19 @@ const TypewriterSignature: React.FC<Props> = (p) => {
           color: p.color,
           letterSpacing: `${p.tracking}em`,
           filter: scr ? `url(#${fid})` : undefined,
-          opacity: sp >= 1 ? 0 : 1,
+          opacity: decode ? decOutFade : sp >= 1 ? 0 : 1,
         }}
       >
         {chars.map((c, i) => {
+          if (decode) {
+            if (frame < p.startFrame) return null;
+            const d = decodeGlyph(c, i, frame, resolvedCount, ranks[i], p.reseedEvery, p.pool || DECODE_POOL);
+            return (
+              <span key={i} style={{opacity: d.resolved ? 1 : d.band ? 0.6 : 0.45}}>
+                {d.g}
+              </span>
+            );
+          }
           if (frame < appearAt(i)) return null;
           let g = c;
           if (scr && c !== ' ') {
@@ -162,6 +185,12 @@ export const typewriterSignature = defineMotion<Props>({
     background: '#15100E',
     decor: true,
     decorColor: '#6f86d8',
+    mode: 'type',
+    decodeFrames: 20,
+    reseedEvery: 2,
+    pool: '',
+    direction: 'ltr',
+    decodeOut: 8,
   },
   propDocs: {
     text: 'the credit text',
@@ -176,7 +205,13 @@ export const typewriterSignature = defineMotion<Props>({
     size: 'glyph size in px at 1080p',
     background: 'scene colour (use "transparent" to overlay)',
     decor: 'draw a faint flower-of-life construction behind the credit',
+    mode: 'type (typed on) | decode (random symbols resolve into the real letters, then break back into symbols)',
+    decodeFrames: 'decode: frames the resolve takes (≈20 ms per char in the source)',
+    reseedEvery: 'decode: frames between re-randomising unresolved glyphs',
+    pool: 'decode: glyph pool (empty = brackets, symbols, letters)',
+    direction: 'decode: ltr | center-out | random resolve order',
+    decodeOut: 'decode: frames the break-back-to-symbols exit takes at scrambleAt (0 = no decode exit)',
   },
   component: TypewriterSignature,
-  tags: ['credit', 'signature', 'typewriter', 'endcard'],
+  tags: ['credit', 'signature', 'typewriter', 'endcard', 'decode', 'scramble', 'hacker', 'generating', 'boot', 'decrypt'],
 });

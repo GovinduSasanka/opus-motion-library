@@ -5,6 +5,7 @@ import {n2} from '../../core/random';
 import {FilmGrain, PaperTexture, Vignette, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
 import {Plate, PlatePaletteName, RainLayer, resolveSrc} from '../../core/image-kit';
+import {kickAt, punchZoom, rigAt} from '../../core/r2-e2-cam-kit';
 
 /**
  * Ken Burns camera on a still plate.
@@ -36,6 +37,14 @@ type Props = {
   paper: number;
   vignette: number;
   fadeIn: number;
+  punches: {at: number; zoom: number}[];
+  kick: {at: number; amp: number}[];
+  rig: number;
+  gait: number;
+  fear: number[];
+  holdBreath: number[][];
+  layers: {src: string; depth: number}[];
+  depthRate: number;
 };
 
 const EASE = {linear: Easing.linear, sine: ease.sine, inOut: ease.inOut};
@@ -58,6 +67,14 @@ const KenBurns: React.FC<Props> = (p) => {
   const hx = n2('kbx' + p.seed, frame * 0.023, 0.3) * p.handheld * u + n2('kbx2', frame * 0.07, 1.1) * p.handheld * 0.35 * u;
   const hy = n2('kby' + p.seed, frame * 0.021, 2.7) * p.handheld * u + n2('kby2', frame * 0.065, 4.2) * p.handheld * 0.35 * u;
   const margin = 1 + (6 * p.handheld * u) / Math.min(w, h);
+
+  // R2 extras (all off by default): handheld fear rig, beat kicks, multi-plane layers
+  const rg = rigAt(frame, fps, h, u, D, {amount: p.rig, gait: p.gait, breathHz: 0.27, fear: p.fear, holdBreath: p.holdBreath}, p.seed);
+  const kk = kickAt(frame, fps, p.kick, u);
+  const ex = rg.x + kk.x;
+  const ey = rg.y + kk.y;
+  const eroll = rg.roll + kk.r;
+  const extraOn = p.rig > 0 || p.kick.length > 0;
 
   const fade = p.fadeIn > 0 ? interpolate(frame, [p.fadeIn * 0.33, p.fadeIn], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'}) : 1;
 
@@ -98,17 +115,38 @@ const KenBurns: React.FC<Props> = (p) => {
     const panCover = 1 + Math.max(Math.abs(panX) / w, Math.abs(panY) / h) + 0.004;
     // punch-in cut (hard cut, no transition frames)
     const pa = p.punchAt;
+    const stepZ = punchZoom(frame, p.punches, s0, s0 + shotLen);
     const inShot = pa >= s0 && pa < s0 + shotLen;
     const punched = p.punchAt >= 0 && inShot && frame >= pa;
     const fx = (punched ? p.punchFocus[0] : p.focus[0]) ?? 0.5;
     const fy = (punched ? p.punchFocus[1] : p.focus[1]) ?? 0.5;
     const ps = punched ? p.punchScale : 1;
-    const S = scale * margin * panCover * ps;
-    layer = (
-      <AbsoluteFill style={{transform: `translate(${tx + hx}px, ${ty + hy}px) scale(${S})`, transformOrigin: `${fx * 100}% ${fy * 100}%`}}>
-        <Plate src={src} seed={p.seed + si} palette={p.palette} />
-      </AbsoluteFill>
-    );
+    const extraCover = extraOn ? 1.03 : 1;
+    const S = scale * margin * panCover * ps * stepZ * extraCover * rg.scale;
+    const tf = `translate(${tx + hx + ex}px, ${ty + hy + ey}px) rotate(${eroll}deg) scale(${S})`;
+    if (p.layers.length > 0) {
+      // multi-plane dolly: near layers grow faster than far ones about the focus point
+      layer = (
+        <AbsoluteFill>
+          {p.layers.map((ly, i) => {
+            const d = clamp(ly.depth);
+            const sc = (1 + (p.depthRate / 100) * (lf / fps) * (0.4 + 0.6 * d)) * margin * panCover * stepZ * extraCover * rg.scale;
+            const px = (p.pan[0] ?? 0) * u * (lf / fps) * d * 0.5;
+            return (
+              <AbsoluteFill key={i} style={{transform: `translate(${px + hx * (0.4 + d) + ex}px, ${hy * (0.4 + d) + ey}px) rotate(${eroll}deg) scale(${sc})`, transformOrigin: `${fx * 100}% ${fy * 100}%`}}>
+                <Img src={resolveSrc(ly.src)} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+              </AbsoluteFill>
+            );
+          })}
+        </AbsoluteFill>
+      );
+    } else {
+      layer = (
+        <AbsoluteFill style={{transform: tf, transformOrigin: `${fx * 100}% ${fy * 100}%`}}>
+          <Plate src={src} seed={p.seed + si} palette={p.palette} />
+        </AbsoluteFill>
+      );
+    }
   }
 
   return (
@@ -153,6 +191,14 @@ export const kenBurns = defineMotion<Props>({
     paper: 0.06,
     vignette: 0.3,
     fadeIn: 0,
+    punches: [] as {at: number; zoom: number}[],
+    kick: [] as {at: number; amp: number}[],
+    rig: 0,
+    gait: 1.8,
+    fear: [0] as number[],
+    holdBreath: [] as number[][],
+    layers: [] as {src: string; depth: number}[],
+    depthRate: 2,
   },
   propDocs: {
     src: 'public/ image path (e.g. "demo/owl.jpg"); empty = procedural dusk plate',
@@ -175,7 +221,15 @@ export const kenBurns = defineMotion<Props>({
     paper: 'paper fibre multiply amount (0.06 ≈ source)',
     vignette: 'corner darkening 0..1',
     fadeIn: 'fade from black over this many frames (tall-tilt source: 18)',
+    punches: 'stepped beat punch-ins [{at: frame, zoom}] e.g. [{at:60,zoom:1.4},{at:75,zoom:2},{at:90,zoom:2.9}]',
+    kick: 'damped kick shakes on hits [{at: frame, amp: px}]',
+    rig: 'handheld camcorder rig amount (0 = off, 1 = documentary): gait bob, sway, roll, breathing, tremor',
+    gait: 'rig: footsteps per second',
+    fear: 'rig: fear keys 0..1 spread across the duration; tremor grows with fear',
+    holdBreath: 'rig: [[fromFrame, toFrame]] ranges where bob and breathing freeze',
+    layers: 'multi-plane dolly: [{src, depth 0..1}] full-frame (transparent png) layers, far to near; near layers push faster',
+    depthRate: 'multi-plane: %/s zoom at depth 1 (far layers move 40 % of it)',
   },
   component: KenBurns,
-  tags: ['image', 'camera', 'push-in', 'zoom', 'pan', 'tilt', 'punch-in', 'rain', 'grain'],
+  tags: ['image', 'camera', 'push-in', 'zoom', 'pan', 'tilt', 'punch-in', 'rain', 'grain', 'handheld', 'fear', 'multiplane', 'parallax', 'dolly', 'beat punch', 'camera shake'],
 });

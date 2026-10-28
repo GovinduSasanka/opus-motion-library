@@ -28,6 +28,8 @@ type Props = {
   background: string;
   gridSize: number;
   seed: number;
+  litAt: number[];
+  litRise: number;
 };
 
 const PanelTriptych: React.FC<Props> = (p) => {
@@ -53,6 +55,8 @@ const PanelTriptych: React.FC<Props> = (p) => {
   const ghost = frame >= C + 3;
   const push = 1 + 0.04 * prog(frame, C + 4, 210, ease.sine);
 
+  const lit = (i: number) => (p.litAt.length ? clamp((frame - (p.litAt[i] ?? 0)) / 6) : 1);
+  const rise = (i: number) => (p.litRise > 0 ? (1 - prog(frame, 8 + i * 6, 20 + i * 6, ease.out)) * p.litRise * u : 0);
   const draw = (i: number) => inOutQuad(lin(frame, 12 + i * 5, 22 + i * 5));
   const fillT = (i: number) => outCubic(lin(frame, 34 + i * 18, 42 + i * 18));
 
@@ -103,11 +107,11 @@ const PanelTriptych: React.FC<Props> = (p) => {
           const f = fillT(i);
           const lab = Math.round(ph * (portrait ? 0.13 : 0.17));
           return (
-            <div key={i} style={{position: 'absolute', left: px, top: y, width: pw, height: ph, overflow: 'hidden'}}>
+            <div key={i} style={{position: 'absolute', left: px, top: y + rise(i), width: pw, height: ph, overflow: 'hidden'}}>
               <div style={{position: 'absolute', inset: 0, transform: `translateX(${(f - 1) * 100}%)`, opacity: frame >= 34 + i * 18 ? 1 : 0}}>
                 <Pic src={pan.src} seed={p.seed * 10 + i} id={`pt-pic${i}`} />
                 <div style={{position: 'absolute', left: 0, right: 0, bottom: 0, height: lab * 2.6, background: 'linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.78))'}} />
-                <div style={{position: 'absolute', left: lab * 0.7, bottom: lab * 0.45, display: 'flex', alignItems: 'baseline', gap: lab * 0.55, fontFamily: fonts.sans, fontWeight: 800, color: '#fff', fontSize: lab * 0.82, letterSpacing: '0.06em', whiteSpace: 'nowrap'}}>
+                <div style={{position: 'absolute', left: lab * 0.7, bottom: lab * 0.45, opacity: 0.45 + 0.55 * lit(i), display: 'flex', alignItems: 'baseline', gap: lab * 0.55, fontFamily: fonts.sans, fontWeight: 800, color: '#fff', fontSize: lab * 0.82, letterSpacing: '0.06em', whiteSpace: 'nowrap'}}>
                   <span style={{color: pan.color, fontSize: lab * 1.05}}>{i + 1}</span>
                   <span>{pan.label.toUpperCase()}</span>
                 </div>
@@ -120,8 +124,9 @@ const PanelTriptych: React.FC<Props> = (p) => {
             const y = top + i * (ph + gap);
             const d = `M ${px} ${y} H ${px + pw} V ${y + ph} H ${px} Z`;
             const t = draw(i);
+            const L = lit(i);
             return (
-              <g key={i}>
+              <g key={i} transform={`translate(0 ${rise(i)})`} opacity={p.litAt.length ? 0.4 + 0.6 * L : 1} style={L > 0 && p.litAt.length ? {filter: `drop-shadow(0 0 ${12 * u * L}px ${pan.color})`} : undefined}>
                 {ghost && <path d={d} transform={`translate(${4 * u} ${4 * u})`} fill="none" stroke={pan.color} strokeWidth={3 * u} opacity={0.6} />}
                 <path d={d} fill="none" stroke={pan.color} strokeWidth={3 * u} pathLength={1} strokeDasharray="1 1" strokeDashoffset={1 - t} strokeLinejoin="miter" />
               </g>
@@ -193,8 +198,12 @@ export const panelTriptych = defineMotion<Props>({
     background: '#0b1018',
     gridSize: 90,
     seed: 3,
+    litAt: [],
+    litRise: 0,
   },
   propDocs: {
+    litAt: 'lit-panel grid: frames at which panel i lights its accent border + label (e.g. on the spoken word); [] = always lit',
+    litRise: 'panels rise this many px at 1080p, staggered (0 = no rise)',
     title: 'serif title above the panels',
     panels: '{src, label, color} for each of the three panels (src empty = procedural scene)',
     caption: 'kinetic caption under the panels (words pop on one by one)',
@@ -205,5 +214,5 @@ export const panelTriptych = defineMotion<Props>({
     gridSize: 'backdrop grid spacing in px at 1080p',
   },
   component: PanelTriptych,
-  tags: ['panels', 'triptych', 'list', 'explainer', 'collide', 'bars'],
+  tags: ['panels', 'triptych', 'list', 'explainer', 'collide', 'bars', 'lit panel', 'grid', 'highlight on word', 'sync'],
 });

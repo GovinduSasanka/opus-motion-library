@@ -4,6 +4,7 @@ import {clamp, ease, prog} from '../../core/ease';
 import {fonts} from '../../core/fonts';
 import {rng} from '../../core/random';
 import {Ball, Mono, P17, PrinciplesHud, bounceAt, bounceImpacts, caught, serifItalic} from '../../core/principles-kit';
+import {ImpactScene, SlimeScene, TimelineScene} from '../../core/r2-e3-ball';
 import {Svg, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
 
@@ -14,7 +15,7 @@ import {defineMotion} from '../../core/types';
  *  crack        — exaggerated drop, impact frame, cream lens-iris, ground crack branches + ballistic debris
  *  hop          — hops along a ground line on the beat, one note per landing on a staff (secondary action)
  */
-type Mode = 'bounce' | 'anticipation' | 'crack' | 'hop';
+type Mode = 'bounce' | 'anticipation' | 'crack' | 'hop' | 'timeline' | 'slime' | 'impact';
 type Props = {
   mode: Mode;
   background: string;
@@ -32,12 +33,30 @@ type Props = {
   subtitle: string;
   code: string;
   seed: number;
+  /** round-2 modes: timeline / slime / impact */
+  period: number;
+  apex: number;
+  trail: 'dots' | 'none';
+  labels: string;
+  bounces: number;
+  eyes: 'square' | 'ii' | 'x' | 'closed';
+  puffs: boolean;
+  rim: boolean;
+  rays: number;
+  rings: number;
+  ground: 'line' | 'band';
+  launchAt: number;
+  accent: string;
+  accent2: string;
 };
 
 const AUTO: Record<Mode, {bg: string; numeral: string; title: string; subtitle: string; code: string}> = {
   bounce: {bg: P17.ink, numeral: '01', title: 'SQUASH & STRETCH', subtitle: 'The shape changes. The volume never does.', code: 'sx = 1 / sy; // area π·r² is conserved'},
   anticipation: {bg: P17.ink, numeral: '02', title: 'ANTICIPATION', subtitle: 'Wind up before you go.', code: 'y = 540 + A·e^(-ζω·t)·sin(ωd·t); // caught'},
   crack: {bg: P17.ink, numeral: '10', title: 'EXAGGERATION', subtitle: 'Real is not enough. Push it.', code: 'anticipation = 72px · k // k: 1 real → 4 pushed'},
+  timeline: {bg: P17.ink, numeral: '06', title: 'TIMING', subtitle: 'Spacing tells the weight.', code: 'y = contactY - 4 * apex * u * (1 - u); // u = (t mod T) / T'},
+  slime: {bg: '#F6E8D8', numeral: '', title: '', subtitle: '', code: ''},
+  impact: {bg: '#F4EBD8', numeral: '', title: '', subtitle: '', code: ''},
   hop: {bg: P17.pink, numeral: '08', title: 'SECONDARY ACTION', subtitle: 'A smaller action that sells the main one.', code: 'if (landed) emit(note[k++ % 8]); // E G A G E D E C'},
 };
 
@@ -616,12 +635,18 @@ const BouncingBall: React.FC<Props> = (props) => {
         <AnticipationScene {...props} fg={fg} />
       ) : mode === 'crack' ? (
         <CrackScene {...props} fg={fg} seed={seed} />
+      ) : mode === 'timeline' ? (
+        <TimelineScene color={props.color} radius={props.radius} fg={fg} bpm={props.bpm} labels={props.labels} period={props.period} apex={props.apex} trail={props.trail === 'dots'} bounces={props.bounces} />
+      ) : mode === 'slime' ? (
+        <SlimeScene color={props.color} radius={props.radius} fg={fg} bpm={props.bpm} labels={props.labels} eyes={props.eyes} puffs={props.puffs} rim={props.rim} />
+      ) : mode === 'impact' ? (
+        <ImpactScene color={props.color} radius={props.radius} fg={fg} bpm={props.bpm} labels={props.labels} rays={props.rays} rings={props.rings} ground={props.ground} launchAt={props.launchAt} accent={props.accent} accent2={props.accent2} />
       ) : mode === 'hop' ? (
         <HopScene {...props} fg={fg} />
       ) : (
         <BounceScene {...props} fg={fg} />
       )}
-      {hud && !(mode === 'crack' && frame >= 18 && frame < 20) && (
+      {hud && (mode !== 'slime' && mode !== 'impact' || !!props.title) && !(mode === 'crack' && frame >= 18 && frame < 20) && (
         <PrinciplesHud bg={dark ? P17.ink : P17.paper} numeral={props.numeral || auto.numeral} title={props.title || auto.title} subtitle={props.subtitle || auto.subtitle} code={props.code || auto.code} bpm={props.bpm} />
       )}
     </AbsoluteFill>
@@ -653,9 +678,23 @@ export const bouncingBall = defineMotion<Props>({
     subtitle: '',
     code: '',
     seed: 4,
+    period: 0.5,
+    apex: 0.31,
+    trail: 'dots',
+    labels: '',
+    bounces: 0,
+    eyes: 'square',
+    puffs: true,
+    rim: true,
+    rays: 7,
+    rings: 3,
+    ground: 'line',
+    launchAt: 0,
+    accent: '#F5C518',
+    accent2: '#E8553B',
   },
   propDocs: {
-    mode: "'bounce' (gravity bounces) | 'anticipation' (charge gauge + launch) | 'crack' (exaggerated drop, impact frame, ground crack + debris) | 'hop' (beat hops, a note per landing)",
+    mode: "'bounce' (gravity bounces) | 'anticipation' (charge gauge + launch) | 'crack' (exaggerated drop, impact frame, ground crack + debris) | 'hop' (beat hops, a note per landing) | 'timeline' (timing chart: ticks, dot trail, live squash readout) | 'slime' (glossy jelly hopper with eyes, puffs, chroma rim) | 'impact' (flat-vector drop: speed streaks, burst rays, ground rings, launch)",
     background: "background colour; '' = mode default (ink / pink for hop; crack flips to cream)",
     color: 'ball colour',
     radius: 'ball radius in u (1080-short-side px)',
@@ -671,7 +710,21 @@ export const bouncingBall = defineMotion<Props>({
     subtitle: 'small line under the title',
     code: 'live code comment typed in the footer',
     seed: 'crack / debris randomness',
+    period: 'timeline mode: seconds per bounce (0.5 measured)',
+    apex: 'timeline mode: apex height as a fraction of the frame height',
+    trail: "timeline mode: 'dots' keeps a grey dot every 2 frames (spacing chart) | 'none'",
+    labels: 'timeline mode: leader-line label text ("" = live sy / sx readout)',
+    bounces: 'timeline mode: bounces across the axis (0 = fit the duration)',
+    eyes: "slime mode: 'square' | 'ii' | 'x' | 'closed'",
+    puffs: 'slime mode: white dust puffs at each landing',
+    rim: 'slime mode: red / cyan chromatic rim copies',
+    rays: 'impact mode: burst ray count (two colours)',
+    rings: 'impact mode: expanding ground rings per impact',
+    ground: "impact mode: 'line' | 'band'",
+    launchAt: 'impact mode: frame of the stretch launch (0 = frame 31 @30 fps)',
+    accent: 'impact mode: first ray colour',
+    accent2: 'impact mode: second ground-ring colour',
   },
   component: BouncingBall,
-  tags: ['ball', 'bounce', 'squash', 'stretch', 'physics', 'hud', 'impact', 'music'],
+  tags: ['ball', 'bounce', 'squash', 'stretch', 'physics', 'hud', 'impact', 'music', 'timeline', 'timing-chart', 'spacing', 'slime', 'jelly', 'hop', 'mascot', 'ground-rings', 'burst-rays'],
 });

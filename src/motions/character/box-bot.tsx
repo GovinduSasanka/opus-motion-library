@@ -24,6 +24,44 @@ type Props = {
   onTwos: boolean;
   background: string;
   floorY: number;
+  hat: 'none' | 'party' | 'wizard' | 'crown' | 'helmet' | 'cap' | 'tophat' | 'beanie';
+  hatColor: string;
+  mood: 'none' | 'fear' | 'anger' | 'sad' | 'love' | 'disgust' | 'pride';
+  tint: string;
+  tintK: number;
+  gloom: number;
+  blush: number;
+};
+
+/** body-colour mood tints (clawd-style): pale fear, red anger, blue sadness, pink love, green disgust, gold pride */
+const MOODS: Record<string, string> = {fear: '#D9E3C8', anger: '#E0382B', sad: '#5B7FD6', love: '#F08AB4', disgust: '#7DBB4C', pride: '#F2BE2D'};
+
+const Hat: React.FC<{kind: Props['hat']; x: number; y: number; W: number; color: string; ink: string; sq: number}> = ({kind, x, y, W, color, ink, sq}) => {
+  const k = W / 100;
+  const sw = 2 * k;
+  const g = (children: React.ReactNode) => (
+    <g transform={`translate(${x} ${y}) scale(1 ${sq})`} stroke={ink} strokeWidth={sw} strokeLinejoin="round">
+      {children}
+    </g>
+  );
+  switch (kind) {
+    case 'party':
+      return g(<><path d={`M ${-22 * k} 0 L 0 ${-62 * k} L ${22 * k} 0 Z`} fill={color || '#FF5CB0'} /><circle cx={0} cy={-64 * k} r={7 * k} fill="#FFD84D" /><path d={`M ${-12 * k} ${-26 * k} L ${12 * k} ${-26 * k} M ${-17 * k} ${-12 * k} L ${17 * k} ${-12 * k}`} stroke="#fff" fill="none" /></>);
+    case 'wizard':
+      return g(<><path d={`M ${-24 * k} 0 L ${-4 * k} ${-72 * k} Q ${8 * k} ${-76 * k} ${18 * k} ${-58 * k} L ${24 * k} 0 Z`} fill={color || '#5B4BB8'} /><ellipse cx={0} cy={0} rx={42 * k} ry={7 * k} fill={color || '#5B4BB8'} /><circle cx={4 * k} cy={-30 * k} r={4 * k} fill="#FFD84D" stroke="none" /></>);
+    case 'crown':
+      return g(<path d={`M ${-26 * k} 0 L ${-30 * k} ${-34 * k} L ${-14 * k} ${-18 * k} L 0 ${-40 * k} L ${14 * k} ${-18 * k} L ${30 * k} ${-34 * k} L ${26 * k} 0 Z`} fill={color || '#FFC83D'} />);
+    case 'helmet':
+      return g(<><path d={`M ${-34 * k} 0 A ${34 * k} ${34 * k} 0 0 1 ${34 * k} 0 Z`} fill={color || '#FFB020'} /><rect x={-38 * k} y={-2 * k} width={76 * k} height={7 * k} rx={3 * k} fill={color || '#FFB020'} /></>);
+    case 'cap':
+      return g(<><path d={`M ${-30 * k} 0 A ${30 * k} ${28 * k} 0 0 1 ${30 * k} 0 Z`} fill={color || '#3C7BE0'} /><path d={`M ${6 * k} 0 L ${46 * k} 0 L ${40 * k} ${-6 * k} L ${6 * k} ${-6 * k} Z`} fill={color || '#3C7BE0'} /></>);
+    case 'tophat':
+      return g(<><rect x={-22 * k} y={-54 * k} width={44 * k} height={52 * k} rx={3 * k} fill={color || '#2B2630'} /><ellipse cx={0} cy={0} rx={38 * k} ry={6 * k} fill={color || '#2B2630'} /><rect x={-22 * k} y={-16 * k} width={44 * k} height={8 * k} fill="#D14B4B" stroke="none" /></>);
+    case 'beanie':
+      return g(<><path d={`M ${-32 * k} 0 A ${32 * k} ${34 * k} 0 0 1 ${32 * k} 0 Z`} fill={color || '#E0584A'} /><rect x={-34 * k} y={-6 * k} width={68 * k} height={11 * k} rx={4 * k} fill={color || '#E0584A'} /><circle cx={0} cy={-36 * k} r={6 * k} fill="#fff" /></>);
+    default:
+      return null;
+  }
 };
 
 const SCENE: Record<CharStyle, {bg: string; floor: string; floor2: string; ink: string}> = {
@@ -136,20 +174,35 @@ const Floor: React.FC<{style: CharStyle; w: number; h: number; u: number; fy: nu
   );
 };
 
-const BoxBotMotion: React.FC<Props> = ({style, script, startX, size, bodyColor, shadeColor, eyeColor, legs, snout, flower, onTwos: twos, background, floorY}) => {
+const BoxBotMotion: React.FC<Props> = ({style, script, startX, size, bodyColor, shadeColor, eyeColor, legs, snout, flower, onTwos: twos, background, floorY, hat, hatColor, mood, tint, tintK, gloom, blush}) => {
   const frame = useCurrentFrame();
   const {w, h, u, portrait} = useStage();
   const cf = twos ? onTwos(frame) : frame;
   const S = SCENE[style];
   const W = size * Math.min(w, h) * (portrait ? 1.15 : 1);
   const fy = (floorY > 0 ? floorY : portrait ? 0.66 : 0.76) * h;
-  const segs = React.useMemo(() => buildBotSegments(script, startX), [script, startX]);
+  const segs = React.useMemo(() => buildBotSegments(script.map((a) => ((a.action as string) === 'hop-spin' ? ({...a, action: 'hop'} as BotAction) : a)), startX), [script, startX]);
   const st = evalBotScript(segs, cf);
+  // hop-spin: a full turn about the vertical axis during the hop
+  const spinIdx = script.findIndex((a, i) => (a.action as string) === 'hop-spin' && segs[i] && cf >= segs[i].start && cf < segs[i].end);
+  if (spinIdx >= 0) {
+    const sg = segs[spinIdx];
+    const t = (cf - sg.start) / Math.max(1, sg.end - sg.start);
+    st.pose.yaw = (st.pose.yaw ?? 0) + 360 * (t * t * (3 - 2 * t));
+  }
   const bx = st.x * w;
   const by = fy - st.lift * W;
+  const tintCol = tint || MOODS[mood] || '';
+  const tk = tintCol ? (tint ? tintK : tintK || 0.5) : 0;
+  const baseBody = bodyColor || (tk > 0 ? BOT_PALETTES[style].body : '');
   const pal = {
     ...BOT_PALETTES[style],
-    ...(bodyColor ? {body: bodyColor, top: mixHex(bodyColor, '#FFFFFF', 0.22), leg: mixHex(bodyColor, shadeColor || BOT_PALETTES[style].shade, 0.25)} : {}),
+    ...(baseBody
+      ? (() => {
+          const bc = tk > 0 ? mixHex(baseBody, tintCol, tk) : baseBody;
+          return {body: bc, top: mixHex(bc, '#FFFFFF', 0.22), leg: mixHex(bc, shadeColor || BOT_PALETTES[style].shade, 0.25), ...(tk > 0 && !shadeColor ? {shade: mixHex(BOT_PALETTES[style].shade, tintCol, tk * 0.9)} : {})};
+        })()
+      : {}),
     ...(shadeColor ? {shade: shadeColor} : {}),
     ...(eyeColor ? {eye: eyeColor} : {}),
   };
@@ -173,6 +226,17 @@ const BoxBotMotion: React.FC<Props> = ({style, script, startX, size, bodyColor, 
         )}
         <SpeedLines x={bx} y={by - W * 0.62} size={W} dir={st.dir} amount={st.speed} frame={frame} color={style === 'toon' ? '#FFFFFF' : S.ink} />
         <BoxBot id="bb-hero" x={bx} y={by} size={W} style={style} palette={pal} pose={st.pose} expression={st.expression} legs={legs} snout={snout} flower={flower} />
+        {(hat !== 'none' || gloom > 0 || blush > 0) && (() => {
+          const hy = by - W * 0.93 + (st.pose.sy !== undefined ? (1 - st.pose.sy) * W * 0.9 : 0);
+          const hx = bx + Math.sin(((st.pose.yaw ?? 0) * Math.PI) / 180) * W * 0.12;
+          return (
+            <g>
+              {blush > 0 && [-1, 1].map((sd) => <ellipse key={sd} cx={hx + sd * W * 0.2 + Math.sin(((st.pose.yaw ?? 0) * Math.PI) / 180) * W * 0.2} cy={by - W * 0.5} rx={W * 0.06} ry={W * 0.03} fill="#FF7A9A" opacity={0.55 * blush} />)}
+              {gloom > 0 && Array.from({length: 7}, (_, i) => <line key={i} x1={hx + (i - 3) * W * 0.07} y1={by - W * 0.88} x2={hx + (i - 3) * W * 0.07} y2={by - W * (0.88 - 0.16 * gloom)} stroke="#3A3A7A" strokeWidth={1.6 * u} opacity={0.6 * gloom} />)}
+              <Hat kind={hat} x={hx} y={hy} W={W} color={hatColor} ink={style === 'toon' ? '#16081C' : S.ink} sq={st.pose.sy ?? 1} />
+            </g>
+          );
+        })()}
         {st.landing >= 0 && st.landing < 8 && (
           <g opacity={1 - st.landing / 8}>
             {[-1, 1].map((s) =>
@@ -245,11 +309,18 @@ export const boxBot = defineMotion<Props>({
     onTwos: true,
     background: '',
     floorY: 0,
+    hat: 'none',
+    hatColor: '',
+    mood: 'none',
+    tint: '',
+    tintK: 0.5,
+    gloom: 0,
+    blush: 0,
   },
   propDocs: {
     style: "'sketch' (v20 pencil on paper) | 'clean' (v13 sunny toon) | 'toon' (v12 comic synthwave)",
     script:
-      "sequence of actions: {action:'walk'|'run', to?|dx?, frames} {action:'hop', dx?, height?, frames} {action:'look', dir:-1|1} {action:'emote', icon:'?'|'!'|'heart'|'bulb'|'sweat'|'scribble'|'sparkle'|'zzz'} {action:'wave'} {action:'turn', yaw} {action:'blink'} {action:'idle'|'expression', expression?}",
+      "sequence of actions: {action:'walk'|'run', to?|dx?, frames} {action:'hop', dx?, height?, frames} {action:'look', dir:-1|1} {action:'emote', icon:'?'|'!'|'heart'|'bulb'|'sweat'|'scribble'|'sparkle'|'zzz'} {action:'wave'} {action:'turn', yaw} {action:'blink'} {action:'idle'|'expression', expression?} {action:'hop-spin', dx?, height?, frames} (hop with a full 360 degree turn)",
     startX: 'start position as a fraction of frame width',
     size: 'body width as a fraction of the short side',
     bodyColor: "override body colour ('' = style default)",
@@ -261,7 +332,14 @@ export const boxBot = defineMotion<Props>({
     onTwos: 'step the character every 2nd frame (12/15 fps hand-animated feel)',
     background: "override background colour ('' = style default)",
     floorY: 'ground line as a fraction of height (0 = auto)',
+    hat: 'wardrobe: none | party | wizard | crown | helmet | cap | tophat | beanie (follows the body)',
+    hatColor: "hat colour ('' = hat default)",
+    mood: 'body-colour mood tint: none | fear (pale) | anger (red) | sad (blue) | love (pink) | disgust (green) | pride (gold)',
+    tint: 'custom tint colour mixed into the body (overrides mood)',
+    tintK: 'tint mix amount 0..1 (0.5)',
+    gloom: 'indigo gloom lines hanging from the forehead 0..1',
+    blush: 'blush cheeks 0..1',
   },
   component: BoxBotMotion,
-  tags: ['mascot', 'robot', 'walk', 'hop', 'emote', 'cute'],
+  tags: ['mascot', 'robot', 'walk', 'hop', 'emote', 'cute', 'hat', 'wardrobe', 'mood', 'tint', 'hop-spin', 'spin', 'blush'],
 });

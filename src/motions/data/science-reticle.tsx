@@ -6,6 +6,7 @@ import {rng} from '../../core/random';
 import {useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
 import {blinkOn, lin, outCubic, typedCount} from '../../core/ui-kit';
+import {LockOn} from '../../core/r2-e2-lock-kit';
 
 /**
  * video11 scientific HUD world: scientific-hud-reticle (concentric 1 px rings, 6 spoke segments, a dashed tick
@@ -26,6 +27,16 @@ type Props = {
   accent: string;
   background: string;
   seed: number;
+  mode: 'reticle' | 'lock';
+  src: string;
+  target: number[];
+  lockAt: number;
+  searchFrames: number;
+  overshoot: number;
+  lockLabel: string;
+  openTo: number[];
+  openAt: number;
+  openTitle: string;
 };
 
 const arc = (cx: number, cy: number, r: number, a0: number, a1: number) => {
@@ -314,6 +325,13 @@ const ScienceReticle: React.FC<Props> = (p) => {
   );
 };
 
+const ReticleRoot: React.FC<Props> = (p) =>
+  p.mode === 'lock' ? (
+    <LockOn src={p.src} target={p.target} searchFrames={p.searchFrames} lockAt={p.lockAt} overshoot={p.overshoot} label={p.lockLabel} openTo={p.openTo} openAt={p.openAt} openTitle={p.openTitle} color={p.color === '#5A5D8A' ? '#E8ECFF' : p.color} seed={p.seed} />
+  ) : (
+    <ScienceReticle {...p} />
+  );
+
 export const scienceReticle = defineMotion<Props>({
   id: 'science-reticle',
   title: 'Science HUD reticle',
@@ -332,6 +350,16 @@ export const scienceReticle = defineMotion<Props>({
     accent: '#8B8DB8',
     background: '#020414',
     seed: 3,
+    mode: 'reticle',
+    src: '',
+    target: [0.62, 0.55],
+    lockAt: 40,
+    searchFrames: 40,
+    overshoot: 0.08,
+    lockLabel: 'TARGET 01',
+    openTo: [0.2, 0.38, 0.6, 0.24],
+    openAt: 120,
+    openTitle: 'Lumen',
   },
   propDocs: {
     subject: "'cell' (egg with corona cells, honeycomb and pronuclei) or 'planet' (banded planet with a ring)",
@@ -341,7 +369,17 @@ export const scienceReticle = defineMotion<Props>({
     spokes: 'number of spoke segments between the outer rings',
     color: 'reticle line colour',
     accent: 'leader line colour',
+    mode: "'reticle' (instrument overlay around a cell / planet) | 'lock' (four corner brackets wander over an image, snap onto a target with overshoot + ping, label leader, then open out to frame a title)",
+    src: 'lock: public/ image behind the brackets (empty = procedural plate)',
+    target: 'lock: target point as frame fractions [x, y]',
+    lockAt: 'lock: frame the brackets snap onto the target',
+    searchFrames: 'lock: informational; the snap happens at lockAt',
+    overshoot: 'lock: snap overshoot (about 0.08)',
+    lockLabel: 'lock: label on the leader line after the lock',
+    openTo: 'lock: [x, y, w, h] frame fractions the brackets open out to',
+    openAt: 'lock: frame the brackets open out (-1 = never)',
+    openTitle: 'lock: title shown inside the opened frame',
   },
-  component: ScienceReticle,
-  tags: ['hud', 'science', 'microscope', 'reticle', 'cell', 'planet', 'labels'],
+  component: ReticleRoot,
+  tags: ['hud', 'science', 'microscope', 'reticle', 'cell', 'planet', 'labels', 'lock on', 'brackets', 'target', 'tracking', 'viewfinder', 'callout'],
 });

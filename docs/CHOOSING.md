@@ -217,7 +217,7 @@ Generated from `docs/motion-meta.json` by `cli/gen-docs.mjs`.
 | `speed-lines` | subject | `comic-burst`, `stamp-slam`, `comic-halftone` |  |
 | `sprout-grow` | subject | `handwrite-on`, `sun-rise-set`, `number-counter` |  |
 | `swimmers-converge` | subject | `cell-division`, `science-reticle`, `blur-in-title` |  |
-| `blur-in-title` | type | `aurora`, `starfield-night`, `caustics-godrays`, `embers`, `ken-burns` | Change title and subtitle (defaults ABYSSES / THE MIDNIGHT ZONE are sample text); set swapTo null for a single card. |
+| `blur-in-title` | type, accent | `aurora`, `starfield-night`, `caustics-godrays`, `embers`, `ken-burns` | Change title and subtitle (defaults ABYSSES / THE MIDNIGHT ZONE are sample text); set swapTo null for a single card. |
 | `chapter-header` | type | `line-draw-on`, `flow-lines`, `ken-burns`, `map-route` |  |
 | `comic-burst` | type | `speed-lines`, `comic-halftone`, `confetti-burst` |  |
 | `end-card-credits` | type | `embers`, `starfield-night`, `thumbnail-mosaic` |  |

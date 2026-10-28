@@ -5,6 +5,7 @@ import {fonts} from '../../core/fonts';
 import {useStage} from '../../core/stage';
 import {Backdrop, BackdropKind, eic, eoc, typed} from '../../core/text-kit';
 import {defineMotion} from '../../core/types';
+import {STORY_SAMPLES, STORY_VARIANTS, StoryItem} from '../../core/r2-e2-story-kit';
 
 /**
  * Narrative captions.
@@ -15,9 +16,9 @@ import {defineMotion} from '../../core/types';
  *   italic time ("7:00 AM") + caps label ("RISE AND SHINE"); springs in from the left, kicks out on change.
  */
 
-type Item = {text: string; tag?: string};
+type Item = StoryItem;
 type Props = {
-  variant: 'box' | 'plate';
+  variant: 'box' | 'plate' | 'ornate' | 'bubble' | 'banderole' | 'paper-strip';
   items: Item[];
   framesPerItem: number;
   startFrame: number;
@@ -32,9 +33,13 @@ type Props = {
   size: number;
   backdrop: BackdropKind | 'auto';
   src: string;
+  accent: string;
+  paper: string;
+  ink: string;
 };
 
-const SAMPLES: Record<Props['variant'], Item[]> = {
+const SAMPLES: Record<string, Item[]> = {
+  ...(STORY_SAMPLES as Record<string, Item[]>),
   box: [
     {text: 'The ship threaded south between the drifting ice.'},
     {text: 'No one aboard had seen the sun in eleven days.'},
@@ -55,7 +60,7 @@ const StoryCaptionBox: React.FC<Props> = (p) => {
   const idx = clamp(Math.floor(rel / p.framesPerItem), 0, items.length - 1);
   const local = rel - idx * p.framesPerItem;
   const it = items[idx];
-  const backdrop: BackdropKind = p.backdrop === 'auto' ? (p.variant === 'box' ? 'aurora' : 'comic') : p.backdrop;
+  const backdrop: BackdropKind = p.backdrop === 'auto' ? (p.variant === 'plate' || p.variant === 'bubble' ? 'comic' : 'aurora') : p.backdrop;
   const S = (p.size / 34) * u;
 
   let body: React.ReactNode = null;
@@ -121,6 +126,25 @@ const StoryCaptionBox: React.FC<Props> = (p) => {
     );
   }
 
+  const Extra = STORY_VARIANTS[p.variant];
+  if (Extra && rel >= 0) {
+    const bubble = p.variant === 'bubble';
+    const strip = p.variant === 'paper-strip';
+    body = (
+      <Extra
+        it={it}
+        local={local}
+        framesPerItem={p.framesPerItem}
+        charsPerSecond={p.charsPerSecond}
+        size={p.size}
+        textColor={p.textColor}
+        accent={p.accent}
+        paper={p.paper || (bubble ? '#ffffff' : strip ? '#F3ECDC' : '#F6F0E2')}
+        ink={p.ink || (bubble ? '#3A2A24' : strip ? '#1d1a16' : '#2c2113')}
+      />
+    );
+  }
+
   const bar = p.variant === 'box' && p.letterbox ? h * (portrait ? 0.06 : 0.12) : 0;
   const cutKick = local < 1 && idx > 0 ? 1.01 : 1;
   return (
@@ -144,7 +168,7 @@ export const storyCaptionBox = defineMotion<Props>({
   title: 'Story caption box',
   category: 'text',
   description: 'Double-ruled black narrative caption box under a letterboxed scene (RPG-style typing), or a yellow comic time-stamp plate ("7:00 AM  RISE AND SHINE").',
-  source: ['video21 0:17.2-0:18.2', 'video12 0:02-1:30'],
+  source: ['video21 0:17.2-0:18.2', 'video12 0:02-1:30', 'lemo-opuscar styles hd-2d, spy-titles, stained-glass (MIT, LemoLab)'],
   useFor: 'Story narration, game cutscene text, timeline time-stamps and location/time chyrons.',
   durationInFrames: 210,
   defaultProps: {
@@ -163,10 +187,16 @@ export const storyCaptionBox = defineMotion<Props>({
     size: 34,
     backdrop: 'auto',
     src: '',
+    accent: '#D8C28E',
+    paper: '',
+    ink: '',
   },
   propDocs: {
-    variant: 'box (video21 narrative box) | plate (video12 time-stamp plate)',
-    items: '[{text, tag?}] shown in order; plate uses tag as the time and text as the label; [] = built-in sample',
+    variant: 'box (video21 narrative box) | plate (video12 time-stamp plate) | ornate (RPG dialogue: gold border, corner ornaments, name plate) | bubble (speech bubble, tail to speaker) | banderole (parchment ribbon unfurls) | paper-strip (cut-paper subtitle strip)',
+    items: '[{text, tag?, name?, sub?, speaker?:[x,y]}] shown in order; plate uses tag as the time; ornate name = name plate; bubble sub = second language line, speaker = tail target as frame fractions; [] = built-in sample',
+    accent: 'ornate: gold border / ornament / name colour',
+    paper: 'ornate/bubble/paper-strip: fill or text colour of the paper (empty = per-variant default)',
+    ink: 'bubble/paper-strip/banderole: outline + text ink (empty = per-variant default)',
     framesPerItem: 'frames each caption stays',
     startFrame: 'frame the first caption appears',
     reveal: 'box: type (RPG typing + ▼) | instant (video21) | fade',
@@ -180,5 +210,5 @@ export const storyCaptionBox = defineMotion<Props>({
     src: 'optional public/ image as the scene',
   },
   component: StoryCaptionBox,
-  tags: ['caption', 'subtitle', 'story', 'chyron', 'timestamp', 'comic'],
+  tags: ['caption', 'subtitle', 'story', 'chyron', 'timestamp', 'comic', 'rpg', 'dialogue', 'speech bubble', 'ribbon', 'banner', 'paper strip', 'fantasy'],
 });

@@ -7,7 +7,27 @@ import type {TransitionPresentationComponentProps} from '@remotion/transitions';
  * frame size, SVG overlay / blur / luminance-mask wrappers, eases and the front-wipe axis maths.
  */
 /** props every custom presentation receives (resolved from a TransitionSpec + DEFAULTS) */
-export type P = {x: number; y: number; color: string; colors: string[]; angle: number; bands: number; size: number; variant: string; seed: number; text: string};
+export type P = {
+  x: number;
+  y: number;
+  color: string;
+  colors: string[];
+  angle: number;
+  bands: number;
+  size: number;
+  variant: string;
+  seed: number;
+  text: string;
+  /** round-2 extension options (docs/TRANSITIONS.md) */
+  shape: string;
+  hold: number;
+  holdRadius: number;
+  feather: number;
+  x2: number;
+  y2: number;
+  rim: number;
+  mode: string;
+};
 export type C = React.FC<TransitionPresentationComponentProps<P>>;
 
 export const clamp01 = (v: number) => Math.min(1, Math.max(0, v));

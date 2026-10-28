@@ -39,7 +39,15 @@ type Props = {
   background: string;
   src: string;
   fadeOut: boolean;
+  /** round-2: gold material + a specular sheen / glint sweeping across the letters */
+  material: 'plain' | 'gold';
+  sheenAt: number;
+  sheenFrames: number;
+  glint: {t0?: number; dur?: number; angle?: number} | null;
+  kicker: string;
 };
+
+const GOLD = ['#7A5516', '#B8862B', '#F3D98B', '#C9962F', '#8E6418', '#E8C46A', '#6E4B12'];
 
 const TitleBlock: React.FC<{
   card: Card;
@@ -67,6 +75,14 @@ const TitleBlock: React.FC<{
   const letterOut = outStart === null ? 0 : eic((frame - outStart - 6) / 9);
   const subP = eoc((frame - subIn) / subDur) * (1 - subOut);
   const rule = eoc((frame - subIn) / 12) * (1 - subOut);
+  // sheen sweep (gold / glint): a hot band crossing the letters left to right
+  const sheenOn = p.material === 'gold' || p.glint !== null;
+  const g = p.glint ?? {};
+  const sT0 = g.t0 !== undefined && g.t0 >= 0 ? g.t0 : p.sheenAt >= 0 ? p.sheenAt : lastStart + dur + 6;
+  const sDur = g.dur ?? p.sheenFrames;
+  const sweep = -0.3 + 1.6 * clamp((frame - sT0) / Math.max(1, sDur));
+  const sAngle = g.angle ?? 100;
+  const n = Math.max(1, chars.length);
   const pos: React.CSSProperties =
     p.layout === 'lower-left'
       ? {left: w * 0.06, bottom: h * 0.12, alignItems: 'flex-start'}
@@ -75,11 +91,23 @@ const TitleBlock: React.FC<{
         : {left: 0, right: 0, top: h * 0.5, transform: `translateY(-50%)`, alignItems: 'center'};
   return (
     <div style={{position: 'absolute', display: 'flex', flexDirection: 'column', ...pos}}>
+      {p.kicker ? (
+        <div style={{fontFamily: tfonts.mono, fontSize: Math.max(14 * u, fs * 0.17), letterSpacing: '0.5em', color: p.subtitleColor, opacity: eoc((frame - inStart - 4) / 14) * (1 - subOut), marginBottom: fs * 0.4, paddingLeft: center ? '0.5em' : 0, whiteSpace: 'pre'}}>
+          {p.kicker}
+        </div>
+      ) : null}
       <div style={{fontFamily: tfonts[p.font], fontWeight: p.weight, fontSize: fs, color: p.color, whiteSpace: 'pre', lineHeight: 1.1, paddingLeft: center ? `${p.tracking}em` : 0}}>
         {chars.map((c, i) => {
           const t = eoc((frame - inStart - delays[i]) / dur);
           const op = t * (1 - letterOut);
           const blur = p.maxBlur * u * (1 - t) + 8 * u * letterOut;
+          let sheenStyle: React.CSSProperties = {};
+          if (sheenOn) {
+            const c = (0.5 + (sweep - (i + 0.5) / n) * n) * 100;
+            const hot = `linear-gradient(${sAngle}deg, rgba(255,255,255,0) ${c - 35}%, rgba(255,255,255,0.92) ${c}%, rgba(255,255,255,0) ${c + 35}%)`;
+            const base = p.material === 'gold' ? `linear-gradient(180deg, ${GOLD.join(', ')})` : `linear-gradient(${p.color}, ${p.color})`;
+            sheenStyle = {backgroundImage: `${hot}, ${base}`, WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent', color: 'transparent'};
+          }
           return (
             <span
               key={i}
@@ -88,8 +116,9 @@ const TitleBlock: React.FC<{
                 marginRight: `${p.tracking}em`,
                 opacity: op,
                 filter: blur > 0.05 ? `blur(${blur}px)` : undefined,
-                textShadow: p.glow > 0 ? `0 0 ${14 * u}px rgba(255,255,255,${p.glow})` : undefined,
+                textShadow: p.glow > 0 && !sheenOn ? `0 0 ${14 * u}px rgba(255,255,255,${p.glow})` : undefined,
                 minWidth: c === ' ' ? '0.28em' : undefined,
+                ...sheenStyle,
               }}
             >
               {c}
@@ -179,6 +208,11 @@ export const blurInTitle = defineMotion<Props>({
     background: '#020406',
     src: '',
     fadeOut: true,
+    material: 'plain',
+    sheenAt: -1,
+    sheenFrames: 18,
+    glint: null,
+    kicker: '',
   },
   propDocs: {
     title: 'first title (use caps + wide tracking for the video23 look)',
@@ -197,7 +231,12 @@ export const blurInTitle = defineMotion<Props>({
     backdrop: 'ocean | ink | dusk | peaks | dunes | warm | none (plain background colour)',
     src: 'optional public/ image behind the title',
     fadeOut: 'blur-fade everything out over the last 16 frames',
+    material: "'plain' (default) | 'gold' (7-stop banded gold gradient letters; combine with a light backdrop / ink background)",
+    sheenAt: 'frame the specular band starts crossing the letters (-1 = right after the letters land)',
+    sheenFrames: 'frames the band takes to cross (~0.6 s)',
+    glint: "{t0?, dur?, angle?} a white diagonal glint sweeping across the (plain-colour) letters; null = off. Pair with weight 200 and tracking ~0.5 for a thin launch-film title",
+    kicker: 'small tracked mono caps line above the title ("" = none)',
   },
   component: BlurInTitle,
-  tags: ['title', 'blur', 'serif', 'card', 'documentary'],
+  tags: ['title', 'blur', 'serif', 'card', 'documentary', 'gold', 'sheen', 'glint', 'luxury', 'thin', 'product-launch', 'kicker'],
 });

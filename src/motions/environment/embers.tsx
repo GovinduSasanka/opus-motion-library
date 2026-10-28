@@ -14,7 +14,7 @@ import {defineMotion} from '../../core/types';
  * gold:   Klimt gold flecks (#e2b84a squares, circles, slivers) drifting up and spinning, with sparkle pulses.
  */
 type Props = {
-  mode: 'sparks' | 'motes' | 'gold';
+  mode: 'sparks' | 'motes' | 'gold' | 'fireflies';
   background: string;
   backdrop: boolean;
   color: string;
@@ -25,10 +25,14 @@ type Props = {
   wind: number;
   glow: boolean;
   seed: number;
+  /** fireflies mode */
+  tail: number;
+  blink: number;
+  band: number[];
 };
 
-const DEFAULT_COLOR = {sparks: '#FFD79A', motes: '#FF9A4A', gold: '#E2B84A'};
-const DEFAULT_COUNT = {sparks: 190, motes: 34, gold: 90};
+const DEFAULT_COLOR = {sparks: '#FFD79A', motes: '#FF9A4A', gold: '#E2B84A', fireflies: '#FFE08A'};
+const DEFAULT_COUNT = {sparks: 190, motes: 34, gold: 90, fireflies: 48};
 
 const Backdrop: React.FC<{mode: Props['mode']; t: number; glow: boolean}> = ({mode, t, glow}) => {
   const {w, h, u, cx} = useStage();
@@ -64,6 +68,25 @@ const Backdrop: React.FC<{mode: Props['mode']; t: number; glow: boolean}> = ({mo
       </g>
     );
   }
+  if (mode === 'fireflies') {
+    return (
+      <g>
+        <defs>
+          <linearGradient id="emb-ff-bg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="#050A0B" />
+            <stop offset="0.55" stopColor="#0A1612" />
+            <stop offset="1" stopColor="#10261A" />
+          </linearGradient>
+        </defs>
+        <rect width={w} height={h} fill="url(#emb-ff-bg)" />
+        {Array.from({length: 9}, (_, i) => {
+          const x = ((i + 0.5) / 9) * w + (hash01(9, i, 1) - 0.5) * 0.06 * w;
+          const tw = (10 + 14 * hash01(9, i, 2)) * u;
+          return <rect key={i} x={x - tw / 2} y={0} width={tw} height={h * (0.78 + 0.2 * hash01(9, i, 3))} fill="#07110D" opacity={0.7} />;
+        })}
+      </g>
+    );
+  }
   const motes = mode === 'motes';
   return (
     <g>
@@ -85,7 +108,7 @@ const Backdrop: React.FC<{mode: Props['mode']; t: number; glow: boolean}> = ({mo
   );
 };
 
-const Embers: React.FC<Props> = ({mode, background, backdrop, color, count, speed, life, size, wind, glow, seed}) => {
+const Embers: React.FC<Props> = ({mode, background, backdrop, color, count, speed, life, size, wind, glow, seed, tail, blink, band}) => {
   const frame = useCurrentFrame();
   const {w, h, u, fps} = useStage();
   const t = frame / fps;
@@ -123,6 +146,28 @@ const Embers: React.FC<Props> = ({mode, background, backdrop, color, count, spee
       els.push(<line key={i} x1={px} y1={py} x2={x} y2={y} stroke={fc} strokeWidth={r * 1.1} strokeLinecap="round" opacity={o * 0.55} />);
       if (glow) els.push(<circle key={`h${i}`} cx={x} cy={y} r={r * 4.5} fill="url(#emb-halo)" opacity={o * 0.85} />);
       els.push(<circle key={`c${i}`} cx={x} cy={y} r={r * 1.05} fill={sc} opacity={o} />);
+    }
+  } else if (mode === 'fireflies') {
+    const [b0, b1] = [band[0] ?? 0.15, band[1] ?? 0.75];
+    const nt = Math.max(0, Math.round(tail));
+    for (let i = 0; i < n; i++) {
+      const x0 = hash01(seed, i, 1) * w;
+      const y0 = (b0 + (b1 - b0) * hash01(seed, i, 2)) * h;
+      const A = (60 + 80 * hash01(seed, i, 3)) * u;
+      const sp = 0.3 * speed;
+      const posAt = (tt: number) => [x0 + A * 1.3 * n2('ffx' + seed, i * 3.1, tt * sp) + wind * 10 * u * tt, y0 + A * n2('ffy' + seed, i * 5.3, tt * sp)] as const;
+      const per = Math.max(0.6, blink) * (0.7 + 0.8 * hash01(seed, i, 4));
+      const ph = hash01(seed, i, 5) * TAU;
+      const pulse = 0.5 + 0.5 * Math.sin((TAU * t) / per + ph);
+      const o = 0.12 + 0.88 * Math.pow(pulse, 1.4);
+      const [x, y] = posAt(t);
+      const r = (3 + 3 * hash01(seed, i, 6)) * u * size;
+      for (let k = nt; k >= 1; k--) {
+        const [tx, ty] = posAt(t - k * (2 / fps));
+        els.push(<circle key={`t${i}-${k}`} cx={tx} cy={ty} r={r * (1 - k / (nt + 2)) * 0.8} fill={col} opacity={o * 0.35 * (1 - k / (nt + 1))} />);
+      }
+      if (glow) glows.push(<circle key={`g${i}`} cx={x} cy={y} r={r * 6} fill="url(#emb-halo)" opacity={o * 0.8} />);
+      els.push(<circle key={`c${i}`} cx={x} cy={y} r={r} fill="url(#emb-mote)" opacity={Math.min(1, o + 0.15)} />);
     }
   } else if (mode === 'motes') {
     for (let i = 0; i < n; i++) {
@@ -217,9 +262,12 @@ export const embers = defineMotion<Props>({
     wind: 0.3,
     glow: true,
     seed: 1,
+    tail: 6,
+    blink: 2.2,
+    band: [0.15, 0.75],
   },
   propDocs: {
-    mode: '"sparks" (fast golden sparks), "motes" (slow glowing dots), "gold" (spinning gold flecks)',
+    mode: '"sparks" (fast golden sparks), "motes" (slow glowing dots), "gold" (spinning gold flecks), "fireflies" (40-60 warm dots wandering on smooth noise paths, each with a short comet tail, blinking at its own rate)',
     background: 'CSS background; "transparent" = overlay (particles use screen blend)',
     backdrop: 'paint the procedural dark fire-glow (or Klimt) backdrop',
     color: 'particle colour; empty = mode default (#FFD79A / #FF9A4A / #E2B84A)',
@@ -230,7 +278,10 @@ export const embers = defineMotion<Props>({
     wind: 'sideways drift (positive = right)',
     glow: 'soft glow halos and fire glow',
     seed: 'random seed',
+    tail: 'fireflies: number of trail dots behind each firefly (6)',
+    blink: 'fireflies: average blink period in seconds (1.5-3)',
+    band: 'fireflies: [top, bottom] vertical band 0..1 the swarm wanders in',
   },
   component: Embers,
-  tags: ['particles', 'fire', 'sparks', 'gold', 'magic', 'overlay', 'ambience'],
+  tags: ['particles', 'fire', 'sparks', 'gold', 'magic', 'overlay', 'ambience', 'fireflies', 'forest', 'night', 'glow-dots', 'swarm'],
 });

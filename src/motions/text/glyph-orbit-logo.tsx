@@ -30,6 +30,10 @@ type Props = {
   backdrop: BackdropKind;
   src: string;
   seed: number;
+  variant: 'orbit' | 'fly';
+  travel: number;
+  paletteDashes: string[];
+  dotColor: string;
 };
 
 /** monoline glyph alphabet in a unit cell (x −0.5..0.5, y −0.6..0.6) */
@@ -192,6 +196,29 @@ const GlyphOrbitLogo: React.FC<Props> = (p) => {
             const at = t0 + i * fpc;
             if (frame < at || c === ' ') return null;
             const x = textLeft + (i + 0.5) * cw;
+            if (p.variant === 'fly') {
+              // letters fly out from the hero point one after another, motion-blurred, and settle into the wordmark
+              const lt = clamp((frame - at) / Math.max(1, p.travel));
+              const e = lt >= 1 ? 1 : 1 - Math.pow(2, -10 * lt);
+              const fx = lerp(cx, x, e);
+              const fy = lerp(cy, baseline, e);
+              const sm = (1 - e) * (x - cx);
+              return (
+                <g key={i} opacity={clamp(lt * 6)}>
+                  {[3, 2, 1].map((k) => (
+                    <text key={k} x={fx - sm * 0.09 * k} y={fy - (cy - baseline) * 0.0} textAnchor="middle" fill={p.color} opacity={0.22 * (1 - e)}>
+                      {c}
+                    </text>
+                  ))}
+                  <text x={fx + 2.5 * u} y={fy + 2.5 * u} textAnchor="middle" fill="#000" opacity={0.6 * e}>
+                    {c}
+                  </text>
+                  <text x={fx} y={fy} textAnchor="middle" fill={p.color}>
+                    {c}
+                  </text>
+                </g>
+              );
+            }
             if (frame < at + 3) {
               const r = rng(`frag${i}-${frame}`);
               return (
@@ -218,9 +245,22 @@ const GlyphOrbitLogo: React.FC<Props> = (p) => {
             );
           })}
         </g>
+        {p.paletteDashes.length > 0 && (
+          <g>
+            {p.paletteDashes.map((c, i) => {
+              const m = p.paletteDashes.length;
+              const dt = clamp((frame - (typeEnd + 2 + i * 3)) / 14);
+              const e = 1 - Math.pow(1 - dt, 3);
+              const dw = Math.min(cw * 1.1, (cw * n) / (m * 1.5));
+              const tx = cx + (i - (m - 1) / 2) * dw * 1.4;
+              const sx = cx + (i - (m - 1) / 2) * dw * 6;
+              return <rect key={i} x={lerp(sx, tx, e) - dw / 2} y={baseline + fs * 0.32 - lift * 0} width={dw} height={Math.max(3 * u, fs * 0.05)} rx={fs * 0.025} fill={c} opacity={e} />;
+            })}
+          </g>
+        )}
         {/* focus dot */}
         <circle cx={dotX} cy={dotY} r={fs * 0.42} fill="url(#gol-dot)" opacity={0.55} />
-        <circle cx={dotX} cy={dotY} r={Math.max(7 * u, fs * 0.085)} fill={p.accent} />
+        <circle cx={dotX} cy={dotY} r={Math.max(7 * u, fs * 0.085)} fill={p.dotColor || p.accent} />
         {/* frame around the lock-up */}
         {fd > 0 && (
           <g stroke={p.color} strokeWidth={1.3 * u} fill="none" opacity={0.35}>
@@ -289,8 +329,16 @@ export const glyphOrbitLogo = defineMotion<Props>({
     backdrop: 'ink',
     src: '',
     seed: 2,
+    variant: 'orbit',
+    travel: 12,
+    paletteDashes: [],
+    dotColor: '',
   },
   propDocs: {
+    variant: "orbit (typed with jumble) | fly (wordmark-fly-assemble: letters fly out of the hero point one after another, motion-blurred, and settle into the wordmark)",
+    travel: 'fly: frames each letter takes to travel (0.42 s = 12)',
+    paletteDashes: "fly: colours of short dashes that line up under the logo as a palette signature (e.g. ['#FF5A4A','#FFC24A','#3FB6C8'])",
+    dotColor: "colour of the focus / tittle dot ('' = accent)",
     logo: 'logotype text (monospaced; the first lowercase i/j gets the blue dot)',
     tagline: 'up to two lines typed under the logo: [small tracked line, bold line]',
     pill: 'double-ruled label typed at the bottom ("" = none)',
@@ -302,5 +350,5 @@ export const glyphOrbitLogo = defineMotion<Props>({
     backdrop: 'ink (blueprint black) | any backdrop kind',
   },
   component: GlyphOrbitLogo,
-  tags: ['logo', 'brand', 'typewriter', 'glyphs', 'endcard', 'blueprint'],
+  tags: ['logo', 'brand', 'typewriter', 'glyphs', 'endcard', 'blueprint', 'wordmark', 'fly in', 'assemble', 'palette', 'logo reveal'],
 });

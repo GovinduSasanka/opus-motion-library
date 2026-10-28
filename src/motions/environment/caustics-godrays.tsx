@@ -20,7 +20,7 @@ import {defineMotion} from '../../core/types';
  * subtracted (mask) from a bright layer, so only the web of lines remains.
  */
 type Props = {
-  mode: 'underwater' | 'pool' | 'beam';
+  mode: 'underwater' | 'pool' | 'beam' | 'floor';
   background: string;
   backdrop: boolean;
   lineColor: string;
@@ -32,6 +32,12 @@ type Props = {
   fadeDepth: number;
   intro: boolean;
   seed: number;
+  /** floor mode (glossy dark floor: filaments with chromatic fringes, lens ring, beat rings) */
+  rgbSplit: number;
+  lensRing: boolean;
+  waveEvents: number[];
+  accentA: string;
+  accentB: string;
 };
 
 type P = [number, number];
@@ -166,7 +172,7 @@ const Motes: React.FC<{n: number; t: number; seed: number; color: string; area: 
   return <g>{out}</g>;
 };
 
-const CausticsGodrays: React.FC<Props> = ({mode, background, backdrop, lineColor, rayColor: rayColorProp, rayCount, causticScale, speed, motes, fadeDepth, intro, seed}) => {
+const CausticsGodrays: React.FC<Props> = ({mode, background, backdrop, lineColor, rayColor: rayColorProp, rayCount, causticScale, speed, motes, fadeDepth, intro, seed, rgbSplit, lensRing, waveEvents, accentA, accentB}) => {
   const frame = useCurrentFrame();
   const {w, h, u, fps, cx} = useStage();
   const t = (frame / fps) * speed;
@@ -174,6 +180,66 @@ const CausticsGodrays: React.FC<Props> = ({mode, background, backdrop, lineColor
   const scene = backdrop && !overlay;
   const K = areaK(w, h);
   const rayColor = rayColorProp || (mode === 'beam' ? '#FFDC96' : '#E6FBFF');
+
+  if (mode === 'floor') {
+    const cell = 130 * u * causticScale;
+    const fcx = cx;
+    const fcy = h * 0.52;
+    const R = Math.min(w, h) * 0.46;
+    const fl = rgbSplit * 0.015;
+    const scales: [string, number][] = [['#FF3A3A', 1 - fl], ['#3AFF6A', 1], ['#3A6AFF', 1 + fl]];
+    const events = waveEvents.length ? waveEvents : Array.from({length: 8}, (_, i) => 18 + i * 36);
+    const rings = events
+      .map((e, i) => {
+        const age = (frame - e) / 40;
+        if (age < 0 || age > 1) return null;
+        const r = R * 1.5 * ease.out(age);
+        const col = rgba(age < 0.5 ? accentA : accentB, 1);
+        return <circle key={i} cx={fcx} cy={fcy} r={r} fill="none" stroke={col} strokeWidth={(0.8 + (r / R) * 2.5) * 4 * u} opacity={(1 - age) * 0.85} filter="url(#cg-fw)" />;
+      })
+      .filter(Boolean);
+    const lensR = R * 0.72;
+    return (
+      <AbsoluteFill style={{background: overlay ? 'transparent' : '#07080B'}}>
+        <Svg>
+          <defs>
+            <radialGradient id="cg-ffloor" cx="0.5" cy="0.52" r="0.7">
+              <stop offset="0" stopColor="#1A1D26" />
+              <stop offset="0.6" stopColor="#0C0E13" />
+              <stop offset="1" stopColor="#050609" />
+            </radialGradient>
+            <radialGradient id="cg-ffade" cx="0.5" cy="0.52" r="0.5">
+              <stop offset="0" stopColor="#fff" stopOpacity={1} />
+              <stop offset="0.7" stopColor="#fff" stopOpacity={0.55} />
+              <stop offset="1" stopColor="#fff" stopOpacity={0} />
+            </radialGradient>
+            <mask id="cg-ffm" maskUnits="userSpaceOnUse" x={0} y={0} width={w} height={h}>
+              <rect width={w} height={h} fill="url(#cg-ffade)" />
+            </mask>
+            <BlurFilter id="cg-fw" std={3 * u} />
+            <BlurFilter id="cg-fg" std={6 * u} />
+          </defs>
+          {scene && <rect width={w} height={h} fill="url(#cg-ffloor)" />}
+          <g mask="url(#cg-ffm)" style={{mixBlendMode: 'screen'}}>
+            {scales.map(([col, sc], i) => (
+              <g key={i} transform={`translate(${fcx} ${fcy}) scale(${sc}) translate(${-fcx} ${-fcy})`} opacity={rgbSplit > 0 ? 0.9 : i === 1 ? 1 : 0}>
+                <CausticWeb id={`cg-fl${i}`} W={w} H={h} cell={cell} t={t} seed={seed} scroll={[16 * u, 7 * u]} inset={0.06} color={rgbSplit > 0 ? col : lineColor} blur={1.6 * u} />
+              </g>
+            ))}
+          </g>
+          {lensRing && (
+            <g style={{mixBlendMode: 'screen'}}>
+              {[['#FF4A4A', 0.7], ['#4AFF7A', 0.72], ['#4A7AFF', 0.74]].map(([col, k], i) => (
+                <circle key={i} cx={fcx} cy={fcy} r={R * (k as number) + 3 * u * Math.sin(t * 1.3)} fill="none" stroke={rgbSplit > 0 ? (col as string) : lineColor} strokeWidth={7 * u} opacity={0.5} filter="url(#cg-fg)" />
+              ))}
+            </g>
+          )}
+          <g style={{mixBlendMode: 'screen'}}>{rings}</g>
+          <circle cx={fcx} cy={fcy} r={lensR * 0.04} fill="#fff" opacity={0} />
+        </Svg>
+      </AbsoluteFill>
+    );
+  }
 
   if (mode === 'pool') {
     const cell = 120 * u * causticScale;
@@ -361,9 +427,14 @@ export const causticsGodrays = defineMotion<Props>({
     fadeDepth: 0.42,
     intro: true,
     seed: 1,
+    rgbSplit: 1,
+    lensRing: true,
+    waveEvents: [],
+    accentA: '#FF4F9A',
+    accentB: '#3FB6FF',
   },
   propDocs: {
-    mode: '"underwater" (surface web + god-rays), "pool" (full-frame caustic texture), "beam" (window light shaft + dust)',
+    mode: '"underwater" (surface web + god-rays), "pool" (full-frame caustic texture), "beam" (window light shaft + dust), "floor" (dark glossy floor: dancing RGB-fringed filaments, lens ring, coloured beat rings)',
     background: 'CSS background; "transparent" = overlay (only light elements are drawn)',
     backdrop: 'paint the procedural water / room',
     lineColor: 'caustic web line colour (pool source: #cfeff0)',
@@ -375,7 +446,12 @@ export const causticsGodrays = defineMotion<Props>({
     fadeDepth: 'fraction of height the surface caustics reach before fading (underwater)',
     intro: 'pool mode: open on a wire grid that switches to caustics in 3 frames',
     seed: 'random seed',
+    rgbSplit: 'floor mode: chromatic fringe strength of the filaments (0 = single colour)',
+    lensRing: 'floor mode: ring-shaped lens caustic around the centre',
+    waveEvents: 'floor mode: frames at which a coloured ring spreads out (empty = every ~36 frames)',
+    accentA: 'floor mode: ring colour near the centre',
+    accentB: 'floor mode: ring colour at the outer radius',
   },
   component: CausticsGodrays,
-  tags: ['water', 'underwater', 'light', 'caustics', 'godrays', 'overlay', 'ambience', 'texture'],
+  tags: ['water', 'underwater', 'light', 'caustics', 'godrays', 'overlay', 'ambience', 'texture', 'floor', 'glossy-floor', 'product-stage', 'rgb-split', 'chromatic', 'wave-rings', 'beat'],
 });

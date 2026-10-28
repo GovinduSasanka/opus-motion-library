@@ -2,7 +2,8 @@ import React from 'react';
 import {AbsoluteFill, interpolate, useCurrentFrame} from 'remotion';
 import {clamp, ease} from '../../core/ease';
 import {fonts} from '../../core/fonts';
-import {FilmGrain, Vignette, useStage} from '../../core/stage';
+import {FilmGrain, PaperTexture, Vignette, useStage} from '../../core/stage';
+import {h1} from '../../core/r2-e4-kit';
 import {defineMotion} from '../../core/types';
 import {FilterDefs, GradientMapFilter, Plate, PlatePaletteName, useSafeId} from '../../core/image-kit';
 
@@ -31,6 +32,11 @@ type Props = {
   word: string;
   wordColor: string;
   grain: number;
+  sCurve: number;
+  flicker: number;
+  paperFibre: number;
+  redOverlay: string;
+  redAmount: number;
 };
 
 const PRESETS: Record<Preset, {colors: string[]; fade: number; contrast: number}> = {
@@ -67,10 +73,10 @@ const Duotone: React.FC<Props> = (p) => {
   const hs = 4 * u;
 
   return (
-    <AbsoluteFill style={{background: '#000', overflow: 'hidden'}}>
+    <AbsoluteFill style={{background: '#000', overflow: 'hidden', filter: p.flicker > 0 ? `brightness(${1 + (h1('duofl' + p.seed, frame) - 0.5) * 2 * p.flicker})` : undefined}}>
       {colors.length >= 2 && (
         <FilterDefs>
-          <GradientMapFilter id={id} colors={colors} contrast={pre.contrast} />
+          <GradientMapFilter id={id} colors={colors} contrast={p.sCurve > 0 ? 1 + p.sCurve : pre.contrast} />
         </FilterDefs>
       )}
       {plate()}
@@ -110,6 +116,12 @@ const Duotone: React.FC<Props> = (p) => {
           <div style={{fontFamily: `"Yu Mincho", "MS Mincho", "Noto Serif JP", ${fonts.serif}`, fontWeight: 700, fontSize: 65 * u, color: p.wordColor, letterSpacing: 6 * u}}>{p.word}</div>
         </AbsoluteFill>
       )}
+      {p.redOverlay && p.redAmount > 0 && <AbsoluteFill style={{background: p.redOverlay, mixBlendMode: 'multiply', opacity: p.redAmount * clamp(mix * 1.5)}} />}
+      {p.paperFibre > 0 && (
+        <AbsoluteFill style={{mixBlendMode: 'multiply', opacity: p.paperFibre}}>
+          <PaperTexture opacity={1} seed={p.seed} tint="#b09a78" scale={1.4} />
+        </AbsoluteFill>
+      )}
       <Vignette strength={0.3} />
       {p.grain > 0 && <FilmGrain opacity={p.grain * 2} />}
     </AbsoluteFill>
@@ -137,6 +149,11 @@ export const duotone = defineMotion<Props>({
     word: '',
     wordColor: '#DA4F4D',
     grain: 0.03,
+    sCurve: 0,
+    flicker: 0,
+    paperFibre: 0,
+    redOverlay: '',
+    redAmount: 0.4,
   },
   propDocs: {
     src: 'public/ image path; empty = procedural plate',
@@ -151,7 +168,12 @@ export const duotone = defineMotion<Props>({
     word: 'madness: word that flickers on (+0.30 s for 2 f, off 3 f, then steady), e.g. 狂気',
     wordColor: 'madness: word colour',
     grain: 'film grain amount',
+    sCurve: 'S-curve contrast strength for the ramp (0 = preset; 0.32 print grade, 0.18 documents)',
+    flicker: 'archive-film brightness flicker amount (0.025 = +-2.5 %)',
+    paperFibre: 'paper-fibre texture multiplied over the print 0..1 (0.5 = print grade)',
+    redOverlay: 'spot-colour layer multiplied over the recolour (e.g. #D23A2A constructivist red); empty = none',
+    redAmount: 'opacity of the redOverlay layer',
   },
   component: Duotone,
-  tags: ['image', 'duotone', 'grade', 'recolour', 'tint', 'day-to-night', 'flash'],
+  tags: ['image', 'duotone', 'grade', 'recolour', 'tint', 'day-to-night', 'flash', 'print grade', 'ink on paper', 'constructivist', 'archive', 'flicker', 'paper fibre'],
 });

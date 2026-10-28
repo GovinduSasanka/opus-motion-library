@@ -3,6 +3,7 @@ import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {clamp, ease, lerp, prog} from '../../core/ease';
 import {n2, rng} from '../../core/random';
 import {FilmGrain, Svg, useStage} from '../../core/stage';
+import {useSafeId} from '../../core/image-kit';
 import {defineMotion} from '../../core/types';
 
 /**
@@ -14,7 +15,7 @@ import {defineMotion} from '../../core/types';
  *    with an R/G channel-split rim.
  */
 type Props = {
-  style: 'heatmap' | 'goo';
+  style: 'heatmap' | 'goo' | 'merge';
   ballCount: number;
   colors: string[];
   background: string;
@@ -23,6 +24,116 @@ type Props = {
   rgbSplit: boolean;
   stars: boolean;
   seed: number;
+  puddles: number;
+  puddleColors: string[];
+  hopAt: number;
+  hopStagger: number;
+  hopFrames: number;
+  leapAt: number;
+  leapHeight: number;
+  snapFrames: number;
+  marble: boolean;
+  wobble: number;
+};
+
+/** puddles hop ballistically into a central mass and fuse with a neck; the mass wobbles with the merged colours marbling inside; optional leap with a thread that snaps, then a splat */
+const MergeHop: React.FC<Props> = (p) => {
+  const frame = useCurrentFrame();
+  const {w, h, u, cx} = useStage();
+  const id = useSafeId('mh');
+  const S = Math.min(w, h);
+  const n = Math.max(2, Math.round(p.puddles));
+  const cols = p.puddleColors.length ? p.puddleColors : ['#FF5A4A', '#FFC24A', '#3FB6C8', '#8C6BFF', '#4ADE9B'];
+  const floor = h * 0.74;
+  const r0 = S * 0.07;
+  const massC = [cx, floor - S * 0.1];
+  let mergedArea = 0;
+  const balls: {x: number; y: number; r: number; sx: number; sy: number; c: string}[] = [];
+  const ghosts: {x: number; y: number; r: number; c: string}[] = [];
+  for (let i = 0; i < n; i++) {
+    const side = i % 2 ? 1 : -1;
+    const sx = cx + side * (S * (0.34 + 0.1 * Math.floor(i / 2)));
+    const t0 = p.hopAt + i * p.hopStagger;
+    const t = clamp((frame - t0) / p.hopFrames);
+    const arrived = t >= 1;
+    if (arrived) mergedArea += 1;
+    const ex = massC[0] + side * S * 0.02;
+    const x = lerp(sx, ex, t);
+    const y = lerp(floor - r0, massC[1], t) - Math.sin(Math.PI * t) * S * 0.2;
+    const squash = t > 0 && t < 1 ? 1 + 0.18 * Math.sin(Math.PI * t) : 1;
+    if (!arrived) balls.push({x, y, r: r0, sx: 1 / squash, sy: squash, c: cols[i % cols.length]});
+    else ghosts.push({x: ex, y: massC[1], r: r0, c: cols[i % cols.length]});
+  }
+  // wobble after each landing
+  let wob = 0;
+  for (let i = 0; i < n; i++) {
+    const land = p.hopAt + i * p.hopStagger + p.hopFrames;
+    if (frame >= land) wob += Math.exp(-(frame - land) / 7) * Math.cos((frame - land) * 0.5);
+  }
+  const massR = r0 * Math.sqrt(Math.max(0, mergedArea) * 1.1 + 0.001);
+  const wobK = (p.wobble / 100) * wob;
+  // leap: mass jumps, a thread stretches and snaps, mass lands and splats
+  let my = massC[1];
+  let thread = 0;
+  let splat = 0;
+  if (p.leapAt >= 0 && frame >= p.leapAt) {
+    const T = 34;
+    const t = (frame - p.leapAt) / T;
+    const up = t < 1 ? Math.sin(Math.PI * clamp(t)) : 0;
+    my = massC[1] - up * p.leapHeight * S;
+    thread = t < 1 ? clamp(Math.sin(Math.PI * clamp(t * 1.2)) * (1 - clamp((t * T - p.snapFrames) / 4))) : 0;
+    splat = t >= 1 ? Math.exp(-(frame - p.leapAt - T) / 8) * Math.cos((frame - p.leapAt - T) * 0.6) : 0;
+  }
+  const mass = mergedArea > 0 && (
+    <ellipse cx={massC[0]} cy={my} rx={massR * (1 + wobK + 0.3 * splat) * (1 - 0.18 * (my < massC[1] ? (massC[1] - my) / (S * 0.3) : 0))} ry={massR * (1 - wobK - 0.25 * splat) * (1 + 0.25 * ((massC[1] - my) / (S * 0.3)))} fill={cols[0]} />
+  );
+  const steps = 6;
+  const threadBlobs = thread > 0.02 ? Array.from({length: steps}, (_, k) => {
+    const tt = (k + 1) / (steps + 1);
+    return <circle key={k} cx={massC[0]} cy={lerp(floor - r0 * 0.7, my, tt)} r={r0 * 0.55 * thread * (1 - 0.4 * Math.abs(tt - 0.5))} fill={cols[0]} />;
+  }) : null;
+  const base = thread > 0.02 || (p.leapAt >= 0 && frame >= p.leapAt) ? <ellipse cx={massC[0]} cy={floor - r0 * 0.5} rx={r0 * 1.6} ry={r0 * 0.55} fill={cols[0]} /> : null;
+  // marble: the original colours swirl inside the mass
+  const marble = p.marble && mergedArea > 0 ? ghosts.map((g, i) => {
+    const a = frame * 0.05 * (i % 2 ? 1 : -1) + i * 2.1;
+    return <circle key={i} cx={massC[0] + Math.cos(a) * massR * 0.45} cy={my + Math.sin(a * 1.3) * massR * 0.4} r={massR * 0.46} fill={g.c} opacity={0.9} />;
+  }) : null;
+  return (
+    <AbsoluteFill style={{background: p.background || '#0f1424'}}>
+      <Svg>
+        <defs>
+          <filter id={id} x="-20%" y="-30%" width="140%" height="160%" colorInterpolationFilters="sRGB">
+            <feGaussianBlur in="SourceGraphic" stdDeviation={12 * u} result="b" />
+            <feColorMatrix in="b" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -9" />
+          </filter>
+          <clipPath id={`${id}c`}>
+            <ellipse cx={massC[0]} cy={my} rx={massR * 1.05} ry={massR * 1.05} />
+          </clipPath>
+        </defs>
+        <ellipse cx={cx} cy={floor + 4 * u} rx={S * 0.5} ry={S * 0.05} fill="#000" opacity={0.25} />
+        <g filter={`url(#${id})`}>
+          {balls.map((b, i) => (
+            <ellipse key={i} cx={b.x} cy={b.y} rx={b.r * b.sx} ry={b.r * b.sy} fill={b.c} />
+          ))}
+          {mass}
+          {threadBlobs}
+          {base}
+        </g>
+        <g clipPath={`url(#${id}c)`} style={{mixBlendMode: 'normal'}}>
+          {marble}
+        </g>
+        {/* puddles waiting on the floor */}
+        {Array.from({length: n}, (_, i) => {
+          const t0 = p.hopAt + i * p.hopStagger;
+          if (frame >= t0) return null;
+          const side = i % 2 ? 1 : -1;
+          const x = cx + side * (S * (0.34 + 0.1 * Math.floor(i / 2)));
+          const pop = prog(frame, 2 + i * 4, 12 + i * 4, ease.out);
+          return <ellipse key={i} cx={x} cy={floor - r0 * 0.5 * pop} rx={r0 * 1.1 * pop} ry={r0 * 0.7 * pop} fill={cols[i % cols.length]} />;
+        })}
+      </Svg>
+    </AbsoluteFill>
+  );
 };
 
 const hex = (c: string) => {
@@ -203,7 +314,7 @@ const Goo: React.FC<Props> = ({ballCount, colors, background, blur, rgbSplit, se
   );
 };
 
-const MetaballHeatmap: React.FC<Props> = (p) => (p.style === 'goo' ? <Goo {...p} /> : <Heatmap {...p} />);
+const MetaballHeatmap: React.FC<Props> = (p) => (p.style === 'merge' ? <MergeHop {...p} /> : p.style === 'goo' ? <Goo {...p} /> : <Heatmap {...p} />);
 
 export const metaballHeatmap = defineMotion<Props>({
   id: 'metaball-heatmap',
@@ -223,9 +334,19 @@ export const metaballHeatmap = defineMotion<Props>({
     rgbSplit: true,
     stars: true,
     seed: 2,
+    puddles: 3,
+    puddleColors: [],
+    hopAt: 14,
+    hopStagger: 14,
+    hopFrames: 22,
+    leapAt: -1,
+    leapHeight: 0.28,
+    snapFrames: 18,
+    marble: true,
+    wobble: 14,
   },
   propDocs: {
-    style: '"heatmap" (iso-contour bands) or "goo" (gooey blobs with RGB-split rim)',
+    style: '"heatmap" (iso-contour bands), "goo" (gooey blobs with RGB-split rim) or "merge" (puddles hop into one mass, fuse, marble, leap and splat)',
     ballCount: 'number of metaball lobes (tendrils and droplets scale with it)',
     colors: 'heatmap: 5 bands rim->core; goo: [blob, rim A, rim B] ([] = source palette)',
     background: 'background colour ("" = starfield navy / orange)',
@@ -233,7 +354,17 @@ export const metaballHeatmap = defineMotion<Props>({
     growth: 'heatmap ooze rate (fraction per second the splat keeps spreading)',
     rgbSplit: 'goo: red/green channel-split rim',
     stars: 'heatmap: starfield specks',
+    puddles: "merge style: number of separate puddles that hop into one central mass (area-conserving growth)",
+    puddleColors: "merge: puddle colours ([] = coral, amber, teal, violet, mint); the first colour is the mass colour, the others marble inside it",
+    hopAt: 'merge: frame the first puddle hops',
+    hopStagger: 'merge: frames between hops',
+    hopFrames: 'merge: frames one ballistic hop takes',
+    leapAt: 'merge: frame the fused mass leaps (a thread stretches and snaps, then it splats); -1 = no leap',
+    leapHeight: 'merge: leap height as a fraction of the short side',
+    snapFrames: 'merge: frame offset into the leap where the thread snaps',
+    marble: 'merge: original colours swirl inside the mass',
+    wobble: 'merge: wobble amplitude in % after each landing',
   },
   component: MetaballHeatmap,
-  tags: ['metaball', 'heatmap', 'liquid', 'blob', 'organic', 'goo'],
+  tags: ['metaball', 'heatmap', 'liquid', 'blob', 'organic', 'goo', 'merge', 'hop', 'fuse', 'loader', 'teams combine', 'marble'],
 });

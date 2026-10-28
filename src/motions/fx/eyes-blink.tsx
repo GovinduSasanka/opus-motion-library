@@ -5,6 +5,7 @@ import {FxRoot, isClear, useFx} from '../../core/fx-kit';
 import {n2, rng, range} from '../../core/random';
 import {Svg} from '../../core/stage';
 import {defineMotion} from '../../core/types';
+import {EXTRA_EYES, EyeGlyph} from '../../core/r2-e1-eyes';
 
 /**
  * video17 character-eyes: two black vertical ovals (~0.16 of the ball diameter tall) with a tiny white
@@ -23,7 +24,9 @@ type Props = {
   x: number;
   y: number;
   delay: number;
-  eyeStyle: 'oval' | 'sclera';
+  eyeStyle: 'oval' | 'sclera' | 'happy' | 'closed' | 'sleepy' | 'narrow' | 'angry' | 'determined' | 'sad' | 'teary' | 'cry' | 'heart' | 'x' | 'swirl' | 'spark' | 'shades' | 'scared' | 'dot';
+  /** [left, right] eye styles for mismatched pairs (e.g. ['oval','x']); [] = both use eyeStyle */
+  eyes: string[];
   size: number;
   spacing: number;
   color: string;
@@ -70,7 +73,7 @@ const lookAt = (f: number, looks: Look[], sacc = 3) => {
 };
 
 const Character: React.FC<Props & {f: number; frame: number; u: number; px: number; py: number; clear: boolean}> = (p) => {
-  const {f, frame, u, px, py, clear, eyeStyle, size, spacing, color, blinks, looks, maxOffset, happyAt, happyFor, hop, showSubject, subjectColor, seed} = p;
+  const {f, frame, u, px, py, clear, eyeStyle, size, spacing, color, blinks, looks, maxOffset, happyAt, happyFor, hop, showSubject, subjectColor, seed, eyes: eyePair} = p;
   const R = 220 * u * size;
   const happy = f >= happyAt && f < happyAt + happyFor;
   // hop with squash around the happy moment
@@ -110,7 +113,16 @@ const Character: React.FC<Props & {f: number; frame: number; u: number; px: numb
     if (happy) {
       return <path key={sd} d={`M${ex - ew * 0.75} ${eyeY + eh * 0.12} Q${ex} ${eyeY - eh * 0.55} ${ex + ew * 0.75} ${eyeY + eh * 0.12}`} fill="none" stroke={color} strokeWidth={13 * u * size} strokeLinecap="round" />;
     }
-    if (eyeStyle === 'sclera') {
+    const kind = eyePair.length ? eyePair[sd < 0 ? 0 : 1] ?? eyeStyle : eyeStyle;
+    if (EXTRA_EYES.includes(kind)) {
+      const blinkK = kind === 'sleepy' ? 1 : open;
+      return (
+        <g key={sd} transform={`translate(${ex} ${eyeY}) scale(${squeeze} ${blinkK})`}>
+          <EyeGlyph kind={kind} ew={ew} eh={eh} k={u * size} color={color} open={open} sd={sd} id={`eb-${seed}-${sd}`} frame={frame} />
+        </g>
+      );
+    }
+    if (kind === 'sclera') {
       const sw = ew * 1.25;
       const shh = eh * 0.75;
       const lid = 1 - open;
@@ -278,6 +290,7 @@ export const eyesBlink = defineMotion<Props>({
     y: 0.47,
     delay: 0,
     eyeStyle: 'oval',
+    eyes: [],
     size: 1,
     spacing: 1,
     color: '#0B0D0C',
@@ -307,7 +320,8 @@ export const eyesBlink = defineMotion<Props>({
     x: 'character: eye-pair centre x (0..1)',
     y: 'character: eye-pair centre y (0..1)',
     delay: 'frame offset for the whole timeline',
-    eyeStyle: 'oval (v17 black ovals) | sclera (v2 white eyes with moving pupils and lids)',
+    eyeStyle: 'oval (v17 black ovals) | sclera (v2 white eyes with moving pupils and lids) | round-2 eye library: happy closed sleepy narrow angry determined sad teary cry heart x swirl spark shades scared dot',
+    eyes: "[left, right] eye styles for mismatched pairs, e.g. ['oval','x'] or ['heart','heart']; [] = both use eyeStyle",
     size: 'size multiplier',
     spacing: 'distance between the two eyes multiplier',
     color: 'eye / ink colour',
@@ -327,5 +341,5 @@ export const eyesBlink = defineMotion<Props>({
     seed: 'random seed',
   },
   component: EyesBlink,
-  tags: ['eyes', 'blink', 'look', 'character', 'cute', 'horror', 'watching', 'overlay', 'fx'],
+  tags: ['eyes', 'blink', 'look', 'character', 'cute', 'horror', 'watching', 'overlay', 'fx', 'eye library', 'expressions', 'emotion', 'angry', 'sad', 'tears', 'heart eyes', 'dizzy', 'sunglasses', 'sleepy', 'mismatched'],
 });

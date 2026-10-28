@@ -5,6 +5,7 @@ import {DeckleFrame, InkSoldier, MiniBot, PaperDoll, mixHex} from '../../core/ch
 import {rng} from '../../core/random';
 import {PaperTexture, Svg, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
+import {BeanStage} from '../../core/r2-e2-char-kit';
 
 /**
  * Massed crowd on a perspective ground plane.
@@ -15,7 +16,7 @@ import {defineMotion} from '../../core/types';
  */
 type Props = {
   character: 'boxbot' | 'soldier' | 'doll';
-  mode: 'stomp' | 'cheer';
+  mode: 'stomp' | 'cheer' | 'beans';
   crane: boolean;
   craneStart: number;
   craneFrames: number;
@@ -29,6 +30,11 @@ type Props = {
   heroExcluded: boolean;
   seed: number;
   background: string;
+  beans: number;
+  bpm: number;
+  names: string[];
+  hop: number;
+  shoutEvery: number;
 };
 
 type Person = {X: number; Z: number; row: number; col: number; phase: number; variant: number; hero: boolean};
@@ -345,6 +351,9 @@ const CrowdBob: React.FC<Props> = ({character, mode, crane, craneStart, craneFra
   );
 };
 
+const CrowdRoot: React.FC<Props> = (p) =>
+  p.mode === 'beans' ? <BeanStage count={p.beans} bpm={p.bpm} startAt={p.stompStart === 30 ? 12 : p.stompStart} names={p.names} background={p.background} hop={p.hop} shoutEvery={p.shoutEvery} seed={p.seed} /> : <CrowdBob {...p} />;
+
 export const crowdBob = defineMotion<Props>({
   id: 'crowd-bob',
   title: 'Crowd stomp / cheer',
@@ -369,10 +378,20 @@ export const crowdBob = defineMotion<Props>({
     heroExcluded: true,
     seed: 7,
     background: '',
+    beans: 10,
+    bpm: 120,
+    names: [] as string[],
+    hop: 1,
+    shoutEvery: 4,
   },
   propDocs: {
     character: "'boxbot' (v12 synthwave clones) | 'soldier' (v5 blue ink etching) | 'doll' (v20 paper sketch)",
-    mode: "'stomp' synchronised hop (v5) | 'cheer' random-phase arms-up bob with hearts (v20)",
+    mode: "'stomp' synchronised hop (v5) | 'cheer' random-phase arms-up bob with hearts (v20) | 'beans' (toy bean contestants drop from the sky one per half-beat, hop on the beat, shout on accents)",
+    beans: 'beans: number of contestants (2-24)',
+    bpm: 'beans: tempo for the drops and hops',
+    names: 'beans: name-tag texts in order ([] = built-in names)',
+    hop: 'beans: hop height multiplier',
+    shoutEvery: 'beans: every Nth beat is an accent where all beans shout (0 = never)',
     crane: 'camera cranes up and tilts down to reveal the crowd',
     craneFrames: 'length of the crane move (easeInOutCubic)',
     rows: 'rows in the formation',
@@ -384,6 +403,6 @@ export const crowdBob = defineMotion<Props>({
     hearts: 'float hearts in cheer mode',
     heroExcluded: 'front-centre hero stays still (v5)',
   },
-  component: CrowdBob,
-  tags: ['crowd', 'army', 'clones', 'cheer', 'stomp', 'crane'],
+  component: CrowdRoot,
+  tags: ['crowd', 'army', 'clones', 'cheer', 'stomp', 'crane', 'beans', 'contestants', 'game show', 'team intro', 'everyone joins', 'name tags'],
 });

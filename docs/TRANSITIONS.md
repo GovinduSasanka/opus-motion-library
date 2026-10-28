@@ -24,6 +24,12 @@ Preview all of them: `node cli/mgl.mjs render transition-reel --concurrency 4` (
 | `seed` | changes jagged / organic edges (tear zig-zag, storm scallops, blob, xray hatch, glitch bands, brush rag, flood bulges, layer-swap contours) |
 | `colors` | palette array for multi-colour types (flood sheets, stripes bands, brush paints, squeegee bead segments, portal core→arms→rim, `bands:line` dot) |
 | `text` | words a type draws (`rewrite`: `"old\|new"`) |
+| `shape` | iris aperture: `circle` (default), `heart`, `star`, `keyhole`, `diamond`, `square`, `hexagon`, `rock` (paper-rock ring; `colors` = rock palette); `horizon` for `iris:bloom` |
+| `hold`, `holdRadius` | iris: fraction (0..0.6) of the transition spent holding at `holdRadius` (mean radius, fraction of H, default 0.22) before it finishes |
+| `mode` | iris `closeopen`: the old scene closes onto `x,y` (with the hold), a black beat (`colors[0]` = surround), then the new scene opens at `x2,y2`. Use 30+ frames |
+| `feather` | soft edge: iris px @1080, `iris:bloom` multiplier of the edge speed (soft while fast, crisp when it stops), `blob:fog` px, `blob:ink` irregularity (0.15) |
+| `x2`, `y2` | iris / bloom: where the centre ends up (default `x`,`y`) |
+| `rim` | rim / outline width px @1080 (iris, medallion, brush edge); 0 = none |
 | `spring` | Compose: use spring timing instead of linear |
 
 ## Types
@@ -112,12 +118,51 @@ Built from the source-repo research docs (`analysis/sources/*`, `analysis/ext/*`
 | `diagonal` (`stepped`) | a broad colour band whose both edges are hard pixel staircases sweeps across at ~−30° carrying the new scene behind it, with a faint smear on the lead edge | x2 stepped-diagonal-wipe | `angle` (150), `color` (band, `#D2FC36`), `bands` (steps, 22), `size` (band width, 0.25) | 14 |
 | `bands` (`line`) | a dot appears at (x, y), a thin line shoots out to both edges (easeOutExpo), then the line opens vertically into a band of the new scene with feathered motion-blurred edges; the dot stays to the end | x2 line-open-wipe | `x` `y`, `color` (line), `colors[0]` (dot, `#F6481E`) | 12 |
 
+## Extensions of the original types (src/transitions/iris.tsx, src/transitions/ext.tsx)
+
+Additive: every original type with default options renders exactly as before; the options and variants below only apply
+when you set them. New fields: `shape`, `hold`, `holdRadius`, `mode`, `feather`, `x2`, `y2`, `rim` (see Spec fields).
+
+| type (variant / options) | what it looks like | source | fields used | recommended frames |
+|---|---|---|---|---|
+| `iris` + `shape` | the aperture is a heart / star / keyhole / diamond / square / hexagon / paper-rock ring (rocks sit on the edge) instead of a circle; same easeInQuad, rim | character-rig `irisShape`, pdoom shape-iris (idea), x5 rock iris | `shape`, `x` `y`, `color`, `rim`, `colors` (rocks), `seed` | 8-20 |
+| `iris` + `hold` | the circle opens on a subject, holds at `holdRadius` with a slow drift (a glance to camera), then finishes | silent-film iris-hold, character-rig iris-on-subject | `hold`, `holdRadius`, `x` `y`, `shape` | 20-30 |
+| `iris` + `mode: 'closeopen'` | the old scene closes (optionally holds) onto `x,y`, black beat, the new scene opens from `x2,y2` | x5 rock iris (close/open on two subjects) | `x` `y` `x2` `y2`, `hold`, `shape`, `colors[0]` (surround) | 30-40 |
+| `iris` + `feather` | soft-edged aperture (blurred mask) | - | `feather` | 8 |
+| `iris` (`ring`) | extra trailing rings behind the iris edge | lemo pictogram-motion iris | `x` `y` `color` `rim` | 14 |
+| `iris` (`medallion`) | a numbered medallion (starburst, ink ring) stamps on the old scene with a back-ease pop, then a circle grows from it with a thick ink rim while the numeral scales up and fades; the centre drifts to `x2,y2` | midcentury-toon step-medallion-iris | `x` `y` (0.28, 0.34), `x2` `y2` (0.5, 0.5), `text` (numeral), `color` (ink), `colors` (disc, starburst), `rim` | 26 |
+| `iris` (`marker`) | a red hand-drawn ring is drawn round a point (`holdRadius`), held, then becomes the aperture | lemo marker-iris | `x` `y`, `holdRadius`, `color`, `rim` | 24 |
+| `iris` (`bloom`) | a colour field grows from the subject (ease .42,0,.12,1): feathered edge while moving fast, crisp when it stops; follows `x,y` to `x2,y2`; `shape: 'horizon'` = straight horizon edge (`angle` 270 rises, 90 falls) | mg-styles-15 field-bloom-wipe | `x` `y` `x2` `y2`, `feather`, `shape`, `angle`, `rim` | 16 |
+| `blob` (`fog`) | a soft white-misty feathered blob with a misty rim (3 slow sine lobes) opens near-linearly; the scene inside settles from 120 % brightness | x6 fog-blob | `x` `y` (0.58, 0.55), `color` (rim), `feather` (px), `seed` | 14 |
+| `blob` (`ink`) | ink drop with an fbm-irregular edge (ease-out) and a darker water-line band at its front | lemo ink-bloom | `x` `y`, `color`, `feather` (irregularity), `seed` | 30 |
+| `blob` (`bubble`) | a speech bubble (swinging tail) grows from a point into a colour field, a pill grows inside it into the next colour, ... and a final pill reveals the new scene | mg-styles-15 bubble-shape-wipe | `x` `y`, `colors` (fields, in order) | 30 |
+| `strip` (`shutter`) | the top half blacks out, then the bottom, a beat of black, then a strip opens from the centre line onto the new scene | x6 shutter close | `y`, `colors[0]` (black) | 22 |
+| `page-turn` (`curl3d`) | the old leaf lifts from the spine and curls away as it turns: strips foreshortened by their integrated angle, perspective recession, cos shading, the new scene where the leaf left | paper-popup page-curl | `direction`/`angle`, `bands` (strips, 16), `size` (bend, 0.55), `color` | 34 |
+| `dots` (`halftone`) | a coarse grid of flat-colour circles grows with a diagonal ripple to full cover, each cell swaps scene while covered, the dots shrink away | lemo halftone-dot-wipe | `size` (pitch, 0.074 H), `angle` (delay direction), `color`, `colors` (per-dot palette) | 16 |
+| `wipe` (`brush`) | wavy value-noise front (brush edge) with a faint rim line | watercolor mist-erase (brush edge) | `direction`/`angle`, `size` (amplitude, 0.04), `seed`, `color`, `rim` | 20 |
+| `wipe` (`soft`) | feathered straight wipe | - | `direction`/`angle`, `size` (feather, 0.12) | 16 |
+| `wipe` (`mist`) | two wavy paper layers rise and wash the old scene back to blank paper, then a wavy brush edge sweeps across and reveals the new scene | watercolor mist-erase | `angle` (270 = rise from the bottom), `color` (paper), `seed` | 60 |
+| `wipe` (`band`) | a wide hard band sweeps across (18 deg tilt, 13.5 % of travel), the new scene behind it | lemo red-band-wipe | `angle`, `size`, `color` | 8 |
+| `diagonal` (`band`) | a fat slanted colour band (shear 0.38) with dark lead / trail edges sweeps across, the scene swaps behind it (package wipe) | telestrator package-wipe | `angle` (0 = left to right, 180 = right to left), `size` (0.27 W), `color`, `colors[0]` (edge) | 12 |
+| `diagonal` (`strips`) | the old frame breaks into parallel strips along `angle` that slide away in alternating directions, staggered from the centre (max 14 strips) | spy-titles shattering | `angle` (30), `size` (strip height, 0.24 H) | 24 |
+| `bands` (`rows`) / (`cols`) | rows of the new scene slide in from alternating sides / columns drop and rise (staggered) | pictogram-motion grid snap | `bands` (6 rows / 8 cols) | 14 |
+| `bands` (`quarter`) | quarter-discs grow from every cell corner (diagonal stagger) until they cover the frame | pictogram-motion grid snap | `size` (cell, 1/6 H) | 14 |
+| `slide` (`scroll`) | both scenes are prints on one long mounting scroll: the camera slides across the mount gap | ukiyoe handscroll | `direction`/`angle`, `size` (gap, 0.135), `color` (mount) | 34 |
+| `tear` (`peel`) | a jagged rip runs top to bottom, the page shakes, then both halves peel away rotating, curling to a kraft back | mg-styles-15 collage paper-tear-peel | `x` (rip position), `color` (rim), `colors[0]` (kraft back), `seed` | 36 |
+| `zoom` (`snap`) | snap dolly: easeInOutCubic continuous push in by `size` x toward `x,y` with motion blur; the new scene arrives from 1 / size | x3 snap dolly | `x` `y`, `size` (3.2) | 10 |
+| `push-blur` (`whip`) | whip pan: easeInOutExpo, no overshoot, directional blur up to `size` px | prompt corpus whip-pan-blur | `direction`/`angle`, `size` (max blur px, 60) | 8 |
+
+Not added: `lights-out` = the existing `lights`; `paper-strip` is a caption look (story-caption-box); `tv-screen-transition`
+push-in = the existing `screen`; `theme-reveal-circle` needs the same scene in two themes (use `iris` with `x,y` on the toggle);
+`grab-iris` (cartoon glove on the edge), `print-pull` (cylinder peel with mirrored show-through) and `book-pullback-turn` need
+character / desk art.
+
 ## Notes
 
 - Almost all custom presentations render each scene once. Soft, banded and organic reveals use an SVG `<mask>`
   referenced from CSS (`mask: url(#id)`), so three.js and video scenes are not duplicated. Exceptions that render
   a scene more than once during the transition: `glitch` (3 offset copies), `door` (2 leaves of the old scene),
-  `burn` (2 page halves of the old scene) and `layer-swap` (4 paper layers of each scene) — avoid those on very
+  `burn` (2 page halves of the old scene), `layer-swap` (4 paper layers of each scene) and the extension variants `tear:peel` (2), `page-turn:curl3d` (one per strip), `diagonal:strips` (one per strip), `bands:rows` / `bands:cols` (one per row / column) — avoid those on very
   heavy three.js scenes.
 - `mosaic`, `mosaic:swirl` and `tracking` drive SVG filters (`feDisplacementMap`, pixelate) per frame; `mosaic:swirl`
   generates its twist map on a canvas from the frame number only, so renders stay deterministic.

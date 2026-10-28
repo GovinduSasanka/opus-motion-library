@@ -1,9 +1,11 @@
 import React, {useMemo} from 'react';
+import {noise2D} from '@remotion/noise';
 import {AbsoluteFill, Easing, useCurrentFrame} from 'remotion';
 import {getBoundingBox, getLength, getPointAtLength} from '@remotion/paths';
 import {clamp, ease, lerp, prog} from '../../core/ease';
 import {fonts} from '../../core/fonts';
 import {dash1} from '../../core/shape-kit';
+import {HandTool, resamplePath, retractDash, taperPolygon, wobblePolyline} from '../../core/r2-e3-kit';
 import {Svg, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
 
@@ -30,7 +32,41 @@ type Props = {
   fillOpacity: number;
   caption: string;
   margin: number;
+  /** round-2 extensions (all default to the original blueprint look) */
+  medium: 'clean' | 'cable' | 'crayon' | 'fineliner';
+  surface: 'blueprint' | 'whiteboard' | 'chalkboard' | 'paper';
+  hand: 'none' | 'marker' | 'pen' | 'chalk';
+  cables: {from: [number, number]; to: [number, number]; color?: string; lift?: number}[];
+  wobble: number;
+  boilFps: number;
+  taper: number;
+  overshoot: number;
+  gapChance: number;
+  seed: number;
+  retractAt: number;
+  retractFrames: number;
+  retractPieces: number;
 };
+
+/** cable demo (x8 breadboard): a board with pin rows and four tactile cables of different colours */
+const CABLE_DEMO = (() => {
+  const out: {d: string; g: number; col?: string}[] = [];
+  out.push({d: 'M 120 330 H 880 V 600 H 120 Z', g: 0});
+  const cols = ['#E5483B', '#F2B632', '#35B36B', '#3E7BE0'];
+  [
+    [[190, 360], [470, 150], 0.2],
+    [[302, 360], [640, 90], 0.14],
+    [[582, 566], [820, 210], 0.18],
+    [[750, 540], [900, 120], 0.12],
+  ].forEach((c, i) => {
+    const [a, b, lift] = c as [number[], number[], number];
+    const lx = lift * 640;
+    out.push({d: `M ${a[0]} ${a[1]} C ${a[0]} ${a[1] - lx} ${b[0]} ${b[1] + lx * 0.4} ${b[0]} ${b[1]}`, g: 1, col: cols[i]});
+  });
+  for (let i = 0; i < 12; i++) out.push({d: `M ${190 + i * 56} 360 v 26`, g: 0});
+  for (let i = 0; i < 12; i++) out.push({d: `M ${190 + i * 56} 540 v 26`, g: 0});
+  return out;
+})();
 
 const rect = (x: number, y: number, w: number, h: number) => `M ${x} ${y} H ${x + w} V ${y + h} H ${x} Z`;
 
@@ -67,13 +103,31 @@ const BLUEPRINT: {d: string; g: number}[] = (() => {
 
 const inOutQuad = Easing.inOut(Easing.quad);
 
-const LineDrawOn: React.FC<Props> = ({paths, groups, background, grid, strokeColor, strokeWidth, highlightColor, highlightGroups, drawFrames, stagger, startFrame, pen, engrave, fillOpacity, caption, margin}) => {
+const SURFACES = {
+  whiteboard: {bg: '#F6F7F5', ink: '#1F2A44', hl: '#E5483B'},
+  chalkboard: {bg: '#2F3B35', ink: '#ECECE4', hl: '#F2D16B'},
+  paper: {bg: '#EFE9DC', ink: '#2B2520', hl: '#C8363A'},
+} as const;
+
+const LineDrawOn: React.FC<Props> = ({paths, groups, background: bgIn, grid: gridIn, strokeColor: inkIn, strokeWidth, highlightColor: hlIn, highlightGroups, drawFrames, stagger, startFrame, pen, engrave, fillOpacity, caption, margin, medium, surface, hand, cables, wobble, boilFps, taper, overshoot, gapChance, seed, retractAt, retractFrames, retractPieces}) => {
   const frame = useCurrentFrame();
-  const {w, h, u, durationInFrames, portrait} = useStage();
+  const {w, h, u, durationInFrames, portrait, fps} = useStage();
   const mg = portrait ? margin * 0.45 : margin;
+  const surf = surface !== 'blueprint' ? SURFACES[surface] : null;
+  const background = surf ? surf.bg : bgIn;
+  const strokeColor = surf ? surf.ink : inkIn;
+  const highlightColor = surf ? surf.hl : hlIn;
+  const grid = surf ? false : gridIn;
+  const penDots = pen && hand === 'none' && medium !== 'cable';
 
   const items = useMemo(() => {
-    const src = paths.length ? paths.map((d, i) => ({d, g: groups[i] ?? 0})) : BLUEPRINT;
+    const cableSrc = cables.length
+      ? cables.map((c, i) => {
+          const lx = (c.lift ?? 0.16) * 640;
+          return {d: `M ${c.from[0]} ${c.from[1]} C ${c.from[0]} ${c.from[1] - lx} ${c.to[0]} ${c.to[1] + lx * 0.4} ${c.to[0]} ${c.to[1]}`, g: 1, col: c.color ?? ['#E5483B', '#F2B632', '#35B36B', '#3E7BE0'][i % 4]};
+        })
+      : null;
+    const src: {d: string; g: number; col?: string}[] = paths.length ? paths.map((d, i) => ({d, g: groups[i] ?? 0})) : cableSrc ?? (medium === 'cable' ? CABLE_DEMO : BLUEPRINT);
     return src.map((p) => {
       let len = 1;
       try {
@@ -83,7 +137,7 @@ const LineDrawOn: React.FC<Props> = ({paths, groups, background, grid, strokeCol
       }
       return {...p, len};
     });
-  }, [paths, groups]);
+  }, [paths, groups, cables, medium]);
 
   const box = useMemo(() => {
     let x0 = Infinity;
@@ -129,10 +183,64 @@ const LineDrawOn: React.FC<Props> = ({paths, groups, background, grid, strokeCol
     const gi = groupIds.indexOf(it.g);
     const hp = gi >= 0 ? inOutQuad(clamp((frame - hlStart - gi * hlGap - (i % 6) * 0.8) / 9)) : 0;
     const closed = /z\s*$/i.test(it.d.trim());
-    return {it, i, p, hp, s0, closed};
+    const rp = retractAt > 0 ? inOutQuad(clamp((frame - retractAt - (i % 5) * 1.5) / Math.max(1, retractFrames))) : 0;
+    return {it, i, p, hp, s0, closed, rp};
   });
 
-  const nibs = pen
+  // hand-made media: wobbly resampled polylines, re-seeded every boil step
+  const boilStep = medium === 'crayon' || medium === 'fineliner' ? Math.floor((frame * Math.max(1, boilFps)) / fps) : 0;
+  const hand2 = medium === 'crayon' || medium === 'fineliner';
+  const polys = useMemo(() => {
+    if (!hand2) return [];
+    return items.map((it, i) => {
+      const step = Math.max(1.5, (medium === 'crayon' ? 3 : 1.6 * strokeWidth) * u) / S;
+      return {base: resamplePath(it.d, step), i};
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [items, hand2, S, u, medium, strokeWidth]);
+  const poly = (i: number, layer: number) => {
+    const base = polys[i]?.base ?? [];
+    if (!base.length) return base;
+    let pts = base;
+    if (medium === 'fineliner' && overshoot > 0) {
+      const a = pts[0];
+      const b = pts[1];
+      const z = pts[pts.length - 1];
+      const y = pts[pts.length - 2];
+      const oa = (overshoot * u * 0.5) / S;
+      const ob = (overshoot * u) / S;
+      const ta = Math.hypot(a[0] - b[0], a[1] - b[1]) || 1;
+      const tb = Math.hypot(z[0] - y[0], z[1] - y[1]) || 1;
+      pts = [[a[0] + ((a[0] - b[0]) / ta) * oa, a[1] + ((a[1] - b[1]) / ta) * oa], ...pts, [z[0] + ((z[0] - y[0]) / tb) * ob, z[1] + ((z[1] - y[1]) / tb) * ob]];
+    }
+    return wobblePolyline(pts, `ld${seed}-${i}-${layer}`, (wobble * u) / S, 0.018 * S / u, boilStep * 0.9 + layer * 3.1);
+  };
+  const gapOf = (i: number): [number, number] | null => {
+    if (gapChance <= 0) return null;
+    const r = noise2D(`gap${seed}`, i * 1.31, 0.5);
+    if ((r + 1) / 2 > gapChance) return null;
+    const c = 0.25 + 0.5 * ((noise2D(`gapc${seed}`, i * 0.77, 1.5) + 1) / 2);
+    return [c, c + 0.035];
+  };
+
+  // the active stroke drives the hand sprite; it lifts and travels between strokes
+  const handPos = (() => {
+    if (hand === 'none' || !items.length) return null;
+    const idx = Math.max(0, Math.min(n - 1, Math.floor((frame - startFrame) / Math.max(1, st))));
+    const cur = strokes[idx];
+    const prev = strokes[Math.max(0, idx - 1)];
+    const live = clamp(cur.p, 0, 1);
+    const pt = getPointAtLength(cur.it.d, cur.it.len * live);
+    const pp = getPointAtLength(prev.it.d, prev.it.len);
+    const travel = idx > 0 ? clamp((frame - cur.s0) / 4) : 1;
+    const lift = idx > 0 ? Math.sin(Math.PI * clamp((frame - cur.s0) / 5)) * (travel < 1 ? 1 : 0.4) : 0;
+    const x = lerp(pp?.x ?? 0, pt?.x ?? 0, travel);
+    const y = lerp(pp?.y ?? 0, pt?.y ?? 0, travel);
+    const done = frame > drawEnd + 6 ? clamp((frame - drawEnd - 6) / 12) : 0;
+    return {x, y, lift: Math.max(lift, done), out: done};
+  })();
+
+  const nibs = penDots
     ? strokes
         .filter((s) => s.p > 0 && s.p < 1)
         .map((s) => {
@@ -140,7 +248,7 @@ const LineDrawOn: React.FC<Props> = ({paths, groups, background, grid, strokeCol
           return {x: pt?.x ?? 0, y: pt?.y ?? 0, key: s.i};
         })
     : [];
-  const flashes = pen
+  const flashes = penDots
     ? strokes
         .filter((s) => frame >= s.s0 && frame < s.s0 + 6)
         .map((s) => {
@@ -175,20 +283,65 @@ const LineDrawOn: React.FC<Props> = ({paths, groups, background, grid, strokeCol
             strokes.map((s) => (
               <path key={`e${s.i}`} d={s.it.d} fill="none" stroke={strokeColor} strokeWidth={sw * 3.2} strokeLinecap="round" strokeLinejoin="round" {...dash1(s.p)} />
             ))}
-          {strokes.map((s) => (
-            <path
-              key={`s${s.i}`}
-              d={s.it.d}
-              fill="none"
-              stroke={engrave ? background : strokeColor}
-              strokeWidth={engrave ? sw * 1.4 : sw}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              {...dash1(s.p)}
-            />
-          ))}
+          {medium === 'clean' &&
+            strokes.map((s) => (
+              <path
+                key={`s${s.i}`}
+                d={s.it.d}
+                fill="none"
+                stroke={engrave ? background : strokeColor}
+                strokeWidth={engrave ? sw * 1.4 : sw}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                {...(s.rp > 0 ? {...retractDash(s.it.len, retractPieces, s.rp, `rt${s.i}`), opacity: s.rp >= 1 ? 0 : 1} : dash1(s.p))}
+              />
+            ))}
+          {medium === 'cable' &&
+            strokes.map((s) => {
+              const cc = (s.it as {col?: string}).col;
+              const dashProps = s.rp > 0 ? {...retractDash(s.it.len, retractPieces, s.rp, `rt${s.i}`), opacity: s.rp >= 1 ? 0 : 1} : dash1(s.p);
+              if (!cc) return <path key={`s${s.i}`} d={s.it.d} fill="none" stroke={strokeColor} strokeWidth={sw} strokeLinecap="round" strokeLinejoin="round" {...dashProps} />;
+              const pop = prog(frame, s.s0, s.s0 + 2, ease.out) * (1 - s.rp);
+              const st0 = getPointAtLength(s.it.d, 0);
+              return (
+                <g key={`s${s.i}`}>
+                  <path d={s.it.d} fill="none" stroke="#1C253B" strokeWidth={sw * 4.4} strokeLinecap="round" strokeLinejoin="round" {...dashProps} />
+                  <path d={s.it.d} fill="none" stroke={cc} strokeWidth={sw * 3} strokeLinecap="round" strokeLinejoin="round" {...dashProps} />
+                  <path d={s.it.d} fill="none" stroke="#FFFFFF" strokeOpacity={0.35} strokeWidth={sw * 0.8} strokeLinecap="round" strokeLinejoin="round" transform={`translate(0 ${-sw * 0.8})`} {...dashProps} />
+                  <circle cx={st0?.x ?? 0} cy={st0?.y ?? 0} r={sw * 3.2 * pop} fill={cc} stroke="#1C253B" strokeWidth={sw * 0.7} />
+                </g>
+              );
+            })}
+          {hand2 && (
+            <g filter={medium === 'crayon' ? 'url(#ldCrayon)' : undefined}>
+              {strokes.map((s) => {
+                const gap = medium === 'fineliner' ? gapOf(s.i) : null;
+                const w0 = sw * (medium === 'crayon' ? 1.7 : 1.15);
+                const col = strokeColor;
+                const layer = (k: number, wMul: number, op: number) => {
+                  const pts = poly(s.i, k);
+                  const eraseFrom = s.rp;
+                  const d = taperPolygon(pts, w0 * wMul, s.p, eraseFrom, taper, medium === 'crayon' ? 0.3 : 0.2, `tp${seed}${s.i}${k}`);
+                  if (!d) return null;
+                  return <path key={k} d={d} fill={col} opacity={op} />;
+                };
+                return (
+                  <g key={`m${s.i}`} opacity={gap && s.p > gap[0] ? 1 : 1}>
+                    {layer(0, 1, medium === 'crayon' ? 0.88 : 1)}
+                    {medium === 'crayon' && layer(1, 0.55, 0.45)}
+                    {medium === 'crayon' && layer(2, 0.3, 0.3)}
+                    {gap && s.p > gap[0] && (() => {
+                      const pts = poly(s.i, 0);
+                      const k = Math.min(pts.length - 1, Math.floor(((gap[0] + gap[1]) / 2) * (pts.length - 1)));
+                      return <circle cx={pts[k][0]} cy={pts[k][1]} r={Math.max(sw * 0.8, ((gap[1] - gap[0]) * s.it.len) / 2)} fill={background} />;
+                    })()}
+                  </g>
+                );
+              })}
+            </g>
+          )}
           {strokes
-            .filter((s) => s.hp > 0)
+            .filter((s) => s.hp > 0 && medium !== 'cable')
             .map((s) => (
               <path key={`h${s.i}`} d={s.it.d} fill="none" stroke={highlightColor} strokeWidth={sw * (engrave ? 3.2 : 1.25)} strokeLinecap="round" strokeLinejoin="round" {...dash1(s.hp)} />
             ))}
@@ -204,7 +357,20 @@ const LineDrawOn: React.FC<Props> = ({paths, groups, background, grid, strokeCol
               <circle cx={nb.x} cy={nb.y} r={(4.5 * u) / S} fill="#FFFFFF" />
             </g>
           ))}
+          {handPos && hand !== 'none' && handPos.out < 1 && (
+            <g opacity={1 - handPos.out}>
+              <HandTool x={handPos.x} y={handPos.y} scale={(1.7 * u) / S} tool={hand} color={highlightColor} lift={handPos.lift} />
+            </g>
+          )}
         </g>
+        {medium === 'crayon' && (
+          <defs>
+            <filter id="ldCrayon" x="-5%" y="-5%" width="110%" height="110%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="2" seed={(boilStep % 23) + 1 + seed} result="n" />
+              <feDisplacementMap in="SourceGraphic" in2="n" scale={Math.max(1, wobble * 1.6 * u)} xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+          </defs>
+        )}
       </Svg>
       {caption && (
         <div
@@ -256,6 +422,19 @@ export const lineDrawOn = defineMotion<Props>({
     fillOpacity: 0.28,
     caption: 'ELEVATION A  ·  1:100',
     margin: 0.1,
+    medium: 'clean',
+    surface: 'blueprint',
+    hand: 'none',
+    cables: [],
+    wobble: 1.4,
+    boilFps: 12,
+    taper: 0.55,
+    overshoot: 0,
+    gapChance: 0,
+    seed: 3,
+    retractAt: 0,
+    retractFrames: 14,
+    retractPieces: 3,
   },
   propDocs: {
     paths: 'SVG path strings in any coordinate space (auto-fitted); empty = built-in blueprint drawing',
@@ -272,7 +451,20 @@ export const lineDrawOn = defineMotion<Props>({
     caption: 'small mono title block typed after the drawing ("" to hide)',
     grid: 'blueprint grid background',
     margin: 'margin around the drawing as a fraction of the frame',
+    medium: "stroke style: clean (default) | cable (thick outlined round cables with highlight + connector-cap pop; draws a breadboard demo when no paths) | crayon (wobbly tapered wax lines that keep boiling at boilFps) | fineliner (tapered pen, overshoot + skips)",
+    surface: 'blueprint (default) | whiteboard | chalkboard | paper — swaps background, ink and highlight colours, grid off',
+    hand: "marker | pen | chalk — a hand holding the tool follows the active stroke tip and lifts between strokes (replaces the nib dot)",
+    cables: 'medium cable: [{from:[x,y], to:[x,y], color?, lift?}] in a 1000x640 space (lift = arc height as a fraction of 640)',
+    wobble: 'crayon / fineliner: line wobble in px',
+    boilFps: 'crayon: re-seed rate of the wobble (12 = hand-drawn boil)',
+    taper: 'crayon / fineliner: how much both stroke ends thin out (0..1)',
+    overshoot: 'fineliner: px the pen overshoots each stroke end',
+    gapChance: 'fineliner: 0..1 chance a stroke skips a small gap mid-way',
+    seed: 'noise seed for wobble / gaps',
+    retractAt: 'frame to start removing the drawing (0 = never): cables split into pieces that shrink to nothing; crayon / fineliner erase from the tail',
+    retractFrames: 'frames each retract takes',
+    retractPieces: 'cable pieces the stroke splits into when retracting',
   },
   component: LineDrawOn,
-  tags: ['draw-on', 'blueprint', 'line-art', 'diagram', 'construct'],
+  tags: ['draw-on', 'blueprint', 'line-art', 'diagram', 'construct', 'cable', 'wire', 'crayon', 'fineliner', 'whiteboard', 'chalkboard', 'hand-drawn', 'marker', 'retract'],
 });
