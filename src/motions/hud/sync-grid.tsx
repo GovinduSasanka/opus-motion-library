@@ -20,6 +20,7 @@ type Props = {
   background: string;
   ink: string;
   accent: string;
+  camLabel: string;
 };
 
 const lerpKeys = (frame: number, keys: number[][]) => {
@@ -40,7 +41,7 @@ const fmtClock = (sec: number, base: string) => {
   return `${f(Math.floor(t / 3600) % 24)}:${f(Math.floor(t / 60) % 60)}:${f(t % 60)}`;
 };
 
-const Panel: React.FC<{col: Col; local: number; span: number; frozen: boolean; u: number; ink: string; accent: string; fw: number; fh: number; portrait?: boolean}> = ({col, local, span, frozen, u, ink, accent, fw, fh, portrait}) => {
+const Panel: React.FC<{col: Col; local: number; span: number; frozen: boolean; u: number; ink: string; accent: string; fw: number; fh: number; portrait?: boolean; camLabel?: string}> = ({col, local, span, frozen, u, ink, accent, fw, fh, portrait, camLabel = 'CAM 02 ● REC'}) => {
   const k = col.kind;
   if ((k === 'image' || k === 'dashcam') && col.src) return <Img src={resolveSrc(col.src)} style={{width: fw, height: fh, objectFit: 'cover'}} />;
   if (k === 'text') {
@@ -108,7 +109,7 @@ const Panel: React.FC<{col: Col; local: number; span: number; frozen: boolean; u
         <line key={i} x1="0" x2="400" y1={i * 10} y2={i * 10} stroke="#000" opacity={0.12} />
       ))}
       <text x="12" y="24" fontFamily={fonts.mono} fontSize="16" fill="#cfd6d0">
-        CAM 02 ● REC
+        {camLabel}
       </text>
     </svg>
   );
@@ -176,7 +177,7 @@ const SyncGrid: React.FC<Props> = (p) => {
                     )}
                   </Sequence>
                 ) : (
-                  <Panel col={c} local={local} span={span} frozen={frozen} u={u} ink={p.ink} accent={p.accent} fw={cw} fh={ch} portrait={portrait} />
+                  <Panel col={c} local={local} span={span} frozen={frozen} u={u} ink={p.ink} accent={p.accent} fw={cw} fh={ch} portrait={portrait} camLabel={p.camLabel} />
                 )}
                 <div style={{position: 'absolute', inset: 0, background: '#fff', opacity: flash * 0.85}} />
                 {frozen && isSync ? (
@@ -246,6 +247,7 @@ export const syncGrid = defineMotion<Props>({
     background: '#0B0C0F',
     ink: '#ECEAE4',
     accent: '#FF3B2F',
+    camLabel: 'CAM 02 ● REC',
   },
   propDocs: {
     columns: "[{tag, kind:'text'|'dashcam'|'cctv'|'image'|'video', src?, text? (lines), startsAt (event seconds)}]",
@@ -259,6 +261,7 @@ export const syncGrid = defineMotion<Props>({
     background: 'background colour',
     ink: 'text colour',
     accent: 'red/accent colour',
+    camLabel: 'on-screen label inside the dashcam-style panel',
   },
   component: SyncGrid,
   tags: ['evidence', 'timeline', 'stopwatch', 'sync', 'dashcam', 'cctv', 'investigation', 'comparison', 'clock', 'grid', 'forensic'],

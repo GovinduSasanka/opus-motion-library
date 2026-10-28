@@ -26,6 +26,9 @@ type Props = {
   src: string;
   seed: number;
   background: string;
+  speedLine: string;
+  clockLabel: string;
+  curveLabel: string;
 };
 
 const SKY: [number, string, string][] = [
@@ -246,13 +249,13 @@ const FrameBlendTimelapse: React.FC<Props> = (p) => {
               {v >= 10 ? Math.round(v) : v.toFixed(1)}×
             </text>
             <text x={portrait ? w / 2 : 48 * u} y={108 * hy * u} textAnchor={portrait ? 'middle' : 'start'} fontFamily={s1f.barlow} fontWeight={600} fontSize={fs * 0.8} letterSpacing={3 * u} fill="#B8B1D0">
-              {`SPEED · ${N} SUB-FRAME${N > 1 ? 'S' : ''} BLENDED`}
+              {p.speedLine.replace('{n}', String(N)).replace('{s}', N > 1 ? 'S' : '')}
             </text>
             <text x={w - 48 * u} y={72 * hy * u} textAnchor="end" fontFamily={s1f.dela} fontSize={portrait ? 90 * u : Math.min(62 * u, w * 0.1)} fill="#FFF7E8">
               {clock}
             </text>
             <text x={w - 48 * u} y={108 * hy * u} textAnchor="end" fontFamily={s1f.barlow} fontWeight={600} fontSize={fs * 0.8} letterSpacing={3 * u} fill="#B8B1D0">
-              SOURCE CLOCK
+              {p.clockLabel}
             </text>
           </g>
         )}
@@ -264,7 +267,7 @@ const FrameBlendTimelapse: React.FC<Props> = (p) => {
               <line x1={px} x2={px} y1={gy - 6 * u} y2={gy + gh + 6 * u} stroke="rgba(255,255,255,0.5)" strokeWidth={1.5 * u} />
               <circle cx={px} cy={py} r={6 * u} fill="#FFF0A0" />
               <text x={gx} y={gy + gh + (portrait ? 44 : 28) * u} fontFamily={s1f.barlow} fontWeight={600} fontSize={fs * 0.62} letterSpacing={2 * u} fill="#9A93B8">
-                0.3× – 80× SPEED CURVE
+                {p.curveLabel}
               </text>
             </g>
           </g>
@@ -293,6 +296,9 @@ export const frameBlendTimelapse = defineMotion<Props>({
     src: '',
     seed: 4,
     background: '#070B1C',
+    speedLine: 'SPEED · {n} SUB-FRAME{s} BLENDED',
+    clockLabel: 'SOURCE CLOCK',
+    curveLabel: '0.3× – 80× SPEED CURVE',
   },
   propDocs: {
     speedKeys: 'speed keyframes [[seconds, multiplier], ...] — smoothstep (log-space) between keys; 0.3 - 75',
@@ -304,6 +310,9 @@ export const frameBlendTimelapse = defineMotion<Props>({
     src: 'optional still image (public/) used as the sky + skyline plate behind the road',
     seed: 'seed for buildings, clouds and cars',
     background: 'fallback background',
+    speedLine: 'HUD line; {n} = sub-frames blended, {s} = "S" when more than one',
+    clockLabel: 'caption under the source clock readout',
+    curveLabel: 'caption under the speed-curve graph',
   },
   component: FrameBlendTimelapse,
   tags: ['timelapse', 'hyperlapse', 'speed ramp', 'frame blend', 'motion blur', 'light trails', 'headlights', 'shutter', 'time flies', 'city', 'day to night', 'wrapper'],

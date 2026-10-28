@@ -38,9 +38,11 @@ type Props = {
   safeAreas: boolean;
   qcLog: boolean;
   counterTo: number;
+  titleSafeLabel: string;
+  actionSafeLabel: string;
 };
 
-const WidthPressureType: React.FC<Props> = ({lines, bpm, offsetSec, beats, widthFrom, widthTo, weightFrom, weightTo, maxCopies, burstBeats, background, ink, dim, accent, safeAreas, qcLog, counterTo}) => {
+const WidthPressureType: React.FC<Props> = ({lines, bpm, offsetSec, beats, widthFrom, widthTo, weightFrom, weightTo, maxCopies, burstBeats, background, ink, dim, accent, safeAreas, qcLog, counterTo, titleSafeLabel = 'TITLE SAFE 90%', actionSafeLabel = 'ACTION SAFE 93%'}) => {
   const frame = useCurrentFrame();
   const {w, h, u, fps, durationInFrames, portrait} = useStage();
   const g = useGrid(beats, bpm, offsetSec);
@@ -85,10 +87,10 @@ const WidthPressureType: React.FC<Props> = ({lines, bpm, offsetSec, beats, width
           <rect x={w * 0.05} y={h * 0.05} width={w * 0.9} height={h * 0.9} fill="none" stroke={dim} strokeOpacity={0.55} strokeWidth={Math.max(1, u)} strokeDasharray={`${6 * u} ${5 * u}`} />
           <rect x={w * 0.035} y={h * 0.035} width={w * 0.93} height={h * 0.93} fill="none" stroke={dim} strokeOpacity={0.3} strokeWidth={Math.max(1, u)} />
           <text x={w * 0.05 + 6 * u} y={h * 0.05 + mono * 1.3} fontFamily={plexMono} fontSize={mono * 0.85} fill={warn ? accent : dim} letterSpacing={1}>
-            TITLE SAFE 90%
+            {titleSafeLabel}
           </text>
           <text x={w * 0.035 + 6 * u} y={h * 0.035 + mono * 1.2} fontFamily={plexMono} fontSize={mono * 0.85} fill={burstIdx >= 2 ? accent : dim} opacity={0.8} letterSpacing={1}>
-            ACTION SAFE 93%
+            {actionSafeLabel}
           </text>
           <CropMarks w={w} h={h} inset={16 * u} len={26 * u} color={burstIdx >= 3 ? accent : dim} sw={Math.max(1, 1.4 * u)} splay={splay} />
         </svg>
@@ -142,6 +144,8 @@ export const widthPressureType = defineMotion<Props>({
     safeAreas: true,
     qcLog: true,
     counterTo: 20000,
+    titleSafeLabel: 'TITLE SAFE 90%',
+    actionSafeLabel: 'ACTION SAFE 93%',
   },
   propDocs: {
     ...MUSIC_PROP_DOCS,
@@ -159,6 +163,8 @@ export const widthPressureType = defineMotion<Props>({
     safeAreas: 'draw title/action-safe boxes and crop marks',
     qcLog: 'deadpan mono QC log bottom-left',
     counterTo: 'the racing counter’s final value',
+    titleSafeLabel: 'label of the inner safe-area guide (safeAreas: true)',
+    actionSafeLabel: 'label of the outer safe-area guide (safeAreas: true)',
   },
   component: WidthPressureType,
   tags: ['variable font', 'width axis', 'condensed', 'pressure', 'kinetic typography', 'kick', 'beat', 'music', 'safe area', 'qc', 'broadcast', 'slab', 'density', 'treatise'],

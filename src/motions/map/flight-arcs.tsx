@@ -111,7 +111,7 @@ const FlightArcs: React.FC<Props> = (p) => {
       arcEls.push(
         <g key={'a' + i}>
           <path d={'M' + full} fill="none" stroke={p.accent2} strokeWidth={1.6 * u} strokeDasharray={`${3 * u} ${7 * u}`} opacity={0.22 + 0.1 * done} />
-          <path d={'M' + pts.map((q) => q[0].toFixed(1) + ' ' + q[1].toFixed(1)).join('L')} fill="none" stroke={p.accent2} strokeWidth={2.2 * u} opacity={0.5 * (1 - 0.4 * done)} strokeLinecap="round" />
+          <path d={'M' + pts.map((q) => q[0].toFixed(1) + ' ' + q[1].toFixed(1)).join('L')} fill="none" stroke={p.accent2} strokeWidth={2.2 * u} opacity={0.85 - 0.25 * done} strokeLinecap="round" />
           <path d={'M' + lit} fill="none" stroke={p.accent} strokeWidth={4 * u} strokeLinecap="round" strokeLinejoin="round" opacity={0.95 * (1 - done)} />
         </g>,
       );

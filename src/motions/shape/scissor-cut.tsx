@@ -22,9 +22,10 @@ type Props = {
   background: string;
   paper: string;
   scissorSize: number;
+  cutLabel: string;
 };
 
-const ScissorCut: React.FC<Props> = ({title, subtitle, revealText, src, path, snips, at, separate, color, ink, background, paper, scissorSize}) => {
+const ScissorCut: React.FC<Props> = ({title, subtitle, revealText, src, path, snips, at, separate, color, ink, background, paper, scissorSize, cutLabel = 'CUT ALONG THE LINE'}) => {
   const frame = useCurrentFrame();
   const {w, h, u, cx, cy, portrait} = useStage();
   const W = portrait ? w * 0.84 : Math.min(w * 0.62, 1180 * u);
@@ -184,7 +185,7 @@ const ScissorCut: React.FC<Props> = ({title, subtitle, revealText, src, path, sn
           <g opacity={prog(frame, at + 14, at + 22, ease.out)} transform={`translate(${x0 + 12 * u} ${pts[0][1] - 26 * u})`}>
             <rect width={256 * u} height={34 * u} fill={ink} />
             <text x={14 * u} y={24 * u} fontFamily={fonts.mono} fontWeight={700} fontSize={18 * u} fill={paper}>
-              CUT ALONG THE LINE
+              {cutLabel}
             </text>
           </g>
         )}
@@ -224,6 +225,7 @@ export const scissorCut = defineMotion<Props>({
     background: '#B89A72',
     paper: '#F2ECDF',
     scissorSize: 0.2,
+    cutLabel: 'CUT ALONG THE LINE',
   },
   propDocs: {
     title: 'headline on the sheet',
@@ -239,6 +241,7 @@ export const scissorCut = defineMotion<Props>({
     background: 'table colour',
     paper: 'paper colour',
     scissorSize: 'scissors length as a fraction of sheet width',
+    cutLabel: 'mono caption on the coupon strip',
   },
   component: ScissorCut,
   tags: ['scissors', 'cut', 'paper', 'collage', 'coupon', 'sale', 'reveal', 'split', 'dashed line', 'craft', 'price cut', 'transition', 'snip', 'kraft'],

@@ -25,9 +25,10 @@ type Props = {
   tree: boolean;
   showCount: boolean;
   seed: number;
+  countLabel: string;
 };
 
-const CellDivision: React.FC<Props> = ({background, outlineColor, nucleusColors, lineColor, dotColor, generations, framesPerDoubling, start, tree, showCount, seed}) => {
+const CellDivision: React.FC<Props> = ({background, outlineColor, nucleusColors, lineColor, dotColor, generations, framesPerDoubling, start, tree, showCount, seed, countLabel = 'CELLS'}) => {
   const frame = useCurrentFrame();
   const {w, h, u, portrait, durationInFrames} = useStage();
   const G = Math.max(1, Math.min(10, Math.round(generations)));
@@ -258,7 +259,7 @@ const CellDivision: React.FC<Props> = ({background, outlineColor, nucleusColors,
             opacity: 0.85,
           }}
         >
-          {count.toLocaleString('en-US')} <span style={{opacity: 0.55, fontSize: (portrait ? 30 : 20) * u}}>CELLS</span>
+          {count.toLocaleString('en-US')} <span style={{opacity: 0.55, fontSize: (portrait ? 30 : 20) * u}}>{countLabel}</span>
         </div>
       )}
     </AbsoluteFill>
@@ -285,6 +286,7 @@ export const cellDivision = defineMotion<Props>({
     tree: true,
     showCount: true,
     seed: 6,
+    countLabel: 'CELLS',
   },
   propDocs: {
     outlineColor: 'egg outline / count text colour',
@@ -296,6 +298,7 @@ export const cellDivision = defineMotion<Props>({
     start: 'frame of the first split',
     tree: 'grow the binary-tree diagram in the top-right corner',
     showCount: 'show the running count under the tree',
+    countLabel: 'unit word after the live count (showCount: true)',
   },
   component: CellDivision,
   tags: ['growth', 'exponential', 'doubling', 'biology', 'tree'],

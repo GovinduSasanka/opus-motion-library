@@ -22,6 +22,7 @@ type Props = {
   body: string;
   accent: string;
   background: string;
+  graphLabel?: string;
 };
 
 const MODE_LABEL: Record<string, string> = {normal: 'PLAY ▶', step: 'TRACKING 15', reverse: '◀ REW', half: 'SLOW 1/2'};
@@ -70,7 +71,7 @@ const Cassette: React.FC<{body: string; accent: string; label: string}> = ({body
   );
 };
 
-const TapeStutter: React.FC<Props> = ({segments, stepEvery, jitter, showGraph, label, body, accent, background}) => {
+const TapeStutter: React.FC<Props> = ({segments, stepEvery, jitter, showGraph, label, body, accent, background, graphLabel = 'source time vs. output time'}) => {
   const frame = useCurrentFrame();
   const {w, h, u, fps, durationInFrames} = useStage();
   const segs = segments as TapeSeg[];
@@ -125,7 +126,7 @@ const TapeStutter: React.FC<Props> = ({segments, stepEvery, jitter, showGraph, l
             <polyline points={pts} fill="none" stroke={accent} strokeWidth={3.5 * u} />
             <circle cx={px} cy={py} r={9 * u} fill="#fff" />
             <text x={gx} y={gy + gh + 34 * u} fontFamily={fonts.mono} fontSize={24 * u} fill="#ffffff99">
-              source time vs. output time
+              {graphLabel}
             </text>
           </g>
         )}
@@ -157,6 +158,7 @@ export const tapeStutter = defineMotion<Props>({
     body: '#2a2145',
     accent: '#35e0c0',
     background: '#07040f',
+    graphLabel: 'source time vs. output time',
   },
   propDocs: {
     segments: 'list of {from,to,mode} in frames; mode = normal | step (hold every Nth frame) | reverse (rewind blip) | half (half speed)',
@@ -167,6 +169,7 @@ export const tapeStutter = defineMotion<Props>({
     body: 'cassette body colour',
     accent: 'accent colour (label stripe, meter, curve)',
     background: 'backdrop colour',
+    graphLabel: 'caption under the time graph (showGraph: true)',
   },
   component: TapeStutter,
   tags: ['tape', 'stutter', 'time remap', 'vhs', 'retro', '15fps', 'rewind', 'tape stop', 'step', 'glitch', 'cassette', 'rhythm', 'wrapper', 'edit'],

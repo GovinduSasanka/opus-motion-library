@@ -20,16 +20,21 @@ type Props = {
   toLabel: string;
   callSign: string;
   keepRed: boolean;
+  recLabel: string;
+  panelTitles: string[];
+  calmNames: string[];
+  alertNames: string[];
+  contactNames: string[];
 };
 
-type HudArgs = {pal: Pal; alert: boolean; frame: number; w: number; h: number; u: number; ox: number; oy: number; rr: number; portrait: boolean; label: string; callSign: string; at: number; uid: string};
+type HudArgs = {pal: Pal; alert: boolean; frame: number; w: number; h: number; u: number; ox: number; oy: number; rr: number; portrait: boolean; label: string; callSign: string; at: number; uid: string; txt: Pick<Props, 'recLabel' | 'panelTitles' | 'calmNames' | 'alertNames' | 'contactNames'>};
 
 const tc = (f: number) => {
   const s = f / 30;
   return `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(Math.floor(s % 60)).padStart(2, '0')}:${String(Math.floor((s % 1) * 30)).padStart(2, '0')}`;
 };
 
-const Hud: React.FC<HudArgs> = ({pal, alert, frame, w, h, u, ox, oy, rr, portrait, label, callSign, at, uid}) => {
+const Hud: React.FC<HudArgs> = ({pal, alert, frame, w, h, u, ox, oy, rr, portrait, label, callSign, at, uid, txt}) => {
   const boot = prog(frame, 0, 18, ease.out);
   const sweepA = ((frame * (alert ? 7 : 3.2)) % 360) * (Math.PI / 180);
   const ticks: React.ReactNode[] = [];
@@ -63,7 +68,7 @@ const Hud: React.FC<HudArgs> = ({pal, alert, frame, w, h, u, ox, oy, rr, portrai
   const threat = alert ? 0.94 : 0.12 + 0.5 * inc;
   // side panels
   const bars = [0.55 + 0.25 * Math.sin(frame * 0.11), 0.4 + 0.3 * Math.sin(frame * 0.17 + 1), 0.7 + 0.2 * Math.sin(frame * 0.09 + 2), 0.35 + 0.3 * Math.sin(frame * 0.21 + 3), threat];
-  const names = alert ? ['LINK', 'HULL', 'POWER', 'SHIELD', 'THREAT'] : ['SIGNAL', 'LOAD', 'POWER', 'LINK', 'THREAT'];
+  const names = alert ? txt.alertNames : txt.calmNames;
   const panel = (px: number, py: number, pw: number, ph: number, k: number) => {
     const rows = bars.length;
     const q = portrait ? 1.5 : 1;
@@ -73,7 +78,7 @@ const Hud: React.FC<HudArgs> = ({pal, alert, frame, w, h, u, ox, oy, rr, portrai
         <rect x={px} y={py} width={pw} height={ph} fill={pal.main} opacity={0.05} />
         <path d={`M${px} ${py + 24 * u}V${py}H${px + 24 * u}M${px + pw - 24 * u} ${py + ph}H${px + pw}V${py + ph - 24 * u}`} stroke={pal.main} strokeWidth={2.4 * u} fill="none" />
         <text x={px + 16 * u} y={py + 40 * u * q} fontFamily={mg1Fonts.tech} fontWeight={700} fontSize={22 * u * q} letterSpacing={4 * u * q} fill={pal.main}>
-          {k === 0 ? `0${1 + (alert ? 1 : 0)} // SYSTEM` : `0${3 + (alert ? 1 : 0)} // CONTACT`}
+          {k === 0 ? `0${1 + (alert ? 1 : 0)} // ${txt.panelTitles[0]}` : `0${3 + (alert ? 1 : 0)} // ${txt.panelTitles[1]}`}
         </text>
         {bars.map((v, i) => {
           const yy = py + 60 * u * q + i * rh;
@@ -82,7 +87,7 @@ const Hud: React.FC<HudArgs> = ({pal, alert, frame, w, h, u, ox, oy, rr, portrai
           return (
             <g key={i}>
               <text x={px + 16 * u} y={yy + rh * (portrait ? 0.45 : 0.42)} fontFamily={fonts.mono} fontSize={17 * u * q} fill={pal.main} opacity={0.8}>
-                {k === 0 ? names[i] : ['RNG', 'BRG', 'VEL', 'ALT', 'ID'][i]}
+                {k === 0 ? names[i] : txt.contactNames[i]}
               </text>
               <rect x={px + 16 * u} y={yy + rh * (portrait ? 0.62 : 0.52)} width={pw - 90 * u} height={7 * u} fill={pal.dim} opacity={0.5} />
               <rect x={px + 16 * u} y={yy + rh * (portrait ? 0.62 : 0.52)} width={(pw - 90 * u) * vv} height={7 * u} fill={hot && alert ? pal.hot : pal.main} />
@@ -157,7 +162,7 @@ const cx0 = (w: number) => w / 2;
 
 const bezE = (t: number) => Easing.bezier(0.25, 0.55, 0.35, 1)(t);
 
-const AlertReinkWave: React.FC<Props> = ({fromPalette, toPalette, at, duration, originX, originY, fromLabel, toLabel, callSign, keepRed}) => {
+const AlertReinkWave: React.FC<Props> = ({fromPalette, toPalette, at, duration, originX, originY, fromLabel, toLabel, callSign, keepRed, recLabel, panelTitles, calmNames, alertNames, contactNames}) => {
   const frame = useCurrentFrame();
   const {w, h, u, portrait} = useStage();
   const ox = w * originX;
@@ -170,7 +175,7 @@ const AlertReinkWave: React.FC<Props> = ({fromPalette, toPalette, at, duration, 
   const front = frame >= at ? Math.exp(-(((Math.max(0, frame - at - duration * 0.55)) / 10) ** 2)) : 0;
   const flash = frame >= at && frame < at + 4 ? 0.35 * (1 - (frame - at) / 4) : 0;
   const shake = frame >= at && frame < at + 12 ? Math.sin((frame - at) * 3.1) * 7 * u * (1 - (frame - at) / 12) : 0;
-  const common = {frame, w, h, u, ox, oy, rr, portrait, callSign, at};
+  const common = {frame, w, h, u, ox, oy, rr, portrait, callSign, at, txt: {recLabel, panelTitles, calmNames, alertNames, contactNames}};
   return (
     <AbsoluteFill style={{background: fromPalette.bg}}>
       <Svg>
@@ -204,7 +209,7 @@ const AlertReinkWave: React.FC<Props> = ({fromPalette, toPalette, at, duration, 
             <g>
               <circle cx={w * 0.05 + 12 * u} cy={h * 0.935} r={9 * u} fill="#FF2A3D" opacity={Math.floor(frame / 15) % 2 === 0 ? 1 : 0.45} />
               <text x={w * 0.05 + 34 * u} y={h * 0.935 + 8 * u} fontFamily={fonts.mono} fontWeight={700} fontSize={24 * u} letterSpacing={3 * u} fill="#FF2A3D">
-                REC
+                {recLabel}
               </text>
             </g>
           )}
@@ -237,6 +242,11 @@ export const alertReinkWave = defineMotion<Props>({
     toLabel: 'THREAT DETECTED',
     callSign: 'SENTINEL-7 // OVERWATCH',
     keepRed: true,
+    recLabel: 'REC',
+    panelTitles: ['SYSTEM', 'CONTACT'],
+    calmNames: ['SIGNAL', 'LOAD', 'POWER', 'LINK', 'THREAT'],
+    alertNames: ['LINK', 'HULL', 'POWER', 'SHIELD', 'THREAT'],
+    contactNames: ['RNG', 'BRG', 'VEL', 'ALT', 'ID'],
   },
   propDocs: {
     fromPalette: 'palette before the wave {main, hot, dim, bg}',
@@ -249,6 +259,11 @@ export const alertReinkWave = defineMotion<Props>({
     toLabel: 'status copy after the wave',
     callSign: 'header call sign',
     keepRed: 'true reds (REC dot) are exempt from the re-ink',
+    recLabel: 'label next to the red record dot',
+    panelTitles: 'titles of the left / right side panels (prefixed with "01 // ")',
+    calmNames: 'left-panel gauge names before the alert (5)',
+    alertNames: 'left-panel gauge names after the alert (5)',
+    contactNames: 'right-panel gauge names (5)',
   },
   component: AlertReinkWave,
   tags: ['hud', 'alert', 'palette swap', 'recolour', 'wave', 'radar', 'shockwave', 'status change', 'climax', 'sci-fi', 'cyan orange', 're-skin'],

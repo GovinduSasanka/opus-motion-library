@@ -51,7 +51,7 @@ const ElevationProfile: React.FC<Props> = (p) => {
   // ---- layout ---------------------------------------------------------------------------------------
   const pad = (portrait ? 70 : 110) * u;
   const cx0 = pad + 70 * u, cx1 = w - pad;
-  const cy0 = portrait ? h * 0.42 : 330 * u;
+  const cy0 = portrait ? h * 0.36 : 330 * u;
   const cy1 = portrait ? h - 300 * u : h - 140 * u;
   const X = (s: number) => lerp(cx0, cx1, s);
   const Y = (v: number) => lerp(cy1, cy0, (v - y0v) / (y1v - y0v));
@@ -76,7 +76,9 @@ const ElevationProfile: React.FC<Props> = (p) => {
   const lastI = Math.min(SAMPLES - 1, Math.floor(iHead));
   gain += Math.max(0, hv - prof[lastI]) * (iHead - lastI > 0 ? 1 : 0);
   const segKm = p.distance / SAMPLES;
-  const gradeAt = (i: number) => ((prof[Math.min(SAMPLES, i + 1)] - prof[Math.max(0, i - 1)]) / (2 * segKm * 1000)) * 100;
+  const hM = /^(ft|feet|foot)$/i.test(p.unit.trim()) ? 0.3048 : 1; // metres per height unit
+  const dM = /^(mi|mile|miles)$/i.test(p.distUnit.trim()) ? 1609.34 : /^(m|metres|meters)$/i.test(p.distUnit.trim()) ? 1 : 1000; // metres per distance unit
+  const gradeAt = (i: number) => (((prof[Math.min(SAMPLES, i + 1)] - prof[Math.max(0, i - 1)]) * hM) / (2 * segKm * dM)) * 100;
   const grade = gradeAt(Math.round(iHead));
   const maxGrade = 12;
   const gradeColor = (g: number) => {

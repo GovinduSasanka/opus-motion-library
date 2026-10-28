@@ -23,9 +23,11 @@ type Props = {
   width: number;
   demoScene: boolean;
   seed: number;
+  repliesLabel: string;
+  viewLabel: string;
 };
 
-const AgentLogPanel: React.FC<Props> = ({background, messages, colors, chipText, header, headerRight, typeSpeed, every, width, demoScene, seed}) => {
+const AgentLogPanel: React.FC<Props> = ({background, messages, colors, chipText, header, headerRight, typeSpeed, every, width, demoScene, seed, repliesLabel = 'replies', viewLabel = 'View conversation'}) => {
   const frame = useCurrentFrame();
   const {w, h, u, fps, portrait} = useStage();
   const fs = 12.5 * u * (portrait ? 1.9 : 1);
@@ -137,7 +139,7 @@ const AgentLogPanel: React.FC<Props> = ({background, messages, colors, chipText,
                     {b.lines.map((ln, j) => renderText(ln, pad, b.y + lh * (2.15 + j), `t${i}-${j}`))}
                     {m.replies ? (
                       <text x={pad} y={b.y + lh * (2.3 + b.lines.length)} fontFamily={x58Fonts.mono} fontSize={fs * 0.9} fill="#9FB0B6">
-                        {m.replies} replies  <tspan fill="#CFE6EC" textDecoration="underline">View conversation</tspan> ▾
+                        {m.replies} {repliesLabel}  <tspan fill="#CFE6EC" textDecoration="underline">{viewLabel}</tspan> ▾
                       </text>
                     ) : null}
                   </g>
@@ -181,6 +183,8 @@ export const agentLogPanel = defineMotion<Props>({
     width: 0.25,
     demoScene: true,
     seed: 12,
+    repliesLabel: 'replies',
+    viewLabel: 'View conversation',
   },
   propDocs: {
     background: "backdrop; 'transparent' (default) overlays the host content",
@@ -194,6 +198,8 @@ export const agentLogPanel = defineMotion<Props>({
     width: 'panel width as a fraction of frame width (landscape)',
     demoScene: 'paint the painterly battlefield behind (preview only; turn off as an overlay)',
     seed: 'scene seed',
+    repliesLabel: 'word after the reply count under a message',
+    viewLabel: 'underlined link text under a message',
   },
   component: AgentLogPanel,
   tags: ['log', 'chat', 'panel', 'conversation', 'agents', 'messages', 'typing', 'scroll', 'hud', 'ui', 'overlay', 'multi-agent', 'reasoning', 'terminal'],

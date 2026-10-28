@@ -26,6 +26,9 @@ type Props = {
   header: string;
   background: string;
   palette: string[];
+  zoomLabel?: string;
+  marginLabel?: string;
+  boundsLabel?: string;
 };
 
 const bk = (id: string, label: string, x: number, y: number, h = 1.6): Block => ({id, label, x, y, w: 3, d: 3, h});
@@ -50,7 +53,7 @@ const STEPS: StepSpec[] = (() => {
   ];
 })();
 
-const AutoFrameCamera: React.FC<Props> = ({steps, stepAt, margin, frames, minScale, maxScale, guides, zoomReadout, header, background, palette}) => {
+const AutoFrameCamera: React.FC<Props> = ({steps, stepAt, margin, frames, minScale, maxScale, guides, zoomReadout, header, background, palette, zoomLabel = 'ZOOM', marginLabel = 'margin box', boundsLabel = 'content bounds'}) => {
   const frame = useCurrentFrame();
   const {w, h, u, portrait} = useStage();
   const k = 34 * u;
@@ -131,14 +134,14 @@ const AutoFrameCamera: React.FC<Props> = ({steps, stepAt, margin, frames, minSca
           </g>
         ) : null}
         <IsoHeader w={w} h={h} u={u} title={header} index={step + 1} total={n} right={cur.title.toUpperCase()} />
-        {zoomReadout ? <ValuePill x={w * 0.03} y={h - foot * 0.48} text={`ZOOM ${zoom.toFixed(2)}x`} size={Math.max(13 * u, h * 0.017)} /> : null}
+        {zoomReadout ? <ValuePill x={w * 0.03} y={h - foot * 0.48} text={`${zoomLabel} ${zoom.toFixed(2)}x`} size={Math.max(13 * u, h * 0.017)} /> : null}
         {guides ? (
           <g fontFamily={x58Fonts.mono} fontSize={Math.max(14 * u, h * 0.017)}>
             <text x={w * 0.97} y={h - foot * 0.62} textAnchor="end" fill={ISO.orange}>
-              - - margin box
+              {`- - ${marginLabel}`}
             </text>
             <text x={w * 0.97} y={h - foot * 0.3} textAnchor="end" fill={ISO.teal}>
-              - - content bounds
+              {`- - ${boundsLabel}`}
             </text>
           </g>
         ) : null}
@@ -168,6 +171,9 @@ export const autoFrameCamera = defineMotion<Props>({
     header: 'Auto frame',
     background: ISO.paper,
     palette: ['#4D588A', '#21A69A', '#E5A24C', '#C56E60', '#3F64B5', '#7A8FC6', '#6FB36F'],
+    zoomLabel: 'ZOOM',
+    marginLabel: 'margin box',
+    boundsLabel: 'content bounds',
   },
   propDocs: {
     steps: 'array of {title, blocks:[{id,label,x,y,w,d,h,color}], links:[{from,to}]}; blocks are diffed by id between steps',
@@ -181,6 +187,9 @@ export const autoFrameCamera = defineMotion<Props>({
     header: 'top bar word',
     background: 'paper colour',
     palette: 'block colours',
+    zoomLabel: 'word before the zoom value in the readout pill',
+    marginLabel: 'legend text for the orange margin guide ("- - " is prefixed)',
+    boundsLabel: 'legend text for the teal content-bounds guide ("- - " is prefixed)',
   },
   component: AutoFrameCamera,
   tags: ['camera', 'auto-frame', 'framing', 'zoom', 'pan', 'isometric', 'diagram', 'build-up', 'architecture', 'steps', 'bounding-box', 'margin', 'explainer', 'helper'],

@@ -17,6 +17,8 @@ type Props = {
   ink: string;
   heading: string[];
   badge: string;
+  tagline?: string[];
+  sectionLabel?: string;
   cards: Card[];
   stats: Stat[];
   cta: string;
@@ -26,7 +28,7 @@ type Props = {
 const W = 1200;
 const H = 2600;
 
-const World: React.FC<Props> = ({accent, ink, heading, badge, cards, stats, cta}) => {
+const World: React.FC<Props> = ({accent, ink, heading, badge, tagline = [], sectionLabel, cards, stats, cta}) => {
   const f = fonts.grotesk;
   const s = fonts.sans;
   return (
@@ -41,17 +43,16 @@ const World: React.FC<Props> = ({accent, ink, heading, badge, cards, stats, cta}
           {l}
         </text>
       ))}
-      <text x={104} y={350 + heading.length * 140 + 20} fontFamily={s} fontSize={40} fill={ink} opacity={0.55}>
-        One canvas. Every section a station
-      </text>
-      <text x={104} y={350 + heading.length * 140 + 76} fontFamily={s} fontSize={40} fill={ink} opacity={0.55}>
-        the camera flies to.
-      </text>
+      {tagline.map((l, i) => (
+        <text key={i} x={104} y={350 + heading.length * 140 + 20 + i * 56} fontFamily={s} fontSize={40} fill={ink} opacity={0.55}>
+          {l}
+        </text>
+      ))}
       <circle cx={1010} cy={640} r={90} fill={accent} opacity={0.9} />
       <circle cx={1010} cy={640} r={42} fill="#fff" opacity={0.9} />
       {/* cards */}
       <text x={100} y={930} fontFamily={fonts.mono} fontWeight={700} fontSize={30} letterSpacing={6} fill={accent}>
-        WHAT YOU GET
+        {sectionLabel}
       </text>
       {cards.map((c, i) => (
         <g key={i} transform={`translate(100 ${980 + i * 250})`}>
@@ -206,6 +207,8 @@ export const canvasFlythrough = defineMotion<Props>({
     ink: '#1B1B2F',
     heading: ['Work that', 'moves at', 'your speed.'],
     badge: 'NEW · VERSION 2',
+    tagline: ['One canvas. Every section a station', 'the camera flies to.'],
+    sectionLabel: 'WHAT YOU GET',
     cards: [
       {title: 'Plan', body: 'Everything in one clear view', color: '#F2542D'},
       {title: 'Build', body: 'Ship the first draft today', color: '#2E7BFF'},
@@ -226,6 +229,8 @@ export const canvasFlythrough = defineMotion<Props>({
     ink: 'text colour',
     heading: 'hero headline lines (3)',
     badge: 'small pill above the headline',
+    tagline: 'grey sub-lines under the headline (one entry per line)',
+    sectionLabel: 'small caps label above the cards',
     cards: 'feature cards [{title, body, color}] (3)',
     stats: 'two big stats [{value, label}]',
     cta: 'button text at the bottom',

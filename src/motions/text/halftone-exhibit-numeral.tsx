@@ -24,6 +24,7 @@ type Props = {
   shadowColor: string;
   src: string;
   background: string;
+  exhibitLabel: string;
 };
 
 const HalftoneExhibitNumeral: React.FC<Props> = (p) => {
@@ -145,7 +146,7 @@ const HalftoneExhibitNumeral: React.FC<Props> = (p) => {
                   <path d={`M${116 * ex.s} 0 C ${190 * ex.s} ${-40 * ex.s}, ${230 * ex.s} ${-120 * ex.s}, ${300 * ex.s} ${-150 * ex.s}`} fill="none" stroke={HD.navy} strokeWidth={5 * ex.s} strokeLinecap="round" />
                   <rect x={-130 * ex.s} y={-56 * ex.s} width={200 * ex.s} height={36 * ex.s} rx={5 * ex.s} fill={HD.blue} />
                   <text x={-118 * ex.s} y={-30 * ex.s} fontFamily={la2Fonts.monoHeavy} fontWeight={800} fontSize={24 * ex.s} fill={HD.cream}>
-                    EXHIBIT
+                    {p.exhibitLabel}
                   </text>
                   <text x={-128 * ex.s} y={50 * ex.s} fontFamily={la2Fonts.bagel} fontSize={66 * ex.s} fill={HD.navy}>
                     {p.numeral}
@@ -210,6 +211,7 @@ export const halftoneExhibitNumeral = defineMotion<Props>({
     shadowColor: HD.yellow,
     src: '',
     background: HD.paper,
+    exhibitLabel: 'EXHIBIT',
   },
   propDocs: {
     numeral: 'the giant numeral (1–3 characters)',
@@ -223,6 +225,7 @@ export const halftoneExhibitNumeral = defineMotion<Props>({
     shadowColor: 'misregistration shadow colour of the headline',
     src: 'optional public/ image shown as the exhibit (boiling evidence tag otherwise)',
     background: 'paper colour',
+    exhibitLabel: 'small caps label above the numeral on the card',
   },
   component: HalftoneExhibitNumeral,
   tags: ['numeral', 'number', 'halftone', 'ben-day', 'print', 'dossier', 'exhibit', 'case file', 'list', 'step', 'chapter', 'editorial', 'retro', 'misregistration', 'slab', 'caption', 'paper'],

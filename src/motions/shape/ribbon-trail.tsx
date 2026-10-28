@@ -40,6 +40,10 @@ type Props = {
   drip: number;
   dabWidth: number[];
   seed: number;
+  stopLabel: string;
+  ballLabel: string;
+  settleLabel: string;
+  strandLabel: string;
 };
 
 type V = [number, number];
@@ -71,7 +75,7 @@ const wrap = (a: number) => {
   return x;
 };
 
-const RibbonScene: React.FC<Props> = ({ballColor, colors, ribbonLength, ribbonWidth, stopAt, period, damping, path}) => {
+const RibbonScene: React.FC<Props> = ({ballColor, colors, ribbonLength, ribbonWidth, stopAt, period, damping, path, stopLabel = 'STOP', ballLabel = 'BALL', settleLabel = 'FRAMES AFTER STOP · SETTLE', strandLabel = 'STRAND'}) => {
   const frame = useCurrentFrame();
   const {w, h, u, portrait} = useStage();
   const pts: V[] = path.map(([a, b]) => [a * w, b * h]);
@@ -192,12 +196,12 @@ const RibbonScene: React.FC<Props> = ({ballColor, colors, ribbonLength, ribbonWi
       </Svg>
       {stopIn > 0 && (
         <div style={{position: 'absolute', left: ball[0] - r - 200 * u, top: ball[1] - r - 168 * u, transform: `scale(${stopIn})`, transformOrigin: '100% 100%'}}>
-          <div style={{fontFamily: fonts.display, fontSize: 64 * u, color: '#fff', lineHeight: 1}}>STOP</div>
-          <div style={{fontFamily: fonts.mono, fontSize: 11 * u, letterSpacing: '0.15em', color: '#fff', opacity: 0.7, marginTop: 4 * u}}>{`BALL · t = ${(S / 30).toFixed(2)} s`}</div>
+          <div style={{fontFamily: fonts.display, fontSize: 64 * u, color: '#fff', lineHeight: 1}}>{stopLabel}</div>
+          <div style={{fontFamily: fonts.mono, fontSize: 11 * u, letterSpacing: '0.15em', color: '#fff', opacity: 0.7, marginTop: 4 * u}}>{`${ballLabel} · t = ${(S / 30).toFixed(2)} s`}</div>
         </div>
       )}
       <Mono x={panelX} y={panelY - 30 * u} size={11} color="#fff" anchor="right" opacity={prog(frame, S, S + 8)}>
-        FRAMES AFTER STOP · SETTLE
+        {settleLabel}
       </Mono>
       {colors.map((c, i) => {
         const s = Math.max(0, frame - S);
@@ -207,7 +211,7 @@ const RibbonScene: React.FC<Props> = ({ballColor, colors, ribbonLength, ribbonWi
         const bw = 150 * u;
         return (
           <div key={i} style={{position: 'absolute', left: panelX - bw - 120 * u, top: panelY + i * 22 * u, opacity: op, display: 'flex', alignItems: 'center', gap: 12 * u}}>
-            <div style={{fontFamily: fonts.mono, fontSize: 11 * u, color: '#fff', letterSpacing: '0.12em', width: 100 * u, textAlign: 'right'}}>{`STRAND ${i + 1}`}</div>
+            <div style={{fontFamily: fonts.mono, fontSize: 11 * u, color: '#fff', letterSpacing: '0.12em', width: 100 * u, textAlign: 'right'}}>{`${strandLabel} ${i + 1}`}</div>
             <div style={{width: bw, height: 4 * u, background: 'rgba(255,255,255,0.18)'}}>
               <div style={{width: bw * (v / 40), height: 4 * u, background: c}} />
             </div>
@@ -360,6 +364,10 @@ export const ribbonTrail = defineMotion<Props>({
     drip: 0.7,
     dabWidth: [20, 64],
     seed: 4,
+    stopLabel: 'STOP',
+    ballLabel: 'BALL',
+    settleLabel: 'FRAMES AFTER STOP · SETTLE',
+    strandLabel: 'STRAND',
   },
   propDocs: {
     style: "'ribbons' (video17 ball + lagging ribbons) | 'neon' (video11 orbiting neon tube trails with beads) | 'dabs' (ribbon of impasto knife dabs flying along a Bezier, dripping and fading)",
@@ -381,6 +389,10 @@ export const ribbonTrail = defineMotion<Props>({
     drip: 'dabs: share of dabs that drip (0..1)',
     dabWidth: 'dabs: [min, max] dab width in u (envelope peaks mid-ribbon)',
     seed: 'dabs: random seed',
+    stopLabel: 'big word that pops when the ball stops',
+    ballLabel: 'word before the stop time under the big word',
+    settleLabel: 'caption above the settle table',
+    strandLabel: 'word before the strand number in the settle table',
   },
   component: RibbonTrail,
   tags: ['trail', 'ribbon', 'follow-through', 'physics', 'ball', 'neon', 'dabs', 'paint', 'impasto', 'bezier', 'signal travelling', 'brush'],

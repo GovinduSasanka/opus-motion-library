@@ -24,6 +24,7 @@ type Props = {
   compare: boolean;
   labels: boolean;
   seed: number;
+  title?: string;
 };
 
 /**
@@ -226,7 +227,7 @@ const AccumRender3D: React.FC<Props> = (p) => {
       )}
       {p.labels && (
         <div style={{position: 'absolute', top: h * 0.05, left: 0, right: 0, textAlign: 'center', fontFamily: mg1Fonts.dm, fontWeight: 700, fontSize: 30 * u, letterSpacing: 10 * u, color: CANDY.plum, opacity: 0.8}}>
-          ACCUMULATION RENDER
+          {p.title}
         </div>
       )}
     </AbsoluteFill>
@@ -255,6 +256,7 @@ export const accumRender3D = defineMotion<Props>({
     compare: true,
     labels: true,
     seed: 1,
+    title: 'ACCUMULATION RENDER',
   },
   propDocs: {
     background: 'cyc / floor colour',
@@ -269,6 +271,7 @@ export const accumRender3D = defineMotion<Props>({
     compare: 'split screen: left = 1 sample, right = accumulated',
     labels: 'caption pills',
     seed: 'unused variation seed (kept for spec compatibility)',
+    title: 'heading at the top of the frame (shown when labels is on)',
   },
   component: AccumRender3D,
   tags: ['accumulation', 'motion blur', 'anti-aliasing', 'soft shadows', 'render pass', 'supersampling', 'film quality', '3d', 'three.js', 'candy', 'studio', 'compare', 'technique demo', 'mg-styles-15', 'iso-diorama', 'soft-3d-candy'],

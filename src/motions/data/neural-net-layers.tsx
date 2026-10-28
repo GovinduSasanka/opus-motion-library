@@ -29,9 +29,10 @@ type Props = {
   ramp: string[];
   positive: string;
   negative: string;
+  outputLabel?: string;
 };
 
-const NeuralNetLayers: React.FC<Props> = ({layers, inputs, labels, title, subtitle, cycle, travel, showWeights, seed, background, ink, ramp: rampStops, positive, negative}) => {
+const NeuralNetLayers: React.FC<Props> = ({layers, inputs, labels, title, subtitle, outputLabel = 'OUTPUT · SOFTMAX', cycle, travel, showWeights, seed, background, ink, ramp: rampStops, positive, negative}) => {
   const frame = useCurrentFrame();
   const {w, h, u, portrait} = useStage();
   const PT = portrait ? 1.8 : 1;
@@ -171,7 +172,7 @@ const NeuralNetLayers: React.FC<Props> = ({layers, inputs, labels, title, subtit
         {/* output bar chart */}
         <g opacity={prog(frame, L * 3, L * 3 + 16)}>
           <text x={bars.x} y={bars.y - 18 * u} fontFamily={fonts.mono} fontSize={15 * PT * u} fill={ink} opacity={0.55}>
-            OUTPUT · SOFTMAX
+            {outputLabel}
           </text>
           {outLabels.map((lab, i) => {
             const pOld = prev ? prev.probs[i] : 0;
@@ -229,6 +230,7 @@ export const neuralNetLayers = defineMotion<Props>({
     ramp: ['#2B5BFF', '#2FD0E0', '#F7E15A'],
     positive: '#5C8DFF',
     negative: '#FF9A4A',
+    outputLabel: 'OUTPUT · SOFTMAX',
   },
   propDocs: {
     layers: 'neurons per layer, e.g. [5,7,7,4] (2-7 layers, up to 14 each); the last is the output',
@@ -245,6 +247,7 @@ export const neuralNetLayers = defineMotion<Props>({
     ramp: 'activation colour ramp (low -> high), 2-4 colours',
     positive: 'positive-weight connection colour',
     negative: 'negative-weight connection colour',
+    outputLabel: 'small caption above the output bars',
   },
   component: NeuralNetLayers,
   tags: ['neural network', 'ai', 'machine learning', 'deep learning', 'layers', 'neurons', 'weights', 'activation', 'forward pass', 'explainer', 'data', 'softmax', 'bar chart', 'perceptron', 'llm', 'model', 'pulses', 'connections', 'synapse'],

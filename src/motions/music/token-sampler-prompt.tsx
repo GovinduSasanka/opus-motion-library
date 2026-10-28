@@ -38,6 +38,8 @@ type Props = {
   camera: boolean;
   enterKey: boolean;
   seed: number;
+  promptLabel: string;
+  nextTokenLabel: string;
 };
 
 const FILLER: [string, number][][] = [
@@ -47,7 +49,7 @@ const FILLER: [string, number][][] = [
   [['louder', 0.4], ['brighter', 0.19], ['smaller', 0.12], ['sideways', 0.05]],
 ];
 
-const TokenSamplerPrompt: React.FC<Props> = ({text, tokens, lyrics, bpm, offsetSec, beats, tokensPerBeat, background, ink, dim, accent, backdrop, camera, enterKey, seed}) => {
+const TokenSamplerPrompt: React.FC<Props> = ({text, tokens, lyrics, bpm, offsetSec, beats, tokensPerBeat, background, ink, dim, accent, backdrop, camera, enterKey, seed, promptLabel = 'PROMPT', nextTokenLabel = 'NEXT TOKEN'}) => {
   const frame = useCurrentFrame();
   const {w, h, u, fps, durationInFrames, portrait} = useStage();
   const g = useGrid(beats, bpm, offsetSec);
@@ -138,7 +140,7 @@ const TokenSamplerPrompt: React.FC<Props> = ({text, tokens, lyrics, bpm, offsetS
         <svg width={w} height={h} style={{position: 'absolute', inset: 0}}>
           <rect x={fieldX} y={fieldY - fs * 1.15} width={fieldW} height={fs * 2.1} fill={TREATISE.panel} stroke={dim} strokeWidth={Math.max(1, u)} />
           <text x={fieldX} y={fieldY - fs * 1.5} fontFamily={plexMono} fontSize={mono} fill={dim} letterSpacing={2}>
-            PROMPT
+            {promptLabel}
           </text>
           <text x={fieldX + fieldW} y={fieldY - fs * 1.5} textAnchor="end" fontFamily={plexMono} fontSize={mono} fill={dim} letterSpacing={1}>
             {`T ${(0.7).toFixed(1)} · TOKENS ${String(typedN).padStart(3, '0')}/${String(stream.length).padStart(3, '0')}`}
@@ -172,7 +174,7 @@ const TokenSamplerPrompt: React.FC<Props> = ({text, tokens, lyrics, bpm, offsetS
                 return (
                   <g opacity={panelK * (flick ? 0.75 : 1)}>
                     <text x={px} y={py - mono} fontFamily={plexMono} fontSize={mono * 0.85} fill={dim} letterSpacing={1}>
-                      {`NEXT TOKEN · id ${panelFor.id}`}
+                      {`${nextTokenLabel} · id ${panelFor.id}`}
                     </text>
                     {rows.map(([s, p], i) => {
                       const y = py + i * mono * 1.9;
@@ -223,6 +225,8 @@ export const tokenSamplerPrompt = defineMotion<Props>({
     camera: true,
     enterKey: true,
     seed: 3,
+    promptLabel: 'PROMPT',
+    nextTokenLabel: 'NEXT TOKEN',
   },
   propDocs: {
     text: 'the phrase to type (split on spaces, timed to the beat) when `tokens`/`lyrics` are empty',
@@ -237,6 +241,8 @@ export const tokenSamplerPrompt = defineMotion<Props>({
     camera: 'beat-cut camera reframes between caret, text and field',
     enterKey: 'show ⏎ and fire the flash-zoom exit on the downbeat after the last token',
     seed: 'placeholder-distribution and shot variety',
+    promptLabel: 'small caps label above the prompt field',
+    nextTokenLabel: 'heading of the candidate-token panel (" · id N" follows)',
   },
   component: TokenSamplerPrompt,
   tags: ['llm', 'token', 'sampling', 'prompt', 'ai', 'typing', 'next token', 'probability', 'caret', 'terminal', 'beat', 'music', 'explainer', 'treatise'],

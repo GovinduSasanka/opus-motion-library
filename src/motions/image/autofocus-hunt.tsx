@@ -31,6 +31,7 @@ type Props = {
   carpet: string;
   signal: string;
   osd: boolean;
+  osdLabel: string;
 };
 
 /** procedural liminal office corridor in one-point perspective */
@@ -176,7 +177,7 @@ const AutofocusHunt: React.FC<Props> = (p) => {
           <g fontFamily={lf.vt} fontSize={os} fill="#fff" stroke="#000" strokeWidth={os * 0.08} paintOrder="stroke">
             {rec && <circle cx={70 * u} cy={70 * u + os * 0.32} r={os * 0.24} fill="#ff2a1a" />}
             <text x={70 * u + os * 0.45} y={70 * u + os * 0.62}>
-              REC
+              {p.osdLabel}
             </text>
             <text x={w - 70 * u} y={70 * u + os * 0.62} textAnchor="end">
               {locked ? 'AF ■' : 'AF □'}
@@ -246,6 +247,7 @@ export const autofocusHunt = defineMotion<Props>({
     carpet: '#8c763c',
     signal: '#ff2a1a',
     osd: true,
+    osdLabel: 'REC',
   },
   propDocs: {
     src: 'public/ image to focus-hunt (empty = procedural corridor)',
@@ -264,6 +266,7 @@ export const autofocusHunt = defineMotion<Props>({
     carpet: 'carpet colour',
     signal: 'EXIT sign colour (the only signal colour)',
     osd: 'camcorder REC / AF / zoom overlay and focus brackets',
+    osdLabel: 'camcorder on-screen-display label next to the red dot',
   },
   component: AutofocusHunt,
   tags: ['autofocus', 'focus', 'blur', 'rack focus', 'camcorder', 'found footage', 'liminal', 'suspense', 'reveal', 'zoom', 'vhs', 'horror lite', 'mystery', 'lens'],

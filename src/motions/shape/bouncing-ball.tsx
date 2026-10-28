@@ -48,6 +48,11 @@ type Props = {
   launchAt: number;
   accent: string;
   accent2: string;
+  identityNote: string;
+  scaleLabel: string;
+  phaseLabels: string[];
+  chargeLabels: string[];
+  hopLabel: string;
 };
 
 const AUTO: Record<Mode, {bg: string; numeral: string; title: string; subtitle: string; code: string}> = {
@@ -66,7 +71,7 @@ const stretchOf = (v: number, u: number, max: number) => {
 };
 
 /* ---------------------------------------------------------------- bounce */
-const BounceScene: React.FC<Props & {fg: string}> = ({color, radius, restitution, gravity, maxStretch, squash, fg}) => {
+const BounceScene: React.FC<Props & {fg: string}> = ({color, radius, restitution, gravity, maxStretch, squash, fg, identityNote = 'CIRCLE = ELLIPSE = ELLIPSE', scaleLabel = 'SCALE · LIVE'}) => {
   const frame = useCurrentFrame();
   const {w, u, cx, cy, portrait} = useStage();
   const r = radius * u;
@@ -173,12 +178,12 @@ const BounceScene: React.FC<Props & {fg: string}> = ({color, radius, restitution
             =
           </Mono>
           <Mono x={dx0 + 175 * u} y={dy0 + 62 * u} size={portrait ? 22 : 11} color={P17.hudGrey} anchor="center" opacity={diag}>
-            CIRCLE = ELLIPSE = ELLIPSE
+            {identityNote}
           </Mono>
         </>
       )}
       <Mono x={rx} y={ry - 46 * u} size={portrait ? 22 : 11} color={P17.hudGrey} anchor="right" opacity={readIn}>
-        SCALE · LIVE
+        {scaleLabel}
       </Mono>
       <div style={{position: 'absolute', left: rx, top: ry - 20 * u, transform: 'translateX(-100%)', display: 'flex', gap: 34 * u, opacity: readIn}}>
         {vals.map(([k, v], i) => (
@@ -193,7 +198,7 @@ const BounceScene: React.FC<Props & {fg: string}> = ({color, radius, restitution
 };
 
 /* ---------------------------------------------------------- anticipation */
-const AnticipationScene: React.FC<Props & {fg: string}> = ({color, radius, fg}) => {
+const AnticipationScene: React.FC<Props & {fg: string}> = ({color, radius, fg, phaseLabels = ['ANTICIPATION', 'ACTION', 'FOLLOW-THROUGH'], chargeLabels = ['LOADED', 'CHARGING', 'RELEASE']}) => {
   const frame = useCurrentFrame();
   const {w, h, u, cx, cy, portrait} = useStage();
   const r = radius * u;
@@ -254,9 +259,9 @@ const AnticipationScene: React.FC<Props & {fg: string}> = ({color, radius, fg}) 
   const flash = full ? 0.5 + 0.5 * Math.cos((frame - 40) * 0.8) : 0;
   // timeline bars
   const bars = [
-    ['ANTICIPATION', 90],
-    ['ACTION', 45],
-    ['FOLLOW-THROUGH', 45],
+    [phaseLabels[0], 90],
+    [phaseLabels[1], 45],
+    [phaseLabels[2], 45],
   ] as const;
   const barW = portrait ? w - 140 * u : 640 * u;
   const bx0 = cx - barW / 2;
@@ -316,7 +321,7 @@ const AnticipationScene: React.FC<Props & {fg: string}> = ({color, radius, fg}) 
       )}
       {gaugeOn > 0 && (
         <Mono x={x} y={gy + 14 * u} size={portrait ? 22 : 10} color={P17.hudGrey} anchor="center" opacity={gaugeOn}>
-          LOADED · {frame < 40 ? 'CHARGING' : 'RELEASE'}
+          {chargeLabels[0]} · {frame < 40 ? chargeLabels[1] : chargeLabels[2]}
         </Mono>
       )}
     </>
@@ -504,7 +509,7 @@ const ImpactFrame: React.FC<{x: number; y: number; seed: number; label: string}>
 /* ------------------------------------------------------------------- hop */
 const NOTE_STEP: Record<string, number> = {C: -2, D: -1, E: 0, F: 1, G: 2, A: 3, B: 4, C5: 5, D5: 6, E5: 7, F5: 8};
 
-const HopScene: React.FC<Props & {fg: string}> = ({color, radius, notes, bpm, fg}) => {
+const HopScene: React.FC<Props & {fg: string}> = ({color, radius, notes, bpm, fg, hopLabel = 'PRIMARY · HOP'}) => {
   const frame = useCurrentFrame();
   const {w, h, u, cx, cy, portrait} = useStage();
   const r = radius * 0.75 * u;
@@ -609,7 +614,7 @@ const HopScene: React.FC<Props & {fg: string}> = ({color, radius, notes, bpm, fg
         )}
       </Svg>
       <div style={{position: 'absolute', left: s.x + r + 80 * u, top: yC + r + 50 * u, opacity: calloutIn}}>
-        <div style={{fontFamily: fonts.mono, fontSize: 11 * u, letterSpacing: '0.15em', color: fg, fontWeight: 700}}>PRIMARY · HOP</div>
+        <div style={{fontFamily: fonts.mono, fontSize: 11 * u, letterSpacing: '0.15em', color: fg, fontWeight: 700}}>{hopLabel}</div>
         <div style={{width: 60 * u, height: 3 * u, background: P17.red, marginTop: 5 * u}} />
       </div>
       {lastLanded !== undefined && (
@@ -692,6 +697,11 @@ export const bouncingBall = defineMotion<Props>({
     launchAt: 0,
     accent: '#F5C518',
     accent2: '#E8553B',
+    identityNote: 'CIRCLE = ELLIPSE = ELLIPSE',
+    scaleLabel: 'SCALE · LIVE',
+    phaseLabels: ['ANTICIPATION', 'ACTION', 'FOLLOW-THROUGH'],
+    chargeLabels: ['LOADED', 'CHARGING', 'RELEASE'],
+    hopLabel: 'PRIMARY · HOP',
   },
   propDocs: {
     mode: "'bounce' (gravity bounces) | 'anticipation' (charge gauge + launch) | 'crack' (exaggerated drop, impact frame, ground crack + debris) | 'hop' (beat hops, a note per landing) | 'timeline' (timing chart: ticks, dot trail, live squash readout) | 'slime' (glossy jelly hopper with eyes, puffs, chroma rim) | 'impact' (flat-vector drop: speed streaks, burst rays, ground rings, launch)",
@@ -724,6 +734,11 @@ export const bouncingBall = defineMotion<Props>({
     launchAt: 'impact mode: frame of the stretch launch (0 = frame 31 @30 fps)',
     accent: 'impact mode: first ray colour',
     accent2: 'impact mode: second ground-ring colour',
+    identityNote: 'bounce: small grey note under the scale diagram',
+    scaleLabel: 'bounce: caption above the live scale readout',
+    phaseLabels: 'anticipation: labels of the three timeline bars',
+    chargeLabels: 'anticipation: [prefix, first-phase word, second-phase word] of the gauge caption',
+    hopLabel: 'hop: callout label next to the ball',
   },
   component: BouncingBall,
   tags: ['ball', 'bounce', 'squash', 'stretch', 'physics', 'hud', 'impact', 'music', 'timeline', 'timing-chart', 'spacing', 'slime', 'jelly', 'hop', 'mascot', 'ground-rings', 'burst-rays'],

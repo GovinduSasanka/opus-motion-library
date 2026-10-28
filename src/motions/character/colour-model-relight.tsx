@@ -23,6 +23,8 @@ type Props = {
   compare: boolean;
   swatches: boolean;
   background: string;
+  frameLabel: string;
+  relightLabel: string;
 };
 
 const SKY: Record<string, [string, string]> = {
@@ -177,15 +179,15 @@ const ColourModelRelight: React.FC<Props> = (p) => {
         {compare ? (
           <>
             <g transform={`translate(${pos[0][0]} ${pos[0][1]})`}>
-              <Panel uid={`${uid}a`} set={set} skyA={skyA} skyB={skyB} pal={base} mode="frame" lit={frameSet} label="ONE FILTER OVER THE FRAME" size={size} frame={frame} />
+              <Panel uid={`${uid}a`} set={set} skyA={skyA} skyB={skyB} pal={base} mode="frame" lit={frameSet} label={p.frameLabel} size={size} frame={frame} />
             </g>
             <g transform={`translate(${pos[1][0]} ${pos[1][1]})`}>
-              <Panel uid={`${uid}b`} set={set} skyA={skyA} skyB={skyB} pal={base} mode="relight" lit={set} label="RELIGHT PER PAINT ROLE" size={size} frame={frame} />
+              <Panel uid={`${uid}b`} set={set} skyA={skyA} skyB={skyB} pal={base} mode="relight" lit={set} label={p.relightLabel} size={size} frame={frame} />
             </g>
           </>
         ) : (
           <g transform={`translate(${pos[0][0]} ${pos[0][1]})`}>
-            <Panel uid={`${uid}b`} set={set} skyA={skyA} skyB={skyB} pal={base} mode="relight" lit={set} label="RELIGHT PER PAINT ROLE" size={size} frame={frame} />
+            <Panel uid={`${uid}b`} set={set} skyA={skyA} skyB={skyB} pal={base} mode="relight" lit={set} label={p.relightLabel} size={size} frame={frame} />
           </g>
         )}
         {p.swatches && (
@@ -229,6 +231,8 @@ export const colourModelRelight = defineMotion<Props>({
     compare: true,
     swatches: true,
     background: '#0E0A18',
+    frameLabel: 'ONE FILTER OVER THE FRAME',
+    relightLabel: 'RELIGHT PER PAINT ROLE',
   },
   propDocs: {
     sets: 'sequence of light sets: day | dawn | night | backlit | silhouette (30 frames each, blended)',
@@ -239,6 +243,8 @@ export const colourModelRelight = defineMotion<Props>({
     compare: 'true = left panel shows one filter over the whole frame, right panel the per-role relight',
     swatches: 'show the set chips at the bottom',
     background: 'page colour behind the panels',
+    frameLabel: 'caption of the left (whole-frame filter) panel in compare mode',
+    relightLabel: 'caption of the per-paint-role relight panel',
   },
   component: ColourModelRelight,
   tags: ['relight', 'time of day', 'palette', 'cel', 'anime', 'night', 'dawn', 'backlit', 'silhouette', 'colour model', 'character', 'utility', 'compare'],

@@ -29,6 +29,9 @@ type Props = {
   haloColor: string;
   src: string;
   background: string;
+  profileLabel?: string;
+  photoLabel?: string;
+  photoLabel2?: string;
 };
 
 /** original round hamster-ish suspect, centred on its body; open 0..1 eyes */
@@ -193,7 +196,7 @@ const MugshotHeightChart: React.FC<Props> = (p) => {
           {/* right profile block */}
           <g opacity={infoK} transform={`translate(${30 * u * (1 - infoK)} 0)`}>
             <text x={R.x} y={R.y} fontFamily={la2Fonts.monoHeavy} fontWeight={800} fontSize={24 * u} fill={HD.pink}>
-              PROFILE
+              {p.profileLabel}
             </text>
             <text x={R.x} y={R.y + 66 * u} fontFamily={la2Fonts.slab} fontSize={(portrait ? 46 : 56) * u} fill={HD.navy}>
               {p.profileTitle}
@@ -212,7 +215,7 @@ const MugshotHeightChart: React.FC<Props> = (p) => {
             </text>
             <rect x={74 * u} y={90 * u} width={210 * u} height={40 * u} rx={6 * u} fill={HD.navy} />
             <text x={88 * u} y={118 * u} fontFamily={la2Fonts.monoHeavy} fontWeight={800} fontSize={22 * u} fill={HD.yellow}>
-              SUSPECT <tspan fill={HD.cream}>PHOTO</tspan>
+              {p.photoLabel} <tspan fill={HD.cream}>{p.photoLabel2}</tspan>
             </text>
             <rect x={w - 254 * u} y={52 * u} width={180 * u} height={52 * u} rx={8 * u} fill="none" stroke={HD.navy} strokeWidth={4 * u} />
             <circle cx={w - 228 * u} cy={78 * u} r={9 * u} fill={HD.red} opacity={recOn ? 1 : 0.25} />
@@ -259,6 +262,9 @@ export const mugshotHeightChart = defineMotion<Props>({
     haloColor: HD.blue,
     src: '',
     background: HD.paper,
+    profileLabel: 'PROFILE',
+    photoLabel: 'SUSPECT',
+    photoLabel2: 'PHOTO',
   },
   propDocs: {
     name: 'name on the plate (mono caps)',
@@ -277,6 +283,9 @@ export const mugshotHeightChart = defineMotion<Props>({
     haloColor: 'halftone halo ink',
     src: 'optional public/ photo shown in a rounded cut-out instead of the drawn suspect',
     background: 'paper colour',
+    profileLabel: 'heading on the profile side plate',
+    photoLabel: 'first (yellow) word of the front-plate caption',
+    photoLabel2: 'second (cream) word of the front-plate caption',
   },
   component: MugshotHeightChart,
   tags: ['mugshot', 'suspect', 'height chart', 'police', 'lineup', 'dossier', 'case file', 'halftone', 'ben-day', 'print', 'kawaii', 'character', 'intro', 'profile', 'humour', 'flash', 'retro'],

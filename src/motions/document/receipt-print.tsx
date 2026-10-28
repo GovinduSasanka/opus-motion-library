@@ -27,6 +27,8 @@ type Props = {
   printer: string;
   lineFrames: number;
   startAt: number;
+  subtotalLabel?: string;
+  printingLabel?: string;
 };
 
 type Line = {kind: 'title' | 'text' | 'sep' | 'item' | 'sum' | 'total' | 'bar' | 'gap'; l?: string; r?: string; h: number};
@@ -60,7 +62,7 @@ const ReceiptPrint: React.FC<Props> = (p) => {
       return {kind: 'item', l: q + it.name.slice(0, Math.max(3, room)), r: price, h: lh};
     }),
     {kind: 'sep', l: sep, h: lh},
-    {kind: 'sum', l: 'SUBTOTAL', r: money(sub), h: lh},
+    {kind: 'sum', l: p.subtotalLabel ?? 'SUBTOTAL', r: money(sub), h: lh},
     {kind: 'sum', l: p.taxLabel, r: money(tax), h: lh},
     {kind: 'gap', h: 6},
     {kind: 'total', l: p.totalLabel, r: money(total), h: 52},
@@ -173,7 +175,7 @@ const ReceiptPrint: React.FC<Props> = (p) => {
           <circle cx={cx + pw * 0.62} cy={slotY + 38 * u} r={9 * u} fill={k < lines.length && f > 0 ? p.accent : '#5A5F6B'} opacity={k < lines.length && f > 0 ? 0.6 + 0.4 * Math.sin(frame * 0.5) : 1} />
           <rect x={cx - pw * 0.6} y={slotY + 28 * u} width={pw * 0.3} height={20 * u} rx={5 * u} fill="#000" opacity={0.28} />
           <text x={cx - pw * 0.58} y={slotY + 44 * u} fontFamily={fonts.mono} fontSize={14 * u} fill="#fff" opacity={0.55} letterSpacing={2 * u}>
-            PRINTING
+            {p.printingLabel}
           </text>
           <rect x={cx - pw * 0.78} y={slotY + 4 * u} width={pw * 1.56} height={3 * u} fill="#fff" opacity={0.18} />
         </g>
@@ -212,6 +214,8 @@ export const receiptPrint = defineMotion<Props>({
     printer: '#3A3D4A',
     lineFrames: 8,
     startAt: 18,
+    subtotalLabel: 'SUBTOTAL',
+    printingLabel: 'PRINTING',
   },
   propDocs: {
     storeName: 'header line (shop / company)',
@@ -229,6 +233,8 @@ export const receiptPrint = defineMotion<Props>({
     printer: 'printer body colour',
     lineFrames: 'frames per printed line (lower = faster)',
     startAt: 'frame printing starts',
+    subtotalLabel: 'label of the subtotal line',
+    printingLabel: 'small status text on the printer body',
   },
   component: ReceiptPrint,
   tags: ['receipt', 'invoice', 'bill', 'order', 'printer', 'ecommerce', 'checkout', 'expenses', 'total', 'document', 'thermal'],

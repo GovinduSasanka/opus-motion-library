@@ -16,6 +16,8 @@ type Props = {
   background: string;
   ink: string;
   accent: string;
+  steppedLabel: string;
+  shutterLabel: string;
 };
 
 /** demo subject: a word whipping through the frame once per bar + a pendulum ball */
@@ -39,7 +41,7 @@ const Whip: React.FC<{words: string[]; ink: string; accent: string; bpm: number;
   );
 };
 
-const ShutterBlurMotion: React.FC<Props> = ({words, samples, shutter, compare, bpm, offsetSec, beats, background, ink, accent}) => {
+const ShutterBlurMotion: React.FC<Props> = ({words, samples, shutter, compare, bpm, offsetSec, beats, background, ink, accent, steppedLabel = 'STEPPED · NO SHUTTER', shutterLabel = 'SHUTTER {f}f · {n} SAMPLES'}) => {
   const {w, h, u, portrait} = useStage();
   useGrid(beats, bpm, offsetSec);
   const clear = background === 'transparent';
@@ -61,9 +63,9 @@ const ShutterBlurMotion: React.FC<Props> = ({words, samples, shutter, compare, b
             </div>
           </div>
           <div style={{position: 'absolute', left: w / 2 - 1, top: 0, bottom: 0, width: 2, background: ink, opacity: 0.4}} />
-          <div style={{position: 'absolute', left: w * 0.05, bottom: h * 0.06, fontFamily: plexMono, fontSize: mono, color: ink, opacity: 0.7, letterSpacing: 2}}>STEPPED · NO SHUTTER</div>
+          <div style={{position: 'absolute', left: w * 0.05, bottom: h * 0.06, fontFamily: plexMono, fontSize: mono, color: ink, opacity: 0.7, letterSpacing: 2}}>{steppedLabel}</div>
           <div style={{position: 'absolute', right: w * 0.05, bottom: h * 0.06, fontFamily: plexMono, fontSize: mono, color: accent, letterSpacing: 2, textAlign: 'right'}}>
-            {`SHUTTER ${shutter.toFixed(1)}f · ${samples} SAMPLES`}
+            {shutterLabel.replace('{f}', shutter.toFixed(1)).replace('{n}', String(samples))}
           </div>
         </>
       ) : (
@@ -94,6 +96,8 @@ export const shutterBlurMotion = defineMotion<Props>({
     background: TREATISE.ink,
     ink: TREATISE.bone,
     accent: TREATISE.signal,
+    steppedLabel: 'STEPPED · NO SHUTTER',
+    shutterLabel: 'SHUTTER {f}f · {n} SAMPLES',
   },
   propDocs: {
     words: 'one word per bar for the whip demo',
@@ -104,6 +108,8 @@ export const shutterBlurMotion = defineMotion<Props>({
     background: "frame colour or 'transparent'",
     ink: 'type colour',
     accent: 'ball / label colour',
+    steppedLabel: 'caption of the un-blurred half in compare mode',
+    shutterLabel: 'caption of the blurred half; {f} = shutter angle in frames, {n} = samples',
   },
   component: ShutterBlurMotion,
   tags: ['motion blur', 'shutter', 'whip', 'slam', 'samples', 'film', 'premium', 'wrapper', 'speed', 'streak', 'compare', 'music'],

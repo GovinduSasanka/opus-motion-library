@@ -1,19 +1,19 @@
 # Motion catalog
 
-453 motions. Generated from `catalog.json` by `cli/gen-docs.mjs` — do not edit by hand.
+477 motions. Generated from `catalog.json` by `cli/gen-docs.mjs` — do not edit by hand.
 
 Render any of them: `node cli/mgl.mjs render <id> [--props '{...}'] [--format landscape|square|portrait]`. Previews live in `gallery/`.
 
 Choosing: `node cli/mgl.mjs suggest "<what you need>"` and [CHOOSING.md](CHOOSING.md). Using them in a website / app / other project: [INTEGRATION.md](INTEGRATION.md).
 
-- [text](#text) (46)
+- [text](#text) (59)
 - [transition](#transition) (2)
-- [shape](#shape) (41)
+- [shape](#shape) (42)
 - [fx](#fx) (49)
 - [environment](#environment) (39)
 - [character](#character) (17)
-- [data](#data) (40)
-- [ui](#ui) (36)
+- [data](#data) (44)
+- [ui](#ui) (42)
 - [hud](#hud) (21)
 - [camera](#camera) (9)
 - [texture](#texture) (4)
@@ -31,9 +31,9 @@ Choosing: `node cli/mgl.mjs suggest "<what you need>"` and [CHOOSING.md](CHOOSIN
 
 | capability | motions |
 |---|---|
-| overlay (transparent background — put it on top of other motions or your page) | `globe-3d`, `holo-solid-ignite`, `light-beam-ribbon`, `popup-spread`, `creator-hand`, `paper-critter-rig`, `pictogram-figure`, `certificate-seal`, `form-fill-submit`, `receipt-print`, `aurora`, `bubbles`, `caustics-godrays`, `curl-flow`, `embers`, `falling-petals`, `fireworks`, `flow-lines`, `fog-clouds`, `insect-flight`, `lightning-flash`, `mesh-gradient-bg`, `rain`, `snowfall`, `starfield-night`, `window-glow-sequence`, `backlit-cutout`, `circuit-traces`, `confetti-burst`, `electric-arcs`, `emote-pop`, `eyes-blink`, `fire-flames`, `giant-eye-reveal`, `grease-pencil-mark`, `impact-frame`, `ink-blot-stop`, `long-exposure-trails`, `magnifier-loupe`, `marker-ring-arrow`, `scribble-ball`, `smear-frame`, `smoke-puffs`, `sparkle-burst`, `star-glint`, `sticker-cutout`, `swirl-portal`, `vhs-crt-pass`, `candy-set-backdrop`, `agent-roster`, `cam-chip-sync-badge`, `day-ring-dial`, `event-feed`, `fight-hud`, `game-hud`, `hud-chrome`, `mission-clock`, `news-bug-source-tag`, `prompt-wall`, `spec-chip-rail`, `target-lock-box`, `target-lock`, `film-look`, `sticker-slap`, `choropleth-fill`, `city-zoom-label`, `coverage-route`, `elevation-profile`, `flight-arcs`, `pin-drop-cluster`, `beat-dance`, `chomp-lid`, `emotion-idle-beat`, `emotion-sheet`, `emotion-timeline`, `mascot-nib`, `mascot-thinking`, `mascot-thumbs-up`, `mascot-wave-hello`, `smear-trail`, `beat-camera`, `beat-grid`, `engraving-hatch`, `guilloche-note`, `lyric-on-path`, `lyric-timing`, `lyric-video`, `shutter-blur`, `stage-curtain`, `time-stutter`, `token-sampler-prompt`, `token-tree`, `width-pressure-type`, `colorway-swap`, `feature-callout-orbit`, `price-tag-drop`, `spec-compare-table`, `sunburst-hero`, `unbox-lid-lift`, `comet-pulse-guide`, `ink-brush-stroke`, `motif-grid-pattern`, `nib-follow-camera`, `papercut-rosette`, `toon-cel-shape`, `blur-in-title`, `chapter-header`, `comic-burst`, `end-card-credits`, `glyph-orbit-logo`, `kinetic-captions`, `mask-rise-title`, `news-strap`, `number-counter`, `paper-strip-title`, `rundown-board`, `scene-tag`, `stamp-slam`, `sting-bug`, `story-caption-box`, `typewriter-code`, `typewriter-signature`, `bokeh-drift`, `light-leak-wash`, `pattern-scroll`, `agent-log-panel`, `cursor-driver`, `glass-lesson-card`, `keystroke-hud`, `liquid-glass-lens`, `notification-stack`, `planned-vs-heard-checklist`, `player-toolbar` |
+| overlay (transparent background — put it on top of other motions or your page) | `globe-3d`, `holo-solid-ignite`, `light-beam-ribbon`, `popup-spread`, `creator-hand`, `paper-critter-rig`, `pictogram-figure`, `cause-effect-chain`, `pros-cons-columns`, `step-process-numbered`, `venn-diagram-overlap`, `certificate-seal`, `form-fill-submit`, `receipt-print`, `aurora`, `bubbles`, `caustics-godrays`, `curl-flow`, `embers`, `falling-petals`, `fireworks`, `flow-lines`, `fog-clouds`, `insect-flight`, `lightning-flash`, `mesh-gradient-bg`, `rain`, `snowfall`, `starfield-night`, `window-glow-sequence`, `backlit-cutout`, `circuit-traces`, `confetti-burst`, `electric-arcs`, `emote-pop`, `eyes-blink`, `fire-flames`, `giant-eye-reveal`, `grease-pencil-mark`, `impact-frame`, `ink-blot-stop`, `long-exposure-trails`, `magnifier-loupe`, `marker-ring-arrow`, `scribble-ball`, `smear-frame`, `smoke-puffs`, `sparkle-burst`, `star-glint`, `sticker-cutout`, `swirl-portal`, `vhs-crt-pass`, `candy-set-backdrop`, `agent-roster`, `cam-chip-sync-badge`, `day-ring-dial`, `event-feed`, `fight-hud`, `game-hud`, `hud-chrome`, `mission-clock`, `news-bug-source-tag`, `prompt-wall`, `spec-chip-rail`, `target-lock-box`, `target-lock`, `film-look`, `sticker-slap`, `choropleth-fill`, `city-zoom-label`, `coverage-route`, `elevation-profile`, `flight-arcs`, `pin-drop-cluster`, `beat-dance`, `chomp-lid`, `emotion-idle-beat`, `emotion-sheet`, `emotion-timeline`, `mascot-nib`, `mascot-thinking`, `mascot-thumbs-up`, `mascot-wave-hello`, `smear-trail`, `beat-camera`, `beat-grid`, `engraving-hatch`, `guilloche-note`, `lyric-on-path`, `lyric-timing`, `lyric-video`, `shutter-blur`, `stage-curtain`, `time-stutter`, `token-sampler-prompt`, `token-tree`, `width-pressure-type`, `colorway-swap`, `feature-callout-orbit`, `price-tag-drop`, `spec-compare-table`, `sunburst-hero`, `unbox-lid-lift`, `comet-pulse-guide`, `ink-brush-stroke`, `logo-reveal-liquid`, `motif-grid-pattern`, `nib-follow-camera`, `papercut-rosette`, `toon-cel-shape`, `blur-in-title`, `channel-intro-sting`, `chapter-countdown`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `definition-card`, `end-card-credits`, `end-screen-cards`, `follower-milestone`, `glyph-orbit-logo`, `key-takeaway-highlight`, `kinetic-captions`, `logo-reveal-lines`, `mask-rise-title`, `myth-vs-fact`, `news-strap`, `number-counter`, `paper-strip-title`, `quiz-question-reveal`, `rolling-credits`, `rundown-board`, `sale-countdown-banner`, `scene-tag`, `sponsor-slate`, `stamp-slam`, `sting-bug`, `story-caption-box`, `typewriter-code`, `typewriter-signature`, `bokeh-drift`, `light-leak-wash`, `pattern-scroll`, `agent-log-panel`, `comment-bubble-stream`, `cursor-driver`, `glass-lesson-card`, `keystroke-hud`, `liquid-glass-lens`, `notification-stack`, `planned-vs-heard-checklist`, `player-toolbar`, `poll-results-bars`, `review-stars-rating`, `story-progress-frames`, `subscribe-like-bell`, `testimonial-card-carousel` |
 | seamless loop | `iso-bar-chart`, `embers`, `sonar-ping` |
-| takes your image (`src` / `images` / `heroSrc`) | `pointcloud-orbit`, `crash-zoom`, `dolly-zoom`, `orbit-parallax`, `whip-pan`, `beat-montage`, `crowd-tracks`, `ground-plane-ruler`, `map-route`, `microscope-dive`, `science-reticle`, `thumbnail-mosaic`, `mugshot-height-chart`, `depth-descent`, `lamp-screen`, `paper-diorama`, `studio-sweep`, `topdown-terrain`, `window-glow-sequence`, `beat-punch-zoom`, `crayon-wax-shader`, `focus-desaturate`, `frame-blend-timelapse`, `frame-breakout`, `freeze-frame-brackets`, `giant-eye-reveal`, `glass-crack-mend`, `long-exposure-trails`, `loupe-magnify`, `magnifier-loupe`, `swirl-portal`, `theatre-gate`, `vhs-crt-pass`, `loot-reveal`, `rocket-to-moon`, `callout-labels`, `cam-chip-sync-badge`, `target-lock-box`, `target-lock`, `ascii-image-grid`, `autofocus-hunt`, `brush-stroke-reveal`, `comic-halftone`, `dot-matrix`, `duotone`, `film-look`, `glass-pane-grid`, `glitch-image`, `grid-multiply`, `handscroll-reveal`, `ken-burns`, `knife-colour-relay`, `knife-paint-plate`, `light-sweep`, `negative-develop-reveal`, `perspective-flatten`, `photomontage-tower`, `pixel-dither`, `press-lift`, `proportion-sweep`, `riso-plate-reveal`, `spinning-headline`, `split-grid-countdown`, `sticker-cutout-burst`, `telestrator-freeze`, `tilt-shift-diorama`, `woodblock-print-reveal`, `woodcut-carve`, `xray-scan`, `map-mask-reveal`, `audio-spectrum`, `guilloche-note`, `colorway-swap`, `feature-callout-orbit`, `frost-to-clear`, `sunburst-hero`, `unbox-lid-lift`, `scissor-cut`, `sonar-ping`, `blur-in-title`, `bouncing-ball-singalong`, `chapter-header`, `comic-burst`, `diagonal-band-title`, `end-card-credits`, `flipbook-riffle-outro`, `glyph-orbit-logo`, `halftone-exhibit-numeral`, `hanazi-caption`, `letters-become-image`, `logo-assemble`, `mask-rise-title`, `number-counter`, `stamp-slam`, `story-caption-box`, `typewriter-code`, `browser-mockup`, `device-mockup`, `sms-thread`, `split-compare`, `tv-wall-switch-on`, `versus-roster` |
+| takes your image (`src` / `images` / `heroSrc`) | `pointcloud-orbit`, `crash-zoom`, `dolly-zoom`, `orbit-parallax`, `whip-pan`, `beat-montage`, `crowd-tracks`, `ground-plane-ruler`, `map-route`, `microscope-dive`, `science-reticle`, `thumbnail-mosaic`, `mugshot-height-chart`, `depth-descent`, `lamp-screen`, `paper-diorama`, `studio-sweep`, `topdown-terrain`, `window-glow-sequence`, `beat-punch-zoom`, `crayon-wax-shader`, `focus-desaturate`, `frame-blend-timelapse`, `frame-breakout`, `freeze-frame-brackets`, `giant-eye-reveal`, `glass-crack-mend`, `long-exposure-trails`, `loupe-magnify`, `magnifier-loupe`, `swirl-portal`, `theatre-gate`, `vhs-crt-pass`, `loot-reveal`, `rocket-to-moon`, `callout-labels`, `cam-chip-sync-badge`, `target-lock-box`, `target-lock`, `ascii-image-grid`, `autofocus-hunt`, `brush-stroke-reveal`, `comic-halftone`, `dot-matrix`, `duotone`, `film-look`, `glass-pane-grid`, `glitch-image`, `grid-multiply`, `handscroll-reveal`, `ken-burns`, `knife-colour-relay`, `knife-paint-plate`, `light-sweep`, `negative-develop-reveal`, `perspective-flatten`, `photomontage-tower`, `pixel-dither`, `press-lift`, `proportion-sweep`, `riso-plate-reveal`, `spinning-headline`, `split-grid-countdown`, `sticker-cutout-burst`, `telestrator-freeze`, `tilt-shift-diorama`, `woodblock-print-reveal`, `woodcut-carve`, `xray-scan`, `map-mask-reveal`, `audio-spectrum`, `guilloche-note`, `colorway-swap`, `feature-callout-orbit`, `frost-to-clear`, `sunburst-hero`, `unbox-lid-lift`, `logo-reveal-liquid`, `scissor-cut`, `sonar-ping`, `blur-in-title`, `bouncing-ball-singalong`, `channel-intro-sting`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `diagonal-band-title`, `end-card-credits`, `flipbook-riffle-outro`, `glyph-orbit-logo`, `halftone-exhibit-numeral`, `hanazi-caption`, `letters-become-image`, `logo-assemble`, `logo-reveal-lines`, `mask-rise-title`, `number-counter`, `sponsor-slate`, `stamp-slam`, `story-caption-box`, `typewriter-code`, `browser-mockup`, `device-mockup`, `sms-thread`, `split-compare`, `story-progress-frames`, `tv-wall-switch-on`, `versus-roster` |
 | heavy (three.js / WebGL — prefer an exported video on mobile web) | `accum-render-3d`, `brick-collapse-physics`, `brick-fx-fire-smoke`, `brick-rebuild-morph`, `brick-snap-build`, `chart-to-installation`, `cloner-bed-ripple`, `colour-ignition-wave`, `exploded-stack`, `exploded-view-3d`, `glass-strip-sweep`, `globe-3d`, `iso-blocks-3d`, `iso-city-build`, `jelly-type-drop`, `last-object-drop`, `liminal-corridor-3d`, `ocean-surface-3d`, `particle-shape-morph`, `plan-tilt`, `pointcloud-orbit`, `product-turntable-3d`, `shockwave-flip-field`, `stack-plates-3d`, `terrain-build-3d`, `voxel-burst-swirl`, `voxel-diorama`, `wireframe-build`, `dash-flow-field` |
 
 ## recipes
@@ -530,6 +530,55 @@ A dark hide plaque with the title cut out so the letters glow with the lamp ligh
 | `backdropColor` | `"#120805"` | colour when backdrop = color |
 | `seed` | `6` | tremor seed |
 
+### `channel-intro-sting` — Channel intro sting (3 s)
+
+A 3-second bumper: five flat shapes snap in on the beat, spin and collapse to a point with a flash; a colour band shoots across and the channel name slams in letter by letter, a tagline pill slides in under it, then everything wipes out.
+
+**Use for:** Channel / show intro bumpers, section stingers and "from the makers of" openers; optional logo picture above the name.  
+**Rebuilt from:** original (branding pass, round 3)  
+**Default length:** 90 frames (3.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `tagline` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `name` | `"STUDIO NINE"` | channel / show name that slams in |
+| `tagline` | `"new episodes weekly"` | small pill under the name ("" = none) |
+| `src` | `""` | optional logo picture shown above the name (public/ path or URL) |
+| `background` | `"#101114"` | backdrop colour, or "transparent" to sit over footage |
+| `accent` | `"#FFD23F"` | band colour and shapes |
+| `accent2` | `"#FF4D6D"` | second brand colour (shapes, tagline pill) |
+| `ink` | `"#101114"` | name colour (must read on the accent band) |
+| `startAt` | `0` | frame the sting starts |
+| `speed` | `1` | timing multiplier (1.3 = faster, hits a shorter beat) |
+| `fontFamily` | `""` | optional CSS font-family for the name |
+
+### `chapter-countdown` — Chapter countdown (3-2-1 ring)
+
+A tick-marked ring counts 3-2-1: each number pops in and the ring sweeps once per count while the ticks light up; the ring then snaps shut into a line that opens sideways, with the chapter label, title and subtitle rising out from behind it.
+
+**Use for:** Chapter / section intros in tutorials, courses and long videos; "starting in 3-2-1" openers before a segment, with the chapter title.  
+**Rebuilt from:** original (branding pass, round 3)  
+**Default length:** 190 frames (6.3 s @ 30 fps)
+
+**Roles:** type · **Mood:** editorial  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `from` | `3` | number to count down from (1-9) |
+| `preLabel` | `"starting in"` | small line under the ring while counting ("" = none) |
+| `chapterLabel` | `"Chapter 02"` | small tracked label above the title (e.g. "Chapter 02", "Part 3") |
+| `title` | `"Getting Started"` | chapter title |
+| `subtitle` | `"Set up your workspace in five minutes"` | line under the title ("" = none) |
+| `framesPerCount` | `28` | frames per number (30 = one second) |
+| `background` | `"#0E1320"` | backdrop colour, or "transparent" to sit over footage |
+| `ink` | `"#F4F1EA"` | number and title colour |
+| `accent` | `"#4DD6C1"` | ring, ticks, label and line colour |
+| `startAt` | `0` | frame the countdown starts |
+| `fontFamily` | `""` | optional CSS font-family for the number and title |
+
 ### `chapter-header` — Chapter header
 
 ![chapter-header](../gallery/chapter-header.jpg)
@@ -621,6 +670,34 @@ An extruded 80s chrome logotype slams in from huge scale, flashes the frame whit
 | `skew` | `-8` | italic skew in degrees |
 | `background` | `"#090216"` | backdrop base colour |
 
+### `cinematic-title-card` — Cinematic title card
+
+Letterbox bars slide in over a slowly pushing backdrop (your picture or a graded gradient with a drifting light leak); floating dust catches the light, a small kicker appears, a wide-tracked serif title resolves from blur as its tracking tightens, a thin rule and subtitle follow, and the card fades to black.
+
+**Use for:** Film and documentary titles, trailers, "a film by" cards, episode titles and any moody opening over a photo or colour.  
+**Rebuilt from:** original (branding pass, round 3)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** photo, cinematic, editorial  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle`, `kicker` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"The Long Way Home"` | main title (set in caps) |
+| `subtitle` | `"a short documentary"` | line under the title ("" = none) |
+| `kicker` | `"a film by"` | tiny tracked line above the title, e.g. "a film by" ("" = none) |
+| `src` | `""` | backdrop picture (public/ path or URL); empty = graded gradient with light leak |
+| `background` | `"#0A0C12"` | base colour (the gradient shade / picture tint); "transparent" = bars and text only over your footage |
+| `ink` | `"#F1EBDD"` | text and dust colour |
+| `accent` | `"#C89B5A"` | light leak and rule colour |
+| `ratio` | `2.39` | letterbox aspect ratio (2.39 = scope, 1.85 = flat); bars are capped at 27 % of the height |
+| `dust` | `70` | floating dust motes (0-160) |
+| `push` | `0.08` | slow push-in over the whole card (0.08 = 8 %) |
+| `tracking` | `0.3` | final letter spacing of the title in em |
+| `startAt` | `0` | frame the bars start closing in |
+| `fadeOut` | `true` | fade to black over the last 20 frames |
+| `fontFamily` | `""` | optional CSS font-family for the title |
+
 ### `comic-burst` — Comic SFX burst
 
 ![comic-burst](../gallery/comic-burst.jpg)
@@ -676,6 +753,35 @@ An art-deco title card unfolding from a centre point: hairline → stepped lacqu
 | `accent` | `"#8E1B2E"` | burgundy jewel accent at the bar ends |
 | `background` | `"#0d0b09"` | warm lacquer black |
 | `sheenAt` | `84` | frame the specular sheen sweeps across the gold |
+
+### `definition-card` — Definition card
+
+![definition-card](../gallery/definition-card.jpg)
+
+A dictionary entry card: big headword with a speaker icon, phonetic spelling and part-of-speech pill, a rule that draws, the definition typing on with a caret, then an italic example sentence.
+
+**Use for:** Vocabulary and "what does X mean" explainers, glossary beats, language lessons, jargon-busting intros — pass the word, phonetic, part of speech, definition and example.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `word` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `word` | `"Inflation"` | the headword |
+| `phonetic` | `"/ɪnˈfleɪ.ʃən/"` | phonetic spelling, e.g. /ˈwɜːd/ |
+| `partOfSpeech` | `"noun"` | noun / verb / adjective ... shown as a pill |
+| `definition` | `"A general rise in prices over time, which means each uni…` | the definition text (types on) |
+| `example` | `"With inflation at 3%, a $100 basket of groceries costs $…` | optional example sentence (empty string hides it) |
+| `background` | `"#E9E1D0"` | backdrop colour or 'transparent' |
+| `ink` | `"#1D1B18"` | text colour |
+| `accent` | `"#C8452D"` | pill, rule, caret and left-edge colour |
+| `card` | `"#FFFDF7"` | card colour |
+| `fontFamily` | `""` | optional CSS font-family for the word and example (empty = serif) |
+| `startAt` | `0` | frame the card starts entering |
+| `speed` | `1` | playback speed multiplier |
+| `typeSpeed` | `1` | typing speed multiplier for the definition |
 
 ### `diagonal-assemble-title` — Diagonal assemble title (shatter into title)
 
@@ -770,6 +876,34 @@ Bottom scrim fades in over a drifting landscape; headline, mono stat lines and a
 | `ctaAt` | `0` | frame the CTA pops in (0 = visible from the first frame) |
 | `pullBack` | `false` | slow pull-back (≈3 %/s) with a slight truck right instead of the drift-in |
 
+### `end-screen-cards` — End screen with video cards
+
+Outro screen: headline, two video-card slots (thumbnail or placeholder, label, running timer bar) and a round subscribe circle with a rotating ring of text and pulsing halos; everything rises in staggered, then a supporting line fades in. Lays out 3-across on 16:9 and stacks on 1:1 and 9:16.
+
+**Use for:** YouTube / social end screens, "watch next" outros and channel sign-offs; keep the card areas for the platform end-screen elements.  
+**Rebuilt from:** original (branding pass, round 3)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle`, `cards` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Thanks for watching"` | big headline at the top |
+| `subtitle` | `"New videos every week"` | supporting line at the bottom ("" = none) |
+| `cards` | `[{"label":"Watch next","src":""},{"label":"Most popular",…` | [{label, src}] up to 2 video cards; src = thumbnail image (public/ path or URL), empty = placeholder |
+| `circleLabel` | `"Subscribe"` | text inside the circle when no circleSrc is given |
+| `circleSrc` | `""` | channel avatar / logo picture for the circle |
+| `ringText` | `"SUBSCRIBE · SUBSCRIBE · SUBSCRIBE · SUBSCRIBE · "` | text that rotates around the circle (repeat it to fill the ring) |
+| `background` | `"#10131A"` | backdrop colour, or "transparent" to place over footage |
+| `ink` | `"#F3F1EC"` | text colour |
+| `accent` | `"#FF4D4D"` | brand colour of the circle, halos and timer bars |
+| `cardColor` | `"#1C2130"` | card background shown behind thumbnails |
+| `timerBars` | `true` | show the running timer bar along the bottom of each card |
+| `startAt` | `0` | frame the screen starts building |
+| `speed` | `1` | timing multiplier |
+| `fontFamily` | `""` | optional CSS font-family for all text |
+
 ### `flipbook-riffle-outro` — Flipbook riffle outro
 
 ![flipbook-riffle-outro](../gallery/flipbook-riffle-outro.jpg)
@@ -801,6 +935,35 @@ A hand-drawn end card (scalloped red title plate, flame mascot, sparkles) pulls 
 | `riffleCount` | `6` | earlier drawings flashed during the riffle (2–8, one per frame) |
 | `showFlame` | `true` | flame mascot peeking over the plate |
 | `seed` | `1` | variation seed |
+
+### `follower-milestone` — Follower milestone
+
+A counter climbs to a milestone while a progress bar fills and little hearts float up; it lands with a shockwave, rays and a confetti burst, then a thank-you line pops in word by word.
+
+**Use for:** Follower / subscriber / download / sales milestones, community thank-you posts, anniversary and goal-reached celebrations, "we hit 100K" announcements.  
+**Rebuilt from:** original (round 3, social & marketing)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** type, accent · **Mood:** playful  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `label`, `caption`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `value` | `100000` | the milestone the counter climbs to |
+| `fromValue` | `0` | where the counter starts |
+| `label` | `"followers"` | unit under the number (followers, subscribers, users…) |
+| `caption` | `"New milestone"` | small line above the number |
+| `thankYou` | `"Thank you!"` | big thank-you line that pops in after the burst |
+| `subtitle` | `"We could not have done it without you"` | smaller line under the thank-you |
+| `format` | `"full"` | "full" (100,000) or "compact" (100K) |
+| `climbFrames` | `90` | frames the counter takes to climb |
+| `floaters` | `true` | floating hearts / plus marks during the climb |
+| `background` | `"#0F1226"` | frame colour, or "transparent" to overlay content |
+| `ink` | `"#FFFFFF"` | text colour |
+| `accent` | `"#FFB63D"` | number glow, bar and burst colour |
+| `accent2` | `"#FF5C8A"` | label, shockwave and underline colour |
+| `seed` | `3` | seed for the burst pattern |
+| `startAt` | `0` | frame the sequence begins |
 
 ### `glyph-fractal-push` — Glyph fractal push
 
@@ -888,6 +1051,7 @@ A giant rounded numeral bleeds off the right edge in flat yellow overprinted wit
 | `shadowColor` | `"#FFC628"` | misregistration shadow colour of the headline |
 | `src` | `""` | optional public/ image shown as the exhibit (boiling evidence tag otherwise) |
 | `background` | `"#F4ECDD"` | paper colour |
+| `exhibitLabel` | `"EXHIBIT"` | small caps label above the numeral on the card |
 
 ### `hanazi-caption` — Hanazi caption
 
@@ -1006,6 +1170,35 @@ A bold extruded wordmark that belongs to an isometric world: letters drop one by
 | `startAt` | `6` | frame of the first letter drop |
 | `grid` | `true` | faint iso floor grid |
 | `ping` | `true` | cyan floor ping at the end |
+
+### `key-takeaway-highlight` — Key takeaway highlight
+
+![key-takeaway-highlight](../gallery/key-takeaway-highlight.jpg)
+
+A reading paragraph whose key phrases are swiped with a marker one by one, followed by a KEY TAKEAWAY box with a lightbulb and a one-line summary.
+
+**Use for:** Lesson recaps, article / study summaries, "what to remember" endings, explainer chapters — pass your paragraph, the phrases to highlight and the takeaway line.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 270 frames (9.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `text` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `text` | `"Compound interest means you earn interest on your intere…` | the paragraph shown on screen |
+| `highlights` | `["interest on your interest","invested early","time does …` | phrases inside `text` to marker-highlight, in the order they are swiped (matched case-insensitively) |
+| `takeaway` | `"Start early: time matters more than the amount."` | summary sentence in the takeaway box |
+| `takeawayLabel` | `"KEY TAKEAWAY"` | label above the takeaway |
+| `background` | `"#F4EFE3"` | backdrop colour or 'transparent' |
+| `ink` | `"#1F1D1A"` | text colour |
+| `accent` | `"#FFC21A"` | marker colour (odd highlights), takeaway border and lightbulb |
+| `accent2` | `"#7FD6C2"` | marker colour for every second highlight |
+| `card` | `"#FFFFFF"` | takeaway box fill |
+| `fontFamily` | `""` | optional CSS font-family for the paragraph (empty = serif) |
+| `startAt` | `0` | frame the paragraph starts fading in |
+| `speed` | `1` | playback speed multiplier |
+| `stagger` | `26` | frames between marker swipes |
 
 ### `kinetic-captions` — Kinetic word captions
 
@@ -1155,6 +1348,31 @@ The logo draws on as a triangle wireframe, then faceted shards fly in from depth
 | `sweep` | `true` | light sweep after the lock |
 | `seed` | `4` | randomness seed |
 
+### `logo-reveal-lines` — Logo reveal: sweeping lines
+
+Fine rules sweep in from alternating sides across the frame, converge on the logo box (outer rules become top and bottom rule, the rest merge into a bright centre line), the logo opens out of that line with a sheen and the tagline tracks in.
+
+**Use for:** Clean logo intros and outros for a channel, product or studio; wordmark text or your own logo image.  
+**Rebuilt from:** original (branding pass, round 3)  
+**Default length:** 120 frames (4.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** playful  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `text`, `tagline` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `text` | `"NORTHWIND"` | wordmark shown when no src is given (use \n for two lines) |
+| `tagline` | `"made to move"` | small tracked line under the logo ("" = none) |
+| `src` | `""` | logo image (public/ path or https URL, transparent PNG/SVG best); empty = wordmark text |
+| `lines` | `9` | how many sweeping rules (3-24) |
+| `background` | `"#0B0D10"` | backdrop colour, or "transparent" to sit over other footage |
+| `ink` | `"#F4F1EA"` | wordmark / secondary line colour |
+| `accent` | `"#FF5A36"` | brand colour of the main rules and ticks |
+| `startAt` | `0` | frame the sweep starts |
+| `speed` | `1` | timing multiplier (1 = default, 1.5 = faster) |
+| `fontFamily` | `""` | optional CSS font-family for the wordmark text |
+| `exit` | `false` | fade everything out over the last 14 frames |
+
 ### `marquee-ticker` — Marquee ticker
 
 ![marquee-ticker](../gallery/marquee-ticker.jpg)
@@ -1227,6 +1445,37 @@ Editorial title whose letters rise out of baseline masks with motion blur; chapt
 | `letterStepFrames` | `2` | vertical: frames between letters (2) |
 | `font` | `"display"` | water / numeral / vertical / breathing: display \| sans \| serif \| instrument \| rounded \| grotesk |
 
+### `myth-vs-fact` — Myth vs fact
+
+![myth-vs-fact](../gallery/myth-vs-fact.jpg)
+
+A MYTH card drops in, a red FALSE stamp slams across it and shakes the card, then the card flips in 3D to a FACT card with a green tick.
+
+**Use for:** Myth-busting beats, misconception explainers, health / science / finance "common belief vs reality" shorts, quiz answers — pass your own myth and fact.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** 3d  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `myth` | `"We only use 10% of our brains."` | the false claim (shown in quotes on the front card) |
+| `fact` | `"Brain scans show that nearly every region is active over…` | the correct statement (back of the card) |
+| `mythLabel` | `"MYTH"` | pill on the myth card |
+| `factLabel` | `"FACT"` | pill on the fact card |
+| `stampText` | `"FALSE"` | word stamped across the myth (FALSE, BUSTED, WRONG...) |
+| `factStamp` | `"VERIFIED"` | small caption at the bottom of the fact card |
+| `background` | `"#16181F"` | backdrop colour or 'transparent' |
+| `ink` | `"#1A1A22"` | statement text colour |
+| `accent` | `"#1FA971"` | fact colour (tick, border, pill) |
+| `accent2` | `"#E5412D"` | myth colour (stamp, pill) |
+| `card` | `"#FBF7EE"` | card face colour |
+| `fontFamily` | `""` | optional CSS font-family for the statements (empty = grotesk) |
+| `startAt` | `0` | frame the card starts dropping in |
+| `hold` | `40` | frames the myth is read before the stamp lands |
+| `speed` | `1` | playback speed multiplier |
+
 ### `neon-sign` — Neon sign ignite
 
 ![neon-sign](../gallery/neon-sign.jpg)
@@ -1291,6 +1540,7 @@ Persistent broadcast lower third: lemon category tab on a paper strap with a lem
 | `changeMode` | `"flip"` | "flip" (vertical flip) or "cut" |
 | `backdrop` | `"studio"` | "studio" (ink studio with glow, fins and dot grid) or "none" (overlay) |
 | `background` | `"transparent"` | background when backdrop is "none" (default transparent) |
+| `disclaimer` | `"NOT ACTUAL FOOTAGE"` | small caps disclaimer under the strap |
 
 ### `newsreel-ident` — Newsreel ident (searchlights & globe)
 
@@ -1432,6 +1682,35 @@ A chunky gold pixel-glyph logo falls with gravity, lands on a white flash frame,
 | `glints` | `true` | four-point glints after the shine |
 | `seed` | `5` | seed for stars, dust and sparks |
 
+### `quiz-question-reveal` — Quiz question reveal
+
+![quiz-question-reveal](../gallery/quiz-question-reveal.jpg)
+
+A QUIZ tag and question, lettered option cards dealing in, a draining timer ring with a countdown, then the correct option lights up with a tick and a pulse while the rest dim.
+
+**Use for:** Quiz shorts, "can you guess" engagement beats, classroom / course videos, trivia — pass the question, options and the correct index.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 270 frames (9.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** nature, ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `label` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `label` | `"QUIZ"` | tag above the question |
+| `question` | `"Which planet in our solar system has the most moons?"` | the question text |
+| `options` | `["Jupiter","Saturn","Uranus","Neptune"]` | answer options (2-6) |
+| `correct` | `1` | zero-based index of the correct option |
+| `timerSeconds` | `5` | length of the countdown ring in seconds |
+| `background` | `"#101A33"` | backdrop colour or 'transparent' |
+| `ink` | `"#F3F5FB"` | question and option text colour |
+| `accent` | `"#2EC4B6"` | correct-answer, tag and letter colour |
+| `accent2` | `"#FF6B4A"` | colour of the timer in its last third |
+| `card` | `"#1C2B52"` | option card fill |
+| `fontFamily` | `""` | optional CSS font-family (empty = grotesk) |
+| `startAt` | `0` | frame the intro starts |
+| `speed` | `1` | playback speed multiplier |
+
 ### `ransom-note-type` — Ransom-note type
 
 ![ransom-note-type](../gallery/ransom-note-type.jpg)
@@ -1459,6 +1738,31 @@ Each letter sits on its own scrap of paper (newsprint, red, black, white) with a
 | `red` | `"#D2261C"` | red scrap colour |
 | `ink` | `"#16130F"` | black scrap / type colour |
 | `paper` | `"#F4EFE4"` | white scrap colour |
+
+### `rolling-credits` — Rolling credits
+
+Credits that roll up from a list of {role, names[]} sections under a title: roles in small tracked accent caps beside (landscape) or above (portrait) the names, soft edge fade, a steady scroll that finishes exactly at the end, or beat-locked glides (set a bpm) that land one section per bar for music.
+
+**Use for:** End credits for films, videos and podcasts, "made by" rolls, cast / crew / thanks lists; pass bpm to match the music.  
+**Rebuilt from:** original (branding pass, round 3)  
+**Default length:** 480 frames (16.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** cinematic, nature, editorial  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Credits"` | heading that rolls first ("" = none) |
+| `sections` | `[{"role":"Directed by","names":["Alex Morgan"]},{"role":"…` | [{role, names[]}] credit blocks, in order |
+| `closing` | `"Thank you for watching"` | last centred line ("" = none) |
+| `layout` | `"auto"` | auto \| split (role left, names right) \| stack (role above names, centred) |
+| `bpm` | `0` | 0 = steady scroll to the end; e.g. 96 = glide to a new block every `beatsPerStep` beats |
+| `beatsPerStep` | `4` | beats between blocks when bpm is set (4 = one per bar) |
+| `background` | `"#0B0B0F"` | backdrop colour, or "transparent" to roll over footage |
+| `ink` | `"#F2EFE8"` | names colour |
+| `accent` | `"#E0A23B"` | role label colour |
+| `startAt` | `0` | frame the roll starts |
+| `fontFamily` | `""` | optional CSS font-family |
 
 ### `rundown-board` — Rundown board (today in this video)
 
@@ -1490,6 +1794,35 @@ News rundown: a date block (huge numerals, lemon month, mono week, title) pushes
 | `highlightFirst` | `true` | pulse an outline on the first row |
 | `backdrop` | `"studio"` | "studio" or "none" (overlay) |
 | `background` | `"transparent"` | background when backdrop is "none" |
+
+### `sale-countdown-banner` — Sale countdown banner
+
+Promo banner: headline pill, a huge discount that slams in, a subtitle, a flip-style hours/min/sec countdown, a pulsing call-to-action pill and a scrolling ribbon.
+
+**Use for:** Flash sales, launch / early-bird offers, Black-Friday style promos, "ends soon" ads, limited-time offers, social and e-commerce video ads.  
+**Rebuilt from:** original (round 3, social & marketing)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `headline`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `headline` | `"Flash sale"` | small pill above the discount |
+| `discount` | `"50%"` | the big number / text, e.g. "50%" or "$20" |
+| `discountLabel` | `"OFF"` | word after the discount (OFF, SAVE, …) |
+| `subtitle` | `"Everything in the store. Today only."` | one or two lines under the discount |
+| `timerLabel` | `"Ends in"` | caption above the timer |
+| `unitLabels` | `["Hours","Min","Sec"]` | three labels under the timer boxes (hours, minutes, seconds) |
+| `timerSeconds` | `9254` | timer value at the start, in seconds |
+| `tickSpeed` | `1` | timer seconds that pass per video second (1 = real time) |
+| `ctaLabel` | `"Shop now"` | text in the call-to-action pill |
+| `ribbon` | `"Limited time  •  Free shipping  •  While stock lasts  •"` | text that scrolls along the bottom ribbon |
+| `background` | `"#17132B"` | frame colour, or "transparent" to overlay content |
+| `ink` | `"#FFFFFF"` | text colour |
+| `accent` | `"#FFC933"` | discount number + ribbon colour |
+| `accent2` | `"#FF4D6D"` | headline pill + call-to-action colour |
+| `startAt` | `0` | frame the sequence begins |
 
 ### `scene-tag` — Scene index tag
 
@@ -1556,6 +1889,33 @@ On black, a big word cut into 8–10 horizontal slices of different heights flie
 | `seed` | `4` | slice layout seed |
 | `hud` | `true` | show the reel HUD |
 | `label` | `"04 — TYPE"` | HUD chapter label |
+
+### `sponsor-slate` — Sponsor slate
+
+A "presented by" label flanked by drawing rules, a rounded panel that scales up carrying the sponsor logo (picture or wordmark) with a sheen pass, an optional offer pill and a small disclaimer line, then a fade out.
+
+**Use for:** Sponsor reads and "this video is brought to you by" slates, partner credits, event sponsor cards and disclosure lines.  
+**Rebuilt from:** original (branding pass, round 3)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** photo  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `label` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `label` | `"presented by"` | small tracked label above the panel (e.g. "presented by", "in partnership with") |
+| `name` | `"Brightline"` | sponsor wordmark shown when no src is given |
+| `src` | `""` | sponsor logo picture (public/ path or URL, transparent PNG/SVG best) |
+| `offer` | `""` | optional pill under the panel, e.g. "Code SAVE10 for 10% off" ("" = none) |
+| `disclaimer` | `"This video is sponsored. All opinions are our own."` | small disclosure line at the bottom ("" = none) |
+| `background` | `"#12151B"` | backdrop colour, or "transparent" to sit over footage |
+| `ink` | `"#F3F0EA"` | label and disclaimer colour |
+| `accent` | `"#5B8CFF"` | rules, panel outline and offer pill colour |
+| `panelColor` | `"#FFFFFF"` | logo panel fill (pick one the logo reads on) |
+| `panelInk` | `"#12151B"` | wordmark colour on the panel |
+| `startAt` | `0` | frame the slate starts |
+| `fadeOut` | `true` | fade out over the last 16 frames |
+| `fontFamily` | `""` | optional CSS font-family |
 
 ### `stamp-slam` — Stamp slam + keyword pop
 
@@ -1904,7 +2264,7 @@ A red ball over a dark dev-HUD: gravity bounces with velocity stretch and 1-fram
 **Default length:** 120 frames (4.0 s @ 30 fps)
 
 **Roles:** subject · **Mood:** dark, hud, playful, night  
-**Capabilities:** paints its own background · text: `title`, `subtitle`, `labels` · weight: light  
+**Capabilities:** paints its own background · text: `title`, `subtitle`, `labels`, `scaleLabel` · weight: light  
 **Pairs well with:** `hud-chrome`, `easing-graph`, `onion-skin-arc`  
 
 | prop | default | notes |
@@ -1939,6 +2299,11 @@ A red ball over a dark dev-HUD: gravity bounces with velocity stretch and 1-fram
 | `launchAt` | `0` | impact mode: frame of the stretch launch (0 = frame 31 @30 fps) |
 | `accent` | `"#F5C518"` | impact mode: first ray colour |
 | `accent2` | `"#E8553B"` | impact mode: second ground-ring colour |
+| `identityNote` | `"CIRCLE = ELLIPSE = ELLIPSE"` | bounce: small grey note under the scale diagram |
+| `scaleLabel` | `"SCALE · LIVE"` | bounce: caption above the live scale readout |
+| `phaseLabels` | `["ANTICIPATION","ACTION","FOLLOW-THROUGH"]` | anticipation: labels of the three timeline bars |
+| `chargeLabels` | `["LOADED","CHARGING","RELEASE"]` | anticipation: [prefix, first-phase word, second-phase word] of the gauge caption |
+| `hopLabel` | `"PRIMARY · HOP"` | hop: callout label next to the ball |
 
 ### `branch-grow` — Branching growth (dendrites / tree / network)
 
@@ -2120,6 +2485,7 @@ Glossy gold nuclei bud and split inside an egg outline, doubling every few frame
 | `tree` | `true` | grow the binary-tree diagram in the top-right corner |
 | `showCount` | `true` | show the running count under the tree |
 | `seed` | `6` |  |
+| `countLabel` | `"CELLS"` | unit word after the live count (showCount: true) |
 
 ### `comet-pulse-guide` — Comet pulse guide
 
@@ -2274,6 +2640,9 @@ A linear black ball and an eased red ball race along two tracks with per-frame s
 | `subtitle` | `"Ease into every pose. Ease out of it."` |  |
 | `code` | `"x = x0 + Δx·ease(u) // same frames, different spacing"` |  |
 | `lanes` | `[]` | lane race instead of the two tracks: any of 'linear','ease-out','ease-in','bezier' (uses easing),'spring','back','steps', e.g. ['linear','ease-out','bezier','spring']; [] = classic A/B |
+| `editorLabel` | `"GRAPH EDITOR · EASE"` | caption at the top-left of the graph panel |
+| `axisLabel` | `"VALUE / TIME"` | caption at the top-right of the graph panel |
+| `idleLabelB` | `"B · LINEAR"` | label of track B before it starts moving (then labelB) |
 
 ### `exploded-view-balloons` — Exploded view with balloons
 
@@ -2301,6 +2670,7 @@ A drawn blueprint assembly comes apart part by part, one per beat; each part tra
 | `title` | `"The Hand Winch"` | hand-lettered sheet title |
 | `seed` | `5` | paper seed |
 | `camera` | `true` | pull the camera back while exploded |
+| `listTitle` | `"PARTS LIST"` | heading above the parts list |
 
 ### `flat-to-3d-sphere` — Flat disc to 3D sphere
 
@@ -2516,6 +2886,32 @@ Line art constructs itself stroke by stroke with a pen nib riding each tip, then
 | `retractAt` | `0` | frame to start removing the drawing (0 = never): cables split into pieces that shrink to nothing; crayon / fineliner erase from the tail |
 | `retractFrames` | `14` | frames each retract takes |
 | `retractPieces` | `3` | cable pieces the stroke splits into when retracting |
+
+### `logo-reveal-liquid` — Logo reveal: liquid flood
+
+Gooey two-colour liquid rises from the bottom edge with droplets lifting off the wavy surface until it floods the frame; a wobbly hole then opens in the middle and spreads out, revealing the logo inside it, followed by a ripple ring and the tagline.
+
+**Use for:** Playful or organic logo intros and outros (drinks, wellness, kids, creative studios); your logo image or a wordmark.  
+**Rebuilt from:** original (branding pass, round 3)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** playful  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `text`, `tagline` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `text` | `"Fluent"` | wordmark shown when no src is given (use \n for two lines) |
+| `tagline` | `"pour it on"` | small tracked line under the logo ("" = none) |
+| `src` | `""` | logo image (public/ path or https URL); empty = wordmark text |
+| `background` | `"#FFF6EA"` | colour of the revealed frame the logo sits on, or "transparent" |
+| `ink` | `"#1B1A2E"` | wordmark / tagline colour (pick one that reads on `background`) |
+| `accent` | `"#3A4BFF"` | front liquid colour |
+| `accent2` | `"#FF7AA8"` | rear liquid colour |
+| `droplets` | `10` | droplets that lift off the surface (0-24) |
+| `wobble` | `1` | edge wobble of the hole (0 = perfect circle, 1 = default, 2 = very jelly) |
+| `startAt` | `0` | frame the liquid starts rising |
+| `speed` | `1` | timing multiplier |
+| `fontFamily` | `""` | optional CSS font-family for the wordmark text |
 
 ### `metaball-heatmap` — Metaball heat-map / goo
 
@@ -2859,6 +3255,10 @@ A red ball swoops across a blue field trailing five lagging pastel ribbons; when
 | `drip` | `0.7` | dabs: share of dabs that drip (0..1) |
 | `dabWidth` | `[20,64]` | dabs: [min, max] dab width in u (envelope peaks mid-ribbon) |
 | `seed` | `4` | dabs: random seed |
+| `stopLabel` | `"STOP"` | big word that pops when the ball stops |
+| `ballLabel` | `"BALL"` | word before the stop time under the big word |
+| `settleLabel` | `"FRAMES AFTER STOP · SETTLE"` | caption above the settle table |
+| `strandLabel` | `"STRAND"` | word before the strand number in the settle table |
 
 ### `rose-curve-trace` — Rose-curve pendulum trace
 
@@ -2916,6 +3316,7 @@ A dashed "cut along the line" guide draws across an image, a pair of scissors tr
 | `background` | `"#B89A72"` | table colour |
 | `paper` | `"#F2ECDF"` | paper colour |
 | `scissorSize` | `0.2` | scissors length as a fraction of sheet width |
+| `cutLabel` | `"CUT ALONG THE LINE"` | mono caption on the coupon strip |
 
 ### `shape-morph-chain` — Shape morph chain
 
@@ -3690,6 +4091,9 @@ A keyed speed ramp (1x to 70x and a hard brake to 0.3x) integrated to source tim
 | `src` | `""` | optional still image (public/) used as the sky + skyline plate behind the road |
 | `seed` | `4` | seed for buildings, clouds and cars |
 | `background` | `"#070B1C"` | fallback background |
+| `speedLine` | `"SPEED · {n} SUB-FRAME{s} BLENDED"` | HUD line; {n} = sub-frames blended, {s} = "S" when more than one |
+| `clockLabel` | `"SOURCE CLOCK"` | caption under the source clock readout |
+| `curveLabel` | `"0.3× – 80× SPEED CURVE"` | caption under the speed-curve graph |
 
 ### `frame-breakout` — Frame breakout
 
@@ -4465,6 +4869,7 @@ The picture behaves like worn tape: it steps down to 15 fps while tracking, jolt
 | `body` | `"#2a2145"` | cassette body colour |
 | `accent` | `"#35e0c0"` | accent colour (label stripe, meter, curve) |
 | `background` | `"#07040f"` | backdrop colour |
+| `graphLabel` | `"source time vs. output time"` | caption under the time graph (showGraph: true) |
 
 ### `theatre-gate` — Theatre gate (framed film print)
 
@@ -5530,6 +5935,7 @@ Countdown on a dusk launch pad, ignition with billowing ground smoke and a flick
 | `ink` | `"#FFFFFF"` | text colour |
 | `smoke` | `1` | ground smoke amount (0.3-1.5) |
 | `shake` | `1` | pre-lift vibration strength (0 = steady) |
+| `countdownLabel` | `"T MINUS"` | small mono label under the big countdown number |
 
 ### `segmented-worm-breach` — Segmented worm breach
 
@@ -6014,6 +6420,8 @@ One cel character re-lit through day, dawn, night, backlit and silhouette by mul
 | `compare` | `true` | true = left panel shows one filter over the whole frame, right panel the per-role relight |
 | `swatches` | `true` | show the set chips at the bottom |
 | `background` | `"#0E0A18"` | page colour behind the panels |
+| `frameLabel` | `"ONE FILTER OVER THE FRAME"` | caption of the left (whole-frame filter) panel in compare mode |
+| `relightLabel` | `"RELIGHT PER PAINT ROLE"` | caption of the per-paint-role relight panel |
 
 ### `creator-hand` — Creator hand
 
@@ -6377,6 +6785,10 @@ Dark blue space: a nucleus of protons and neutrons grows one proton per beat wit
 | `particles` | `110` | particles per electron (more = denser cloud) |
 | `stars` | `90` | background star count |
 | `seed` | `4` | nucleus layout / particle seed |
+| `protonsLabel` | `"PROTONS"` | label of the proton counter |
+| `neutronsLabel` | `"NEUTRONS"` | label of the neutron counter |
+| `electronsLabel` | `"ELECTRONS"` | label of the electron counter |
+| `protonNote` | `"+1 proton"` | floating note when a proton is added |
 
 ### `axis-ratchet-rescale` — Axis ratchet rescale
 
@@ -6437,6 +6849,34 @@ Hard-cut image montage whose cuts accelerate 12 f -> 6 f -> 3 f, a persistent ce
 | `mode` | `"images"` | images (default) \| shapes (graphic match cuts: one circle keeps its centre and size while it becomes a wheel, roulette, pupil, moon, keyhole, target; steps [10,8,6,4] + dotColor as accent) |
 | `reverse` | `false` | replay the shots in reverse order with contracting rings (rewind / flashback; combine with steps [4,2]) |
 | `shapePalette` | `["#E8584A","#2B6CB0","#F2C94C","#1F7A5C","#7B4FB8","#ECE4…` | shapes mode: background colours cycled per shot |
+
+### `cause-effect-chain` — Cause and effect chain
+
+![cause-effect-chain](../gallery/cause-effect-chain.jpg)
+
+Step boxes linked by dashed arrows; each arrow fills with a travelling pulse and the next box lights up, the colour sliding from the cause colour to the effect colour, ending with a pulse ring on the last box.
+
+**Use for:** Domino-effect explainers, "how X leads to Y" chains, root-cause stories, economics / science / news cause chains — pass `steps` (2-7 short strings).  
+**Rebuilt from:** original (round 3)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"How one decision ripples out"` | heading above the chain (empty = none) |
+| `steps` | `["Interest rates rise","Loans cost more","People spend le…` | chain step texts, in order (up to 7) |
+| `causeLabel` | `"CAUSE"` | tag on the first box |
+| `effectLabel` | `"EFFECT"` | tag on the last box |
+| `background` | `"#0F1B2D"` | backdrop colour or 'transparent' |
+| `ink` | `"#EAF0FA"` | title and idle text colour |
+| `accent` | `"#F4B63D"` | cause end colour |
+| `accent2` | `"#E5543F"` | effect end colour |
+| `card` | `"#1B2D48"` | idle box fill |
+| `fontFamily` | `""` | optional CSS font-family (empty = grotesk) |
+| `startAt` | `0` | frame the chain starts |
+| `stagger` | `30` | frames between steps lighting up |
 
 ### `chip-stack-bars` — Chip stack bars
 
@@ -6636,6 +7076,8 @@ A glowing gas-discharge tube sends light through a slit and a prism; a dark spec
 | `startFrame` | `18` | frame the first gas lights |
 | `showLabels` | `true` | print the wavelength under each line |
 | `seed` | `1` | unused spare seed |
+| `spectrumLabel` | `"EMISSION SPECTRUM"` | caption after the gas name above the spectrum panel |
+| `axisLabel` | `"wavelength (nm)"` | axis caption under the spectrum panel |
 
 ### `empty-next-cell` — Empty next cell
 
@@ -6991,6 +7433,8 @@ Line charts that draw live with a glowing head dot: growth curve + synapse curve
 | `stamp` | `"BREAK"` | threshold: stamp text that lands on the readout panel |
 | `echoes` | `4` | scope: number of fading previous sweeps kept on screen |
 | `graticule` | `true` | scope: draw the glass graticule over the trace |
+| `secondaryLabel` | `"synapses"` | trace: axis label of the second (synapse) curve |
+| `gaugeTitle` | `""` | decline: gauge heading (empty = 'REASONING EFFORT' when title is 'QUALITY', else 'EFFORT') |
 
 ### `map-route` — Map route
 
@@ -7055,6 +7499,7 @@ One continuous powers-of-ten zoom from a glass slide on a graphite bench through
 | `seed` | `4` | seed for the procedural specimen |
 | `title` | `""` | optional small title written on the slide label at the start |
 | `src` | `""` | optional public/ image used as the specimen (zoom range is shortened so it stays sharp; give value/unit that match the circled region) |
+| `fieldLabel` | `"FIELD"` | small label above the field-of-view readout |
 
 ### `neural-net-layers` — Neural net layers
 
@@ -7085,6 +7530,7 @@ Columns of neuron circles joined by weighted connections: an activation wave flo
 | `ramp` | `["#2B5BFF","#2FD0E0","#F7E15A"]` | activation colour ramp (low -> high), 2-4 colours |
 | `positive` | `"#5C8DFF"` | positive-weight connection colour |
 | `negative` | `"#FF9A4A"` | negative-weight connection colour |
+| `outputLabel` | `"OUTPUT · SOFTMAX"` | small caption above the output bars |
 
 ### `node-network` — Node network
 
@@ -7150,6 +7596,9 @@ A glowing star and five bodies (one ringed, one with a moon) on dashed elliptica
 | `counter` | `true` | show the elapsed-time readout |
 | `stars` | `90` | background star count |
 | `seed` | `5` | start angles / star field seed |
+| `elapsedLabel` | `"ELAPSED"` | label before the elapsed-time counter |
+| `focusLabels` | `["ORBIT","DISTANCE","ECCENTRICITY","ORBITS DONE"]` | row labels of the focus card [period, distance, eccentricity, orbits done] |
+| `distanceUnit` | `"AU"` | unit after the distance value in the focus card |
 
 ### `order-book-depth` — Order-book depth chart
 
@@ -7297,6 +7746,36 @@ Pen strokes draw a perspective trapezoid board, coloured-pencil hatch fills squa
 | `pullback` | `1.35` | starting zoom of the camera pull-back (1 = none) |
 | `seed` | `2` |  |
 
+### `pros-cons-columns` — Pros and cons columns
+
+![pros-cons-columns](../gallery/pros-cons-columns.jpg)
+
+Two cards (PROS in green, CONS in red) with coloured headers; items slide in alternately, each marked by a drawn tick or cross, and a verdict pill pops at the end.
+
+**Use for:** Decision videos, review / comparison summaries, "should you…?" explainers, tech / money / lifestyle trade-offs — pass `pros`, `cons` and an optional `verdict`.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 270 frames (9.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `verdict` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Working from home"` | heading above the columns (empty = none) |
+| `prosLabel` | `"PROS"` | header of the positive card |
+| `consLabel` | `"CONS"` | header of the negative card |
+| `pros` | `["No commute","Flexible hours","Quiet focus time","Lower …` | positive items (up to 6) |
+| `cons` | `["Harder to switch off","Less face time","Feels isolating…` | negative items (up to 6) |
+| `verdict` | `"Great if you plan for the downsides"` | optional closing pill (empty = none) |
+| `background` | `"#F1EEE7"` | backdrop colour or 'transparent' |
+| `ink` | `"#1B1D22"` | text colour |
+| `accent` | `"#1E9E6A"` | pros colour |
+| `accent2` | `"#DB4437"` | cons colour |
+| `card` | `"#FFFFFF"` | card fill |
+| `fontFamily` | `""` | optional CSS font-family (empty = grotesk) |
+| `startAt` | `0` | frame the title starts |
+| `stagger` | `22` | frames between items |
+
 ### `pythagoras-rearrange` — Pythagoras proof by rearrangement
 
 ![pythagoras-rearrange](../gallery/pythagoras-rearrange.jpg)
@@ -7442,6 +7921,32 @@ A glowing orange star grows on a purple starfield, a pie wedge opens onto labell
 | `dashes` | `320` | number of supernova dashes |
 | `seed` | `11` | random seed for stars and dashes |
 
+### `step-process-numbered` — Numbered step process
+
+![step-process-numbered](../gallery/step-process-numbered.jpg)
+
+A winding path draws through numbered icon nodes; each node pops as the path reaches it, with a number badge and a title + description that fade in beside it.
+
+**Use for:** How-it-works, onboarding, recipes, tutorials and "3 steps to…" explainers — pass `steps` as {title, text, icon} (icons: check, bulb, gear, target, chart, user, doc, bolt, star, flag, search, clock, heart, globe, lock, book, rocket).  
+**Rebuilt from:** original (round 3)  
+**Default length:** 270 frames (9.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"How it works"` | heading (empty = none) |
+| `steps` | `[{"title":"Sign up","text":"Create a free account in unde…` | array of {title, text, icon} (3-6). icon is a name from the built-in set |
+| `background` | `"#111A2B"` | backdrop colour or 'transparent' |
+| `ink` | `"#F1F4FB"` | text colour |
+| `accent` | `"#4DD0B1"` | first-step colour |
+| `accent2` | `"#FFB347"` | last-step colour (colours blend along the path) |
+| `card` | `"#FFFFFF"` | number badge fill |
+| `fontFamily` | `""` | optional CSS font-family for step titles (empty = grotesk) |
+| `startAt` | `0` | frame the title starts |
+| `stagger` | `36` | frames between steps |
+
 ### `thumbnail-mosaic` — Thumbnail mosaic (disc / grid / recap)
 
 ![thumbnail-mosaic](../gallery/thumbnail-mosaic.jpg)
@@ -7564,6 +8069,34 @@ A thick gradient tube arches out of one glowing ink-line jar and draws itself in
 | `yaw` | `-18` | 3/4 view yaw in degrees (drifts +6°) |
 | `pitch` | `26` | camera elevation in degrees |
 
+### `venn-diagram-overlap` — Venn diagram overlap
+
+![venn-diagram-overlap](../gallery/venn-diagram-overlap.jpg)
+
+Two or three translucent circles pop in one by one with labels and example words, then the overlap region lights up and its label lands in the middle.
+
+**Use for:** Explaining overlaps and intersections — skills vs interests, audience segments, ikigai-style frameworks, compare-and-contrast lessons — pass `sets`, `items` and the `overlap` label.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `items` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Where it gets interesting"` | heading (empty = none) |
+| `sets` | `["Things you love","Things you are good at"]` | circle labels (2 or 3) |
+| `items` | `[["Music","Travel","Games"],["Writing","Maths","Design"]]` | array (one per set) of up to 3 short example words in that set |
+| `overlap` | `"Your sweet spot"` | label for the overlap (centre) region |
+| `background` | `"#14192B"` | backdrop colour or 'transparent' |
+| `ink` | `"#F4F6FC"` | text colour |
+| `accent` | `"#FF7A59"` | first circle colour |
+| `accent2` | `"#4FA8FF"` | second circle colour |
+| `accent3` | `"#7BE0A4"` | third circle colour |
+| `fontFamily` | `""` | optional CSS font-family (empty = grotesk) |
+| `startAt` | `0` | frame the title starts |
+| `stagger` | `26` | frames between circles |
+
 ## ui
 
 ### `agent-log-panel` — Agent log panel
@@ -7592,6 +8125,8 @@ A dark translucent side panel with a white hairline frame and a turn header, scr
 | `width` | `0.25` | panel width as a fraction of frame width (landscape) |
 | `demoScene` | `true` | paint the painterly battlefield behind (preview only; turn off as an overlay) |
 | `seed` | `12` | scene seed |
+| `repliesLabel` | `"replies"` | word after the reply count under a message |
+| `viewLabel` | `"View conversation"` | underlined link text under a message |
 
 ### `board-print-drop` — Board print drop
 
@@ -7775,6 +8310,7 @@ Cards or clips on a 3D ring rotate past the camera over a glossy floor with mirr
 | `accent` | `"#5B7CFF"` | spotlight / floor glow colour |
 | `ink` | `"#FFFFFF"` | text colour |
 | `title` | `"Selected work"` | title at the top |
+| `featuredLabel` | `"FEATURED"` | small caps label above the hero card title |
 
 ### `chat-bubbles` — Chat bubbles, chips & thought bubble
 
@@ -7891,6 +8427,30 @@ A dot grows into a search / prompt bar, a caret types the query with jittered ke
 | `charFrames` | `2.5` | frames per character (2-3 feels human) |
 | `enterGap` | `16` | frames between the last character and Enter |
 
+### `comment-bubble-stream` — Comment bubble stream
+
+A comment section streaming up: avatars with initials, names and speech bubbles pop in one after another at the bottom and push older comments up under a fade, with a counting header and optional like badges.
+
+**Use for:** Social proof, "what people are saying", reaction / reply montages, community and live-chat moments, comment-section explainers and ad reaction walls.  
+**Rebuilt from:** original (round 3, social & marketing)  
+**Default length:** 270 frames (9.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** playful, ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `comments` | `[{"name":"Maya Rivers","text":"Okay this is exactly what …` | array of {name, text, likes?} — name drives the avatar initials and colour |
+| `title` | `"Comments"` | header title |
+| `totalCount` | `1284` | header comment counter (counts up) |
+| `stagger` | `24` | frames between comments |
+| `startAt` | `0` | frame the first comment begins |
+| `background` | `"#F5F3EE"` | frame colour, or "transparent" to overlay content |
+| `ink` | `"#1E1C24"` | text colour |
+| `accent` | `"#F0506E"` | like badge heart colour |
+| `bubbleColor` | `"auto"` | speech bubble fill, or "auto" to tint the background with ink |
+| `showHeader` | `true` | show the title + counter header |
+
 ### `cursor-driver` — Cursor driver (operated UI)
 
 ![cursor-driver](../gallery/cursor-driver.jpg)
@@ -7913,6 +8473,16 @@ A pointer glides on bowed ease-in-out hops, presses with a 0.88x squash and a ri
 | `rippleColor` | `"#4F5BD5"` | click ripple colour |
 | `demo` | `true` | draw the reactive demo settings card under the cursor |
 | `demoText` | `"hello@northwind.co"` | text typed into the demo field |
+| `cardTitle` | `"Notification settings"` | demo card heading |
+| `cardSubtitle` | `"Where should we send your weekly summary?"` | demo card sub line |
+| `fieldPlaceholder` | `"you@company.com"` | grey placeholder in the demo field before typing |
+| `sliderLabel` | `"Frequency"` | label of the demo slider ("<label> · N <unit>") |
+| `sliderUnit` | `"days"` | unit word after the slider value |
+| `sliderMin` | `1` | slider value at the left end |
+| `sliderMax` | `30` | slider value at the right end |
+| `toggleLabel` | `"Product updates"` | label of the demo toggle |
+| `buttonLabel` | `"Save changes"` | demo button label before the click |
+| `savedLabel` | `"Saved ✓"` | demo button label after the click |
 | `accent` | `"#4F5BD5"` | demo UI accent |
 | `background` | `"#EDEBE7"` | canvas colour; 'transparent' for overlay use |
 | `dark` | `false` | dark demo card |
@@ -7949,6 +8519,32 @@ A CSS-built phone, android, tablet, laptop or watch with your screen content (a 
 | `textColor` | `"#16203f"` | headline colour |
 | `size` | `1` | device size multiplier |
 | `brand` | `"Lumen"` | name shown in the built-in UI |
+| `statusTime` | `"9:41"` | clock text in the phone status bar and on the watch face |
+| `greeting` | `"Good morning"` | small greeting above the app title (phone / tablet / android UI) |
+| `appSuffix` | `"Today"` | word after the brand in the app title ("<brand> <appSuffix>") |
+| `goal` | `78` | goal ring percentage 0-100 (ring fill and the number inside) |
+| `goalLabel` | `"Daily goal"` | small label in the goal card |
+| `goalTitle` | `"On track"` | big word in the goal card |
+| `goalNote` | `"3 of 4 habits done"` | note under the goal title |
+| `stats` | `[["Streak","12 d"],["Score","864"],["Rank","#3"]]` | three small stat tiles [label, value] |
+| `activityTitle` | `"Activity"` | heading of the activity list |
+| `activityRows` | `[["Morning run","5.2 km","#ff8a5b"],["Focus block","2 h 1…` | activity list rows [name, value, icon colour (optional)] |
+| `rowDays` | `["Today","Yesterday"]` | [even-row tag, odd-row tag] shown under each activity name |
+| `weekLabel` | `"This week"` | small label above the big number on the second phone panel |
+| `weekValue` | `"41.2 h"` | big number on the second phone panel |
+| `weekDelta` | `"+12% vs last week"` | green delta line on the second phone panel |
+| `weekBars` | `[0.45,0.7,0.55,0.9,0.62,0.38,0.8]` | bar heights 0..1 on the second phone panel |
+| `weekDays` | `["M","T","W","T","F","S","S"]` | one label under each bar |
+| `highlightsTitle` | `"Highlights"` | heading above the highlight chips |
+| `highlights` | `["Best focus day: Thursday","Longest streak: 12 days","Ne…` | highlight chip texts on the second phone panel |
+| `dashMenu` | `["Overview","Reports","Customers","Billing","Settings"]` | laptop dashboard sidebar items |
+| `dashTitles` | `["Overview","Reports"]` | [front, back] page heading of the laptop dashboard |
+| `dashStats` | `[["Revenue","$84.2k"],["Users","12,480"],["Growth","+18%"]]` | laptop dashboard stat cards [label, value] |
+| `dashChartTitle` | `"Monthly activity"` | title of the laptop dashboard bar chart |
+| `dashBars` | `[0.4,0.62,0.5,0.8,0.66,0.9,0.74,0.95,0.7,0.55,0.78,0.86]` | laptop dashboard bar heights 0..1 |
+| `watchLabel` | `"Heart rate"` | label on the second watch panel |
+| `watchValue` | `"72"` | big number on the second watch panel |
+| `watchUnit` | `"bpm"` | unit under the watch number |
 
 ### `glass-lesson-card` — Glass lesson cards
 
@@ -8004,6 +8600,12 @@ Frosted glass cards float in 3D with parallax over a drifting mesh-gradient: blu
 | `base` | `"#07061c"` | backdrop base colour |
 | `orbitDeg` | `6` | camera parallax swing in degrees |
 | `seed` | `11` | backdrop seed |
+| `chatTitle` | `"ASSISTANT"` | small caps heading of the chat card |
+| `voiceTitle` | `"LISTENING"` | small caps heading of the voice card |
+| `controlsTitle` | `"SETTINGS"` | small caps heading of the controls card |
+| `toggleLabel` | `"Smart replies"` | label of the toggle in the controls card |
+| `sliderLabel` | `"Creativity"` | label of the slider in the controls card |
+| `chips` | `["Concise","Friendly","Formal"]` | chip labels in the controls card (the first is active) |
 
 ### `icon-grid-burst` — Icon grid burst
 
@@ -8118,6 +8720,7 @@ KeyCastr-style frosted-glass key caps (shift, cmd, a letter, return, esc ...) po
 | `backdrop` | `"demo"` | demo = soft editor mock behind; none = transparent overlay |
 | `accent` | `"#7048E8"` | reserved accent colour |
 | `seed` | `4` | demo backdrop seed |
+| `fileName` | `"main.ts"` | file name shown beside the ghost code lines |
 
 ### `lesson-carousel` — Lesson carousel
 
@@ -8312,6 +8915,33 @@ Frosted glass pill toolbar centred at the bottom like a lesson / media player �
 | `glassBottom` | `"rgba(199,206,199,0.80)"` | glass fill at the bottom (rgba) |
 | `background` | `"transparent"` | colour behind the toolbar when backdrop is "none" ("transparent" to overlay) |
 
+### `poll-results-bars` — Poll results bars
+
+A poll card: the question types in, option bars fill one after another to their share with counting percentages, then the winner locks in with a glow and a tag while the rest dim; a vote total ticks up.
+
+**Use for:** Poll and survey results, "you voted" reveals, audience-choice moments, A/B vote summaries, quiz answers and social engagement posts.  
+**Rebuilt from:** original (round 3, social & marketing)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** hud  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `question` | `"What should we make next?"` | the poll question |
+| `options` | `["Quick tips","Deep dives","Behind the scenes","Q&A"]` | option labels (up to 8) |
+| `values` | `[41,28,21,10]` | one number per option — percentages or raw votes (normalised to a share of the sum) |
+| `winnerLabel` | `"Winner"` | text on the winner tag |
+| `votesLabel` | `"votes"` | word after the vote total |
+| `totalVotes` | `3842` | vote total shown at the bottom (counts up) |
+| `background` | `"#E9EEF8"` | frame colour, or "transparent" to overlay content |
+| `ink` | `"#1B2233"` | text / default bar colour |
+| `accent` | `"#3A6BFF"` | winner bar + tag colour |
+| `barColor` | `"auto"` | colour of the non-winner bars, or "auto" (ink, softened) |
+| `cardColor` | `"auto"` | card fill, or "auto" (a lighter tone of the background) |
+| `stagger` | `12` | frames between bars starting |
+| `startAt` | `0` | frame the sequence begins |
+
 ### `remix-thumbnail-shelf` — Remix thumbnail shelf
 
 ![remix-thumbnail-shelf](../gallery/remix-thumbnail-shelf.jpg)
@@ -8334,6 +8964,33 @@ Each finished item plays centre stage then shrinks to x0.27 into the next slot o
 | `months` | `["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","O…` | twelve ribbon labels |
 | `accent` | `"#FFD23F"` | ribbon marker / completed dot colour |
 | `background` | `"#0B0E24"` | stage colour |
+
+### `review-stars-rating` — Review stars rating
+
+Stars fill one after another up to a rating (the last one partially) while a big score counts up and the review count ticks; an optional 5-to-1 star breakdown bars fill beside it, with a glint over the stars at the end.
+
+**Use for:** App-store / product ratings, "rated 4.8 by customers" proof, review summaries, satisfaction scores, restaurant / course / service rating reveals and landing-page trust badges.  
+**Rebuilt from:** original (round 3, social & marketing)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** night  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `label` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `rating` | `4.8` | the score, 0..maxStars (decimals fill the last star partially) |
+| `maxStars` | `5` | number of stars (1-10) |
+| `reviewCount` | `12480` | review count shown under the stars (counts up) |
+| `label` | `"Customer rating"` | small caption above the score |
+| `reviewsLabel` | `"reviews"` | word after the review count |
+| `note` | `"Based on verified purchases"` | smaller line under the review count |
+| `distribution` | `[78,14,5,2,1]` | share per star level, 5 stars first (up to 5 numbers, any scale) |
+| `showBreakdown` | `true` | show the distribution bars |
+| `background` | `"#FBF6EC"` | frame colour, or "transparent" to overlay content |
+| `ink` | `"#2A2118"` | text colour |
+| `accent` | `"#E9983A"` | top breakdown bar colour |
+| `starColor` | `"#F5B223"` | filled star colour |
+| `startAt` | `0` | frame the sequence begins |
 
 ### `screen-recorder-camera` — Screen recorder camera
 
@@ -8479,6 +9136,62 @@ Presentation layout: headline, two perfectly synced panels (line-art vs colour b
 | `stampColor` | `"#E5484D"` | ledger: stamp colour |
 | `badTint` | `"#B8281E"` | ledger: red tint multiplied over the bad half |
 
+### `story-progress-frames` — Story progress frames
+
+A vertical story player in a rounded 9:16 frame: segmented progress bars fill one by one, a handle header, tap-through between frames with a tap ripple and a slide, and a caption pill per frame. Uses your images or procedural scenes.
+
+**Use for:** Story / reel mockups, "swipe through" product tours, social recaps, vertical slideshow promos and app-store style feature walk-throughs.  
+**Rebuilt from:** original (round 3, social & marketing)  
+**Default length:** 300 frames (10.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** editorial, ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · image: `images` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `images` | `[]` | public/ image paths, one per frame (empty = procedural scenes; then frameCount applies) |
+| `captions` | `["Chapter one: the idea","Chapter two: the build","Chapte…` | one caption pill per frame (cycles) |
+| `frameCount` | `4` | number of frames when no images are given |
+| `holdFrames` | `68` | frames each story frame is shown (the progress bar fills over this) |
+| `handle` | `"@yourhandle"` | account handle in the header (drives the avatar initials) |
+| `timeAgo` | `"2h"` | small age label next to the handle |
+| `replyLabel` | `"Send a message"` | text in the reply bar |
+| `background` | `"#101018"` | frame colour behind the phone, or "transparent" |
+| `ink` | `"#ffffff"` | outline tone around the phone |
+| `accent` | `"auto"` | progress fill colour or "auto" (white) |
+| `captionColor` | `"#ffffff"` | caption pill fill |
+| `captionInk` | `"#14141C"` | caption text colour |
+| `showReplyBar` | `true` | show the bottom reply bar |
+| `startAt` | `0` | frame the sequence begins |
+
+### `subscribe-like-bell` — Subscribe, bell & like
+
+A channel card and a row of three buttons: a cursor presses SUBSCRIBE (flips to Subscribed with a check), taps the bell (it rings and fills) and likes (thumb pops, counter rolls +1 with a burst). Original icons, no platform marks.
+
+**Use for:** Call-to-action beats for video channels, creator promos, social explainers ("subscribe, ring the bell, like"), follow / join prompts and end screens.  
+**Rebuilt from:** original (round 3, social & marketing)  
+**Default length:** 230 frames (7.7 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** 3d  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `channelName` | `"Your Channel"` | name on the channel card (also drives the avatar initials) |
+| `channelTagline` | `"New videos every week"` | small line under the channel name |
+| `subscribeLabel` | `"Subscribe"` | label on the call-to-action button before the press |
+| `subscribedLabel` | `"Subscribed"` | label after the press |
+| `likeLabel` | `"Like this video"` | caption under the like pill |
+| `likeCount` | `1204` | like counter value before the tap (it ticks +1) |
+| `background` | `"#F4F1EA"` | frame colour, or "transparent" to overlay other content |
+| `ink` | `"#1D1B22"` | text / outline colour |
+| `accent` | `"#EA4B3E"` | subscribe button colour |
+| `accent2` | `"#3E7BFA"` | like colour |
+| `bellColor` | `"#F5B63A"` | bell fill colour |
+| `showCursor` | `true` | show the animated pointer |
+| `speed` | `1` | playback speed multiplier of the whole sequence |
+| `startAt` | `0` | frame the sequence begins |
+
 ### `talking-head-pip` — Talking head PiP
 
 ![talking-head-pip](../gallery/talking-head-pip.jpg)
@@ -8510,6 +9223,31 @@ The speaker (your video, or a built-in presenter stand-in) starts full-frame the
 | `ink` | `"#FFFFFF"` | caption text colour |
 | `captions` | `true` | show captions (kept clear of the PiP) |
 | `speakerName` | `""` | optional small name tag by the PiP |
+
+### `testimonial-card-carousel` — Testimonial card carousel
+
+Customer quote cards with a big quote mark, star rating, avatar, name and role rotate through a centre stage; neighbouring cards peek in scaled and dimmed, pager dots follow.
+
+**Use for:** Social proof sections, customer-love videos, case-study teasers, landing-page testimonial strips, review roundups and app-store style praise.  
+**Rebuilt from:** original (round 3, social & marketing)  
+**Default length:** 330 frames (11.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** ui, night  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `testimonials` | `[{"quote":"We cut our weekly reporting from a full day to…` | array of {quote, name, role?, rating?(0-5)} — up to 10 |
+| `holdFrames` | `66` | frames each card is held in the centre |
+| `moveFrames` | `16` | frames of the glide to the next card |
+| `heading` | `"What people say"` | small caption above the cards (empty to hide) |
+| `background` | `"#ECEFF6"` | frame colour, or "transparent" to overlay content |
+| `cardColor` | `"auto"` | card fill, or "auto" (lighter than the background) |
+| `ink` | `"#1D2233"` | text colour |
+| `accent` | `"#4C6FE0"` | quote mark + active dot colour |
+| `starColor` | `"#F2B134"` | filled star colour |
+| `quoteFont` | `"sans"` | "sans" or "serif" for the quote text |
+| `startAt` | `0` | frame the sequence begins |
 
 ### `tv-wall-switch-on` — TV wall switch-on
 
@@ -8569,6 +9307,7 @@ Dark keynote stage: notification cards, file icons, landscape photo tiles, app i
 | `counterLabel` | `"UNREAD"` | label of the red counter pill |
 | `tremble` | `3` | tension tremble in px@1080 at full pile |
 | `pullBack` | `0.35` | extra zoom at the start, pulled back over the act |
+| `noteTitle` | `"NOTE.TXT"` | title of the note card |
 
 ### `ui-shape-morph` — UI shape morph (one shape, many states)
 
@@ -8585,7 +9324,7 @@ One rounded rectangle never cuts: it grows from a button into a loader, a check,
 
 | prop | default | notes |
 |---|---|---|
-| `states` | `[{"kind":"button","label":"Get started","width":300,"heig…` | [{kind:'button'\|'loader'\|'check'\|'pill'\|'player'\|'slider'\|'toggle'\|'tabs'\|'chart'\|'search'\|'toast', label, width, height, radius (u), color, content?}] — end with a copy of the first state to loop |
+| `states` | `[{"kind":"button","label":"Get started","width":300,"heig…` | [{kind:'button'\|'loader'\|'check'\|'pill'\|'player'\|'slider'\|'toggle'\|'tabs'\|'chart'\|'search'\|'toast', label, width, height, radius (u), color, content?, action? (toast button word, default 'Undo')}] — end with a copy of the first state to loop |
 | `accent` | `"#4F5BD5"` | accent used inside sliders, charts, search caret |
 | `background` | `"#EDEBE7"` | canvas colour (warm grey or near-black) |
 | `ink` | `"#17171B"` | text colour on light states |
@@ -8623,6 +9362,8 @@ A row of square contender portraits separated by "vs", each in white corner brac
 | `hoverStart` | `26` | frame the first card enlarges |
 | `hoverEvery` | `24` | frames each card stays enlarged |
 | `ghost` | `true` | faint prompt-template panels behind |
+| `footerLeft` | `"[ contact ]"` | bottom-left footer text ("" hides) |
+| `footerRight` | `"[ rules ]"` | bottom-right footer text ("" hides) |
 
 ## hud
 
@@ -8676,6 +9417,11 @@ A cyan radar HUD scans while a contact closes in; at the climax a ring expands f
 | `toLabel` | `"THREAT DETECTED"` | status copy after the wave |
 | `callSign` | `"SENTINEL-7 // OVERWATCH"` | header call sign |
 | `keepRed` | `true` | true reds (REC dot) are exempt from the re-ink |
+| `recLabel` | `"REC"` | label next to the red record dot |
+| `panelTitles` | `["SYSTEM","CONTACT"]` | titles of the left / right side panels (prefixed with "01 // ") |
+| `calmNames` | `["SIGNAL","LOAD","POWER","LINK","THREAT"]` | left-panel gauge names before the alert (5) |
+| `alertNames` | `["LINK","HULL","POWER","SHIELD","THREAT"]` | left-panel gauge names after the alert (5) |
+| `contactNames` | `["RNG","BRG","VEL","ALT","ID"]` | right-panel gauge names (5) |
 
 ### `callout-labels` — Callout labels
 
@@ -8859,6 +9605,8 @@ A video-game overlay: health, mana and xp bars that drain in eased steps with a 
 | `accent` | `"#ff5a3c"` | badge / combo / feed accent colour |
 | `background` | `"#0c1030"` | backdrop colour ("transparent" to overlay on footage) |
 | `scoreLabel` | `"SCORE"` | label above the score |
+| `comboLabel` | `"COMBO"` | label under the combo multiplier |
+| `levelLabel` | `"LEVEL"` | word before the level number in the level-up banner |
 
 ### `hud-chrome` — HUD chrome overlay
 
@@ -8994,7 +9742,7 @@ Continuous exponential pull-back (or push-in) through nested blueprint drawings 
 **Default length:** 240 frames (8.0 s @ 30 fps)
 
 **Roles:** subject · **Mood:** dark, blueprint, hud  
-**Capabilities:** paints its own background · text: `levels` · weight: light  
+**Capabilities:** paints its own background · text: `levels`, `scaleLabel` · weight: light  
 **Pairs well with:** `zoom-tunnel`, `radial-blueprint`, `number-counter`  
 
 | prop | default | notes |
@@ -9010,6 +9758,7 @@ Continuous exponential pull-back (or push-in) through nested blueprint drawings 
 | `easing` | `"sine"` | continuous mode move curve: sine \| linear (constant log-zoom, orbit-dive) \| inOut \| expo |
 | `camRoll` | `0` | degrees the whole camera rolls while zooming (e.g. 90 for an orbit dive, 0 = none) |
 | `holdStart` | `0` | fraction of the clip (0..0.4) the first level holds before the move starts |
+| `scaleLabel` | `"SCALE"` | small caps label before the scale readout (hud: true) |
 
 ### `prompt-wall` — Prompt wall
 
@@ -9121,6 +9870,7 @@ Three evidence columns (report log / dashcam / CCTV) side by side under one huge
 | `background` | `"#0B0C0F"` | background colour |
 | `ink` | `"#ECEAE4"` | text colour |
 | `accent` | `"#FF3B2F"` | red/accent colour |
+| `camLabel` | `"CAM 02 ● REC"` | on-screen label inside the dashcam-style panel |
 
 ### `target-lock-box` — Target lock box
 
@@ -9230,6 +9980,9 @@ Self-framing camera for build-up diagrams: as blocks are added the isometric sce
 | `header` | `"Auto frame"` | top bar word |
 | `background` | `"#F4ECDB"` | paper colour |
 | `palette` | `["#4D588A","#21A69A","#E5A24C","#C56E60","#3F64B5","#7A8F…` | block colours |
+| `zoomLabel` | `"ZOOM"` | word before the zoom value in the readout pill |
+| `marginLabel` | `"margin box"` | legend text for the orange margin guide ("- - " is prefixed) |
+| `boundsLabel` | `"content bounds"` | legend text for the teal content-bounds guide ("- - " is prefixed) |
 
 ### `board-camera` — Board camera (one huge board, one long dolly)
 
@@ -9268,7 +10021,7 @@ One tall layout holding every section; a virtual camera flies between stations w
 **Default length:** 270 frames (9.0 s @ 30 fps)
 
 **Roles:** subject · **Mood:** ui  
-**Capabilities:** paints its own background · text: `badge`, `cards` · weight: light  
+**Capabilities:** paints its own background · text: `badge`, `tagline`, `cards` · weight: light  
 
 | prop | default | notes |
 |---|---|---|
@@ -9279,6 +10032,8 @@ One tall layout holding every section; a virtual camera flies between stations w
 | `ink` | `"#1B1B2F"` | text colour |
 | `heading` | `["Work that","moves at","your speed."]` | hero headline lines (3) |
 | `badge` | `"NEW · VERSION 2"` | small pill above the headline |
+| `tagline` | `["One canvas. Every section a station","the camera flies …` | grey sub-lines under the headline (one entry per line) |
+| `sectionLabel` | `"WHAT YOU GET"` | small caps label above the cards |
 | `cards` | `[{"title":"Plan","body":"Everything in one clear view","c…` | feature cards [{title, body, color}] (3) |
 | `stats` | `[{"value":"98%","label":"FASTER SETUP"},{"value":"12k","l…` | two big stats [{value, label}] |
 | `cta` | `"Start free today"` | button text at the bottom |
@@ -9422,6 +10177,11 @@ Explains and demonstrates the punctuation-hold clock: two balls on a track, one 
 | `color` | `"#6C8CFF"` | timeline colour |
 | `remapColor` | `"#FFB44D"` | remapped clock colour |
 | `title` | `"Time remap"` | heading |
+| `notes` | `["STOP ON THE HOLD · CATCH UP TO ~2x","BACK ON THE TIMELI…` | two caption lines under the title (landscape joins them with " · ") |
+| `timelineLabel` | `"TIMELINE"` | label of the straight timeline track |
+| `remapLabel` | `"REMAPPED"` | label of the remapped (clock) track |
+| `holdLabel` | `"HOLD"` | readout text while the clock is stopped on a hold |
+| `speedLabel` | `"CLOCK SPEED"` | label above the clock-speed graph |
 
 ### `whip-pan` — Whip pan
 
@@ -9575,7 +10335,7 @@ Film-quality three.js frames by brute force: every frame is rendered N times wit
 **Default length:** 180 frames (6.0 s @ 30 fps)
 
 **Roles:** subject · **Mood:** 3d, pixel, cinematic, nature  
-**Capabilities:** paints its own background · weight: heavy  
+**Capabilities:** paints its own background · text: `title` · weight: heavy  
 
 | prop | default | notes |
 |---|---|---|
@@ -9591,6 +10351,7 @@ Film-quality three.js frames by brute force: every frame is rendered N times wit
 | `compare` | `true` | split screen: left = 1 sample, right = accumulated |
 | `labels` | `true` | caption pills |
 | `seed` | `1` | unused variation seed (kept for spec compatibility) |
+| `title` | `"ACCUMULATION RENDER"` | heading at the top of the frame (shown when labels is on) |
 
 ### `book-open-3d` — Book open 3D
 
@@ -9887,6 +10648,7 @@ A real three.js assembly (end cap, battery, circuit board with chips, motor, sha
 | `background` | `"#1f2736"` | backdrop centre colour |
 | `backgroundEdge` | `"#090c13"` | backdrop corner colour |
 | `scale` | `1` | zoom multiplier (>1 = closer) |
+| `sectionLabel` | `"SECTION A-A"` | mono caption top-left while the cutaway is open |
 
 ### `faceted-sea` — Faceted sea
 
@@ -10192,6 +10954,7 @@ A single brass puck engraved with the final number falls with gravity into the c
 | `background` | `"#e4d7c6"` | studio sweep colour |
 | `accent` | `"#d4521c"` | verdict colour |
 | `seed` | `4` | jitter seed |
+| `introLine` | `"AND THE LAST PIECE —"` | small spaced line at the top-left before the drop |
 
 ### `lidar-canopy-peel` — Lidar canopy peel
 
@@ -10281,6 +11044,7 @@ A handheld camcorder walks an endless, empty office of mustard wallpaper partiti
 | `osd` | `true` | camcorder REC / battery / clock / date overlay |
 | `clock` | `"PM 11:58"` | OSD clock text |
 | `date` | `"SEP.27.1996"` | OSD date text |
+| `osdLabel` | `"REC"` | camcorder on-screen-display label next to the red dot (osd: true) |
 
 ### `ocean-surface-3d` — Ocean surface 3D
 
@@ -11082,6 +11846,9 @@ A round kawaii suspect rises in front of a height chart with cm labels at both e
 | `haloColor` | `"#2E55D6"` | halftone halo ink |
 | `src` | `""` | optional public/ photo shown in a rounded cut-out instead of the drawn suspect |
 | `background` | `"#F4ECDD"` | paper colour |
+| `profileLabel` | `"PROFILE"` | heading on the profile side plate |
+| `photoLabel` | `"SUSPECT"` | first (yellow) word of the front-plate caption |
+| `photoLabel2` | `"PHOTO"` | second (cream) word of the front-plate caption |
 
 ### `receipt-print` — Receipt print
 
@@ -11113,6 +11880,8 @@ A thermal receipt printer feeds paper up out of its slot one line-feed at a time
 | `printer` | `"#3A3D4A"` | printer body colour |
 | `lineFrames` | `8` | frames per printed line (lower = faster) |
 | `startAt` | `18` | frame printing starts |
+| `subtotalLabel` | `"SUBTOTAL"` | label of the subtotal line |
+| `printingLabel` | `"PRINTING"` | small status text on the printer body |
 
 ### `redaction-bars` — Redaction bars
 
@@ -11203,6 +11972,8 @@ An open physics textbook on a sage desk under window-light shadows. The right-pa
 | `speed` | `1` | rolling speed multiplier |
 | `friction` | `0.0012` | energy lost to heat per frame (0 = none) |
 | `startAt` | `0.06` | start position along the track, 0..1 |
+| `formulaNote` | `"E = PE + KE + heat"` | handwritten note under the pendulum diagram |
+| `figLabel` | `"Fig. 1"` | figure label in the bottom corner of the right page |
 
 ## game
 
@@ -11661,6 +12432,7 @@ Camcorder autofocus hunting on a liminal office corridor (or any image): blur �
 | `carpet` | `"#8c763c"` | carpet colour |
 | `signal` | `"#ff2a1a"` | EXIT sign colour (the only signal colour) |
 | `osd` | `true` | camcorder REC / AF / zoom overlay and focus brackets |
+| `osdLabel` | `"REC"` | camcorder on-screen-display label next to the red dot |
 
 ### `brush-stroke-reveal` — Brush-stroke reveal
 
@@ -12454,6 +13226,8 @@ One shot splits into 2, then 4, then a 3×3 wall of synced cameras (chips + LIVE
 | `accent` | `"#FF5B1F"` | accent colour (T−, synced dots, landing flash) |
 | `header` | `"COUNTDOWN"` | clock header text |
 | `background` | `"#06080A"` | ground colour |
+| `standbyLabel` | `"STANDBY"` | text in a camera cell that has no feed yet |
+| `elapsedLabel` | `"ELAPSED"` | caption under the clock header |
 
 ### `sticker-cutout-burst` — Sticker cutout burst
 
@@ -12740,6 +13514,8 @@ A glowing vertical scan beam (or an inky organic blob / hatched hole) sweeps acr
 
 ### `choropleth-fill` — Choropleth fill (tile map + legend)
 
+![choropleth-fill](../gallery/choropleth-fill.jpg)
+
 An abstract hex/square tile territory fills region by region with a colour ramp driven by values, with labels, count-ups, a gradient legend and a highest-region callout. Regions are generic tiles, not real borders.
 
 **Use for:** Regional comparisons (sales by state, scores by team, adoption by country) when you just need the pattern, not exact geography. Name tiles with `labels`; for real borders use painted-choropleth or a map image.  
@@ -12774,6 +13550,8 @@ An abstract hex/square tile territory fills region by region with a colour ramp 
 | `fontFamily` | `"stub"` | CSS font-family |
 
 ### `city-zoom-label` — City zoom + label card
+
+![city-zoom-label](../gallery/city-zoom-label.jpg)
 
 A world map zooms (expo ease, graticule re-scaling) down to a lat/lon, a pin pings, and a label card with name, subtitle and coordinates slides in.
 
@@ -12844,6 +13622,8 @@ Top-down mid-century floor plan: a robot route draws itself region by region —
 
 ### `elevation-profile` — Elevation profile
 
+![elevation-profile](../gallery/elevation-profile.jpg)
+
 A route elevation line draws left to right, coloured by steepness, with a moving marker and live distance / total gain / grade readouts and a peak flag.
 
 **Use for:** Hike, ride, run and race route explainers, stage profiles, any height-versus-distance story. Pass `data` (heights, evenly spaced along the route) and `distance`.  
@@ -12873,6 +13653,8 @@ A route elevation line draws left to right, coloured by steepness, with a moving
 | `monoFamily` | `"stub"` | CSS font-family for axis numbers |
 
 ### `flight-arcs` — Flight arcs (great-circle routes)
+
+![flight-arcs](../gallery/flight-arcs.jpg)
 
 Great-circle arcs fly between lat/lon cities on a flat map: planes (or dots) travel with a glowing trail, cities ping on arrival, a distance counter adds up.
 
@@ -12916,7 +13698,7 @@ On a dark raking-lit survey surface, 1-px amber hairlines light up along traced 
 **Default length:** 240 frames (8.0 s @ 30 fps)
 
 **Roles:** subject · **Mood:** nature, night  
-**Capabilities:** paints its own background · text: `labels` · weight: light  
+**Capabilities:** paints its own background · text: `labels`, `caption` · weight: light  
 
 | prop | default | notes |
 |---|---|---|
@@ -12925,6 +13707,7 @@ On a dark raking-lit survey surface, 1-px amber hairlines light up along traced 
 | `gap` | `8` | frames between features |
 | `startAt` | `14` | frame the first feature starts |
 | `labels` | `["Walls","Roads","Pipes","Boundary"]` | four feature labels in order |
+| `caption` | `"Plan trace, vertical exaggeration x1.0"` | small caption at the bottom-left of the frame |
 | `size` | `200` | terrain plot size in metres |
 | `seed` | `6` | terrain seed |
 | `background` | `"#07090B"` | backdrop colour |
@@ -12941,7 +13724,7 @@ A floating flat-isometric diorama board (cream top, soil strata and a blue water
 **Default length:** 300 frames (10.0 s @ 30 fps)
 
 **Roles:** subject · **Mood:** 3d, nature  
-**Capabilities:** paints its own background · text: `title` · weight: light  
+**Capabilities:** paints its own background · text: `title`, `footnote` · weight: light  
 
 | prop | default | notes |
 |---|---|---|
@@ -12953,6 +13736,7 @@ A floating flat-isometric diorama board (cream top, soil strata and a blue water
 | `palette` | `{"ground":"#F2E6D0","boardTop":"#FBF4E6","sea":"#5A9BCB",…` | ground, boardTop, sea and subject (accent) colours |
 | `seed` | `7` | tree / route-curve seed |
 | `zoomOut` | `true` | pull back to the legend card at the end |
+| `footnote` | `"NOT TO SCALE"` | small caps footnote under the total ("" hides) |
 
 ### `map-mask-reveal` — Map mask reveal
 
@@ -13017,6 +13801,8 @@ A painted island map: the coastline is brushed in, then regions fill with quanti
 | `seed` | `11` | island + wash seed |
 
 ### `pin-drop-cluster` — Pin drop + clustering map
+
+![pin-drop-cluster](../gallery/pin-drop-cluster.jpg)
 
 Map pins drop onto a map region, merge into numbered cluster bubbles, split into single pins as the camera zooms in, then merge again.
 
@@ -13264,6 +14050,8 @@ Nib, the library’s hand-inked ink-drop mascot with a springy curl, round eyes,
 
 ### `mascot-thinking` — Mascot Pip thinking to idea
 
+![mascot-thinking](../gallery/mascot-thinking.jpg)
+
 Pip ponders with a hand by its head while a thought bubble of pulsing dots grows, then the dots flip to a glowing light bulb, the antenna lights and Pip hops.
 
 **Use for:** Loading / "thinking" states, problem-then-solution beats, "what if..." questions, AI-assistant processing screens, aha moments. Set `idea` to the punchline word.  
@@ -13293,6 +14081,8 @@ Pip ponders with a hand by its head while a thought bubble of pulsing dots grows
 | `fontFamily` | `"stub"` | CSS font-family |
 
 ### `mascot-thumbs-up` — Mascot Pip thumbs up + confetti
+
+![mascot-thumbs-up](../gallery/mascot-thumbs-up.jpg)
 
 Pip crouches, jumps and lands with a thumbs-up while confetti cannons fire and a "nice work" bubble pops.
 
@@ -13324,6 +14114,8 @@ Pip crouches, jumps and lands with a thumbs-up while confetti cannons fire and a
 | `fontFamily` | `"stub"` | CSS font-family |
 
 ### `mascot-wave-hello` — Mascot Pip waves hello
+
+![mascot-wave-hello](../gallery/mascot-wave-hello.jpg)
 
 An original capsule-robot mascot (Pip) pops in, waves, blinks and says a typed line in a speech bubble.
 
@@ -13383,6 +14175,7 @@ A chunky pixel-art mascot lives inside a crisp redrawn task-app window: it hops 
 | `wallpaper` | `["#F1D9C8","#D5BFAB"]` | desktop gradient [top-left, bottom-right] |
 | `bpm` | `96` | beat the mascot breathes on |
 | `spritePx` | `8` | design-space size of one sprite pixel (6–12) |
+| `windowTitle` | `"Tasks"` | title in the app window title bar |
 
 ### `smear-trail` — Smear trail dash (Nib)
 
@@ -13690,6 +14483,8 @@ Real shutter motion blur: a word whips through the frame once per bar and a ball
 | `background` | `"#0A0A0B"` | frame colour or 'transparent' |
 | `ink` | `"#EEE9DF"` | type colour |
 | `accent` | `"#FF4D12"` | ball / label colour |
+| `steppedLabel` | `"STEPPED · NO SHUTTER"` | caption of the un-blurred half in compare mode |
+| `shutterLabel` | `"SHUTTER {f}f · {n} SAMPLES"` | caption of the blurred half; {f} = shutter angle in frames, {n} = samples |
 
 ### `stage-curtain` — Painted stage + curtains
 
@@ -13780,6 +14575,8 @@ A thin prompt field in a dark void types a phrase token by token on the beat (or
 | `camera` | `true` | beat-cut camera reframes between caret, text and field |
 | `enterKey` | `true` | show ⏎ and fire the flash-zoom exit on the downbeat after the last token |
 | `seed` | `3` | placeholder-distribution and shot variety |
+| `promptLabel` | `"PROMPT"` | small caps label above the prompt field |
+| `nextTokenLabel` | `"NEXT TOKEN"` | heading of the candidate-token panel (" · id N" follows) |
 
 ### `token-tree` — Token tree (what the model could have said)
 
@@ -13841,6 +14638,8 @@ A lyric packed into the broadcast title-safe box condenses on every kick — var
 | `safeAreas` | `true` | draw title/action-safe boxes and crop marks |
 | `qcLog` | `true` | deadpan mono QC log bottom-left |
 | `counterTo` | `20000` | the racing counter’s final value |
+| `titleSafeLabel` | `"TITLE SAFE 90%"` | label of the inner safe-area guide (safeAreas: true) |
+| `actionSafeLabel` | `"ACTION SAFE 93%"` | label of the outer safe-area guide (safeAreas: true) |
 
 ### `word-slam-hook` — Word slam hook (one word per beat)
 

@@ -6,6 +6,8 @@ import {estWidth} from './text-kit';
 
 /** Shared helpers for the round-3 social / marketing motions (subscribe, comments, poll, stories, sale, reviews, milestones). */
 
+export {mixHex, withAlpha, backOut, easeOut3, sseg} from './r2-s1-kit';
+
 export const SANS = fonts.sans;
 
 /** neutral avatar palette (readable with white initials) */
@@ -56,6 +58,10 @@ export const wrapText = (text: string, size: number, maxW: number, font: 'sans' 
 
 /** 5-point star path centred on (cx, cy) with outer radius R */
 export const starPath = (cx: number, cy: number, R: number, inner = 0.46) => `M${poly(regular(cx, cy, R, 5, -Math.PI / 2, R * inner)).replace(/ /g, 'L')}Z`;
+
+/** heart path centred on (cx, cy), width ~ 2.1 s */
+export const heartPath = (cx: number, cy: number, s: number) =>
+  `M${cx} ${cy + s * 0.95} C${cx - s * 1.5} ${cy - s * 0.1} ${cx - s * 0.7} ${cy - s * 1.0} ${cx} ${cy - s * 0.35} C${cx + s * 0.7} ${cy - s * 1.0} ${cx + s * 1.5} ${cy - s * 0.1} ${cx} ${cy + s * 0.95}Z`;
 
 /** thumbs-up glyph, drawn in a 24x24 box placed at (x,y) = top-left, size s px */
 export const ThumbUp: React.FC<{x: number; y: number; s: number; fill?: string; stroke?: string; sw?: number}> = ({x, y, s, fill = 'none', stroke = '#fff', sw = 1.6}) => (

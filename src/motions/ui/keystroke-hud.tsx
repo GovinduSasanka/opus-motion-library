@@ -21,6 +21,7 @@ type Props = {
   backdrop: string;
   accent: string;
   seed: number;
+  fileName: string;
 };
 
 const ICON: Record<string, string> = {
@@ -101,7 +102,7 @@ const KeystrokeHud: React.FC<Props> = (p) => {
             {['#FF5F57', '#FEBC2E', '#28C840'].map((c) => (
               <div key={c} style={{width: 14 * u, height: 14 * u, borderRadius: '50%', background: c}} />
             ))}
-            <div style={{marginLeft: 20 * u, color: '#8A90B0', fontSize: 17 * u * pk, fontFamily: lf.jbm}}>main.ts</div>
+            <div style={{marginLeft: 20 * u, color: '#8A90B0', fontSize: 17 * u * pk, fontFamily: lf.jbm}}>{p.fileName}</div>
           </div>
           <div style={{padding: `${22 * u}px ${30 * u}px`}}>
             {code.map((l, i) => (
@@ -206,6 +207,7 @@ export const keystrokeHud = defineMotion<Props>({
     backdrop: 'demo',
     accent: '#7048E8',
     seed: 4,
+    fileName: 'main.ts',
   },
   propDocs: {
     keys: 'array of {t seconds, combo}: tokens separated by space or +, e.g. "⇧ ⌘ M", "cmd+shift+p", "ctrl alt delete", "esc"',
@@ -217,6 +219,7 @@ export const keystrokeHud = defineMotion<Props>({
     backdrop: 'demo = soft editor mock behind; none = transparent overlay',
     accent: 'reserved accent colour',
     seed: 'demo backdrop seed',
+    fileName: 'file name shown beside the ghost code lines',
   },
   component: KeystrokeHud,
   tags: ['keystroke', 'keycastr', 'keyboard', 'shortcut', 'key caps', 'hotkey', 'tutorial', 'screencast', 'frosted glass', 'glass', 'hud', 'overlay', 'dev tools', 'productivity', 'macos', 'command', 'living-screencast'],

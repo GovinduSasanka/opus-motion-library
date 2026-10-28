@@ -316,3 +316,12 @@ Regenerate: `python -I out/prompt-research/parse_cases.py <opus_sources/repos> <
 - Motions that did not exist were substituted: cinematic-camera-3d / iso-diorama -> terrain-build-3d fly-by + ocean-surface-3d; lyric-sync-type -> lyric-video; particle-morph -> particle-shape-morph; unit-marbles / bar-chart-race -> isotype-count; crt-vhs-overlay -> vhs-crt-pass. callout-labels is not used in take-apart-explainer because exploded-view-3d draws its own numbered labels.
 - Styles: recipeSpec ignores a top-level `style`, so styles are set per scene or per layer (teardown, cinematic-3d, light-editorial-minimal). Several proposed style ids (dark-tech-minimal, grainy-gradient) do not exist; swiss-reel looked bad on light backgrounds and was dropped.
 - Example figures in data-story-60s and the history events are illustrative; replace with sourced data.
+
+## Hard-coded text to props pass (out/qa/hardcoded-text.md, 51 motions)
+- Every user-meaningful visible string in the 51 listed motions is now an additive JSON prop whose default is today's text
+  (landscape default renders match gallery/, except rocket-launch and carousel-3d, whose gallery jpgs were already stale).
+- Placeholders in template-style props: frame-blend-timelapse `speedLine` ({n}, {s}), shutter-blur `shutterLabel` ({f}, {n}).
+- live-chart `gaugeTitle` defaults to '' meaning the old automatic text (REASONING EFFORT when title is QUALITY, else EFFORT).
+- Left hard-coded on purpose: unit/glyph strings (`×`, `%`, `●●● ▮`, page numbers), computed log lines in width-pressure-type
+  (INFO/WARN/FAIL), the SX/SY/AREA readout symbols in bouncing-ball, fallback-only strings ('Feed', 'Start'), table-status
+  keywords ('Paid'/'Pending') in screen-recorder-camera (they drive the colour).

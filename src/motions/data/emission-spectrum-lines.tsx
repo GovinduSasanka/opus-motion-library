@@ -24,6 +24,8 @@ type Props = {
   startFrame: number;
   showLabels: boolean;
   seed: number;
+  spectrumLabel?: string;
+  axisLabel?: string;
 };
 
 const GASES: Gas[] = [
@@ -209,7 +211,7 @@ const EmissionSpectrumLines: React.FC<Props> = (p) => {
           <rect x={px0} y={panelY} width={px1 - px0} height={panelH} rx={10 * u} fill="#020309" />
           <rect x={px0} y={panelY} width={px1 - px0} height={panelH} rx={10 * u} fill={`url(#${uid}rb)`} opacity={0.07} />
           <text x={px1 - 16 * u} y={panelY - 26 * u} textAnchor="end" fontFamily={fonts.mono} fontSize={18 * PT * u} fill={hexA(ink, 0.55)}>
-            {`${g.name.toUpperCase()} EMISSION SPECTRUM`}
+            {`${g.name.toUpperCase()} ${p.spectrumLabel}`}
           </text>
           {/* lines */}
           <g opacity={lineVis} style={{mixBlendMode: 'screen'}}>
@@ -260,7 +262,7 @@ const EmissionSpectrumLines: React.FC<Props> = (p) => {
             </g>
           ))}
           <text x={px1} y={panelY + panelH + 86 * u} textAnchor="end" fontFamily={fonts.mono} fontSize={18 * PT * u} fill={hexA(ink, 0.5)}>
-            wavelength (nm)
+            {p.axisLabel}
           </text>
         </g>
 
@@ -319,6 +321,8 @@ export const emissionSpectrumLines = defineMotion<Props>({
     startFrame: 18,
     showLabels: true,
     seed: 1,
+    spectrumLabel: 'EMISSION SPECTRUM',
+    axisLabel: 'wavelength (nm)',
   },
   propDocs: {
     title: 'headline (top-left)',
@@ -332,6 +336,8 @@ export const emissionSpectrumLines = defineMotion<Props>({
     startFrame: 'frame the first gas lights',
     showLabels: 'print the wavelength under each line',
     seed: 'unused spare seed',
+    spectrumLabel: 'caption after the gas name above the spectrum panel',
+    axisLabel: 'axis caption under the spectrum panel',
   },
   component: EmissionSpectrumLines,
   tags: ['spectrum', 'emission', 'prism', 'physics', 'chemistry', 'astronomy', 'wavelength', 'light', 'gas tube', 'hydrogen', 'neon', 'science', 'education', 'nm', 'axis'],

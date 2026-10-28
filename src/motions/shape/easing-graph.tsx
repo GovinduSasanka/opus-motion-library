@@ -28,6 +28,9 @@ type Props = {
   code: string;
   /** lane race (EXTENDS r2): replaces the two A/B tracks with N labelled lanes: linear | ease-out | bezier | spring | back | steps; [] = classic A/B tracks */
   lanes: string[];
+  editorLabel: string;
+  axisLabel: string;
+  idleLabelB: string;
 };
 
 const LANE_FN: Record<string, (x: number, bez: (x: number) => number) => number> = {
@@ -42,7 +45,7 @@ const LANE_FN: Record<string, (x: number, bez: (x: number) => number) => number>
 
 const LIN: [number, number, number, number] = [0.33, 0.33, 0.67, 0.67];
 
-const EasingGraph: React.FC<Props> = ({background, easing, traverse, tickCount, colorA, colorB, labelA, labelB, zones, hud, numeral, title, subtitle, code, lanes}) => {
+const EasingGraph: React.FC<Props> = ({background, easing, traverse, tickCount, colorA, colorB, labelA, labelB, zones, hud, numeral, title, subtitle, code, lanes, editorLabel = 'GRAPH EDITOR · EASE', axisLabel = 'VALUE / TIME', idleLabelB = 'B · LINEAR'}) => {
   const frame = useCurrentFrame();
   const {w, h, u, portrait} = useStage();
   const ink = P17.ink;
@@ -192,10 +195,10 @@ const EasingGraph: React.FC<Props> = ({background, easing, traverse, tickCount, 
       </Svg>
       <div style={{opacity: panelIn}}>
         <Mono x={gx + 18 * u} y={gy + 16 * u} size={11} color={P17.paper}>
-          GRAPH EDITOR · EASE
+          {editorLabel}
         </Mono>
         <Mono x={gx + S - 18 * u} y={gy + 16 * u} size={10} color={P17.hudGrey} anchor="right">
-          VALUE / TIME
+          {axisLabel}
         </Mono>
         <div style={{position: 'absolute', left: gx + 18 * u, top: gy + S - 34 * u, fontFamily: fonts.mono, fontSize: 15 * u, color: P17.paper, whiteSpace: 'pre'}}>
           {'cubic-bezier('}
@@ -225,7 +228,7 @@ const EasingGraph: React.FC<Props> = ({background, easing, traverse, tickCount, 
       )}
       {!lanes.length && (
         <Mono x={tx0} y={yB - rB - 34 * u} size={12} color={colorB} opacity={draw}>
-          {frame >= m0 ? labelB : 'B · LINEAR'}
+          {frame >= m0 ? labelB : idleLabelB}
         </Mono>
       )}
       {!lanes.length && zones.length >= 3 &&
@@ -263,6 +266,9 @@ export const easingGraph = defineMotion<Props>({
     subtitle: 'Ease into every pose. Ease out of it.',
     code: 'x = x0 + Δx·ease(u) // same frames, different spacing',
     lanes: [],
+    editorLabel: 'GRAPH EDITOR · EASE',
+    axisLabel: 'VALUE / TIME',
+    idleLabelB: 'B · LINEAR',
   },
   propDocs: {
     easing: 'target cubic-bezier [x1, y1, x2, y2] the graph handles drag to',
@@ -273,6 +279,9 @@ export const easingGraph = defineMotion<Props>({
     zones: 'three labels under the eased track (start, middle, end)',
     hud: 'show HUD chrome + chapter title',
     lanes: "lane race instead of the two tracks: any of 'linear','ease-out','ease-in','bezier' (uses easing),'spring','back','steps', e.g. ['linear','ease-out','bezier','spring']; [] = classic A/B",
+    editorLabel: 'caption at the top-left of the graph panel',
+    axisLabel: 'caption at the top-right of the graph panel',
+    idleLabelB: 'label of track B before it starts moving (then labelB)',
   },
   component: EasingGraph,
   tags: ['easing', 'graph', 'bezier', 'timing', 'explainer', 'ball', 'lanes', 'spring', 'easing comparison', 'cubic-bezier', 'api docs', 'dev tool'],

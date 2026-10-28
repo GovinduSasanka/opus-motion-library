@@ -30,6 +30,7 @@ type Props = {
   camRoll: number;
   /** frame range fraction kept at the start as a still hold (0..0.4) */
   holdStart: number;
+  scaleLabel: string;
 };
 
 const DEFAULT_KINDS: Kind[] = ['word', 'badge', 'radar', 'plan', 'dial', 'network'];
@@ -176,7 +177,7 @@ const LevelArt: React.FC<{kind: Kind; label: string; x: number; y: number; R: nu
   }
 };
 
-const PowersOfTen: React.FC<Props> = ({background, levels, direction, mode, ratio, accent, line, hud, easing, camRoll, holdStart}) => {
+const PowersOfTen: React.FC<Props> = ({background, levels, direction, mode, ratio, accent, line, hud, easing, camRoll, holdStart, scaleLabel = 'SCALE'}) => {
   const frame = useCurrentFrame();
   const {w, h, u, cx, cy, durationInFrames: D, portrait} = useStage();
   const S = Math.min(w, h);
@@ -232,7 +233,7 @@ const PowersOfTen: React.FC<Props> = ({background, levels, direction, mode, rati
         {hud && (
           <g opacity={prog(frame, 6, 18)} fontFamily={fonts.mono}>
             <text x={48 * u} y={h - 52 * u * hq} fill={line} fillOpacity={0.55} fontSize={15 * u * hq} letterSpacing={15 * u * hq * 0.25}>
-              SCALE
+              {scaleLabel}
             </text>
             <text x={48 * u} y={h - 24 * u * (portrait ? 1.8 : 1)} fill={line} fontSize={24 * u * hq} fontWeight={700} letterSpacing={24 * u * hq * 0.08}>
               {`×${scale < 10 ? scale.toFixed(2) : scale.toFixed(1)}`}
@@ -279,6 +280,7 @@ export const powersOfTen = defineMotion<Props>({
     easing: 'sine',
     camRoll: 0,
     holdStart: 0,
+    scaleLabel: 'SCALE',
   },
   propDocs: {
     levels: 'innermost first: {label, kind?}; kind word|badge|radar|plan|dial|network (defaults cycle in that order; level 1 shows its label as a big word)',
@@ -289,6 +291,7 @@ export const powersOfTen = defineMotion<Props>({
     easing: 'continuous mode move curve: sine | linear (constant log-zoom, orbit-dive) | inOut | expo',
     camRoll: 'degrees the whole camera rolls while zooming (e.g. 90 for an orbit dive, 0 = none)',
     holdStart: 'fraction of the clip (0..0.4) the first level holds before the move starts',
+    scaleLabel: 'small caps label before the scale readout (hud: true)',
   },
   component: PowersOfTen,
   tags: ['zoom', 'scale', 'nested', 'pull-back', 'blueprint', 'camera', 'scale-dive', 'orbit-dive', 'log-zoom', 'camera roll', 'droste'],

@@ -26,6 +26,7 @@ type Props = {
   background: string;
   accent: string;
   seed: number;
+  introLine?: string;
 };
 
 const R = 3.35;
@@ -256,7 +257,7 @@ const LastObjectDrop: React.FC<Props> = (p) => {
       {/* dim before the hit */}
       <AbsoluteFill style={{background: 'rgba(30,22,14,1)', opacity: dim * 0.22, pointerEvents: 'none'}} />
       <div style={{position: 'absolute', left: w * 0.06, top: h * 0.08, opacity: introA, fontFamily: la2Fonts.plex, fontSize: 18 * u, letterSpacing: '0.22em', color: DP.ink2}}>
-        AND THE LAST PIECE —
+        {p.introLine}
       </div>
       <div style={{position: 'absolute', left: w * 0.06, right: w * 0.06, top: h * 0.08, opacity: capA, transform: `translateY(${(1 - eo(capA)) * 16 * u}px)`}}>
         <div style={{fontFamily: la2Fonts.inter, fontWeight: 500, fontSize: 40 * u, color: p.accent, lineHeight: 1.15, maxWidth: aspect >= 1.2 ? w * 0.5 : undefined}}>{p.caption}</div>
@@ -291,6 +292,7 @@ export const lastObjectDrop = defineMotion<Props>({
     background: '#e4d7c6',
     accent: '#d4521c',
     seed: 4,
+    introLine: 'AND THE LAST PIECE —',
   },
   propDocs: {
     value: 'big engraved number on the puck face',
@@ -305,6 +307,7 @@ export const lastObjectDrop = defineMotion<Props>({
     background: 'studio sweep colour',
     accent: 'verdict colour',
     seed: 'jitter seed',
+    introLine: 'small spaced line at the top-left before the drop',
   },
   component: LastObjectDrop,
   tags: ['3d', 'data', 'physicalization', 'drop', 'gravity', 'puck', 'coin', 'brass', 'engraved', 'total', 'ending', 'verdict', 'data-physical'],

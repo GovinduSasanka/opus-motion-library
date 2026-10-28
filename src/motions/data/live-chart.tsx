@@ -43,6 +43,8 @@ type Props = {
   stamp: string;
   echoes: number;
   graticule: boolean;
+  secondaryLabel?: string;
+  gaugeTitle?: string;
 };
 
 const HUD = {text: '#A2A2C7', axis: '#A09FC2', ring: '#302F4E'};
@@ -177,7 +179,7 @@ const TraceMode: React.FC<Props> = (p) => {
             </text>
           ))}
           <text x={Sy.x0} y={Sy.y0 - 14 * u} fontFamily={mono} fontSize={17 * PT * u} fill={HUD.text}>
-            synapses
+            {p.secondaryLabel}
           </text>
           <path d={sd} fill="none" stroke="#40868B" strokeWidth={2.6 * u} style={{filter: `drop-shadow(0 0 ${4 * u}px #40868B)`}} />
           {sT > 0 && <Glow x={shx} y={shy} r={4 * u} color="#5FD6C8" id="lc-shead" />}
@@ -376,7 +378,7 @@ const DeclineMode: React.FC<Props> = (p) => {
         <g opacity={prog(frame, 6, 20, ease.out)}>
           <rect x={gx - gr - 40 * u} y={gy - gr - 90 * u} width={2 * gr + 80 * u} height={gr + 150 * u} rx={24 * u} fill="#1a1f38" stroke="#2f3a66" strokeWidth={3 * u} />
           <text x={gx} y={gy - gr - 44 * u} textAnchor="middle" fontFamily={fonts.sans} fontWeight={800} fontSize={24 * u} fill="#E8ECF8" letterSpacing={2 * u}>
-            {p.title === 'QUALITY' ? 'REASONING EFFORT' : 'EFFORT'}
+            {p.gaugeTitle || (p.title === 'QUALITY' ? 'REASONING EFFORT' : 'EFFORT')}
           </text>
           {Array.from({length: 24}, (_, i) => {
             const a = i / 24;
@@ -446,6 +448,8 @@ export const liveChart = defineMotion<Props>({
     stamp: 'BREAK',
     echoes: 4,
     graticule: true,
+    secondaryLabel: 'synapses',
+    gaugeTitle: '',
   },
   propDocs: {
     mode: "'trace' (growth + synapses + ECG), 'sync' (dual heartbeat sync), 'decline' (quality chart + gauge), 'threshold' (line steps toward a dashed limit, final point breaks it with shake, ring, readout panel + stamp), 'scope' (phosphor oscilloscope: beat-repainted trace with echoes, graticule, CRT-off exit)",
@@ -468,6 +472,8 @@ export const liveChart = defineMotion<Props>({
     gaugeFrom: 'decline: needle start 0..1 (0 = LOW, 1 = HIGH)',
     gaugeTo: 'decline: needle end 0..1',
     background: 'background colour (trace / decline)',
+    secondaryLabel: 'trace: axis label of the second (synapse) curve',
+    gaugeTitle: "decline: gauge heading (empty = 'REASONING EFFORT' when title is 'QUALITY', else 'EFFORT')",
   },
   component: LiveChart,
   tags: ['chart', 'ecg', 'heartbeat', 'line', 'data', 'gauge', 'hud', 'threshold', 'break', 'oscilloscope', 'scope', 'crt', 'news', 'stock', 'limit'],

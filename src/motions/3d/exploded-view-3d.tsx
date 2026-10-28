@@ -43,6 +43,7 @@ type Props = {
   background: string;
   backgroundEdge: string;
   scale: number;
+  sectionLabel?: string;
 };
 
 const Setup: React.FC = () => {
@@ -257,7 +258,7 @@ const ExplodedView3D: React.FC<Props> = (P) => {
       )}
       {cut && (
         <div style={{position: 'absolute', left: w * 0.06, top: h * 0.06, fontFamily: fonts.mono, fontSize: 22 * u, letterSpacing: 3 * u, color: rgba(P.accent, 0.9), opacity: cutOpen}}>
-          SECTION A-A
+          {P.sectionLabel}
         </div>
       )}
     </AbsoluteFill>
@@ -298,6 +299,7 @@ export const explodedView3d = defineMotion<Props>({
     background: '#1f2736',
     backgroundEdge: '#090c13',
     scale: 1,
+    sectionLabel: 'SECTION A-A',
   },
   propDocs: {
     parts: '[{name, spec?, mesh:"box|cyl|tube|gear|board|sphere|ring", pos:[x,y,z], size:[...], dir:[dx,dy,dz], dist, color, spin?, shell?, metal?}] x is the assembly axis; size = box [x,y,z], cyl [radius,length], tube [outerR,length,innerR], gear [R,thickness,teeth]',
@@ -313,6 +315,7 @@ export const explodedView3d = defineMotion<Props>({
     background: 'backdrop centre colour',
     backgroundEdge: 'backdrop corner colour',
     scale: 'zoom multiplier (>1 = closer)',
+    sectionLabel: 'mono caption top-left while the cutaway is open',
   },
   component: ExplodedView3D,
   tags: ['exploded view', '3d', 'three.js', 'parts', 'assembly', 'teardown', 'cutaway', 'section', 'engineering', 'hardware', 'product', 'how it works', 'gear', 'labels', 'leader lines', 'orbit', 'servo', 'motor', 'launch'],

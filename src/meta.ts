@@ -720,6 +720,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "cause-effect-chain": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 240,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
  "chip-stack-bars": {
   "overlay": false,
   "overlayProps": null,
@@ -1000,6 +1012,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "pros-cons-columns": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 270,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
  "pythagoras-rearrange": {
   "overlay": false,
   "overlayProps": null,
@@ -1050,6 +1074,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "step-process-numbered": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 270,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
  "thumbnail-mosaic": {
   "overlay": false,
   "overlayProps": null,
@@ -1085,6 +1121,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "overlayProps": null,
   "loopable": false,
   "bestLength": 180,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "venn-diagram-overlap": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 210,
   "roles": [
    "subject"
   ],
@@ -3716,6 +3764,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "logo-reveal-liquid": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 150,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
  "metaball-heatmap": {
   "overlay": false,
   "overlayProps": null,
@@ -3989,6 +4049,30 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "channel-intro-sting": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 90,
+  "roles": [
+   "type"
+  ],
+  "weight": "light"
+ },
+ "chapter-countdown": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 190,
+  "roles": [
+   "type"
+  ],
+  "weight": "light"
+ },
  "chapter-header": {
   "overlay": true,
   "overlayProps": {
@@ -4021,6 +4105,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "cinematic-title-card": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 180,
+  "roles": [
+   "type"
+  ],
+  "weight": "light"
+ },
  "comic-burst": {
   "overlay": true,
   "overlayProps": {
@@ -4038,6 +4134,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "overlayProps": null,
   "loopable": false,
   "bestLength": 150,
+  "roles": [
+   "type"
+  ],
+  "weight": "light"
+ },
+ "definition-card": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 240,
   "roles": [
    "type"
   ],
@@ -4075,6 +4183,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "end-screen-cards": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 240,
+  "roles": [
+   "type"
+  ],
+  "weight": "light"
+ },
  "flipbook-riffle-outro": {
   "overlay": false,
   "overlayProps": null,
@@ -4082,6 +4202,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "bestLength": 180,
   "roles": [
    "type"
+  ],
+  "weight": "light"
+ },
+ "follower-milestone": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 240,
+  "roles": [
+   "type",
+   "accent"
   ],
   "weight": "light"
  },
@@ -4157,6 +4290,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "key-takeaway-highlight": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 270,
+  "roles": [
+   "type"
+  ],
+  "weight": "light"
+ },
  "kinetic-captions": {
   "overlay": true,
   "overlayProps": {
@@ -4210,6 +4355,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "logo-reveal-lines": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 120,
+  "roles": [
+   "type"
+  ],
+  "weight": "light"
+ },
  "marquee-ticker": {
   "overlay": false,
   "overlayProps": null,
@@ -4224,6 +4381,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "overlay": true,
   "overlayProps": {
    "backdrop": "none",
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 180,
+  "roles": [
+   "type"
+  ],
+  "weight": "light"
+ },
+ "myth-vs-fact": {
+  "overlay": true,
+  "overlayProps": {
    "background": "transparent"
   },
   "loopable": false,
@@ -4302,11 +4471,35 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "quiz-question-reveal": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 270,
+  "roles": [
+   "type"
+  ],
+  "weight": "light"
+ },
  "ransom-note-type": {
   "overlay": false,
   "overlayProps": null,
   "loopable": false,
   "bestLength": 150,
+  "roles": [
+   "type"
+  ],
+  "weight": "light"
+ },
+ "rolling-credits": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 480,
   "roles": [
    "type"
   ],
@@ -4320,6 +4513,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   },
   "loopable": false,
   "bestLength": 180,
+  "roles": [
+   "type"
+  ],
+  "weight": "light"
+ },
+ "sale-countdown-banner": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 210,
   "roles": [
    "type"
   ],
@@ -4343,6 +4548,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "overlayProps": null,
   "loopable": false,
   "bestLength": 120,
+  "roles": [
+   "type"
+  ],
+  "weight": "light"
+ },
+ "sponsor-slate": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 150,
   "roles": [
    "type"
   ],
@@ -4612,6 +4829,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "comment-bubble-stream": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 270,
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light"
+ },
  "cursor-driver": {
   "overlay": true,
   "overlayProps": {
@@ -4784,12 +5014,38 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "poll-results-bars": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 240,
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light"
+ },
  "remix-thumbnail-shelf": {
   "overlay": false,
   "overlayProps": null,
   "loopable": false,
   "bestLength": 270,
   "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "review-stars-rating": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 180,
+  "roles": [
+   "accent",
    "subject"
   ],
   "weight": "light"
@@ -4834,12 +5090,50 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "story-progress-frames": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 300,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "subscribe-like-bell": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 230,
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light"
+ },
  "talking-head-pip": {
   "overlay": false,
   "overlayProps": null,
   "loopable": false,
   "bestLength": 270,
   "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "testimonial-card-carousel": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 330,
+  "roles": [
+   "accent",
    "subject"
   ],
   "weight": "light"

@@ -26,6 +26,7 @@ type Props = {
   changeMode: 'flip' | 'cut';
   backdrop: 'studio' | 'none';
   background: string;
+  disclaimer: string;
 };
 
 const NewsStrap: React.FC<Props> = (p) => {
@@ -167,7 +168,7 @@ const NewsStrap: React.FC<Props> = (p) => {
               {tag.toUpperCase()}
             </text>
             <text x={26 * u} y={50 * u} fontFamily={lbf('plex')} fontWeight={500} fontSize={13 * u} letterSpacing="0.08em" fill="#FFFFFF" opacity={0.8}>
-              NOT ACTUAL FOOTAGE
+              {p.disclaimer}
             </text>
           </g>
         )}
@@ -202,6 +203,7 @@ export const newsStrap = defineMotion<Props>({
     changeMode: 'flip',
     backdrop: 'studio',
     background: 'transparent',
+    disclaimer: 'NOT ACTUAL FOOTAGE',
   },
   propDocs: {
     items: 'strap states [{at (frame), tab, tab2?, headline, sub, source?, tag?}] — tag shows the top-left ILLUSTRATION-style corner tag',
@@ -216,6 +218,7 @@ export const newsStrap = defineMotion<Props>({
     changeMode: '"flip" (vertical flip) or "cut"',
     backdrop: '"studio" (ink studio with glow, fins and dot grid) or "none" (overlay)',
     background: 'background when backdrop is "none" (default transparent)',
+    disclaimer: 'small caps disclaimer under the strap',
   },
   component: NewsStrap,
   tags: ['lower third', 'news', 'strap', 'broadcast', 'headline', 'name strap', 'chyron', 'bulletin', 'overlay', 'flip', 'category tab', 'source line'],

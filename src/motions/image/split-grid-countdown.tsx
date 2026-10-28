@@ -25,6 +25,8 @@ type Props = {
   accent: string;
   header: string;
   background: string;
+  standbyLabel: string;
+  elapsedLabel: string;
 };
 
 type R = [number, number, number, number];
@@ -154,7 +156,7 @@ const SplitGridCountdown: React.FC<Props> = (p) => {
               <rect x={r[0] + 0.5} y={r[1] + 0.5} width={r[2] - 1} height={r[3] - 1} fill="none" stroke={CD.line} strokeDasharray={`${6 * u} ${6 * u}`} />
               <circle cx={r[0] + r[2] / 2 - 58 * s} cy={r[1] + r[3] / 2 - 5 * s} r={6 * s} fill="none" stroke="rgba(124,135,141,0.5)" strokeWidth={2 * s} />
               <text x={r[0] + r[2] / 2 - 44 * s} y={r[1] + r[3] / 2} fontFamily={la2Fonts.plex} fontWeight={500} fontSize={15 * s} fill={CD.dim} letterSpacing={2 * s}>
-                STANDBY
+                {p.standbyLabel}
               </text>
             </g>
           );
@@ -190,7 +192,7 @@ const SplitGridCountdown: React.FC<Props> = (p) => {
             h={clockCell.r[3]}
             M={M0}
             s={u * Math.max(0.55, Math.min(1.25, clockCell.r[2] / (560 * u)))}
-            header={[p.header, 'ELAPSED']}
+            header={[p.header, p.elapsedLabel]}
             accent={p.accent}
             fill={li < 3 || merging ? 'rgba(6,8,10,0.86)' : CD.panel}
           />
@@ -231,6 +233,8 @@ export const splitGridCountdown = defineMotion<Props>({
     accent: CD.org,
     header: 'COUNTDOWN',
     background: CD.bg,
+    standbyLabel: 'STANDBY',
+    elapsedLabel: 'ELAPSED',
   },
   propDocs: {
     images: 'public/ image paths for the camera feeds (cycled; empty = procedural scenes)',
@@ -244,6 +248,8 @@ export const splitGridCountdown = defineMotion<Props>({
     accent: 'accent colour (T−, synced dots, landing flash)',
     header: 'clock header text',
     background: 'ground colour',
+    standbyLabel: 'text in a camera cell that has no feed yet',
+    elapsedLabel: 'caption under the clock header',
   },
   component: SplitGridCountdown,
   tags: ['countdown', 'split screen', 'multicam', 'grid', 'wall', 'launch', 'live', 'sync', 'merge', 'many into one', 'clock', 't-minus', 'event', 'sports', 'election', 'cctv', 'orange', 'dark'],

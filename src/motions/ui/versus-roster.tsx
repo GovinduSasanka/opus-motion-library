@@ -28,9 +28,11 @@ type Props = {
   hoverStart: number;
   hoverEvery: number;
   ghost: boolean;
+  footerLeft: string;
+  footerRight: string;
 };
 
-const VersusRoster: React.FC<Props> = ({background, cards, images, colors, header, cta, brand, corner, separator, bracketColor, hoverStart, hoverEvery, ghost}) => {
+const VersusRoster: React.FC<Props> = ({background, cards, images, colors, header, cta, brand, corner, separator, bracketColor, hoverStart, hoverEvery, ghost, footerLeft = '[ contact ]', footerRight = '[ rules ]'}) => {
   const frame = useCurrentFrame();
   const {w, h, u, fps, portrait} = useStage();
   const n = Math.max(1, cards.length);
@@ -128,8 +130,8 @@ const VersusRoster: React.FC<Props> = ({background, cards, images, colors, heade
       >
         {ctaTxt}
       </div>
-      <div style={{position: 'absolute', left: w * 0.03, bottom: h * 0.03, fontFamily: x58Fonts.blackletter, fontSize: 26 * u, color: '#fff'}}>[ contact ]</div>
-      <div style={{position: 'absolute', right: w * 0.03, bottom: h * 0.03, fontFamily: x58Fonts.blackletter, fontSize: 26 * u, color: '#fff'}}>[ rules ]</div>
+      <div style={{position: 'absolute', left: w * 0.03, bottom: h * 0.03, fontFamily: x58Fonts.blackletter, fontSize: 26 * u, color: '#fff'}}>{footerLeft}</div>
+      <div style={{position: 'absolute', right: w * 0.03, bottom: h * 0.03, fontFamily: x58Fonts.blackletter, fontSize: 26 * u, color: '#fff'}}>{footerRight}</div>
       <AbsoluteFill style={{pointerEvents: 'none', opacity: 0.07, backgroundImage: `repeating-linear-gradient(0deg, #000 0px, #000 ${1 * u}px, transparent ${1 * u}px, transparent ${3 * u}px)`}} />
     </AbsoluteFill>
   );
@@ -163,6 +165,8 @@ export const versusRoster = defineMotion<Props>({
     hoverStart: 26,
     hoverEvery: 24,
     ghost: true,
+    footerLeft: '[ contact ]',
+    footerRight: '[ rules ]',
   },
   propDocs: {
     background: 'screen colour (Klein blue)',
@@ -178,6 +182,8 @@ export const versusRoster = defineMotion<Props>({
     hoverStart: 'frame the first card enlarges',
     hoverEvery: 'frames each card stays enlarged',
     ghost: 'faint prompt-template panels behind',
+    footerLeft: 'bottom-left footer text ("" hides)',
+    footerRight: 'bottom-right footer text ("" hides)',
   },
   component: VersusRoster,
   tags: ['versus', 'vs', 'roster', 'contenders', 'cards', 'portraits', 'line-up', 'comparison', 'tournament', 'ai agents', 'terminal', 'klein blue', 'blackletter', 'bio', 'hover', 'ui', 'game'],

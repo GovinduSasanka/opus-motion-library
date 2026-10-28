@@ -29,6 +29,7 @@ type Props = {
   osd: boolean;
   clock: string;
   date: string;
+  osdLabel?: string;
 };
 
 const CELL = 2.4;
@@ -220,7 +221,7 @@ const Liminal: React.FC<Props> = (p) => {
           <g fontFamily={lf.vt} fontSize={os} fill="#fff" stroke="#000" strokeWidth={os * 0.08} paintOrder="stroke">
             {recOn && <circle cx={70 * u} cy={70 * u + os * 0.32} r={os * 0.24} fill="#ff2a1a" />}
             <text x={70 * u + os * 0.45} y={70 * u + os * 0.62}>
-              REC
+              {p.osdLabel}
             </text>
             <g transform={`translate(${w - 70 * u - os * 1.6} ${70 * u})`}>
               <rect width={os * 1.4} height={os * 0.62} fill="none" stroke="#fff" strokeWidth={os * 0.07} />
@@ -266,6 +267,7 @@ export const liminalCorridor3d = defineMotion<Props>({
     osd: true,
     clock: 'PM 11:58',
     date: 'SEP.27.1996',
+    osdLabel: 'REC',
   },
   propDocs: {
     seed: 'layout seed (partition placement, dead / flickering panels)',
@@ -281,6 +283,7 @@ export const liminalCorridor3d = defineMotion<Props>({
     osd: 'camcorder REC / battery / clock / date overlay',
     clock: 'OSD clock text',
     date: 'OSD date text',
+    osdLabel: 'camcorder on-screen-display label next to the red dot (osd: true)',
   },
   component: Liminal,
   tags: ['liminal', 'liminal space', 'office', 'corridor', 'hallway', 'fluorescent', 'found footage', 'camcorder', 'vhs', 'horror', 'mystery', 'uncanny', '3d', 'walk', 'first person', 'eerie', 'backdrop'],

@@ -61,7 +61,7 @@ const MascotThumbsUp: React.FC<Props> = (p) => {
   const maxW = (portrait ? w * 0.8 : 560 * u) - fs * 1.8;
   const {bw, bh} = bubbleSize(p.text, fs, maxW);
   const bx = portrait ? w / 2 : L.x + 190 * L.sc * 0.75 + bw / 2 + 80 * u;
-  const by = portrait ? L.y - 340 * L.sc - bh / 2 - 130 * u : L.y - 330 * L.sc - bh * 0.1;
+  const by = portrait ? L.y - 340 * L.sc - bh / 2 - 30 * u : L.y - 330 * L.sc - bh * 0.1;
   const tipX = L.x + (portrait ? 60 : 130) * L.sc;
   const tipY = L.y - (portrait ? 300 : 280) * L.sc;
   const pop = springAt(f, fps, 44, 'pop');

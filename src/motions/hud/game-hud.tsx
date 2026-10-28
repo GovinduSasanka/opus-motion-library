@@ -26,6 +26,8 @@ type Props = {
   accent: string;
   background: string;
   scoreLabel: string;
+  comboLabel: string;
+  levelLabel: string;
 };
 
 const fmt = (n: number) => String(Math.round(n)).padStart(7, '0');
@@ -186,7 +188,7 @@ const GameHud: React.FC<Props> = (P) => {
           <div style={{fontSize: (portrait ? 150 : 160) * u, fontWeight: 800, lineHeight: 0.95, letterSpacing: 2 * u, textShadow: th === 'pixel' ? `${6 * u}px ${6 * u}px 0 #000` : th === 'arcade' ? `0 ${8 * u}px 0 #a3360a, 0 0 ${30 * u}px ${rgba(P.accent, 0.8)}` : `0 0 ${40 * u}px ${rgba(P.accent, 0.9)}`, ...strokeTxt}}>
             {nCombo}x
           </div>
-          <div style={{fontSize: 50 * u, fontWeight: 800, letterSpacing: 10 * u, color: P.accent, ...strokeTxt}}>COMBO</div>
+          <div style={{fontSize: 50 * u, fontWeight: 800, letterSpacing: 10 * u, color: P.accent, ...strokeTxt}}>{P.comboLabel}</div>
         </div>
       )}
 
@@ -195,7 +197,7 @@ const GameHud: React.FC<Props> = (P) => {
         <div style={{position: 'absolute', left: 0, right: 0, top: h * 0.2, height: 150 * u, transform: `translateY(${(1 - lvP) * -120 * u - lvOut * 160 * u}px)`, opacity: 1 - lvOut, display: 'flex', alignItems: 'center', justifyContent: 'center', background: `linear-gradient(90deg, rgba(0,0,0,0), ${rgba(P.accent, 0.92)} 22%, ${rgba(shade(P.accent, -0.3), 0.92)} 78%, rgba(0,0,0,0))`}}>
           <div style={{textAlign: 'center', fontFamily: font, color: '#fff'}}>
             <div style={{fontSize: (portrait ? 84 : 92) * u, fontWeight: 800, letterSpacing: 8 * u, lineHeight: 1, ...strokeTxt, textShadow: th === 'pixel' ? `${5 * u}px ${5 * u}px 0 #000` : `0 ${5 * u}px 0 rgba(0,0,0,0.35)`}}>{P.levelUp}</div>
-            <div style={{fontSize: 28 * u, letterSpacing: 6 * u, marginTop: 6 * u, opacity: 0.95, fontWeight: 700}}>{`LEVEL ${levelNow}`}</div>
+            <div style={{fontSize: 28 * u, letterSpacing: 6 * u, marginTop: 6 * u, opacity: 0.95, fontWeight: 700}}>{`${P.levelLabel} ${levelNow}`}</div>
           </div>
         </div>
       )}
@@ -255,6 +257,8 @@ export const gameHud = defineMotion<Props>({
     accent: '#ff5a3c',
     background: '#0c1030',
     scoreLabel: 'SCORE',
+    comboLabel: 'COMBO',
+    levelLabel: 'LEVEL',
   },
   propDocs: {
     bars: '[{label, color, from, to, steps:[frames]}] each step moves the bar an equal share from `from` to `to` (drain = white ghost lags behind)',
@@ -270,6 +274,8 @@ export const gameHud = defineMotion<Props>({
     accent: 'badge / combo / feed accent colour',
     background: 'backdrop colour ("transparent" to overlay on footage)',
     scoreLabel: 'label above the score',
+    comboLabel: 'label under the combo multiplier',
+    levelLabel: 'word before the level number in the level-up banner',
   },
   component: GameHud,
   tags: ['game', 'hud', 'health bar', 'mana', 'score', 'combo', 'minimap', 'radar', 'kill feed', 'level up', 'overlay', 'arcade', 'pixel', 'esports', 'trailer', 'gamified', 'ui', 'damage'],

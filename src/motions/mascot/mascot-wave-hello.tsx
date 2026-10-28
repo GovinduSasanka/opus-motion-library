@@ -61,7 +61,7 @@ const MascotWaveHello: React.FC<Props> = (p) => {
   const maxW = (portrait ? w * 0.78 : 560 * u) - fs * 1.8;
   const {bw, bh} = bubbleSize(p.text, fs, maxW);
   const bx = portrait ? w / 2 : L.x + 150 * L.sc * 0.6 + bw / 2 + 40 * u;
-  const by = portrait ? L.y - 330 * L.sc - bh / 2 - 90 * u : L.y - 300 * L.sc - bh * 0.1;
+  const by = portrait ? L.y - 330 * L.sc - bh / 2 - 20 * u : L.y - 300 * L.sc - bh * 0.1;
   const tipX = L.x + (portrait ? 40 : 90) * L.sc;
   const tipY = L.y - (portrait ? 300 : 250) * L.sc;
   const pop = springAt(f, fps, 16, 'pop');

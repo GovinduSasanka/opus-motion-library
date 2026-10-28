@@ -70,6 +70,7 @@ import {walkerWorldScroll} from './motions/character/walker-world-scroll';
 import {atomElectronCloud} from './motions/data/atom-electron-cloud';
 import {axisRatchetRescale} from './motions/data/axis-ratchet-rescale';
 import {beatMontage} from './motions/data/beat-montage';
+import {causeEffectChain} from './motions/data/cause-effect-chain';
 import {chipStackBars} from './motions/data/chip-stack-bars';
 import {crowdTracks} from './motions/data/crowd-tracks';
 import {dnaHelixUnzip} from './motions/data/dna-helix-unzip';
@@ -98,15 +99,18 @@ import {overheadTrailMandala} from './motions/data/overhead-trail-mandala';
 import {panelTriptych} from './motions/data/panel-triptych';
 import {periodicTableLightup} from './motions/data/periodic-table-lightup';
 import {perspectiveGrid} from './motions/data/perspective-grid';
+import {prosConsColumns} from './motions/data/pros-cons-columns';
 import {pythagorasRearrange} from './motions/data/pythagoras-rearrange';
 import {rideDimensionLine} from './motions/data/ride-dimension-line';
 import {scienceReticle} from './motions/data/science-reticle';
 import {sectionProfileChart} from './motions/data/section-profile-chart';
 import {starFusionShells} from './motions/data/star-fusion-shells';
+import {stepProcessNumbered} from './motions/data/step-process-numbered';
 import {thumbnailMosaic} from './motions/data/thumbnail-mosaic';
 import {timelineRuler} from './motions/data/timeline-ruler';
 import {tokenPipeline} from './motions/data/token-pipeline';
 import {transferArc} from './motions/data/transfer-arc';
+import {vennDiagramOverlap} from './motions/data/venn-diagram-overlap';
 import {certificateSeal} from './motions/document/certificate-seal';
 import {docHighlightEvidence} from './motions/document/doc-highlight-evidence';
 import {documentMarkerHighlight} from './motions/document/document-marker-highlight';
@@ -345,6 +349,7 @@ import {heartDrawFill} from './motions/shape/heart-draw-fill';
 import {hexCombBuild} from './motions/shape/hex-comb-build';
 import {inkBrushStroke} from './motions/shape/ink-brush-stroke';
 import {lineDrawOn} from './motions/shape/line-draw-on';
+import {logoRevealLiquid} from './motions/shape/logo-reveal-liquid';
 import {metaballHeatmap} from './motions/shape/metaball-heatmap';
 import {motifGridPattern} from './motions/shape/motif-grid-pattern';
 import {nibFollowCamera} from './motions/shape/nib-follow-camera';
@@ -371,15 +376,21 @@ import {blurInTitle} from './motions/text/blur-in-title';
 import {bouncingBallSingalong} from './motions/text/bouncing-ball-singalong';
 import {bulbMarqueeSign} from './motions/text/bulb-marquee-sign';
 import {carvedPlaque} from './motions/text/carved-plaque';
+import {channelIntroSting} from './motions/text/channel-intro-sting';
+import {chapterCountdown} from './motions/text/chapter-countdown';
 import {chapterHeader} from './motions/text/chapter-header';
 import {chrome80sTitle} from './motions/text/chrome-80s-title';
 import {chromeTitleSlam} from './motions/text/chrome-title-slam';
+import {cinematicTitleCard} from './motions/text/cinematic-title-card';
 import {comicBurst} from './motions/text/comic-burst';
 import {decoTitleBar} from './motions/text/deco-title-bar';
+import {definitionCard} from './motions/text/definition-card';
 import {diagonalAssembleTitle} from './motions/text/diagonal-assemble-title';
 import {diagonalBandTitle} from './motions/text/diagonal-band-title';
 import {endCardCredits} from './motions/text/end-card-credits';
+import {endScreenCards} from './motions/text/end-screen-cards';
 import {flipbookRiffleOutro} from './motions/text/flipbook-riffle-outro';
+import {followerMilestone} from './motions/text/follower-milestone';
 import {glyphFractalPush} from './motions/text/glyph-fractal-push';
 import {glyphOrbitLogo} from './motions/text/glyph-orbit-logo';
 import {halftoneExhibitNumeral} from './motions/text/halftone-exhibit-numeral';
@@ -387,23 +398,30 @@ import {hanaziCaption} from './motions/text/hanazi-caption';
 import {handwriteOn} from './motions/text/handwrite-on';
 import {intertitleCard} from './motions/text/intertitle-card';
 import {isoGroundTitle} from './motions/text/iso-ground-title';
+import {keyTakeawayHighlight} from './motions/text/key-takeaway-highlight';
 import {kineticCaptions} from './motions/text/kinetic-captions';
 import {kineticTypeSlam} from './motions/text/kinetic-type-slam';
 import {knifeCut} from './motions/text/knife-cut';
 import {lettersBecomeImage} from './motions/text/letters-become-image';
 import {logoAssemble} from './motions/text/logo-assemble';
+import {logoRevealLines} from './motions/text/logo-reveal-lines';
 import {marqueeTicker} from './motions/text/marquee-ticker';
 import {maskRiseTitle} from './motions/text/mask-rise-title';
+import {mythVsFact} from './motions/text/myth-vs-fact';
 import {neonSign} from './motions/text/neon-sign';
 import {newsStrap} from './motions/text/news-strap';
 import {newsreelIdent} from './motions/text/newsreel-ident';
 import {numberCounter} from './motions/text/number-counter';
 import {paperStripTitle} from './motions/text/paper-strip-title';
 import {pixelLogoDrop} from './motions/text/pixel-logo-drop';
+import {quizQuestionReveal} from './motions/text/quiz-question-reveal';
 import {ransomNoteType} from './motions/text/ransom-note-type';
+import {rollingCredits} from './motions/text/rolling-credits';
 import {rundownBoard} from './motions/text/rundown-board';
+import {saleCountdownBanner} from './motions/text/sale-countdown-banner';
 import {sceneTag} from './motions/text/scene-tag';
 import {sliceAssembleGlyph} from './motions/text/slice-assemble-glyph';
+import {sponsorSlate} from './motions/text/sponsor-slate';
 import {stampSlam} from './motions/text/stamp-slam';
 import {stingBug} from './motions/text/sting-bug';
 import {storyCaptionBox} from './motions/text/story-caption-box';
@@ -428,6 +446,7 @@ import {chatBubbles} from './motions/ui/chat-bubbles';
 import {circuitRebuild} from './motions/ui/circuit-rebuild';
 import {clockCalendar} from './motions/ui/clock-calendar';
 import {commandPaletteType} from './motions/ui/command-palette-type';
+import {commentBubbleStream} from './motions/ui/comment-bubble-stream';
 import {cursorDriver} from './motions/ui/cursor-driver';
 import {deviceMockup} from './motions/ui/device-mockup';
 import {glassLessonCard} from './motions/ui/glass-lesson-card';
@@ -443,12 +462,17 @@ import {masonryGallerySwitch} from './motions/ui/masonry-gallery-switch';
 import {notificationStack} from './motions/ui/notification-stack';
 import {plannedVsHeardChecklist} from './motions/ui/planned-vs-heard-checklist';
 import {playerToolbar} from './motions/ui/player-toolbar';
+import {pollResultsBars} from './motions/ui/poll-results-bars';
 import {remixThumbnailShelf} from './motions/ui/remix-thumbnail-shelf';
+import {reviewStarsRating} from './motions/ui/review-stars-rating';
 import {screenRecorderCamera} from './motions/ui/screen-recorder-camera';
 import {smsThread} from './motions/ui/sms-thread';
 import {snapGridCollapse} from './motions/ui/snap-grid-collapse';
 import {splitCompare} from './motions/ui/split-compare';
+import {storyProgressFrames} from './motions/ui/story-progress-frames';
+import {subscribeLikeBell} from './motions/ui/subscribe-like-bell';
 import {talkingHeadPip} from './motions/ui/talking-head-pip';
+import {testimonialCardCarousel} from './motions/ui/testimonial-card-carousel';
 import {tvWallSwitchOn} from './motions/ui/tv-wall-switch-on';
 import {uiAccumulationStorm} from './motions/ui/ui-accumulation-storm';
 import {uiShapeMorph} from './motions/ui/ui-shape-morph';
@@ -525,6 +549,7 @@ export const motions: MotionDef<any>[] = [
   atomElectronCloud,
   axisRatchetRescale,
   beatMontage,
+  causeEffectChain,
   chipStackBars,
   crowdTracks,
   dnaHelixUnzip,
@@ -553,15 +578,18 @@ export const motions: MotionDef<any>[] = [
   panelTriptych,
   periodicTableLightup,
   perspectiveGrid,
+  prosConsColumns,
   pythagorasRearrange,
   rideDimensionLine,
   scienceReticle,
   sectionProfileChart,
   starFusionShells,
+  stepProcessNumbered,
   thumbnailMosaic,
   timelineRuler,
   tokenPipeline,
   transferArc,
+  vennDiagramOverlap,
   certificateSeal,
   docHighlightEvidence,
   documentMarkerHighlight,
@@ -800,6 +828,7 @@ export const motions: MotionDef<any>[] = [
   hexCombBuild,
   inkBrushStroke,
   lineDrawOn,
+  logoRevealLiquid,
   metaballHeatmap,
   motifGridPattern,
   nibFollowCamera,
@@ -826,15 +855,21 @@ export const motions: MotionDef<any>[] = [
   bouncingBallSingalong,
   bulbMarqueeSign,
   carvedPlaque,
+  channelIntroSting,
+  chapterCountdown,
   chapterHeader,
   chrome80sTitle,
   chromeTitleSlam,
+  cinematicTitleCard,
   comicBurst,
   decoTitleBar,
+  definitionCard,
   diagonalAssembleTitle,
   diagonalBandTitle,
   endCardCredits,
+  endScreenCards,
   flipbookRiffleOutro,
+  followerMilestone,
   glyphFractalPush,
   glyphOrbitLogo,
   halftoneExhibitNumeral,
@@ -842,23 +877,30 @@ export const motions: MotionDef<any>[] = [
   handwriteOn,
   intertitleCard,
   isoGroundTitle,
+  keyTakeawayHighlight,
   kineticCaptions,
   kineticTypeSlam,
   knifeCut,
   lettersBecomeImage,
   logoAssemble,
+  logoRevealLines,
   marqueeTicker,
   maskRiseTitle,
+  mythVsFact,
   neonSign,
   newsStrap,
   newsreelIdent,
   numberCounter,
   paperStripTitle,
   pixelLogoDrop,
+  quizQuestionReveal,
   ransomNoteType,
+  rollingCredits,
   rundownBoard,
+  saleCountdownBanner,
   sceneTag,
   sliceAssembleGlyph,
+  sponsorSlate,
   stampSlam,
   stingBug,
   storyCaptionBox,
@@ -883,6 +925,7 @@ export const motions: MotionDef<any>[] = [
   circuitRebuild,
   clockCalendar,
   commandPaletteType,
+  commentBubbleStream,
   cursorDriver,
   deviceMockup,
   glassLessonCard,
@@ -898,12 +941,17 @@ export const motions: MotionDef<any>[] = [
   notificationStack,
   plannedVsHeardChecklist,
   playerToolbar,
+  pollResultsBars,
   remixThumbnailShelf,
+  reviewStarsRating,
   screenRecorderCamera,
   smsThread,
   snapGridCollapse,
   splitCompare,
+  storyProgressFrames,
+  subscribeLikeBell,
   talkingHeadPip,
+  testimonialCardCarousel,
   tvWallSwitchOn,
   uiAccumulationStorm,
   uiShapeMorph,

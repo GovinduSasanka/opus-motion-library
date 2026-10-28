@@ -24,6 +24,7 @@ type Props = {
   title: string;
   seed: number;
   camera: boolean;
+  listTitle: string;
 };
 
 // default assembly: a hand crank winch in a 0..100 box (back to front)
@@ -111,7 +112,7 @@ const ExplodedBalloons: React.FC<Props> = (p) => {
           {/* parts list */}
           <g opacity={listFade}>
             <text x={listX} y={listY - 18 * u * lk} fontFamily={lf.plex} fontSize={(portrait ? 30 : 21) * u} letterSpacing={3 * u} fill={p.lineColor} opacity={0.8 * prog(frame, p.explodeAt, p.explodeAt + 10, ease.out)}>
-              PARTS LIST
+              {p.listTitle}
             </text>
             {parts.map((part, i) => {
               const k = listIn(i);
@@ -164,6 +165,7 @@ export const explodedViewBalloons = defineMotion<Props>({
     title: 'The Hand Winch',
     seed: 5,
     camera: true,
+    listTitle: 'PARTS LIST',
   },
   propDocs: {
     parts: '[{d, label, qty, dir:[x,y], dist}] SVG paths in a 0..100 box, back to front; empty = built-in winch',
@@ -177,6 +179,7 @@ export const explodedViewBalloons = defineMotion<Props>({
     title: 'hand-lettered sheet title',
     seed: 'paper seed',
     camera: 'pull the camera back while exploded',
+    listTitle: 'heading above the parts list',
   },
   component: ExplodedBalloons,
   tags: ['exploded view', 'balloons', 'parts list', 'assembly', 'blueprint', 'teardown', 'engineering', 'diagram', 'leader lines', 'product', 'whats inside', 'technical drawing', 'bom'],

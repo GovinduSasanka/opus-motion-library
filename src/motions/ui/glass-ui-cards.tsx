@@ -19,6 +19,12 @@ type Props = {
   base: string;
   orbitDeg: number;
   seed: number;
+  chatTitle: string;
+  voiceTitle: string;
+  controlsTitle: string;
+  toggleLabel: string;
+  sliderLabel: string;
+  chips: string[];
 };
 
 const GlassCard: React.FC<{spec: CardSpec; i: number; frost: number; tint: number; lightDir: number; u: number; children: React.ReactNode; rise: number; accent: string}> = ({spec, i, frost, tint, lightDir, u, children, rise, accent}) => {
@@ -63,7 +69,7 @@ const GlassCard: React.FC<{spec: CardSpec; i: number; frost: number; tint: numbe
   );
 };
 
-const GlassUiCards: React.FC<Props> = ({cards, userText, replyText, frost, tint, lightDir, accent, colors, base, orbitDeg, seed}) => {
+const GlassUiCards: React.FC<Props> = ({cards, userText, replyText, frost, tint, lightDir, accent, colors, base, orbitDeg, seed, chatTitle = 'ASSISTANT', voiceTitle = 'LISTENING', controlsTitle = 'SETTINGS', toggleLabel = 'Smart replies', sliderLabel = 'Creativity', chips = ['Concise', 'Friendly', 'Formal']}) => {
   const frame = useCurrentFrame();
   const {u, w, h} = useStage();
   const cam = prog(frame, 0, 200, ease.sine);
@@ -75,7 +81,7 @@ const GlassUiCards: React.FC<Props> = ({cards, userText, replyText, frost, tint,
     if (c.kind === 'chat')
       return (
         <>
-          <div style={{fontFamily: 'Inter, sans-serif', color: 'rgba(255,255,255,.6)', fontSize: 19 * u, fontWeight: 600, letterSpacing: 2 * u}}>ASSISTANT</div>
+          <div style={{fontFamily: 'Inter, sans-serif', color: 'rgba(255,255,255,.6)', fontSize: 19 * u, fontWeight: 600, letterSpacing: 2 * u}}>{chatTitle}</div>
           <ChatBubble text={userText} side="r" at={at + 8} u={u} accent={accent} />
           <StreamedReply text={replyText} at={at + 34} u={u} />
         </>
@@ -83,7 +89,7 @@ const GlassUiCards: React.FC<Props> = ({cards, userText, replyText, frost, tint,
     if (c.kind === 'voice')
       return (
         <>
-          <div style={{fontFamily: 'Inter, sans-serif', color: 'rgba(255,255,255,.6)', fontSize: 19 * u, fontWeight: 600, letterSpacing: 2 * u}}>LISTENING</div>
+          <div style={{fontFamily: 'Inter, sans-serif', color: 'rgba(255,255,255,.6)', fontSize: 19 * u, fontWeight: 600, letterSpacing: 2 * u}}>{voiceTitle}</div>
           <div style={{flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
             <Orb u={u} size={Math.min(c.w, c.h) * 0.46 * u} at={at + 6} c1={accent} c2="#6d28d9" />
           </div>
@@ -94,13 +100,13 @@ const GlassUiCards: React.FC<Props> = ({cards, userText, replyText, frost, tint,
     const sv = 0.25 + 0.5 * prog(frame, at + 20, at + 80, ease.inOut);
     return (
       <>
-        <div style={{fontFamily: 'Inter, sans-serif', color: 'rgba(255,255,255,.6)', fontSize: 19 * u, fontWeight: 600, letterSpacing: 2 * u}}>SETTINGS</div>
-        <Toggle u={u} on={on} accent={accent} label="Smart replies" />
-        <Slider u={u} value={sv} accent={accent} label="Creativity" />
+        <div style={{fontFamily: 'Inter, sans-serif', color: 'rgba(255,255,255,.6)', fontSize: 19 * u, fontWeight: 600, letterSpacing: 2 * u}}>{controlsTitle}</div>
+        <Toggle u={u} on={on} accent={accent} label={toggleLabel} />
+        <Slider u={u} value={sv} accent={accent} label={sliderLabel} />
         <div style={{display: 'flex', gap: 10 * u, flexWrap: 'wrap'}}>
-          <Chip u={u} text="Concise" accent={accent} active p={prog(frame, at + 12, at + 22, ease.back)} />
-          <Chip u={u} text="Friendly" accent={accent} p={prog(frame, at + 16, at + 26, ease.back)} />
-          <Chip u={u} text="Formal" accent={accent} p={prog(frame, at + 20, at + 30, ease.back)} />
+          {chips.map((ch, ci) => (
+            <Chip key={ci} u={u} text={ch} accent={accent} active={ci === 0} p={prog(frame, at + 12 + ci * 4, at + 22 + ci * 4, ease.back)} />
+          ))}
         </div>
       </>
     );
@@ -155,6 +161,12 @@ export const glassUiCards = defineMotion<Props>({
     base: '#07061c',
     orbitDeg: 6,
     seed: 11,
+    chatTitle: 'ASSISTANT',
+    voiceTitle: 'LISTENING',
+    controlsTitle: 'SETTINGS',
+    toggleLabel: 'Smart replies',
+    sliderLabel: 'Creativity',
+    chips: ['Concise', 'Friendly', 'Formal'],
   },
   propDocs: {
     cards: 'cards: kind chat|voice|controls, x/y offsets (px at 1080), z depth, tilt degrees, w/h size (portrait re-stacks them vertically)',
@@ -168,6 +180,12 @@ export const glassUiCards = defineMotion<Props>({
     base: 'backdrop base colour',
     orbitDeg: 'camera parallax swing in degrees',
     seed: 'backdrop seed',
+    chatTitle: 'small caps heading of the chat card',
+    voiceTitle: 'small caps heading of the voice card',
+    controlsTitle: 'small caps heading of the controls card',
+    toggleLabel: 'label of the toggle in the controls card',
+    sliderLabel: 'label of the slider in the controls card',
+    chips: 'chip labels in the controls card (the first is active)',
   },
   component: GlassUiCards,
   tags: ['glass', 'glassmorphism', 'frosted', 'ui', 'cards', 'ai assistant', 'chat', 'voice', 'waveform', 'parallax', '3d', 'app demo', 'hero', 'translucent', 'backdrop-blur', 'toggle', 'slider'],

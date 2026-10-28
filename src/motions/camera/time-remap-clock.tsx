@@ -15,9 +15,14 @@ type Props = {
   color: string;
   remapColor: string;
   title: string;
+  notes?: string[];
+  timelineLabel?: string;
+  remapLabel?: string;
+  holdLabel?: string;
+  speedLabel?: string;
 };
 
-const TimeRemapClock: React.FC<Props> = ({holds, easeIn, release, length, background, color, remapColor, title}) => {
+const TimeRemapClock: React.FC<Props> = ({holds, easeIn, release, length, background, color, remapColor, title, notes = ['STOP ON THE HOLD · CATCH UP TO ~2x', 'BACK ON THE TIMELINE'], timelineLabel = 'TIMELINE', remapLabel = 'REMAPPED', holdLabel = 'HOLD', speedLabel = 'CLOCK SPEED'}) => {
   const frame = useCurrentFrame();
   const {w, h, u, fps, portrait} = useStage();
   const ps = portrait ? 1.5 : 1;
@@ -65,22 +70,22 @@ const TimeRemapClock: React.FC<Props> = ({holds, easeIn, release, length, backgr
         {portrait ? (
           <>
             <text x={x0} y={h * 0.2 + 64 * u} fill="#8a93b8" fontFamily={mono} fontSize={26 * u} letterSpacing={2 * u}>
-              STOP ON THE HOLD · CATCH UP TO ~2x
+              {notes[0]}
             </text>
             <text x={x0} y={h * 0.2 + 100 * u} fill="#8a93b8" fontFamily={mono} fontSize={26 * u} letterSpacing={2 * u}>
-              BACK ON THE TIMELINE
+              {notes[1]}
             </text>
           </>
         ) : (
           <text x={x0} y={h * 0.2 + 42 * u} fill="#8a93b8" fontFamily={mono} fontSize={22 * u * ps} letterSpacing={3 * u}>
-            STOP ON THE HOLD · CATCH UP TO ~2x · BACK ON THE TIMELINE
+            {notes.join(' · ')}
           </text>
         )}
 
         {/* tracks */}
         {[
-          {y: y1, label: 'TIMELINE', c: color, val: t},
-          {y: y2, label: 'REMAPPED', c: remapColor, val: clockT},
+          {y: y1, label: timelineLabel, c: color, val: t, remap: false},
+          {y: y2, label: remapLabel, c: remapColor, val: clockT, remap: true},
         ].map((tr) => (
           <g key={tr.label}>
             <text x={x0} y={tr.y - 30 * u} fill={tr.c} fontFamily={mono} fontSize={20 * u * ps} letterSpacing={4 * u}>
@@ -91,7 +96,7 @@ const TimeRemapClock: React.FC<Props> = ({holds, easeIn, release, length, backgr
             {rm.holds.map((hd, i) => (
               <rect key={i} x={px(hd.at) - 2 * u} y={tr.y - 20 * u} width={4 * u} height={40 * u} rx={2 * u} fill="#ff6b81" opacity={0.7} />
             ))}
-            <circle cx={px(tr.val)} cy={tr.y} r={(tr.label === 'REMAPPED' && inHold ? 22 + pulse * 6 : 20) * u} fill={tr.c} />
+            <circle cx={px(tr.val)} cy={tr.y} r={(tr.remap && inHold ? 22 + pulse * 6 : 20) * u} fill={tr.c} />
             <circle cx={px(tr.val) - 6 * u} cy={tr.y - 6 * u} r={6 * u} fill="#fff" opacity={0.6} />
           </g>
         ))}
@@ -100,7 +105,7 @@ const TimeRemapClock: React.FC<Props> = ({holds, easeIn, release, length, backgr
 
         {/* speed graph */}
         <text x={x0} y={gy0 - 16 * u} fill="#8a93b8" fontFamily={mono} fontSize={20 * u * ps} letterSpacing={4 * u}>
-          CLOCK SPEED
+          {speedLabel}
         </text>
         <rect x={x0} y={gy0} width={tw} height={gh} fill="#ffffff" opacity={0.03} rx={8 * u} />
         {rm.windows.map((wd, i) => (
@@ -124,7 +129,7 @@ const TimeRemapClock: React.FC<Props> = ({holds, easeIn, release, length, backgr
             clock {clockT.toFixed(2)}s
           </text>
           <text x={x0 + tw * 0.7} y={gy0 + gh + 56 * u} fill={inHold ? '#ff6b81' : boost ? '#7CFFB2' : '#fff'}>
-            {inHold ? 'HOLD' : `x${v.toFixed(2)}`}
+            {inHold ? holdLabel : `x${v.toFixed(2)}`}
           </text>
         </g>
       </Svg>
@@ -154,6 +159,11 @@ export const timeRemapClock = defineMotion<Props>({
     color: '#6C8CFF',
     remapColor: '#FFB44D',
     title: 'Time remap',
+    notes: ['STOP ON THE HOLD · CATCH UP TO ~2x', 'BACK ON THE TIMELINE'],
+    timelineLabel: 'TIMELINE',
+    remapLabel: 'REMAPPED',
+    holdLabel: 'HOLD',
+    speedLabel: 'CLOCK SPEED',
   },
   propDocs: {
     holds: 'holds [{at seconds on the timeline, dur seconds}]',
@@ -164,6 +174,11 @@ export const timeRemapClock = defineMotion<Props>({
     color: 'timeline colour',
     remapColor: 'remapped clock colour',
     title: 'heading',
+    notes: 'two caption lines under the title (landscape joins them with " · ")',
+    timelineLabel: 'label of the straight timeline track',
+    remapLabel: 'label of the remapped (clock) track',
+    holdLabel: 'readout text while the clock is stopped on a hold',
+    speedLabel: 'label above the clock-speed graph',
   },
   component: TimeRemapClock,
   tags: ['time remap', 'hold', 'slow motion', 'beat sync', 'camera', 'speed ramp', 'clock', 'catch-up', 'explainer', 'helper'],

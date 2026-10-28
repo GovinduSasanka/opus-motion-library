@@ -1,12 +1,10 @@
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {ease, lerp, prog} from '../../core/ease';
-import {Avatar, Bell, SANS, ThumbUp, bgOf, fmtInt, wrapText} from '../../core/r3-social';
-import {backOut} from '../../core/r2-s1-kit';
+import {Avatar, Bell, SANS, ThumbUp, backOut, bgOf, fmtInt, mixHex, wrapText} from '../../core/r3-social';
 import {rng} from '../../core/random';
 import {Svg, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
-import {mixHex} from '../../core/text-kit';
 import {ArrowCursor} from '../../core/ui-kit';
 
 /**
@@ -34,38 +32,35 @@ type Props = {
 const SubscribeLikeBell: React.FC<Props> = (p) => {
   const frame = useCurrentFrame();
   const {w, h, u, portrait} = useStage();
-  const dark = mixHex(p.background === 'transparent' ? '#ffffff' : p.background, '#000000', 0.5)[0] !== undefined;
-  void dark;
   const sp = Math.max(0.25, p.speed);
   const f = Math.max(0, frame - p.startAt) * sp;
 
   // design space (units): a row 800 wide centred on (0,0)
-  const k = Math.min(portrait ? 1.28 : 1.42, (w * 0.9) / 800) * (portrait ? 1 : Math.min(1, (h * 0.8) / 520)) * u * (portrait ? 1 : 1 / u);
-  const kk = Math.min((w * 0.9) / 860, (h * 0.86) / (portrait ? 760 : 520), portrait ? 1.6 : 1.9);
-  void k;
+  const kk = Math.min((w * 0.9) / (portrait ? 690 : 860), (h * 0.86) / (portrait ? 620 : 520), portrait ? 1.8 : 1.9);
 
   // timeline (frames at 30fps, scaled by speed)
   const T = {enter: 0, subMove: 34, subPress: 56, bellMove: 78, bellPress: 98, likeMove: 124, likePress: 146, end: 230};
   const pop = (i: number) => backOut(prog(f, T.enter + i * 5, T.enter + i * 5 + 18, ease.linear), 1.5);
 
   // button geometry (design units)
-  const SUB = {x: -400, y: -52, w: 346, h: 104};
-  const BELL = {x: -26, y: -52, w: 104, h: 104};
-  const LIKE = {x: 104, y: -52, w: 296, h: 104};
+  const rows = portrait ? {sub: -34, bell: 134, like: 134} : {sub: 0, bell: 0, like: 0};
+  const SUB = portrait ? {x: -220, y: -52, w: 440, h: 104} : {x: -411, y: -52, w: 380, h: 104};
+  const BELL = portrait ? {x: -209, y: -52, w: 104, h: 104} : {x: -7, y: -52, w: 104, h: 104};
+  const LIKE = portrait ? {x: -81, y: -52, w: 290, h: 104} : {x: 121, y: -52, w: 290, h: 104};
   const subC = {x: SUB.x + SUB.w / 2, y: 0};
   const bellC = {x: BELL.x + BELL.w / 2, y: 0};
-  const likeC = {x: LIKE.x + LIKE.w * 0.4, y: 0};
+  const likeC = {x: LIKE.x + 70, y: 0};
 
   // cursor path
   const cs = [
     {t: 0, x: 520, y: 240},
     {t: T.subMove, x: 520, y: 240},
-    {t: T.subPress - 4, x: subC.x + 40, y: 18},
-    {t: T.bellMove, x: subC.x + 40, y: 18},
-    {t: T.bellPress - 4, x: bellC.x + 8, y: 22},
-    {t: T.likeMove, x: bellC.x + 8, y: 22},
-    {t: T.likePress - 4, x: likeC.x + 6, y: 22},
-    {t: T.end - 30, x: likeC.x + 6, y: 22},
+    {t: T.subPress - 4, x: subC.x + 40, y: rows.sub + 18},
+    {t: T.bellMove, x: subC.x + 40, y: rows.sub + 18},
+    {t: T.bellPress - 4, x: bellC.x + 8, y: rows.bell + 22},
+    {t: T.likeMove, x: bellC.x + 8, y: rows.bell + 22},
+    {t: T.likePress - 4, x: likeC.x + 4, y: rows.like + 26},
+    {t: T.end - 30, x: likeC.x + 4, y: rows.like + 26},
     {t: T.end, x: 560, y: 300},
   ];
   let cx0 = cs[0].x;
@@ -99,8 +94,6 @@ const SubscribeLikeBell: React.FC<Props> = (p) => {
   const countStr = fmtInt(count);
   const prevStr = fmtInt(p.likeCount);
 
-  const colSubOff = mixHex(p.accent, p.ink, 0.0);
-  void colSubOff;
   const subBg = mixHex(p.accent, mixHex(p.ink, p.background === 'transparent' ? '#ffffff' : p.background, 0.82), subbed);
   const subFg = mixHex('#ffffff', p.ink, subbed);
 
@@ -118,37 +111,38 @@ const SubscribeLikeBell: React.FC<Props> = (p) => {
   const bt = prog(f, T.likePress + 2, T.likePress + 34, ease.out);
   const plusT = prog(f, T.likePress + 6, T.likePress + 40, ease.out);
 
-  const cardW = 800;
+  const cardW = portrait ? 640 : 822;
+  const cardTop = portrait ? -300 : -250;
   const cardColor = mixHex(p.background === 'transparent' ? '#ffffff' : p.background, p.ink, 0.07);
 
   return (
     <AbsoluteFill style={{background: bgOf(p.background)}}>
       <Svg>
-        <g transform={`translate(${w / 2} ${h / 2 + (portrait ? 0 : 10)}) scale(${kk})`}>
+        <g transform={`translate(${w / 2} ${h / 2 + (portrait ? 36 : 62) * kk}) scale(${kk})`}>
           {/* channel card */}
           <g opacity={cardIn} transform={`translate(0 ${(1 - cardIn) * 30})`}>
-            <rect x={-cardW / 2} y={-250} width={cardW} height={150} rx={40} fill={cardColor} />
-            <Avatar cx={-cardW / 2 + 90} cy={-175} r={48} name={p.channelName} color={p.accent2} />
-            <text x={-cardW / 2 + 170} y={-168} fontFamily={SANS} fontWeight={800} fontSize={nameLines[0] && nameLines[0].length > 22 ? 42 : 50} fill={p.ink}>
+            <rect x={-cardW / 2} y={cardTop} width={cardW} height={150} rx={40} fill={cardColor} />
+            <Avatar cx={-cardW / 2 + 90} cy={cardTop + 75} r={48} name={p.channelName} color={p.accent2} />
+            <text x={-cardW / 2 + 170} y={cardTop + 82} fontFamily={SANS} fontWeight={800} fontSize={nameLines[0] && nameLines[0].length > 22 ? 42 : 50} fill={p.ink}>
               {nameLines[0]}
             </text>
-            <text x={-cardW / 2 + 170} y={-128} fontFamily={SANS} fontWeight={400} fontSize={30} fill={p.ink} opacity={0.6}>
+            <text x={-cardW / 2 + 170} y={cardTop + 122} fontFamily={SANS} fontWeight={400} fontSize={30} fill={p.ink} opacity={0.6}>
               {tagLines[0]}
             </text>
           </g>
 
           {/* subscribe button */}
-          <g transform={`translate(${subC.x} 0) scale(${pop(1) * subScale}) translate(${-subC.x} 0)`} opacity={Math.min(1, pop(1) * 2)}>
+          <g transform={`translate(0 ${rows.sub}) translate(${subC.x} 0) scale(${pop(1) * subScale}) translate(${-subC.x} 0)`} opacity={Math.min(1, pop(1) * 2)}>
             <rect x={SUB.x} y={SUB.y} width={SUB.w} height={SUB.h} rx={SUB.h / 2} fill={subBg} />
             {subbed > 0.5 ? (
               <g opacity={subbed}>
                 <path d={`M${SUB.x + 46} ${0} l14 15 l28 -30`} fill="none" stroke={subFg} strokeWidth={8} strokeLinecap="round" strokeLinejoin="round" />
-                <text x={SUB.x + 108} y={15} fontFamily={SANS} fontWeight={800} fontSize={44} fill={subFg}>
+                <text x={SUB.x + 112} y={15} fontFamily={SANS} fontWeight={800} fontSize={42} fill={subFg}>
                   {p.subscribedLabel}
                 </text>
               </g>
             ) : (
-              <text x={subC.x} y={15} textAnchor="middle" fontFamily={SANS} fontWeight={800} fontSize={44} fill={subFg} opacity={1 - subbed}>
+              <text x={subC.x} y={15} textAnchor="middle" fontFamily={SANS} fontWeight={800} fontSize={42} fill={subFg} opacity={1 - subbed}>
                 {p.subscribeLabel}
               </text>
             )}
@@ -156,9 +150,9 @@ const SubscribeLikeBell: React.FC<Props> = (p) => {
           </g>
 
           {/* bell button */}
-          <g transform={`translate(${bellC.x} 0) scale(${pop(2) * (1 - 0.08 * pBell)}) translate(${-bellC.x} 0)`} opacity={Math.min(1, pop(2) * 2)}>
+          <g transform={`translate(0 ${rows.bell}) translate(${bellC.x} 0) scale(${pop(2) * (1 - 0.08 * pBell)}) translate(${-bellC.x} 0)`} opacity={Math.min(1, pop(2) * 2)}>
             <circle cx={bellC.x} cy={0} r={BELL.w / 2} fill={mixHex(cardColor, p.bellColor, bellOn * 0.9)} />
-            <Bell x={bellC.x - 34} y={-36} s={68} fill={mixHex('#00000000'.slice(0, 7), p.bellColor, 1) && (bellOn > 0.3 ? p.bellColor : 'none')} stroke={bellOn > 0.3 ? mixHex(p.bellColor, '#000000', 0.35) : p.ink} sw={1.8} swing={swing} />
+            <Bell x={bellC.x - 34} y={-36} s={68} fill={bellOn > 0.3 ? p.bellColor : 'none'} stroke={bellOn > 0.3 ? mixHex(p.bellColor, '#000000', 0.35) : p.ink} sw={1.8} swing={swing} />
             {f > T.bellPress && ring < 1 &&
               [-1, 1].map((sd) =>
                 [0, 1].map((j) => {
@@ -180,17 +174,17 @@ const SubscribeLikeBell: React.FC<Props> = (p) => {
           </g>
 
           {/* like pill */}
-          <g transform={`translate(${LIKE.x + LIKE.w / 2} 0) scale(${pop(3) * (1 - 0.06 * pLike)}) translate(${-(LIKE.x + LIKE.w / 2)} 0)`} opacity={Math.min(1, pop(3) * 2)}>
+          <g transform={`translate(0 ${rows.like}) translate(${LIKE.x + LIKE.w / 2} 0) scale(${pop(3) * (1 - 0.06 * pLike)}) translate(${-(LIKE.x + LIKE.w / 2)} 0)`} opacity={Math.min(1, pop(3) * 2)}>
             <rect x={LIKE.x} y={LIKE.y} width={LIKE.w} height={LIKE.h} rx={LIKE.h / 2} fill={likeOn ? mixHex(cardColor, p.accent2, 0.16) : cardColor} stroke={likeOn ? p.accent2 : 'none'} strokeWidth={4} />
             <g transform={`translate(${likeC.x} 0) scale(${thumbS}) translate(${-likeC.x} 0) rotate(${likeOn ? -14 * Math.sin(Math.min(1, likeP) * Math.PI) : 0} ${likeC.x} 0)`}>
               <ThumbUp x={likeC.x - 30} y={-32} s={64} fill={likeOn ? p.accent2 : 'none'} stroke={likeOn ? p.accent2 : p.ink} sw={1.8} />
             </g>
             {/* counter with a vertical roll */}
-            <g clipPath={undefined}>
-              <text x={LIKE.x + 118} y={-(rollT * 34) + 16} fontFamily={SANS} fontWeight={800} fontSize={42} fill={p.ink} opacity={1 - rollT}>
+            <g>
+              <text x={LIKE.x + 124} y={-(rollT * 34) + 16} fontFamily={SANS} fontWeight={800} fontSize={42} fill={p.ink} opacity={1 - rollT}>
                 {prevStr}
               </text>
-              <text x={LIKE.x + 118} y={(1 - rollT) * 34 + 16} fontFamily={SANS} fontWeight={800} fontSize={42} fill={likeOn ? p.accent2 : p.ink} opacity={rollT}>
+              <text x={LIKE.x + 124} y={(1 - rollT) * 34 + 16} fontFamily={SANS} fontWeight={800} fontSize={42} fill={likeOn ? p.accent2 : p.ink} opacity={rollT}>
                 {countStr}
               </text>
             </g>

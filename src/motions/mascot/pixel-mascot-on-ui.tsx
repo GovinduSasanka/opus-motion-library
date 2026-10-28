@@ -23,6 +23,7 @@ type Props = {
   wallpaper: string[];
   bpm: number;
   spritePx: number;
+  windowTitle: string;
 };
 
 const SPRITE = ['..a......a..', '.aa......aa.', '.bbbbbbbbbb.', 'bbbbbbbbbbbb', 'bbeebbbbeebb', 'bbeebbbbeebb', 'bcbbbbbbbbcb', 'bbbbbbbbbbbb', '.bsssssssss.', '..ll....ll..'];
@@ -31,7 +32,7 @@ const HEART = ['.hh.hh.', 'hhhhhhh', 'hhhhhhh', '.hhhhh.', '..hhh..', '...h...']
 
 const mod = (a: number, n: number) => ((a % n) + n) % n;
 
-const PixelMascotOnUi: React.FC<Props> = ({steps, sprite, spritePalette, title, doneTitle, inputText, placeholder, rows, button, doneButton, accent, wallpaper, bpm, spritePx}) => {
+const PixelMascotOnUi: React.FC<Props> = ({steps, sprite, spritePalette, title, doneTitle, inputText, placeholder, rows, button, doneButton, accent, wallpaper, bpm, spritePx, windowTitle = 'Tasks'}) => {
   const frame = useCurrentFrame();
   const {w, h, u, portrait} = useStage();
   const t = frame / 30;
@@ -184,7 +185,7 @@ const PixelMascotOnUi: React.FC<Props> = ({steps, sprite, spritePalette, title, 
             <circle key={i} cx={28 + i * 22} cy="23" r="6.5" fill={c} />
           ))}
           <text x={DW / 2} y="29" textAnchor="middle" fill="#7F7D79" fontFamily={lf.inter} fontSize="14" fontWeight={500}>
-            Tasks
+            {windowTitle}
           </text>
           {/* heading */}
           <text x={mx} y={iy - 42} fill={ink} fontFamily={lf.newsreader} fontSize={56 * (0.9 + 0.1 * titlePop)} letterSpacing="-1.2" style={{opacity: cl(titlePop, 0.4, 1)}}>
@@ -290,6 +291,7 @@ export const pixelMascotOnUi = defineMotion<Props>({
     wallpaper: ['#F1D9C8', '#D5BFAB'],
     bpm: 96,
     spritePx: 8,
+    windowTitle: 'Tasks',
   },
   propDocs: {
     steps: 'mascot route: [{to: heading|input|row0|row1|row2|button, x: 0..1 along the top edge, at: frame}] — a jump if the surface changes, a walk along the same edge',
@@ -306,6 +308,7 @@ export const pixelMascotOnUi = defineMotion<Props>({
     wallpaper: 'desktop gradient [top-left, bottom-right]',
     bpm: 'beat the mascot breathes on',
     spritePx: 'design-space size of one sprite pixel (6–12)',
+    windowTitle: 'title in the app window title bar',
   },
   component: PixelMascotOnUi,
   tags: ['mascot', 'pixel art', 'ui', 'walkthrough', 'onboarding', 'app demo', 'jump', 'squash and stretch', 'product tour', 'task list', 'character', 'screencast', 'cursor-free'],

@@ -32,8 +32,10 @@
   "overlayProps": null,
   "takesImage": false,
   "imageProps": [],
-  "takesText": false,
-  "textProps": [],
+  "takesText": true,
+  "textProps": [
+   "title"
+  ],
   "colorProps": [
    "background",
    "objectColor",
@@ -106,6 +108,10 @@
    "seed": {
     "default": 1,
     "doc": "unused variation seed (kept for spec compatibility)"
+   },
+   "title": {
+    "default": "ACCUMULATION RENDER",
+    "doc": "heading at the top of the frame (shown when labels is on)"
    }
   }
  },
@@ -1581,6 +1587,10 @@
    "scale": {
     "default": 1,
     "doc": "zoom multiplier (>1 = closer)"
+   },
+   "sectionLabel": {
+    "default": "SECTION A-A",
+    "doc": "mono caption top-left while the cutaway is open"
    }
   }
  },
@@ -2944,6 +2954,10 @@
    "seed": {
     "default": 4,
     "doc": "jitter seed"
+   },
+   "introLine": {
+    "default": "AND THE LAST PIECE —",
+    "doc": "small spaced line at the top-left before the drop"
    }
   }
  },
@@ -3315,6 +3329,10 @@
    "date": {
     "default": "SEP.27.1996",
     "doc": "OSD date text"
+   },
+   "osdLabel": {
+    "default": "REC",
+    "doc": "camcorder on-screen-display label next to the red dot (osd: true)"
    }
   }
  },
@@ -6354,6 +6372,18 @@
      "#6FB36F"
     ],
     "doc": "block colours"
+   },
+   "zoomLabel": {
+    "default": "ZOOM",
+    "doc": "word before the zoom value in the readout pill"
+   },
+   "marginLabel": {
+    "default": "margin box",
+    "doc": "legend text for the orange margin guide (\"- - \" is prefixed)"
+   },
+   "boundsLabel": {
+    "default": "content bounds",
+    "doc": "legend text for the teal content-bounds guide (\"- - \" is prefixed)"
    }
   }
  },
@@ -6629,6 +6659,7 @@
   "takesText": true,
   "textProps": [
    "badge",
+   "tagline",
    "cards"
   ],
   "colorProps": [
@@ -6732,6 +6763,17 @@
    "badge": {
     "default": "NEW · VERSION 2",
     "doc": "small pill above the headline"
+   },
+   "tagline": {
+    "default": [
+     "One canvas. Every section a station",
+     "the camera flies to."
+    ],
+    "doc": "grey sub-lines under the headline (one entry per line)"
+   },
+   "sectionLabel": {
+    "default": "WHAT YOU GET",
+    "doc": "small caps label above the cards"
    },
    "cards": {
     "default": [
@@ -7331,6 +7373,29 @@
    "title": {
     "default": "Time remap",
     "doc": "heading"
+   },
+   "notes": {
+    "default": [
+     "STOP ON THE HOLD · CATCH UP TO ~2x",
+     "BACK ON THE TIMELINE"
+    ],
+    "doc": "two caption lines under the title (landscape joins them with \" · \")"
+   },
+   "timelineLabel": {
+    "default": "TIMELINE",
+    "doc": "label of the straight timeline track"
+   },
+   "remapLabel": {
+    "default": "REMAPPED",
+    "doc": "label of the remapped (clock) track"
+   },
+   "holdLabel": {
+    "default": "HOLD",
+    "doc": "readout text while the clock is stopped on a hold"
+   },
+   "speedLabel": {
+    "default": "CLOCK SPEED",
+    "doc": "label above the clock-speed graph"
    }
   }
  },
@@ -8228,6 +8293,14 @@
    "background": {
     "default": "#0E0A18",
     "doc": "page colour behind the panels"
+   },
+   "frameLabel": {
+    "default": "ONE FILTER OVER THE FRAME",
+    "doc": "caption of the left (whole-frame filter) panel in compare mode"
+   },
+   "relightLabel": {
+    "default": "RELIGHT PER PAINT ROLE",
+    "doc": "caption of the per-paint-role relight panel"
    }
   }
  },
@@ -9884,6 +9957,22 @@
    "seed": {
     "default": 4,
     "doc": "nucleus layout / particle seed"
+   },
+   "protonsLabel": {
+    "default": "PROTONS",
+    "doc": "label of the proton counter"
+   },
+   "neutronsLabel": {
+    "default": "NEUTRONS",
+    "doc": "label of the neutron counter"
+   },
+   "electronsLabel": {
+    "default": "ELECTRONS",
+    "doc": "label of the electron counter"
+   },
+   "protonNote": {
+    "default": "+1 proton",
+    "doc": "floating note when a proton is added"
    }
   }
  },
@@ -10175,6 +10264,119 @@
      "#ECE4D7"
     ],
     "doc": "shapes mode: background colours cycled per shot"
+   }
+  }
+ },
+ {
+  "id": "cause-effect-chain",
+  "title": "Cause and effect chain",
+  "category": "data",
+  "description": "Step boxes linked by dashed arrows; each arrow fills with a travelling pulse and the next box lights up, the colour sliding from the cause colour to the effect colour, ending with a pulse ring on the last box.",
+  "useFor": "Domino-effect explainers, \"how X leads to Y\" chains, root-cause stories, economics / science / news cause chains — pass `steps` (2-7 short strings).",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "cause",
+   "effect",
+   "chain",
+   "flow",
+   "steps",
+   "domino",
+   "sequence",
+   "arrows",
+   "process",
+   "because",
+   "consequence",
+   "explainer",
+   "education"
+  ],
+  "file": "src/motions/data/cause-effect-chain.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "accent2",
+   "card"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "How one decision ripples out",
+    "doc": "heading above the chain (empty = none)"
+   },
+   "steps": {
+    "default": [
+     "Interest rates rise",
+     "Loans cost more",
+     "People spend less",
+     "Businesses sell less",
+     "Prices stop rising"
+    ],
+    "doc": "chain step texts, in order (up to 7)"
+   },
+   "causeLabel": {
+    "default": "CAUSE",
+    "doc": "tag on the first box"
+   },
+   "effectLabel": {
+    "default": "EFFECT",
+    "doc": "tag on the last box"
+   },
+   "background": {
+    "default": "#0F1B2D",
+    "doc": "backdrop colour or 'transparent'"
+   },
+   "ink": {
+    "default": "#EAF0FA",
+    "doc": "title and idle text colour"
+   },
+   "accent": {
+    "default": "#F4B63D",
+    "doc": "cause end colour"
+   },
+   "accent2": {
+    "default": "#E5543F",
+    "doc": "effect end colour"
+   },
+   "card": {
+    "default": "#1B2D48",
+    "doc": "idle box fill"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family (empty = grotesk)"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the chain starts"
+   },
+   "stagger": {
+    "default": 30,
+    "doc": "frames between steps lighting up"
    }
   }
  },
@@ -11224,6 +11426,14 @@
    "seed": {
     "default": 1,
     "doc": "unused spare seed"
+   },
+   "spectrumLabel": {
+    "default": "EMISSION SPECTRUM",
+    "doc": "caption after the gas name above the spectrum panel"
+   },
+   "axisLabel": {
+    "default": "wavelength (nm)",
+    "doc": "axis caption under the spectrum panel"
    }
   }
  },
@@ -13027,6 +13237,14 @@
    "graticule": {
     "default": true,
     "doc": "scope: draw the glass graticule over the trace"
+   },
+   "secondaryLabel": {
+    "default": "synapses",
+    "doc": "trace: axis label of the second (synapse) curve"
+   },
+   "gaugeTitle": {
+    "default": "",
+    "doc": "decline: gauge heading (empty = 'REASONING EFFORT' when title is 'QUALITY', else 'EFFORT')"
    }
   }
  },
@@ -13312,6 +13530,10 @@
    "src": {
     "default": "",
     "doc": "optional public/ image used as the specimen (zoom range is shortened so it stays sharp; give value/unit that match the circled region)"
+   },
+   "fieldLabel": {
+    "default": "FIELD",
+    "doc": "small label above the field-of-view readout"
    }
   }
  },
@@ -13449,6 +13671,10 @@
    "negative": {
     "default": "#FF9A4A",
     "doc": "negative-weight connection colour"
+   },
+   "outputLabel": {
+    "default": "OUTPUT · SOFTMAX",
+    "doc": "small caption above the output bars"
    }
   }
  },
@@ -13752,6 +13978,23 @@
    "seed": {
     "default": 5,
     "doc": "start angles / star field seed"
+   },
+   "elapsedLabel": {
+    "default": "ELAPSED",
+    "doc": "label before the elapsed-time counter"
+   },
+   "focusLabels": {
+    "default": [
+     "ORBIT",
+     "DISTANCE",
+     "ECCENTRICITY",
+     "ORBITS DONE"
+    ],
+    "doc": "row labels of the focus card [period, distance, eccentricity, orbits done]"
+   },
+   "distanceUnit": {
+    "default": "AU",
+    "doc": "unit after the distance value in the focus card"
    }
   }
  },
@@ -14319,6 +14562,135 @@
    "seed": {
     "default": 2,
     "doc": ""
+   }
+  }
+ },
+ {
+  "id": "pros-cons-columns",
+  "title": "Pros and cons columns",
+  "category": "data",
+  "description": "Two cards (PROS in green, CONS in red) with coloured headers; items slide in alternately, each marked by a drawn tick or cross, and a verdict pill pops at the end.",
+  "useFor": "Decision videos, review / comparison summaries, \"should you…?\" explainers, tech / money / lifestyle trade-offs — pass `pros`, `cons` and an optional `verdict`.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 270,
+  "tags": [
+   "pros",
+   "cons",
+   "compare",
+   "comparison",
+   "tick",
+   "cross",
+   "checklist",
+   "advantages",
+   "disadvantages",
+   "decision",
+   "review",
+   "columns",
+   "explainer",
+   "education"
+  ],
+  "file": "src/motions/data/pros-cons-columns.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "verdict"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "accent2",
+   "card"
+  ],
+  "loopable": false,
+  "bestLength": 270,
+  "mood": [
+   "ui"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Working from home",
+    "doc": "heading above the columns (empty = none)"
+   },
+   "prosLabel": {
+    "default": "PROS",
+    "doc": "header of the positive card"
+   },
+   "consLabel": {
+    "default": "CONS",
+    "doc": "header of the negative card"
+   },
+   "pros": {
+    "default": [
+     "No commute",
+     "Flexible hours",
+     "Quiet focus time",
+     "Lower daily costs"
+    ],
+    "doc": "positive items (up to 6)"
+   },
+   "cons": {
+    "default": [
+     "Harder to switch off",
+     "Less face time",
+     "Feels isolating",
+     "Home distractions"
+    ],
+    "doc": "negative items (up to 6)"
+   },
+   "verdict": {
+    "default": "Great if you plan for the downsides",
+    "doc": "optional closing pill (empty = none)"
+   },
+   "background": {
+    "default": "#F1EEE7",
+    "doc": "backdrop colour or 'transparent'"
+   },
+   "ink": {
+    "default": "#1B1D22",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#1E9E6A",
+    "doc": "pros colour"
+   },
+   "accent2": {
+    "default": "#DB4437",
+    "doc": "cons colour"
+   },
+   "card": {
+    "default": "#FFFFFF",
+    "doc": "card fill"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family (empty = grotesk)"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the title starts"
+   },
+   "stagger": {
+    "default": 22,
+    "doc": "frames between items"
    }
   }
  },
@@ -14930,6 +15302,126 @@
   }
  },
  {
+  "id": "step-process-numbered",
+  "title": "Numbered step process",
+  "category": "data",
+  "description": "A winding path draws through numbered icon nodes; each node pops as the path reaches it, with a number badge and a title + description that fade in beside it.",
+  "useFor": "How-it-works, onboarding, recipes, tutorials and \"3 steps to…\" explainers — pass `steps` as {title, text, icon} (icons: check, bulb, gear, target, chart, user, doc, bolt, star, flag, search, clock, heart, globe, lock, book, rocket).",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 270,
+  "tags": [
+   "steps",
+   "process",
+   "how-it-works",
+   "numbered",
+   "workflow",
+   "roadmap",
+   "tutorial",
+   "onboarding",
+   "path",
+   "icons",
+   "timeline",
+   "explainer",
+   "education"
+  ],
+  "file": "src/motions/data/step-process-numbered.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "accent2",
+   "card"
+  ],
+  "loopable": false,
+  "bestLength": 270,
+  "mood": [],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "How it works",
+    "doc": "heading (empty = none)"
+   },
+   "steps": {
+    "default": [
+     {
+      "title": "Sign up",
+      "text": "Create a free account in under a minute.",
+      "icon": "user"
+     },
+     {
+      "title": "Set your goal",
+      "text": "Pick what you want to achieve.",
+      "icon": "target"
+     },
+     {
+      "title": "Build the plan",
+      "text": "We turn it into small daily steps.",
+      "icon": "gear"
+     },
+     {
+      "title": "See results",
+      "text": "Track progress and celebrate wins.",
+      "icon": "chart"
+     }
+    ],
+    "doc": "array of {title, text, icon} (3-6). icon is a name from the built-in set"
+   },
+   "background": {
+    "default": "#111A2B",
+    "doc": "backdrop colour or 'transparent'"
+   },
+   "ink": {
+    "default": "#F1F4FB",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#4DD0B1",
+    "doc": "first-step colour"
+   },
+   "accent2": {
+    "default": "#FFB347",
+    "doc": "last-step colour (colours blend along the path)"
+   },
+   "card": {
+    "default": "#FFFFFF",
+    "doc": "number badge fill"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family for step titles (empty = grotesk)"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the title starts"
+   },
+   "stagger": {
+    "default": 36,
+    "doc": "frames between steps"
+   }
+  }
+ },
+ {
   "id": "thumbnail-mosaic",
   "title": "Thumbnail mosaic (disc / grid / recap)",
   "category": "data",
@@ -15500,6 +15992,129 @@
    "pitch": {
     "default": 26,
     "doc": "camera elevation in degrees"
+   }
+  }
+ },
+ {
+  "id": "venn-diagram-overlap",
+  "title": "Venn diagram overlap",
+  "category": "data",
+  "description": "Two or three translucent circles pop in one by one with labels and example words, then the overlap region lights up and its label lands in the middle.",
+  "useFor": "Explaining overlaps and intersections — skills vs interests, audience segments, ikigai-style frameworks, compare-and-contrast lessons — pass `sets`, `items` and the `overlap` label.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "venn",
+   "overlap",
+   "intersection",
+   "sets",
+   "diagram",
+   "compare",
+   "circles",
+   "framework",
+   "ikigai",
+   "logic",
+   "explainer",
+   "education"
+  ],
+  "file": "src/motions/data/venn-diagram-overlap.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "items"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "accent2",
+   "accent3"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "3d"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Where it gets interesting",
+    "doc": "heading (empty = none)"
+   },
+   "sets": {
+    "default": [
+     "Things you love",
+     "Things you are good at"
+    ],
+    "doc": "circle labels (2 or 3)"
+   },
+   "items": {
+    "default": [
+     [
+      "Music",
+      "Travel",
+      "Games"
+     ],
+     [
+      "Writing",
+      "Maths",
+      "Design"
+     ]
+    ],
+    "doc": "array (one per set) of up to 3 short example words in that set"
+   },
+   "overlap": {
+    "default": "Your sweet spot",
+    "doc": "label for the overlap (centre) region"
+   },
+   "background": {
+    "default": "#14192B",
+    "doc": "backdrop colour or 'transparent'"
+   },
+   "ink": {
+    "default": "#F4F6FC",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#FF7A59",
+    "doc": "first circle colour"
+   },
+   "accent2": {
+    "default": "#4FA8FF",
+    "doc": "second circle colour"
+   },
+   "accent3": {
+    "default": "#7BE0A4",
+    "doc": "third circle colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family (empty = grotesk)"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the title starts"
+   },
+   "stagger": {
+    "default": 26,
+    "doc": "frames between circles"
    }
   }
  },
@@ -16567,6 +17182,18 @@
    "background": {
     "default": "#F4ECDD",
     "doc": "paper colour"
+   },
+   "profileLabel": {
+    "default": "PROFILE",
+    "doc": "heading on the profile side plate"
+   },
+   "photoLabel": {
+    "default": "SUSPECT",
+    "doc": "first (yellow) word of the front-plate caption"
+   },
+   "photoLabel2": {
+    "default": "PHOTO",
+    "doc": "second (cream) word of the front-plate caption"
    }
   }
  },
@@ -16704,6 +17331,14 @@
    "startAt": {
     "default": 18,
     "doc": "frame printing starts"
+   },
+   "subtotalLabel": {
+    "default": "SUBTOTAL",
+    "doc": "label of the subtotal line"
+   },
+   "printingLabel": {
+    "default": "PRINTING",
+    "doc": "small status text on the printer body"
    }
   }
  },
@@ -17076,6 +17711,14 @@
    "startAt": {
     "default": 0.06,
     "doc": "start position along the track, 0..1"
+   },
+   "formulaNote": {
+    "default": "E = PE + KE + heat",
+    "doc": "handwritten note under the pendulum diagram"
+   },
+   "figLabel": {
+    "default": "Fig. 1",
+    "doc": "figure label in the bottom corner of the right page"
    }
   }
  },
@@ -20964,6 +21607,10 @@
    "shake": {
     "default": 1,
     "doc": "pre-lift vibration strength (0 = steady)"
+   },
+   "countdownLabel": {
+    "default": "T MINUS",
+    "doc": "small mono label under the big countdown number"
    }
   }
  },
@@ -24420,6 +25067,18 @@
    "background": {
     "default": "#070B1C",
     "doc": "fallback background"
+   },
+   "speedLine": {
+    "default": "SPEED · {n} SUB-FRAME{s} BLENDED",
+    "doc": "HUD line; {n} = sub-frames blended, {s} = \"S\" when more than one"
+   },
+   "clockLabel": {
+    "default": "SOURCE CLOCK",
+    "doc": "caption under the source clock readout"
+   },
+   "curveLabel": {
+    "default": "0.3× – 80× SPEED CURVE",
+    "doc": "caption under the speed-curve graph"
    }
   }
  },
@@ -27896,6 +28555,10 @@
    "background": {
     "default": "#07040f",
     "doc": "backdrop colour"
+   },
+   "graphLabel": {
+    "default": "source time vs. output time",
+    "doc": "caption under the time graph (showGraph: true)"
    }
   }
  },
@@ -30363,6 +31026,47 @@
    "keepRed": {
     "default": true,
     "doc": "true reds (REC dot) are exempt from the re-ink"
+   },
+   "recLabel": {
+    "default": "REC",
+    "doc": "label next to the red record dot"
+   },
+   "panelTitles": {
+    "default": [
+     "SYSTEM",
+     "CONTACT"
+    ],
+    "doc": "titles of the left / right side panels (prefixed with \"01 // \")"
+   },
+   "calmNames": {
+    "default": [
+     "SIGNAL",
+     "LOAD",
+     "POWER",
+     "LINK",
+     "THREAT"
+    ],
+    "doc": "left-panel gauge names before the alert (5)"
+   },
+   "alertNames": {
+    "default": [
+     "LINK",
+     "HULL",
+     "POWER",
+     "SHIELD",
+     "THREAT"
+    ],
+    "doc": "left-panel gauge names after the alert (5)"
+   },
+   "contactNames": {
+    "default": [
+     "RNG",
+     "BRG",
+     "VEL",
+     "ALT",
+     "ID"
+    ],
+    "doc": "right-panel gauge names (5)"
    }
   }
  },
@@ -31254,6 +31958,14 @@
    "scoreLabel": {
     "default": "SCORE",
     "doc": "label above the score"
+   },
+   "comboLabel": {
+    "default": "COMBO",
+    "doc": "label under the combo multiplier"
+   },
+   "levelLabel": {
+    "default": "LEVEL",
+    "doc": "word before the level number in the level-up banner"
    }
   }
  },
@@ -31859,7 +32571,8 @@
   "imageProps": [],
   "takesText": true,
   "textProps": [
-   "levels"
+   "levels",
+   "scaleLabel"
   ],
   "colorProps": [
    "background",
@@ -31950,6 +32663,10 @@
    "holdStart": {
     "default": 0,
     "doc": "fraction of the clip (0..0.4) the first level holds before the move starts"
+   },
+   "scaleLabel": {
+    "default": "SCALE",
+    "doc": "small caps label before the scale readout (hud: true)"
    }
   }
  },
@@ -32446,6 +33163,10 @@
    "accent": {
     "default": "#FF3B2F",
     "doc": "red/accent colour"
+   },
+   "camLabel": {
+    "default": "CAM 02 ● REC",
+    "doc": "on-screen label inside the dashcam-style panel"
    }
   }
  },
@@ -33109,6 +33830,10 @@
    "osd": {
     "default": true,
     "doc": "camcorder REC / AF / zoom overlay and focus brackets"
+   },
+   "osdLabel": {
+    "default": "REC",
+    "doc": "camcorder on-screen-display label next to the red dot"
    }
   }
  },
@@ -36599,6 +37324,14 @@
    "background": {
     "default": "#06080A",
     "doc": "ground colour"
+   },
+   "standbyLabel": {
+    "default": "STANDBY",
+    "doc": "text in a camera cell that has no feed yet"
+   },
+   "elapsedLabel": {
+    "default": "ELAPSED",
+    "doc": "caption under the clock header"
    }
   }
  },
@@ -38907,7 +39640,8 @@
   "imageProps": [],
   "takesText": true,
   "textProps": [
-   "labels"
+   "labels",
+   "caption"
   ],
   "colorProps": [
    "amber",
@@ -38955,6 +39689,10 @@
      "Boundary"
     ],
     "doc": "four feature labels in order"
+   },
+   "caption": {
+    "default": "Plan trace, vertical exaggeration x1.0",
+    "doc": "small caption at the bottom-left of the frame"
    },
    "size": {
     "default": 200,
@@ -39008,7 +39746,8 @@
   "imageProps": [],
   "takesText": true,
   "textProps": [
-   "title"
+   "title",
+   "footnote"
   ],
   "colorProps": [],
   "loopable": false,
@@ -39115,6 +39854,10 @@
    "zoomOut": {
     "default": true,
     "doc": "pull back to the legend card at the end"
+   },
+   "footnote": {
+    "default": "NOT TO SCALE",
+    "doc": "small caps footnote under the total (\"\" hides)"
    }
   }
  },
@@ -41119,6 +41862,10 @@
    "spritePx": {
     "default": 8,
     "doc": "design-space size of one sprite pixel (6–12)"
+   },
+   "windowTitle": {
+    "default": "Tasks",
+    "doc": "title in the app window title bar"
    }
   }
  },
@@ -42453,6 +43200,14 @@
    "accent": {
     "default": "#FF4D12",
     "doc": "ball / label colour"
+   },
+   "steppedLabel": {
+    "default": "STEPPED · NO SHUTTER",
+    "doc": "caption of the un-blurred half in compare mode"
+   },
+   "shutterLabel": {
+    "default": "SHUTTER {f}f · {n} SAMPLES",
+    "doc": "caption of the blurred half; {f} = shutter angle in frames, {n} = samples"
    }
   }
  },
@@ -42825,6 +43580,14 @@
    "seed": {
     "default": 3,
     "doc": "placeholder-distribution and shot variety"
+   },
+   "promptLabel": {
+    "default": "PROMPT",
+    "doc": "small caps label above the prompt field"
+   },
+   "nextTokenLabel": {
+    "default": "NEXT TOKEN",
+    "doc": "heading of the candidate-token panel (\" · id N\" follows)"
    }
   }
  },
@@ -43196,6 +43959,14 @@
    "counterTo": {
     "default": 20000,
     "doc": "the racing counter’s final value"
+   },
+   "titleSafeLabel": {
+    "default": "TITLE SAFE 90%",
+    "doc": "label of the inner safe-area guide (safeAreas: true)"
+   },
+   "actionSafeLabel": {
+    "default": "ACTION SAFE 93%",
+    "doc": "label of the outer safe-area guide (safeAreas: true)"
    }
   }
  },
@@ -44680,7 +45451,8 @@
   "textProps": [
    "title",
    "subtitle",
-   "labels"
+   "labels",
+   "scaleLabel"
   ],
   "colorProps": [
    "color",
@@ -44838,6 +45610,34 @@
    "accent2": {
     "default": "#E8553B",
     "doc": "impact mode: second ground-ring colour"
+   },
+   "identityNote": {
+    "default": "CIRCLE = ELLIPSE = ELLIPSE",
+    "doc": "bounce: small grey note under the scale diagram"
+   },
+   "scaleLabel": {
+    "default": "SCALE · LIVE",
+    "doc": "bounce: caption above the live scale readout"
+   },
+   "phaseLabels": {
+    "default": [
+     "ANTICIPATION",
+     "ACTION",
+     "FOLLOW-THROUGH"
+    ],
+    "doc": "anticipation: labels of the three timeline bars"
+   },
+   "chargeLabels": {
+    "default": [
+     "LOADED",
+     "CHARGING",
+     "RELEASE"
+    ],
+    "doc": "anticipation: [prefix, first-phase word, second-phase word] of the gauge caption"
+   },
+   "hopLabel": {
+    "default": "PRIMARY · HOP",
+    "doc": "hop: callout label next to the ball"
    }
   }
  },
@@ -45539,6 +46339,10 @@
    "seed": {
     "default": 6,
     "doc": ""
+   },
+   "countLabel": {
+    "default": "CELLS",
+    "doc": "unit word after the live count (showCount: true)"
    }
   }
  },
@@ -46178,6 +46982,18 @@
    "lanes": {
     "default": [],
     "doc": "lane race instead of the two tracks: any of 'linear','ease-out','ease-in','bezier' (uses easing),'spring','back','steps', e.g. ['linear','ease-out','bezier','spring']; [] = classic A/B"
+   },
+   "editorLabel": {
+    "default": "GRAPH EDITOR · EASE",
+    "doc": "caption at the top-left of the graph panel"
+   },
+   "axisLabel": {
+    "default": "VALUE / TIME",
+    "doc": "caption at the top-right of the graph panel"
+   },
+   "idleLabelB": {
+    "default": "B · LINEAR",
+    "doc": "label of track B before it starts moving (then labelB)"
    }
   }
  },
@@ -46281,6 +47097,10 @@
    "camera": {
     "default": true,
     "doc": "pull the camera back while exploded"
+   },
+   "listTitle": {
+    "default": "PARTS LIST",
+    "doc": "heading above the parts list"
    }
   }
  },
@@ -47212,6 +48032,119 @@
    "retractPieces": {
     "default": 3,
     "doc": "cable pieces the stroke splits into when retracting"
+   }
+  }
+ },
+ {
+  "id": "logo-reveal-liquid",
+  "title": "Logo reveal: liquid flood",
+  "category": "shape",
+  "description": "Gooey two-colour liquid rises from the bottom edge with droplets lifting off the wavy surface until it floods the frame; a wobbly hole then opens in the middle and spreads out, revealing the logo inside it, followed by a ripple ring and the tagline.",
+  "useFor": "Playful or organic logo intros and outros (drinks, wellness, kids, creative studios); your logo image or a wordmark.",
+  "source": [
+   "original (branding pass, round 3)"
+  ],
+  "durationInFrames": 150,
+  "tags": [
+   "logo",
+   "logo reveal",
+   "liquid",
+   "goo",
+   "blob",
+   "flood",
+   "wave",
+   "intro",
+   "outro",
+   "branding",
+   "playful",
+   "organic",
+   "wordmark",
+   "ident",
+   "droplets"
+  ],
+  "file": "src/motions/shape/logo-reveal-liquid.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": true,
+  "textProps": [
+   "text",
+   "tagline"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "accent2"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "playful"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "text": {
+    "default": "Fluent",
+    "doc": "wordmark shown when no src is given (use \\n for two lines)"
+   },
+   "tagline": {
+    "default": "pour it on",
+    "doc": "small tracked line under the logo (\"\" = none)"
+   },
+   "src": {
+    "default": "",
+    "doc": "logo image (public/ path or https URL); empty = wordmark text"
+   },
+   "background": {
+    "default": "#FFF6EA",
+    "doc": "colour of the revealed frame the logo sits on, or \"transparent\""
+   },
+   "ink": {
+    "default": "#1B1A2E",
+    "doc": "wordmark / tagline colour (pick one that reads on `background`)"
+   },
+   "accent": {
+    "default": "#3A4BFF",
+    "doc": "front liquid colour"
+   },
+   "accent2": {
+    "default": "#FF7AA8",
+    "doc": "rear liquid colour"
+   },
+   "droplets": {
+    "default": 10,
+    "doc": "droplets that lift off the surface (0-24)"
+   },
+   "wobble": {
+    "default": 1,
+    "doc": "edge wobble of the hole (0 = perfect circle, 1 = default, 2 = very jelly)"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the liquid starts rising"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "timing multiplier"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family for the wordmark text"
    }
   }
  },
@@ -49115,6 +50048,22 @@
    "seed": {
     "default": 4,
     "doc": "dabs: random seed"
+   },
+   "stopLabel": {
+    "default": "STOP",
+    "doc": "big word that pops when the ball stops"
+   },
+   "ballLabel": {
+    "default": "BALL",
+    "doc": "word before the stop time under the big word"
+   },
+   "settleLabel": {
+    "default": "FRAMES AFTER STOP · SETTLE",
+    "doc": "caption above the settle table"
+   },
+   "strandLabel": {
+    "default": "STRAND",
+    "doc": "word before the strand number in the settle table"
    }
   }
  },
@@ -49356,6 +50305,10 @@
    "scissorSize": {
     "default": 0.2,
     "doc": "scissors length as a fraction of sheet width"
+   },
+   "cutLabel": {
+    "default": "CUT ALONG THE LINE",
+    "doc": "mono caption on the coupon strip"
    }
   }
  },
@@ -51235,6 +52188,213 @@
   }
  },
  {
+  "id": "channel-intro-sting",
+  "title": "Channel intro sting (3 s)",
+  "category": "text",
+  "description": "A 3-second bumper: five flat shapes snap in on the beat, spin and collapse to a point with a flash; a colour band shoots across and the channel name slams in letter by letter, a tagline pill slides in under it, then everything wipes out.",
+  "useFor": "Channel / show intro bumpers, section stingers and \"from the makers of\" openers; optional logo picture above the name.",
+  "source": [
+   "original (branding pass, round 3)"
+  ],
+  "durationInFrames": 90,
+  "tags": [
+   "intro",
+   "sting",
+   "bumper",
+   "channel",
+   "ident",
+   "logo",
+   "youtube",
+   "shapes",
+   "snap",
+   "name",
+   "tagline",
+   "opener",
+   "branding",
+   "stinger",
+   "3 second"
+  ],
+  "file": "src/motions/text/channel-intro-sting.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": true,
+  "textProps": [
+   "tagline"
+  ],
+  "colorProps": [
+   "background",
+   "accent",
+   "accent2",
+   "ink"
+  ],
+  "loopable": false,
+  "bestLength": 90,
+  "mood": [],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "name": {
+    "default": "STUDIO NINE",
+    "doc": "channel / show name that slams in"
+   },
+   "tagline": {
+    "default": "new episodes weekly",
+    "doc": "small pill under the name (\"\" = none)"
+   },
+   "src": {
+    "default": "",
+    "doc": "optional logo picture shown above the name (public/ path or URL)"
+   },
+   "background": {
+    "default": "#101114",
+    "doc": "backdrop colour, or \"transparent\" to sit over footage"
+   },
+   "accent": {
+    "default": "#FFD23F",
+    "doc": "band colour and shapes"
+   },
+   "accent2": {
+    "default": "#FF4D6D",
+    "doc": "second brand colour (shapes, tagline pill)"
+   },
+   "ink": {
+    "default": "#101114",
+    "doc": "name colour (must read on the accent band)"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the sting starts"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "timing multiplier (1.3 = faster, hits a shorter beat)"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family for the name"
+   }
+  }
+ },
+ {
+  "id": "chapter-countdown",
+  "title": "Chapter countdown (3-2-1 ring)",
+  "category": "text",
+  "description": "A tick-marked ring counts 3-2-1: each number pops in and the ring sweeps once per count while the ticks light up; the ring then snaps shut into a line that opens sideways, with the chapter label, title and subtitle rising out from behind it.",
+  "useFor": "Chapter / section intros in tutorials, courses and long videos; \"starting in 3-2-1\" openers before a segment, with the chapter title.",
+  "source": [
+   "original (branding pass, round 3)"
+  ],
+  "durationInFrames": 190,
+  "tags": [
+   "countdown",
+   "chapter",
+   "chapter title",
+   "3 2 1",
+   "ring",
+   "timer",
+   "section",
+   "intro",
+   "tutorial",
+   "course",
+   "segment",
+   "starting soon",
+   "title",
+   "ticks"
+  ],
+  "file": "src/motions/text/chapter-countdown.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 190,
+  "mood": [
+   "editorial"
+  ],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "from": {
+    "default": 3,
+    "doc": "number to count down from (1-9)"
+   },
+   "preLabel": {
+    "default": "starting in",
+    "doc": "small line under the ring while counting (\"\" = none)"
+   },
+   "chapterLabel": {
+    "default": "Chapter 02",
+    "doc": "small tracked label above the title (e.g. \"Chapter 02\", \"Part 3\")"
+   },
+   "title": {
+    "default": "Getting Started",
+    "doc": "chapter title"
+   },
+   "subtitle": {
+    "default": "Set up your workspace in five minutes",
+    "doc": "line under the title (\"\" = none)"
+   },
+   "framesPerCount": {
+    "default": 28,
+    "doc": "frames per number (30 = one second)"
+   },
+   "background": {
+    "default": "#0E1320",
+    "doc": "backdrop colour, or \"transparent\" to sit over footage"
+   },
+   "ink": {
+    "default": "#F4F1EA",
+    "doc": "number and title colour"
+   },
+   "accent": {
+    "default": "#4DD6C1",
+    "doc": "ring, ticks, label and line colour"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the countdown starts"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family for the number and title"
+   }
+  }
+ },
+ {
   "id": "chapter-header",
   "title": "Chapter header",
   "category": "text",
@@ -51619,6 +52779,129 @@
   }
  },
  {
+  "id": "cinematic-title-card",
+  "title": "Cinematic title card",
+  "category": "text",
+  "description": "Letterbox bars slide in over a slowly pushing backdrop (your picture or a graded gradient with a drifting light leak); floating dust catches the light, a small kicker appears, a wide-tracked serif title resolves from blur as its tracking tightens, a thin rule and subtitle follow, and the card fades to black.",
+  "useFor": "Film and documentary titles, trailers, \"a film by\" cards, episode titles and any moody opening over a photo or colour.",
+  "source": [
+   "original (branding pass, round 3)"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "title card",
+   "cinematic",
+   "title",
+   "letterbox",
+   "film",
+   "trailer",
+   "documentary",
+   "serif",
+   "dust",
+   "intro",
+   "credits",
+   "moody",
+   "bars",
+   "opening",
+   "kicker"
+  ],
+  "file": "src/motions/text/cinematic-title-card.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle",
+   "kicker"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "photo",
+   "cinematic",
+   "editorial"
+  ],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "The Long Way Home",
+    "doc": "main title (set in caps)"
+   },
+   "subtitle": {
+    "default": "a short documentary",
+    "doc": "line under the title (\"\" = none)"
+   },
+   "kicker": {
+    "default": "a film by",
+    "doc": "tiny tracked line above the title, e.g. \"a film by\" (\"\" = none)"
+   },
+   "src": {
+    "default": "",
+    "doc": "backdrop picture (public/ path or URL); empty = graded gradient with light leak"
+   },
+   "background": {
+    "default": "#0A0C12",
+    "doc": "base colour (the gradient shade / picture tint); \"transparent\" = bars and text only over your footage"
+   },
+   "ink": {
+    "default": "#F1EBDD",
+    "doc": "text and dust colour"
+   },
+   "accent": {
+    "default": "#C89B5A",
+    "doc": "light leak and rule colour"
+   },
+   "ratio": {
+    "default": 2.39,
+    "doc": "letterbox aspect ratio (2.39 = scope, 1.85 = flat); bars are capped at 27 % of the height"
+   },
+   "dust": {
+    "default": 70,
+    "doc": "floating dust motes (0-160)"
+   },
+   "push": {
+    "default": 0.08,
+    "doc": "slow push-in over the whole card (0.08 = 8 %)"
+   },
+   "tracking": {
+    "default": 0.3,
+    "doc": "final letter spacing of the title in em"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the bars start closing in"
+   },
+   "fadeOut": {
+    "default": true,
+    "doc": "fade to black over the last 20 frames"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family for the title"
+   }
+  }
+ },
+ {
   "id": "comic-burst",
   "title": "Comic SFX burst",
   "category": "text",
@@ -51854,6 +53137,116 @@
    "sheenAt": {
     "default": 84,
     "doc": "frame the specular sheen sweeps across the gold"
+   }
+  }
+ },
+ {
+  "id": "definition-card",
+  "title": "Definition card",
+  "category": "text",
+  "description": "A dictionary entry card: big headword with a speaker icon, phonetic spelling and part-of-speech pill, a rule that draws, the definition typing on with a caret, then an italic example sentence.",
+  "useFor": "Vocabulary and \"what does X mean\" explainers, glossary beats, language lessons, jargon-busting intros — pass the word, phonetic, part of speech, definition and example.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "definition",
+   "dictionary",
+   "glossary",
+   "vocabulary",
+   "word",
+   "meaning",
+   "typewriter",
+   "card",
+   "education",
+   "explainer",
+   "lesson"
+  ],
+  "file": "src/motions/text/definition-card.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "word"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "card"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "ui"
+  ],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "word": {
+    "default": "Inflation",
+    "doc": "the headword"
+   },
+   "phonetic": {
+    "default": "/ɪnˈfleɪ.ʃən/",
+    "doc": "phonetic spelling, e.g. /ˈwɜːd/"
+   },
+   "partOfSpeech": {
+    "default": "noun",
+    "doc": "noun / verb / adjective ... shown as a pill"
+   },
+   "definition": {
+    "default": "A general rise in prices over time, which means each unit of money buys a little less than it did before.",
+    "doc": "the definition text (types on)"
+   },
+   "example": {
+    "default": "With inflation at 3%, a $100 basket of groceries costs $103 next year.",
+    "doc": "optional example sentence (empty string hides it)"
+   },
+   "background": {
+    "default": "#E9E1D0",
+    "doc": "backdrop colour or 'transparent'"
+   },
+   "ink": {
+    "default": "#1D1B18",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#C8452D",
+    "doc": "pill, rule, caret and left-edge colour"
+   },
+   "card": {
+    "default": "#FFFDF7",
+    "doc": "card colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family for the word and example (empty = serif)"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the card starts entering"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "playback speed multiplier"
+   },
+   "typeSpeed": {
+    "default": 1,
+    "doc": "typing speed multiplier for the definition"
    }
   }
  },
@@ -52237,6 +53630,133 @@
   }
  },
  {
+  "id": "end-screen-cards",
+  "title": "End screen with video cards",
+  "category": "text",
+  "description": "Outro screen: headline, two video-card slots (thumbnail or placeholder, label, running timer bar) and a round subscribe circle with a rotating ring of text and pulsing halos; everything rises in staggered, then a supporting line fades in. Lays out 3-across on 16:9 and stacks on 1:1 and 9:16.",
+  "useFor": "YouTube / social end screens, \"watch next\" outros and channel sign-offs; keep the card areas for the platform end-screen elements.",
+  "source": [
+   "original (branding pass, round 3)"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "end screen",
+   "outro",
+   "endscreen",
+   "cards",
+   "subscribe",
+   "youtube",
+   "watch next",
+   "channel",
+   "call to action",
+   "thumbnails",
+   "video cards",
+   "sign-off",
+   "circle"
+  ],
+  "file": "src/motions/text/end-screen-cards.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle",
+   "cards"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "cardColor"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "ui"
+  ],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Thanks for watching",
+    "doc": "big headline at the top"
+   },
+   "subtitle": {
+    "default": "New videos every week",
+    "doc": "supporting line at the bottom (\"\" = none)"
+   },
+   "cards": {
+    "default": [
+     {
+      "label": "Watch next",
+      "src": ""
+     },
+     {
+      "label": "Most popular",
+      "src": ""
+     }
+    ],
+    "doc": "[{label, src}] up to 2 video cards; src = thumbnail image (public/ path or URL), empty = placeholder"
+   },
+   "circleLabel": {
+    "default": "Subscribe",
+    "doc": "text inside the circle when no circleSrc is given"
+   },
+   "circleSrc": {
+    "default": "",
+    "doc": "channel avatar / logo picture for the circle"
+   },
+   "ringText": {
+    "default": "SUBSCRIBE · SUBSCRIBE · SUBSCRIBE · SUBSCRIBE · ",
+    "doc": "text that rotates around the circle (repeat it to fill the ring)"
+   },
+   "background": {
+    "default": "#10131A",
+    "doc": "backdrop colour, or \"transparent\" to place over footage"
+   },
+   "ink": {
+    "default": "#F3F1EC",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#FF4D4D",
+    "doc": "brand colour of the circle, halos and timer bars"
+   },
+   "cardColor": {
+    "default": "#1C2130",
+    "doc": "card background shown behind thumbnails"
+   },
+   "timerBars": {
+    "default": true,
+    "doc": "show the running timer bar along the bottom of each card"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the screen starts building"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "timing multiplier"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family for all text"
+   }
+  }
+ },
+ {
   "id": "flipbook-riffle-outro",
   "title": "Flipbook riffle outro",
   "category": "text",
@@ -52368,6 +53888,128 @@
    "seed": {
     "default": 1,
     "doc": "variation seed"
+   }
+  }
+ },
+ {
+  "id": "follower-milestone",
+  "title": "Follower milestone",
+  "category": "text",
+  "description": "A counter climbs to a milestone while a progress bar fills and little hearts float up; it lands with a shockwave, rays and a confetti burst, then a thank-you line pops in word by word.",
+  "useFor": "Follower / subscriber / download / sales milestones, community thank-you posts, anniversary and goal-reached celebrations, \"we hit 100K\" announcements.",
+  "source": [
+   "original (round 3, social & marketing)"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "social",
+   "milestone",
+   "followers",
+   "subscribers",
+   "counter",
+   "celebration",
+   "confetti",
+   "burst",
+   "thank-you",
+   "marketing",
+   "goal",
+   "overlay"
+  ],
+  "file": "src/motions/text/follower-milestone.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "label",
+   "caption",
+   "subtitle"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "accent2"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "playful"
+  ],
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "value": {
+    "default": 100000,
+    "doc": "the milestone the counter climbs to"
+   },
+   "fromValue": {
+    "default": 0,
+    "doc": "where the counter starts"
+   },
+   "label": {
+    "default": "followers",
+    "doc": "unit under the number (followers, subscribers, users…)"
+   },
+   "caption": {
+    "default": "New milestone",
+    "doc": "small line above the number"
+   },
+   "thankYou": {
+    "default": "Thank you!",
+    "doc": "big thank-you line that pops in after the burst"
+   },
+   "subtitle": {
+    "default": "We could not have done it without you",
+    "doc": "smaller line under the thank-you"
+   },
+   "format": {
+    "default": "full",
+    "doc": "\"full\" (100,000) or \"compact\" (100K)"
+   },
+   "climbFrames": {
+    "default": 90,
+    "doc": "frames the counter takes to climb"
+   },
+   "floaters": {
+    "default": true,
+    "doc": "floating hearts / plus marks during the climb"
+   },
+   "background": {
+    "default": "#0F1226",
+    "doc": "frame colour, or \"transparent\" to overlay content"
+   },
+   "ink": {
+    "default": "#FFFFFF",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#FFB63D",
+    "doc": "number glow, bar and burst colour"
+   },
+   "accent2": {
+    "default": "#FF5C8A",
+    "doc": "label, shockwave and underline colour"
+   },
+   "seed": {
+    "default": 3,
+    "doc": "seed for the burst pattern"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the sequence begins"
    }
   }
  },
@@ -52715,6 +54357,10 @@
    "background": {
     "default": "#F4ECDD",
     "doc": "paper colour"
+   },
+   "exhibitLabel": {
+    "default": "EXHIBIT",
+    "doc": "small caps label above the numeral on the card"
    }
   }
  },
@@ -53201,6 +54847,120 @@
    "ping": {
     "default": true,
     "doc": "cyan floor ping at the end"
+   }
+  }
+ },
+ {
+  "id": "key-takeaway-highlight",
+  "title": "Key takeaway highlight",
+  "category": "text",
+  "description": "A reading paragraph whose key phrases are swiped with a marker one by one, followed by a KEY TAKEAWAY box with a lightbulb and a one-line summary.",
+  "useFor": "Lesson recaps, article / study summaries, \"what to remember\" endings, explainer chapters — pass your paragraph, the phrases to highlight and the takeaway line.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 270,
+  "tags": [
+   "highlight",
+   "marker",
+   "takeaway",
+   "summary",
+   "key",
+   "paragraph",
+   "recap",
+   "lesson",
+   "education",
+   "explainer",
+   "text",
+   "reading"
+  ],
+  "file": "src/motions/text/key-takeaway-highlight.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "text"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "accent2",
+   "card"
+  ],
+  "loopable": false,
+  "bestLength": 270,
+  "mood": [],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "text": {
+    "default": "Compound interest means you earn interest on your interest. Even a small amount invested early can grow far larger than a bigger amount invested late, because time does most of the work. The first years feel slow, then growth speeds up.",
+    "doc": "the paragraph shown on screen"
+   },
+   "highlights": {
+    "default": [
+     "interest on your interest",
+     "invested early",
+     "time does most of the work"
+    ],
+    "doc": "phrases inside `text` to marker-highlight, in the order they are swiped (matched case-insensitively)"
+   },
+   "takeaway": {
+    "default": "Start early: time matters more than the amount.",
+    "doc": "summary sentence in the takeaway box"
+   },
+   "takeawayLabel": {
+    "default": "KEY TAKEAWAY",
+    "doc": "label above the takeaway"
+   },
+   "background": {
+    "default": "#F4EFE3",
+    "doc": "backdrop colour or 'transparent'"
+   },
+   "ink": {
+    "default": "#1F1D1A",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#FFC21A",
+    "doc": "marker colour (odd highlights), takeaway border and lightbulb"
+   },
+   "accent2": {
+    "default": "#7FD6C2",
+    "doc": "marker colour for every second highlight"
+   },
+   "card": {
+    "default": "#FFFFFF",
+    "doc": "takeaway box fill"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family for the paragraph (empty = serif)"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the paragraph starts fading in"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "playback speed multiplier"
+   },
+   "stagger": {
+    "default": 26,
+    "doc": "frames between marker swipes"
    }
   }
  },
@@ -53827,6 +55587,113 @@
   }
  },
  {
+  "id": "logo-reveal-lines",
+  "title": "Logo reveal: sweeping lines",
+  "category": "text",
+  "description": "Fine rules sweep in from alternating sides across the frame, converge on the logo box (outer rules become top and bottom rule, the rest merge into a bright centre line), the logo opens out of that line with a sheen and the tagline tracks in.",
+  "useFor": "Clean logo intros and outros for a channel, product or studio; wordmark text or your own logo image.",
+  "source": [
+   "original (branding pass, round 3)"
+  ],
+  "durationInFrames": 120,
+  "tags": [
+   "logo",
+   "logo reveal",
+   "intro",
+   "outro",
+   "branding",
+   "lines",
+   "sweep",
+   "wordmark",
+   "studio",
+   "channel",
+   "clean",
+   "brand",
+   "tagline",
+   "ident"
+  ],
+  "file": "src/motions/text/logo-reveal-lines.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": true,
+  "textProps": [
+   "text",
+   "tagline"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 120,
+  "mood": [
+   "playful"
+  ],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "text": {
+    "default": "NORTHWIND",
+    "doc": "wordmark shown when no src is given (use \\n for two lines)"
+   },
+   "tagline": {
+    "default": "made to move",
+    "doc": "small tracked line under the logo (\"\" = none)"
+   },
+   "src": {
+    "default": "",
+    "doc": "logo image (public/ path or https URL, transparent PNG/SVG best); empty = wordmark text"
+   },
+   "lines": {
+    "default": 9,
+    "doc": "how many sweeping rules (3-24)"
+   },
+   "background": {
+    "default": "#0B0D10",
+    "doc": "backdrop colour, or \"transparent\" to sit over other footage"
+   },
+   "ink": {
+    "default": "#F4F1EA",
+    "doc": "wordmark / secondary line colour"
+   },
+   "accent": {
+    "default": "#FF5A36",
+    "doc": "brand colour of the main rules and ticks"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the sweep starts"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "timing multiplier (1 = default, 1.5 = faster)"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family for the wordmark text"
+   },
+   "exit": {
+    "default": false,
+    "doc": "fade everything out over the last 14 frames"
+   }
+  }
+ },
+ {
   "id": "marquee-ticker",
   "title": "Marquee ticker",
   "category": "text",
@@ -54191,6 +56058,124 @@
   }
  },
  {
+  "id": "myth-vs-fact",
+  "title": "Myth vs fact",
+  "category": "text",
+  "description": "A MYTH card drops in, a red FALSE stamp slams across it and shakes the card, then the card flips in 3D to a FACT card with a green tick.",
+  "useFor": "Myth-busting beats, misconception explainers, health / science / finance \"common belief vs reality\" shorts, quiz answers — pass your own myth and fact.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "myth",
+   "fact",
+   "misconception",
+   "false",
+   "true",
+   "stamp",
+   "flip",
+   "card",
+   "debunk",
+   "education",
+   "explainer",
+   "vs"
+  ],
+  "file": "src/motions/text/myth-vs-fact.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "accent2",
+   "card"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "3d"
+  ],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "myth": {
+    "default": "We only use 10% of our brains.",
+    "doc": "the false claim (shown in quotes on the front card)"
+   },
+   "fact": {
+    "default": "Brain scans show that nearly every region is active over the course of a day.",
+    "doc": "the correct statement (back of the card)"
+   },
+   "mythLabel": {
+    "default": "MYTH",
+    "doc": "pill on the myth card"
+   },
+   "factLabel": {
+    "default": "FACT",
+    "doc": "pill on the fact card"
+   },
+   "stampText": {
+    "default": "FALSE",
+    "doc": "word stamped across the myth (FALSE, BUSTED, WRONG...)"
+   },
+   "factStamp": {
+    "default": "VERIFIED",
+    "doc": "small caption at the bottom of the fact card"
+   },
+   "background": {
+    "default": "#16181F",
+    "doc": "backdrop colour or 'transparent'"
+   },
+   "ink": {
+    "default": "#1A1A22",
+    "doc": "statement text colour"
+   },
+   "accent": {
+    "default": "#1FA971",
+    "doc": "fact colour (tick, border, pill)"
+   },
+   "accent2": {
+    "default": "#E5412D",
+    "doc": "myth colour (stamp, pill)"
+   },
+   "card": {
+    "default": "#FBF7EE",
+    "doc": "card face colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family for the statements (empty = grotesk)"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the card starts dropping in"
+   },
+   "hold": {
+    "default": 40,
+    "doc": "frames the myth is read before the stamp lands"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "playback speed multiplier"
+   }
+  }
+ },
+ {
   "id": "neon-sign",
   "title": "Neon sign ignite",
   "category": "text",
@@ -54481,6 +56466,10 @@
    "background": {
     "default": "transparent",
     "doc": "background when backdrop is \"none\" (default transparent)"
+   },
+   "disclaimer": {
+    "default": "NOT ACTUAL FOOTAGE",
+    "doc": "small caps disclaimer under the strap"
    }
   }
  },
@@ -55099,6 +57088,123 @@
   }
  },
  {
+  "id": "quiz-question-reveal",
+  "title": "Quiz question reveal",
+  "category": "text",
+  "description": "A QUIZ tag and question, lettered option cards dealing in, a draining timer ring with a countdown, then the correct option lights up with a tick and a pulse while the rest dim.",
+  "useFor": "Quiz shorts, \"can you guess\" engagement beats, classroom / course videos, trivia — pass the question, options and the correct index.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 270,
+  "tags": [
+   "quiz",
+   "question",
+   "trivia",
+   "timer",
+   "countdown",
+   "options",
+   "answer",
+   "multiple-choice",
+   "education",
+   "engagement",
+   "reveal"
+  ],
+  "file": "src/motions/text/quiz-question-reveal.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "label"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "accent2",
+   "card"
+  ],
+  "loopable": false,
+  "bestLength": 270,
+  "mood": [
+   "nature",
+   "ui"
+  ],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "label": {
+    "default": "QUIZ",
+    "doc": "tag above the question"
+   },
+   "question": {
+    "default": "Which planet in our solar system has the most moons?",
+    "doc": "the question text"
+   },
+   "options": {
+    "default": [
+     "Jupiter",
+     "Saturn",
+     "Uranus",
+     "Neptune"
+    ],
+    "doc": "answer options (2-6)"
+   },
+   "correct": {
+    "default": 1,
+    "doc": "zero-based index of the correct option"
+   },
+   "timerSeconds": {
+    "default": 5,
+    "doc": "length of the countdown ring in seconds"
+   },
+   "background": {
+    "default": "#101A33",
+    "doc": "backdrop colour or 'transparent'"
+   },
+   "ink": {
+    "default": "#F3F5FB",
+    "doc": "question and option text colour"
+   },
+   "accent": {
+    "default": "#2EC4B6",
+    "doc": "correct-answer, tag and letter colour"
+   },
+   "accent2": {
+    "default": "#FF6B4A",
+    "doc": "colour of the timer in its last third"
+   },
+   "card": {
+    "default": "#1C2B52",
+    "doc": "option card fill"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family (empty = grotesk)"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the intro starts"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "playback speed multiplier"
+   }
+  }
+ },
+ {
   "id": "ransom-note-type",
   "title": "Ransom-note type",
   "category": "text",
@@ -55210,6 +57316,153 @@
    "paper": {
     "default": "#F4EFE4",
     "doc": "white scrap colour"
+   }
+  }
+ },
+ {
+  "id": "rolling-credits",
+  "title": "Rolling credits",
+  "category": "text",
+  "description": "Credits that roll up from a list of {role, names[]} sections under a title: roles in small tracked accent caps beside (landscape) or above (portrait) the names, soft edge fade, a steady scroll that finishes exactly at the end, or beat-locked glides (set a bpm) that land one section per bar for music.",
+  "useFor": "End credits for films, videos and podcasts, \"made by\" rolls, cast / crew / thanks lists; pass bpm to match the music.",
+  "source": [
+   "original (branding pass, round 3)"
+  ],
+  "durationInFrames": 480,
+  "tags": [
+   "credits",
+   "rolling credits",
+   "end credits",
+   "scroll",
+   "outro",
+   "cast",
+   "crew",
+   "film",
+   "thanks",
+   "roll",
+   "music",
+   "beat",
+   "bpm",
+   "sections",
+   "names"
+  ],
+  "file": "src/motions/text/rolling-credits.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 480,
+  "mood": [
+   "cinematic",
+   "nature",
+   "editorial"
+  ],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Credits",
+    "doc": "heading that rolls first (\"\" = none)"
+   },
+   "sections": {
+    "default": [
+     {
+      "role": "Directed by",
+      "names": [
+       "Alex Morgan"
+      ]
+     },
+     {
+      "role": "Written by",
+      "names": [
+       "Sam Rivera",
+       "Jordan Lee"
+      ]
+     },
+     {
+      "role": "Cinematography",
+      "names": [
+       "Casey Nguyen"
+      ]
+     },
+     {
+      "role": "Edited by",
+      "names": [
+       "Robin Ellis"
+      ]
+     },
+     {
+      "role": "Music",
+      "names": [
+       "Taylor Brooks",
+       "The Night Owls"
+      ]
+     },
+     {
+      "role": "Special thanks",
+      "names": [
+       "Our supporters",
+       "Friends and family"
+      ]
+     }
+    ],
+    "doc": "[{role, names[]}] credit blocks, in order"
+   },
+   "closing": {
+    "default": "Thank you for watching",
+    "doc": "last centred line (\"\" = none)"
+   },
+   "layout": {
+    "default": "auto",
+    "doc": "auto | split (role left, names right) | stack (role above names, centred)"
+   },
+   "bpm": {
+    "default": 0,
+    "doc": "0 = steady scroll to the end; e.g. 96 = glide to a new block every `beatsPerStep` beats"
+   },
+   "beatsPerStep": {
+    "default": 4,
+    "doc": "beats between blocks when bpm is set (4 = one per bar)"
+   },
+   "background": {
+    "default": "#0B0B0F",
+    "doc": "backdrop colour, or \"transparent\" to roll over footage"
+   },
+   "ink": {
+    "default": "#F2EFE8",
+    "doc": "names colour"
+   },
+   "accent": {
+    "default": "#E0A23B",
+    "doc": "role label colour"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the roll starts"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family"
    }
   }
  },
@@ -55356,6 +57609,129 @@
    "background": {
     "default": "transparent",
     "doc": "background when backdrop is \"none\""
+   }
+  }
+ },
+ {
+  "id": "sale-countdown-banner",
+  "title": "Sale countdown banner",
+  "category": "text",
+  "description": "Promo banner: headline pill, a huge discount that slams in, a subtitle, a flip-style hours/min/sec countdown, a pulsing call-to-action pill and a scrolling ribbon.",
+  "useFor": "Flash sales, launch / early-bird offers, Black-Friday style promos, \"ends soon\" ads, limited-time offers, social and e-commerce video ads.",
+  "source": [
+   "original (round 3, social & marketing)"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "marketing",
+   "sale",
+   "discount",
+   "countdown",
+   "timer",
+   "offer",
+   "cta",
+   "promo",
+   "ad",
+   "ecommerce",
+   "banner",
+   "flash-sale",
+   "black-friday"
+  ],
+  "file": "src/motions/text/sale-countdown-banner.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "headline",
+   "subtitle"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "accent2"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "headline": {
+    "default": "Flash sale",
+    "doc": "small pill above the discount"
+   },
+   "discount": {
+    "default": "50%",
+    "doc": "the big number / text, e.g. \"50%\" or \"$20\""
+   },
+   "discountLabel": {
+    "default": "OFF",
+    "doc": "word after the discount (OFF, SAVE, …)"
+   },
+   "subtitle": {
+    "default": "Everything in the store. Today only.",
+    "doc": "one or two lines under the discount"
+   },
+   "timerLabel": {
+    "default": "Ends in",
+    "doc": "caption above the timer"
+   },
+   "unitLabels": {
+    "default": [
+     "Hours",
+     "Min",
+     "Sec"
+    ],
+    "doc": "three labels under the timer boxes (hours, minutes, seconds)"
+   },
+   "timerSeconds": {
+    "default": 9254,
+    "doc": "timer value at the start, in seconds"
+   },
+   "tickSpeed": {
+    "default": 1,
+    "doc": "timer seconds that pass per video second (1 = real time)"
+   },
+   "ctaLabel": {
+    "default": "Shop now",
+    "doc": "text in the call-to-action pill"
+   },
+   "ribbon": {
+    "default": "Limited time  •  Free shipping  •  While stock lasts  •",
+    "doc": "text that scrolls along the bottom ribbon"
+   },
+   "background": {
+    "default": "#17132B",
+    "doc": "frame colour, or \"transparent\" to overlay content"
+   },
+   "ink": {
+    "default": "#FFFFFF",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#FFC933",
+    "doc": "discount number + ribbon colour"
+   },
+   "accent2": {
+    "default": "#FF4D6D",
+    "doc": "headline pill + call-to-action colour"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the sequence begins"
    }
   }
  },
@@ -55624,6 +58000,121 @@
    "label": {
     "default": "04 — TYPE",
     "doc": "HUD chapter label"
+   }
+  }
+ },
+ {
+  "id": "sponsor-slate",
+  "title": "Sponsor slate",
+  "category": "text",
+  "description": "A \"presented by\" label flanked by drawing rules, a rounded panel that scales up carrying the sponsor logo (picture or wordmark) with a sheen pass, an optional offer pill and a small disclaimer line, then a fade out.",
+  "useFor": "Sponsor reads and \"this video is brought to you by\" slates, partner credits, event sponsor cards and disclosure lines.",
+  "source": [
+   "original (branding pass, round 3)"
+  ],
+  "durationInFrames": 150,
+  "tags": [
+   "sponsor",
+   "slate",
+   "presented by",
+   "brought to you by",
+   "partner",
+   "logo",
+   "disclaimer",
+   "branding",
+   "ad read",
+   "credit",
+   "offer",
+   "promo code",
+   "outro"
+  ],
+  "file": "src/motions/text/sponsor-slate.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": true,
+  "textProps": [
+   "label"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "panelColor",
+   "panelInk"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "photo"
+  ],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "label": {
+    "default": "presented by",
+    "doc": "small tracked label above the panel (e.g. \"presented by\", \"in partnership with\")"
+   },
+   "name": {
+    "default": "Brightline",
+    "doc": "sponsor wordmark shown when no src is given"
+   },
+   "src": {
+    "default": "",
+    "doc": "sponsor logo picture (public/ path or URL, transparent PNG/SVG best)"
+   },
+   "offer": {
+    "default": "",
+    "doc": "optional pill under the panel, e.g. \"Code SAVE10 for 10% off\" (\"\" = none)"
+   },
+   "disclaimer": {
+    "default": "This video is sponsored. All opinions are our own.",
+    "doc": "small disclosure line at the bottom (\"\" = none)"
+   },
+   "background": {
+    "default": "#12151B",
+    "doc": "backdrop colour, or \"transparent\" to sit over footage"
+   },
+   "ink": {
+    "default": "#F3F0EA",
+    "doc": "label and disclaimer colour"
+   },
+   "accent": {
+    "default": "#5B8CFF",
+    "doc": "rules, panel outline and offer pill colour"
+   },
+   "panelColor": {
+    "default": "#FFFFFF",
+    "doc": "logo panel fill (pick one the logo reads on)"
+   },
+   "panelInk": {
+    "default": "#12151B",
+    "doc": "wordmark colour on the panel"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the slate starts"
+   },
+   "fadeOut": {
+    "default": true,
+    "doc": "fade out over the last 16 frames"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family"
    }
   }
  },
@@ -57511,6 +60002,14 @@
    "seed": {
     "default": 12,
     "doc": "scene seed"
+   },
+   "repliesLabel": {
+    "default": "replies",
+    "doc": "word after the reply count under a message"
+   },
+   "viewLabel": {
+    "default": "View conversation",
+    "doc": "underlined link text under a message"
    }
   }
  },
@@ -58492,6 +60991,10 @@
    "title": {
     "default": "Selected work",
     "doc": "title at the top"
+   },
+   "featuredLabel": {
+    "default": "FEATURED",
+    "doc": "small caps label above the hero card title"
    }
   }
  },
@@ -59063,6 +61566,144 @@
   }
  },
  {
+  "id": "comment-bubble-stream",
+  "title": "Comment bubble stream",
+  "category": "ui",
+  "description": "A comment section streaming up: avatars with initials, names and speech bubbles pop in one after another at the bottom and push older comments up under a fade, with a counting header and optional like badges.",
+  "useFor": "Social proof, \"what people are saying\", reaction / reply montages, community and live-chat moments, comment-section explainers and ad reaction walls.",
+  "source": [
+   "original (round 3, social & marketing)"
+  ],
+  "durationInFrames": 270,
+  "tags": [
+   "social",
+   "comments",
+   "chat",
+   "reactions",
+   "feed",
+   "testimonials",
+   "community",
+   "overlay",
+   "avatars"
+  ],
+  "file": "src/motions/ui/comment-bubble-stream.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 270,
+  "mood": [
+   "playful",
+   "ui"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "comments": {
+    "default": [
+     {
+      "name": "Maya Rivers",
+      "text": "Okay this is exactly what I needed today, thank you!",
+      "likes": 128
+     },
+     {
+      "name": "Dev Patel",
+      "text": "Saved. Sending this to my whole team right now.",
+      "likes": 54
+     },
+     {
+      "name": "Lena Ortiz",
+      "text": "The ending got me. Watched it three times already.",
+      "likes": 301
+     },
+     {
+      "name": "Sam Okafor",
+      "text": "Can you do a follow-up on the second step?",
+      "likes": 17
+     },
+     {
+      "name": "Ana Costa",
+      "text": "Clear, short and actually useful. Subscribed.",
+      "likes": 89
+     },
+     {
+      "name": "Jin Park",
+      "text": "Best explanation I have seen all year.",
+      "likes": 212
+     },
+     {
+      "name": "Noor Haddad",
+      "text": "Tried it today and it worked first time.",
+      "likes": 40
+     },
+     {
+      "name": "Tom Becker",
+      "text": "More of this please!",
+      "likes": 9
+     }
+    ],
+    "doc": "array of {name, text, likes?} — name drives the avatar initials and colour"
+   },
+   "title": {
+    "default": "Comments",
+    "doc": "header title"
+   },
+   "totalCount": {
+    "default": 1284,
+    "doc": "header comment counter (counts up)"
+   },
+   "stagger": {
+    "default": 24,
+    "doc": "frames between comments"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the first comment begins"
+   },
+   "background": {
+    "default": "#F5F3EE",
+    "doc": "frame colour, or \"transparent\" to overlay content"
+   },
+   "ink": {
+    "default": "#1E1C24",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#F0506E",
+    "doc": "like badge heart colour"
+   },
+   "bubbleColor": {
+    "default": "auto",
+    "doc": "speech bubble fill, or \"auto\" to tint the background with ink"
+   },
+   "showHeader": {
+    "default": true,
+    "doc": "show the title + counter header"
+   }
+  }
+ },
+ {
   "id": "cursor-driver",
   "title": "Cursor driver (operated UI)",
   "category": "ui",
@@ -59151,6 +61792,46 @@
    "demoText": {
     "default": "hello@northwind.co",
     "doc": "text typed into the demo field"
+   },
+   "cardTitle": {
+    "default": "Notification settings",
+    "doc": "demo card heading"
+   },
+   "cardSubtitle": {
+    "default": "Where should we send your weekly summary?",
+    "doc": "demo card sub line"
+   },
+   "fieldPlaceholder": {
+    "default": "you@company.com",
+    "doc": "grey placeholder in the demo field before typing"
+   },
+   "sliderLabel": {
+    "default": "Frequency",
+    "doc": "label of the demo slider (\"<label> · N <unit>\")"
+   },
+   "sliderUnit": {
+    "default": "days",
+    "doc": "unit word after the slider value"
+   },
+   "sliderMin": {
+    "default": 1,
+    "doc": "slider value at the left end"
+   },
+   "sliderMax": {
+    "default": 30,
+    "doc": "slider value at the right end"
+   },
+   "toggleLabel": {
+    "default": "Product updates",
+    "doc": "label of the demo toggle"
+   },
+   "buttonLabel": {
+    "default": "Save changes",
+    "doc": "demo button label before the click"
+   },
+   "savedLabel": {
+    "default": "Saved ✓",
+    "doc": "demo button label after the click"
    },
    "accent": {
     "default": "#4F5BD5",
@@ -59307,6 +61988,222 @@
    "brand": {
     "default": "Lumen",
     "doc": "name shown in the built-in UI"
+   },
+   "statusTime": {
+    "default": "9:41",
+    "doc": "clock text in the phone status bar and on the watch face"
+   },
+   "greeting": {
+    "default": "Good morning",
+    "doc": "small greeting above the app title (phone / tablet / android UI)"
+   },
+   "appSuffix": {
+    "default": "Today",
+    "doc": "word after the brand in the app title (\"<brand> <appSuffix>\")"
+   },
+   "goal": {
+    "default": 78,
+    "doc": "goal ring percentage 0-100 (ring fill and the number inside)"
+   },
+   "goalLabel": {
+    "default": "Daily goal",
+    "doc": "small label in the goal card"
+   },
+   "goalTitle": {
+    "default": "On track",
+    "doc": "big word in the goal card"
+   },
+   "goalNote": {
+    "default": "3 of 4 habits done",
+    "doc": "note under the goal title"
+   },
+   "stats": {
+    "default": [
+     [
+      "Streak",
+      "12 d"
+     ],
+     [
+      "Score",
+      "864"
+     ],
+     [
+      "Rank",
+      "#3"
+     ]
+    ],
+    "doc": "three small stat tiles [label, value]"
+   },
+   "activityTitle": {
+    "default": "Activity",
+    "doc": "heading of the activity list"
+   },
+   "activityRows": {
+    "default": [
+     [
+      "Morning run",
+      "5.2 km",
+      "#ff8a5b"
+     ],
+     [
+      "Focus block",
+      "2 h 10 m",
+      "#6c8cff"
+     ],
+     [
+      "Water",
+      "1.8 l",
+      "#35c4c0"
+     ],
+     [
+      "Reading",
+      "24 pages",
+      "#b07cff"
+     ],
+     [
+      "Sleep",
+      "7 h 40 m",
+      "#ffb84d"
+     ],
+     [
+      "Stretching",
+      "12 min",
+      "#ff6b8b"
+     ],
+     [
+      "Walk",
+      "8 400 steps",
+      "#5bd68a"
+     ],
+     [
+      "Journal",
+      "1 entry",
+      "#6c8cff"
+     ]
+    ],
+    "doc": "activity list rows [name, value, icon colour (optional)]"
+   },
+   "rowDays": {
+    "default": [
+     "Today",
+     "Yesterday"
+    ],
+    "doc": "[even-row tag, odd-row tag] shown under each activity name"
+   },
+   "weekLabel": {
+    "default": "This week",
+    "doc": "small label above the big number on the second phone panel"
+   },
+   "weekValue": {
+    "default": "41.2 h",
+    "doc": "big number on the second phone panel"
+   },
+   "weekDelta": {
+    "default": "+12% vs last week",
+    "doc": "green delta line on the second phone panel"
+   },
+   "weekBars": {
+    "default": [
+     0.45,
+     0.7,
+     0.55,
+     0.9,
+     0.62,
+     0.38,
+     0.8
+    ],
+    "doc": "bar heights 0..1 on the second phone panel"
+   },
+   "weekDays": {
+    "default": [
+     "M",
+     "T",
+     "W",
+     "T",
+     "F",
+     "S",
+     "S"
+    ],
+    "doc": "one label under each bar"
+   },
+   "highlightsTitle": {
+    "default": "Highlights",
+    "doc": "heading above the highlight chips"
+   },
+   "highlights": {
+    "default": [
+     "Best focus day: Thursday",
+     "Longest streak: 12 days",
+     "New personal record"
+    ],
+    "doc": "highlight chip texts on the second phone panel"
+   },
+   "dashMenu": {
+    "default": [
+     "Overview",
+     "Reports",
+     "Customers",
+     "Billing",
+     "Settings"
+    ],
+    "doc": "laptop dashboard sidebar items"
+   },
+   "dashTitles": {
+    "default": [
+     "Overview",
+     "Reports"
+    ],
+    "doc": "[front, back] page heading of the laptop dashboard"
+   },
+   "dashStats": {
+    "default": [
+     [
+      "Revenue",
+      "$84.2k"
+     ],
+     [
+      "Users",
+      "12,480"
+     ],
+     [
+      "Growth",
+      "+18%"
+     ]
+    ],
+    "doc": "laptop dashboard stat cards [label, value]"
+   },
+   "dashChartTitle": {
+    "default": "Monthly activity",
+    "doc": "title of the laptop dashboard bar chart"
+   },
+   "dashBars": {
+    "default": [
+     0.4,
+     0.62,
+     0.5,
+     0.8,
+     0.66,
+     0.9,
+     0.74,
+     0.95,
+     0.7,
+     0.55,
+     0.78,
+     0.86
+    ],
+    "doc": "laptop dashboard bar heights 0..1"
+   },
+   "watchLabel": {
+    "default": "Heart rate",
+    "doc": "label on the second watch panel"
+   },
+   "watchValue": {
+    "default": "72",
+    "doc": "big number on the second watch panel"
+   },
+   "watchUnit": {
+    "default": "bpm",
+    "doc": "unit under the watch number"
    }
   }
  },
@@ -59616,6 +62513,34 @@
    "seed": {
     "default": 11,
     "doc": "backdrop seed"
+   },
+   "chatTitle": {
+    "default": "ASSISTANT",
+    "doc": "small caps heading of the chat card"
+   },
+   "voiceTitle": {
+    "default": "LISTENING",
+    "doc": "small caps heading of the voice card"
+   },
+   "controlsTitle": {
+    "default": "SETTINGS",
+    "doc": "small caps heading of the controls card"
+   },
+   "toggleLabel": {
+    "default": "Smart replies",
+    "doc": "label of the toggle in the controls card"
+   },
+   "sliderLabel": {
+    "default": "Creativity",
+    "doc": "label of the slider in the controls card"
+   },
+   "chips": {
+    "default": [
+     "Concise",
+     "Friendly",
+     "Formal"
+    ],
+    "doc": "chip labels in the controls card (the first is active)"
    }
   }
  },
@@ -60112,6 +63037,10 @@
    "seed": {
     "default": 4,
     "doc": "demo backdrop seed"
+   },
+   "fileName": {
+    "default": "main.ts",
+    "doc": "file name shown beside the ghost code lines"
    }
   }
  },
@@ -61151,6 +64080,124 @@
   }
  },
  {
+  "id": "poll-results-bars",
+  "title": "Poll results bars",
+  "category": "ui",
+  "description": "A poll card: the question types in, option bars fill one after another to their share with counting percentages, then the winner locks in with a glow and a tag while the rest dim; a vote total ticks up.",
+  "useFor": "Poll and survey results, \"you voted\" reveals, audience-choice moments, A/B vote summaries, quiz answers and social engagement posts.",
+  "source": [
+   "original (round 3, social & marketing)"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "social",
+   "poll",
+   "survey",
+   "vote",
+   "results",
+   "bars",
+   "percent",
+   "data",
+   "quiz",
+   "engagement",
+   "overlay"
+  ],
+  "file": "src/motions/ui/poll-results-bars.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "hud"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "question": {
+    "default": "What should we make next?",
+    "doc": "the poll question"
+   },
+   "options": {
+    "default": [
+     "Quick tips",
+     "Deep dives",
+     "Behind the scenes",
+     "Q&A"
+    ],
+    "doc": "option labels (up to 8)"
+   },
+   "values": {
+    "default": [
+     41,
+     28,
+     21,
+     10
+    ],
+    "doc": "one number per option — percentages or raw votes (normalised to a share of the sum)"
+   },
+   "winnerLabel": {
+    "default": "Winner",
+    "doc": "text on the winner tag"
+   },
+   "votesLabel": {
+    "default": "votes",
+    "doc": "word after the vote total"
+   },
+   "totalVotes": {
+    "default": 3842,
+    "doc": "vote total shown at the bottom (counts up)"
+   },
+   "background": {
+    "default": "#E9EEF8",
+    "doc": "frame colour, or \"transparent\" to overlay content"
+   },
+   "ink": {
+    "default": "#1B2233",
+    "doc": "text / default bar colour"
+   },
+   "accent": {
+    "default": "#3A6BFF",
+    "doc": "winner bar + tag colour"
+   },
+   "barColor": {
+    "default": "auto",
+    "doc": "colour of the non-winner bars, or \"auto\" (ink, softened)"
+   },
+   "cardColor": {
+    "default": "auto",
+    "doc": "card fill, or \"auto\" (a lighter tone of the background)"
+   },
+   "stagger": {
+    "default": 12,
+    "doc": "frames between bars starting"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the sequence begins"
+   }
+  }
+ },
+ {
   "id": "remix-thumbnail-shelf",
   "title": "Remix thumbnail shelf",
   "category": "ui",
@@ -61280,6 +64327,123 @@
    "background": {
     "default": "#0B0E24",
     "doc": "stage colour"
+   }
+  }
+ },
+ {
+  "id": "review-stars-rating",
+  "title": "Review stars rating",
+  "category": "ui",
+  "description": "Stars fill one after another up to a rating (the last one partially) while a big score counts up and the review count ticks; an optional 5-to-1 star breakdown bars fill beside it, with a glint over the stars at the end.",
+  "useFor": "App-store / product ratings, \"rated 4.8 by customers\" proof, review summaries, satisfaction scores, restaurant / course / service rating reveals and landing-page trust badges.",
+  "source": [
+   "original (round 3, social & marketing)"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "social",
+   "reviews",
+   "rating",
+   "stars",
+   "score",
+   "trust",
+   "marketing",
+   "counter",
+   "feedback",
+   "overlay",
+   "proof"
+  ],
+  "file": "src/motions/ui/review-stars-rating.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "label"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "starColor"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "night"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "rating": {
+    "default": 4.8,
+    "doc": "the score, 0..maxStars (decimals fill the last star partially)"
+   },
+   "maxStars": {
+    "default": 5,
+    "doc": "number of stars (1-10)"
+   },
+   "reviewCount": {
+    "default": 12480,
+    "doc": "review count shown under the stars (counts up)"
+   },
+   "label": {
+    "default": "Customer rating",
+    "doc": "small caption above the score"
+   },
+   "reviewsLabel": {
+    "default": "reviews",
+    "doc": "word after the review count"
+   },
+   "note": {
+    "default": "Based on verified purchases",
+    "doc": "smaller line under the review count"
+   },
+   "distribution": {
+    "default": [
+     78,
+     14,
+     5,
+     2,
+     1
+    ],
+    "doc": "share per star level, 5 stars first (up to 5 numbers, any scale)"
+   },
+   "showBreakdown": {
+    "default": true,
+    "doc": "show the distribution bars"
+   },
+   "background": {
+    "default": "#FBF6EC",
+    "doc": "frame colour, or \"transparent\" to overlay content"
+   },
+   "ink": {
+    "default": "#2A2118",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#E9983A",
+    "doc": "top breakdown bar colour"
+   },
+   "starColor": {
+    "default": "#F5B223",
+    "doc": "filled star colour"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the sequence begins"
    }
   }
  },
@@ -61997,6 +65161,240 @@
   }
  },
  {
+  "id": "story-progress-frames",
+  "title": "Story progress frames",
+  "category": "ui",
+  "description": "A vertical story player in a rounded 9:16 frame: segmented progress bars fill one by one, a handle header, tap-through between frames with a tap ripple and a slide, and a caption pill per frame. Uses your images or procedural scenes.",
+  "useFor": "Story / reel mockups, \"swipe through\" product tours, social recaps, vertical slideshow promos and app-store style feature walk-throughs.",
+  "source": [
+   "original (round 3, social & marketing)"
+  ],
+  "durationInFrames": 300,
+  "tags": [
+   "social",
+   "story",
+   "stories",
+   "reel",
+   "vertical",
+   "progress",
+   "slideshow",
+   "phone",
+   "tap",
+   "captions",
+   "swipe"
+  ],
+  "file": "src/motions/ui/story-progress-frames.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "images"
+  ],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "ink",
+   "captionColor",
+   "captionInk"
+  ],
+  "loopable": false,
+  "bestLength": 300,
+  "mood": [
+   "editorial",
+   "ui"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "images": {
+    "default": [],
+    "doc": "public/ image paths, one per frame (empty = procedural scenes; then frameCount applies)"
+   },
+   "captions": {
+    "default": [
+     "Chapter one: the idea",
+     "Chapter two: the build",
+     "Chapter three: the launch",
+     "Thanks for watching"
+    ],
+    "doc": "one caption pill per frame (cycles)"
+   },
+   "frameCount": {
+    "default": 4,
+    "doc": "number of frames when no images are given"
+   },
+   "holdFrames": {
+    "default": 68,
+    "doc": "frames each story frame is shown (the progress bar fills over this)"
+   },
+   "handle": {
+    "default": "@yourhandle",
+    "doc": "account handle in the header (drives the avatar initials)"
+   },
+   "timeAgo": {
+    "default": "2h",
+    "doc": "small age label next to the handle"
+   },
+   "replyLabel": {
+    "default": "Send a message",
+    "doc": "text in the reply bar"
+   },
+   "background": {
+    "default": "#101018",
+    "doc": "frame colour behind the phone, or \"transparent\""
+   },
+   "ink": {
+    "default": "#ffffff",
+    "doc": "outline tone around the phone"
+   },
+   "accent": {
+    "default": "auto",
+    "doc": "progress fill colour or \"auto\" (white)"
+   },
+   "captionColor": {
+    "default": "#ffffff",
+    "doc": "caption pill fill"
+   },
+   "captionInk": {
+    "default": "#14141C",
+    "doc": "caption text colour"
+   },
+   "showReplyBar": {
+    "default": true,
+    "doc": "show the bottom reply bar"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the sequence begins"
+   }
+  }
+ },
+ {
+  "id": "subscribe-like-bell",
+  "title": "Subscribe, bell & like",
+  "category": "ui",
+  "description": "A channel card and a row of three buttons: a cursor presses SUBSCRIBE (flips to Subscribed with a check), taps the bell (it rings and fills) and likes (thumb pops, counter rolls +1 with a burst). Original icons, no platform marks.",
+  "useFor": "Call-to-action beats for video channels, creator promos, social explainers (\"subscribe, ring the bell, like\"), follow / join prompts and end screens.",
+  "source": [
+   "original (round 3, social & marketing)"
+  ],
+  "durationInFrames": 230,
+  "tags": [
+   "social",
+   "subscribe",
+   "like",
+   "bell",
+   "follow",
+   "cta",
+   "youtube-style",
+   "notification",
+   "channel",
+   "overlay",
+   "creator"
+  ],
+  "file": "src/motions/ui/subscribe-like-bell.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "accent2",
+   "bellColor"
+  ],
+  "loopable": false,
+  "bestLength": 230,
+  "mood": [
+   "3d"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "channelName": {
+    "default": "Your Channel",
+    "doc": "name on the channel card (also drives the avatar initials)"
+   },
+   "channelTagline": {
+    "default": "New videos every week",
+    "doc": "small line under the channel name"
+   },
+   "subscribeLabel": {
+    "default": "Subscribe",
+    "doc": "label on the call-to-action button before the press"
+   },
+   "subscribedLabel": {
+    "default": "Subscribed",
+    "doc": "label after the press"
+   },
+   "likeLabel": {
+    "default": "Like this video",
+    "doc": "caption under the like pill"
+   },
+   "likeCount": {
+    "default": 1204,
+    "doc": "like counter value before the tap (it ticks +1)"
+   },
+   "background": {
+    "default": "#F4F1EA",
+    "doc": "frame colour, or \"transparent\" to overlay other content"
+   },
+   "ink": {
+    "default": "#1D1B22",
+    "doc": "text / outline colour"
+   },
+   "accent": {
+    "default": "#EA4B3E",
+    "doc": "subscribe button colour"
+   },
+   "accent2": {
+    "default": "#3E7BFA",
+    "doc": "like colour"
+   },
+   "bellColor": {
+    "default": "#F5B63A",
+    "doc": "bell fill colour"
+   },
+   "showCursor": {
+    "default": true,
+    "doc": "show the animated pointer"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "playback speed multiplier of the whole sequence"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the sequence begins"
+   }
+  }
+ },
+ {
   "id": "talking-head-pip",
   "title": "Talking head PiP",
   "category": "ui",
@@ -62131,6 +65529,133 @@
    "speakerName": {
     "default": "",
     "doc": "optional small name tag by the PiP"
+   }
+  }
+ },
+ {
+  "id": "testimonial-card-carousel",
+  "title": "Testimonial card carousel",
+  "category": "ui",
+  "description": "Customer quote cards with a big quote mark, star rating, avatar, name and role rotate through a centre stage; neighbouring cards peek in scaled and dimmed, pager dots follow.",
+  "useFor": "Social proof sections, customer-love videos, case-study teasers, landing-page testimonial strips, review roundups and app-store style praise.",
+  "source": [
+   "original (round 3, social & marketing)"
+  ],
+  "durationInFrames": 330,
+  "tags": [
+   "social",
+   "testimonial",
+   "reviews",
+   "quotes",
+   "carousel",
+   "cards",
+   "stars",
+   "customers",
+   "proof",
+   "marketing",
+   "overlay"
+  ],
+  "file": "src/motions/ui/testimonial-card-carousel.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "starColor"
+  ],
+  "loopable": false,
+  "bestLength": 330,
+  "mood": [
+   "ui",
+   "night"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "testimonials": {
+    "default": [
+     {
+      "quote": "We cut our weekly reporting from a full day to twenty minutes. It simply works.",
+      "name": "Maya Rivers",
+      "role": "Operations lead",
+      "rating": 5
+     },
+     {
+      "quote": "Setup took one afternoon and the whole team was using it by Friday.",
+      "name": "Dev Patel",
+      "role": "Founder, small studio",
+      "rating": 5
+     },
+     {
+      "quote": "Support answered in minutes and actually fixed the problem. Rare these days.",
+      "name": "Lena Ortiz",
+      "role": "Customer success",
+      "rating": 4
+     },
+     {
+      "quote": "The best purchase we made this year. Our customers noticed the difference.",
+      "name": "Sam Okafor",
+      "role": "Shop owner",
+      "rating": 5
+     }
+    ],
+    "doc": "array of {quote, name, role?, rating?(0-5)} — up to 10"
+   },
+   "holdFrames": {
+    "default": 66,
+    "doc": "frames each card is held in the centre"
+   },
+   "moveFrames": {
+    "default": 16,
+    "doc": "frames of the glide to the next card"
+   },
+   "heading": {
+    "default": "What people say",
+    "doc": "small caption above the cards (empty to hide)"
+   },
+   "background": {
+    "default": "#ECEFF6",
+    "doc": "frame colour, or \"transparent\" to overlay content"
+   },
+   "cardColor": {
+    "default": "auto",
+    "doc": "card fill, or \"auto\" (lighter than the background)"
+   },
+   "ink": {
+    "default": "#1D2233",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#4C6FE0",
+    "doc": "quote mark + active dot colour"
+   },
+   "starColor": {
+    "default": "#F2B134",
+    "doc": "filled star colour"
+   },
+   "quoteFont": {
+    "default": "sans",
+    "doc": "\"sans\" or \"serif\" for the quote text"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the sequence begins"
    }
   }
  },
@@ -62388,6 +65913,10 @@
    "pullBack": {
     "default": 0.35,
     "doc": "extra zoom at the start, pulled back over the act"
+   },
+   "noteTitle": {
+    "default": "NOTE.TXT",
+    "doc": "title of the note card"
    }
   }
  },
@@ -62553,7 +66082,7 @@
       "color": "#4F5BD5"
      }
     ],
-    "doc": "[{kind:'button'|'loader'|'check'|'pill'|'player'|'slider'|'toggle'|'tabs'|'chart'|'search'|'toast', label, width, height, radius (u), color, content?}] — end with a copy of the first state to loop"
+    "doc": "[{kind:'button'|'loader'|'check'|'pill'|'player'|'slider'|'toggle'|'tabs'|'chart'|'search'|'toast', label, width, height, radius (u), color, content?, action? (toast button word, default 'Undo')}] — end with a copy of the first state to loop"
    },
    "accent": {
     "default": "#4F5BD5",
@@ -62724,6 +66253,14 @@
    "ghost": {
     "default": true,
     "doc": "faint prompt-template panels behind"
+   },
+   "footerLeft": {
+    "default": "[ contact ]",
+    "doc": "bottom-left footer text (\"\" hides)"
+   },
+   "footerRight": {
+    "default": "[ rules ]",
+    "doc": "bottom-right footer text (\"\" hides)"
    }
   }
  }

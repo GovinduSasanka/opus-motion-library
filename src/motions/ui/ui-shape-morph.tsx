@@ -15,7 +15,7 @@ import {defineMotion} from '../../core/types';
  * last frame equals the first so it loops.
  */
 
-type St = {kind: 'button' | 'loader' | 'check' | 'pill' | 'player' | 'slider' | 'toggle' | 'tabs' | 'chart' | 'search' | 'toast'; label: string; width: number; height: number; radius: number; color: string; content?: string};
+type St = {kind: 'button' | 'loader' | 'check' | 'pill' | 'player' | 'slider' | 'toggle' | 'tabs' | 'chart' | 'search' | 'toast'; label: string; width: number; height: number; radius: number; color: string; content?: string; action?: string};
 type Props = {
   states: St[];
   accent: string;
@@ -174,7 +174,7 @@ const Content: React.FC<CProps> = ({st, a, u, accent, ink, font}) => {
             <svg width={fs(26)} height={fs(26)} viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><path d="m5 12.5 4.500 4.500L19 7.500" /></svg>
           </div>
           <div style={{flex: 1, fontWeight: 600, fontSize: fs(27)}}>{lab}</div>
-          <div style={{fontWeight: 700, fontSize: fs(24), color: '#9FB0FF'}}>Undo</div>
+          <div style={{fontWeight: 700, fontSize: fs(24), color: '#9FB0FF'}}>{st.action ?? 'Undo'}</div>
         </div>
       );
   }
@@ -309,7 +309,7 @@ export const uiShapeMorph = defineMotion<Props>({
     cursor: true,
   },
   propDocs: {
-    states: "[{kind:'button'|'loader'|'check'|'pill'|'player'|'slider'|'toggle'|'tabs'|'chart'|'search'|'toast', label, width, height, radius (u), color, content?}] — end with a copy of the first state to loop",
+    states: "[{kind:'button'|'loader'|'check'|'pill'|'player'|'slider'|'toggle'|'tabs'|'chart'|'search'|'toast', label, width, height, radius (u), color, content?, action? (toast button word, default 'Undo')}] — end with a copy of the first state to loop",
     accent: 'accent used inside sliders, charts, search caret',
     background: 'canvas colour (warm grey or near-black)',
     ink: 'text colour on light states',

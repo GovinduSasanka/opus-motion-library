@@ -46,7 +46,7 @@ const MascotThinking: React.FC<Props> = (p) => {
     tilt: think * (5 + 1.5 * ponder) + idea * -2,
     armR: [chin[0] * (1 - idea) + 50 * idea, chin[1] * (1 - idea) + 120 * idea],
     handR: 'fist',
-    armL: [10 + idea * 70, 4 + idea * 70],
+    armL: [10 + idea * 45, 4 + idea * 50],
     handL: 'open',
     eyes: idea > 0.5 ? 'wide' : 'open',
     lookX: think * (0.9 + 0.2 * ponder),
@@ -89,7 +89,7 @@ const MascotThinking: React.FC<Props> = (p) => {
         })}
       </g>
       {/* idea bulb */}
-      <g opacity={idea} transform={`scale(${0.5 + 0.5 * idea})`}>
+      <g opacity={idea} transform={`translate(0 ${-R * 0.14}) scale(${(0.5 + 0.5 * idea) * 0.88})`}>
         {Array.from({length: 10}, (_, k) => {
           const a = (k / 10) * Math.PI * 2 + 0.3;
           const flick = 0.75 + 0.25 * Math.sin(f * 0.5 + k);
@@ -111,7 +111,7 @@ const MascotThinking: React.FC<Props> = (p) => {
         {trail}
         {cloud}
         {p.idea ? (
-          <g transform={`translate(${cxC} ${cyC + R * 0.98 + 36 * u}) scale(${Math.max(0.001, labelIn)})`} fontFamily={p.fontFamily}>
+          <g transform={`translate(${cxC} ${cyC + R * 0.64}) scale(${Math.max(0.001, labelIn)})`} fontFamily={p.fontFamily}>
             <rect x={-(p.idea.length * 15 + 44) * u} y={-34 * u} width={(p.idea.length * 30 + 88) * u} height={68 * u} rx={34 * u} fill={p.accent} />
             <text y={14 * u} textAnchor="middle" fontSize={44 * u} fontWeight={800} fill={mixHex(p.accent, '#000000', 0.78)}>{p.idea}</text>
           </g>

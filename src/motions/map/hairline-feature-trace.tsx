@@ -12,6 +12,7 @@ type Props = {
   gap: number;
   startAt: number;
   labels: string[];
+  caption: string;
   size: number;
   seed: number;
   background: string;
@@ -33,7 +34,7 @@ const dense = (pts: Poly, step: number): Poly => {
 };
 const lenOf = (p: Poly) => p.reduce((s, q, i) => (i ? s + Math.hypot(q[0] - p[i - 1][0], q[1] - p[i - 1][1]) : 0), 0);
 
-const HairlineFeatureTrace: React.FC<Props> = ({amber, speed, gap, startAt, labels, size, seed, background, surface}) => {
+const HairlineFeatureTrace: React.FC<Props> = ({amber, speed, gap, startAt, labels, size, seed, background, surface, caption = 'Plan trace, vertical exaggeration x1.0'}) => {
   const frame = useCurrentFrame();
   const {w, h, u, portrait} = useStage();
   const t = frame / 30;
@@ -126,7 +127,7 @@ const HairlineFeatureTrace: React.FC<Props> = ({amber, speed, gap, startAt, labe
         {chips}
         <rect width={w} height={h} fill="url(#hft-vig)" />
         <text x={64 * u} y={h - 52 * u} fill="#FFFFFF" fillOpacity="0.62" fontFamily={lf.plex} fontSize={(portrait ? 28 : 19) * u}>
-          Plan trace, vertical exaggeration x1.0
+          {caption}
         </text>
       </svg>
     </AbsoluteFill>
@@ -142,13 +143,14 @@ export const hairlineFeatureTrace = defineMotion<Props>({
   source: ['lemo-opuscar styles/lidar-survey/demo/film.js surface shader (MIT, LemoLab)', 'lemo-styles-a lidar-survey: hairline-feature-trace'],
   useFor: 'Route, network and boundary reveals on terrains and maps; complements map-route and topdown-terrain.',
   durationInFrames: 240,
-  defaultProps: {amber: '#FFB347', speed: 5.5, gap: 8, startAt: 14, labels: ['Walls', 'Roads', 'Pipes', 'Boundary'], size: 200, seed: 6, background: '#07090B', surface: '#2A2D2F'},
+  defaultProps: {amber: '#FFB347', speed: 5.5, gap: 8, startAt: 14, labels: ['Walls', 'Roads', 'Pipes', 'Boundary'], caption: 'Plan trace, vertical exaggeration x1.0', size: 200, seed: 6, background: '#07090B', surface: '#2A2D2F'},
   propDocs: {
     amber: 'hairline colour',
     speed: 'draw speed in plan units per frame (200-unit plot)',
     gap: 'frames between features',
     startAt: 'frame the first feature starts',
     labels: 'four feature labels in order',
+    caption: 'small caption at the bottom-left of the frame',
     size: 'terrain plot size in metres',
     seed: 'terrain seed',
     background: 'backdrop colour',

@@ -28,6 +28,7 @@ type Props = {
   seed: number;
   title: string;
   src: string;
+  fieldLabel?: string;
 };
 
 const PAL = {
@@ -470,7 +471,7 @@ const MicroscopeDive: React.FC<Props> = (p) => {
           {mag}×
         </div>
         <div style={{marginLeft: 'auto', textAlign: 'right', fontFamily: plex, fontSize: 22 * u, lineHeight: 1.25}}>
-          <div style={{opacity: 0.6, fontSize: 20 * u}}>FIELD</div>
+          <div style={{opacity: 0.6, fontSize: 20 * u}}>{p.fieldLabel}</div>
           <div style={{fontWeight: 500}}>{fmtFov(fov)}</div>
         </div>
       </div>
@@ -607,6 +608,7 @@ export const microscopeDive = defineMotion<Props>({
     seed: 4,
     title: '',
     src: '',
+    fieldLabel: 'FIELD',
   },
   propDocs: {
     label: 'small label above the reading',
@@ -619,6 +621,7 @@ export const microscopeDive = defineMotion<Props>({
     seed: 'seed for the procedural specimen',
     title: 'optional small title written on the slide label at the start',
     src: 'optional public/ image used as the specimen (zoom range is shortened so it stays sharp; give value/unit that match the circled region)',
+    fieldLabel: 'small label above the field-of-view readout',
   },
   component: MicroscopeDive,
   tags: ['microscope', 'zoom', 'powers of ten', 'scale', 'cell', 'nucleus', 'slide', 'histology', 'science', 'measurement', 'scale bar', 'instrument', 'focus', 'data', 'biology', 'lab'],

@@ -28,6 +28,10 @@ type Props = {
   particles: number;
   stars: number;
   seed: number;
+  protonsLabel?: string;
+  neutronsLabel?: string;
+  electronsLabel?: string;
+  protonNote?: string;
 };
 
 const ELEMENTS: El[] = [
@@ -294,7 +298,7 @@ const AtomElectronCloud: React.FC<Props> = (p) => {
             {sinceBeat < 26 && (
               <g transform={`translate(${cardS + 24 * u},${(portrait ? -cardS * 0.06 : cardS * 0.2) - sinceBeat * 1.2 * u})`} opacity={1 - prog(frame, tk(kNow) + 10, tk(kNow) + 26, ease.in)}>
                 <text fontFamily={fonts.grotesk} fontWeight={700} fontSize={(portrait ? 34 : tall ? 24 : 30) * u} fill={p.protonColor}>
-                  +1 proton
+                  {p.protonNote}
                 </text>
               </g>
             )}
@@ -306,9 +310,9 @@ const AtomElectronCloud: React.FC<Props> = (p) => {
               const gap = portrait ? 142 * u : tall ? 100 * u : 150 * u;
               return (
                 <>
-                  {stat('PROTONS', cur.z, x0, y0, p.protonColor, s)}
-                  {stat('NEUTRONS', cur.n, x0 + gap * 1.35, y0, p.neutronColor, s)}
-                  {stat('ELECTRONS', cur.z, x0 + gap * 2.95, y0, p.electronColor, s)}
+                  {stat(p.protonsLabel ?? 'PROTONS', cur.z, x0, y0, p.protonColor, s)}
+                  {stat(p.neutronsLabel ?? 'NEUTRONS', cur.n, x0 + gap * 1.35, y0, p.neutronColor, s)}
+                  {stat(p.electronsLabel ?? 'ELECTRONS', cur.z, x0 + gap * 2.95, y0, p.electronColor, s)}
                 </>
               );
             })()}
@@ -343,6 +347,10 @@ export const atomElectronCloud = defineMotion<Props>({
     particles: 110,
     stars: 90,
     seed: 4,
+    protonsLabel: 'PROTONS',
+    neutronsLabel: 'NEUTRONS',
+    electronsLabel: 'ELECTRONS',
+    protonNote: '+1 proton',
   },
   propDocs: {
     title: 'headline (top-left)',
@@ -359,6 +367,10 @@ export const atomElectronCloud = defineMotion<Props>({
     particles: 'particles per electron (more = denser cloud)',
     stars: 'background star count',
     seed: 'nucleus layout / particle seed',
+    protonsLabel: 'label of the proton counter',
+    neutronsLabel: 'label of the neutron counter',
+    electronsLabel: 'label of the electron counter',
+    protonNote: 'floating note when a proton is added',
   },
   component: AtomElectronCloud,
   tags: ['atom', 'electron', 'proton', 'neutron', 'periodic table', 'chemistry', 'physics', 'element', 'particles', 'counter', 'science', 'education', 'dark', 'nucleus', 'shells'],

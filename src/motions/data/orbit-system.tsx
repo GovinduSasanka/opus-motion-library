@@ -32,6 +32,9 @@ type Props = {
   counter: boolean;
   stars: number;
   seed: number;
+  elapsedLabel: string;
+  focusLabels: string[];
+  distanceUnit: string;
 };
 
 const BODIES: Body[] = [
@@ -228,7 +231,7 @@ const OrbitSystem: React.FC<Props> = (p) => {
       )}
       {p.counter && (
         <div style={{position: 'absolute', left: 0, right: 0, bottom: h * 0.05, textAlign: 'center', opacity: prog(frame, 20, 40) * (1 - zIn)}}>
-          <span style={{fontFamily: fonts.mono, fontSize: (portrait ? 26 : 15) * u, letterSpacing: 3 * u, color: hexA(ink, 0.55)}}>ELAPSED </span>
+          <span style={{fontFamily: fonts.mono, fontSize: (portrait ? 26 : 15) * u, letterSpacing: 3 * u, color: hexA(ink, 0.55)}}>{p.elapsedLabel} </span>
           <span style={{fontFamily: fonts.mono, fontWeight: 700, fontSize: (portrait ? 40 : 30) * u, color: ink, letterSpacing: 2 * u}}>{years.toFixed(2).padStart(5, '0')}</span>
           <span style={{fontFamily: fonts.mono, fontSize: (portrait ? 26 : 15) * u, letterSpacing: 3 * u, color: hexA(ink, 0.55)}}> {p.unit.toUpperCase()}</span>
         </div>
@@ -239,10 +242,10 @@ const OrbitSystem: React.FC<Props> = (p) => {
         if (a <= 0.01) return null;
         const o = fb;
         const rows: [string, string][] = [
-          ['ORBIT', `${o.per.toFixed(2)} ${p.unit}`],
-          ['DISTANCE', `${o.b.a.toFixed(2)} AU`],
-          ['ECCENTRICITY', o.b.e.toFixed(2)],
-          ['ORBITS DONE', (years / o.per).toFixed(1)],
+          [p.focusLabels[0], `${o.per.toFixed(2)} ${p.unit}`],
+          [p.focusLabels[1], `${o.b.a.toFixed(2)} ${p.distanceUnit}`],
+          [p.focusLabels[2], o.b.e.toFixed(2)],
+          [p.focusLabels[3], (years / o.per).toFixed(1)],
         ];
         return (
           <div style={{position: 'absolute', left: portrait ? w * 0.08 : w * 0.64, right: portrait ? w * 0.08 : w * 0.06, top: portrait ? h * 0.7 : h * 0.3, opacity: a, transform: `translateY(${(1 - a) * 18 * u}px)`}}>
@@ -289,6 +292,9 @@ export const orbitSystem = defineMotion<Props>({
     counter: true,
     stars: 90,
     seed: 5,
+    elapsedLabel: 'ELAPSED',
+    focusLabels: ['ORBIT', 'DISTANCE', 'ECCENTRICITY', 'ORBITS DONE'],
+    distanceUnit: 'AU',
   },
   propDocs: {
     title: 'headline (top-left, hidden while zoomed)',
@@ -309,6 +315,9 @@ export const orbitSystem = defineMotion<Props>({
     counter: 'show the elapsed-time readout',
     stars: 'background star count',
     seed: 'start angles / star field seed',
+    elapsedLabel: 'label before the elapsed-time counter',
+    focusLabels: 'row labels of the focus card [period, distance, eccentricity, orbits done]',
+    distanceUnit: 'unit after the distance value in the focus card',
   },
   component: OrbitSystem,
   tags: ['orbit', 'planets', 'solar system', 'kepler', 'astronomy', 'space', 'ellipse', 'dashed', 'zoom', 'labels', 'counter', 'ecosystem', 'education', 'science', 'timeline', 'cycle', 'dark', 'hero background'],

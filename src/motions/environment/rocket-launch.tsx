@@ -27,9 +27,10 @@ type Props = {
   ink: string;
   smoke: number;
   shake: number;
+  countdownLabel?: string;
 };
 
-const RocketLaunch: React.FC<Props> = ({countdown, label, sublabel, seed, skyTop, skyHorizon, space, rocketColor, accent, flameColor, ink, smoke, shake}) => {
+const RocketLaunch: React.FC<Props> = ({countdown, label, sublabel, countdownLabel = 'T MINUS', seed, skyTop, skyHorizon, space, rocketColor, accent, flameColor, ink, smoke, shake}) => {
   const frame = useCurrentFrame();
   const {w, h, u, portrait} = useStage();
   const cd = Math.max(0, Math.round(countdown)) * 30;
@@ -260,7 +261,7 @@ const RocketLaunch: React.FC<Props> = ({countdown, label, sublabel, seed, skyTop
       {cdNum > 0 ? (
         <div style={{position: 'absolute', left: 0, right: 0, top: h * 0.07, textAlign: 'center', color: ink, transform: `scale(${1 + 0.28 * (1 - ease.out(cdLocal * 3 > 1 ? 1 : cdLocal * 3))})`, opacity: clamp(1 - Math.max(0, cdLocal - 0.8) * 5)}}>
           <div style={{fontFamily: fonts.display, fontSize: (portrait ? 420 : 340) * u, lineHeight: 1, letterSpacing: -6 * u, textShadow: `0 ${10 * u}px ${60 * u}px rgba(0,0,0,0.45)`}}>{cdNum}</div>
-          <div style={{fontFamily: fonts.mono, fontSize: 20 * u, letterSpacing: 8 * u, opacity: 0.6}}>T MINUS</div>
+          <div style={{fontFamily: fonts.mono, fontSize: 20 * u, letterSpacing: 8 * u, opacity: 0.6}}>{countdownLabel}</div>
         </div>
       ) : null}
 
@@ -298,6 +299,7 @@ export const rocketLaunch = defineMotion<Props>({
     ink: '#FFFFFF',
     smoke: 1,
     shake: 1,
+    countdownLabel: 'T MINUS',
   },
   propDocs: {
     countdown: 'seconds counted down before ignition (0 = no countdown)',
@@ -313,6 +315,7 @@ export const rocketLaunch = defineMotion<Props>({
     ink: 'text colour',
     smoke: 'ground smoke amount (0.3-1.5)',
     shake: 'pre-lift vibration strength (0 = steady)',
+    countdownLabel: 'small mono label under the big countdown number',
   },
   component: RocketLaunch,
   tags: ['rocket', 'launch', 'liftoff', 'space', 'countdown', 'smoke', 'plume', 'product launch', 'release', 'shipped', 'sky', 'stars', 'camera tilt', 'science', 'education', 'startup'],

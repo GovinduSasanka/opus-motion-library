@@ -31,6 +31,7 @@ type Props = {
   accent: string;
   ink: string;
   title: string;
+  featuredLabel: string;
 };
 
 const PALS = [
@@ -70,7 +71,7 @@ const Face: React.FC<{item: Item; i: number; cw: number; ch: number; u: number}>
   );
 };
 
-const Carousel3D: React.FC<Props> = ({items, heroIndex, whipAt, whipFrames, radius, idleSpeed, cardAspect, reflection, motionBlur, background, floor, accent, ink, title}) => {
+const Carousel3D: React.FC<Props> = ({items, heroIndex, whipAt, whipFrames, radius, idleSpeed, cardAspect, reflection, motionBlur, background, floor, accent, ink, title, featuredLabel = 'FEATURED'}) => {
   const frame = useCurrentFrame();
   const {w, h, u, portrait} = useStage();
   const n = Math.max(3, items.length);
@@ -170,7 +171,7 @@ const Carousel3D: React.FC<Props> = ({items, heroIndex, whipAt, whipFrames, radi
         <div style={{fontFamily: fonts.grotesk, fontWeight: 700, fontSize: (portrait ? 56 : 48) * u, letterSpacing: -1 * u}}>{title}</div>
       </div>
       <div style={{position: 'absolute', left: 0, right: 0, top: h * 0.04, textAlign: 'center', color: ink, opacity: landed}}>
-        <div style={{fontFamily: fonts.mono, fontSize: 16 * u, letterSpacing: 4 * u, opacity: 0.6}}>FEATURED</div>
+        <div style={{fontFamily: fonts.mono, fontSize: 16 * u, letterSpacing: 4 * u, opacity: 0.6}}>{featuredLabel}</div>
         <div style={{fontFamily: fonts.grotesk, fontWeight: 700, fontSize: 30 * u, marginTop: 4 * u}}>{items[hero]?.title ?? ''}</div>
       </div>
       <Vignette strength={0.5} />
@@ -205,6 +206,7 @@ export const carousel3d = defineMotion<Props>({
     accent: '#5B7CFF',
     ink: '#FFFFFF',
     title: 'Selected work',
+    featuredLabel: 'FEATURED',
   },
   propDocs: {
     items: '[{src?, title?, subtitle?, color?}] cards on the ring (src = public/ image; without it a procedural poster card is drawn); 3-12 items',
@@ -221,6 +223,7 @@ export const carousel3d = defineMotion<Props>({
     accent: 'spotlight / floor glow colour',
     ink: 'text colour',
     title: 'title at the top',
+    featuredLabel: 'small caps label above the hero card title',
   },
   component: Carousel3D,
   tags: ['carousel', '3d', 'ring', 'gallery', 'portfolio', 'cards', 'reflection', 'whip', 'motion blur', 'showcase', 'reel', 'template', 'product gallery', 'rotate', 'perspective', 'ui', 'cover flow'],

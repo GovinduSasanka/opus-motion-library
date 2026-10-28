@@ -15,11 +15,12 @@ type Props = {
   palette: {ground: string; boardTop: string; sea: string; subject: string};
   seed: number;
   zoomOut: boolean;
+  footnote: string;
 };
 
 const S = 56; // board half-size in world units
 
-const IsoDioramaBoard: React.FC<Props> = ({title, stations, total, totalLabel, bpm, palette, seed, zoomOut}) => {
+const IsoDioramaBoard: React.FC<Props> = ({title, stations, total, totalLabel, bpm, palette, seed, zoomOut, footnote = 'NOT TO SCALE'}) => {
   const frame = useCurrentFrame();
   const {w, h, u, portrait, durationInFrames: D} = useStage();
   const beat = (60 / bpm) * 30;
@@ -225,7 +226,7 @@ const IsoDioramaBoard: React.FC<Props> = ({title, stations, total, totalLabel, b
         <span style={{fontFamily: lf.jost, fontWeight: 600, fontSize: 24 * u, color: ISO.ink, letterSpacing: 2 * u}}>{totalLabel.toUpperCase()}</span>
         <span style={{fontFamily: lf.jost, fontWeight: 400, fontSize: 52 * u, color: ISO.ink}}>{total}</span>
       </div>
-      <div style={{fontFamily: lf.jost, fontWeight: 500, fontSize: 17 * u, color: ISO.ink, opacity: 0.55, marginTop: 8 * u, letterSpacing: 2 * u}}>NOT TO SCALE</div>
+      <div style={{fontFamily: lf.jost, fontWeight: 500, fontSize: 17 * u, color: ISO.ink, opacity: 0.55, marginTop: 8 * u, letterSpacing: 2 * u}}>{footnote}</div>
     </div>
   );
 
@@ -282,6 +283,7 @@ export const isoDioramaBoard = defineMotion<Props>({
     palette: {ground: ISO.ground, boardTop: ISO.boardTop, sea: ISO.sea[0], subject: ISO.subject[0]},
     seed: 7,
     zoomOut: true,
+    footnote: 'NOT TO SCALE',
   },
   propDocs: {
     title: 'board title (top-left and on the legend)',
@@ -292,6 +294,7 @@ export const isoDioramaBoard = defineMotion<Props>({
     palette: 'ground, boardTop, sea and subject (accent) colours',
     seed: 'tree / route-curve seed',
     zoomOut: 'pull back to the legend card at the end',
+    footnote: 'small caps footnote under the total ("" hides)',
   },
   component: IsoDioramaBoard,
   tags: ['isometric', 'iso', 'map', 'diorama', 'board', 'route', 'journey', 'supply chain', 'infographic', 'stations', 'pins', 'flat', 'kurzgesagt', 'explainer', 'process'],

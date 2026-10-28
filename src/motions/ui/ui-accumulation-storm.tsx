@@ -21,6 +21,7 @@ type Props = {
   counterLabel: string;
   tremble: number;
   pullBack: number;
+  noteTitle: string;
 };
 
 const UiAccumulationStorm: React.FC<Props> = (p) => {
@@ -83,7 +84,7 @@ const UiAccumulationStorm: React.FC<Props> = (p) => {
           <rect x={-noteW / 2} y={-noteH / 2} width={noteW} height={noteH} rx={18 * u} fill={KEY.surf} stroke="rgba(255,255,255,.08)" />
           <rect x={-noteW / 2} y={-noteH / 2} width={noteW} height={40 * u} rx={18 * u} fill={KEY.surf2} />
           <text x={-noteW / 2 + 22 * u} y={-noteH / 2 + 26 * u} fontFamily={la2Fonts.monoHeavy} fontSize={13 * u} fill={KEY.mute} letterSpacing={2 * u}>
-            NOTE.TXT
+            {p.noteTitle}
           </text>
           <text x={-noteW / 2 + 36 * u} y={16 * u} fontFamily={la2Fonts.inter} fontWeight={500} fontSize={34 * u} fill={KEY.text}>
             {p.note}
@@ -145,6 +146,7 @@ export const uiAccumulationStorm = defineMotion<Props>({
     counterLabel: 'UNREAD',
     tremble: 3,
     pullBack: 0.35,
+    noteTitle: 'NOTE.TXT',
   },
   propDocs: {
     count: 'number of UI elements spawned',
@@ -157,6 +159,7 @@ export const uiAccumulationStorm = defineMotion<Props>({
     counterLabel: 'label of the red counter pill',
     tremble: 'tension tremble in px@1080 at full pile',
     pullBack: 'extra zoom at the start, pulled back over the act',
+    noteTitle: 'title of the note card',
   },
   component: UiAccumulationStorm,
   tags: ['ui', 'notifications', 'chaos', 'overload', 'files', 'photos', 'badges', 'saas', 'keynote', 'dark', 'problem', 'storm', 'clutter', 'inbox', 'productivity', 'parallax'],

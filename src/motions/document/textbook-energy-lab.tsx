@@ -20,6 +20,8 @@ type Props = {
   speed: number;
   friction: number;
   startAt: number;
+  formulaNote?: string;
+  figLabel?: string;
 };
 
 // ---- track geometry in apparatus-local units (480 x 430)
@@ -60,7 +62,7 @@ const simulate = (startAt: number, speed: number, friction: number) => {
   return {states: out, G};
 };
 
-const TextbookEnergyLab: React.FC<Props> = ({heading, formula, bodyLines, caption, labels, liquidColors, desk, paper, ink, accent, releaseFrame, speed, friction, startAt}) => {
+const TextbookEnergyLab: React.FC<Props> = ({heading, formula, bodyLines, caption, labels, liquidColors, desk, paper, ink, accent, releaseFrame, speed, friction, startAt, formulaNote = 'E = PE + KE + heat', figLabel = 'Fig. 1'}) => {
   const frame = useCurrentFrame();
   const {w, h, u, portrait} = useStage();
   const sim = useMemo(() => simulate(startAt, speed, friction), [startAt, speed, friction]);
@@ -243,12 +245,12 @@ const TextbookEnergyLab: React.FC<Props> = ({heading, formula, bodyLines, captio
                 <path d={`M${ballX} ${ballY} l${Math.cos(rot) * 9} ${Math.sin(rot) * 9}`} stroke={ink} strokeOpacity="0.45" strokeWidth="1.2" />
               </g>
               <text x="240" y="428" textAnchor="middle" fontFamily={fonts.hand} fontSize="14" fill={ink} fillOpacity="0.65">
-                E = PE + KE + heat
+                {formulaNote}
               </text>
             </g>
           </g>
           <text x={rp.x + pageW - 20} y={rp.y + pageH - 14} textAnchor="end" fontFamily={fonts.serif} fontSize="14" fill={ink} fillOpacity="0.55">
-            Fig. 1
+            {figLabel}
           </text>
         </svg>
       </AbsoluteFill>
@@ -298,6 +300,8 @@ export const textbookEnergyLab = defineMotion<Props>({
     speed: 1,
     friction: 0.0012,
     startAt: 0.06,
+    formulaNote: 'E = PE + KE + heat',
+    figLabel: 'Fig. 1',
   },
   propDocs: {
     heading: 'left-page title',
@@ -314,6 +318,8 @@ export const textbookEnergyLab = defineMotion<Props>({
     speed: 'rolling speed multiplier',
     friction: 'energy lost to heat per frame (0 = none)',
     startAt: 'start position along the track, 0..1',
+    formulaNote: 'handwritten note under the pendulum diagram',
+    figLabel: 'figure label in the bottom corner of the right page',
   },
   component: TextbookEnergyLab,
   tags: ['physics', 'book', 'education', 'energy', 'diagram'],
