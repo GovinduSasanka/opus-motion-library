@@ -21,8 +21,10 @@
 `node cli/mgl.mjs render <motion> --style <style>`; MCP: `npm run mcp` (see AGENTS.md §7).
 
 **Verified**: `gen-registry`, `tsc --noEmit`, `gen-docs`, site build, `npm run build:lib`; every motion has a gallery strip;
-all 306 new motions were looked at on contact sheets (7 dead-end / framing fixes); each builder checked a landscape sheet
+CI and Pages deploy green on GitHub; all 306 new motions were looked at on contact sheets (7 dead-end / framing fixes); each builder checked a landscape sheet
 and a portrait still per motion; default-regression diff for all extended motions.
+
+**Regression tool**: `node cli/mgl.mjs gallery --only a,b --force --dir out/regress && python cli/regress.py a,b`.
 
 **How the work was split** (to save usage): Sonnet builders per batch of ~10 ids, one Opus agent for the style engine, Haiku
 for docs; at most 4–7 agents at once after the usage-limit stop.
