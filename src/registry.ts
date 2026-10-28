@@ -67,6 +67,7 @@ import {silhouetteRunner} from './motions/character/silhouette-runner';
 import {stickmanRig} from './motions/character/stickman-rig';
 import {toonObjectCharacter} from './motions/character/toon-object-character';
 import {walkerWorldScroll} from './motions/character/walker-world-scroll';
+import {apiRequestFlow} from './motions/data/api-request-flow';
 import {atomElectronCloud} from './motions/data/atom-electron-cloud';
 import {axisRatchetRescale} from './motions/data/axis-ratchet-rescale';
 import {barRace} from './motions/data/bar-race';
@@ -77,6 +78,7 @@ import {causeEffectChain} from './motions/data/cause-effect-chain';
 import {chipStackBars} from './motions/data/chip-stack-bars';
 import {comparisonDumbbell} from './motions/data/comparison-dumbbell';
 import {crowdTracks} from './motions/data/crowd-tracks';
+import {deployPipelineStages} from './motions/data/deploy-pipeline-stages';
 import {dnaHelixUnzip} from './motions/data/dna-helix-unzip';
 import {donutBreakdown} from './motions/data/donut-breakdown';
 import {dotTally} from './motions/data/dot-tally';
@@ -93,6 +95,7 @@ import {functionPlot} from './motions/data/function-plot';
 import {funnelConversion} from './motions/data/funnel-conversion';
 import {ganttTimeline} from './motions/data/gantt-timeline';
 import {gaugeKpiDial} from './motions/data/gauge-kpi-dial';
+import {gitBranchGraph} from './motions/data/git-branch-graph';
 import {gridException} from './motions/data/grid-exception';
 import {gridScore} from './motions/data/grid-score';
 import {groundPlaneRuler} from './motions/data/ground-plane-ruler';
@@ -100,6 +103,7 @@ import {heartRateMonitor} from './motions/data/heart-rate-monitor';
 import {heatmapCalendar} from './motions/data/heatmap-calendar';
 import {isoBarChart} from './motions/data/iso-bar-chart';
 import {isotypeCount} from './motions/data/isotype-count';
+import {jsonTreeExpand} from './motions/data/json-tree-expand';
 import {liveChart} from './motions/data/live-chart';
 import {mapRoute} from './motions/data/map-route';
 import {microscopeDive} from './motions/data/microscope-dive';
@@ -122,6 +126,7 @@ import {sankeyFlow} from './motions/data/sankey-flow';
 import {savingsGoalJar} from './motions/data/savings-goal-jar';
 import {scienceReticle} from './motions/data/science-reticle';
 import {sectionProfileChart} from './motions/data/section-profile-chart';
+import {serverRackStatus} from './motions/data/server-rack-status';
 import {stackedAreaFlow} from './motions/data/stacked-area-flow';
 import {starFusionShells} from './motions/data/star-fusion-shells';
 import {stepProcessNumbered} from './motions/data/step-process-numbered';
@@ -141,6 +146,7 @@ import {formFillSubmit} from './motions/document/form-fill-submit';
 import {liftTheFlap} from './motions/document/lift-the-flap';
 import {lineLightUp} from './motions/document/line-light-up';
 import {mugshotHeightChart} from './motions/document/mugshot-height-chart';
+import {passportStamps} from './motions/document/passport-stamps';
 import {receiptPrint} from './motions/document/receipt-print';
 import {redactionBars} from './motions/document/redaction-bars';
 import {screenprintPoster} from './motions/document/screenprint-poster';
@@ -148,25 +154,31 @@ import {textbookEnergyLab} from './motions/document/textbook-energy-lab';
 import {aurora} from './motions/environment/aurora';
 import {bubbles} from './motions/environment/bubbles';
 import {causticsGodrays} from './motions/environment/caustics-godrays';
+import {cityRooftopsRainWindow} from './motions/environment/city-rooftops-rain-window';
 import {citySkyline} from './motions/environment/city-skyline';
 import {conveyorFlow} from './motions/environment/conveyor-flow';
 import {curlFlow} from './motions/environment/curl-flow';
 import {depthDescent} from './motions/environment/depth-descent';
+import {desertDunesHeat} from './motions/environment/desert-dunes-heat';
 import {embers} from './motions/environment/embers';
 import {fallingPetals} from './motions/environment/falling-petals';
+import {fireflyMeadowNight} from './motions/environment/firefly-meadow-night';
 import {fireworks} from './motions/environment/fireworks';
 import {fishSchool} from './motions/environment/fish-school';
 import {flock} from './motions/environment/flock';
 import {flowLines} from './motions/environment/flow-lines';
 import {fogClouds} from './motions/environment/fog-clouds';
+import {forestParallaxMist} from './motions/environment/forest-parallax-mist';
 import {grassField} from './motions/environment/grass-field';
 import {insectFlight} from './motions/environment/insect-flight';
 import {lampScreen} from './motions/environment/lamp-screen';
+import {lavaLampBlobs} from './motions/environment/lava-lamp-blobs';
 import {lightBandWindow} from './motions/environment/light-band-window';
 import {lightboxStack} from './motions/environment/lightbox-stack';
 import {lightningFlash} from './motions/environment/lightning-flash';
 import {meshGradientBg} from './motions/environment/mesh-gradient-bg';
 import {mode7FloorPerspective} from './motions/environment/mode7-floor-perspective';
+import {oceanWavesLayers} from './motions/environment/ocean-waves-layers';
 import {outrunGrid} from './motions/environment/outrun-grid';
 import {paperCutoutLayers} from './motions/environment/paper-cutout-layers';
 import {paperDiorama} from './motions/environment/paper-diorama';
@@ -176,8 +188,10 @@ import {printWave} from './motions/environment/print-wave';
 import {rain} from './motions/environment/rain';
 import {rocketLaunch} from './motions/environment/rocket-launch';
 import {segmentedWormBreach} from './motions/environment/segmented-worm-breach';
+import {snowMountainDawn} from './motions/environment/snow-mountain-dawn';
 import {snowfall} from './motions/environment/snowfall';
 import {starfieldNight} from './motions/environment/starfield-night';
+import {starfieldWarp} from './motions/environment/starfield-warp';
 import {studioSweep} from './motions/environment/studio-sweep';
 import {sunRiseSet} from './motions/environment/sun-rise-set';
 import {timeOfDayGrade} from './motions/environment/time-of-day-grade';
@@ -499,8 +513,10 @@ import {patternScroll} from './motions/texture/pattern-scroll';
 import {matchCut} from './motions/transition/match-cut';
 import {transitionReel} from './motions/transition/transition-reel';
 import {agentLogPanel} from './motions/ui/agent-log-panel';
+import {aiChatStreaming} from './motions/ui/ai-chat-streaming';
 import {appointmentBookingCalendar} from './motions/ui/appointment-booking-calendar';
 import {boardPrintDrop} from './motions/ui/board-print-drop';
+import {boardingPassPrint} from './motions/ui/boarding-pass-print';
 import {browserMockup} from './motions/ui/browser-mockup';
 import {cardFan} from './motions/ui/card-fan';
 import {cardHelixGallery} from './motions/ui/card-helix-gallery';
@@ -510,6 +526,7 @@ import {chatBubbles} from './motions/ui/chat-bubbles';
 import {checkoutSteps} from './motions/ui/checkout-steps';
 import {circuitRebuild} from './motions/ui/circuit-rebuild';
 import {clockCalendar} from './motions/ui/clock-calendar';
+import {codeDiffHighlight} from './motions/ui/code-diff-highlight';
 import {commandPaletteType} from './motions/ui/command-palette-type';
 import {commentBubbleStream} from './motions/ui/comment-bubble-stream';
 import {cursorDriver} from './motions/ui/cursor-driver';
@@ -521,6 +538,7 @@ import {heroGradientOrbs} from './motions/ui/hero-gradient-orbs';
 import {iconGridBurst} from './motions/ui/icon-grid-burst';
 import {inspectorPopover} from './motions/ui/inspector-popover';
 import {isoActuators} from './motions/ui/iso-actuators';
+import {itineraryRouteStops} from './motions/ui/itinerary-route-stops';
 import {keystrokeHud} from './motions/ui/keystroke-hud';
 import {lessonCarousel} from './motions/ui/lesson-carousel';
 import {liquidGlassLens} from './motions/ui/liquid-glass-lens';
@@ -528,11 +546,13 @@ import {loaderSpinnerSet} from './motions/ui/loader-spinner-set';
 import {logoWallGrid} from './motions/ui/logo-wall-grid';
 import {magnetPin} from './motions/ui/magnet-pin';
 import {masonryGallerySwitch} from './motions/ui/masonry-gallery-switch';
+import {menuBoardItems} from './motions/ui/menu-board-items';
 import {notificationStack} from './motions/ui/notification-stack';
 import {plannedVsHeardChecklist} from './motions/ui/planned-vs-heard-checklist';
 import {playerToolbar} from './motions/ui/player-toolbar';
 import {pollResultsBars} from './motions/ui/poll-results-bars';
 import {propertyListingCard} from './motions/ui/property-listing-card';
+import {recipeIngredientsSteps} from './motions/ui/recipe-ingredients-steps';
 import {remixThumbnailShelf} from './motions/ui/remix-thumbnail-shelf';
 import {reviewStarsRating} from './motions/ui/review-stars-rating';
 import {roadmapSwimlanes} from './motions/ui/roadmap-swimlanes';
@@ -546,6 +566,7 @@ import {subscribeLikeBell} from './motions/ui/subscribe-like-bell';
 import {successCheckBurst} from './motions/ui/success-check-burst';
 import {talkingHeadPip} from './motions/ui/talking-head-pip';
 import {teamGridPhotos} from './motions/ui/team-grid-photos';
+import {terminalInstallProgress} from './motions/ui/terminal-install-progress';
 import {testimonialCardCarousel} from './motions/ui/testimonial-card-carousel';
 import {threeColumnFeatures} from './motions/ui/three-column-features';
 import {toastStackLoop} from './motions/ui/toast-stack-loop';
@@ -624,6 +645,7 @@ export const motions: MotionDef<any>[] = [
   stickmanRig,
   toonObjectCharacter,
   walkerWorldScroll,
+  apiRequestFlow,
   atomElectronCloud,
   axisRatchetRescale,
   barRace,
@@ -634,6 +656,7 @@ export const motions: MotionDef<any>[] = [
   chipStackBars,
   comparisonDumbbell,
   crowdTracks,
+  deployPipelineStages,
   dnaHelixUnzip,
   donutBreakdown,
   dotTally,
@@ -650,6 +673,7 @@ export const motions: MotionDef<any>[] = [
   funnelConversion,
   ganttTimeline,
   gaugeKpiDial,
+  gitBranchGraph,
   gridException,
   gridScore,
   groundPlaneRuler,
@@ -657,6 +681,7 @@ export const motions: MotionDef<any>[] = [
   heatmapCalendar,
   isoBarChart,
   isotypeCount,
+  jsonTreeExpand,
   liveChart,
   mapRoute,
   microscopeDive,
@@ -679,6 +704,7 @@ export const motions: MotionDef<any>[] = [
   savingsGoalJar,
   scienceReticle,
   sectionProfileChart,
+  serverRackStatus,
   stackedAreaFlow,
   starFusionShells,
   stepProcessNumbered,
@@ -698,6 +724,7 @@ export const motions: MotionDef<any>[] = [
   liftTheFlap,
   lineLightUp,
   mugshotHeightChart,
+  passportStamps,
   receiptPrint,
   redactionBars,
   screenprintPoster,
@@ -705,25 +732,31 @@ export const motions: MotionDef<any>[] = [
   aurora,
   bubbles,
   causticsGodrays,
+  cityRooftopsRainWindow,
   citySkyline,
   conveyorFlow,
   curlFlow,
   depthDescent,
+  desertDunesHeat,
   embers,
   fallingPetals,
+  fireflyMeadowNight,
   fireworks,
   fishSchool,
   flock,
   flowLines,
   fogClouds,
+  forestParallaxMist,
   grassField,
   insectFlight,
   lampScreen,
+  lavaLampBlobs,
   lightBandWindow,
   lightboxStack,
   lightningFlash,
   meshGradientBg,
   mode7FloorPerspective,
+  oceanWavesLayers,
   outrunGrid,
   paperCutoutLayers,
   paperDiorama,
@@ -733,8 +766,10 @@ export const motions: MotionDef<any>[] = [
   rain,
   rocketLaunch,
   segmentedWormBreach,
+  snowMountainDawn,
   snowfall,
   starfieldNight,
+  starfieldWarp,
   studioSweep,
   sunRiseSet,
   timeOfDayGrade,
@@ -1056,8 +1091,10 @@ export const motions: MotionDef<any>[] = [
   matchCut,
   transitionReel,
   agentLogPanel,
+  aiChatStreaming,
   appointmentBookingCalendar,
   boardPrintDrop,
+  boardingPassPrint,
   browserMockup,
   cardFan,
   cardHelixGallery,
@@ -1067,6 +1104,7 @@ export const motions: MotionDef<any>[] = [
   checkoutSteps,
   circuitRebuild,
   clockCalendar,
+  codeDiffHighlight,
   commandPaletteType,
   commentBubbleStream,
   cursorDriver,
@@ -1078,6 +1116,7 @@ export const motions: MotionDef<any>[] = [
   iconGridBurst,
   inspectorPopover,
   isoActuators,
+  itineraryRouteStops,
   keystrokeHud,
   lessonCarousel,
   liquidGlassLens,
@@ -1085,11 +1124,13 @@ export const motions: MotionDef<any>[] = [
   logoWallGrid,
   magnetPin,
   masonryGallerySwitch,
+  menuBoardItems,
   notificationStack,
   plannedVsHeardChecklist,
   playerToolbar,
   pollResultsBars,
   propertyListingCard,
+  recipeIngredientsSteps,
   remixThumbnailShelf,
   reviewStarsRating,
   roadmapSwimlanes,
@@ -1103,6 +1144,7 @@ export const motions: MotionDef<any>[] = [
   successCheckBurst,
   talkingHeadPip,
   teamGridPhotos,
+  terminalInstallProgress,
   testimonialCardCarousel,
   threeColumnFeatures,
   toastStackLoop,

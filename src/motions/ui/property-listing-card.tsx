@@ -92,7 +92,7 @@ const PropertyListingCard: React.FC<Props> = ({src, price, pricePrefix, priceSuf
   const font = resolveFont(fontFamily);
   const f = (frame - startAt) * speed;
   const vertical = portrait || square;
-  const k = portrait ? 1.18 : 1;
+  const k = portrait ? 1.3 : square ? 1.05 : 1.12;
 
   const cw = vertical ? (portrait ? w - 120 * u : Math.min(w - 140 * u, 760 * u)) : Math.min(w - 220 * u, 1380 * u);
   const ch = vertical ? Math.min(h - (portrait ? 300 : 110) * u, cw * 1.42) : Math.min(h - 200 * u, 640 * u);

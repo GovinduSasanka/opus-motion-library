@@ -1,6 +1,6 @@
 # Motion catalog
 
-555 motions. Generated from `catalog.json` by `cli/gen-docs.mjs` — do not edit by hand.
+576 motions. Generated from `catalog.json` by `cli/gen-docs.mjs` — do not edit by hand.
 
 Render any of them: `node cli/mgl.mjs render <id> [--props '{...}'] [--format landscape|square|portrait]`. Previews live in `gallery/`.
 
@@ -10,15 +10,15 @@ Choosing: `node cli/mgl.mjs suggest "<what you need>"` and [CHOOSING.md](CHOOSIN
 - [transition](#transition) (2)
 - [shape](#shape) (42)
 - [fx](#fx) (49)
-- [environment](#environment) (39)
+- [environment](#environment) (47)
 - [character](#character) (17)
-- [data](#data) (66)
-- [ui](#ui) (57)
+- [data](#data) (71)
+- [ui](#ui) (64)
 - [hud](#hud) (29)
 - [camera](#camera) (9)
 - [texture](#texture) (4)
 - [3d](#3d) (41)
-- [document](#document) (12)
+- [document](#document) (13)
 - [game](#game) (21)
 - [image](#image) (34)
 - [map](#map) (11)
@@ -31,9 +31,9 @@ Choosing: `node cli/mgl.mjs suggest "<what you need>"` and [CHOOSING.md](CHOOSIN
 
 | capability | motions |
 |---|---|
-| overlay (transparent background — put it on top of other motions or your page) | `globe-3d`, `holo-solid-ignite`, `light-beam-ribbon`, `popup-spread`, `creator-hand`, `paper-critter-rig`, `pictogram-figure`, `bar-race`, `bubble-scatter-grow`, `budget-envelope-split`, `cause-effect-chain`, `comparison-dumbbell`, `donut-breakdown`, `fitness-activity-rings`, `floorplan-draw`, `funnel-conversion`, `gantt-timeline`, `gauge-kpi-dial`, `heart-rate-monitor`, `heatmap-calendar`, `network-graph`, `org-chart-tree`, `progress-rings-stats`, `pros-cons-columns`, `radar-compare`, `sankey-flow`, `savings-goal-jar`, `stacked-area-flow`, `step-process-numbered`, `treemap-split`, `venn-diagram-overlap`, `waterfall-bridge`, `weather-forecast-strip`, `certificate-seal`, `form-fill-submit`, `receipt-print`, `aurora`, `bubbles`, `caustics-godrays`, `curl-flow`, `embers`, `falling-petals`, `fireworks`, `flow-lines`, `fog-clouds`, `insect-flight`, `lightning-flash`, `mesh-gradient-bg`, `rain`, `snowfall`, `starfield-night`, `window-glow-sequence`, `backlit-cutout`, `circuit-traces`, `confetti-burst`, `electric-arcs`, `emote-pop`, `eyes-blink`, `fire-flames`, `giant-eye-reveal`, `grease-pencil-mark`, `impact-frame`, `ink-blot-stop`, `long-exposure-trails`, `magnifier-loupe`, `marker-ring-arrow`, `scribble-ball`, `smear-frame`, `smoke-puffs`, `sparkle-burst`, `star-glint`, `sticker-cutout`, `swirl-portal`, `vhs-crt-pass`, `achievement-unlock`, `bracket-advance`, `candy-set-backdrop`, `kill-streak-banner`, `level-up-burst`, `match-scoreboard`, `player-stat-card`, `stream-starting-soon`, `agent-roster`, `blur-redact-region`, `cam-chip-sync-badge`, `click-ripple-markers`, `day-ring-dial`, `event-feed`, `fight-hud`, `game-hud`, `hand-drawn-arrow-callout`, `hud-chrome`, `mission-clock`, `news-bug-source-tag`, `numbered-step-badges`, `prompt-wall`, `scribble-circle-highlight`, `spec-chip-rail`, `spotlight-dim-focus`, `target-lock-box`, `target-lock`, `tooltip-pointer`, `zoom-inset-box`, `film-look`, `sticker-slap`, `choropleth-fill`, `city-zoom-label`, `coverage-route`, `elevation-profile`, `flight-arcs`, `pin-drop-cluster`, `beat-dance`, `chomp-lid`, `emotion-idle-beat`, `emotion-sheet`, `emotion-timeline`, `mascot-nib`, `mascot-thinking`, `mascot-thumbs-up`, `mascot-wave-hello`, `smear-trail`, `beat-camera`, `beat-grid`, `beat-pulse-rings`, `engraving-hatch`, `equalizer-bars-loop`, `guilloche-note`, `lyric-on-path`, `lyric-timing`, `lyric-video`, `mixer-faders`, `now-playing-card`, `podcast-audiogram`, `shutter-blur`, `stage-curtain`, `time-stutter`, `token-sampler-prompt`, `token-tree`, `tracklist-reveal`, `vinyl-spin-label`, `width-pressure-type`, `add-to-cart-fly`, `colorway-swap`, `coupon-scratch-reveal`, `delivery-tracker`, `feature-callout-orbit`, `flash-deal-timer-card`, `order-confirmation`, `price-tag-drop`, `product-grid-filter`, `size-color-picker`, `spec-compare-table`, `sunburst-hero`, `unbox-lid-lift`, `comet-pulse-guide`, `ink-brush-stroke`, `logo-reveal-liquid`, `motif-grid-pattern`, `nib-follow-camera`, `papercut-rosette`, `toon-cel-shape`, `agenda-list-slide`, `big-stat-slide`, `blur-in-title`, `channel-intro-sting`, `chapter-countdown`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `definition-card`, `end-card-credits`, `end-screen-cards`, `follower-milestone`, `glyph-orbit-logo`, `key-takeaway-highlight`, `kinetic-captions`, `logo-reveal-lines`, `mask-rise-title`, `myth-vs-fact`, `news-strap`, `number-counter`, `outline-to-fill-text`, `paper-strip-title`, `per-letter-wave`, `qa-slide`, `quiz-question-reveal`, `quote-slide`, `rolling-credits`, `rundown-board`, `sale-countdown-banner`, `scene-tag`, `split-flap-board`, `sponsor-slate`, `stacked-repeat-echo`, `stamp-slam`, `sting-bug`, `story-caption-box`, `text-on-circle-spin`, `text-scramble-decode`, `typewriter-code`, `typewriter-delete-retype`, `typewriter-signature`, `word-carousel-rotator`, `bokeh-drift`, `light-leak-wash`, `pattern-scroll`, `agent-log-panel`, `appointment-booking-calendar`, `checkout-steps`, `comment-bubble-stream`, `cursor-driver`, `empty-state-illustration`, `glass-lesson-card`, `hero-gradient-orbs`, `keystroke-hud`, `liquid-glass-lens`, `loader-spinner-set`, `logo-wall-grid`, `notification-stack`, `planned-vs-heard-checklist`, `player-toolbar`, `poll-results-bars`, `property-listing-card`, `review-stars-rating`, `roadmap-swimlanes`, `skeleton-shimmer`, `story-progress-frames`, `subscribe-like-bell`, `success-check-burst`, `team-grid-photos`, `testimonial-card-carousel`, `three-column-features`, `toast-stack-loop`, `typing-indicator-chat`, `upload-progress` |
-| seamless loop | `iso-bar-chart`, `embers`, `sonar-ping`, `empty-state-illustration`, `hero-gradient-orbs`, `loader-spinner-set`, `skeleton-shimmer`, `success-check-burst`, `toast-stack-loop`, `typing-indicator-chat`, `upload-progress` |
-| takes your image (`src` / `images` / `heroSrc`) | `pointcloud-orbit`, `crash-zoom`, `dolly-zoom`, `orbit-parallax`, `whip-pan`, `beat-montage`, `crowd-tracks`, `ground-plane-ruler`, `map-route`, `microscope-dive`, `science-reticle`, `thumbnail-mosaic`, `mugshot-height-chart`, `depth-descent`, `lamp-screen`, `paper-diorama`, `studio-sweep`, `topdown-terrain`, `window-glow-sequence`, `beat-punch-zoom`, `crayon-wax-shader`, `focus-desaturate`, `frame-blend-timelapse`, `frame-breakout`, `freeze-frame-brackets`, `giant-eye-reveal`, `glass-crack-mend`, `long-exposure-trails`, `loupe-magnify`, `magnifier-loupe`, `swirl-portal`, `theatre-gate`, `vhs-crt-pass`, `loot-reveal`, `player-stat-card`, `rocket-to-moon`, `callout-labels`, `cam-chip-sync-badge`, `target-lock-box`, `target-lock`, `zoom-inset-box`, `ascii-image-grid`, `autofocus-hunt`, `brush-stroke-reveal`, `comic-halftone`, `dot-matrix`, `duotone`, `film-look`, `glass-pane-grid`, `glitch-image`, `grid-multiply`, `handscroll-reveal`, `ken-burns`, `knife-colour-relay`, `knife-paint-plate`, `light-sweep`, `negative-develop-reveal`, `perspective-flatten`, `photomontage-tower`, `pixel-dither`, `press-lift`, `proportion-sweep`, `riso-plate-reveal`, `spinning-headline`, `split-grid-countdown`, `sticker-cutout-burst`, `telestrator-freeze`, `tilt-shift-diorama`, `woodblock-print-reveal`, `woodcut-carve`, `xray-scan`, `map-mask-reveal`, `audio-spectrum`, `guilloche-note`, `add-to-cart-fly`, `colorway-swap`, `feature-callout-orbit`, `flash-deal-timer-card`, `frost-to-clear`, `size-color-picker`, `sunburst-hero`, `unbox-lid-lift`, `logo-reveal-liquid`, `scissor-cut`, `sonar-ping`, `blur-in-title`, `bouncing-ball-singalong`, `channel-intro-sting`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `diagonal-band-title`, `end-card-credits`, `flipbook-riffle-outro`, `glyph-orbit-logo`, `halftone-exhibit-numeral`, `hanazi-caption`, `letters-become-image`, `logo-assemble`, `logo-reveal-lines`, `mask-rise-title`, `number-counter`, `quote-slide`, `sponsor-slate`, `stamp-slam`, `story-caption-box`, `typewriter-code`, `browser-mockup`, `device-mockup`, `property-listing-card`, `sms-thread`, `split-compare`, `story-progress-frames`, `tv-wall-switch-on`, `versus-roster` |
+| overlay (transparent background — put it on top of other motions or your page) | `globe-3d`, `holo-solid-ignite`, `light-beam-ribbon`, `popup-spread`, `creator-hand`, `paper-critter-rig`, `pictogram-figure`, `api-request-flow`, `bar-race`, `bubble-scatter-grow`, `budget-envelope-split`, `cause-effect-chain`, `comparison-dumbbell`, `deploy-pipeline-stages`, `donut-breakdown`, `fitness-activity-rings`, `floorplan-draw`, `funnel-conversion`, `gantt-timeline`, `gauge-kpi-dial`, `git-branch-graph`, `heart-rate-monitor`, `heatmap-calendar`, `json-tree-expand`, `network-graph`, `org-chart-tree`, `progress-rings-stats`, `pros-cons-columns`, `radar-compare`, `sankey-flow`, `savings-goal-jar`, `server-rack-status`, `stacked-area-flow`, `step-process-numbered`, `treemap-split`, `venn-diagram-overlap`, `waterfall-bridge`, `weather-forecast-strip`, `certificate-seal`, `form-fill-submit`, `passport-stamps`, `receipt-print`, `aurora`, `bubbles`, `caustics-godrays`, `curl-flow`, `embers`, `falling-petals`, `fireworks`, `flow-lines`, `fog-clouds`, `insect-flight`, `lightning-flash`, `mesh-gradient-bg`, `rain`, `snowfall`, `starfield-night`, `starfield-warp`, `window-glow-sequence`, `backlit-cutout`, `circuit-traces`, `confetti-burst`, `electric-arcs`, `emote-pop`, `eyes-blink`, `fire-flames`, `giant-eye-reveal`, `grease-pencil-mark`, `impact-frame`, `ink-blot-stop`, `long-exposure-trails`, `magnifier-loupe`, `marker-ring-arrow`, `scribble-ball`, `smear-frame`, `smoke-puffs`, `sparkle-burst`, `star-glint`, `sticker-cutout`, `swirl-portal`, `vhs-crt-pass`, `achievement-unlock`, `bracket-advance`, `candy-set-backdrop`, `kill-streak-banner`, `level-up-burst`, `match-scoreboard`, `player-stat-card`, `stream-starting-soon`, `agent-roster`, `blur-redact-region`, `cam-chip-sync-badge`, `click-ripple-markers`, `day-ring-dial`, `event-feed`, `fight-hud`, `game-hud`, `hand-drawn-arrow-callout`, `hud-chrome`, `mission-clock`, `news-bug-source-tag`, `numbered-step-badges`, `prompt-wall`, `scribble-circle-highlight`, `spec-chip-rail`, `spotlight-dim-focus`, `target-lock-box`, `target-lock`, `tooltip-pointer`, `zoom-inset-box`, `film-look`, `sticker-slap`, `choropleth-fill`, `city-zoom-label`, `coverage-route`, `elevation-profile`, `flight-arcs`, `pin-drop-cluster`, `beat-dance`, `chomp-lid`, `emotion-idle-beat`, `emotion-sheet`, `emotion-timeline`, `mascot-nib`, `mascot-thinking`, `mascot-thumbs-up`, `mascot-wave-hello`, `smear-trail`, `beat-camera`, `beat-grid`, `beat-pulse-rings`, `engraving-hatch`, `equalizer-bars-loop`, `guilloche-note`, `lyric-on-path`, `lyric-timing`, `lyric-video`, `mixer-faders`, `now-playing-card`, `podcast-audiogram`, `shutter-blur`, `stage-curtain`, `time-stutter`, `token-sampler-prompt`, `token-tree`, `tracklist-reveal`, `vinyl-spin-label`, `width-pressure-type`, `add-to-cart-fly`, `colorway-swap`, `coupon-scratch-reveal`, `delivery-tracker`, `feature-callout-orbit`, `flash-deal-timer-card`, `order-confirmation`, `price-tag-drop`, `product-grid-filter`, `size-color-picker`, `spec-compare-table`, `sunburst-hero`, `unbox-lid-lift`, `comet-pulse-guide`, `ink-brush-stroke`, `logo-reveal-liquid`, `motif-grid-pattern`, `nib-follow-camera`, `papercut-rosette`, `toon-cel-shape`, `agenda-list-slide`, `big-stat-slide`, `blur-in-title`, `channel-intro-sting`, `chapter-countdown`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `definition-card`, `end-card-credits`, `end-screen-cards`, `follower-milestone`, `glyph-orbit-logo`, `key-takeaway-highlight`, `kinetic-captions`, `logo-reveal-lines`, `mask-rise-title`, `myth-vs-fact`, `news-strap`, `number-counter`, `outline-to-fill-text`, `paper-strip-title`, `per-letter-wave`, `qa-slide`, `quiz-question-reveal`, `quote-slide`, `rolling-credits`, `rundown-board`, `sale-countdown-banner`, `scene-tag`, `split-flap-board`, `sponsor-slate`, `stacked-repeat-echo`, `stamp-slam`, `sting-bug`, `story-caption-box`, `text-on-circle-spin`, `text-scramble-decode`, `typewriter-code`, `typewriter-delete-retype`, `typewriter-signature`, `word-carousel-rotator`, `bokeh-drift`, `light-leak-wash`, `pattern-scroll`, `agent-log-panel`, `ai-chat-streaming`, `appointment-booking-calendar`, `boarding-pass-print`, `checkout-steps`, `code-diff-highlight`, `comment-bubble-stream`, `cursor-driver`, `empty-state-illustration`, `glass-lesson-card`, `hero-gradient-orbs`, `itinerary-route-stops`, `keystroke-hud`, `liquid-glass-lens`, `loader-spinner-set`, `logo-wall-grid`, `menu-board-items`, `notification-stack`, `planned-vs-heard-checklist`, `player-toolbar`, `poll-results-bars`, `property-listing-card`, `recipe-ingredients-steps`, `review-stars-rating`, `roadmap-swimlanes`, `skeleton-shimmer`, `story-progress-frames`, `subscribe-like-bell`, `success-check-burst`, `team-grid-photos`, `terminal-install-progress`, `testimonial-card-carousel`, `three-column-features`, `toast-stack-loop`, `typing-indicator-chat`, `upload-progress` |
+| seamless loop | `iso-bar-chart`, `city-rooftops-rain-window`, `desert-dunes-heat`, `embers`, `firefly-meadow-night`, `forest-parallax-mist`, `lava-lamp-blobs`, `ocean-waves-layers`, `snow-mountain-dawn`, `starfield-warp`, `sonar-ping`, `empty-state-illustration`, `hero-gradient-orbs`, `loader-spinner-set`, `skeleton-shimmer`, `success-check-burst`, `toast-stack-loop`, `typing-indicator-chat`, `upload-progress` |
+| takes your image (`src` / `images` / `heroSrc`) | `pointcloud-orbit`, `crash-zoom`, `dolly-zoom`, `orbit-parallax`, `whip-pan`, `beat-montage`, `crowd-tracks`, `ground-plane-ruler`, `map-route`, `microscope-dive`, `science-reticle`, `thumbnail-mosaic`, `mugshot-height-chart`, `depth-descent`, `lamp-screen`, `paper-diorama`, `studio-sweep`, `topdown-terrain`, `window-glow-sequence`, `beat-punch-zoom`, `crayon-wax-shader`, `focus-desaturate`, `frame-blend-timelapse`, `frame-breakout`, `freeze-frame-brackets`, `giant-eye-reveal`, `glass-crack-mend`, `long-exposure-trails`, `loupe-magnify`, `magnifier-loupe`, `swirl-portal`, `theatre-gate`, `vhs-crt-pass`, `loot-reveal`, `player-stat-card`, `rocket-to-moon`, `callout-labels`, `cam-chip-sync-badge`, `target-lock-box`, `target-lock`, `zoom-inset-box`, `ascii-image-grid`, `autofocus-hunt`, `brush-stroke-reveal`, `comic-halftone`, `dot-matrix`, `duotone`, `film-look`, `glass-pane-grid`, `glitch-image`, `grid-multiply`, `handscroll-reveal`, `ken-burns`, `knife-colour-relay`, `knife-paint-plate`, `light-sweep`, `negative-develop-reveal`, `perspective-flatten`, `photomontage-tower`, `pixel-dither`, `press-lift`, `proportion-sweep`, `riso-plate-reveal`, `spinning-headline`, `split-grid-countdown`, `sticker-cutout-burst`, `telestrator-freeze`, `tilt-shift-diorama`, `woodblock-print-reveal`, `woodcut-carve`, `xray-scan`, `map-mask-reveal`, `audio-spectrum`, `guilloche-note`, `add-to-cart-fly`, `colorway-swap`, `feature-callout-orbit`, `flash-deal-timer-card`, `frost-to-clear`, `size-color-picker`, `sunburst-hero`, `unbox-lid-lift`, `logo-reveal-liquid`, `scissor-cut`, `sonar-ping`, `blur-in-title`, `bouncing-ball-singalong`, `channel-intro-sting`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `diagonal-band-title`, `end-card-credits`, `flipbook-riffle-outro`, `glyph-orbit-logo`, `halftone-exhibit-numeral`, `hanazi-caption`, `letters-become-image`, `logo-assemble`, `logo-reveal-lines`, `mask-rise-title`, `number-counter`, `quote-slide`, `sponsor-slate`, `stamp-slam`, `story-caption-box`, `typewriter-code`, `browser-mockup`, `device-mockup`, `property-listing-card`, `recipe-ingredients-steps`, `sms-thread`, `split-compare`, `story-progress-frames`, `tv-wall-switch-on`, `versus-roster` |
 | heavy (three.js / WebGL — prefer an exported video on mobile web) | `accum-render-3d`, `brick-collapse-physics`, `brick-fx-fire-smoke`, `brick-rebuild-morph`, `brick-snap-build`, `chart-to-installation`, `cloner-bed-ripple`, `colour-ignition-wave`, `exploded-stack`, `exploded-view-3d`, `glass-strip-sweep`, `globe-3d`, `iso-blocks-3d`, `iso-city-build`, `jelly-type-drop`, `last-object-drop`, `liminal-corridor-3d`, `ocean-surface-3d`, `particle-shape-morph`, `plan-tilt`, `pointcloud-orbit`, `product-turntable-3d`, `shockwave-flip-field`, `stack-plates-3d`, `terrain-build-3d`, `voxel-burst-swirl`, `voxel-diorama`, `wireframe-build`, `dash-flow-field` |
 
 ## recipes
@@ -5515,6 +5515,38 @@ Underwater: a rippling caustic web at the surface, swaying light shafts and drif
 | `accentA` | `"#FF4F9A"` | floor mode: ring colour near the centre |
 | `accentB` | `"#3FB6FF"` | floor mode: ring colour at the outer radius |
 
+### `city-rooftops-rain-window` — City rooftops rain window
+
+A rainy window over a defocused city: blurred rooftops with lit windows, soft bokeh lights, thin rain outside, and fogged glass with clinging beads and larger drops that slide down leaving trails; loops seamlessly, night / dusk / dawn / day palettes and a custom light colour list.
+
+**Use for:** Moody lo-fi / study-beats / podcast backdrops, melancholy or cosy titles, noir and thriller scenes, weather and "rainy day" content, city-life brand heroes; add a title or put your own UI over the glass.  
+**Rebuilt from:** original — round 3 nature backdrops  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** dark, nature, night  
+**Capabilities:** paints its own background · seamless loop · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `timeOfDay` | `"night"` | "dawn" \| "day" \| "dusk" \| "night" – sky and light palette preset |
+| `skyTop` | `""` | override the top sky colour (hex); empty = from timeOfDay |
+| `skyBottom` | `""` | override the horizon sky colour (hex); empty = from timeOfDay |
+| `lights` | `["#FFB347","#FF6B6B","#6EC1FF","#FFE08A"]` | city light / lit-window / bokeh colours (hex list) |
+| `rain` | `1` | rain streaks outside the glass (0 = none) |
+| `drops` | `1` | amount of water drops on the glass (0 = clean glass) |
+| `fog` | `1` | condensation haze on the glass (0 = none) |
+| `blur` | `1` | defocus of the city behind the glass (0 = sharp) |
+| `frame` | `true` | dark window frame around the edges |
+| `speed` | `1` | animation speed; quantised to whole cycles per loop so the clip loops seamlessly (0 = frozen) |
+| `density` | `1` | multiplier for how many particles / elements are drawn |
+| `seed` | `9` | random seed (changes the layout, not the look) |
+| `title` | `""` | optional headline over the scene (empty = none) |
+| `subtitle` | `""` | optional small line under the title (empty = none) |
+| `fontFamily` | `"serif"` | font role ("serif", "display", "sans", "grotesk", "hand", "mono") or any CSS family for title / subtitle |
+| `ink` | `""` | title / subtitle colour; empty = from timeOfDay |
+| `titlePosition` | `"center"` | "center" \| "top" \| "bottom" |
+| `titleSize` | `1` | title size multiplier |
+
 ### `city-skyline` — City skyline (window flicker, dusk to night)
 
 ![city-skyline](../gallery/city-skyline.jpg)
@@ -5650,6 +5682,38 @@ Underwater descent infographic: a bobbing brass bathysphere hangs on its cable w
 | `noteColor` | `"#9DC3D8"` | zone subtitle text colour |
 | `ruleColor` | `"#6FA5BC"` | underline rule colour under the zone title |
 
+### `desert-dunes-heat` — Desert dunes heat haze
+
+Rolling sand-dune ridges under a huge low sun: 3-7 layered dunes with lit crest edges, a shimmering heat-haze horizon and wind-blown sand streaks racing along the dunes; loops seamlessly, dawn / day / dusk / night palettes.
+
+**Use for:** Warm looping landscape backdrop for travel, adventure, Middle-East / Sahara themes, western titles, survival or thirst / heat messages, product reveals on sand; add a title or place your own HTML on top.  
+**Rebuilt from:** original — round 3 nature backdrops  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** mid, nature, night  
+**Capabilities:** paints its own background · seamless loop · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `timeOfDay` | `"dusk"` | "dawn" \| "day" \| "dusk" \| "night" – sky and light palette preset |
+| `skyTop` | `""` | override the top sky colour (hex); empty = from timeOfDay |
+| `skyBottom` | `""` | override the horizon sky colour (hex); empty = from timeOfDay |
+| `accent` | `""` | override the sun / moon / glow colour (hex); empty = from timeOfDay |
+| `sandColor` | `""` | mid-distance sand colour (hex); near and far dunes shade from it; empty = from timeOfDay |
+| `dunes` | `5` | number of dune layers (2-7) |
+| `heat` | `1` | heat shimmer strength (0 = none, 1 = default, 2 = strong) |
+| `wind` | `1` | blown-sand intensity; negative blows right-to-left, 0 = no streaks motion |
+| `sunSize` | `1` | sun size multiplier |
+| `speed` | `1` | animation speed; quantised to whole cycles per loop so the clip loops seamlessly (0 = frozen) |
+| `density` | `1` | multiplier for how many particles / elements are drawn |
+| `seed` | `4` | random seed (changes the layout, not the look) |
+| `title` | `""` | optional headline over the scene (empty = none) |
+| `subtitle` | `""` | optional small line under the title (empty = none) |
+| `fontFamily` | `"serif"` | font role ("serif", "display", "sans", "grotesk", "hand", "mono") or any CSS family for title / subtitle |
+| `ink` | `""` | title / subtitle colour; empty = from timeOfDay |
+| `titlePosition` | `"top"` | "center" \| "top" \| "bottom" |
+| `titleSize` | `1` | title size multiplier |
+
 ### `embers` — Embers & gold flecks
 
 ![embers](../gallery/embers.jpg)
@@ -5709,6 +5773,38 @@ Petals (or autumn leaves, or paper sheets) sway, spin and flip in 3D as they fal
 | `wind` | `0.6` | constant sideways drift (positive = right) |
 | `branch` | `true` | draw the blossom (or autumn) branch in the top-left |
 | `seed` | `1` | random seed |
+
+### `firefly-meadow-night` — Firefly meadow night
+
+A moonlit meadow: starry sky, rolling hills and tree line, two layers of swaying grass blades and dozens of fireflies drifting on closed loops and pulsing softly; loops seamlessly.
+
+**Use for:** Magical, cosy or calm night backdrop for bedtime stories, meditation / sleep apps, fantasy and fairytale titles, cottagecore, wedding / romantic videos, "end of day" screens and lyric videos.  
+**Rebuilt from:** original — round 3 nature backdrops  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** dark, nature, night  
+**Capabilities:** paints its own background · seamless loop · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `skyTop` | `""` | top sky colour (hex); empty = deep navy |
+| `skyBottom` | `""` | horizon sky colour (hex); empty = midnight blue |
+| `grassColor` | `""` | meadow colour (hex); nearer grass and hills darken from it; empty = forest green |
+| `glowColor` | `""` | firefly glow colour (hex); empty = warm yellow |
+| `moon` | `true` | show the moon |
+| `moonX` | `0.72` | moon horizontal position, 0 (left) – 1 (right) |
+| `fireflies` | `46` | firefly count at default density |
+| `glowSize` | `1` | firefly glow radius multiplier |
+| `sway` | `1` | grass sway amount (0 = still) |
+| `speed` | `1` | animation speed; quantised to whole cycles per loop so the clip loops seamlessly (0 = frozen) |
+| `density` | `1` | multiplier for how many particles / elements are drawn |
+| `seed` | `6` | random seed (changes the layout, not the look) |
+| `title` | `""` | optional headline over the scene (empty = none) |
+| `subtitle` | `""` | optional small line under the title (empty = none) |
+| `fontFamily` | `"serif"` | font role ("serif", "display", "sans", "grotesk", "hand", "mono") or any CSS family for title / subtitle |
+| `ink` | `""` | title / subtitle colour; empty = from timeOfDay |
+| `titlePosition` | `"top"` | "center" \| "top" \| "bottom" |
+| `titleSize` | `1` | title size multiplier |
 
 ### `fireworks` — Fireworks
 
@@ -5868,6 +5964,42 @@ Three parallax layers of drifting noise-built clouds (lit white cumulus with sof
 | `ridge` | `true` | dark ridge silhouettes behind fog / mist (auto background only) |
 | `seed` | `5` | noise seed |
 
+### `forest-parallax-mist` — Forest parallax mist
+
+A misty pine forest in depth: 3-7 layers of conifer silhouettes swaying in parallax, drifting fog banks between them, breathing god rays from a low sun and floating pollen motes; loops seamlessly in dawn / day / dusk / night palettes.
+
+**Use for:** Atmospheric looping hero or title backdrop for outdoors, camping, wellness / meditation, storytelling, fantasy and horror-lite scenes, eco brands, podcasts and lyric videos; tint with timeOfDay or brand colours and add a title.  
+**Rebuilt from:** original — round 3 nature backdrops  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** mid, nature, night  
+**Capabilities:** paints its own background · seamless loop · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `timeOfDay` | `"dawn"` | "dawn" \| "day" \| "dusk" \| "night" – sky and light palette preset |
+| `skyTop` | `""` | override the top sky colour (hex); empty = from timeOfDay |
+| `skyBottom` | `""` | override the horizon sky colour (hex); empty = from timeOfDay |
+| `accent` | `""` | override the sun / moon / glow colour (hex); empty = from timeOfDay |
+| `treeColor` | `""` | nearest tree colour (hex); farther layers fade toward the sky haze; empty = deep green |
+| `layers` | `5` | number of tree layers (3-7) |
+| `treeHeight` | `1` | tree height multiplier |
+| `fog` | `1` | fog bank strength (0 = none) |
+| `rays` | `1` | god-ray amount (0 = none) |
+| `sunX` | `0.68` | sun horizontal position, 0 (left) – 1 (right) |
+| `sway` | `1` | parallax sway amount (0 = still) |
+| `motes` | `true` | floating pollen / dust motes |
+| `trunks` | `true` | dark foreground trunks at the frame edges |
+| `speed` | `1` | animation speed; quantised to whole cycles per loop so the clip loops seamlessly (0 = frozen) |
+| `density` | `1` | multiplier for how many particles / elements are drawn |
+| `seed` | `5` | random seed (changes the layout, not the look) |
+| `title` | `""` | optional headline over the scene (empty = none) |
+| `subtitle` | `""` | optional small line under the title (empty = none) |
+| `fontFamily` | `"serif"` | font role ("serif", "display", "sans", "grotesk", "hand", "mono") or any CSS family for title / subtitle |
+| `ink` | `""` | title / subtitle colour; empty = from timeOfDay |
+| `titlePosition` | `"top"` | "center" \| "top" \| "bottom" |
+| `titleSize` | `1` | title size multiplier |
+
 ### `grass-field` — Grass field (teal blades + golden leaves)
 
 ![grass-field](../gallery/grass-field.jpg)
@@ -5959,6 +6091,37 @@ A warm cotton shadow-theatre screen in a lacquered stage frame (optional blurred
 | `weave` | `1` | cloth weave and blotch strength |
 | `tremor` | `1` | hand tremor strength |
 | `seed` | `3` | tremor / audience seed |
+
+### `lava-lamp-blobs` — Lava lamp blobs
+
+Gooey metaball blobs slowly rising, stretching, merging and splitting over a glowing liquid gradient: a full-frame psychedelic backdrop or contained in a retro lava-lamp silhouette; palette-driven and seamlessly loopable.
+
+**Use for:** Relaxing / lo-fi / retro-70s backdrops, music and podcast visuals, wellness and creative-brand heroes, loading and ambient screens, title cards; set background and a colour list from the brand palette, or switch shape to "lamp" for an object.  
+**Rebuilt from:** original — round 3 nature backdrops  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** dark, pixel  
+**Capabilities:** paints its own background · seamless loop · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `background` | `"#2B0A3D"` | liquid colour (CSS hex); the glow warms its bottom |
+| `colors` | `["#FF4D8D","#FF9A3C","#FFD23C"]` | blob colours (hex list), cycled across the blobs |
+| `glow` | `"#FF5A4F"` | heat glow colour at the bottom |
+| `shape` | `"full"` | "full" (blobs fill the whole frame) \| "lamp" (inside a lava-lamp silhouette) |
+| `blobs` | `9` | number of blobs at default density |
+| `blobSize` | `1` | blob size multiplier |
+| `goo` | `1` | how strongly blobs merge (0.5 = barely, 1 = default, 1.6 = very gooey) |
+| `shine` | `true` | lamp mode: glass highlight on the lamp |
+| `speed` | `1` | animation speed; quantised to whole cycles per loop so the clip loops seamlessly (0 = frozen) |
+| `density` | `1` | multiplier for how many particles / elements are drawn |
+| `seed` | `12` | random seed (changes the layout, not the look) |
+| `title` | `""` | optional headline over the scene (empty = none) |
+| `subtitle` | `""` | optional small line under the title (empty = none) |
+| `fontFamily` | `"display"` | font role ("serif", "display", "sans", "grotesk", "hand", "mono") or any CSS family for title / subtitle |
+| `ink` | `""` | title / subtitle colour; empty = from timeOfDay |
+| `titlePosition` | `"center"` | "center" \| "top" \| "bottom" |
+| `titleSize` | `1` | title size multiplier |
 
 ### `light-band-window` — Light-band stained-glass window
 
@@ -6105,6 +6268,41 @@ An art-deco lobby in true one-point perspective: a checkered marble floor with a
 | `hallWidth` | `9` | hall width in tiles |
 | `sway` | `0.35` | gentle lateral camera sway in tiles |
 | `endDoor` | `true` | show the glowing sunburst door at the end of the hall |
+
+### `ocean-waves-layers` — Ocean waves layers
+
+Stylised flat-vector ocean: a sun or moon over a hazy horizon, 3-9 layered waves heaving and sliding on whole-cycle sine sums with foam dashes on the front crests and a glittering sun path; loops seamlessly, palette from dawn / day / dusk / night.
+
+**Use for:** A calm looping seascape behind titles, travel / holiday / wellness / meditation scenes, podcast or lyric backdrops; set timeOfDay or your brand colours, add a title, or let it run empty under your own HTML.  
+**Rebuilt from:** original — round 3 nature backdrops  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** mid, nature, night  
+**Capabilities:** paints its own background · seamless loop · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `timeOfDay` | `"dusk"` | "dawn" \| "day" \| "dusk" \| "night" – sky and light palette preset |
+| `skyTop` | `""` | override the top sky colour (hex); empty = from timeOfDay |
+| `skyBottom` | `""` | override the horizon sky colour (hex); empty = from timeOfDay |
+| `accent` | `""` | override the sun / moon / glow colour (hex); empty = from timeOfDay |
+| `waterColor` | `""` | nearest (deepest) water colour; the far water blends toward the horizon sky; empty = from the sky |
+| `layers` | `6` | number of wave layers (2-9) |
+| `waveHeight` | `1` | wave amplitude multiplier |
+| `horizon` | `0.46` | horizon height as a fraction of the frame height (0.3-0.65) |
+| `sunX` | `0.5` | sun / moon horizontal position, 0 (left) – 1 (right) |
+| `sunSize` | `1` | sun / moon size multiplier |
+| `foam` | `true` | dashed foam lines along the front crests |
+| `glints` | `true` | glittering reflection of the sun on the water |
+| `speed` | `1` | animation speed; quantised to whole cycles per loop so the clip loops seamlessly (0 = frozen) |
+| `density` | `1` | multiplier for how many particles / elements are drawn |
+| `seed` | `1` | random seed (changes the layout, not the look) |
+| `title` | `""` | optional headline over the scene (empty = none) |
+| `subtitle` | `""` | optional small line under the title (empty = none) |
+| `fontFamily` | `"serif"` | font role ("serif", "display", "sans", "grotesk", "hand", "mono") or any CSS family for title / subtitle |
+| `ink` | `""` | title / subtitle colour; empty = from timeOfDay |
+| `titlePosition` | `"top"` | "center" \| "top" \| "bottom" |
+| `titleSize` | `1` | title size multiplier |
 
 ### `outrun-grid` — Outrun grid
 
@@ -6380,6 +6578,41 @@ A giant panelled mechanical worm with a toothed circular mouth bursts out of a c
 | `dustAmount` | `1` | dust puff density (0 = none) |
 | `seed` | `5` | seed for panels, dunes and dust |
 
+### `snow-mountain-dawn` — Snow mountain dawn
+
+Three ridged mountain ranges with soft snow lines at first light: an alpine glow breathing on the sun-facing slopes, drifting mist between the ranges, slow clouds, falling snow and pine silhouettes; loops seamlessly in dawn / day / dusk / night palettes.
+
+**Use for:** Calm looping hero or title backdrop for outdoor / adventure / expedition, winter, wellness, finance "summit" metaphors, motivational quotes, podcasts and lyric videos; colour with timeOfDay or brand colours and add your own title.  
+**Rebuilt from:** original — round 3 nature backdrops  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** backdrop · **Mood:** mid, 3d, nature, night  
+**Capabilities:** paints its own background · seamless loop · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `timeOfDay` | `"dawn"` | "dawn" \| "day" \| "dusk" \| "night" – sky and light palette preset |
+| `skyTop` | `""` | override the top sky colour (hex); empty = from timeOfDay |
+| `skyBottom` | `""` | override the horizon sky colour (hex); empty = from timeOfDay |
+| `accent` | `""` | override the sun / moon / glow colour (hex); empty = from timeOfDay |
+| `rockColor` | `""` | nearest mountain rock colour (hex); far ranges fade toward the sky; empty = from the sky |
+| `snowColor` | `""` | snow cap colour (hex); empty = from the sky |
+| `ranges` | `3` | number of mountain ranges (2-5) |
+| `peakHeight` | `1` | peak height multiplier |
+| `sunX` | `0.62` | sun / glow horizontal position, 0 (left) – 1 (right) |
+| `snowfall` | `1` | falling snow amount (0 = none) |
+| `mist` | `1` | mist between the ranges (0 = none) |
+| `pines` | `true` | pine tree silhouettes in the foreground |
+| `speed` | `1` | animation speed; quantised to whole cycles per loop so the clip loops seamlessly (0 = frozen) |
+| `density` | `1` | multiplier for how many particles / elements are drawn |
+| `seed` | `3` | random seed (changes the layout, not the look) |
+| `title` | `""` | optional headline over the scene (empty = none) |
+| `subtitle` | `""` | optional small line under the title (empty = none) |
+| `fontFamily` | `"serif"` | font role ("serif", "display", "sans", "grotesk", "hand", "mono") or any CSS family for title / subtitle |
+| `ink` | `""` | title / subtitle colour; empty = from timeOfDay |
+| `titlePosition` | `"top"` | "center" \| "top" \| "bottom" |
+| `titleSize` | `1` | title size multiplier |
+
 ### `snowfall` — Snowfall
 
 ![snowfall](../gallery/snowfall.jpg)
@@ -6444,6 +6677,39 @@ Dark teal night sky with twinkling cream stars, a grainy crescent moon that fade
 | `seed` | `1` | random seed |
 | `ripple` | `null` | {x, y, at}: a wave of brightened twinkles spreads from that point (0..1 fractions) starting at that frame - a "star arriving home" / payoff accent; null = off |
 | `rippleSpeed` | `1100` | ripple speed in px/s at 1080p (1100) |
+
+### `starfield-warp` — Starfield warp
+
+Hyperspace flight: stars burst from a vanishing point and accelerate outward as growing light streaks over a soft nebula and bright core glow; the warp amount stretches dots into light-speed lines, with optional gentle swirl; loops seamlessly and can be a transparent star overlay.
+
+**Use for:** Space / sci-fi / tech intros and transitions, "launching" or "speed" moments, AI and startup hero backgrounds, game loading screens, countdowns; use background "transparent" to layer the stars over footage or a UI.  
+**Rebuilt from:** original — round 3 nature backdrops  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** backdrop, accent · **Mood:** dark, night  
+**Capabilities:** overlay (`{"background":"transparent"}`) · seamless loop · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `background` | `"#02030B"` | CSS background; "transparent" = star overlay only (no sky, no nebula) |
+| `nebula` | `true` | soft coloured nebula clouds behind the stars (not drawn on a transparent background) |
+| `colors` | `["#9FC4FF","#B58CFF","#5ED3C7"]` | star / nebula / glow colours (hex list); first is the core glow, 2nd and 3rd tint the nebula |
+| `warp` | `1` | streak length: 0 = round dots, 1 = default, 2-3 = long light-speed lines |
+| `count` | `520` | stars at default density |
+| `swirl` | `0` | gentle rotation of the flight direction (0 = straight out, try 1-3) |
+| `centerX` | `0.5` | vanishing point x, 0 (left) – 1 (right) |
+| `centerY` | `0.5` | vanishing point y, 0 (top) – 1 (bottom) |
+| `coreGlow` | `1` | glow at the vanishing point (0 = none) |
+| `pulse` | `1` | how much the warp and core glow breathe over the loop (0 = steady) |
+| `speed` | `1` | animation speed; quantised to whole cycles per loop so the clip loops seamlessly (0 = frozen) |
+| `density` | `1` | multiplier for how many particles / elements are drawn |
+| `seed` | `8` | random seed (changes the layout, not the look) |
+| `title` | `""` | optional headline over the scene (empty = none) |
+| `subtitle` | `""` | optional small line under the title (empty = none) |
+| `fontFamily` | `"grotesk"` | font role ("serif", "display", "sans", "grotesk", "hand", "mono") or any CSS family for title / subtitle |
+| `ink` | `""` | title / subtitle colour; empty = from timeOfDay |
+| `titlePosition` | `"center"` | "center" \| "top" \| "bottom" |
+| `titleSize` | `1` | title size multiplier |
 
 ### `studio-sweep` — Studio sweep (graphite seamless backdrop)
 
@@ -7170,6 +7436,37 @@ A chibi explorer in a bucket hat walks in place at 37.5 % W while procedural era
 
 ## data
 
+### `api-request-flow` — API request flow
+
+![api-request-flow](../gallery/api-request-flow.jpg)
+
+A request / response round trip: client, server and database nodes in a row; labelled request packets travel between them, responses come back in a second colour, each arrival pulses the node and pops an HTTP status badge, and a call log fills in underneath.
+
+**Use for:** Explaining how an API call works, backend architecture, REST / HTTP basics, error-handling stories (a 500 shakes the node), latency and developer-docs videos.  
+**Rebuilt from:** original (generic developer explainer)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `nodes` | `[{"label":"Client","kind":"client","sub":"web app"},{"lab…` | boxes in order [{label, kind?: 'client' \| 'server' \| 'database' \| 'cache' \| 'queue' \| 'service', sub?}] (2–5) |
+| `steps` | `[{"from":0,"to":1,"label":"POST /orders"},{"from":1,"to":…` | packets in order [{from, to (node indexes), label, status? (HTTP code, 4xx/5xx = red + shake), statusText?, ms?, type? ('request' \| 'response'; default: response when going back toward node 0)}] |
+| `title` | `"What happens on a request"` | heading (empty = none) |
+| `showLog` | `true` | show the call log under the diagram |
+| `stepFrames` | `42` | frames per packet |
+| `speed` | `1` | timing multiplier |
+| `startAt` | `0` | frame the flow starts |
+| `background` | `"#0C0F16"` | page colour or 'transparent' |
+| `panel` | `"#151A25"` | node / card colour |
+| `ink` | `"#EAEFF8"` | text colour |
+| `accent` | `"#4C8DFF"` | request colour |
+| `accent2` | `"#F5A524"` | response colour |
+| `okColor` | `"#2EC4A6"` | 2xx badge colour |
+| `errColor` | `"#FF5C5C"` | 5xx badge / error colour |
+| `fontFamily` | `""` | monospace font override (empty = JetBrains Mono) |
+
 ### `atom-electron-cloud` — Atom electron cloud builder
 
 ![atom-electron-cloud](../gallery/atom-electron-cloud.jpg)
@@ -7340,6 +7637,8 @@ A bubble chart: axes and grid fade in, then bubbles grow in from left to right a
 
 ### `budget-envelope-split` — Budget envelope split
 
+![budget-envelope-split](../gallery/budget-envelope-split.jpg)
+
 An income bar at the top splits into coins that travel down dashed lines to a grid of paper envelopes; each envelope pops in, opens its flap and lifts a slip showing the amount and share, while the "left to assign" counter on the bar runs down to zero.
 
 **Use for:** Personal-finance and budgeting apps, envelope / zero-based budgeting explainers, salary or revenue allocation stories, "where does my money go" reels. Pass the income and a list of labelled envelopes with amounts and colours.  
@@ -7488,6 +7787,37 @@ A locked-off concourse plate darkens and desaturates while every walker becomes 
 | `sub` | `"CONCOURSE B · NORTHWIND STATION"` | small tracked line |
 | `src` | `""` | optional public/ crowd still used as the plate (procedural concourse otherwise) |
 | `seed` | `7` | walker layout seed |
+
+### `deploy-pipeline-stages` — Deploy pipeline stages
+
+![deploy-pipeline-stages](../gallery/deploy-pipeline-stages.jpg)
+
+A CI/CD pipeline of stage cards (build, test, scan, deploy): each runs in turn with a spinner that becomes a check or a red cross, sub-steps tick off, a timer counts up and the connector fills; a failing stage stops the line, later stages show as skipped, and a banner ends it.
+
+**Use for:** DevOps / CI-CD explainers, "how we ship" and release-process videos, deployment tooling promos, incident stories (set one stage to fail).  
+**Rebuilt from:** original (generic developer explainer)  
+**Default length:** 270 frames (9.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud, ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle`, `stages` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Deploy to production"` | pipeline name |
+| `subtitle` | `"main · 5de2147"` | branch / commit line under the title |
+| `stages` | `[{"name":"Build","steps":["Install dependencies","Compile…` | stages in order [{name, steps? (up to 5 sub-steps), seconds? (timer end value), result? ('pass' default \| 'fail' — stops the pipeline, later stages are skipped)}] |
+| `successText` | `"Deployed to production"` | banner text when every stage passes |
+| `failText` | `"Pipeline failed"` | banner text when a stage fails |
+| `stageFrames` | `48` | frames each stage runs |
+| `speed` | `1` | timing multiplier |
+| `startAt` | `0` | frame the pipeline starts |
+| `background` | `"#0C0F16"` | page colour or 'transparent' |
+| `panel` | `"#151A25"` | card colour |
+| `ink` | `"#EAEFF8"` | text colour |
+| `accent` | `"#4C8DFF"` | running colour |
+| `okColor` | `"#2EC4A6"` | pass colour |
+| `errColor` | `"#FF5C5C"` | fail colour |
+| `fontFamily` | `""` | monospace font override (empty = JetBrains Mono) |
 
 ### `dna-helix-unzip` — DNA helix unzip
 
@@ -7735,6 +8065,8 @@ Ink-line glass jars on a clay shelf rack light up one by one: saturated self-lit
 
 ### `fitness-activity-rings` — Fitness activity rings
 
+![fitness-activity-rings](../gallery/fitness-activity-rings.jpg)
+
 A fitness-app daily summary: three thick concentric activity rings close clockwise (a ring above its goal laps a second, lighter turn) while a count-up list shows each value against its goal with a check when closed, and a streak card with a flame and seven weekly mini rings fills in beneath.
 
 **Use for:** Fitness, wellness and habit apps and promos: daily steps / calories / active minutes, closing-your-rings moments, streak and weekly-consistency stories. Each ring has its own label, value, goal, unit and colour; the week row and streak count are props.  
@@ -7790,6 +8122,8 @@ A Bunsen-style burner on a lab bench: a wire loop dips into the flame, which tur
 | `seed` | `3` | spark seed |
 
 ### `floorplan-draw` — Floor plan draw
+
+![floorplan-draw](../gallery/floorplan-draw.jpg)
 
 A top-down floor plan draws itself room by room: walls trace on, each room tints and gets its name and a counting area figure, door swings appear, dimension lines measure the whole footprint and a total-area chip counts up.
 
@@ -7989,6 +8323,34 @@ A 240-degree dial gauge: coloured zone bands sweep on, tick labels appear, the n
 | `startAt` | `8` | frame the dial starts drawing |
 | `speed` | `1` | animation speed multiplier |
 
+### `git-branch-graph` — Git branch graph
+
+![git-branch-graph](../gallery/git-branch-graph.jpg)
+
+A git history graph from commit data: dots appear in order along a time axis, branches take coloured lanes, edges draw on, a merge commit joins two lanes, tags flag a commit, a HEAD pill travels to the newest commit and a caption shows its message.
+
+**Use for:** Explaining branching and merging, release flow, pull-request workflows, version-control tutorials, "how our team ships" and developer-tool promos.  
+**Rebuilt from:** original (generic developer explainer)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud, editorial  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `commits` | `[{"id":"a1f3c9e","message":"Initial commit","branch":"mai…` | commits oldest → newest [{id, message, branch, parents?: ids (default: previous commit on the same branch; list 2 ids for a merge), tag?}] |
+| `colors` | `["#4C8DFF","#F5A524","#2EC4A6","#C77DFF","#FF6B8B","#8BD4…` | lane colours, one per branch in order of first appearance |
+| `title` | `"Branch, build, merge"` | heading (empty = none) |
+| `headLabel` | `"HEAD"` | text of the pointer on the newest commit |
+| `showMessages` | `true` | show the newest commit message as a caption |
+| `every` | `15` | frames between commits |
+| `speed` | `1` | timing multiplier |
+| `startAt` | `0` | frame the graph starts |
+| `background` | `"#0C0F16"` | page colour or 'transparent' |
+| `ink` | `"#EAEFF8"` | text / HEAD colour |
+| `accent` | `"#FF5C7A"` | tag colour |
+| `fontFamily` | `""` | monospace font override (empty = JetBrains Mono) |
+
 ### `grid-exception` — Grid exception (the one that breaks out)
 
 ![grid-exception](../gallery/grid-exception.jpg)
@@ -8090,6 +8452,8 @@ A measuring tape is laid on the ground of a photograph in true one-point perspec
 | `mono` | `true` | grade a supplied photo to silver-gelatin greys |
 
 ### `heart-rate-monitor` — Heart rate monitor
+
+![heart-rate-monitor](../gallery/heart-rate-monitor.jpg)
 
 A glowing ECG trace sweeps across a gridded monitor with the classic P-QRS-T beat while a large BPM number and a pulsing heart follow the rate as it climbs from rest to a peak and recovers; a zone list (rest / fat burn / cardio / peak) highlights the current zone and the trace colour follows it.
 
@@ -8225,6 +8589,35 @@ Isotype statistic: identical flat icons pop in with a back-ease overshoot into a
 | `accent` | `"#CF5140"` | highlight colour |
 | `background` | `"#F2E6D0"` | ground colour |
 | `ink` | `"#2E2522"` | text colour |
+
+### `json-tree-expand` — JSON tree expand
+
+![json-tree-expand](../gallery/json-tree-expand.jpg)
+
+A JSON viewer built from a data prop: objects and arrays expand node by node with a rotating caret and child-count badge, indent guides, syntax-coloured keys and values, a highlighted newest row, auto-scroll, and a path breadcrumb along the bottom.
+
+**Use for:** API-response explainers, "what the data looks like" beats, structured-output / schema stories for AI, developer docs and tutorials, config-file walkthroughs.  
+**Rebuilt from:** original (generic developer explainer)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud, playful, ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `data` | `{"id":1042,"name":"Ada Example","active":true,"roles":["a…` | any JSON value (object / array) to expand |
+| `title` | `"response.json"` | file name in the window header |
+| `collapseDepth` | `3` | nesting depth from which objects stay collapsed as {…} (3 = three levels expand) |
+| `showBreadcrumb` | `true` | show the $.path breadcrumb of the newest row |
+| `showLineNumbers` | `true` | show line numbers |
+| `every` | `7` | frames between rows |
+| `speed` | `1` | timing multiplier |
+| `startAt` | `0` | frame the viewer starts |
+| `background` | `"#0B0E14"` | page colour or 'transparent' |
+| `panel` | `"#12161F"` | window colour (dark or light — syntax colours adapt) |
+| `ink` | `"#E6EAF2"` | text colour |
+| `accent` | `"#79B8FF"` | highlight / breadcrumb colour |
+| `fontFamily` | `""` | monospace font override (empty = JetBrains Mono) |
 
 ### `live-chart` — Live chart / ECG traces
 
@@ -8833,6 +9226,8 @@ A Sankey diagram built from a list of weighted links: node bars grow column by c
 
 ### `savings-goal-jar` — Savings goal jar
 
+![savings-goal-jar](../gallery/savings-goal-jar.jpg)
+
 A glass savings jar fills with a wavy liquid as coins drop in, a big saved-amount counter runs up beside it, tick marks on the glass and a milestone checklist light up as each milestone is passed, and a "to go" line turns into a sparkle "goal reached" celebration when the target is hit.
 
 **Use for:** Savings, fundraising and crowdfunding progress, goal-tracker and fintech app promos, "save for X" explainers. Set the goal, the amount saved, your own milestones, currency and colours.  
@@ -8927,6 +9322,39 @@ A vertical plane slices one feature of a raking-lit survey surface; its profile 
 | `seed` | `8` | terrain seed |
 | `background` | `"#07090B"` | backdrop colour |
 | `surface` | `"#2A2D2F"` | low-ground colour of the lit surface |
+
+### `server-rack-status` — Server rack status
+
+![server-rack-status](../gallery/server-rack-status.jpg)
+
+A server rack cabinet: units slide in, status LEDs blink, drive bays flicker and each load meter wobbles while summary tiles update; at a set moment one unit spikes, its LED goes red, it shakes and pulses and an alert card connects to it.
+
+**Use for:** Infrastructure, hosting, cloud, uptime-monitoring and incident stories; "your servers, at a glance" product beats; DevOps explainers.  
+**Rebuilt from:** original (generic developer explainer)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `servers` | `[{"name":"web-01","sub":"10.0.1.11","load":38},{"name":"w…` | rack units top → bottom [{name, load (baseline %), sub? (small text under the name)}] (1–12) |
+| `title` | `"Cluster status"` | heading |
+| `subtitle` | `"eu-west · 8 nodes"` | small line under the heading (empty = none) |
+| `alertIndex` | `5` | which unit raises the alert (-1 = none) |
+| `alertLoad` | `97` | load % the alerting unit spikes to |
+| `alertText` | `""` | alert message (empty = built from the unit name and load) |
+| `alertLabel` | `"ALERT"` | alert card heading |
+| `alertAt` | `120` | frame the alert fires |
+| `speed` | `1` | timing multiplier |
+| `startAt` | `0` | frame the scene starts |
+| `background` | `"#0C0F16"` | page colour or 'transparent' |
+| `panel` | `"#171C28"` | unit / card colour |
+| `ink` | `"#EAEFF8"` | text colour |
+| `accent` | `"#4C8DFF"` | healthy meter colour |
+| `warnColor` | `"#F5A524"` | warning (70–90 %) colour |
+| `errColor` | `"#FF5C5C"` | alert colour |
+| `fontFamily` | `""` | monospace font override (empty = JetBrains Mono) |
 
 ### `stacked-area-flow` — Stacked area flow
 
@@ -9243,6 +9671,8 @@ A waterfall / bridge chart: an opening total, then floating increase and decreas
 
 ### `weather-forecast-strip` — Weather forecast strip
 
+![weather-forecast-strip](../gallery/weather-forecast-strip.jpg)
+
 A week-ahead forecast: a row of cards (a stacked list in 1:1 and 9:16) rises in one after another, each with the day, a live animated weather icon (spinning sun, drifting cloud, falling rain / snow, flashing storm, fog bands), a chance-of-rain figure, counting high and low temperatures and a warm-to-cool range bar; today is highlighted.
 
 **Use for:** Weather apps and bulletins, travel and event planning, outdoor-business "what to expect" reels, smart-home widgets. Pass your own days with a day name, icon (sun, moon, partly, cloud, rain, storm, snow, fog, wind), high and low temperatures and optional chance of rain.  
@@ -9301,7 +9731,41 @@ A dark translucent side panel with a white hairline frame and a turn header, scr
 | `repliesLabel` | `"replies"` | word after the reply count under a message |
 | `viewLabel` | `"View conversation"` | underlined link text under a message |
 
+### `ai-chat-streaming` — AI chat streaming
+
+![ai-chat-streaming](../gallery/ai-chat-streaming.jpg)
+
+A generic AI assistant chat: the prompt types into the input bar and sends as a bubble, a thinking indicator bounces, then the answer streams in token by token with a block cursor, **bold** and `code` styling, a stop pill and a token / time readout.
+
+**Use for:** AI assistant / copilot / chatbot promos, "how LLMs generate text" explainers, prompt-and-response demos, support-bot and agent product videos. Swap prompt, answer and names for any product.  
+**Rebuilt from:** original (generic AI explainer)  
+**Default length:** 330 frames (11.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** playful, ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `userName` | `"You"` | name of the person (reserved label) |
+| `assistantName` | `"Assistant"` | assistant name shown in the header and over the answer |
+| `prompt` | `"Explain how a hash table works in two sentences."` | the user message (typed into the input bar, then sent) |
+| `answer` | `"A hash table stores **key–value pairs** in an array of b…` | the assistant reply; use **bold**, `code` and \n for line breaks |
+| `placeholder` | `"Message the assistant…"` | input bar placeholder text |
+| `tokensPerSecond` | `24` | average streaming speed |
+| `showStats` | `true` | show the token / time readout when the answer ends |
+| `thinkingFrames` | `26` | frames of the thinking indicator before the first token |
+| `speed` | `1` | timing multiplier |
+| `startAt` | `0` | frame the chat starts |
+| `background` | `"#0C0F16"` | page colour or 'transparent' |
+| `panel` | `"#151A25"` | chat window colour |
+| `ink` | `"#EAEFF8"` | text colour |
+| `accent` | `"#4C8DFF"` | user bubble / cursor colour |
+| `accent2` | `"#B07CFF"` | assistant avatar colour |
+| `fontFamily` | `""` | text font override (empty = Inter) |
+
 ### `appointment-booking-calendar` — Appointment booking calendar
+
+![appointment-booking-calendar](../gallery/appointment-booking-calendar.jpg)
 
 A booking widget plays itself: a month calendar fades in, a cursor picks a date (ripple, filled circle), time-slot chips appear for that day, the cursor picks a slot and presses a Confirm button, and a confirmation card with an animated check and the chosen date, time and service pops over the panel.
 
@@ -9362,6 +9826,41 @@ Cut-out photo prints are lowered onto an enamel whiteboard from the camera side,
 | `accent` | `"#D33A21"` | red marker colour (last caption — the decision) |
 | `title` | `"Which span fits?"` | marker headline top-left (empty = none) |
 | `background` | `"#8F8B83"` | wall colour behind the board |
+
+### `boarding-pass-print` — Boarding pass printing
+
+A printer slot feeds out a boarding pass in stepped jerks: airline header, big FROM and TO codes with a dotted flight path, passenger fields, a perforated stub with a seat that lights up and a barcode that gets scanned.
+
+**Use for:** Travel and airline promos, trip-confirmation beats, holiday reveals, "you are going to ..." moments, check-in UI demos — set the codes, cities, times, seat and airline.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud, ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `airline` | `"Skyline Air"` | generic airline name (header and stub) |
+| `fromCode` | `"LIS"` | departure code, e.g. 3 letters |
+| `fromCity` | `"Lisbon"` | departure city line |
+| `toCode` | `"OSL"` | arrival code |
+| `toCity` | `"Oslo"` | arrival city line |
+| `departTime` | `"09:45"` | departure time |
+| `arriveTime` | `"14:05"` | arrival time |
+| `date` | `"12 JUN"` | travel date text |
+| `flight` | `"SK 482"` | flight number text |
+| `gate` | `"B14"` | gate text |
+| `seat` | `"12A"` | seat text (highlighted on the stub) |
+| `boardingTime` | `"09:05"` | boarding time text |
+| `passenger` | `"A. TRAVELLER"` | passenger name text |
+| `travelClass` | `"Economy"` | cabin class text |
+| `headerLabel` | `"BOARDING PASS"` | small caps label in the header band |
+| `printFrames` | `54` | frames the feed takes to print the whole pass |
+| `background` | `"#DCE6F2"` | page colour or 'transparent' |
+| `paper` | `"#FFFFFF"` | pass colour |
+| `ink` | `"#14233B"` | text and bar colour |
+| `accent` | `"#1F6FEB"` | header band, plane and seat highlight colour |
+| `startAt` | `0` | frame the scene starts |
 
 ### `browser-mockup` — Browser mockup with living hero
 
@@ -9550,6 +10049,8 @@ Chat bubbles and comment / prompt chips pop in one by one around a box-bot, a sp
 
 ### `checkout-steps` — Checkout steps (cart → shipping → payment → done)
 
+![checkout-steps](../gallery/checkout-steps.jpg)
+
 A four-step checkout flow: the stepper line fills, the cart lines slide in, shipping fields type themselves, payment shows masked placeholder values, and the last step is a confirmation with a check burst.
 
 **Use for:** E-commerce / SaaS checkout explainers, "buy in 4 steps" videos, store onboarding — set the step names, items, fields, currency and brand colours.  
@@ -9562,7 +10063,7 @@ A four-step checkout flow: the stepper line fills, the cart lines slide in, ship
 | prop | default | notes |
 |---|---|---|
 | `steps` | `["Cart","Shipping","Payment","Done"]` | step names (2+). First = cart review, last = confirmation, the ones between are forms |
-| `items` | `[{"name":"Canvas Tote Bag","price":24,"qty":1},{"name":"C…` | cart lines [{name, price, qty?, src?, color?}] (first 5 shown) |
+| `items` | `[{"name":"Canvas Tote Bag","price":24,"qty":1,"kind":0},{…` | cart lines [{name, price, qty?, src?, color?, kind?}] (first 5 shown; kind = procedural drawing 0-7 when no src) |
 | `shippingFields` | `[{"label":"Full name","value":"Alex Morgan"},{"label":"St…` | form fields for the shipping step [{label, value}] |
 | `paymentFields` | `[{"label":"Card number","value":"•••• •••• •••• ••••"},{"…` | form fields for the payment step — keep these masked, never real card data |
 | `buttonLabels` | `["Continue to shipping","Continue to payment","Place order"]` | primary button text per step |
@@ -9638,6 +10139,37 @@ An analog clock whose hands sweep from one time to another over a night-dawn-day
 | `holdEnd` | `40` | frames held after it ends (pulse + circle) |
 | `flipFrames` | `8` | page flip length in frames |
 | `seconds` | `true` | show the sweeping seconds hand |
+
+### `code-diff-highlight` — Code diff highlight
+
+![code-diff-highlight](../gallery/code-diff-highlight.jpg)
+
+A code-review window with a file-name header: removed lines in red and added lines in green sweep in one by one with old/new line-number gutters, a +/- column and light syntax colouring, then a +N/−M badge pops and unchanged context dims.
+
+**Use for:** Pull-request and code-review explainers, "what changed" beats, refactor / bug-fix walkthroughs, changelog and developer-tool promos, AI-coding demos.  
+**Rebuilt from:** original (generic developer explainer)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `lines`, `caption` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `fileName` | `"src/auth/session.ts"` | file path shown in the window header |
+| `hunkHeader` | `""` | hunk line above the code, e.g. '@@ -12,7 +12,9 @@' (empty = computed from the lines) |
+| `lines` | `[{"type":"ctx","text":"export function isValid(session: S…` | diff lines [{type: 'add' \| 'del' \| 'ctx', text}] — text is plain code, no +/- prefix |
+| `startLine` | `12` | first line number in the gutters |
+| `caption` | `"Reject expired sessions"` | one-line takeaway under the window (empty = none) |
+| `every` | `9` | frames between lines |
+| `speed` | `1` | timing multiplier |
+| `startAt` | `0` | frame the window starts |
+| `background` | `"#0B0E14"` | page colour or 'transparent' |
+| `panel` | `"#12161F"` | window colour (dark or light — syntax colours adapt) |
+| `ink` | `"#E6EAF2"` | text colour |
+| `addColor` | `"#2EA043"` | added-line colour |
+| `delColor` | `"#F85149"` | removed-line colour |
+| `accent` | `"#79B8FF"` | hunk-header colour |
+| `fontFamily` | `""` | monospace font override (empty = JetBrains Mono) |
 
 ### `command-palette-type` — Command palette typing
 
@@ -9996,6 +10528,29 @@ Small isometric hardware tiles that come alive when running: an LED blinking wit
 | `grid` | `true` | draw the isometric drafting-paper grid |
 | `columns` | `0` | tile columns (0 = auto: 3 landscape, 2 portrait) |
 
+### `itinerary-route-stops` — Itinerary route with photo stops
+
+A dotted route draws across the frame while a marker travels it; each stop pops into a photo circle with a day badge, place name and note — day-by-day trip plans.
+
+**Use for:** Trip itineraries, tour and holiday packages, road-trip recaps, day-by-day plans, customer-journey stops — set stops (label, day, note, photo src).  
+**Rebuilt from:** original (round 3)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo, ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Five days, five stops"` | headline |
+| `subtitle` | `"Your trip at a glance"` | small caps line under the headline |
+| `stops` | `[{"label":"Harbour Town","day":"Day 1","note":"Arrive, su…` | stops in order, 2-8: {label, day, note, src?} — src is a public/ path or https URL for the photo (procedural scene if omitted) |
+| `travelFrames` | `150` | frames the marker takes to ride the whole route |
+| `background` | `"#F4EFE6"` | page colour or 'transparent' |
+| `ink` | `"#1D2B36"` | text colour |
+| `accent` | `"#E2552D"` | marker and day-badge colour |
+| `routeColor` | `"#1D2B36"` | colour of the dotted route |
+| `startAt` | `0` | frame the scene starts |
+
 ### `keystroke-hud` — Keystroke HUD
 
 ![keystroke-hud](../gallery/keystroke-hud.jpg)
@@ -10193,6 +10748,31 @@ Pastel aurora backdrop: a carousel ring of cards turns, the Ring/Gallery toggle 
 | `spin` | `3.4` | radians the ring turns before the switch |
 | `seed` | `2` | art / tilt seed |
 
+### `menu-board-items` — Menu board (chalk or clean)
+
+A cafe / restaurant menu: heading writes on, then each section and its items appear one after another — name wipe, dotted leader and a price that pops — on a chalkboard with a wooden frame or a clean printed page.
+
+**Use for:** Cafe, restaurant, bakery and food-truck menus, price lists, specials boards, event menus, any "items with prices" list in sections — set sections, items, prices and colours.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Today's Menu"` | board heading |
+| `subtitle` | `"Fresh · Local · Seasonal"` | small line under the heading |
+| `sections` | `[{"title":"Coffee","items":[{"name":"Espresso","desc":"Do…` | sections up to 6: {title, items:[{name, desc?, price}]} — price is text, so any currency or format |
+| `footer` | `"Ask about our daily special"` | line at the bottom ('' to hide) |
+| `look` | `"chalk"` | 'chalk' (chalkboard, hand lettering, wooden frame) or 'clean' (printed menu) |
+| `stagger` | `8` | frames between consecutive items |
+| `background` | `"#25352E"` | board colour (chalk: board; clean: page) or 'transparent' for clean |
+| `frameColor` | `"#7A5636"` | wooden frame colour (chalk look only) |
+| `ink` | `"#F3F0E6"` | main text / chalk colour |
+| `accent` | `"#F4C95D"` | section titles, prices, underline |
+| `startAt` | `0` | frame the scene starts |
+
 ### `notification-stack` — Notification stack (iOS / macOS / Android / toast)
 
 ![notification-stack](../gallery/notification-stack.jpg)
@@ -10303,6 +10883,8 @@ A poll card: the question types in, option bars fill one after another to their 
 
 ### `property-listing-card` — Property listing card
 
+![property-listing-card](../gallery/property-listing-card.jpg)
+
 A real-estate listing card rises in: the photo (or a drawn house) wipes in with a slow push-in and light sweep under a status badge and a favourite heart, then the price counts up, the title and a location pin appear, bed / bath / area icon stats pop in one by one and feature tags pop below.
 
 **Use for:** Real-estate, rental and hospitality listings, property-site hero animations, agent promo reels, marketplace item cards. Pass a photo src, the price, beds / baths / area, the location and feature tags; horizontal card in 16:9, vertical in 1:1 and 9:16.  
@@ -10336,6 +10918,33 @@ A real-estate listing card rises in: the photo (or a drawn house) wipes in with 
 | `fontFamily` | `""` | CSS font family (empty = Space Grotesk) |
 | `startAt` | `6` | frame the card starts entering |
 | `speed` | `1` | animation speed multiplier |
+
+### `recipe-ingredients-steps` — Recipe: ingredients then timed steps
+
+A recipe card: the ingredient checklist ticks off item by item, then the numbered method runs step by step, highlighting the active step with a live countdown ring on timed steps and checking each one off.
+
+**Use for:** Recipe and cooking reels, meal-kit and food-brand promos, how-to-make-it explainers, kitchen app demos — set the dish, ingredients, steps (with minutes) and a dish photo.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 300 frames (10.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Lemon pancakes"` | dish name |
+| `subtitle` | `"Serves 4 · 25 min"` | small caps line (serves, time ...) |
+| `ingredientsTitle` | `"Ingredients"` | label above the checklist |
+| `stepsTitle` | `"Method"` | label above the method |
+| `ingredients` | `["200 g plain flour","2 tbsp sugar","2 tsp baking powder"…` | checklist lines, up to 12 |
+| `steps` | `[{"text":"Whisk the dry ingredients together"},{"text":"M…` | method steps, up to 6: {text, minutes?} — minutes > 0 shows a countdown timer ring |
+| `stepFrames` | `46` | frames each step stays active (the timer runs down over this time) |
+| `src` | `""` | dish photo (public/ path or https URL); '' draws a plate illustration |
+| `background` | `"#F6EFE2"` | page colour or 'transparent' |
+| `card` | `"#FFFFFF"` | panel colour |
+| `ink` | `"#2A2118"` | text colour |
+| `accent` | `"#E0872B"` | checks, active step and timer colour |
+| `startAt` | `0` | frame the scene starts |
 
 ### `remix-thumbnail-shelf` — Remix thumbnail shelf
 
@@ -10740,6 +11349,38 @@ Keynote team slide: a headline over a grid of person cards (round or rounded pho
 | `fontFamily` | `"grotesk"` | headline font: sans \| serif \| display \| grotesk \| rounded \| instrument \| mono |
 | `stagger` | `6` | frames between cards popping in |
 | `startAt` | `0` | frame the slide begins |
+
+### `terminal-install-progress` — Terminal install progress
+
+![terminal-install-progress](../gallery/terminal-install-progress.jpg)
+
+A terminal window: a command types in and runs, progress rows appear one by one (spinner, label, filling bar, percentage and size readout, each ending in a green check), then success lines and a fresh blinking prompt.
+
+**Use for:** Install / setup / "get started in one command" beats, CLI and package-manager promos, developer onboarding, build or deploy output, release trailers.  
+**Rebuilt from:** original (generic developer explainer)  
+**Default length:** 300 frames (10.0 s @ 30 fps)
+
+**Roles:** accent, subject · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"zsh — 96×28"` | window title |
+| `cwd` | `"~/project"` | working-directory text before the prompt |
+| `prompt` | `"$"` | prompt symbol |
+| `command` | `"pkg install awesome-toolkit"` | the command that is typed and run |
+| `steps` | `[{"label":"Resolving dependencies","detail":"142 packages…` | progress rows [{label, size? (total, counts up), unit? (default MB), detail? (text instead of size)}] |
+| `successLines` | `["Installed 142 packages in 6.4s","Run `awesome --help` t…` | lines printed after the steps (wrap `code` in backticks to highlight it) |
+| `stepFrames` | `32` | frames each progress bar takes |
+| `typeSpeed` | `26` | command typing speed in chars/s |
+| `speed` | `1` | timing multiplier |
+| `startAt` | `0` | frame the terminal starts |
+| `background` | `"#0B0E14"` | page colour or 'transparent' |
+| `panel` | `"#12161F"` | window colour (dark or light) |
+| `ink` | `"#E6EAF2"` | text colour |
+| `accent` | `"#79B8FF"` | prompt / progress colour |
+| `okColor` | `"#3FD68F"` | success colour |
+| `fontFamily` | `""` | monospace font override (empty = JetBrains Mono) |
 
 ### `testimonial-card-carousel` — Testimonial card carousel
 
@@ -13765,6 +14406,28 @@ A round kawaii suspect rises in front of a height chart with cm labels at both e
 | `profileLabel` | `"PROFILE"` | heading on the profile side plate |
 | `photoLabel` | `"SUSPECT"` | first (yellow) word of the front-plate caption |
 | `photoLabel2` | `"PHOTO"` | second (cream) word of the front-plate caption |
+
+### `passport-stamps` — Passport stamps thud on
+
+A passport page collects travel stamps one by one: a rubber-stamp tool drops, the inked stamp lands slightly rotated with a shockwave and a page shake, then the tool lifts — circle, rectangle, oval, octagon and arrow shapes in any ink colour.
+
+**Use for:** Travel recaps, countries-visited counters, achievement / milestone collections, "places I have been" reels, loyalty-stamp and visa-approved beats — set stamps as {place, date, shape, color}.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"VISAS"` | heading at the top of the page |
+| `stamps` | `[{"place":"Lisbon","date":"04 MAR 2025","shape":"circle",…` | stamps in order, up to 9: {place, date, shape (circle \| rect \| oval \| octagon \| hex \| arrow), color, label?} — label is the small word (default ENTRY) |
+| `gap` | `22` | frames between one stamp and the next |
+| `background` | `"#2E3A4D"` | table / cover colour or 'transparent' |
+| `paper` | `"#F4EBD6"` | page colour |
+| `ink` | `"#3A3326"` | heading and rule colour |
+| `accent` | `"#B3261E"` | page counter colour |
+| `startAt` | `0` | frame the scene starts |
 
 ### `receipt-print` — Receipt print
 
@@ -17020,6 +17683,8 @@ A hook phrase plays one giant word per beat: each word slams in full-frame in he
 
 ### `add-to-cart-fly` — Add to cart (thumbnail flies into cart)
 
+![add-to-cart-fly](../gallery/add-to-cart-fly.jpg)
+
 A store header with a cart icon and a product card: the button is pressed, a copy of the product picture flies in an arc into the cart, the cart wiggles and its badge count bumps with a +1.
 
 **Use for:** E-commerce explainers, store promos, app-store videos, "add to cart" UX demos — set the product picture, name, price, currency and labels.  
@@ -17077,6 +17742,8 @@ A product cycles through a list of colourways: the image is recoloured (luminanc
 
 ### `coupon-scratch-reveal` — Coupon scratch card reveal
 
+![coupon-scratch-reveal](../gallery/coupon-scratch-reveal.jpg)
+
 A coupon ticket with a foil window: a coin scratches back and forth with flying flakes until the discount code is revealed with a pop and confetti, then a "Copy code" button is tapped and turns to "Copied".
 
 **Use for:** Promo codes, giveaways, loyalty rewards, black-friday teasers, app-store discount beats — set the headline, discount, code and colours.  
@@ -17106,6 +17773,8 @@ A coupon ticket with a foil window: a coin scratches back and forth with flying 
 | `speed` | `1` | timing multiplier (1 = default) |
 
 ### `delivery-tracker` — Delivery tracker (timeline + van on a route)
+
+![delivery-tracker](../gallery/delivery-tracker.jpg)
 
 A map with a street grid and a route from shop to home, a delivery van driving along it with a growing trail, a status timeline that ticks through the stages and an ETA countdown that ends in a Delivered check.
 
@@ -17188,6 +17857,8 @@ A product image floats in the centre with a dashed orbit ring; feature labels po
 | `speed` | `1` | overall tempo multiplier |
 
 ### `flash-deal-timer-card` — Flash deal card (countdown + draining stock bar)
+
+![flash-deal-timer-card](../gallery/flash-deal-timer-card.jpg)
 
 A product card with a FLASH DEAL ribbon, discount badge, struck-through old price, a ticking HH:MM:SS countdown and a stock bar that drains and turns red as units run out, with a pulsing call-to-action.
 
@@ -17306,6 +17977,8 @@ Four ingredients pour into a tall glass one after another as a stream with a spl
 
 ### `order-confirmation` — Order confirmation receipt
 
+![order-confirmation](../gallery/order-confirmation.jpg)
+
 A check burst and headline beside a receipt card with a zig-zag edge: item lines slide in, subtotal / shipping / tax appear, the total counts up, then a barcode and a delivery-note chip.
 
 **Use for:** Checkout success beats, "thanks for your order" emails turned into video, e-commerce app explainers, receipt / invoice reveals — set the items, currency, labels and colours.  
@@ -17331,6 +18004,7 @@ A check burst and headline beside a receipt card with a zig-zag edge: item lines
 | `totalLabel` | `"Total"` | label of the total line |
 | `freeLabel` | `"Free"` | text shown when shipping is 0 |
 | `deliveryNote` | `"Estimated delivery: 3-5 days"` | text in the delivery chip |
+| `textColor` | `""` | colour of the headline / sub-line / chip on the page background; empty = automatic light or dark from the background |
 | `background` | `"#EEF1F6"` | page colour or 'transparent' |
 | `card` | `"#FFFFFF"` | receipt colour |
 | `ink` | `"#18202E"` | text colour |
@@ -17367,6 +18041,8 @@ A price tag hangs on a string, drops in and swings to rest; the old price is str
 
 ### `product-grid-filter` — Product grid with filter chips (re-flow)
 
+![product-grid-filter](../gallery/product-grid-filter.jpg)
+
 A grid of product cards with filter chips on top; as the active chip changes the matching cards glide to new slots, the others shrink away and the count updates, then it returns to All.
 
 **Use for:** Catalogue / store / marketplace UI demos, "shop by category" beats, filter and search feature explainers — set the products, categories, prices and images.  
@@ -17392,6 +18068,8 @@ A grid of product cards with filter chips on top; as the active chip changes the
 | `startAt` | `0` | frame the grid starts entering |
 
 ### `size-color-picker` — Size & colour variant picker
+
+![size-color-picker](../gallery/size-color-picker.jpg)
 
 A product picture with colour swatches and size chips that are tapped in turn: the picture re-tints, the chosen chip fills, the price rolls to the new value and the add button wakes up.
 

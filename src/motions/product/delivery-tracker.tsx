@@ -113,8 +113,8 @@ const DeliveryTracker: React.FC<Props> = (p) => {
   const full = cut(RS, 0.9999);
   const start = RS.pts[0];
   const end = RS.pts[RS.pts.length - 1];
-  const dir = Math.abs(van.dx) > Math.abs(van.dy) ? (van.dx >= 0 ? 1 : -1) : van.dy < 0 ? 1 : 1;
-  const vanAng = Math.abs(van.dx) > Math.abs(van.dy) ? 0 : van.dy < 0 ? -90 : 90;
+  const dir = 1;
+  const vanAng = 0;
   const vs = Math.min(mapW, mapH) * 0.13;
   const bob = Math.sin(frame * 0.9) * 1.2 * u * (move > 0 && move < 1 ? 1 : 0);
 
@@ -138,7 +138,7 @@ const DeliveryTracker: React.FC<Props> = (p) => {
   const arriveBurst = sseg(t, arrive, arrive + 14);
 
   // timeline
-  const tlItemH = Math.min(portrait ? 92 * u : 84 * u, (panH - (portrait ? 190 : 250) * u) / n);
+  const tlItemH = Math.min(portrait ? 128 * u : 104 * u, (panH - (portrait ? 330 : 300) * u) / n);
 
   return (
     <AbsoluteFill style={{background: bgOf(p.background), fontFamily: fonts.sans, color: p.ink}}>

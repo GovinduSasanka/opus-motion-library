@@ -721,6 +721,56 @@
    "motion": 1.22,
    "seam": 21.04,
    "end": 0.04
+  },
+  "city-rooftops-rain-window": {
+   "luma": 46,
+   "motion": 0.26,
+   "seam": 0.91,
+   "end": 0.93
+  },
+  "desert-dunes-heat": {
+   "luma": 118,
+   "motion": 0.11,
+   "seam": 0.32,
+   "end": 0.35
+  },
+  "firefly-meadow-night": {
+   "luma": 33,
+   "motion": 0.31,
+   "seam": 0.82,
+   "end": 0.86
+  },
+  "forest-parallax-mist": {
+   "luma": 82,
+   "motion": 0.38,
+   "seam": 1.04,
+   "end": 1
+  },
+  "lava-lamp-blobs": {
+   "luma": 69,
+   "motion": 2.59,
+   "seam": 1.09,
+   "end": 1.15
+  },
+  "ocean-waves-layers": {
+   "luma": 89,
+   "motion": 0.34,
+   "seam": 0.99,
+   "end": 1
+  },
+  "snow-mountain-dawn": {
+   "luma": 89,
+   "motion": 0.36,
+   "seam": 1,
+   "end": 1.25
+  },
+  "starfield-warp": {
+   "luma": 38,
+   "motion": 1.32,
+   "seam": 0.92,
+   "end": 1,
+   "transparent": 0.183,
+   "alpha": 0.171
   }
  }
 }

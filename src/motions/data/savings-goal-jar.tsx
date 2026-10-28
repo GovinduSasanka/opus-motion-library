@@ -55,10 +55,10 @@ const SavingsGoalJar: React.FC<Props> = ({title, subtitle, goal, saved, goalLabe
   const side = !portrait;
   const jarArea = side ? {x: box.x, y: box.y, w: box.w * 0.38, h: box.h} : {x: box.x, y: box.y, w: box.w, h: box.h * 0.52};
   const infoArea = side ? {x: box.x + box.w * 0.44, y: box.y, w: box.w * 0.56, h: box.h} : {x: box.x, y: box.y + box.h * 0.55, w: box.w, h: box.h * 0.45};
-  const jh = Math.min(jarArea.h, jarArea.w / 0.7);
+  const jh = Math.min(jarArea.h * 0.88, jarArea.w / 0.7);
   const jw = jh * 0.7;
   const jx = jarArea.x + (jarArea.w - jw) / 2;
-  const jy = jarArea.y + (jarArea.h - jh) / 2;
+  const jy = jarArea.y + jarArea.h - jh;
   const topY = jy + jh * 0.24; // liquid at 100%
   const botY = jy + jh - 6 * u;
   const surf = botY - level * (botY - topY);
@@ -91,12 +91,14 @@ const SavingsGoalJar: React.FC<Props> = ({title, subtitle, goal, saved, goalLabe
     const lt = (frame - s0) / (22 / speed);
     if (lt < 0 || lt > 1.15) continue;
     const cxk = jx + jw * (0.36 + 0.28 * ((k * 0.618) % 1));
-    const fromY = jy - jh * 0.35;
+    const fromY = jy - jh * 0.12;
     const toY = surf + 6 * u;
     const y = fromY + (toY - fromY) * ease.in(clamp(lt));
     const cr = jw * 0.085;
     const sx = Math.abs(Math.cos(lt * 5 + k));
     const op = 1 - clamp((lt - 0.9) / 0.25);
+    const rip = clamp((lt - 0.88) / 0.27);
+    if (rip > 0 && rip < 1) coinNodes.push(<ellipse key={'rp' + k} cx={cxk} cy={surf + 2 * u} rx={cr * (1 + rip * 2.4)} ry={cr * 0.3 * (1 + rip)} fill="none" stroke="#fff" strokeOpacity={0.55 * (1 - rip)} strokeWidth={3 * u} />);
     coinNodes.push(
       <g key={k} opacity={op}>
         <ellipse cx={cxk} cy={y} rx={cr * Math.max(0.25, sx)} ry={cr} fill={accent} />
@@ -110,15 +112,15 @@ const SavingsGoalJar: React.FC<Props> = ({title, subtitle, goal, saved, goalLabe
 
   // info
   const colX = infoArea.x;
-  const colW = infoArea.w;
+  const colW = Math.min(infoArea.w, 820 * u);
   const bigNum = fmt(saved * t, 0, prefix, suffix);
   const fullNum = fmt(saved, 0, prefix, suffix);
   const bigSize = Math.min((portrait ? 150 : 128) * u, colW / Math.max(3, fullNum.length * 0.62));
-  const infoTop = side ? infoArea.y + Math.max(0, (infoArea.h - (bigSize * 2.5 + ms.length * 78 * u + 70 * u)) / 2) : infoArea.y;
+  const infoTop = side ? infoArea.y + Math.max(0, (infoArea.h - (bigSize * 2.5 + ms.length * 78 * u + 30 * u)) / 2) : infoArea.y;
   const a0 = prog(frame, startAt + 8, startAt + 30);
   const toGo = Math.max(0, goal - saved * t);
 
-  const mRow = Math.min(portrait ? 70 * u : 76 * u, (infoArea.y + infoArea.h - (infoTop + bigSize * 2.3 + 40 * u)) / Math.max(1, ms.length));
+  const mRow = Math.min(portrait ? 70 * u : 76 * u, (infoArea.y + infoArea.h - (infoTop + bigSize * 2.5 + 30 * u)) / Math.max(1, ms.length));
   const bg = isClear(background) ? 'transparent' : background;
   const ticks = ms.map((m) => ({...m, y: levelY(m.value), hit: saved * t >= m.value - 0.0001}));
 
@@ -165,9 +167,9 @@ const SavingsGoalJar: React.FC<Props> = ({title, subtitle, goal, saved, goalLabe
         {reached && doneT > 0 &&
           [0, 1, 2, 3, 4, 5, 6, 7].map((k) => {
             const a = (k / 8) * Math.PI * 2 + 0.3;
-            const d = (jw * 0.25 + doneT * jw * 0.55) * (0.8 + (k % 3) * 0.12);
+            const d = (jw * 0.3 + doneT * jw * 0.45) * (0.8 + (k % 3) * 0.12);
             const sx = jx + jw / 2 + Math.cos(a) * d;
-            const sy = jy + jh * 0.12 + Math.sin(a) * d * 0.7;
+            const sy = jy + jh * 0.32 + Math.sin(a) * d * 0.55;
             const sz = (14 - doneT * 6) * u;
             return <path key={k} d={`M${sx},${sy - sz} L${sx + sz * 0.3},${sy - sz * 0.3} L${sx + sz},${sy} L${sx + sz * 0.3},${sy + sz * 0.3} L${sx},${sy + sz} L${sx - sz * 0.3},${sy + sz * 0.3} L${sx - sz},${sy} L${sx - sz * 0.3},${sy - sz * 0.3}Z`} fill={accent} opacity={1 - doneT * 0.6} />;
           })}
@@ -179,10 +181,10 @@ const SavingsGoalJar: React.FC<Props> = ({title, subtitle, goal, saved, goalLabe
           <text x={colX} y={infoTop + bigSize * 1.2} fontFamily={font} fontWeight={700} fontSize={bigSize} fill={ink} style={{fontVariantNumeric: 'tabular-nums'}}>
             {bigNum}
           </text>
-          <text x={colX} y={infoTop + bigSize * 1.2 + bigSize * 0.32} fontFamily={font} fontWeight={600} fontSize={bigSize * 0.22} fill={ink} fillOpacity={0.6}>
+          <text x={colX} y={infoTop + bigSize * 1.2 + bigSize * 0.46} fontFamily={font} fontWeight={600} fontSize={bigSize * 0.22} fill={ink} fillOpacity={0.6}>
             {clip(`${goalLabel} ${fmt(goal, 0, prefix, suffix)}`, colW, bigSize * 0.22)}
           </text>
-          <text x={colX} y={infoTop + bigSize * 1.2 + bigSize * 0.7} fontFamily={font} fontWeight={700} fontSize={bigSize * 0.24} fill={accent}>
+          <text x={colX} y={infoTop + bigSize * 1.2 + bigSize * 0.86} fontFamily={font} fontWeight={700} fontSize={bigSize * 0.24} fill={accent}>
             {reached && doneT > 0.5 ? reachedLabel : `${fmt(Math.round(toGo), 0, prefix, suffix)} ${toGoLabel}`}
           </text>
         </g>
@@ -191,7 +193,7 @@ const SavingsGoalJar: React.FC<Props> = ({title, subtitle, goal, saved, goalLabe
           const pop = hit ? prog(frame, fillStart + fillDur * ease.inOut(0) , fillStart + fillDur) : 0;
           void pop;
           const a = prog(frame, startAt + 20 + i * 6, startAt + 38 + i * 6);
-          const y = infoTop + bigSize * 2.15 + i * mRow;
+          const y = infoTop + bigSize * 2.4 + i * mRow;
           const sz = mRow * 0.36;
           return (
             <g key={i} opacity={a} transform={`translate(${(1 - a) * 24 * u} 0)`}>

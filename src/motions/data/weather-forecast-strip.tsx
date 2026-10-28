@@ -199,9 +199,9 @@ const WeatherForecastStrip: React.FC<Props> = ({title, subtitle, days, unit, hig
       );
     });
   } else {
-    const rowH = Math.min(box.h / n, 130 * u);
+    const rowH = Math.min(box.h / n, 150 * u);
     const gap = Math.min(12 * u, rowH * 0.1);
-    const top = box.y + (box.h - n * rowH) / 2;
+    const top = box.y + (box.h - n * rowH) * 0.2;
     ds.forEach((d, i) => {
       const t = prog(frame, startAt + i * stag, startAt + i * stag + 26 / speed, ease.out);
       const tt = prog(frame, startAt + i * stag + 12, startAt + i * stag + 56 / speed, ease.out);
@@ -226,7 +226,7 @@ const WeatherForecastStrip: React.FC<Props> = ({title, subtitle, days, unit, hig
             {clip(d.day, W * 0.26, rh * 0.3, 0.62)}
           </text>
           <text x={x + 28 * u} y={y + rh * 0.78} fontFamily={font} fontWeight={500} fontSize={rh * 0.2} fill={ink} fillOpacity={0.62}>
-            {clip(cond, W * 0.3, rh * 0.2)}
+            {clip(cond, W * 0.36, rh * 0.2, 0.48)}
           </text>
           <g transform={`translate(${x + W * 0.43} ${y + rh / 2}) scale(${(rh * 0.74) / 100})`}>
             <Icon kind={kindOf(d)} frame={frame} seed={i} sun={sunColor} cloud={cloud} dark={dark} rain={accent2} />

@@ -41,7 +41,7 @@ const CouponScratchReveal: React.FC<Props> = (p) => {
   const t = (frame - p.startAt) * sp;
 
   const cw = portrait ? w * 0.86 : Math.min(h * 0.72, w * 0.4);
-  const ch = cw * 1.16;
+  const ch = cw * 1.1;
   const cx0 = (w - cw) / 2;
   const cy0 = (h - ch) / 2;
   const enter = ease.out(sseg(t, 0, 20));

@@ -186,7 +186,7 @@ const FitnessActivityRings: React.FC<Props> = ({title, subtitle, rings, week, st
                 {sNum}
               </text>
               <text x={x + 24 * u + fl * 2.1 + streakH * 0.3 * (String(streak).length * 0.58 + 0.35)} y={sy + streakH * 0.42} fontFamily={font} fontWeight={600} fontSize={streakH * 0.13} fill={ink} fillOpacity={0.6}>
-                {clip(streakLabel, w * 0.45, streakH * 0.13)}
+                {clip(streakLabel, w - (fl * 2.1 + streakH * 0.3 * (String(streak).length * 0.58 + 0.35) + 40 * u), streakH * 0.13, 0.46)}
               </text>
               {days.map((d, k) => {
                 const dt = prog(frame, startAt + 56 / speed + k * 4, startAt + 56 / speed + k * 4 + 30 / speed, ease.out);

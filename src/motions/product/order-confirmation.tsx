@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
-import {ease, lerp, prog} from '../../core/ease';
+import {ease, prog} from '../../core/ease';
 import {CheckMark, bgOf, fitFs, money, onColor} from '../../core/commerce-kit';
 import {fonts} from '../../core/fonts';
 import {backOut, mixHex, sh, sseg, withAlpha} from '../../core/r2-s1-kit';
@@ -27,6 +27,7 @@ type Props = {
   totalLabel: string;
   freeLabel: string;
   deliveryNote: string;
+  textColor: string;
   background: string;
   card: string;
   ink: string;
@@ -38,6 +39,8 @@ const OrderConfirmation: React.FC<Props> = (p) => {
   const frame = useCurrentFrame();
   const {w, h, u, portrait} = useStage();
   const t = frame - p.startAt;
+  // text that sits on the page background (left column): auto light/dark unless textColor is set
+  const tc = p.textColor || (p.background === 'transparent' ? p.ink : onColor(p.background, p.ink, '#FFFFFF'));
   const items = p.items.slice(0, 5);
   const subtotal = items.reduce((s, it) => s + it.price * (it.qty ?? 1), 0);
   const total = subtotal + p.shipping + p.tax;
@@ -58,21 +61,19 @@ const OrderConfirmation: React.FC<Props> = (p) => {
 
   // placement
   const colGap = w * 0.05;
-  const headBlock = portrait ? 420 * u : 0;
   const recX = portrait ? (w - rw) / 2 : w - w * 0.08 - rw;
-  const recY = portrait ? headBlock + (h - headBlock - rh - zt) / 2 + 20 * u : (h - rh - zt) / 2;
-  const recIn = ease.out(sseg(t, 10, 34));
-
   // check burst
   const R = (portrait ? 92 : 112) * u;
   const ring = backOut(sseg(t, 2, 18), 2);
   const ck = prog(t, 12, 28);
   const rays = prog(t, 14, 38, ease.out);
   const burstCx = portrait ? w / 2 : w * 0.08 + R + 4 * u;
-  const burstCy = portrait ? 150 * u + R * 0.6 : h * 0.5 - 230 * u;
+  const burstCy = portrait ? 290 * u + R * 0.6 : h * 0.5 - 230 * u;
   const titleX = portrait ? 0 : w * 0.08;
   const titleW = portrait ? w : recX - w * 0.08 - colGap;
   const titleY = portrait ? burstCy + R + 56 * u : burstCy + R + 56 * u;
+  const recY = portrait ? burstCy + R + 56 * u + 96 * u + 160 * u + 40 * u : (h - rh - zt) / 2;
+  const recIn = ease.out(sseg(t, 10, 34));
   const tIn = ease.out(sseg(t, 18, 34));
   const sIn = ease.out(sseg(t, 26, 40));
   const chipIn = backOut(sseg(t, 84, 98), 1.8);
@@ -118,12 +119,12 @@ const OrderConfirmation: React.FC<Props> = (p) => {
       <div style={{position: 'absolute', left: burstCx - R * 0.5, top: burstCy - R * 0.5}}>
         <CheckMark size={R} color={onColor(p.accent)} p={ck} sw={2.8} />
       </div>
-      <div style={{position: 'absolute', left: titleX, top: titleY, width: titleW, textAlign: align, opacity: tIn, transform: `translateY(${(1 - tIn) * 20 * u}px)`}}>
+      <div style={{position: 'absolute', left: titleX, top: titleY, width: titleW, textAlign: align, color: tc, opacity: tIn, transform: `translateY(${(1 - tIn) * 20 * u}px)`}}>
         <div style={{fontFamily: fonts.display, fontSize: fitFs(p.title, titleW * 0.92, (portrait ? 74 : 84) * u, 0.62), lineHeight: 1.05, padding: portrait ? `0 ${w * 0.04}px` : 0, boxSizing: 'border-box'}}>{p.title}</div>
       </div>
-      <div style={{position: 'absolute', left: titleX, top: titleY + (portrait ? 96 : 108) * u, width: titleW, textAlign: align, fontSize: (portrait ? 30 : 30) * u, fontWeight: 600, opacity: 0.62 * sIn, lineHeight: 1.35, padding: portrait ? `0 ${w * 0.08}px` : 0, boxSizing: 'border-box'}}>{p.subtitle}</div>
+      <div style={{position: 'absolute', left: titleX, top: titleY + (portrait ? 96 : 108) * u, width: titleW, textAlign: align, color: tc, fontSize: (portrait ? 30 : 30) * u, fontWeight: 600, opacity: 0.62 * sIn, lineHeight: 1.35, padding: portrait ? `0 ${w * 0.08}px` : 0, boxSizing: 'border-box'}}>{p.subtitle}</div>
       {!portrait ? (
-        <div style={{position: 'absolute', left: titleX, top: titleY + 230 * u, transform: `scale(${Math.max(0.001, chipIn)})`, transformOrigin: 'left center', display: 'inline-flex', alignItems: 'center', gap: 14 * u, padding: `${14 * u}px ${26 * u}px`, borderRadius: 99, background: withAlpha(p.accent, 0.13), color: p.ink, fontWeight: 800, fontSize: 26 * u}}>
+        <div style={{position: 'absolute', left: titleX, top: titleY + 230 * u, transform: `scale(${Math.max(0.001, chipIn)})`, transformOrigin: 'left center', display: 'inline-flex', alignItems: 'center', gap: 14 * u, padding: `${14 * u}px ${26 * u}px`, borderRadius: 99, background: withAlpha(p.accent, 0.18), color: tc, fontWeight: 800, fontSize: 26 * u}}>
           <span style={{width: 14 * u, height: 14 * u, borderRadius: '50%', background: p.accent}} />
           {p.deliveryNote}
         </div>
@@ -173,7 +174,7 @@ const OrderConfirmation: React.FC<Props> = (p) => {
       </div>
       {portrait ? (
         <div style={{position: 'absolute', left: 0, width: w, top: recY + rh + zt + 50 * u, display: 'flex', justifyContent: 'center', transform: `scale(${Math.max(0.001, chipIn)})`}}>
-          <div style={{display: 'inline-flex', alignItems: 'center', gap: 14 * u, padding: `${14 * u}px ${26 * u}px`, borderRadius: 99, background: withAlpha(p.accent, 0.13), fontWeight: 800, fontSize: 26 * u}}>
+          <div style={{display: 'inline-flex', alignItems: 'center', gap: 14 * u, padding: `${14 * u}px ${26 * u}px`, borderRadius: 99, background: withAlpha(p.accent, 0.18), color: tc, fontWeight: 800, fontSize: 26 * u}}>
             <span style={{width: 14 * u, height: 14 * u, borderRadius: '50%', background: p.accent}} />
             {p.deliveryNote}
           </div>
@@ -211,6 +212,7 @@ export const orderConfirmation = defineMotion<Props>({
     totalLabel: 'Total',
     freeLabel: 'Free',
     deliveryNote: 'Estimated delivery: 3-5 days',
+    textColor: '',
     background: '#EEF1F6',
     card: '#FFFFFF',
     ink: '#18202E',
@@ -232,6 +234,7 @@ export const orderConfirmation = defineMotion<Props>({
     totalLabel: 'label of the total line',
     freeLabel: 'text shown when shipping is 0',
     deliveryNote: 'text in the delivery chip',
+    textColor: 'colour of the headline / sub-line / chip on the page background; empty = automatic light or dark from the background',
     background: "page colour or 'transparent'",
     card: 'receipt colour',
     ink: 'text colour',

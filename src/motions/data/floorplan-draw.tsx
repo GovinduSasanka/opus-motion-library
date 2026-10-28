@@ -40,7 +40,7 @@ const ROOMS: Room[] = [
 const DOORS: Door[] = [
   {x: 1.2, y: 0, size: 1.1, orient: 'h', swing: 1},
   {x: 7, y: 1, size: 1, orient: 'v', swing: 1},
-  {x: 7, y: 3.5, size: 0.9, orient: 'v', swing: 1},
+  {x: 7, y: 3.5, size: 0.9, orient: 'v', swing: -1},
   {x: 1.2, y: 5, size: 1, orient: 'h', swing: 1},
   {x: 5.6, y: 5, size: 1, orient: 'h', swing: 1},
   {x: 10, y: 5, size: 0.9, orient: 'h', swing: 1},
@@ -48,7 +48,7 @@ const DOORS: Door[] = [
 
 const FloorplanDraw: React.FC<Props> = ({title, subtitle, rooms, doors, unit, areaUnit, totalLabel, showTotal, showDimensions, colors, background, ink, paper, accent, fontFamily, startAt, speed}) => {
   const frame = useCurrentFrame();
-  const {u} = useStage();
+  const {u, portrait} = useStage();
   const box = useChartBox(title, subtitle);
   const font = resolveFont(fontFamily);
   const rs = rooms.slice(0, 16).filter((r) => r.w > 0 && r.h > 0);
@@ -59,13 +59,16 @@ const FloorplanDraw: React.FC<Props> = ({title, subtitle, rooms, doors, unit, ar
   const maxY = Math.max(...rs.map((r) => r.y + r.h), 1);
   const gw = maxX - minX;
   const gh = maxY - minY;
-  const dimPad = showDimensions ? 54 * u : 8 * u;
+  const dimPad = showDimensions ? 72 * u : 14 * u;
   const chipH = showTotal ? 76 * u : 0;
-  const availW = box.w - dimPad * 1.2;
-  const availH = box.h - dimPad * 1.2 - (showTotal ? chipH + 18 * u : 0);
+  const chipGap = showTotal ? 34 * u : 0;
+  const availW = box.w - dimPad - 40 * u;
+  const availH = box.h - dimPad - chipH - chipGap - 30 * u;
   const s = Math.max(10 * u, Math.min(availW / gw, availH / gh));
+  const groupH = gh * s + dimPad + chipGap + chipH;
   const ox = box.x + (box.w - gw * s) / 2 + (showDimensions ? dimPad * 0.4 : 0);
-  const oy = box.y + (availH - gh * s) / 2 + 4 * u;
+  const oy = box.y + Math.max(0, (box.h - groupH) * (portrait ? 0.3 : 0.5)) + 30 * u;
+  const chipY = oy + gh * s + dimPad + chipGap - 2 * u;
   const X = (v: number) => ox + (v - minX) * s;
   const Y = (v: number) => oy + (v - minY) * s;
   const wall = Math.max(5 * u, s * 0.11);
@@ -158,13 +161,13 @@ const FloorplanDraw: React.FC<Props> = ({title, subtitle, rooms, doors, unit, ar
         {showDimensions && (
           <g opacity={dimT}>
             <g stroke={accent} strokeWidth={3 * u} fill="none" strokeLinecap="round">
-              <path d={`M${X(minX)},${Y(maxY) + 46 * u} H${X(maxX)} M${X(minX)},${Y(maxY) + 34 * u} v${24 * u} M${X(maxX)},${Y(maxY) + 34 * u} v${24 * u}`} />
-              <path d={`M${X(minX) - 46 * u},${Y(minY)} V${Y(maxY)} M${X(minX) - 58 * u},${Y(minY)} h${24 * u} M${X(minX) - 58 * u},${Y(maxY)} h${24 * u}`} />
+              <path d={`M${X(minX)},${Y(maxY) + 64 * u} H${X(maxX)} M${X(minX)},${Y(maxY) + 52 * u} v${24 * u} M${X(maxX)},${Y(maxY) + 52 * u} v${24 * u}`} />
+              <path d={`M${X(minX) - 64 * u},${Y(minY)} V${Y(maxY)} M${X(minX) - 76 * u},${Y(minY)} h${24 * u} M${X(minX) - 76 * u},${Y(maxY)} h${24 * u}`} />
             </g>
-            <text x={(X(minX) + X(maxX)) / 2} y={Y(maxY) + 40 * u} textAnchor="middle" fontFamily={font} fontWeight={700} fontSize={24 * u} fill={accent} stroke={bg === 'transparent' ? 'none' : bg} strokeWidth={8 * u} paintOrder="stroke">
+            <text x={(X(minX) + X(maxX)) / 2} y={Y(maxY) + 56 * u} textAnchor="middle" fontFamily={font} fontWeight={700} fontSize={24 * u} fill={accent} stroke={bg === 'transparent' ? 'none' : bg} strokeWidth={8 * u} paintOrder="stroke">
               {fmt(gw, gw % 1 === 0 ? 0 : 1, '', ' ' + unit)}
             </text>
-            <text transform={`translate(${X(minX) - 52 * u} ${(Y(minY) + Y(maxY)) / 2}) rotate(-90)`} textAnchor="middle" fontFamily={font} fontWeight={700} fontSize={24 * u} fill={accent} stroke={bg === 'transparent' ? 'none' : bg} strokeWidth={8 * u} paintOrder="stroke">
+            <text transform={`translate(${X(minX) - 72 * u} ${(Y(minY) + Y(maxY)) / 2}) rotate(-90)`} textAnchor="middle" fontFamily={font} fontWeight={700} fontSize={24 * u} fill={accent} stroke={bg === 'transparent' ? 'none' : bg} strokeWidth={8 * u} paintOrder="stroke">
               {fmt(gh, gh % 1 === 0 ? 0 : 1, '', ' ' + unit)}
             </text>
           </g>
@@ -175,7 +178,7 @@ const FloorplanDraw: React.FC<Props> = ({title, subtitle, rooms, doors, unit, ar
             {(() => {
               const cw = Math.min(box.w, 560 * u);
               const cx0 = box.x + (box.w - cw) / 2;
-              const cy0 = box.y + box.h - chipH;
+              const cy0 = chipY;
               return (
                 <>
                   <rect x={cx0} y={cy0} width={cw} height={chipH} rx={chipH / 2} fill={accent} />

@@ -122,7 +122,7 @@ const SizeColorPicker: React.FC<Props> = (p) => {
 
         {/* price roll */}
         <div style={{position: 'absolute', left: 0, top: 92 * u, height: 84 * u, overflow: 'hidden', display: 'flex', alignItems: 'flex-start', gap: 20 * u}}>
-          <div style={{position: 'relative', height: 84 * u, minWidth: 200 * u}}>
+          <div style={{position: 'relative', height: 84 * u, width: Math.max(260, money(Math.max(priceNow, pricePrev), p.currency).length * 54) * u}}>
             {changed && roll < 1 ? (
               <div style={{position: 'absolute', left: 0, top: -roll * 84 * u, fontFamily: fonts.display, fontSize: 70 * u, color: p.accent, opacity: 1 - roll, whiteSpace: 'nowrap'}}>{money(pricePrev, p.currency)}</div>
             ) : null}
@@ -130,7 +130,7 @@ const SizeColorPicker: React.FC<Props> = (p) => {
           </div>
         </div>
         {deltaOf(sSel) > 0 ? (
-          <div style={{position: 'absolute', left: 250 * u, top: 114 * u, padding: `${6 * u}px ${16 * u}px`, borderRadius: 99, background: withAlpha(p.accent, 0.14), color: p.accent, fontWeight: 800, fontSize: 22 * u, opacity: sMix, transform: `scale(${lerp(0.7, 1, sMix)})`}}>{`+${money(deltaOf(sSel), p.currency, deltaOf(sSel) % 1 === 0 ? 0 : 2)}`}</div>
+          <div style={{position: 'absolute', left: (money(priceNow, p.currency).length * 54 + 36) * u, top: 114 * u, padding: `${6 * u}px ${16 * u}px`, borderRadius: 99, background: withAlpha(p.accent, 0.14), color: p.accent, fontWeight: 800, fontSize: 22 * u, opacity: sMix, transform: `scale(${lerp(0.7, 1, sMix)})`}}>{`+${money(deltaOf(sSel), p.currency, deltaOf(sSel) % 1 === 0 ? 0 : 2)}`}</div>
         ) : null}
 
         {/* colours */}

@@ -9790,6 +9790,172 @@
   }
  },
  {
+  "id": "api-request-flow",
+  "title": "API request flow",
+  "category": "data",
+  "description": "A request / response round trip: client, server and database nodes in a row; labelled request packets travel between them, responses come back in a second colour, each arrival pulses the node and pops an HTTP status badge, and a call log fills in underneath.",
+  "useFor": "Explaining how an API call works, backend architecture, REST / HTTP basics, error-handling stories (a 500 shakes the node), latency and developer-docs videos.",
+  "source": [
+   "original (generic developer explainer)"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "api",
+   "request",
+   "response",
+   "http",
+   "rest",
+   "server",
+   "client",
+   "database",
+   "backend",
+   "architecture",
+   "developer",
+   "status code",
+   "network",
+   "software",
+   "diagram"
+  ],
+  "file": "src/motions/data/api-request-flow.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title"
+  ],
+  "colorProps": [
+   "background",
+   "panel",
+   "ink",
+   "accent",
+   "accent2",
+   "okColor",
+   "errColor"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "hud"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "nodes": {
+    "default": [
+     {
+      "label": "Client",
+      "kind": "client",
+      "sub": "web app"
+     },
+     {
+      "label": "API server",
+      "kind": "server",
+      "sub": "api.example.com"
+     },
+     {
+      "label": "Database",
+      "kind": "database",
+      "sub": "orders"
+     }
+    ],
+    "doc": "boxes in order [{label, kind?: 'client' | 'server' | 'database' | 'cache' | 'queue' | 'service', sub?}] (2–5)"
+   },
+   "steps": {
+    "default": [
+     {
+      "from": 0,
+      "to": 1,
+      "label": "POST /orders"
+     },
+     {
+      "from": 1,
+      "to": 2,
+      "label": "INSERT order"
+     },
+     {
+      "from": 2,
+      "to": 1,
+      "label": "1 row saved",
+      "ms": 12
+     },
+     {
+      "from": 1,
+      "to": 0,
+      "label": "{ \"id\": 4271 }",
+      "status": 201,
+      "statusText": "Created",
+      "ms": 84
+     }
+    ],
+    "doc": "packets in order [{from, to (node indexes), label, status? (HTTP code, 4xx/5xx = red + shake), statusText?, ms?, type? ('request' | 'response'; default: response when going back toward node 0)}]"
+   },
+   "title": {
+    "default": "What happens on a request",
+    "doc": "heading (empty = none)"
+   },
+   "showLog": {
+    "default": true,
+    "doc": "show the call log under the diagram"
+   },
+   "stepFrames": {
+    "default": 42,
+    "doc": "frames per packet"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "timing multiplier"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the flow starts"
+   },
+   "background": {
+    "default": "#0C0F16",
+    "doc": "page colour or 'transparent'"
+   },
+   "panel": {
+    "default": "#151A25",
+    "doc": "node / card colour"
+   },
+   "ink": {
+    "default": "#EAEFF8",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#4C8DFF",
+    "doc": "request colour"
+   },
+   "accent2": {
+    "default": "#F5A524",
+    "doc": "response colour"
+   },
+   "okColor": {
+    "default": "#2EC4A6",
+    "doc": "2xx badge colour"
+   },
+   "errColor": {
+    "default": "#FF5C5C",
+    "doc": "5xx badge / error colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "monospace font override (empty = JetBrains Mono)"
+   }
+  }
+ },
+ {
   "id": "atom-electron-cloud",
   "title": "Atom electron cloud builder",
   "category": "data",
@@ -11469,6 +11635,169 @@
    "seed": {
     "default": 7,
     "doc": "walker layout seed"
+   }
+  }
+ },
+ {
+  "id": "deploy-pipeline-stages",
+  "title": "Deploy pipeline stages",
+  "category": "data",
+  "description": "A CI/CD pipeline of stage cards (build, test, scan, deploy): each runs in turn with a spinner that becomes a check or a red cross, sub-steps tick off, a timer counts up and the connector fills; a failing stage stops the line, later stages show as skipped, and a banner ends it.",
+  "useFor": "DevOps / CI-CD explainers, \"how we ship\" and release-process videos, deployment tooling promos, incident stories (set one stage to fail).",
+  "source": [
+   "original (generic developer explainer)"
+  ],
+  "durationInFrames": 270,
+  "tags": [
+   "ci",
+   "cd",
+   "pipeline",
+   "deploy",
+   "devops",
+   "build",
+   "test",
+   "release",
+   "github actions",
+   "stages",
+   "developer",
+   "software",
+   "checks",
+   "spinner",
+   "automation"
+  ],
+  "file": "src/motions/data/deploy-pipeline-stages.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle",
+   "stages"
+  ],
+  "colorProps": [
+   "background",
+   "panel",
+   "ink",
+   "accent",
+   "okColor",
+   "errColor"
+  ],
+  "loopable": false,
+  "bestLength": 270,
+  "mood": [
+   "hud",
+   "ui"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Deploy to production",
+    "doc": "pipeline name"
+   },
+   "subtitle": {
+    "default": "main · 5de2147",
+    "doc": "branch / commit line under the title"
+   },
+   "stages": {
+    "default": [
+     {
+      "name": "Build",
+      "steps": [
+       "Install dependencies",
+       "Compile",
+       "Bundle assets"
+      ],
+      "seconds": 41
+     },
+     {
+      "name": "Test",
+      "steps": [
+       "Unit tests",
+       "Integration tests",
+       "Coverage 92%"
+      ],
+      "seconds": 78
+     },
+     {
+      "name": "Scan",
+      "steps": [
+       "Dependency audit",
+       "Secret scan"
+      ],
+      "seconds": 23
+     },
+     {
+      "name": "Deploy",
+      "steps": [
+       "Upload artifact",
+       "Switch traffic",
+       "Health check"
+      ],
+      "seconds": 35
+     }
+    ],
+    "doc": "stages in order [{name, steps? (up to 5 sub-steps), seconds? (timer end value), result? ('pass' default | 'fail' — stops the pipeline, later stages are skipped)}]"
+   },
+   "successText": {
+    "default": "Deployed to production",
+    "doc": "banner text when every stage passes"
+   },
+   "failText": {
+    "default": "Pipeline failed",
+    "doc": "banner text when a stage fails"
+   },
+   "stageFrames": {
+    "default": 48,
+    "doc": "frames each stage runs"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "timing multiplier"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the pipeline starts"
+   },
+   "background": {
+    "default": "#0C0F16",
+    "doc": "page colour or 'transparent'"
+   },
+   "panel": {
+    "default": "#151A25",
+    "doc": "card colour"
+   },
+   "ink": {
+    "default": "#EAEFF8",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#4C8DFF",
+    "doc": "running colour"
+   },
+   "okColor": {
+    "default": "#2EC4A6",
+    "doc": "pass colour"
+   },
+   "errColor": {
+    "default": "#FF5C5C",
+    "doc": "fail colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "monospace font override (empty = JetBrains Mono)"
    }
   }
  },
@@ -13226,7 +13555,7 @@
       "y": 3.5,
       "size": 0.9,
       "orient": "v",
-      "swing": 1
+      "swing": -1
      },
      {
       "x": 1.2,
@@ -14153,6 +14482,202 @@
    "speed": {
     "default": 1,
     "doc": "animation speed multiplier"
+   }
+  }
+ },
+ {
+  "id": "git-branch-graph",
+  "title": "Git branch graph",
+  "category": "data",
+  "description": "A git history graph from commit data: dots appear in order along a time axis, branches take coloured lanes, edges draw on, a merge commit joins two lanes, tags flag a commit, a HEAD pill travels to the newest commit and a caption shows its message.",
+  "useFor": "Explaining branching and merging, release flow, pull-request workflows, version-control tutorials, \"how our team ships\" and developer-tool promos.",
+  "source": [
+   "original (generic developer explainer)"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "git",
+   "branch",
+   "merge",
+   "commit",
+   "version control",
+   "github",
+   "developer",
+   "release",
+   "pull request",
+   "graph",
+   "software",
+   "devops",
+   "workflow",
+   "code"
+  ],
+  "file": "src/motions/data/git-branch-graph.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title"
+  ],
+  "colorProps": [
+   "colors",
+   "background",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "hud",
+   "editorial"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "commits": {
+    "default": [
+     {
+      "id": "a1f3c9e",
+      "message": "Initial commit",
+      "branch": "main"
+     },
+     {
+      "id": "b72d41a",
+      "message": "Add project skeleton",
+      "branch": "main"
+     },
+     {
+      "id": "c09e5bd",
+      "message": "Set up CI checks",
+      "branch": "main"
+     },
+     {
+      "id": "d4412f0",
+      "message": "Start login page",
+      "branch": "feature/login",
+      "parents": [
+       "c09e5bd"
+      ]
+     },
+     {
+      "id": "e81aa73",
+      "message": "Patch security header",
+      "branch": "main",
+      "parents": [
+       "c09e5bd"
+      ]
+     },
+     {
+      "id": "f2c7b19",
+      "message": "Add login form",
+      "branch": "feature/login"
+     },
+     {
+      "id": "19ab44c",
+      "message": "Fix typo in README",
+      "branch": "fix/typo",
+      "parents": [
+       "e81aa73"
+      ]
+     },
+     {
+      "id": "2ad5e60",
+      "message": "Validate credentials",
+      "branch": "feature/login"
+     },
+     {
+      "id": "3b7f812",
+      "message": "Merge fix/typo",
+      "branch": "main",
+      "parents": [
+       "e81aa73",
+       "19ab44c"
+      ]
+     },
+     {
+      "id": "4c9a0d5",
+      "message": "Add login tests",
+      "branch": "feature/login"
+     },
+     {
+      "id": "5de2147",
+      "message": "Merge feature/login",
+      "branch": "main",
+      "parents": [
+       "3b7f812",
+       "4c9a0d5"
+      ],
+      "tag": "v1.0"
+     },
+     {
+      "id": "6f03bb8",
+      "message": "Bump version",
+      "branch": "main"
+     }
+    ],
+    "doc": "commits oldest → newest [{id, message, branch, parents?: ids (default: previous commit on the same branch; list 2 ids for a merge), tag?}]"
+   },
+   "colors": {
+    "default": [
+     "#4C8DFF",
+     "#F5A524",
+     "#2EC4A6",
+     "#C77DFF",
+     "#FF6B8B",
+     "#8BD450"
+    ],
+    "doc": "lane colours, one per branch in order of first appearance"
+   },
+   "title": {
+    "default": "Branch, build, merge",
+    "doc": "heading (empty = none)"
+   },
+   "headLabel": {
+    "default": "HEAD",
+    "doc": "text of the pointer on the newest commit"
+   },
+   "showMessages": {
+    "default": true,
+    "doc": "show the newest commit message as a caption"
+   },
+   "every": {
+    "default": 15,
+    "doc": "frames between commits"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "timing multiplier"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the graph starts"
+   },
+   "background": {
+    "default": "#0C0F16",
+    "doc": "page colour or 'transparent'"
+   },
+   "ink": {
+    "default": "#EAEFF8",
+    "doc": "text / HEAD colour"
+   },
+   "accent": {
+    "default": "#FF5C7A",
+    "doc": "tag colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "monospace font override (empty = JetBrains Mono)"
    }
   }
  },
@@ -15301,6 +15826,144 @@
    "ink": {
     "default": "#2E2522",
     "doc": "text colour"
+   }
+  }
+ },
+ {
+  "id": "json-tree-expand",
+  "title": "JSON tree expand",
+  "category": "data",
+  "description": "A JSON viewer built from a data prop: objects and arrays expand node by node with a rotating caret and child-count badge, indent guides, syntax-coloured keys and values, a highlighted newest row, auto-scroll, and a path breadcrumb along the bottom.",
+  "useFor": "API-response explainers, \"what the data looks like\" beats, structured-output / schema stories for AI, developer docs and tutorials, config-file walkthroughs.",
+  "source": [
+   "original (generic developer explainer)"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "json",
+   "tree",
+   "data",
+   "api",
+   "response",
+   "schema",
+   "structured output",
+   "viewer",
+   "developer",
+   "config",
+   "syntax",
+   "expand",
+   "code",
+   "software",
+   "ui"
+  ],
+  "file": "src/motions/data/json-tree-expand.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title"
+  ],
+  "colorProps": [
+   "background",
+   "panel",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "hud",
+   "playful",
+   "ui"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "data": {
+    "default": {
+     "id": 1042,
+     "name": "Ada Example",
+     "active": true,
+     "roles": [
+      "admin",
+      "editor"
+     ],
+     "profile": {
+      "email": "ada@example.com",
+      "address": {
+       "city": "Springfield",
+       "geo": {
+        "lat": 12.34,
+        "lng": 56.78
+       }
+      }
+     },
+     "plan": {
+      "tier": "pro",
+      "trial": null
+     }
+    },
+    "doc": "any JSON value (object / array) to expand"
+   },
+   "title": {
+    "default": "response.json",
+    "doc": "file name in the window header"
+   },
+   "collapseDepth": {
+    "default": 3,
+    "doc": "nesting depth from which objects stay collapsed as {…} (3 = three levels expand)"
+   },
+   "showBreadcrumb": {
+    "default": true,
+    "doc": "show the $.path breadcrumb of the newest row"
+   },
+   "showLineNumbers": {
+    "default": true,
+    "doc": "show line numbers"
+   },
+   "every": {
+    "default": 7,
+    "doc": "frames between rows"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "timing multiplier"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the viewer starts"
+   },
+   "background": {
+    "default": "#0B0E14",
+    "doc": "page colour or 'transparent'"
+   },
+   "panel": {
+    "default": "#12161F",
+    "doc": "window colour (dark or light — syntax colours adapt)"
+   },
+   "ink": {
+    "default": "#E6EAF2",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#79B8FF",
+    "doc": "highlight / breadcrumb colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "monospace font override (empty = JetBrains Mono)"
    }
   }
  },
@@ -18605,6 +19268,180 @@
   }
  },
  {
+  "id": "server-rack-status",
+  "title": "Server rack status",
+  "category": "data",
+  "description": "A server rack cabinet: units slide in, status LEDs blink, drive bays flicker and each load meter wobbles while summary tiles update; at a set moment one unit spikes, its LED goes red, it shakes and pulses and an alert card connects to it.",
+  "useFor": "Infrastructure, hosting, cloud, uptime-monitoring and incident stories; \"your servers, at a glance\" product beats; DevOps explainers.",
+  "source": [
+   "original (generic developer explainer)"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "server",
+   "rack",
+   "datacenter",
+   "infrastructure",
+   "monitoring",
+   "uptime",
+   "cloud",
+   "hosting",
+   "devops",
+   "alert",
+   "incident",
+   "load",
+   "led",
+   "hardware",
+   "status"
+  ],
+  "file": "src/motions/data/server-rack-status.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "background",
+   "panel",
+   "ink",
+   "accent",
+   "warnColor",
+   "errColor"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "hud"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "servers": {
+    "default": [
+     {
+      "name": "web-01",
+      "sub": "10.0.1.11",
+      "load": 38
+     },
+     {
+      "name": "web-02",
+      "sub": "10.0.1.12",
+      "load": 46
+     },
+     {
+      "name": "web-03",
+      "sub": "10.0.1.13",
+      "load": 41
+     },
+     {
+      "name": "api-01",
+      "sub": "10.0.2.21",
+      "load": 57
+     },
+     {
+      "name": "api-02",
+      "sub": "10.0.2.22",
+      "load": 52
+     },
+     {
+      "name": "db-01",
+      "sub": "10.0.3.31",
+      "load": 63
+     },
+     {
+      "name": "cache-01",
+      "sub": "10.0.4.41",
+      "load": 29
+     },
+     {
+      "name": "queue-01",
+      "sub": "10.0.5.51",
+      "load": 34
+     }
+    ],
+    "doc": "rack units top → bottom [{name, load (baseline %), sub? (small text under the name)}] (1–12)"
+   },
+   "title": {
+    "default": "Cluster status",
+    "doc": "heading"
+   },
+   "subtitle": {
+    "default": "eu-west · 8 nodes",
+    "doc": "small line under the heading (empty = none)"
+   },
+   "alertIndex": {
+    "default": 5,
+    "doc": "which unit raises the alert (-1 = none)"
+   },
+   "alertLoad": {
+    "default": 97,
+    "doc": "load % the alerting unit spikes to"
+   },
+   "alertText": {
+    "default": "",
+    "doc": "alert message (empty = built from the unit name and load)"
+   },
+   "alertLabel": {
+    "default": "ALERT",
+    "doc": "alert card heading"
+   },
+   "alertAt": {
+    "default": 120,
+    "doc": "frame the alert fires"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "timing multiplier"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the scene starts"
+   },
+   "background": {
+    "default": "#0C0F16",
+    "doc": "page colour or 'transparent'"
+   },
+   "panel": {
+    "default": "#171C28",
+    "doc": "unit / card colour"
+   },
+   "ink": {
+    "default": "#EAEFF8",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#4C8DFF",
+    "doc": "healthy meter colour"
+   },
+   "warnColor": {
+    "default": "#F5A524",
+    "doc": "warning (70–90 %) colour"
+   },
+   "errColor": {
+    "default": "#FF5C5C",
+    "doc": "alert colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "monospace font override (empty = JetBrains Mono)"
+   }
+  }
+ },
+ {
   "id": "stacked-area-flow",
   "title": "Stacked area flow",
   "category": "data",
@@ -21365,6 +22202,132 @@
   }
  },
  {
+  "id": "passport-stamps",
+  "title": "Passport stamps thud on",
+  "category": "document",
+  "description": "A passport page collects travel stamps one by one: a rubber-stamp tool drops, the inked stamp lands slightly rotated with a shockwave and a page shake, then the tool lifts — circle, rectangle, oval, octagon and arrow shapes in any ink colour.",
+  "useFor": "Travel recaps, countries-visited counters, achievement / milestone collections, \"places I have been\" reels, loyalty-stamp and visa-approved beats — set stamps as {place, date, shape, color}.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "passport",
+   "stamps",
+   "travel",
+   "visa",
+   "countries",
+   "visited",
+   "airport",
+   "customs",
+   "collection",
+   "achievement",
+   "thud",
+   "document"
+  ],
+  "file": "src/motions/document/passport-stamps.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title"
+  ],
+  "colorProps": [
+   "background",
+   "paper",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "VISAS",
+    "doc": "heading at the top of the page"
+   },
+   "stamps": {
+    "default": [
+     {
+      "place": "Lisbon",
+      "date": "04 MAR 2025",
+      "shape": "circle",
+      "color": "#2B4C9B"
+     },
+     {
+      "place": "Oslo",
+      "date": "19 APR 2025",
+      "shape": "rect",
+      "color": "#B3261E"
+     },
+     {
+      "place": "Kyoto",
+      "date": "02 JUN 2025",
+      "shape": "oval",
+      "color": "#1F7A4D"
+     },
+     {
+      "place": "Cairo",
+      "date": "30 JUL 2025",
+      "shape": "octagon",
+      "color": "#6A3FA0"
+     },
+     {
+      "place": "Lima",
+      "date": "11 SEP 2025",
+      "shape": "arrow",
+      "color": "#C46A12"
+     },
+     {
+      "place": "Sydney",
+      "date": "24 NOV 2025",
+      "shape": "circle",
+      "color": "#0C7C8A"
+     }
+    ],
+    "doc": "stamps in order, up to 9: {place, date, shape (circle | rect | oval | octagon | hex | arrow), color, label?} — label is the small word (default ENTRY)"
+   },
+   "gap": {
+    "default": 22,
+    "doc": "frames between one stamp and the next"
+   },
+   "background": {
+    "default": "#2E3A4D",
+    "doc": "table / cover colour or 'transparent'"
+   },
+   "paper": {
+    "default": "#F4EBD6",
+    "doc": "page colour"
+   },
+   "ink": {
+    "default": "#3A3326",
+    "doc": "heading and rule colour"
+   },
+   "accent": {
+    "default": "#B3261E",
+    "doc": "page counter colour"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the scene starts"
+   }
+  }
+ },
+ {
   "id": "receipt-print",
   "title": "Receipt print",
   "category": "document",
@@ -22246,6 +23209,145 @@
   }
  },
  {
+  "id": "city-rooftops-rain-window",
+  "title": "City rooftops rain window",
+  "category": "environment",
+  "description": "A rainy window over a defocused city: blurred rooftops with lit windows, soft bokeh lights, thin rain outside, and fogged glass with clinging beads and larger drops that slide down leaving trails; loops seamlessly, night / dusk / dawn / day palettes and a custom light colour list.",
+  "useFor": "Moody lo-fi / study-beats / podcast backdrops, melancholy or cosy titles, noir and thriller scenes, weather and \"rainy day\" content, city-life brand heroes; add a title or put your own UI over the glass.",
+  "source": [
+   "original — round 3 nature backdrops"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "rain",
+   "window",
+   "city",
+   "night",
+   "bokeh",
+   "rooftops",
+   "raindrops",
+   "lo-fi",
+   "moody",
+   "cozy",
+   "noir",
+   "loop",
+   "backdrop",
+   "weather",
+   "urban",
+   "glass",
+   "condensation"
+  ],
+  "file": "src/motions/environment/city-rooftops-rain-window.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "lights"
+  ],
+  "loopable": true,
+  "bestLength": 240,
+  "mood": [
+   "dark",
+   "nature",
+   "night"
+  ],
+  "roles": [
+   "backdrop"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "timeOfDay": {
+    "default": "night",
+    "doc": "\"dawn\" | \"day\" | \"dusk\" | \"night\" – sky and light palette preset"
+   },
+   "skyTop": {
+    "default": "",
+    "doc": "override the top sky colour (hex); empty = from timeOfDay"
+   },
+   "skyBottom": {
+    "default": "",
+    "doc": "override the horizon sky colour (hex); empty = from timeOfDay"
+   },
+   "lights": {
+    "default": [
+     "#FFB347",
+     "#FF6B6B",
+     "#6EC1FF",
+     "#FFE08A"
+    ],
+    "doc": "city light / lit-window / bokeh colours (hex list)"
+   },
+   "rain": {
+    "default": 1,
+    "doc": "rain streaks outside the glass (0 = none)"
+   },
+   "drops": {
+    "default": 1,
+    "doc": "amount of water drops on the glass (0 = clean glass)"
+   },
+   "fog": {
+    "default": 1,
+    "doc": "condensation haze on the glass (0 = none)"
+   },
+   "blur": {
+    "default": 1,
+    "doc": "defocus of the city behind the glass (0 = sharp)"
+   },
+   "frame": {
+    "default": true,
+    "doc": "dark window frame around the edges"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed; quantised to whole cycles per loop so the clip loops seamlessly (0 = frozen)"
+   },
+   "density": {
+    "default": 1,
+    "doc": "multiplier for how many particles / elements are drawn"
+   },
+   "seed": {
+    "default": 9,
+    "doc": "random seed (changes the layout, not the look)"
+   },
+   "title": {
+    "default": "",
+    "doc": "optional headline over the scene (empty = none)"
+   },
+   "subtitle": {
+    "default": "",
+    "doc": "optional small line under the title (empty = none)"
+   },
+   "fontFamily": {
+    "default": "serif",
+    "doc": "font role (\"serif\", \"display\", \"sans\", \"grotesk\", \"hand\", \"mono\") or any CSS family for title / subtitle"
+   },
+   "ink": {
+    "default": "",
+    "doc": "title / subtitle colour; empty = from timeOfDay"
+   },
+   "titlePosition": {
+    "default": "center",
+    "doc": "\"center\" | \"top\" | \"bottom\""
+   },
+   "titleSize": {
+    "default": 1,
+    "doc": "title size multiplier"
+   }
+  }
+ },
+ {
   "id": "city-skyline",
   "title": "City skyline (window flicker, dusk to night)",
   "category": "environment",
@@ -22830,6 +23932,136 @@
   }
  },
  {
+  "id": "desert-dunes-heat",
+  "title": "Desert dunes heat haze",
+  "category": "environment",
+  "description": "Rolling sand-dune ridges under a huge low sun: 3-7 layered dunes with lit crest edges, a shimmering heat-haze horizon and wind-blown sand streaks racing along the dunes; loops seamlessly, dawn / day / dusk / night palettes.",
+  "useFor": "Warm looping landscape backdrop for travel, adventure, Middle-East / Sahara themes, western titles, survival or thirst / heat messages, product reveals on sand; add a title or place your own HTML on top.",
+  "source": [
+   "original — round 3 nature backdrops"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "desert",
+   "dunes",
+   "sand",
+   "heat",
+   "haze",
+   "sun",
+   "sahara",
+   "travel",
+   "adventure",
+   "loop",
+   "backdrop",
+   "nature",
+   "landscape",
+   "warm",
+   "wind"
+  ],
+  "file": "src/motions/environment/desert-dunes-heat.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [],
+  "loopable": true,
+  "bestLength": 240,
+  "mood": [
+   "mid",
+   "nature",
+   "night"
+  ],
+  "roles": [
+   "backdrop"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "timeOfDay": {
+    "default": "dusk",
+    "doc": "\"dawn\" | \"day\" | \"dusk\" | \"night\" – sky and light palette preset"
+   },
+   "skyTop": {
+    "default": "",
+    "doc": "override the top sky colour (hex); empty = from timeOfDay"
+   },
+   "skyBottom": {
+    "default": "",
+    "doc": "override the horizon sky colour (hex); empty = from timeOfDay"
+   },
+   "accent": {
+    "default": "",
+    "doc": "override the sun / moon / glow colour (hex); empty = from timeOfDay"
+   },
+   "sandColor": {
+    "default": "",
+    "doc": "mid-distance sand colour (hex); near and far dunes shade from it; empty = from timeOfDay"
+   },
+   "dunes": {
+    "default": 5,
+    "doc": "number of dune layers (2-7)"
+   },
+   "heat": {
+    "default": 1,
+    "doc": "heat shimmer strength (0 = none, 1 = default, 2 = strong)"
+   },
+   "wind": {
+    "default": 1,
+    "doc": "blown-sand intensity; negative blows right-to-left, 0 = no streaks motion"
+   },
+   "sunSize": {
+    "default": 1,
+    "doc": "sun size multiplier"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed; quantised to whole cycles per loop so the clip loops seamlessly (0 = frozen)"
+   },
+   "density": {
+    "default": 1,
+    "doc": "multiplier for how many particles / elements are drawn"
+   },
+   "seed": {
+    "default": 4,
+    "doc": "random seed (changes the layout, not the look)"
+   },
+   "title": {
+    "default": "",
+    "doc": "optional headline over the scene (empty = none)"
+   },
+   "subtitle": {
+    "default": "",
+    "doc": "optional small line under the title (empty = none)"
+   },
+   "fontFamily": {
+    "default": "serif",
+    "doc": "font role (\"serif\", \"display\", \"sans\", \"grotesk\", \"hand\", \"mono\") or any CSS family for title / subtitle"
+   },
+   "ink": {
+    "default": "",
+    "doc": "title / subtitle colour; empty = from timeOfDay"
+   },
+   "titlePosition": {
+    "default": "top",
+    "doc": "\"center\" | \"top\" | \"bottom\""
+   },
+   "titleSize": {
+    "default": 1,
+    "doc": "title size multiplier"
+   }
+  }
+ },
+ {
   "id": "embers",
   "title": "Embers & gold flecks",
   "category": "environment",
@@ -23053,6 +24285,138 @@
    "seed": {
     "default": 1,
     "doc": "random seed"
+   }
+  }
+ },
+ {
+  "id": "firefly-meadow-night",
+  "title": "Firefly meadow night",
+  "category": "environment",
+  "description": "A moonlit meadow: starry sky, rolling hills and tree line, two layers of swaying grass blades and dozens of fireflies drifting on closed loops and pulsing softly; loops seamlessly.",
+  "useFor": "Magical, cosy or calm night backdrop for bedtime stories, meditation / sleep apps, fantasy and fairytale titles, cottagecore, wedding / romantic videos, \"end of day\" screens and lyric videos.",
+  "source": [
+   "original — round 3 nature backdrops"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "fireflies",
+   "meadow",
+   "night",
+   "moon",
+   "grass",
+   "stars",
+   "magic",
+   "fantasy",
+   "bedtime",
+   "sleep",
+   "calm",
+   "loop",
+   "backdrop",
+   "nature",
+   "landscape",
+   "glow",
+   "romantic"
+  ],
+  "file": "src/motions/environment/firefly-meadow-night.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [],
+  "loopable": true,
+  "bestLength": 240,
+  "mood": [
+   "dark",
+   "nature",
+   "night"
+  ],
+  "roles": [
+   "backdrop"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "skyTop": {
+    "default": "",
+    "doc": "top sky colour (hex); empty = deep navy"
+   },
+   "skyBottom": {
+    "default": "",
+    "doc": "horizon sky colour (hex); empty = midnight blue"
+   },
+   "grassColor": {
+    "default": "",
+    "doc": "meadow colour (hex); nearer grass and hills darken from it; empty = forest green"
+   },
+   "glowColor": {
+    "default": "",
+    "doc": "firefly glow colour (hex); empty = warm yellow"
+   },
+   "moon": {
+    "default": true,
+    "doc": "show the moon"
+   },
+   "moonX": {
+    "default": 0.72,
+    "doc": "moon horizontal position, 0 (left) – 1 (right)"
+   },
+   "fireflies": {
+    "default": 46,
+    "doc": "firefly count at default density"
+   },
+   "glowSize": {
+    "default": 1,
+    "doc": "firefly glow radius multiplier"
+   },
+   "sway": {
+    "default": 1,
+    "doc": "grass sway amount (0 = still)"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed; quantised to whole cycles per loop so the clip loops seamlessly (0 = frozen)"
+   },
+   "density": {
+    "default": 1,
+    "doc": "multiplier for how many particles / elements are drawn"
+   },
+   "seed": {
+    "default": 6,
+    "doc": "random seed (changes the layout, not the look)"
+   },
+   "title": {
+    "default": "",
+    "doc": "optional headline over the scene (empty = none)"
+   },
+   "subtitle": {
+    "default": "",
+    "doc": "optional small line under the title (empty = none)"
+   },
+   "fontFamily": {
+    "default": "serif",
+    "doc": "font role (\"serif\", \"display\", \"sans\", \"grotesk\", \"hand\", \"mono\") or any CSS family for title / subtitle"
+   },
+   "ink": {
+    "default": "",
+    "doc": "title / subtitle colour; empty = from timeOfDay"
+   },
+   "titlePosition": {
+    "default": "top",
+    "doc": "\"center\" | \"top\" | \"bottom\""
+   },
+   "titleSize": {
+    "default": 1,
+    "doc": "title size multiplier"
    }
   }
  },
@@ -23671,6 +25035,154 @@
   }
  },
  {
+  "id": "forest-parallax-mist",
+  "title": "Forest parallax mist",
+  "category": "environment",
+  "description": "A misty pine forest in depth: 3-7 layers of conifer silhouettes swaying in parallax, drifting fog banks between them, breathing god rays from a low sun and floating pollen motes; loops seamlessly in dawn / day / dusk / night palettes.",
+  "useFor": "Atmospheric looping hero or title backdrop for outdoors, camping, wellness / meditation, storytelling, fantasy and horror-lite scenes, eco brands, podcasts and lyric videos; tint with timeOfDay or brand colours and add a title.",
+  "source": [
+   "original — round 3 nature backdrops"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "forest",
+   "pines",
+   "trees",
+   "mist",
+   "fog",
+   "god rays",
+   "parallax",
+   "camping",
+   "woods",
+   "dawn",
+   "loop",
+   "backdrop",
+   "nature",
+   "landscape",
+   "calm",
+   "fantasy",
+   "atmosphere"
+  ],
+  "file": "src/motions/environment/forest-parallax-mist.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [],
+  "loopable": true,
+  "bestLength": 240,
+  "mood": [
+   "mid",
+   "nature",
+   "night"
+  ],
+  "roles": [
+   "backdrop"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "timeOfDay": {
+    "default": "dawn",
+    "doc": "\"dawn\" | \"day\" | \"dusk\" | \"night\" – sky and light palette preset"
+   },
+   "skyTop": {
+    "default": "",
+    "doc": "override the top sky colour (hex); empty = from timeOfDay"
+   },
+   "skyBottom": {
+    "default": "",
+    "doc": "override the horizon sky colour (hex); empty = from timeOfDay"
+   },
+   "accent": {
+    "default": "",
+    "doc": "override the sun / moon / glow colour (hex); empty = from timeOfDay"
+   },
+   "treeColor": {
+    "default": "",
+    "doc": "nearest tree colour (hex); farther layers fade toward the sky haze; empty = deep green"
+   },
+   "layers": {
+    "default": 5,
+    "doc": "number of tree layers (3-7)"
+   },
+   "treeHeight": {
+    "default": 1,
+    "doc": "tree height multiplier"
+   },
+   "fog": {
+    "default": 1,
+    "doc": "fog bank strength (0 = none)"
+   },
+   "rays": {
+    "default": 1,
+    "doc": "god-ray amount (0 = none)"
+   },
+   "sunX": {
+    "default": 0.68,
+    "doc": "sun horizontal position, 0 (left) – 1 (right)"
+   },
+   "sway": {
+    "default": 1,
+    "doc": "parallax sway amount (0 = still)"
+   },
+   "motes": {
+    "default": true,
+    "doc": "floating pollen / dust motes"
+   },
+   "trunks": {
+    "default": true,
+    "doc": "dark foreground trunks at the frame edges"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed; quantised to whole cycles per loop so the clip loops seamlessly (0 = frozen)"
+   },
+   "density": {
+    "default": 1,
+    "doc": "multiplier for how many particles / elements are drawn"
+   },
+   "seed": {
+    "default": 5,
+    "doc": "random seed (changes the layout, not the look)"
+   },
+   "title": {
+    "default": "",
+    "doc": "optional headline over the scene (empty = none)"
+   },
+   "subtitle": {
+    "default": "",
+    "doc": "optional small line under the title (empty = none)"
+   },
+   "fontFamily": {
+    "default": "serif",
+    "doc": "font role (\"serif\", \"display\", \"sans\", \"grotesk\", \"hand\", \"mono\") or any CSS family for title / subtitle"
+   },
+   "ink": {
+    "default": "",
+    "doc": "title / subtitle colour; empty = from timeOfDay"
+   },
+   "titlePosition": {
+    "default": "top",
+    "doc": "\"center\" | \"top\" | \"bottom\""
+   },
+   "titleSize": {
+    "default": 1,
+    "doc": "title size multiplier"
+   }
+  }
+ },
+ {
   "id": "grass-field",
   "title": "Grass field (teal blades + golden leaves)",
   "category": "environment",
@@ -24028,6 +25540,140 @@
    "seed": {
     "default": 3,
     "doc": "tremor / audience seed"
+   }
+  }
+ },
+ {
+  "id": "lava-lamp-blobs",
+  "title": "Lava lamp blobs",
+  "category": "environment",
+  "description": "Gooey metaball blobs slowly rising, stretching, merging and splitting over a glowing liquid gradient: a full-frame psychedelic backdrop or contained in a retro lava-lamp silhouette; palette-driven and seamlessly loopable.",
+  "useFor": "Relaxing / lo-fi / retro-70s backdrops, music and podcast visuals, wellness and creative-brand heroes, loading and ambient screens, title cards; set background and a colour list from the brand palette, or switch shape to \"lamp\" for an object.",
+  "source": [
+   "original — round 3 nature backdrops"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "lava lamp",
+   "blobs",
+   "metaballs",
+   "goo",
+   "liquid",
+   "retro",
+   "70s",
+   "psychedelic",
+   "lo-fi",
+   "ambient",
+   "loop",
+   "backdrop",
+   "gradient",
+   "relax",
+   "wellness",
+   "music"
+  ],
+  "file": "src/motions/environment/lava-lamp-blobs.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "background",
+   "colors",
+   "glow"
+  ],
+  "loopable": true,
+  "bestLength": 240,
+  "mood": [
+   "dark",
+   "pixel"
+  ],
+  "roles": [
+   "backdrop"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "background": {
+    "default": "#2B0A3D",
+    "doc": "liquid colour (CSS hex); the glow warms its bottom"
+   },
+   "colors": {
+    "default": [
+     "#FF4D8D",
+     "#FF9A3C",
+     "#FFD23C"
+    ],
+    "doc": "blob colours (hex list), cycled across the blobs"
+   },
+   "glow": {
+    "default": "#FF5A4F",
+    "doc": "heat glow colour at the bottom"
+   },
+   "shape": {
+    "default": "full",
+    "doc": "\"full\" (blobs fill the whole frame) | \"lamp\" (inside a lava-lamp silhouette)"
+   },
+   "blobs": {
+    "default": 9,
+    "doc": "number of blobs at default density"
+   },
+   "blobSize": {
+    "default": 1,
+    "doc": "blob size multiplier"
+   },
+   "goo": {
+    "default": 1,
+    "doc": "how strongly blobs merge (0.5 = barely, 1 = default, 1.6 = very gooey)"
+   },
+   "shine": {
+    "default": true,
+    "doc": "lamp mode: glass highlight on the lamp"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed; quantised to whole cycles per loop so the clip loops seamlessly (0 = frozen)"
+   },
+   "density": {
+    "default": 1,
+    "doc": "multiplier for how many particles / elements are drawn"
+   },
+   "seed": {
+    "default": 12,
+    "doc": "random seed (changes the layout, not the look)"
+   },
+   "title": {
+    "default": "",
+    "doc": "optional headline over the scene (empty = none)"
+   },
+   "subtitle": {
+    "default": "",
+    "doc": "optional small line under the title (empty = none)"
+   },
+   "fontFamily": {
+    "default": "display",
+    "doc": "font role (\"serif\", \"display\", \"sans\", \"grotesk\", \"hand\", \"mono\") or any CSS family for title / subtitle"
+   },
+   "ink": {
+    "default": "",
+    "doc": "title / subtitle colour; empty = from timeOfDay"
+   },
+   "titlePosition": {
+    "default": "center",
+    "doc": "\"center\" | \"top\" | \"bottom\""
+   },
+   "titleSize": {
+    "default": 1,
+    "doc": "title size multiplier"
    }
   }
  },
@@ -24677,6 +26323,148 @@
    "endDoor": {
     "default": true,
     "doc": "show the glowing sunburst door at the end of the hall"
+   }
+  }
+ },
+ {
+  "id": "ocean-waves-layers",
+  "title": "Ocean waves layers",
+  "category": "environment",
+  "description": "Stylised flat-vector ocean: a sun or moon over a hazy horizon, 3-9 layered waves heaving and sliding on whole-cycle sine sums with foam dashes on the front crests and a glittering sun path; loops seamlessly, palette from dawn / day / dusk / night.",
+  "useFor": "A calm looping seascape behind titles, travel / holiday / wellness / meditation scenes, podcast or lyric backdrops; set timeOfDay or your brand colours, add a title, or let it run empty under your own HTML.",
+  "source": [
+   "original — round 3 nature backdrops"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "ocean",
+   "sea",
+   "waves",
+   "water",
+   "beach",
+   "sunset",
+   "seascape",
+   "loop",
+   "backdrop",
+   "nature",
+   "calm",
+   "travel",
+   "wellness",
+   "landscape",
+   "horizon"
+  ],
+  "file": "src/motions/environment/ocean-waves-layers.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [],
+  "loopable": true,
+  "bestLength": 240,
+  "mood": [
+   "mid",
+   "nature",
+   "night"
+  ],
+  "roles": [
+   "backdrop"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "timeOfDay": {
+    "default": "dusk",
+    "doc": "\"dawn\" | \"day\" | \"dusk\" | \"night\" – sky and light palette preset"
+   },
+   "skyTop": {
+    "default": "",
+    "doc": "override the top sky colour (hex); empty = from timeOfDay"
+   },
+   "skyBottom": {
+    "default": "",
+    "doc": "override the horizon sky colour (hex); empty = from timeOfDay"
+   },
+   "accent": {
+    "default": "",
+    "doc": "override the sun / moon / glow colour (hex); empty = from timeOfDay"
+   },
+   "waterColor": {
+    "default": "",
+    "doc": "nearest (deepest) water colour; the far water blends toward the horizon sky; empty = from the sky"
+   },
+   "layers": {
+    "default": 6,
+    "doc": "number of wave layers (2-9)"
+   },
+   "waveHeight": {
+    "default": 1,
+    "doc": "wave amplitude multiplier"
+   },
+   "horizon": {
+    "default": 0.46,
+    "doc": "horizon height as a fraction of the frame height (0.3-0.65)"
+   },
+   "sunX": {
+    "default": 0.5,
+    "doc": "sun / moon horizontal position, 0 (left) – 1 (right)"
+   },
+   "sunSize": {
+    "default": 1,
+    "doc": "sun / moon size multiplier"
+   },
+   "foam": {
+    "default": true,
+    "doc": "dashed foam lines along the front crests"
+   },
+   "glints": {
+    "default": true,
+    "doc": "glittering reflection of the sun on the water"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed; quantised to whole cycles per loop so the clip loops seamlessly (0 = frozen)"
+   },
+   "density": {
+    "default": 1,
+    "doc": "multiplier for how many particles / elements are drawn"
+   },
+   "seed": {
+    "default": 1,
+    "doc": "random seed (changes the layout, not the look)"
+   },
+   "title": {
+    "default": "",
+    "doc": "optional headline over the scene (empty = none)"
+   },
+   "subtitle": {
+    "default": "",
+    "doc": "optional small line under the title (empty = none)"
+   },
+   "fontFamily": {
+    "default": "serif",
+    "doc": "font role (\"serif\", \"display\", \"sans\", \"grotesk\", \"hand\", \"mono\") or any CSS family for title / subtitle"
+   },
+   "ink": {
+    "default": "",
+    "doc": "title / subtitle colour; empty = from timeOfDay"
+   },
+   "titlePosition": {
+    "default": "top",
+    "doc": "\"center\" | \"top\" | \"bottom\""
+   },
+   "titleSize": {
+    "default": 1,
+    "doc": "title size multiplier"
    }
   }
  },
@@ -25889,6 +27677,149 @@
   }
  },
  {
+  "id": "snow-mountain-dawn",
+  "title": "Snow mountain dawn",
+  "category": "environment",
+  "description": "Three ridged mountain ranges with soft snow lines at first light: an alpine glow breathing on the sun-facing slopes, drifting mist between the ranges, slow clouds, falling snow and pine silhouettes; loops seamlessly in dawn / day / dusk / night palettes.",
+  "useFor": "Calm looping hero or title backdrop for outdoor / adventure / expedition, winter, wellness, finance \"summit\" metaphors, motivational quotes, podcasts and lyric videos; colour with timeOfDay or brand colours and add your own title.",
+  "source": [
+   "original — round 3 nature backdrops"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "mountain",
+   "snow",
+   "alpine",
+   "dawn",
+   "sunrise",
+   "winter",
+   "mist",
+   "pines",
+   "loop",
+   "backdrop",
+   "nature",
+   "landscape",
+   "summit",
+   "adventure",
+   "calm"
+  ],
+  "file": "src/motions/environment/snow-mountain-dawn.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [],
+  "loopable": true,
+  "bestLength": 240,
+  "mood": [
+   "mid",
+   "3d",
+   "nature",
+   "night"
+  ],
+  "roles": [
+   "backdrop"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "timeOfDay": {
+    "default": "dawn",
+    "doc": "\"dawn\" | \"day\" | \"dusk\" | \"night\" – sky and light palette preset"
+   },
+   "skyTop": {
+    "default": "",
+    "doc": "override the top sky colour (hex); empty = from timeOfDay"
+   },
+   "skyBottom": {
+    "default": "",
+    "doc": "override the horizon sky colour (hex); empty = from timeOfDay"
+   },
+   "accent": {
+    "default": "",
+    "doc": "override the sun / moon / glow colour (hex); empty = from timeOfDay"
+   },
+   "rockColor": {
+    "default": "",
+    "doc": "nearest mountain rock colour (hex); far ranges fade toward the sky; empty = from the sky"
+   },
+   "snowColor": {
+    "default": "",
+    "doc": "snow cap colour (hex); empty = from the sky"
+   },
+   "ranges": {
+    "default": 3,
+    "doc": "number of mountain ranges (2-5)"
+   },
+   "peakHeight": {
+    "default": 1,
+    "doc": "peak height multiplier"
+   },
+   "sunX": {
+    "default": 0.62,
+    "doc": "sun / glow horizontal position, 0 (left) – 1 (right)"
+   },
+   "snowfall": {
+    "default": 1,
+    "doc": "falling snow amount (0 = none)"
+   },
+   "mist": {
+    "default": 1,
+    "doc": "mist between the ranges (0 = none)"
+   },
+   "pines": {
+    "default": true,
+    "doc": "pine tree silhouettes in the foreground"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed; quantised to whole cycles per loop so the clip loops seamlessly (0 = frozen)"
+   },
+   "density": {
+    "default": 1,
+    "doc": "multiplier for how many particles / elements are drawn"
+   },
+   "seed": {
+    "default": 3,
+    "doc": "random seed (changes the layout, not the look)"
+   },
+   "title": {
+    "default": "",
+    "doc": "optional headline over the scene (empty = none)"
+   },
+   "subtitle": {
+    "default": "",
+    "doc": "optional small line under the title (empty = none)"
+   },
+   "fontFamily": {
+    "default": "serif",
+    "doc": "font role (\"serif\", \"display\", \"sans\", \"grotesk\", \"hand\", \"mono\") or any CSS family for title / subtitle"
+   },
+   "ink": {
+    "default": "",
+    "doc": "title / subtitle colour; empty = from timeOfDay"
+   },
+   "titlePosition": {
+    "default": "top",
+    "doc": "\"center\" | \"top\" | \"bottom\""
+   },
+   "titleSize": {
+    "default": 1,
+    "doc": "title size multiplier"
+   }
+  }
+ },
+ {
   "id": "snowfall",
   "title": "Snowfall",
   "category": "environment",
@@ -26142,6 +28073,150 @@
    "rippleSpeed": {
     "default": 1100,
     "doc": "ripple speed in px/s at 1080p (1100)"
+   }
+  }
+ },
+ {
+  "id": "starfield-warp",
+  "title": "Starfield warp",
+  "category": "environment",
+  "description": "Hyperspace flight: stars burst from a vanishing point and accelerate outward as growing light streaks over a soft nebula and bright core glow; the warp amount stretches dots into light-speed lines, with optional gentle swirl; loops seamlessly and can be a transparent star overlay.",
+  "useFor": "Space / sci-fi / tech intros and transitions, \"launching\" or \"speed\" moments, AI and startup hero backgrounds, game loading screens, countdowns; use background \"transparent\" to layer the stars over footage or a UI.",
+  "source": [
+   "original — round 3 nature backdrops"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "stars",
+   "space",
+   "hyperspace",
+   "warp",
+   "speed",
+   "sci-fi",
+   "galaxy",
+   "nebula",
+   "overlay",
+   "loop",
+   "backdrop",
+   "intro",
+   "transition",
+   "tech",
+   "launch",
+   "particles"
+  ],
+  "file": "src/motions/environment/starfield-warp.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "background",
+   "colors"
+  ],
+  "loopable": true,
+  "bestLength": 240,
+  "mood": [
+   "dark",
+   "night"
+  ],
+  "roles": [
+   "backdrop",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "background": {
+    "default": "#02030B",
+    "doc": "CSS background; \"transparent\" = star overlay only (no sky, no nebula)"
+   },
+   "nebula": {
+    "default": true,
+    "doc": "soft coloured nebula clouds behind the stars (not drawn on a transparent background)"
+   },
+   "colors": {
+    "default": [
+     "#9FC4FF",
+     "#B58CFF",
+     "#5ED3C7"
+    ],
+    "doc": "star / nebula / glow colours (hex list); first is the core glow, 2nd and 3rd tint the nebula"
+   },
+   "warp": {
+    "default": 1,
+    "doc": "streak length: 0 = round dots, 1 = default, 2-3 = long light-speed lines"
+   },
+   "count": {
+    "default": 520,
+    "doc": "stars at default density"
+   },
+   "swirl": {
+    "default": 0,
+    "doc": "gentle rotation of the flight direction (0 = straight out, try 1-3)"
+   },
+   "centerX": {
+    "default": 0.5,
+    "doc": "vanishing point x, 0 (left) – 1 (right)"
+   },
+   "centerY": {
+    "default": 0.5,
+    "doc": "vanishing point y, 0 (top) – 1 (bottom)"
+   },
+   "coreGlow": {
+    "default": 1,
+    "doc": "glow at the vanishing point (0 = none)"
+   },
+   "pulse": {
+    "default": 1,
+    "doc": "how much the warp and core glow breathe over the loop (0 = steady)"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "animation speed; quantised to whole cycles per loop so the clip loops seamlessly (0 = frozen)"
+   },
+   "density": {
+    "default": 1,
+    "doc": "multiplier for how many particles / elements are drawn"
+   },
+   "seed": {
+    "default": 8,
+    "doc": "random seed (changes the layout, not the look)"
+   },
+   "title": {
+    "default": "",
+    "doc": "optional headline over the scene (empty = none)"
+   },
+   "subtitle": {
+    "default": "",
+    "doc": "optional small line under the title (empty = none)"
+   },
+   "fontFamily": {
+    "default": "grotesk",
+    "doc": "font role (\"serif\", \"display\", \"sans\", \"grotesk\", \"hand\", \"mono\") or any CSS family for title / subtitle"
+   },
+   "ink": {
+    "default": "",
+    "doc": "title / subtitle colour; empty = from timeOfDay"
+   },
+   "titlePosition": {
+    "default": "center",
+    "doc": "\"center\" | \"top\" | \"bottom\""
+   },
+   "titleSize": {
+    "default": 1,
+    "doc": "title size multiplier"
    }
   }
  },
@@ -52681,6 +54756,10 @@
     "default": "Estimated delivery: 3-5 days",
     "doc": "text in the delivery chip"
    },
+   "textColor": {
+    "default": "",
+    "doc": "colour of the headline / sub-line / chip on the page background; empty = automatic light or dark from the background"
+   },
    "background": {
     "default": "#EEF1F6",
     "doc": "page colour or 'transparent'"
@@ -69906,6 +71985,132 @@
   }
  },
  {
+  "id": "ai-chat-streaming",
+  "title": "AI chat streaming",
+  "category": "ui",
+  "description": "A generic AI assistant chat: the prompt types into the input bar and sends as a bubble, a thinking indicator bounces, then the answer streams in token by token with a block cursor, **bold** and `code` styling, a stop pill and a token / time readout.",
+  "useFor": "AI assistant / copilot / chatbot promos, \"how LLMs generate text\" explainers, prompt-and-response demos, support-bot and agent product videos. Swap prompt, answer and names for any product.",
+  "source": [
+   "original (generic AI explainer)"
+  ],
+  "durationInFrames": 330,
+  "tags": [
+   "ai",
+   "chat",
+   "chatbot",
+   "assistant",
+   "llm",
+   "streaming",
+   "tokens",
+   "prompt",
+   "gpt",
+   "copilot",
+   "conversation",
+   "typing",
+   "generative",
+   "agent",
+   "ui"
+  ],
+  "file": "src/motions/ui/ai-chat-streaming.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "panel",
+   "ink",
+   "accent",
+   "accent2"
+  ],
+  "loopable": false,
+  "bestLength": 330,
+  "mood": [
+   "playful",
+   "ui"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "userName": {
+    "default": "You",
+    "doc": "name of the person (reserved label)"
+   },
+   "assistantName": {
+    "default": "Assistant",
+    "doc": "assistant name shown in the header and over the answer"
+   },
+   "prompt": {
+    "default": "Explain how a hash table works in two sentences.",
+    "doc": "the user message (typed into the input bar, then sent)"
+   },
+   "answer": {
+    "default": "A hash table stores **key–value pairs** in an array of buckets. A hash function turns each key into an index, so the value can be found again in `O(1)` time on average.\n\nWhen two keys land in the same bucket, it resolves the collision by chaining or probing.",
+    "doc": "the assistant reply; use **bold**, `code` and \\n for line breaks"
+   },
+   "placeholder": {
+    "default": "Message the assistant…",
+    "doc": "input bar placeholder text"
+   },
+   "tokensPerSecond": {
+    "default": 24,
+    "doc": "average streaming speed"
+   },
+   "showStats": {
+    "default": true,
+    "doc": "show the token / time readout when the answer ends"
+   },
+   "thinkingFrames": {
+    "default": 26,
+    "doc": "frames of the thinking indicator before the first token"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "timing multiplier"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the chat starts"
+   },
+   "background": {
+    "default": "#0C0F16",
+    "doc": "page colour or 'transparent'"
+   },
+   "panel": {
+    "default": "#151A25",
+    "doc": "chat window colour"
+   },
+   "ink": {
+    "default": "#EAEFF8",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#4C8DFF",
+    "doc": "user bubble / cursor colour"
+   },
+   "accent2": {
+    "default": "#B07CFF",
+    "doc": "assistant avatar colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "text font override (empty = Inter)"
+   }
+  }
+ },
+ {
   "id": "appointment-booking-calendar",
   "title": "Appointment booking calendar",
   "category": "ui",
@@ -70205,6 +72410,150 @@
    "background": {
     "default": "#8F8B83",
     "doc": "wall colour behind the board"
+   }
+  }
+ },
+ {
+  "id": "boarding-pass-print",
+  "title": "Boarding pass printing",
+  "category": "ui",
+  "description": "A printer slot feeds out a boarding pass in stepped jerks: airline header, big FROM and TO codes with a dotted flight path, passenger fields, a perforated stub with a seat that lights up and a barcode that gets scanned.",
+  "useFor": "Travel and airline promos, trip-confirmation beats, holiday reveals, \"you are going to ...\" moments, check-in UI demos — set the codes, cities, times, seat and airline.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "boarding pass",
+   "flight",
+   "airline",
+   "ticket",
+   "travel",
+   "airport",
+   "trip",
+   "holiday",
+   "vacation",
+   "check-in",
+   "barcode",
+   "seat",
+   "print",
+   "ui"
+  ],
+  "file": "src/motions/ui/boarding-pass-print.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "paper",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "hud",
+   "ui"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "airline": {
+    "default": "Skyline Air",
+    "doc": "generic airline name (header and stub)"
+   },
+   "fromCode": {
+    "default": "LIS",
+    "doc": "departure code, e.g. 3 letters"
+   },
+   "fromCity": {
+    "default": "Lisbon",
+    "doc": "departure city line"
+   },
+   "toCode": {
+    "default": "OSL",
+    "doc": "arrival code"
+   },
+   "toCity": {
+    "default": "Oslo",
+    "doc": "arrival city line"
+   },
+   "departTime": {
+    "default": "09:45",
+    "doc": "departure time"
+   },
+   "arriveTime": {
+    "default": "14:05",
+    "doc": "arrival time"
+   },
+   "date": {
+    "default": "12 JUN",
+    "doc": "travel date text"
+   },
+   "flight": {
+    "default": "SK 482",
+    "doc": "flight number text"
+   },
+   "gate": {
+    "default": "B14",
+    "doc": "gate text"
+   },
+   "seat": {
+    "default": "12A",
+    "doc": "seat text (highlighted on the stub)"
+   },
+   "boardingTime": {
+    "default": "09:05",
+    "doc": "boarding time text"
+   },
+   "passenger": {
+    "default": "A. TRAVELLER",
+    "doc": "passenger name text"
+   },
+   "travelClass": {
+    "default": "Economy",
+    "doc": "cabin class text"
+   },
+   "headerLabel": {
+    "default": "BOARDING PASS",
+    "doc": "small caps label in the header band"
+   },
+   "printFrames": {
+    "default": 54,
+    "doc": "frames the feed takes to print the whole pass"
+   },
+   "background": {
+    "default": "#DCE6F2",
+    "doc": "page colour or 'transparent'"
+   },
+   "paper": {
+    "default": "#FFFFFF",
+    "doc": "pass colour"
+   },
+   "ink": {
+    "default": "#14233B",
+    "doc": "text and bar colour"
+   },
+   "accent": {
+    "default": "#1F6FEB",
+    "doc": "header band, plane and seat highlight colour"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the scene starts"
    }
   }
  },
@@ -71267,20 +73616,23 @@
      {
       "name": "Canvas Tote Bag",
       "price": 24,
-      "qty": 1
+      "qty": 1,
+      "kind": 0
      },
      {
       "name": "Ceramic Mug",
       "price": 16,
-      "qty": 2
+      "qty": 2,
+      "kind": 1
      },
      {
       "name": "Desk Lamp",
       "price": 48,
-      "qty": 1
+      "qty": 1,
+      "kind": 6
      }
     ],
-    "doc": "cart lines [{name, price, qty?, src?, color?}] (first 5 shown)"
+    "doc": "cart lines [{name, price, qty?, src?, color?, kind?}] (first 5 shown; kind = procedural drawing 0-7 when no src)"
    },
    "shippingFields": {
     "default": [
@@ -71683,6 +74035,168 @@
    "seconds": {
     "default": true,
     "doc": "show the sweeping seconds hand"
+   }
+  }
+ },
+ {
+  "id": "code-diff-highlight",
+  "title": "Code diff highlight",
+  "category": "ui",
+  "description": "A code-review window with a file-name header: removed lines in red and added lines in green sweep in one by one with old/new line-number gutters, a +/- column and light syntax colouring, then a +N/−M badge pops and unchanged context dims.",
+  "useFor": "Pull-request and code-review explainers, \"what changed\" beats, refactor / bug-fix walkthroughs, changelog and developer-tool promos, AI-coding demos.",
+  "source": [
+   "original (generic developer explainer)"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "diff",
+   "code",
+   "git",
+   "pull request",
+   "review",
+   "developer",
+   "changelog",
+   "refactor",
+   "software",
+   "programming",
+   "commit",
+   "patch",
+   "ui",
+   "overlay"
+  ],
+  "file": "src/motions/ui/code-diff-highlight.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "lines",
+   "caption"
+  ],
+  "colorProps": [
+   "background",
+   "panel",
+   "ink",
+   "addColor",
+   "delColor",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "ui"
+  ],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "fileName": {
+    "default": "src/auth/session.ts",
+    "doc": "file path shown in the window header"
+   },
+   "hunkHeader": {
+    "default": "",
+    "doc": "hunk line above the code, e.g. '@@ -12,7 +12,9 @@' (empty = computed from the lines)"
+   },
+   "lines": {
+    "default": [
+     {
+      "type": "ctx",
+      "text": "export function isValid(session: Session) {"
+     },
+     {
+      "type": "del",
+      "text": "  return session.token !== null;"
+     },
+     {
+      "type": "add",
+      "text": "  if (!session.token) return false;"
+     },
+     {
+      "type": "add",
+      "text": "  const expired = Date.now() > session.expiresAt;"
+     },
+     {
+      "type": "add",
+      "text": "  return !expired;"
+     },
+     {
+      "type": "ctx",
+      "text": "}"
+     },
+     {
+      "type": "ctx",
+      "text": ""
+     },
+     {
+      "type": "del",
+      "text": "const TTL = 60 * 60;"
+     },
+     {
+      "type": "add",
+      "text": "const TTL = 15 * 60; // shorter sessions"
+     }
+    ],
+    "doc": "diff lines [{type: 'add' | 'del' | 'ctx', text}] — text is plain code, no +/- prefix"
+   },
+   "startLine": {
+    "default": 12,
+    "doc": "first line number in the gutters"
+   },
+   "caption": {
+    "default": "Reject expired sessions",
+    "doc": "one-line takeaway under the window (empty = none)"
+   },
+   "every": {
+    "default": 9,
+    "doc": "frames between lines"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "timing multiplier"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the window starts"
+   },
+   "background": {
+    "default": "#0B0E14",
+    "doc": "page colour or 'transparent'"
+   },
+   "panel": {
+    "default": "#12161F",
+    "doc": "window colour (dark or light — syntax colours adapt)"
+   },
+   "ink": {
+    "default": "#E6EAF2",
+    "doc": "text colour"
+   },
+   "addColor": {
+    "default": "#2EA043",
+    "doc": "added-line colour"
+   },
+   "delColor": {
+    "default": "#F85149",
+    "doc": "removed-line colour"
+   },
+   "accent": {
+    "default": "#79B8FF",
+    "doc": "hunk-header colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "monospace font override (empty = JetBrains Mono)"
    }
   }
  },
@@ -73382,6 +75896,131 @@
   }
  },
  {
+  "id": "itinerary-route-stops",
+  "title": "Itinerary route with photo stops",
+  "category": "ui",
+  "description": "A dotted route draws across the frame while a marker travels it; each stop pops into a photo circle with a day badge, place name and note — day-by-day trip plans.",
+  "useFor": "Trip itineraries, tour and holiday packages, road-trip recaps, day-by-day plans, customer-journey stops — set stops (label, day, note, photo src).",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "itinerary",
+   "travel",
+   "trip",
+   "route",
+   "stops",
+   "journey",
+   "tour",
+   "holiday",
+   "vacation",
+   "map",
+   "days",
+   "plan",
+   "photos",
+   "ui"
+  ],
+  "file": "src/motions/ui/itinerary-route-stops.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "routeColor"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "photo",
+   "ui"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Five days, five stops",
+    "doc": "headline"
+   },
+   "subtitle": {
+    "default": "Your trip at a glance",
+    "doc": "small caps line under the headline"
+   },
+   "stops": {
+    "default": [
+     {
+      "label": "Harbour Town",
+      "day": "Day 1",
+      "note": "Arrive, sunset walk on the pier"
+     },
+     {
+      "label": "Old Quarter",
+      "day": "Day 2",
+      "note": "Markets and street food tour"
+     },
+     {
+      "label": "Mountain Pass",
+      "day": "Day 3",
+      "note": "Scenic drive and a long hike"
+     },
+     {
+      "label": "Lakeside",
+      "day": "Day 4",
+      "note": "Boat ride and a slow lunch"
+     },
+     {
+      "label": "Capital City",
+      "day": "Day 5",
+      "note": "Museums, then the night train"
+     }
+    ],
+    "doc": "stops in order, 2-8: {label, day, note, src?} — src is a public/ path or https URL for the photo (procedural scene if omitted)"
+   },
+   "travelFrames": {
+    "default": 150,
+    "doc": "frames the marker takes to ride the whole route"
+   },
+   "background": {
+    "default": "#F4EFE6",
+    "doc": "page colour or 'transparent'"
+   },
+   "ink": {
+    "default": "#1D2B36",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#E2552D",
+    "doc": "marker and day-badge colour"
+   },
+   "routeColor": {
+    "default": "#1D2B36",
+    "doc": "colour of the dotted route"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the scene starts"
+   }
+  }
+ },
+ {
   "id": "keystroke-hud",
   "title": "Keystroke HUD",
   "category": "ui",
@@ -74402,6 +77041,172 @@
   }
  },
  {
+  "id": "menu-board-items",
+  "title": "Menu board (chalk or clean)",
+  "category": "ui",
+  "description": "A cafe / restaurant menu: heading writes on, then each section and its items appear one after another — name wipe, dotted leader and a price that pops — on a chalkboard with a wooden frame or a clean printed page.",
+  "useFor": "Cafe, restaurant, bakery and food-truck menus, price lists, specials boards, event menus, any \"items with prices\" list in sections — set sections, items, prices and colours.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "menu",
+   "restaurant",
+   "cafe",
+   "coffee",
+   "food",
+   "prices",
+   "chalkboard",
+   "specials",
+   "bakery",
+   "drinks",
+   "list",
+   "price list",
+   "ui"
+  ],
+  "file": "src/motions/ui/menu-board-items.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "background",
+   "frameColor",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "ui"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Today's Menu",
+    "doc": "board heading"
+   },
+   "subtitle": {
+    "default": "Fresh · Local · Seasonal",
+    "doc": "small line under the heading"
+   },
+   "sections": {
+    "default": [
+     {
+      "title": "Coffee",
+      "items": [
+       {
+        "name": "Espresso",
+        "desc": "Double shot, house blend",
+        "price": "$3.0"
+       },
+       {
+        "name": "Flat white",
+        "desc": "Silky steamed milk",
+        "price": "$4.2"
+       },
+       {
+        "name": "Cold brew",
+        "desc": "18-hour steep, over ice",
+        "price": "$4.8"
+       }
+      ]
+     },
+     {
+      "title": "Bakery",
+      "items": [
+       {
+        "name": "Butter croissant",
+        "desc": "Baked every morning",
+        "price": "$3.5"
+       },
+       {
+        "name": "Cinnamon roll",
+        "desc": "Cream cheese glaze",
+        "price": "$4.0"
+       },
+       {
+        "name": "Sourdough toast",
+        "desc": "Jam or avocado",
+        "price": "$6.5"
+       }
+      ]
+     },
+     {
+      "title": "Lunch",
+      "items": [
+       {
+        "name": "Garden salad",
+        "desc": "Seasonal greens, lemon oil",
+        "price": "$9.0"
+       },
+       {
+        "name": "Tomato soup",
+        "desc": "With grilled cheese",
+        "price": "$8.5"
+       },
+       {
+        "name": "Veggie wrap",
+        "desc": "Hummus and roast veg",
+        "price": "$9.5"
+       }
+      ]
+     }
+    ],
+    "doc": "sections up to 6: {title, items:[{name, desc?, price}]} — price is text, so any currency or format"
+   },
+   "footer": {
+    "default": "Ask about our daily special",
+    "doc": "line at the bottom ('' to hide)"
+   },
+   "look": {
+    "default": "chalk",
+    "doc": "'chalk' (chalkboard, hand lettering, wooden frame) or 'clean' (printed menu)"
+   },
+   "stagger": {
+    "default": 8,
+    "doc": "frames between consecutive items"
+   },
+   "background": {
+    "default": "#25352E",
+    "doc": "board colour (chalk: board; clean: page) or 'transparent' for clean"
+   },
+   "frameColor": {
+    "default": "#7A5636",
+    "doc": "wooden frame colour (chalk look only)"
+   },
+   "ink": {
+    "default": "#F3F0E6",
+    "doc": "main text / chalk colour"
+   },
+   "accent": {
+    "default": "#F4C95D",
+    "doc": "section titles, prices, underline"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the scene starts"
+   }
+  }
+ },
+ {
   "id": "notification-stack",
   "title": "Notification stack (iOS / macOS / Android / toast)",
   "category": "ui",
@@ -75072,6 +77877,143 @@
    "speed": {
     "default": 1,
     "doc": "animation speed multiplier"
+   }
+  }
+ },
+ {
+  "id": "recipe-ingredients-steps",
+  "title": "Recipe: ingredients then timed steps",
+  "category": "ui",
+  "description": "A recipe card: the ingredient checklist ticks off item by item, then the numbered method runs step by step, highlighting the active step with a live countdown ring on timed steps and checking each one off.",
+  "useFor": "Recipe and cooking reels, meal-kit and food-brand promos, how-to-make-it explainers, kitchen app demos — set the dish, ingredients, steps (with minutes) and a dish photo.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 300,
+  "tags": [
+   "recipe",
+   "cooking",
+   "food",
+   "ingredients",
+   "steps",
+   "method",
+   "timer",
+   "checklist",
+   "kitchen",
+   "meal",
+   "how to",
+   "ui"
+  ],
+  "file": "src/motions/ui/recipe-ingredients-steps.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "background",
+   "card",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 300,
+  "mood": [
+   "ui"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Lemon pancakes",
+    "doc": "dish name"
+   },
+   "subtitle": {
+    "default": "Serves 4 · 25 min",
+    "doc": "small caps line (serves, time ...)"
+   },
+   "ingredientsTitle": {
+    "default": "Ingredients",
+    "doc": "label above the checklist"
+   },
+   "stepsTitle": {
+    "default": "Method",
+    "doc": "label above the method"
+   },
+   "ingredients": {
+    "default": [
+     "200 g plain flour",
+     "2 tbsp sugar",
+     "2 tsp baking powder",
+     "300 ml milk",
+     "2 eggs",
+     "Zest of 1 lemon"
+    ],
+    "doc": "checklist lines, up to 12"
+   },
+   "steps": {
+    "default": [
+     {
+      "text": "Whisk the dry ingredients together"
+     },
+     {
+      "text": "Mix in milk, eggs and zest",
+      "minutes": 2
+     },
+     {
+      "text": "Rest the batter",
+      "minutes": 5
+     },
+     {
+      "text": "Cook until golden on both sides",
+      "minutes": 4
+     }
+    ],
+    "doc": "method steps, up to 6: {text, minutes?} — minutes > 0 shows a countdown timer ring"
+   },
+   "stepFrames": {
+    "default": 46,
+    "doc": "frames each step stays active (the timer runs down over this time)"
+   },
+   "src": {
+    "default": "",
+    "doc": "dish photo (public/ path or https URL); '' draws a plate illustration"
+   },
+   "background": {
+    "default": "#F6EFE2",
+    "doc": "page colour or 'transparent'"
+   },
+   "card": {
+    "default": "#FFFFFF",
+    "doc": "panel colour"
+   },
+   "ink": {
+    "default": "#2A2118",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#E0872B",
+    "doc": "checks, active step and timer colour"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the scene starts"
    }
   }
  },
@@ -76951,6 +79893,154 @@
    "startAt": {
     "default": 0,
     "doc": "frame the slide begins"
+   }
+  }
+ },
+ {
+  "id": "terminal-install-progress",
+  "title": "Terminal install progress",
+  "category": "ui",
+  "description": "A terminal window: a command types in and runs, progress rows appear one by one (spinner, label, filling bar, percentage and size readout, each ending in a green check), then success lines and a fresh blinking prompt.",
+  "useFor": "Install / setup / \"get started in one command\" beats, CLI and package-manager promos, developer onboarding, build or deploy output, release trailers.",
+  "source": [
+   "original (generic developer explainer)"
+  ],
+  "durationInFrames": 300,
+  "tags": [
+   "terminal",
+   "cli",
+   "install",
+   "npm",
+   "command line",
+   "progress",
+   "bash",
+   "shell",
+   "developer",
+   "setup",
+   "package",
+   "download",
+   "loading",
+   "build",
+   "software",
+   "overlay"
+  ],
+  "file": "src/motions/ui/terminal-install-progress.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title"
+  ],
+  "colorProps": [
+   "background",
+   "panel",
+   "ink",
+   "accent",
+   "okColor"
+  ],
+  "loopable": false,
+  "bestLength": 300,
+  "mood": [],
+  "roles": [
+   "accent",
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "zsh — 96×28",
+    "doc": "window title"
+   },
+   "cwd": {
+    "default": "~/project",
+    "doc": "working-directory text before the prompt"
+   },
+   "prompt": {
+    "default": "$",
+    "doc": "prompt symbol"
+   },
+   "command": {
+    "default": "pkg install awesome-toolkit",
+    "doc": "the command that is typed and run"
+   },
+   "steps": {
+    "default": [
+     {
+      "label": "Resolving dependencies",
+      "detail": "142 packages"
+     },
+     {
+      "label": "Downloading packages",
+      "size": 84,
+      "unit": "MB"
+     },
+     {
+      "label": "Linking modules",
+      "detail": "cached"
+     },
+     {
+      "label": "Building native bindings",
+      "detail": "4 targets"
+     }
+    ],
+    "doc": "progress rows [{label, size? (total, counts up), unit? (default MB), detail? (text instead of size)}]"
+   },
+   "successLines": {
+    "default": [
+     "Installed 142 packages in 6.4s",
+     "Run `awesome --help` to get started"
+    ],
+    "doc": "lines printed after the steps (wrap `code` in backticks to highlight it)"
+   },
+   "stepFrames": {
+    "default": 32,
+    "doc": "frames each progress bar takes"
+   },
+   "typeSpeed": {
+    "default": 26,
+    "doc": "command typing speed in chars/s"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "timing multiplier"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the terminal starts"
+   },
+   "background": {
+    "default": "#0B0E14",
+    "doc": "page colour or 'transparent'"
+   },
+   "panel": {
+    "default": "#12161F",
+    "doc": "window colour (dark or light)"
+   },
+   "ink": {
+    "default": "#E6EAF2",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#79B8FF",
+    "doc": "prompt / progress colour"
+   },
+   "okColor": {
+    "default": "#3FD68F",
+    "doc": "success colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "monospace font override (empty = JetBrains Mono)"
    }
   }
  },

@@ -134,7 +134,7 @@ const AppointmentBookingCalendar: React.FC<Props> = ({
   const dateLabel = `${WEEKDAYS[selWeekday]}, ${monthName.slice(0, 3)} ${sel}`;
   const confT = prog(f, tConf, tConf + 18, ease.back);
   const modalW = Math.min(P.w * 0.8, (portrait ? 760 : 620) * u);
-  const modalH = modalW * 0.66;
+  const modalH = modalW * 0.78;
 
   const dayNodes: React.ReactNode[] = [];
   for (let d = 1; d <= dim; d++) {
@@ -243,31 +243,31 @@ const AppointmentBookingCalendar: React.FC<Props> = ({
               {(() => {
                 const mx = P.x + P.w / 2;
                 const my = P.y + P.h / 2;
-                const r = modalH * 0.2;
+                const r = modalH * 0.15;
                 const burst = prog(f, tConf + 6, tConf + 34, ease.out);
                 return (
                   <g opacity={clamp(confT * 1.6)} transform={`translate(${mx} ${my}) scale(${0.85 + 0.15 * clamp(confT)}) translate(${-mx} ${-my})`}>
                     <rect x={mx - modalW / 2} y={my - modalH / 2} width={modalW} height={modalH} rx={30 * u} fill={mixHex(panel, '#ffffff', 0.08)} stroke={accent} strokeOpacity={0.5} strokeWidth={2.5 * u} />
-                    <circle cx={mx} cy={my - modalH * 0.22} r={r} fill={accent} />
-                    {burst > 0 && burst < 1 && <circle cx={mx} cy={my - modalH * 0.22} r={r * (1 + burst * 0.9)} fill="none" stroke={accent} strokeOpacity={1 - burst} strokeWidth={4 * u} />}
+                    <circle cx={mx} cy={my - modalH * 0.27} r={r} fill={accent} />
+                    {burst > 0 && burst < 1 && <circle cx={mx} cy={my - modalH * 0.27} r={r * (1 + burst * 0.9)} fill="none" stroke={accent} strokeOpacity={1 - burst} strokeWidth={4 * u} />}
                     {[0, 1, 2, 3, 4, 5, 6, 7].map((k) => {
                       const a = (k / 8) * Math.PI * 2;
                       const d = r * (1.3 + burst * 0.9);
-                      return burst > 0 && burst < 1 ? <circle key={k} cx={mx + Math.cos(a) * d} cy={my - modalH * 0.22 + Math.sin(a) * d} r={5 * u * (1 - burst)} fill={accent} /> : null;
+                      return burst > 0 && burst < 1 ? <circle key={k} cx={mx + Math.cos(a) * d} cy={my - modalH * 0.27 + Math.sin(a) * d} r={5 * u * (1 - burst)} fill={accent} /> : null;
                     })}
-                    <Check x={mx} y={my - modalH * 0.22} s={r * 0.9} color={onAccent} width={r * 0.2} t={prog(f, tConf + 8, tConf + 24)} />
-                    <text x={mx} y={my + modalH * 0.06} textAnchor="middle" fontFamily={font} fontWeight={700} fontSize={modalH * 0.12} fill={ink}>
-                      {clip(confirmedTitle, modalW * 0.9, modalH * 0.12)}
+                    <Check x={mx} y={my - modalH * 0.27} s={r * 0.9} color={onAccent} width={r * 0.2} t={prog(f, tConf + 8, tConf + 24)} />
+                    <text x={mx} y={my + modalH * 0.05} textAnchor="middle" fontFamily={font} fontWeight={700} fontSize={modalH * 0.1} fill={ink}>
+                      {clip(confirmedTitle, modalW * 0.9, modalH * 0.1)}
                     </text>
-                    <text x={mx} y={my + modalH * 0.2} textAnchor="middle" fontFamily={font} fontWeight={700} fontSize={modalH * 0.085} fill={accent}>
-                      {clip(`${dateLabel}  ${'·'}  ${sl[slotIdx] ?? ''}`, modalW * 0.9, modalH * 0.085)}
+                    <text x={mx} y={my + modalH * 0.18} textAnchor="middle" fontFamily={font} fontWeight={700} fontSize={modalH * 0.075} fill={accent}>
+                      {clip(`${dateLabel}  ${'·'}  ${sl[slotIdx] ?? ''}`, modalW * 0.9, modalH * 0.075)}
                     </text>
-                    <text x={mx} y={my + modalH * 0.32} textAnchor="middle" fontFamily={font} fontWeight={500} fontSize={modalH * 0.065} fill={ink} fillOpacity={0.6}>
-                      {clip(serviceTitle, modalW * 0.9, modalH * 0.065)}
+                    <text x={mx} y={my + modalH * 0.29} textAnchor="middle" fontFamily={font} fontWeight={500} fontSize={modalH * 0.058} fill={ink} fillOpacity={0.6}>
+                      {clip(serviceTitle, modalW * 0.9, modalH * 0.058)}
                     </text>
                     {confirmedNote ? (
-                      <text x={mx} y={my + modalH * 0.43} textAnchor="middle" fontFamily={font} fontWeight={500} fontSize={modalH * 0.058} fill={ink} fillOpacity={0.45}>
-                        {clip(confirmedNote, modalW * 0.9, modalH * 0.058)}
+                      <text x={mx} y={my + modalH * 0.4} textAnchor="middle" fontFamily={font} fontWeight={500} fontSize={modalH * 0.05} fill={ink} fillOpacity={0.45}>
+                        {clip(confirmedNote, modalW * 0.9, modalH * 0.05)}
                       </text>
                     ) : null}
                   </g>

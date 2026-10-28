@@ -74,7 +74,7 @@ const HeartRateMonitor: React.FC<Props> = ({title, subtitle, unit, bpmStart, bpm
   // layout
   const side = !portrait;
   const readW = side ? box.w * 0.34 : box.w;
-  const plot = side ? {x: box.x, y: box.y, w: box.w - readW - 36 * u, h: box.h} : {x: box.x, y: box.y + box.h * 0.3, w: box.w, h: box.h * 0.4};
+  const plot = side ? {x: box.x, y: box.y, w: box.w - readW - 36 * u, h: box.h} : {x: box.x, y: box.y + box.h * 0.3, w: box.w, h: box.h * 0.46};
   const readRect = side ? {x: box.x + plot.w + 36 * u, y: box.y, w: readW, h: box.h} : {x: box.x, y: box.y, w: box.w, h: box.h * 0.27};
   const zonesRect = side ? null : {x: box.x, y: plot.y + plot.h + 30 * u, w: box.w, h: box.h - (plot.y - box.y) - plot.h - 30 * u};
 
@@ -135,7 +135,7 @@ const HeartRateMonitor: React.FC<Props> = ({title, subtitle, unit, bpmStart, bpm
   };
 
   // zone list geometry
-  const zh = side ? Math.min(86 * u, (readRect.h * 0.44) / zs.length) : Math.min(80 * u, (zonesRect!.h - 40 * u) / Math.ceil(zs.length / 2));
+  const zh = side ? Math.min(86 * u, (readRect.h * 0.44) / zs.length) : Math.min(104 * u, (zonesRect!.h - 40 * u) / Math.ceil(zs.length / 2));
   return (
     <AbsoluteFill style={{background: bg}}>
       <Svg>

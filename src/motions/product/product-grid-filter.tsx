@@ -58,20 +58,31 @@ const ProductGridFilter: React.FC<Props> = (p) => {
   // layout
   const cols = p.columns > 0 ? Math.round(p.columns) : portrait ? 3 : 4;
   const rowsAll = Math.ceil(Math.max(1, N) / cols);
-  const gridW = portrait ? w * 0.9 : Math.min(w * 0.82, 1500 * u);
   const gapX = (portrait ? 22 : 26) * u;
-  const cw = (gridW - gapX * (cols - 1)) / cols;
-  const ch = cw * (portrait ? 1.32 : 1.14);
+  const chF = portrait ? 1.32 : 1.14;
   const chipH = 62 * u;
   const barH = chipH + 34 * u;
+  let gridW = portrait ? w * 0.9 : Math.min(w * 0.82, 1500 * u);
+  let cw = (gridW - gapX * (cols - 1)) / cols;
+  // shrink so the full grid always fits the frame height
+  const maxGridH = h * 0.92 - barH;
+  if (rowsAll * cw * chF + (rowsAll - 1) * gapX > maxGridH) {
+    cw = (maxGridH - (rowsAll - 1) * gapX) / (rowsAll * chF);
+    gridW = cw * cols + gapX * (cols - 1);
+  }
+  const ch = cw * chF;
   const gridH = rowsAll * ch + (rowsAll - 1) * gapX;
   const blockH = barH + gridH;
   const bx = (w - gridW) / 2;
-  const by = (h - blockH) / 2;
-  const slotPos = (s: number) => ({x: bx + (s % cols) * (cw + gapX), y: by + barH + Math.floor(s / cols) * (ch + gapX)});
+  const by0 = (h - blockH) / 2;
+  const slotPos = (s: number) => ({x: bx + (s % cols) * (cw + gapX), y: by0 + offY + barH + Math.floor(s / cols) * (ch + gapX)});
 
   const enter = ease.out(sseg(t, 0, 20));
   const pad = cw * 0.06;
+  // keep the visible block vertically centred as rows disappear / return
+  const rowsOf = (slots: number[]) => Math.max(1, Math.ceil(slots.filter((x) => x >= 0).length / cols));
+  const offFor = (slots: number[]) => ((rowsAll - rowsOf(slots)) * (ch + gapX)) / 2;
+  const offY = k === 0 ? offFor(curSlots) : lerp(offFor(prevSlots), offFor(curSlots), ease.inOut(sseg(lt, 0, XF + 6)));
 
   // chips
   const chipFs = 25 * u;
@@ -85,7 +96,7 @@ const ProductGridFilter: React.FC<Props> = (p) => {
 
   return (
     <AbsoluteFill style={{background: bgOf(p.background), fontFamily: fonts.sans, color: p.ink}}>
-      <div style={{position: 'absolute', left: bx, top: by + (1 - enter) * 20 * u, width: gridW, height: chipH, opacity: enter}}>
+      <div style={{position: 'absolute', left: bx, top: by0 + offY + (1 - enter) * 20 * u, width: gridW, height: chipH, opacity: enter}}>
         {filters.map((f, i) => {
           const active = i === curF;
           const wasActive = i === prevF && k > 0;
@@ -141,7 +152,7 @@ const ProductGridFilter: React.FC<Props> = (p) => {
           slot = ps;
           vis = k === 0 ? 0 : 1 - pp;
         }
-        if (vis <= 0.003) return null;
+        if ((!isVis && !wasVis) || vis <= 0.003) return null;
         let x: number;
         let y: number;
         if (slot === -1) {

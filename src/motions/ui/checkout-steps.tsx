@@ -12,7 +12,7 @@ import {defineMotion} from '../../core/types';
  * cart lines, typed shipping fields, MASKED payment placeholders, a final confirmation with a check burst.
  * Never use real card numbers: payment values are masked placeholders.
  */
-type Item = {name: string; price: number; qty?: number; src?: string; color?: string};
+type Item = {name: string; price: number; qty?: number; src?: string; color?: string; kind?: number};
 type Field = {label: string; value: string};
 type Props = {
   steps: string[];
@@ -49,7 +49,7 @@ const CheckoutSteps: React.FC<Props> = (p) => {
   const local = (i: number) => t - stepStart(i);
 
   const pw = portrait ? w * 0.9 : Math.min(w * 0.58, 1060 * u);
-  const panelH = (portrait ? 1020 : 690) * u;
+  const panelH = (portrait ? 860 : 690) * u;
   const stepperH = 116 * u;
   const gap = 34 * u;
   const blockH = stepperH + gap + panelH;
@@ -76,7 +76,7 @@ const CheckoutSteps: React.FC<Props> = (p) => {
   };
 
   const renderForm = (fields: Field[], lt: number, title: string, mono: boolean) => {
-    const rowH = (portrait ? 106 : 92) * u;
+    const rowH = (portrait ? 128 : 112) * u;
     return (
       <div style={{position: 'absolute', left: pad, top: pad + 66 * u, right: pad}}>
         {fields.map((f, i) => {
@@ -111,7 +111,7 @@ const CheckoutSteps: React.FC<Props> = (p) => {
               const vis = ease.out(sseg(lt, 2 + k * 5, 14 + k * 5));
               return (
                 <div key={k} style={{height: rowH, display: 'flex', alignItems: 'center', gap: 22 * u, opacity: vis, transform: `translateX(${(1 - vis) * 30 * u}px)`, borderBottom: `${2 * u}px solid ${subtle}`}}>
-                  <Thumb w={rowH * 0.72} radius={14 * u} kind={k + 1} color={it.color ?? ART_COLORS[k % ART_COLORS.length]} src={it.src} />
+                  <Thumb w={rowH * 0.72} radius={14 * u} kind={it.kind ?? k} color={it.color ?? ART_COLORS[k % ART_COLORS.length]} src={it.src} />
                   <div style={{flex: 1, minWidth: 0}}>
                     <div style={{fontSize: 29 * u, fontWeight: 700, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>{it.name}</div>
                     <div style={{fontSize: 21 * u, opacity: 0.5, marginTop: 4 * u}}>{`Qty ${it.qty ?? 1}`}</div>
@@ -209,7 +209,12 @@ const CheckoutSteps: React.FC<Props> = (p) => {
         <div style={{position: 'absolute', inset: 0, ...(prevI >= 0 ? panelFor(cur) : {})}}>{renderStep(cur)}</div>
         {!lastStep ? (
           <div style={{position: 'absolute', left: pad, right: pad, bottom: pad, height: btnH, borderRadius: btnH * 0.3, background: p.accent, color: onColor(p.accent), fontWeight: 800, fontSize: 28 * u, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12 * u, transform: `scale(${1 - 0.04 * press})`}}>
-            {secure ? <span style={{display: 'inline-block', width: 20 * u, height: 16 * u, borderRadius: 4 * u, background: onColor(p.accent), opacity: 0.85}} /> : null}
+            {secure ? (
+              <svg width={22 * u} height={24 * u} viewBox="0 0 22 24" fill="none" stroke={onColor(p.accent)} strokeWidth={2.4} strokeLinecap="round">
+                <rect x={3} y={10} width={16} height={12} rx={3} fill={onColor(p.accent)} />
+                <path d="M6.5 10 V7 a4.5 4.5 0 0 1 9 0 V10" />
+              </svg>
+            ) : null}
             {label}
           </div>
         ) : null}
@@ -230,9 +235,9 @@ export const checkoutSteps = defineMotion<Props>({
   defaultProps: {
     steps: ['Cart', 'Shipping', 'Payment', 'Done'],
     items: [
-      {name: 'Canvas Tote Bag', price: 24, qty: 1},
-      {name: 'Ceramic Mug', price: 16, qty: 2},
-      {name: 'Desk Lamp', price: 48, qty: 1},
+      {name: 'Canvas Tote Bag', price: 24, qty: 1, kind: 0},
+      {name: 'Ceramic Mug', price: 16, qty: 2, kind: 1},
+      {name: 'Desk Lamp', price: 48, qty: 1, kind: 6},
     ],
     shippingFields: [
       {label: 'Full name', value: 'Alex Morgan'},
@@ -259,7 +264,7 @@ export const checkoutSteps = defineMotion<Props>({
   },
   propDocs: {
     steps: 'step names (2+). First = cart review, last = confirmation, the ones between are forms',
-    items: 'cart lines [{name, price, qty?, src?, color?}] (first 5 shown)',
+    items: 'cart lines [{name, price, qty?, src?, color?, kind?}] (first 5 shown; kind = procedural drawing 0-7 when no src)',
     shippingFields: 'form fields for the shipping step [{label, value}]',
     paymentFields: 'form fields for the payment step — keep these masked, never real card data',
     buttonLabels: 'primary button text per step',

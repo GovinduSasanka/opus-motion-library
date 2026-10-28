@@ -53,7 +53,7 @@ const BudgetEnvelopeSplit: React.FC<Props> = ({title, subtitle, income, incomeLa
   const per = 11 / speed;
 
   // income bar
-  const barH = (portrait ? 150 : 128) * u;
+  const barH = (portrait ? 150 : 112) * u;
   const barW = Math.min(box.w, (portrait ? 920 : 820) * u);
   const barX = box.x + (box.w - barW) / 2;
   const barY = box.y;
@@ -62,7 +62,7 @@ const BudgetEnvelopeSplit: React.FC<Props> = ({title, subtitle, income, incomeLa
   // envelope grid
   const cols = n <= 3 ? n : portrait || square ? 2 : n <= 4 ? 4 : n <= 6 ? 3 : n <= 8 ? 4 : 3;
   const rws = Math.ceil(n / cols);
-  const gridTop = barY + barH + (portrait ? 150 : 110) * u;
+  const gridTop = barY + barH + (portrait ? 150 : 84) * u;
   const gridH = box.y + box.h - gridTop;
   const cellW = box.w / cols;
   const cellH = gridH / rws;
@@ -102,7 +102,7 @@ const BudgetEnvelopeSplit: React.FC<Props> = ({title, subtitle, income, incomeLa
           const fade = 1 - prog(frame, t0(i) + 16 / speed, t0(i) + 26 / speed);
           return (
             <g key={i}>
-              <path d={`M${sx},${sy} C${sx},${my} ${c.x},${my} ${c.x},${ty}`} fill="none" stroke={e.color} strokeOpacity={0.35 * clamp(dp * 4)} strokeWidth={3 * u} strokeDasharray={`${8 * u} ${9 * u}`} pathLength={1} />
+              <path d={`M${sx},${sy} C${sx},${my} ${c.x},${my} ${c.x},${ty}`} fill="none" stroke={e.color} strokeOpacity={0.35 * clamp(dp * 4)} strokeWidth={3 * u} strokeDasharray={`${8 * u} ${9 * u}`} />
               {dp > 0 && dp < 1 && (
                 <g opacity={fade}>
                   <circle cx={px} cy={py} r={13 * u} fill={e.color} />
@@ -155,11 +155,11 @@ const BudgetEnvelopeSplit: React.FC<Props> = ({title, subtitle, income, incomeLa
               <g>
                 <rect x={x + ew * 0.1} y={slipY} width={ew * 0.8} height={slipH} rx={8 * u} fill="#FBFAF6" />
                 <rect x={x + ew * 0.1} y={slipY} width={ew * 0.8} height={7 * u} rx={3 * u} fill={e.color} />
-                <text x={x + ew / 2} y={slipY + vis * 0.62} textAnchor="middle" fontFamily={font} fontWeight={700} fontSize={Math.min(ew * 0.17, (ew * 0.76) / Math.max(3, fmt(e.amount, 0, prefix, suffix).length * 0.6))} fill="#14181F" style={{fontVariantNumeric: 'tabular-nums'}}>
+                <text x={x + ew / 2} y={slipY + vis * 0.52} textAnchor="middle" fontFamily={font} fontWeight={700} fontSize={Math.min(ew * 0.17, (ew * 0.76) / Math.max(3, fmt(e.amount, 0, prefix, suffix).length * 0.6))} fill="#14181F" style={{fontVariantNumeric: 'tabular-nums'}}>
                   {fmt(amount, 0, prefix, suffix)}
                 </text>
                 {showPercent && (
-                  <text x={x + ew / 2} y={slipY + vis * 0.93} textAnchor="middle" fontFamily={font} fontWeight={600} fontSize={lab * 0.9} fill="#14181F" fillOpacity={0.5}>
+                  <text x={x + ew / 2} y={slipY + vis * 0.82} textAnchor="middle" fontFamily={font} fontWeight={600} fontSize={lab * 0.9} fill="#14181F" fillOpacity={0.5}>
                     {Math.round(share * 100)}%
                   </text>
                 )}
