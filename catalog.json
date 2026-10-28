@@ -1774,6 +1774,138 @@
   }
  },
  {
+  "id": "floating-devices-stack",
+  "title": "Floating devices stack (3D laptop, tablet, phone)",
+  "category": "3d",
+  "description": "A real-3D laptop, tablet and phone rise into a layered, slightly rotated stack and float with a gentle sway, lit by a soft studio. Each screen shows your image (cover-fitted) or a generated app UI in your colours; an optional headline sits beside or above.",
+  "useFor": "App / SaaS launches, \"works on every device\" beats, store previews and landing-page heroes. Pass `screens` (your screenshots), `devices` order, brand colours and a `title`.",
+  "source": [
+   "3D product-mockup stack (original build; three.js)"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "devices",
+   "mockup",
+   "laptop",
+   "tablet",
+   "phone",
+   "app",
+   "saas",
+   "launch",
+   "responsive",
+   "screens",
+   "stack",
+   "floating",
+   "product",
+   "hero",
+   "three.js",
+   "3d",
+   "screenshot",
+   "store preview"
+  ],
+  "file": "src/motions/3d/floating-devices-stack.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "background",
+   "accent",
+   "accent2",
+   "bodyColor"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "photo",
+   "3d",
+   "ui"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "heavy",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "devices": {
+    "default": [
+     "laptop",
+     "tablet",
+     "phone"
+    ],
+    "doc": "device per slot, in order of importance (slot 0 is the hero): 'laptop' | 'tablet' | 'phone' (up to 5)"
+   },
+   "screens": {
+    "default": [],
+    "doc": "screen images (public/ path or URL), one per device, cycled; empty = generated app UI in your colours"
+   },
+   "title": {
+    "default": "One product, every screen",
+    "doc": "headline (\\n for a line break; empty with an empty subtitle = devices only, centred)"
+   },
+   "subtitle": {
+    "default": "Designed once. Looks right everywhere.",
+    "doc": "line under the headline"
+   },
+   "background": {
+    "default": "#eef1f8",
+    "doc": "background colour ('transparent' to composite over other content)"
+   },
+   "ink": {
+    "default": "",
+    "doc": "headline colour (empty = auto contrast)"
+   },
+   "accent": {
+    "default": "#4f6bff",
+    "doc": "brand colour (generated screens, headline bar, rim light)"
+   },
+   "accent2": {
+    "default": "#ff7ab6",
+    "doc": "second brand colour (generated screens)"
+   },
+   "bodyColor": {
+    "default": "#1d2029",
+    "doc": "device frame colour"
+   },
+   "darkScreens": {
+    "default": false,
+    "doc": "generated screens use a dark theme"
+   },
+   "startAt": {
+    "default": 4,
+    "doc": "frame the first device starts rising"
+   },
+   "stagger": {
+    "default": 9,
+    "doc": "frames between devices landing"
+   },
+   "floatAmount": {
+    "default": 1,
+    "doc": "strength of the idle float / wobble (0 = still)"
+   },
+   "sway": {
+    "default": 7,
+    "doc": "degrees the camera swings around the stack across the clip"
+   },
+   "size": {
+    "default": 1,
+    "doc": "overall scale multiplier"
+   }
+  }
+ },
+ {
   "id": "glass-strip-sweep",
   "title": "Glass strip-light sweep",
   "category": "3d",
@@ -2726,6 +2858,147 @@
   }
  },
  {
+  "id": "isometric-room-build",
+  "title": "Isometric room build (3D furniture drop-in)",
+  "category": "3d",
+  "description": "A cut-away isometric room builds itself: the plank floor grows, two walls rise with a window and framed art, then rug, sofa, table, shelf, desk, plant and lamp drop in one after another with a squash-and-settle while the camera drifts a few degrees.",
+  "useFor": "Interior design, real estate, home / furniture e-commerce, \"build your space\" and game-lobby beats. Choose the `furniture` list, palette colours and `wallArt` image; add a `title`.",
+  "source": [
+   "isometric room diorama (original build; three.js)"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "isometric",
+   "room",
+   "interior",
+   "furniture",
+   "real estate",
+   "home",
+   "build",
+   "diorama",
+   "drop",
+   "sofa",
+   "living room",
+   "decor",
+   "game",
+   "three.js",
+   "3d",
+   "lowpoly",
+   "clay"
+  ],
+  "file": "src/motions/3d/isometric-room-build.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "background",
+   "floorColor",
+   "wallColor",
+   "accent",
+   "accent2",
+   "woodColor"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "3d",
+   "nature"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "heavy",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "furniture": {
+    "default": [
+     "rug",
+     "sofa",
+     "table",
+     "shelf",
+     "plant",
+     "lamp",
+     "desk",
+     "chair"
+    ],
+    "doc": "pieces in drop order: 'rug' | 'sofa' | 'table' | 'shelf' | 'desk' | 'chair' | 'plant' | 'lamp' | 'bed' | 'tv' (each has a fixed spot in the room)"
+   },
+   "wallArt": {
+    "default": "",
+    "doc": "picture on the left wall (public/ path or URL); empty = generated abstract art"
+   },
+   "title": {
+    "default": "Build your space",
+    "doc": "headline (\\n for a line break; empty with an empty subtitle = room only, centred)"
+   },
+   "subtitle": {
+    "default": "Piece by piece, room by room.",
+    "doc": "line under the headline"
+   },
+   "background": {
+    "default": "#f3ece4",
+    "doc": "background colour ('transparent' to composite over other content)"
+   },
+   "ink": {
+    "default": "",
+    "doc": "headline colour (empty = auto contrast)"
+   },
+   "floorColor": {
+    "default": "#e0c39b",
+    "doc": "floor planks colour"
+   },
+   "wallColor": {
+    "default": "#f7f3ee",
+    "doc": "wall colour"
+   },
+   "accent": {
+    "default": "#3f7fd9",
+    "doc": "main furniture colour (sofa, screens, headline bar)"
+   },
+   "accent2": {
+    "default": "#f0a05a",
+    "doc": "secondary colour (rug, pots, chair, cushions)"
+   },
+   "woodColor": {
+    "default": "#b9855a",
+    "doc": "tables, shelf and desk wood"
+   },
+   "startAt": {
+    "default": 6,
+    "doc": "frame the floor starts growing"
+   },
+   "stagger": {
+    "default": 12,
+    "doc": "frames between furniture drops"
+   },
+   "dropHeight": {
+    "default": 7,
+    "doc": "height furniture falls from (world units)"
+   },
+   "drift": {
+    "default": 14,
+    "doc": "degrees the camera swings while it builds"
+   },
+   "size": {
+    "default": 1,
+    "doc": "overall scale multiplier"
+   }
+  }
+ },
+ {
   "id": "jelly-type-drop",
   "title": "Jelly type drop",
   "category": "3d",
@@ -3333,6 +3606,153 @@
    "osdLabel": {
     "default": "REC",
     "doc": "camcorder on-screen-display label next to the red dot (osd: true)"
+   }
+  }
+ },
+ {
+  "id": "low-poly-terrain-flyover",
+  "title": "Low-poly terrain flyover",
+  "category": "3d",
+  "description": "A seeded, flat-shaded low-poly island (mountains with snow caps, grass, sand, pine forests, a faceted sea and drifting clouds) under a gradient sky and fog, with the camera flying low across it (or circling it).",
+  "useFor": "Travel and outdoors intros, game / world-building teasers, nature or sustainability titles, calm looping hero backdrops. Change `seed` for a new island, `palette` and `sky` for the mood (autumn, desert, arctic), `title` for the words.",
+  "source": [
+   "procedural height-map terrain (original build; three.js)"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "terrain",
+   "low poly",
+   "landscape",
+   "flyover",
+   "fly-through",
+   "island",
+   "mountains",
+   "forest",
+   "sea",
+   "clouds",
+   "travel",
+   "nature",
+   "game",
+   "world",
+   "procedural",
+   "seeded",
+   "drone",
+   "three.js",
+   "3d",
+   "backdrop"
+  ],
+  "file": "src/motions/3d/low-poly-terrain-flyover.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "palette",
+   "sky",
+   "sunColor"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "3d",
+   "nature"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "heavy",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "seed": {
+    "default": 7,
+    "doc": "island seed (any integer): a different landscape each time"
+   },
+   "palette": {
+    "default": [
+     "#2f9fd0",
+     "#f2dd9c",
+     "#7cc65a",
+     "#8c8f9a",
+     "#ffffff"
+    ],
+    "doc": "[water, sand, grass, rock, snow] colours"
+   },
+   "sky": {
+    "default": [
+     "#4a8fe0",
+     "#ffe3c2"
+    ],
+    "doc": "[zenith, horizon] sky colours (the horizon colour also tints fog)"
+   },
+   "sunColor": {
+    "default": "#ffd9a0",
+    "doc": "sun / key-light colour"
+   },
+   "sunHeight": {
+    "default": 38,
+    "doc": "sun elevation in degrees"
+   },
+   "relief": {
+    "default": 28,
+    "doc": "mountain height (world units)"
+   },
+   "seaLevel": {
+    "default": 0.02,
+    "doc": "raises (positive) or lowers (negative) the sea relative to the land (-0.15..0.2)"
+   },
+   "trees": {
+    "default": 700,
+    "doc": "number of pine trees"
+   },
+   "clouds": {
+    "default": 9,
+    "doc": "number of low-poly clouds"
+   },
+   "path": {
+    "default": "fly",
+    "doc": "'fly' (low pass across the island) | 'orbit' (circle around it)"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "how much of the path is covered (1 = the whole path over the clip)"
+   },
+   "altitude": {
+    "default": 30,
+    "doc": "camera height above the ground (world units)"
+   },
+   "fog": {
+    "default": 0.0045,
+    "doc": "fog density (0 = clear)"
+   },
+   "title": {
+    "default": "Wide open horizons",
+    "doc": "headline (\"\" with an empty subtitle = scene only)"
+   },
+   "subtitle": {
+    "default": "Explore what is out there",
+    "doc": "line under the headline"
+   },
+   "ink": {
+    "default": "",
+    "doc": "headline colour (empty = auto contrast)"
+   },
+   "titlePlace": {
+    "default": "bottom",
+    "doc": "'bottom' | 'top' | 'center'"
+   },
+   "size": {
+    "default": 1,
+    "doc": "zoom multiplier (>1 = narrower lens)"
    }
   }
  },
@@ -5289,6 +5709,159 @@
      "cloudLight": "#c19464"
     },
     "doc": "rock / scree / grass / snow / clay / sun / zenith / horizon / cloudShadow / cloudLight"
+   }
+  }
+ },
+ {
+  "id": "3d-text-extrude-spin",
+  "title": "3D text extrude and spin (settles)",
+  "category": "3d",
+  "description": "Your words as real extruded, bevelled 3D letters: they scale in spinning on the vertical (or horizontal) axis, ease out of the spin with a damped wobble, then a light streak sweeps across the glossy faces. Spin the whole word or each letter in a stagger.",
+  "useFor": "Title cards, logo-style hero words, brand stings, countdown numbers and chapter openers: set `text`, `faceColor`, `sideColor`, `accent` and the background.",
+  "source": [
+   "three.js TextGeometry (original build)"
+  ],
+  "durationInFrames": 150,
+  "tags": [
+   "3d text",
+   "extruded",
+   "title",
+   "spin",
+   "turntable",
+   "logo",
+   "bevel",
+   "glossy",
+   "chrome",
+   "sting",
+   "intro",
+   "headline",
+   "kinetic type",
+   "three.js",
+   "3d",
+   "hero word",
+   "countdown"
+  ],
+  "file": "src/motions/3d/text-extrude-spin-3d.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "text",
+   "subtitle"
+  ],
+  "colorProps": [
+   "background",
+   "faceColor",
+   "sideColor",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "3d"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "heavy",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "text": {
+    "default": "LAUNCH",
+    "doc": "the word(s); use '|' or \\n for a new line (Latin letters, digits and basic punctuation; at most 60 characters)"
+   },
+   "subtitle": {
+    "default": "Coming this spring",
+    "doc": "small caps line under the word (\"\" for none)"
+   },
+   "font": {
+    "default": "sans",
+    "doc": "'sans' (bold) | 'light' (regular) | 'humanist' (bold) | 'serif' (bold)"
+   },
+   "mode": {
+    "default": "word",
+    "doc": "'word' (whole word spins) | 'letter' (each letter spins on its own with a stagger)"
+   },
+   "axis": {
+    "default": "y",
+    "doc": "'y' (turntable spin) | 'x' (forward flip)"
+   },
+   "spins": {
+    "default": 2,
+    "doc": "full turns before it settles"
+   },
+   "spinFrames": {
+    "default": 56,
+    "doc": "frames the spin takes to settle"
+   },
+   "startAt": {
+    "default": 6,
+    "doc": "frame the spin starts"
+   },
+   "stagger": {
+    "default": 4,
+    "doc": "frames between letters in 'letter' mode"
+   },
+   "depth": {
+    "default": 0.36,
+    "doc": "extrusion depth (letter height = 1)"
+   },
+   "bevel": {
+    "default": 0.035,
+    "doc": "bevel size (0 = sharp edges)"
+   },
+   "tracking": {
+    "default": 0.07,
+    "doc": "extra letter spacing (letter height = 1)"
+   },
+   "background": {
+    "default": "#101426",
+    "doc": "background colour ('transparent' to composite over other content)"
+   },
+   "faceColor": {
+    "default": "#f4f6ff",
+    "doc": "front-face colour"
+   },
+   "sideColor": {
+    "default": "#4f6bff",
+    "doc": "extruded side colour"
+   },
+   "accent": {
+    "default": "#ff5ea8",
+    "doc": "rim-light and background glow colour"
+   },
+   "ink": {
+    "default": "",
+    "doc": "subtitle colour (empty = auto contrast)"
+   },
+   "metalness": {
+    "default": 0.25,
+    "doc": "material metalness 0..1"
+   },
+   "roughness": {
+    "default": 0.28,
+    "doc": "material roughness 0..1"
+   },
+   "idleSway": {
+    "default": 8,
+    "doc": "degrees of slow sway after it settles"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "subtitle font-family (empty = library sans)"
+   },
+   "size": {
+    "default": 1,
+    "doc": "word scale multiplier"
    }
   }
  },
@@ -38001,17 +38574,17 @@
       "name": "Kestrel Moon",
       "detail": "1:46.20",
       "colors": [
-       "#2F6BFF",
+       "#7A4DFF",
        "#FFFFFF",
-       "#E5484D"
+       "#18B37E"
       ]
      },
      {
       "name": "Alder Reyes",
       "detail": "1:46.85",
       "colors": [
-       "#18B37E",
-       "#FFFFFF"
+       "#19B6D6",
+       "#F5A524"
       ]
      },
      {
@@ -65244,6 +65817,125 @@
   }
  },
  {
+  "id": "anniversary-years-badge",
+  "title": "Anniversary years badge (ribbons & laurel)",
+  "category": "text",
+  "description": "A gold milestone seal pops in over a slow sunburst, ribbons drop behind it, laurel branches draw around it, the year count climbs to N and lands with a shine and sparkle burst, then a headline and thank-you line write on.",
+  "useFor": "Company and brand anniversaries, \"5 years of ...\" milestones, employee tenure, subscription / membership years, loyalty badges, awards and years-in-business trust marks. Set `years`, the headline and your colours.",
+  "source": [
+   "original (round 3, events & celebrations)"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "anniversary",
+   "badge",
+   "years",
+   "milestone",
+   "seal",
+   "laurel",
+   "ribbon",
+   "award",
+   "celebration",
+   "tenure",
+   "birthday",
+   "company",
+   "event"
+  ],
+  "file": "src/motions/text/anniversary-years-badge.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "unit",
+   "headline",
+   "caption"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "accent2"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "nature"
+  ],
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "years": {
+    "default": 5,
+    "doc": "the number shown in the seal (counts up from 0)"
+   },
+   "eyebrow": {
+    "default": "Celebrating",
+    "doc": "text curved along the top of the seal"
+   },
+   "unit": {
+    "default": "years",
+    "doc": "label under the number (years, months, days...)"
+   },
+   "headline": {
+    "default": "Thank you for 5 great years",
+    "doc": "big line beside / under the badge (wraps to three lines)"
+   },
+   "caption": {
+    "default": "Here is to many more together",
+    "doc": "smaller line under the headline"
+   },
+   "laurel": {
+    "default": true,
+    "doc": "draw laurel branches around the seal"
+   },
+   "ribbons": {
+    "default": true,
+    "doc": "show the two hanging ribbons"
+   },
+   "countUp": {
+    "default": true,
+    "doc": "count up from 0 instead of showing the number straight away"
+   },
+   "background": {
+    "default": "#14213D",
+    "doc": "frame colour (hex), or \"transparent\" to overlay content"
+   },
+   "ink": {
+    "default": "#FFFFFF",
+    "doc": "text colour (hex)"
+   },
+   "accent": {
+    "default": "#F2C14E",
+    "doc": "seal, laurel and highlight colour (hex)"
+   },
+   "accent2": {
+    "default": "#C8372D",
+    "doc": "ribbon colour (hex)"
+   },
+   "seed": {
+    "default": 3,
+    "doc": "seed for the sparkles and confetti"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the sequence begins"
+   }
+  }
+ },
+ {
   "id": "atomic-orbit-title",
   "title": "Atomic orbit title (retro toon)",
   "category": "text",
@@ -67115,6 +67807,122 @@
   }
  },
  {
+  "id": "countdown-new-year",
+  "title": "New-year countdown with fireworks finale",
+  "category": "text",
+  "description": "A big 10 to 0 countdown inside a depleting tick ring (each number pops in and punches out); rockets climb for the last three counts, then a flash, a firework volley and falling confetti reveal the year and a greeting.",
+  "useFor": "New-year countdowns, product-launch and live-stream countdowns, sale starts, \"going live in 10\" intros, festival openers, midnight reveals. Set `year`, `message`, `from` (start number) and `tick` (frames per number).",
+  "source": [
+   "original (round 3, events & celebrations)"
+  ],
+  "durationInFrames": 400,
+  "tags": [
+   "countdown",
+   "new-year",
+   "fireworks",
+   "celebration",
+   "timer",
+   "midnight",
+   "launch",
+   "live",
+   "event",
+   "confetti",
+   "year",
+   "finale"
+  ],
+  "file": "src/motions/text/countdown-new-year.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "subtitle",
+   "caption"
+  ],
+  "colorProps": [
+   "colors",
+   "background",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 400,
+  "mood": [
+   "3d",
+   "playful",
+   "night"
+  ],
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "from": {
+    "default": 10,
+    "doc": "number the countdown starts from"
+   },
+   "tick": {
+    "default": 22,
+    "doc": "frames each number stays (30 = one second)"
+   },
+   "year": {
+    "default": "2027",
+    "doc": "big text revealed at zero (a year, \"GO!\", \"LIVE\"…)"
+   },
+   "message": {
+    "default": "Happy New Year",
+    "doc": "greeting under the year"
+   },
+   "subtitle": {
+    "default": "Wishing you a bright start",
+    "doc": "small line under the greeting"
+   },
+   "caption": {
+    "default": "Counting down to midnight",
+    "doc": "small line above the ring while counting"
+   },
+   "colors": {
+    "default": [
+     "#FFC857",
+     "#FF4F9A",
+     "#5BD1FF",
+     "#9CFF8A"
+    ],
+    "doc": "firework / confetti colours (array of hex)"
+   },
+   "background": {
+    "default": "#0A0E27",
+    "doc": "night-sky base colour (hex), or \"transparent\" to overlay content"
+   },
+   "ink": {
+    "default": "#FFFFFF",
+    "doc": "text colour (hex)"
+   },
+   "accent": {
+    "default": "#FFC857",
+    "doc": "ring, zero and year colour (hex)"
+   },
+   "seed": {
+    "default": 6,
+    "doc": "seed for stars and firework patterns"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the sequence begins"
+   }
+  }
+ },
+ {
   "id": "counting-objects",
   "title": "Counting objects",
   "category": "text",
@@ -67995,6 +68803,142 @@
   }
  },
  {
+  "id": "event-ticket-reveal",
+  "title": "Event ticket reveal & stub tear",
+  "category": "text",
+  "description": "An admission ticket slides in and settles, its event name, venue and details write on, a QR-style code scans in, then the stub tears off along the perforation while a shine sweeps the ticket and an \"admit one\" stamp lands.",
+  "useFor": "Concert, festival, conference, cinema and match announcements, \"tickets on sale\" promos, event confirmations and booking flows, gift vouchers. Replace the event name, venue, date/time/seat details and colours; works as a vertical ticket in 9:16.",
+  "source": [
+   "original (round 3, events & celebrations)"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "ticket",
+   "event",
+   "concert",
+   "festival",
+   "admission",
+   "qr",
+   "booking",
+   "tear",
+   "stub",
+   "reveal",
+   "celebration",
+   "cinema",
+   "conference"
+  ],
+  "file": "src/motions/text/event-ticket-reveal.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "ticket",
+   "ink",
+   "accent",
+   "accent2"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "hud"
+  ],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "eyebrow": {
+    "default": "Live in concert",
+    "doc": "small line above the title (e.g. \"Live in concert\")"
+   },
+   "eventName": {
+    "default": "Summer Lights Festival",
+    "doc": "event title (wraps to two lines, three in 9:16)"
+   },
+   "venue": {
+    "default": "Harbour Arena, Main Stage",
+    "doc": "venue / location line"
+   },
+   "details": {
+    "default": [
+     {
+      "label": "Date",
+      "value": "SAT 21 JUN"
+     },
+     {
+      "label": "Doors",
+      "value": "7:30 PM"
+     },
+     {
+      "label": "Gate",
+      "value": "B"
+     },
+     {
+      "label": "Seat",
+      "value": "Row F - 12"
+     }
+    ],
+    "doc": "up to four {label, value} pairs shown in a grid (date, time, gate, seat…)"
+   },
+   "ticketId": {
+    "default": "No. 004281",
+    "doc": "reference text under the code; also seeds the code pattern"
+   },
+   "admit": {
+    "default": "Admit one",
+    "doc": "stub label and stamp text"
+   },
+   "scanLabel": {
+    "default": "Scan at gate",
+    "doc": "small line under the code"
+   },
+   "tear": {
+    "default": true,
+    "doc": "tear the stub off at the end"
+   },
+   "background": {
+    "default": "#17142B",
+    "doc": "frame colour (hex), or \"transparent\" to overlay content"
+   },
+   "ticket": {
+    "default": "#FFF7EA",
+    "doc": "paper colour of the ticket (hex)"
+   },
+   "ink": {
+    "default": "#241B3A",
+    "doc": "text colour (hex)"
+   },
+   "accent": {
+    "default": "#E8553D",
+    "doc": "stub and top-band colour (hex)"
+   },
+   "accent2": {
+    "default": "#2D9C8F",
+    "doc": "scan line and stamp colour (hex)"
+   },
+   "seed": {
+    "default": 5,
+    "doc": "reserved for pattern variety"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the sequence begins"
+   }
+  }
+ },
+ {
   "id": "fill-in-the-blank",
   "title": "Fill in the blank",
   "category": "text",
@@ -68766,6 +69710,133 @@
   }
  },
  {
+  "id": "graduation-cap-toss",
+  "title": "Graduation caps tossed in the air",
+  "category": "text",
+  "description": "Mortarboard caps are thrown up from below the frame, tumble with swinging tassels and fall away while confetti pops from both corners; Congratulations, the graduate name, a class pill and a tagline pop onto the frame, with a second smaller toss as finale.",
+  "useFor": "Graduation and commencement videos, school or bootcamp class announcements, \"congrats graduates\" posts, certificate and course-completion celebrations, alumni and yearbook intros. Set the name (or \"Graduates\"), class line and colours.",
+  "source": [
+   "original (round 3, events & celebrations)"
+  ],
+  "durationInFrames": 270,
+  "tags": [
+   "graduation",
+   "cap",
+   "toss",
+   "congratulations",
+   "class",
+   "commencement",
+   "school",
+   "celebration",
+   "confetti",
+   "name",
+   "certificate",
+   "event",
+   "tassel"
+  ],
+  "file": "src/motions/text/graduation-cap-toss.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "headline",
+   "subtitle"
+  ],
+  "colorProps": [
+   "colors",
+   "cap",
+   "tassel",
+   "background",
+   "ink",
+   "accent",
+   "accent2"
+  ],
+  "loopable": false,
+  "bestLength": 270,
+  "mood": [
+   "playful"
+  ],
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "headline": {
+    "default": "Congratulations",
+    "doc": "big line (Congratulations / Well done / Graduates)"
+   },
+   "name": {
+    "default": "Jordan Lee",
+    "doc": "graduate or group name, shown in script"
+   },
+   "classLabel": {
+    "default": "Class of 2027",
+    "doc": "text in the gold pill (Class of 2027, Batch 12...)"
+   },
+   "subtitle": {
+    "default": "The future is yours",
+    "doc": "tagline under the pill"
+   },
+   "caps": {
+    "default": 9,
+    "doc": "caps in the first toss (1-16); the second toss uses about 60%"
+   },
+   "colors": {
+    "default": [
+     "#E0A82E",
+     "#D9534F",
+     "#3B82C4",
+     "#4FB58A",
+     "#FFFFFF"
+    ],
+    "doc": "confetti colours (array of hex)"
+   },
+   "cap": {
+    "default": "#1E2A4A",
+    "doc": "cap colour (hex)"
+   },
+   "tassel": {
+    "default": "#E0A82E",
+    "doc": "tassel and button colour (hex)"
+   },
+   "background": {
+    "default": "#F4EBDD",
+    "doc": "frame colour (hex), or \"transparent\" to overlay content"
+   },
+   "ink": {
+    "default": "#1E2A4A",
+    "doc": "headline and tagline colour (hex)"
+   },
+   "accent": {
+    "default": "#F2C14E",
+    "doc": "class pill colour (hex)"
+   },
+   "accent2": {
+    "default": "#D9534F",
+    "doc": "name colour (hex)"
+   },
+   "seed": {
+    "default": 5,
+    "doc": "seed for toss spread and confetti"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the sequence begins"
+   }
+  }
+ },
+ {
   "id": "halftone-exhibit-numeral",
   "title": "Halftone exhibit numeral",
   "category": "text",
@@ -69136,6 +70207,115 @@
    "seed": {
     "default": 4,
     "doc": "marker glyph jitter seed"
+   }
+  }
+ },
+ {
+  "id": "holiday-greeting-card",
+  "title": "Greeting card opens (seasonal motif)",
+  "category": "text",
+  "description": "A greeting card slides in closed, swings open on its spine to reveal a written greeting, message and signature, while a seasonal motif (snow, leaves, lights or hearts) drifts around and decorates the cover and left page.",
+  "useFor": "Holiday, Christmas, autumn, winter, Valentine, thank-you and season's-greetings e-cards, newsletters and social posts, company holiday wishes, customer thank-you videos. Choose the motif, replace the greeting text and colours.",
+  "source": [
+   "original (round 3, events & celebrations)"
+  ],
+  "durationInFrames": 270,
+  "tags": [
+   "greeting",
+   "card",
+   "holiday",
+   "christmas",
+   "seasonal",
+   "snow",
+   "leaves",
+   "autumn",
+   "lights",
+   "hearts",
+   "valentine",
+   "thank-you",
+   "celebration",
+   "ecard",
+   "event"
+  ],
+  "file": "src/motions/text/holiday-greeting-card.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "card",
+   "ink",
+   "accent",
+   "accent2"
+  ],
+  "loopable": false,
+  "bestLength": 270,
+  "mood": [
+   "nature"
+  ],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "greeting": {
+    "default": "Happy Holidays",
+    "doc": "big script greeting inside the card"
+   },
+   "message": {
+    "default": "Wishing you warmth, joy and peace this season and a bright year ahead.",
+    "doc": "message paragraph (wraps to five lines)"
+   },
+   "signature": {
+    "default": "With love, The Team",
+    "doc": "sign-off written at the bottom"
+   },
+   "coverText": {
+    "default": "Season's Greetings",
+    "doc": "small caps line on the cover"
+   },
+   "motif": {
+    "default": "snow",
+    "doc": "\"snow\", \"leaves\", \"lights\" or \"hearts\" - drives the cover emblem, left page art and drifting particles"
+   },
+   "background": {
+    "default": "#1F3B4D",
+    "doc": "frame colour (hex), or \"transparent\" to overlay content"
+   },
+   "card": {
+    "default": "#FBF5EA",
+    "doc": "paper colour (hex)"
+   },
+   "ink": {
+    "default": "#2B2A33",
+    "doc": "message text colour (hex)"
+   },
+   "accent": {
+    "default": "#C8453B",
+    "doc": "cover, greeting and frame colour (hex)"
+   },
+   "accent2": {
+    "default": "#2F7D5B",
+    "doc": "signature and ornament colour (hex)"
+   },
+   "seed": {
+    "default": 2,
+    "doc": "seed for the drifting particles"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the sequence begins"
    }
   }
  },
@@ -72485,6 +73665,150 @@
    "fontFamily": {
     "default": "",
     "doc": "optional CSS font-family"
+   }
+  }
+ },
+ {
+  "id": "rsvp-invite-card",
+  "title": "RSVP invite card with button press",
+  "category": "text",
+  "description": "An invitation card rises into place, its title, host and icon rows (date, time, place, dress code) pop in, then a pointer glides to the RSVP button and presses it: ripple, a confirmed check state, confetti and a \"see you there\" line.",
+  "useFor": "Party, wedding, webinar, launch-event and meetup invitations, RSVP reminders, event sign-up promos, \"reserve your spot\" call-to-actions. Replace the title, host, details (icon: calendar, clock, pin, hanger, gift, star, heart, ticket, phone) and the colours.",
+  "source": [
+   "original (round 3, events & celebrations)"
+  ],
+  "durationInFrames": 270,
+  "tags": [
+   "rsvp",
+   "invitation",
+   "invite",
+   "party",
+   "event",
+   "button",
+   "cursor",
+   "press",
+   "confirm",
+   "birthday",
+   "wedding",
+   "webinar",
+   "meetup",
+   "celebration"
+  ],
+  "file": "src/motions/text/rsvp-invite-card.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title"
+  ],
+  "colorProps": [
+   "background",
+   "card",
+   "ink",
+   "accent",
+   "success"
+  ],
+  "loopable": false,
+  "bestLength": 270,
+  "mood": [
+   "playful"
+  ],
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "eyebrow": {
+    "default": "You are invited",
+    "doc": "small line above the title"
+   },
+   "title": {
+    "default": "Garden Party",
+    "doc": "event name (wraps to up to three lines)"
+   },
+   "host": {
+    "default": "Hosted by Sam & Jo",
+    "doc": "host / organiser line under the title"
+   },
+   "details": {
+    "default": [
+     {
+      "icon": "calendar",
+      "label": "Date",
+      "value": "Saturday, 12 April"
+     },
+     {
+      "icon": "clock",
+      "label": "Time",
+      "value": "4:00 PM onwards"
+     },
+     {
+      "icon": "pin",
+      "label": "Place",
+      "value": "12 Orchard Lane"
+     },
+     {
+      "icon": "hanger",
+      "label": "Dress code",
+      "value": "Smart casual"
+     }
+    ],
+    "doc": "up to four {icon, label, value} rows (icons: calendar, clock, pin, hanger, gift, star, heart, ticket, phone)"
+   },
+   "button": {
+    "default": "RSVP",
+    "doc": "button label before the press"
+   },
+   "confirmLabel": {
+    "default": "I'm going!",
+    "doc": "button label after the press"
+   },
+   "thanks": {
+    "default": "See you there!",
+    "doc": "line that replaces the reply-by note after the press"
+   },
+   "replyBy": {
+    "default": "Please reply by 1 April",
+    "doc": "note shown under the button"
+   },
+   "background": {
+    "default": "#E7DFF7",
+    "doc": "frame colour (hex), or \"transparent\" to overlay content"
+   },
+   "card": {
+    "default": "#FFFFFF",
+    "doc": "card and button text colour (hex)"
+   },
+   "ink": {
+    "default": "#2A2340",
+    "doc": "detail text colour (hex)"
+   },
+   "accent": {
+    "default": "#7B5CE0",
+    "doc": "header panel, icon and button colour (hex)"
+   },
+   "success": {
+    "default": "#2FA37A",
+    "doc": "confirmed-state colour (hex)"
+   },
+   "seed": {
+    "default": 4,
+    "doc": "seed for the panel decorations"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the sequence begins"
    }
   }
  },

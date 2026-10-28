@@ -12,6 +12,7 @@ import {colourIgnitionWave} from './motions/3d/colour-ignition-wave';
 import {explodedStack} from './motions/3d/exploded-stack';
 import {explodedView3d} from './motions/3d/exploded-view-3d';
 import {facetedSea} from './motions/3d/faceted-sea';
+import {floatingDevicesStack} from './motions/3d/floating-devices-stack';
 import {glassStripSweep} from './motions/3d/glass-strip-sweep';
 import {globe3d} from './motions/3d/globe-3d';
 import {hexIslandGrow} from './motions/3d/hex-island-grow';
@@ -19,11 +20,13 @@ import {holoGlobe} from './motions/3d/holo-globe';
 import {holoSolidIgnite} from './motions/3d/holo-solid-ignite';
 import {isoBlocks3d} from './motions/3d/iso-blocks-3d';
 import {isoCityBuild} from './motions/3d/iso-city-build';
+import {isometricRoomBuild} from './motions/3d/isometric-room-build';
 import {jellyTypeDrop} from './motions/3d/jelly-type-drop';
 import {lastObjectDrop} from './motions/3d/last-object-drop';
 import {lidarCanopyPeel} from './motions/3d/lidar-canopy-peel';
 import {lightBeamRibbon} from './motions/3d/light-beam-ribbon';
 import {liminalCorridor3d} from './motions/3d/liminal-corridor-3d';
+import {lowPolyTerrainFlyover} from './motions/3d/low-poly-terrain-flyover';
 import {oceanSurface3d} from './motions/3d/ocean-surface-3d';
 import {particleShapeMorph} from './motions/3d/particle-shape-morph';
 import {planTilt} from './motions/3d/plan-tilt';
@@ -36,6 +39,7 @@ import {stackPlates3d} from './motions/3d/stack-plates-3d';
 import {studioPlinthStage} from './motions/3d/studio-plinth-stage';
 import {sunShadowMeasure} from './motions/3d/sun-shadow-measure';
 import {terrainBuild3d} from './motions/3d/terrain-build-3d';
+import {textExtrudeSpin3d} from './motions/3d/text-extrude-spin-3d';
 import {voxelBurstSwirl} from './motions/3d/voxel-burst-swirl';
 import {voxelDiorama} from './motions/3d/voxel-diorama';
 import {voxelRainBuild} from './motions/3d/voxel-rain-build';
@@ -458,6 +462,7 @@ import {swimmersConverge} from './motions/shape/swimmers-converge';
 import {toonCelShape} from './motions/shape/toon-cel-shape';
 import {agendaListSlide} from './motions/text/agenda-list-slide';
 import {alphabetLetterTrace} from './motions/text/alphabet-letter-trace';
+import {anniversaryYearsBadge} from './motions/text/anniversary-years-badge';
 import {atomicOrbitTitle} from './motions/text/atomic-orbit-title';
 import {bigStatSlide} from './motions/text/big-stat-slide';
 import {birthdayCakeCandles} from './motions/text/birthday-cake-candles';
@@ -473,6 +478,7 @@ import {chrome80sTitle} from './motions/text/chrome-80s-title';
 import {chromeTitleSlam} from './motions/text/chrome-title-slam';
 import {cinematicTitleCard} from './motions/text/cinematic-title-card';
 import {comicBurst} from './motions/text/comic-burst';
+import {countdownNewYear} from './motions/text/countdown-new-year';
 import {countingObjects} from './motions/text/counting-objects';
 import {decoTitleBar} from './motions/text/deco-title-bar';
 import {definitionCard} from './motions/text/definition-card';
@@ -480,15 +486,18 @@ import {diagonalAssembleTitle} from './motions/text/diagonal-assemble-title';
 import {diagonalBandTitle} from './motions/text/diagonal-band-title';
 import {endCardCredits} from './motions/text/end-card-credits';
 import {endScreenCards} from './motions/text/end-screen-cards';
+import {eventTicketReveal} from './motions/text/event-ticket-reveal';
 import {fillInTheBlank} from './motions/text/fill-in-the-blank';
 import {flashcardFlipDeck} from './motions/text/flashcard-flip-deck';
 import {flipbookRiffleOutro} from './motions/text/flipbook-riffle-outro';
 import {followerMilestone} from './motions/text/follower-milestone';
 import {glyphFractalPush} from './motions/text/glyph-fractal-push';
 import {glyphOrbitLogo} from './motions/text/glyph-orbit-logo';
+import {graduationCapToss} from './motions/text/graduation-cap-toss';
 import {halftoneExhibitNumeral} from './motions/text/halftone-exhibit-numeral';
 import {hanaziCaption} from './motions/text/hanazi-caption';
 import {handwriteOn} from './motions/text/handwrite-on';
+import {holidayGreetingCard} from './motions/text/holiday-greeting-card';
 import {intertitleCard} from './motions/text/intertitle-card';
 import {isoGroundTitle} from './motions/text/iso-ground-title';
 import {keyTakeawayHighlight} from './motions/text/key-takeaway-highlight';
@@ -514,6 +523,7 @@ import {quizQuestionReveal} from './motions/text/quiz-question-reveal';
 import {quoteSlide} from './motions/text/quote-slide';
 import {ransomNoteType} from './motions/text/ransom-note-type';
 import {rollingCredits} from './motions/text/rolling-credits';
+import {rsvpInviteCard} from './motions/text/rsvp-invite-card';
 import {rundownBoard} from './motions/text/rundown-board';
 import {saleCountdownBanner} from './motions/text/sale-countdown-banner';
 import {sceneTag} from './motions/text/scene-tag';
@@ -619,6 +629,7 @@ export const motions: MotionDef<any>[] = [
   explodedStack,
   explodedView3d,
   facetedSea,
+  floatingDevicesStack,
   glassStripSweep,
   globe3d,
   hexIslandGrow,
@@ -626,11 +637,13 @@ export const motions: MotionDef<any>[] = [
   holoSolidIgnite,
   isoBlocks3d,
   isoCityBuild,
+  isometricRoomBuild,
   jellyTypeDrop,
   lastObjectDrop,
   lidarCanopyPeel,
   lightBeamRibbon,
   liminalCorridor3d,
+  lowPolyTerrainFlyover,
   oceanSurface3d,
   particleShapeMorph,
   planTilt,
@@ -643,6 +656,7 @@ export const motions: MotionDef<any>[] = [
   studioPlinthStage,
   sunShadowMeasure,
   terrainBuild3d,
+  textExtrudeSpin3d,
   voxelBurstSwirl,
   voxelDiorama,
   voxelRainBuild,
@@ -1065,6 +1079,7 @@ export const motions: MotionDef<any>[] = [
   toonCelShape,
   agendaListSlide,
   alphabetLetterTrace,
+  anniversaryYearsBadge,
   atomicOrbitTitle,
   bigStatSlide,
   birthdayCakeCandles,
@@ -1080,6 +1095,7 @@ export const motions: MotionDef<any>[] = [
   chromeTitleSlam,
   cinematicTitleCard,
   comicBurst,
+  countdownNewYear,
   countingObjects,
   decoTitleBar,
   definitionCard,
@@ -1087,15 +1103,18 @@ export const motions: MotionDef<any>[] = [
   diagonalBandTitle,
   endCardCredits,
   endScreenCards,
+  eventTicketReveal,
   fillInTheBlank,
   flashcardFlipDeck,
   flipbookRiffleOutro,
   followerMilestone,
   glyphFractalPush,
   glyphOrbitLogo,
+  graduationCapToss,
   halftoneExhibitNumeral,
   hanaziCaption,
   handwriteOn,
+  holidayGreetingCard,
   intertitleCard,
   isoGroundTitle,
   keyTakeawayHighlight,
@@ -1121,6 +1140,7 @@ export const motions: MotionDef<any>[] = [
   quoteSlide,
   ransomNoteType,
   rollingCredits,
+  rsvpInviteCard,
   rundownBoard,
   saleCountdownBanner,
   sceneTag,

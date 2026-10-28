@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
-import {Crest, backOut, bgCss, bodyFont, clampN, easeIO, easeOut3, fitFont, fmtTime, headFont, mixHex, num, onColor, sseg, withAlpha} from '../../core/r3-sports-kit';
+import {Crest, backOut, bgCss, bodyFont, clampN, easeIO, easeOut3, fitFont, fmtTime, headFont, mixHex, num, onColor, sseg, withAlpha, isDark} from '../../core/r3-sports-kit';
 import {Vignette, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
 
@@ -95,7 +95,7 @@ const RaceLeaderboardLive: React.FC<Props> = (P) => {
   const left = (w - W) / 2;
   const headH = (portrait ? 190 : 150) * u;
   const availH = h - headH - 110 * u;
-  const rowH = Math.min((portrait ? 118 : 92) * u, availH / n);
+  const rowH = Math.min((portrait ? 150 : 92) * u, availH / n);
   const gapY = Math.max(5 * u, rowH * 0.08);
   const stepY = rowH;
   const listH = n * stepY;
@@ -182,7 +182,7 @@ const RaceLeaderboardLive: React.FC<Props> = (P) => {
       {bgCss(P.background) && (
         <>
           <AbsoluteFill style={{background: `linear-gradient(120deg, ${mixHex(P.background, P.accent, 0.1)}, ${P.background} 55%)`}} />
-          <Vignette strength={0.4} />
+          {isDark(P.background) && <Vignette strength={0.4} />}
         </>
       )}
       {/* header */}

@@ -122,6 +122,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "floating-devices-stack": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 180,
+  "roles": [
+   "subject"
+  ],
+  "weight": "heavy"
+ },
  "glass-strip-sweep": {
   "overlay": false,
   "overlayProps": null,
@@ -197,6 +209,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "heavy"
  },
+ "isometric-room-build": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 240,
+  "roles": [
+   "subject"
+  ],
+  "weight": "heavy"
+ },
  "jelly-type-drop": {
   "overlay": false,
   "overlayProps": null,
@@ -245,6 +269,16 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "overlayProps": null,
   "loopable": false,
   "bestLength": 180,
+  "roles": [
+   "subject"
+  ],
+  "weight": "heavy"
+ },
+ "low-poly-terrain-flyover": {
+  "overlay": false,
+  "overlayProps": null,
+  "loopable": false,
+  "bestLength": 240,
   "roles": [
    "subject"
   ],
@@ -367,6 +401,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "overlayProps": null,
   "loopable": false,
   "bestLength": 650,
+  "roles": [
+   "subject"
+  ],
+  "weight": "heavy"
+ },
+ "3d-text-extrude-spin": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 150,
   "roles": [
    "subject"
   ],
@@ -5062,6 +5108,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "anniversary-years-badge": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 240,
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light"
+ },
  "atomic-orbit-title": {
   "overlay": false,
   "overlayProps": null,
@@ -5232,6 +5291,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "countdown-new-year": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 400,
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light"
+ },
  "counting-objects": {
   "overlay": true,
   "overlayProps": {
@@ -5300,6 +5372,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "weight": "light"
  },
  "end-screen-cards": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 240,
+  "roles": [
+   "type"
+  ],
+  "weight": "light"
+ },
+ "event-ticket-reveal": {
   "overlay": true,
   "overlayProps": {
    "background": "transparent"
@@ -5381,6 +5465,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "graduation-cap-toss": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 270,
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light"
+ },
  "halftone-exhibit-numeral": {
   "overlay": false,
   "overlayProps": null,
@@ -5406,6 +5503,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "overlayProps": null,
   "loopable": false,
   "bestLength": 120,
+  "roles": [
+   "type"
+  ],
+  "weight": "light"
+ },
+ "holiday-greeting-card": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 270,
   "roles": [
    "type"
   ],
@@ -5695,6 +5804,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "bestLength": 480,
   "roles": [
    "type"
+  ],
+  "weight": "light"
+ },
+ "rsvp-invite-card": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 270,
+  "roles": [
+   "type",
+   "accent"
   ],
   "weight": "light"
  },

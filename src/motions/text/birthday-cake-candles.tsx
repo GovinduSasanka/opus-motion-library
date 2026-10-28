@@ -59,7 +59,7 @@ const BirthdayCakeCandles: React.FC<Props> = (p) => {
         const baseY = wide ? L.H * 0.86 : tall ? L.H * 0.86 : L.H * 0.92;
         const tx = wide ? L.W * 0.69 : L.W / 2;
         const maxW = wide ? 700 : L.W * 0.88;
-        const ty = wide ? L.H * 0.4 : tall ? L.H * 0.27 : L.H * 0.2;
+        const ty = wide ? L.H * 0.4 : tall ? L.H * 0.27 : L.H * 0.255;
 
         // cake entrance
         const drop = prog(f, 0, 24, ease.out);

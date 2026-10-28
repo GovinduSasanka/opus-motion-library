@@ -1,7 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, Img, useCurrentFrame} from 'remotion';
 import {resolveSrc} from '../../core/asset';
-import {Crest, Silhouette, backOut, bgCss, bodyFont, clampN, easeIO, easeOut3, fitFont, headFont, mixHex, onColor, sseg, withAlpha} from '../../core/r3-sports-kit';
+import {Crest, Silhouette, backOut, bgCss, bodyFont, clampN, easeIO, easeOut3, fitFont, headFont, mixHex, onColor, sseg, withAlpha, isDark} from '../../core/r3-sports-kit';
 import {Svg, Vignette, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
 
@@ -43,10 +43,11 @@ const TransferAnnouncement: React.FC<Props> = (P) => {
   const body = bodyFont(P.fontFamily);
   const wide = w / h > 1.45;
   const dark = '#070B16';
+  const uc = !wide && !portrait ? u * 0.8 : u; // square frames have less room for the text stack
 
   // ---- geometry
   const pad = (wide ? 90 : 56) * u;
-  const photoBox = wide ? {x: w * 0.56, y: 0, w: w * 0.44, h: h} : {x: 0, y: 0, w, h: h * (portrait ? 0.42 : 0.4)};
+  const photoBox = wide ? {x: w * 0.56, y: 0, w: w * 0.44, h: h} : {x: 0, y: 0, w, h: h * (portrait ? 0.42 : 0.36)};
   const slant = wide ? 120 * u : 70 * u;
   const contentX = pad;
   const contentW = wide ? w * 0.56 - pad * 1.3 : w - pad * 2;
@@ -75,11 +76,11 @@ const TransferAnnouncement: React.FC<Props> = (P) => {
   const parts = (P.playerName || '').trim().split(/\s+/);
   const last = parts.length > 1 ? parts[parts.length - 1] : parts[0] || '';
   const first = parts.length > 1 ? parts.slice(0, -1).join(' ') : '';
-  const lastFs = fitFont(last.toUpperCase(), (wide ? 170 : portrait ? 150 : 120) * u, contentW, 'display');
-  const firstFs = fitFont(first.toUpperCase(), (wide ? 66 : 56) * u, contentW, 'display');
+  const lastFs = fitFont(last.toUpperCase(), (wide ? 170 : portrait ? 150 : 120) * uc, contentW, 'display');
+  const firstFs = fitFont(first.toUpperCase(), (wide ? 66 : 56) * uc, contentW, 'display');
 
-  const crest = (wide ? 150 : portrait ? 150 : 120) * u;
-  const clubFs = (c: string) => fitFont((c || '').toUpperCase(), 30 * u, crest * 1.9, 'sans', 0.05);
+  const crest = (wide ? 150 : portrait ? 150 : 120) * uc;
+  const clubFs = (c: string) => fitFont((c || '').toUpperCase(), 30 * uc, crest * 1.9, 'sans', 0.05);
   const arrowW = clampN((contentW - crest * 2 - 40 * u) * 0.9, 90 * u, 300 * u);
   const photoClip = wide
     ? `polygon(${slant}px 0,100% 0,100% 100%,0 100%)`
@@ -101,11 +102,20 @@ const TransferAnnouncement: React.FC<Props> = (P) => {
         <>
           <AbsoluteFill style={{background: `linear-gradient(115deg, ${mixHex(P.background, P.fromColor, 0.18)} 0%, ${P.background} 55%, ${mixHex(P.background, P.toColor, 0.22)} 100%)`}} />
           {/* diagonal colour wipes */}
-          <Svg>
-            <polygon points={`${w * 0.5 + wipe2 * 0},0 ${w},0 ${w},${h} ${w * 0.5 - h * 0.15},${h}`} fill={withAlpha(P.toColor, 0.5)} transform={`translate(${(1 - wipe2) * w * 0.7} 0)`} />
-            <polygon points={`0,0 ${w * 0.12},0 ${w * 0.02},${h} 0,${h}`} fill={P.fromColor} transform={`translate(${-(1 - wipe1) * w * 0.2} 0)`} />
-          </Svg>
-          <Vignette strength={0.4} />
+          {wide ? (
+            <Svg>
+              <polygon points={`${w * 0.5},0 ${w},0 ${w},${h} ${w * 0.5 - h * 0.15},${h}`} fill={withAlpha(P.toColor, 0.5)} transform={`translate(${(1 - wipe2) * w * 0.7} 0)`} />
+              <polygon points={`0,0 ${w * 0.12},0 ${w * 0.02},${h} 0,${h}`} fill={P.fromColor} transform={`translate(${-(1 - wipe1) * w * 0.2} 0)`} />
+            </Svg>
+          ) : (
+            <>
+              <AbsoluteFill style={{background: `radial-gradient(ellipse 90% 45% at 85% 100%, ${withAlpha(P.toColor, 0.4)}, transparent 70%)`, opacity: wipe2}} />
+              <Svg>
+                <polygon points={`0,${photoBox.h * 0.7} ${w * 0.07},${photoBox.h * 0.7} ${w * 0.03},${h} 0,${h}`} fill={P.fromColor} transform={`translate(${-(1 - wipe1) * w * 0.2} 0)`} />
+              </Svg>
+            </>
+          )}
+          {isDark(P.background) && <Vignette strength={0.4} />}
         </>
       )}
 
@@ -122,10 +132,10 @@ const TransferAnnouncement: React.FC<Props> = (P) => {
       <div style={{position: 'absolute', left: wide ? photoBox.x : 0, top: wide ? 0 : photoBox.h - 10 * u, width: wide ? 10 * u : w, height: wide ? h : 10 * u, background: P.accent, opacity: 0}} />
 
       {/* content */}
-      <div style={{position: 'absolute', left: contentX, top: contentTop, width: contentW, height: contentH, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: (wide ? 26 : 16) * u}}>
+      <div style={{position: 'absolute', left: contentX, top: contentTop, width: contentW, height: contentH, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: (wide ? 26 : 16) * uc}}>
         {/* label chip */}
         <div style={{display: 'flex'}}>
-          <div style={{background: P.accent, color: onColor(P.accent), fontFamily: body, fontWeight: 800, fontSize: 28 * u, letterSpacing: 8 * u, textTransform: 'uppercase', padding: `${10 * u}px ${26 * u}px`, clipPath: `polygon(${14 * u}px 0,100% 0,calc(100% - ${14 * u}px) 100%,0 100%)`, transform: `scale(${chipP})`, transformOrigin: 'left center'}}>{P.label}</div>
+          <div style={{background: P.accent, color: onColor(P.accent), fontFamily: body, fontWeight: 800, fontSize: 28 * uc, letterSpacing: 8 * uc, textTransform: 'uppercase', padding: `${10 * uc}px ${26 * uc}px`, clipPath: `polygon(${14 * uc}px 0,100% 0,calc(100% - ${14 * uc}px) 100%,0 100%)`, transform: `scale(${chipP})`, transformOrigin: 'left center'}}>{P.label}</div>
         </div>
         {/* name */}
         <div>
@@ -135,47 +145,47 @@ const TransferAnnouncement: React.FC<Props> = (P) => {
             </div>
           )}
           <div style={{overflow: 'hidden', height: lastFs * 1.08}}>
-            <div style={{fontFamily: head, fontSize: lastFs, lineHeight: 1.08, color: P.ink, textTransform: 'uppercase', whiteSpace: 'nowrap', transform: `translateY(${(1 - nameB) * 110}%)`, textShadow: `0 ${4 * u}px ${24 * u}px rgba(0,0,0,0.4)`}}>{last}</div>
+            <div style={{fontFamily: head, fontSize: lastFs, lineHeight: 1.08, color: P.ink, textTransform: 'uppercase', whiteSpace: 'nowrap', transform: `translateY(${(1 - nameB) * 110}%)`, textShadow: `0 ${4 * uc}px ${24 * uc}px rgba(0,0,0,0.4)`}}>{last}</div>
           </div>
-          <div style={{fontFamily: body, fontWeight: 700, fontSize: 30 * u, letterSpacing: 9 * u, color: withAlpha(P.ink, 0.75), textTransform: 'uppercase', marginTop: 10 * u, opacity: posP, transform: `translateX(${(1 - posP) * -30 * u}px)`}}>{P.position}</div>
+          <div style={{fontFamily: body, fontWeight: 700, fontSize: 30 * uc, letterSpacing: 9 * uc, color: withAlpha(P.ink, 0.75), textTransform: 'uppercase', marginTop: 10 * uc, opacity: posP, transform: `translateX(${(1 - posP) * -30 * uc}px)`}}>{P.position}</div>
         </div>
         {/* from -> to */}
-        <div style={{display: 'flex', alignItems: 'center', gap: 20 * u, marginTop: (wide ? 10 : 2) * u}}>
-          <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10 * u, opacity: Math.min(1, fromP), transform: `scale(${0.4 + 0.6 * fromP})`}}>
+        <div style={{display: 'flex', alignItems: 'center', gap: 20 * uc, marginTop: (wide ? 10 : 2) * uc}}>
+          <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10 * uc, opacity: Math.min(1, fromP), transform: `scale(${0.4 + 0.6 * fromP})`}}>
             <Crest size={crest} label={P.fromTag || P.fromClub} color={P.fromColor} src={P.fromLogo} shape="shield" font={head} />
             <div style={{fontFamily: body, fontWeight: 700, fontSize: clubFs(P.fromClub), letterSpacing: clubFs(P.fromClub) * 0.05, color: withAlpha(P.ink, 0.85), whiteSpace: 'nowrap'}}>{(P.fromClub || '').toUpperCase()}</div>
           </div>
-          <div style={{width: arrowW, height: crest * 0.5, position: 'relative', marginBottom: 40 * u}}>
+          <div style={{width: arrowW, height: crest * 0.5, position: 'relative', marginBottom: 40 * uc}}>
             <svg width={arrowW} height={crest * 0.5} viewBox={`0 0 ${arrowW} ${crest * 0.5}`} style={{overflow: 'visible'}}>
-              <line x1={0} y1={crest * 0.25} x2={arrowW - 18 * u} y2={crest * 0.25} stroke={P.accent} strokeWidth={7 * u} strokeLinecap="round" strokeDasharray={`${arrowW} ${arrowW}`} strokeDashoffset={arrowW * (1 - arrowP)} />
-              <path d={`M${arrowW - 34 * u} ${crest * 0.25 - 20 * u}L${arrowW - 8 * u} ${crest * 0.25}L${arrowW - 34 * u} ${crest * 0.25 + 20 * u}`} fill="none" stroke={P.accent} strokeWidth={7 * u} strokeLinecap="round" strokeLinejoin="round" opacity={sseg(frame, 92, 102)} />
-              {frame > 90 && frame < 190 && <circle cx={((frame - 90) * 7 * u) % arrowW} cy={crest * 0.25} r={6 * u} fill="#fff" opacity={0.7 * (1 - sseg(frame, 160, 190))} />}
+              <line x1={0} y1={crest * 0.25} x2={arrowW - 18 * uc} y2={crest * 0.25} stroke={P.accent} strokeWidth={7 * uc} strokeLinecap="round" strokeDasharray={`${arrowW} ${arrowW}`} strokeDashoffset={arrowW * (1 - arrowP)} />
+              <path d={`M${arrowW - 34 * uc} ${crest * 0.25 - 20 * uc}L${arrowW - 8 * uc} ${crest * 0.25}L${arrowW - 34 * uc} ${crest * 0.25 + 20 * uc}`} fill="none" stroke={P.accent} strokeWidth={7 * uc} strokeLinecap="round" strokeLinejoin="round" opacity={sseg(frame, 92, 102)} />
+              {frame > 90 && frame < 190 && <circle cx={((frame - 90) * 7 * uc) % arrowW} cy={crest * 0.25} r={6 * uc} fill="#fff" opacity={0.7 * (1 - sseg(frame, 160, 190))} />}
             </svg>
           </div>
-          <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10 * u, opacity: Math.min(1, toP), transform: `scale(${0.4 + 0.6 * toP})`}}>
+          <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10 * uc, opacity: Math.min(1, toP), transform: `scale(${0.4 + 0.6 * toP})`}}>
             <div style={{position: 'relative'}}>
-              <div style={{position: 'absolute', left: '50%', top: '50%', width: crest * 1.9, height: crest * 1.9, marginLeft: -crest * 0.95, marginTop: -crest * 0.95, borderRadius: '50%', border: `${4 * u}px solid ${P.toColor}`, opacity: (1 - sseg(frame, 100, 128)) * (frame > 98 ? 1 : 0), transform: `scale(${0.5 + sseg(frame, 100, 128)})`}} />
+              <div style={{position: 'absolute', left: '50%', top: '50%', width: crest * 1.9, height: crest * 1.9, marginLeft: -crest * 0.95, marginTop: -crest * 0.95, borderRadius: '50%', border: `${4 * uc}px solid ${P.toColor}`, opacity: (1 - sseg(frame, 100, 128)) * (frame > 98 ? 1 : 0), transform: `scale(${0.5 + sseg(frame, 100, 128)})`}} />
               <Crest size={crest} label={P.toTag || P.toClub} color={P.toColor} src={P.toLogo} shape="shield" font={head} />
             </div>
             <div style={{fontFamily: body, fontWeight: 800, fontSize: clubFs(P.toClub), letterSpacing: clubFs(P.toClub) * 0.05, color: P.ink, whiteSpace: 'nowrap'}}>{(P.toClub || '').toUpperCase()}</div>
           </div>
         </div>
         {/* fee + date */}
-        <div style={{display: 'flex', gap: 18 * u, flexWrap: 'wrap', marginTop: 4 * u}}>
+        <div style={{display: 'flex', gap: 18 * uc, flexWrap: 'wrap', marginTop: 4 * uc}}>
           {P.fee && (
-            <div style={{background: 'rgba(255,255,255,0.08)', border: `${2 * u}px solid ${withAlpha(P.accent, 0.8)}`, borderRadius: 14 * u, padding: `${12 * u}px ${28 * u}px`, transform: `scale(${feeP})`, transformOrigin: 'left center'}}>
-              <div style={{fontFamily: body, fontWeight: 700, fontSize: 20 * u, letterSpacing: 6 * u, color: withAlpha(P.ink, 0.7), textTransform: 'uppercase'}}>{P.feeLabel}</div>
-              <div style={{fontFamily: head, fontSize: 64 * u, lineHeight: 1.05, color: P.accent}}>{P.fee}</div>
+            <div style={{background: 'rgba(255,255,255,0.08)', border: `${2 * uc}px solid ${withAlpha(P.accent, 0.8)}`, borderRadius: 14 * uc, padding: `${12 * uc}px ${28 * uc}px`, transform: `scale(${feeP})`, transformOrigin: 'left center'}}>
+              <div style={{fontFamily: body, fontWeight: 700, fontSize: 20 * uc, letterSpacing: 6 * uc, color: withAlpha(P.ink, 0.7), textTransform: 'uppercase'}}>{P.feeLabel}</div>
+              <div style={{fontFamily: head, fontSize: 64 * uc, lineHeight: 1.05, color: P.accent}}>{P.fee}</div>
             </div>
           )}
           {P.date && (
-            <div style={{background: 'rgba(255,255,255,0.08)', borderRadius: 14 * u, padding: `${12 * u}px ${28 * u}px`, transform: `scale(${dateP})`, transformOrigin: 'left center'}}>
-              <div style={{fontFamily: body, fontWeight: 700, fontSize: 20 * u, letterSpacing: 6 * u, color: withAlpha(P.ink, 0.7), textTransform: 'uppercase'}}>{P.dateLabel}</div>
-              <div style={{fontFamily: head, fontSize: 64 * u, lineHeight: 1.05, color: P.ink}}>{P.date}</div>
+            <div style={{background: 'rgba(255,255,255,0.08)', borderRadius: 14 * uc, padding: `${12 * uc}px ${28 * uc}px`, transform: `scale(${dateP})`, transformOrigin: 'left center'}}>
+              <div style={{fontFamily: body, fontWeight: 700, fontSize: 20 * uc, letterSpacing: 6 * uc, color: withAlpha(P.ink, 0.7), textTransform: 'uppercase'}}>{P.dateLabel}</div>
+              <div style={{fontFamily: head, fontSize: 64 * uc, lineHeight: 1.05, color: P.ink}}>{P.date}</div>
             </div>
           )}
         </div>
-        {P.note && <div style={{fontFamily: body, fontWeight: 600, fontSize: 28 * u, color: withAlpha(P.ink, 0.8), opacity: dateP}}>{P.note}</div>}
+        {P.note && <div style={{fontFamily: body, fontWeight: 600, fontSize: 28 * uc, color: withAlpha(P.ink, 0.8), opacity: dateP}}>{P.note}</div>}
       </div>
 
       {/* stamp */}

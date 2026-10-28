@@ -1,7 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {fonts} from '../../core/fonts';
-import {backOut, bgCss, bodyFont, clampN, easeOut3, fitFont, fmtTime, headFont, mixHex, num, onColor, sseg, withAlpha} from '../../core/r3-sports-kit';
+import {backOut, bgCss, bodyFont, clampN, easeOut3, fitFont, fmtTime, headFont, mixHex, num, onColor, sseg, withAlpha, isDark} from '../../core/r3-sports-kit';
 import {Svg, Vignette, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
 
@@ -67,13 +67,13 @@ const StopwatchSplitTimes: React.FC<Props> = (P) => {
   // layout
   const wide = w / h > 1.4;
   const pad = 56 * u;
-  const headH = (portrait ? 230 : 190) * u;
-  const dialArea = wide ? {x: pad, y: pad + 90 * u, w: w * 0.5 - pad * 1.5, h: h - pad * 2 - 90 * u} : {x: pad, y: headH, w: w - pad * 2, h: portrait ? h * 0.42 : h * 0.38};
-  const D = Math.min(dialArea.w, dialArea.h, 860 * u);
+  const headH = (portrait ? 250 : 200) * u;
+  const dialArea = wide ? {x: pad, y: headH * 0.85, w: w * 0.5 - pad * 1.5, h: h - headH * 0.85 - pad} : {x: pad, y: headH, w: w - pad * 2, h: portrait ? h * 0.42 : h * 0.4};
+  const R = Math.min(dialArea.w / 2, dialArea.h / 2.3, 430 * u);
+  const D = R * 2;
   const dcx = dialArea.x + dialArea.w / 2;
-  const dcy = dialArea.y + dialArea.h / 2;
-  const R = D / 2;
-  const listBox = !P.showDial ? {x: wide ? w * 0.2 : pad, y: headH, w: wide ? w * 0.6 : w - pad * 2, h: h - headH - pad} : wide ? {x: w * 0.54, y: pad + 90 * u, w: w - w * 0.54 - pad, h: h - pad * 2 - 90 * u} : {x: pad, y: dialArea.y + dialArea.h + 24 * u, w: w - pad * 2, h: h - (dialArea.y + dialArea.h + 24 * u) - pad};
+  const dcy = dialArea.y + dialArea.h / 2 + R * 0.1;
+  const listBox = !P.showDial ? {x: wide ? w * 0.2 : pad, y: headH, w: wide ? w * 0.6 : w - pad * 2, h: h - headH - pad} : wide ? {x: w * 0.54, y: headH * 0.85, w: w - w * 0.54 - pad, h: h - headH * 0.85 - pad} : {x: pad, y: dialArea.y + dialArea.h + 24 * u, w: w - pad * 2, h: h - (dialArea.y + dialArea.h + 24 * u) - pad};
   const rowsN = n + 1; // + total row
   const rowH = Math.min((wide ? 96 : 100) * u, listBox.h / rowsN);
   const rowGap = rowH * 0.1;
@@ -87,8 +87,10 @@ const StopwatchSplitTimes: React.FC<Props> = (P) => {
   const handAng = ((clock % 60) / 60) * 360;
   const ringR = R * 0.9;
   const ringLen = 2 * Math.PI * ringR;
-  const readFs = fitFont(fmtTime(total, 2, true), R * 0.34, R * 1.05, 'sans', 0.06);
+  const readFs = fitFont(fmtTime(total, 2, true), R * 0.2, R * 0.74, 'sans', 0.06);
 
+  const readBg = mixHex(P.surface, '#000000', 0.82);
+  const readInk = onColor(readBg);
   const dialStyle: React.CSSProperties = {opacity: appear, transform: `scale(${0.9 + 0.1 * appear})`, transformOrigin: `${dcx}px ${dcy}px`};
 
   return (
@@ -96,7 +98,7 @@ const StopwatchSplitTimes: React.FC<Props> = (P) => {
       {bgCss(P.background) && (
         <>
           <AbsoluteFill style={{background: `radial-gradient(ellipse 50% 60% at ${(dcx / w) * 100}% ${(dcy / h) * 100}%, ${withAlpha(P.accent, 0.14)}, transparent 70%)`}} />
-          <Vignette strength={0.5} />
+          {isDark(P.background) && <Vignette strength={0.5} />}
         </>
       )}
       {/* title */}
@@ -132,11 +134,11 @@ const StopwatchSplitTimes: React.FC<Props> = (P) => {
                 const r2 = R * 0.83;
                 return <line key={i} x1={dcx + Math.cos(a) * r1} y1={dcy + Math.sin(a) * r1} x2={dcx + Math.cos(a) * r2} y2={dcy + Math.sin(a) * r2} stroke={withAlpha(P.ink, major ? 0.85 : 0.35)} strokeWidth={major ? R * 0.016 : R * 0.008} strokeLinecap="round" />;
               })}
-              {Array.from({length: 12}, (_, i) => {
-                const a = (i / 12) * Math.PI * 2 - Math.PI / 2;
+              {Array.from({length: 4}, (_, i) => {
+                const a = (i / 4) * Math.PI * 2 - Math.PI / 2;
                 return (
                   <text key={i} x={dcx + Math.cos(a) * R * 0.66} y={dcy + Math.sin(a) * R * 0.66 + R * 0.035} fontFamily={body} fontWeight={700} fontSize={R * 0.085} fill={withAlpha(P.ink, 0.6)} textAnchor="middle">
-                    {i * 5}
+                    {i * 15}
                   </text>
                 );
               })}
@@ -148,16 +150,16 @@ const StopwatchSplitTimes: React.FC<Props> = (P) => {
               <circle cx={dcx} cy={dcy} r={R * 0.018} fill={P.surface} />
             </Svg>
             {/* digital readout */}
-            <div style={{position: 'absolute', left: dcx - R * 0.56, width: R * 1.12, top: dcy + R * 0.2, height: R * 0.5, borderRadius: R * 0.06, background: 'rgba(5,8,18,0.8)', border: `${Math.max(2, R * 0.012)}px solid ${withAlpha(P.ink, 0.15)}`, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', boxShadow: `inset 0 0 ${R * 0.1}px ${withAlpha(P.accent, 0.25 * lastFlash)}`}}>
-              <div style={{fontFamily: body, fontWeight: 700, fontSize: R * 0.085, letterSpacing: R * 0.025, color: done ? P.good : P.accent, textTransform: 'uppercase'}}>{shownLabel}</div>
-              <div style={{fontFamily: mono, fontWeight: 700, fontSize: readFs, lineHeight: 1.05, color: lastFlash > 0.2 ? mixHex(P.ink, P.accent, lastFlash) : P.ink, fontVariantNumeric: 'tabular-nums', whiteSpace: 'nowrap'}}>{fmtTime(shown, 2, true)}</div>
+            <div style={{position: 'absolute', left: dcx - R * 0.42, width: R * 0.84, top: dcy + R * 0.17, height: R * 0.38, borderRadius: R * 0.06, background: mixHex(P.surface, '#000000', 0.82), border: `${Math.max(2, R * 0.012)}px solid ${withAlpha(P.ink, 0.15)}`, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', boxShadow: `inset 0 0 ${R * 0.1}px ${withAlpha(P.accent, 0.25 * lastFlash)}`}}>
+              <div style={{fontFamily: body, fontWeight: 700, fontSize: R * 0.065, letterSpacing: R * 0.02, color: done ? P.good : P.accent, textTransform: 'uppercase'}}>{shownLabel}</div>
+              <div style={{fontFamily: mono, fontWeight: 700, fontSize: readFs, lineHeight: 1.05, color: lastFlash > 0.2 ? mixHex(readInk, P.accent, lastFlash) : readInk, fontVariantNumeric: 'tabular-nums', whiteSpace: 'nowrap'}}>{fmtTime(shown, 2, true)}</div>
             </div>
           </div>
         </>
       )}
 
       {/* splits list */}
-      <div style={{position: 'absolute', left: listBox.x, top: listBox.y, width: listBox.w, height: listBox.h}}>
+      <div style={{position: 'absolute', left: listBox.x, top: listBox.y + (wide ? Math.max(0, (listBox.h - rowsN * rowH) / 2) : 0), width: listBox.w, height: listBox.h}}>
         {laps.map((lt, i) => {
           const a = lapFrames[i];
           const p = easeOut3(sseg(frame, a, a + 18));

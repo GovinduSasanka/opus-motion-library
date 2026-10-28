@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
-import {Crest, backOut, bgCss, bodyFont, clampN, easeOut3, fitFont, headFont, mixHex, num, pad2, sseg, withAlpha} from '../../core/r3-sports-kit';
+import {Crest, backOut, bgCss, bodyFont, clampN, easeOut3, fitFont, headFont, mixHex, num, pad2, sseg, withAlpha, isDark} from '../../core/r3-sports-kit';
 import {Svg, Vignette, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
 
@@ -60,11 +60,11 @@ const CountdownToKickoff: React.FC<Props> = (P) => {
   const gap = (wide ? 26 : 16) * u;
   const crest = (wide ? 250 : portrait ? 230 : 190) * u;
   let tileW: number;
-  if (wide) tileW = clampN(w * 0.095, 130 * u, 210 * u);
+  if (wide) tileW = clampN(w * 0.105, 130 * u, 225 * u);
   else tileW = (w - pad * 2 - gap * 3) / 4;
   const tileH = tileW * 1.18;
   const rowW = tileW * 4 + gap * 3;
-  const digitFs = tileW * 0.62;
+  const digitFs = tileW * 0.56;
 
   const enter = easeOut3(sseg(frame, 0, 24));
   const crestA = backOut(sseg(frame, 4, 30), 1.8);
@@ -115,9 +115,9 @@ const CountdownToKickoff: React.FC<Props> = (P) => {
   };
 
   // positions
-  const tilesTop = wide ? h / 2 - tileH / 2 + 10 * u : portrait ? h * 0.5 : h * 0.5;
+  const tilesTop = wide ? h / 2 - tileH / 2 + 10 * u : portrait ? h * 0.54 : h * 0.54;
   const tilesLeft = (w - rowW) / 2;
-  const crestY = wide ? h / 2 - crest / 2 - 20 * u : portrait ? h * 0.22 : h * 0.2;
+  const crestY = wide ? h / 2 - crest / 2 - 20 * u : portrait ? h * 0.26 : h * 0.24;
   const crestAx = wide ? tilesLeft - crest - 110 * u : w * 0.5 - crest - 120 * u;
   const crestBx = wide ? tilesLeft + rowW + 110 * u : w * 0.5 + 120 * u;
   const titleTop = wide ? h / 2 - tileH / 2 - 120 * u : tilesTop - 120 * u;
@@ -149,11 +149,11 @@ const CountdownToKickoff: React.FC<Props> = (P) => {
             {beam(w * 0.08, 1, P.colorA, 0)}
             {beam(w * 0.92, -1, P.colorB, 1)}
           </Svg>
-          <Vignette strength={0.55} />
+          {isDark(P.background) && <Vignette strength={0.55} />}
         </>
       )}
       {/* competition */}
-      <div style={{position: 'absolute', left: 0, right: 0, top: (wide ? 70 : portrait ? 140 : 70) * u, textAlign: 'center', opacity: enter, transform: `translateY(${(1 - enter) * -24 * u}px)`}}>
+      <div style={{position: 'absolute', left: 0, right: 0, top: (wide ? 70 : portrait ? 200 : 70) * u, textAlign: 'center', opacity: enter, transform: `translateY(${(1 - enter) * -24 * u}px)`}}>
         <div style={{fontFamily: body, fontWeight: 700, fontSize: 28 * u, letterSpacing: 12 * u, color: P.accent, textTransform: 'uppercase'}}>{P.competition}</div>
         <div style={{width: 160 * u * enter, height: 4 * u, background: P.accent, margin: `${14 * u}px auto 0`}} />
       </div>

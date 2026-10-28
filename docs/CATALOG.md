@@ -1,12 +1,12 @@
 # Motion catalog
 
-605 motions. Generated from `catalog.json` by `cli/gen-docs.mjs` — do not edit by hand.
+615 motions. Generated from `catalog.json` by `cli/gen-docs.mjs` — do not edit by hand.
 
 Render any of them: `node cli/mgl.mjs render <id> [--props '{...}'] [--format landscape|square|portrait]`. Previews live in `gallery/`.
 
 Choosing: `node cli/mgl.mjs suggest "<what you need>"` and [CHOOSING.md](CHOOSING.md). Using them in a website / app / other project: [INTEGRATION.md](INTEGRATION.md).
 
-- [text](#text) (78)
+- [text](#text) (84)
 - [transition](#transition) (2)
 - [shape](#shape) (42)
 - [fx](#fx) (49)
@@ -17,7 +17,7 @@ Choosing: `node cli/mgl.mjs suggest "<what you need>"` and [CHOOSING.md](CHOOSIN
 - [hud](#hud) (35)
 - [camera](#camera) (9)
 - [texture](#texture) (4)
-- [3d](#3d) (41)
+- [3d](#3d) (45)
 - [document](#document) (16)
 - [game](#game) (29)
 - [image](#image) (34)
@@ -31,10 +31,10 @@ Choosing: `node cli/mgl.mjs suggest "<what you need>"` and [CHOOSING.md](CHOOSIN
 
 | capability | motions |
 |---|---|
-| overlay (transparent background — put it on top of other motions or your page) | `globe-3d`, `holo-solid-ignite`, `light-beam-ribbon`, `popup-spread`, `creator-hand`, `paper-critter-rig`, `pictogram-figure`, `api-request-flow`, `bar-race`, `bubble-scatter-grow`, `budget-envelope-split`, `cause-effect-chain`, `clock-time-teach`, `comparison-dumbbell`, `deploy-pipeline-stages`, `donut-breakdown`, `fitness-activity-rings`, `floorplan-draw`, `funnel-conversion`, `gantt-timeline`, `gauge-kpi-dial`, `git-branch-graph`, `heart-rate-monitor`, `heatmap-calendar`, `json-tree-expand`, `math-equation-solve`, `network-graph`, `org-chart-tree`, `progress-rings-stats`, `pros-cons-columns`, `radar-compare`, `sankey-flow`, `savings-goal-jar`, `server-rack-status`, `stacked-area-flow`, `star-chart-reward`, `step-process-numbered`, `treemap-split`, `venn-diagram-overlap`, `waterfall-bridge`, `weather-forecast-strip`, `archive-photo-ken-burns-caption`, `certificate-seal`, `form-fill-submit`, `nutrition-facts-label`, `passport-stamps`, `receipt-print`, `aurora`, `bubbles`, `caustics-godrays`, `curl-flow`, `embers`, `falling-petals`, `fireworks`, `flow-lines`, `fog-clouds`, `insect-flight`, `lightning-flash`, `mesh-gradient-bg`, `rain`, `snowfall`, `starfield-night`, `starfield-warp`, `window-glow-sequence`, `backlit-cutout`, `circuit-traces`, `confetti-burst`, `electric-arcs`, `emote-pop`, `eyes-blink`, `fire-flames`, `giant-eye-reveal`, `grease-pencil-mark`, `impact-frame`, `ink-blot-stop`, `long-exposure-trails`, `magnifier-loupe`, `marker-ring-arrow`, `scribble-ball`, `smear-frame`, `smoke-puffs`, `sparkle-burst`, `star-glint`, `sticker-cutout`, `swirl-portal`, `vhs-crt-pass`, `achievement-unlock`, `bracket-advance`, `candy-set-backdrop`, `countdown-to-kickoff`, `kill-streak-banner`, `level-up-burst`, `match-scoreboard`, `match-stats-compare`, `medal-podium`, `player-stat-card`, `race-leaderboard-live`, `shot-map-heat`, `stopwatch-split-times`, `stream-starting-soon`, `team-lineup-pitch`, `transfer-announcement`, `agent-roster`, `blur-redact-region`, `breaking-news-takeover`, `cam-chip-sync-badge`, `click-ripple-markers`, `day-ring-dial`, `event-feed`, `fact-check-meter`, `fight-hud`, `game-hud`, `hand-drawn-arrow-callout`, `hud-chrome`, `interview-name-super`, `location-time-stamp`, `mission-clock`, `news-bug-source-tag`, `numbered-step-badges`, `poll-numbers-split`, `prompt-wall`, `scribble-circle-highlight`, `social-post-embed`, `spec-chip-rail`, `spotlight-dim-focus`, `target-lock-box`, `target-lock`, `tooltip-pointer`, `zoom-inset-box`, `film-look`, `sticker-slap`, `choropleth-fill`, `city-zoom-label`, `coverage-route`, `elevation-profile`, `flight-arcs`, `pin-drop-cluster`, `beat-dance`, `chomp-lid`, `emotion-idle-beat`, `emotion-sheet`, `emotion-timeline`, `mascot-nib`, `mascot-thinking`, `mascot-thumbs-up`, `mascot-wave-hello`, `smear-trail`, `beat-camera`, `beat-grid`, `beat-pulse-rings`, `engraving-hatch`, `equalizer-bars-loop`, `guilloche-note`, `lyric-on-path`, `lyric-timing`, `lyric-video`, `mixer-faders`, `now-playing-card`, `podcast-audiogram`, `shutter-blur`, `stage-curtain`, `time-stutter`, `token-sampler-prompt`, `token-tree`, `tracklist-reveal`, `vinyl-spin-label`, `width-pressure-type`, `add-to-cart-fly`, `coffee-pour-cup`, `colorway-swap`, `coupon-scratch-reveal`, `delivery-tracker`, `feature-callout-orbit`, `flash-deal-timer-card`, `order-confirmation`, `price-tag-drop`, `product-grid-filter`, `size-color-picker`, `spec-compare-table`, `sunburst-hero`, `unbox-lid-lift`, `comet-pulse-guide`, `ink-brush-stroke`, `logo-reveal-liquid`, `motif-grid-pattern`, `nib-follow-camera`, `papercut-rosette`, `toon-cel-shape`, `agenda-list-slide`, `alphabet-letter-trace`, `big-stat-slide`, `birthday-cake-candles`, `blur-in-title`, `channel-intro-sting`, `chapter-countdown`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `counting-objects`, `definition-card`, `end-card-credits`, `end-screen-cards`, `fill-in-the-blank`, `flashcard-flip-deck`, `follower-milestone`, `glyph-orbit-logo`, `key-takeaway-highlight`, `kinetic-captions`, `logo-reveal-lines`, `mask-rise-title`, `myth-vs-fact`, `news-strap`, `number-counter`, `outline-to-fill-text`, `paper-strip-title`, `per-letter-wave`, `qa-slide`, `quiz-question-reveal`, `quote-slide`, `rolling-credits`, `rundown-board`, `sale-countdown-banner`, `scene-tag`, `split-flap-board`, `sponsor-slate`, `stacked-repeat-echo`, `stamp-slam`, `sting-bug`, `story-caption-box`, `text-on-circle-spin`, `text-scramble-decode`, `typewriter-code`, `typewriter-delete-retype`, `typewriter-signature`, `wedding-save-the-date`, `word-carousel-rotator`, `word-translation-pair`, `bokeh-drift`, `light-leak-wash`, `pattern-scroll`, `agent-log-panel`, `ai-chat-streaming`, `appointment-booking-calendar`, `boarding-pass-print`, `checkout-steps`, `code-diff-highlight`, `comment-bubble-stream`, `cursor-driver`, `empty-state-illustration`, `glass-lesson-card`, `hero-gradient-orbs`, `hotel-rating-card`, `itinerary-route-stops`, `keystroke-hud`, `liquid-glass-lens`, `loader-spinner-set`, `logo-wall-grid`, `menu-board-items`, `notification-stack`, `planned-vs-heard-checklist`, `player-toolbar`, `poll-results-bars`, `property-listing-card`, `recipe-ingredients-steps`, `review-stars-rating`, `roadmap-swimlanes`, `skeleton-shimmer`, `story-progress-frames`, `subscribe-like-bell`, `success-check-burst`, `team-grid-photos`, `terminal-install-progress`, `testimonial-card-carousel`, `three-column-features`, `toast-stack-loop`, `typing-indicator-chat`, `upload-progress` |
+| overlay (transparent background — put it on top of other motions or your page) | `floating-devices-stack`, `globe-3d`, `holo-solid-ignite`, `isometric-room-build`, `light-beam-ribbon`, `popup-spread`, `3d-text-extrude-spin`, `creator-hand`, `paper-critter-rig`, `pictogram-figure`, `api-request-flow`, `bar-race`, `bubble-scatter-grow`, `budget-envelope-split`, `cause-effect-chain`, `clock-time-teach`, `comparison-dumbbell`, `deploy-pipeline-stages`, `donut-breakdown`, `fitness-activity-rings`, `floorplan-draw`, `funnel-conversion`, `gantt-timeline`, `gauge-kpi-dial`, `git-branch-graph`, `heart-rate-monitor`, `heatmap-calendar`, `json-tree-expand`, `math-equation-solve`, `network-graph`, `org-chart-tree`, `progress-rings-stats`, `pros-cons-columns`, `radar-compare`, `sankey-flow`, `savings-goal-jar`, `server-rack-status`, `stacked-area-flow`, `star-chart-reward`, `step-process-numbered`, `treemap-split`, `venn-diagram-overlap`, `waterfall-bridge`, `weather-forecast-strip`, `archive-photo-ken-burns-caption`, `certificate-seal`, `form-fill-submit`, `nutrition-facts-label`, `passport-stamps`, `receipt-print`, `aurora`, `bubbles`, `caustics-godrays`, `curl-flow`, `embers`, `falling-petals`, `fireworks`, `flow-lines`, `fog-clouds`, `insect-flight`, `lightning-flash`, `mesh-gradient-bg`, `rain`, `snowfall`, `starfield-night`, `starfield-warp`, `window-glow-sequence`, `backlit-cutout`, `circuit-traces`, `confetti-burst`, `electric-arcs`, `emote-pop`, `eyes-blink`, `fire-flames`, `giant-eye-reveal`, `grease-pencil-mark`, `impact-frame`, `ink-blot-stop`, `long-exposure-trails`, `magnifier-loupe`, `marker-ring-arrow`, `scribble-ball`, `smear-frame`, `smoke-puffs`, `sparkle-burst`, `star-glint`, `sticker-cutout`, `swirl-portal`, `vhs-crt-pass`, `achievement-unlock`, `bracket-advance`, `candy-set-backdrop`, `countdown-to-kickoff`, `kill-streak-banner`, `level-up-burst`, `match-scoreboard`, `match-stats-compare`, `medal-podium`, `player-stat-card`, `race-leaderboard-live`, `shot-map-heat`, `stopwatch-split-times`, `stream-starting-soon`, `team-lineup-pitch`, `transfer-announcement`, `agent-roster`, `blur-redact-region`, `breaking-news-takeover`, `cam-chip-sync-badge`, `click-ripple-markers`, `day-ring-dial`, `event-feed`, `fact-check-meter`, `fight-hud`, `game-hud`, `hand-drawn-arrow-callout`, `hud-chrome`, `interview-name-super`, `location-time-stamp`, `mission-clock`, `news-bug-source-tag`, `numbered-step-badges`, `poll-numbers-split`, `prompt-wall`, `scribble-circle-highlight`, `social-post-embed`, `spec-chip-rail`, `spotlight-dim-focus`, `target-lock-box`, `target-lock`, `tooltip-pointer`, `zoom-inset-box`, `film-look`, `sticker-slap`, `choropleth-fill`, `city-zoom-label`, `coverage-route`, `elevation-profile`, `flight-arcs`, `pin-drop-cluster`, `beat-dance`, `chomp-lid`, `emotion-idle-beat`, `emotion-sheet`, `emotion-timeline`, `mascot-nib`, `mascot-thinking`, `mascot-thumbs-up`, `mascot-wave-hello`, `smear-trail`, `beat-camera`, `beat-grid`, `beat-pulse-rings`, `engraving-hatch`, `equalizer-bars-loop`, `guilloche-note`, `lyric-on-path`, `lyric-timing`, `lyric-video`, `mixer-faders`, `now-playing-card`, `podcast-audiogram`, `shutter-blur`, `stage-curtain`, `time-stutter`, `token-sampler-prompt`, `token-tree`, `tracklist-reveal`, `vinyl-spin-label`, `width-pressure-type`, `add-to-cart-fly`, `coffee-pour-cup`, `colorway-swap`, `coupon-scratch-reveal`, `delivery-tracker`, `feature-callout-orbit`, `flash-deal-timer-card`, `order-confirmation`, `price-tag-drop`, `product-grid-filter`, `size-color-picker`, `spec-compare-table`, `sunburst-hero`, `unbox-lid-lift`, `comet-pulse-guide`, `ink-brush-stroke`, `logo-reveal-liquid`, `motif-grid-pattern`, `nib-follow-camera`, `papercut-rosette`, `toon-cel-shape`, `agenda-list-slide`, `alphabet-letter-trace`, `anniversary-years-badge`, `big-stat-slide`, `birthday-cake-candles`, `blur-in-title`, `channel-intro-sting`, `chapter-countdown`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `countdown-new-year`, `counting-objects`, `definition-card`, `end-card-credits`, `end-screen-cards`, `event-ticket-reveal`, `fill-in-the-blank`, `flashcard-flip-deck`, `follower-milestone`, `glyph-orbit-logo`, `graduation-cap-toss`, `holiday-greeting-card`, `key-takeaway-highlight`, `kinetic-captions`, `logo-reveal-lines`, `mask-rise-title`, `myth-vs-fact`, `news-strap`, `number-counter`, `outline-to-fill-text`, `paper-strip-title`, `per-letter-wave`, `qa-slide`, `quiz-question-reveal`, `quote-slide`, `rolling-credits`, `rsvp-invite-card`, `rundown-board`, `sale-countdown-banner`, `scene-tag`, `split-flap-board`, `sponsor-slate`, `stacked-repeat-echo`, `stamp-slam`, `sting-bug`, `story-caption-box`, `text-on-circle-spin`, `text-scramble-decode`, `typewriter-code`, `typewriter-delete-retype`, `typewriter-signature`, `wedding-save-the-date`, `word-carousel-rotator`, `word-translation-pair`, `bokeh-drift`, `light-leak-wash`, `pattern-scroll`, `agent-log-panel`, `ai-chat-streaming`, `appointment-booking-calendar`, `boarding-pass-print`, `checkout-steps`, `code-diff-highlight`, `comment-bubble-stream`, `cursor-driver`, `empty-state-illustration`, `glass-lesson-card`, `hero-gradient-orbs`, `hotel-rating-card`, `itinerary-route-stops`, `keystroke-hud`, `liquid-glass-lens`, `loader-spinner-set`, `logo-wall-grid`, `menu-board-items`, `notification-stack`, `planned-vs-heard-checklist`, `player-toolbar`, `poll-results-bars`, `property-listing-card`, `recipe-ingredients-steps`, `review-stars-rating`, `roadmap-swimlanes`, `skeleton-shimmer`, `story-progress-frames`, `subscribe-like-bell`, `success-check-burst`, `team-grid-photos`, `terminal-install-progress`, `testimonial-card-carousel`, `three-column-features`, `toast-stack-loop`, `typing-indicator-chat`, `upload-progress` |
 | seamless loop | `iso-bar-chart`, `city-rooftops-rain-window`, `desert-dunes-heat`, `embers`, `firefly-meadow-night`, `forest-parallax-mist`, `lava-lamp-blobs`, `ocean-waves-layers`, `snow-mountain-dawn`, `starfield-warp`, `sonar-ping`, `empty-state-illustration`, `hero-gradient-orbs`, `loader-spinner-set`, `skeleton-shimmer`, `success-check-burst`, `toast-stack-loop`, `typing-indicator-chat`, `upload-progress` |
 | takes your image (`src` / `images` / `heroSrc`) | `pointcloud-orbit`, `crash-zoom`, `dolly-zoom`, `orbit-parallax`, `whip-pan`, `beat-montage`, `crowd-tracks`, `ground-plane-ruler`, `map-route`, `microscope-dive`, `science-reticle`, `thumbnail-mosaic`, `archive-photo-ken-burns-caption`, `mugshot-height-chart`, `depth-descent`, `lamp-screen`, `paper-diorama`, `studio-sweep`, `topdown-terrain`, `window-glow-sequence`, `beat-punch-zoom`, `crayon-wax-shader`, `focus-desaturate`, `frame-blend-timelapse`, `frame-breakout`, `freeze-frame-brackets`, `giant-eye-reveal`, `glass-crack-mend`, `long-exposure-trails`, `loupe-magnify`, `magnifier-loupe`, `swirl-portal`, `theatre-gate`, `vhs-crt-pass`, `loot-reveal`, `player-stat-card`, `rocket-to-moon`, `transfer-announcement`, `callout-labels`, `cam-chip-sync-badge`, `target-lock-box`, `target-lock`, `zoom-inset-box`, `ascii-image-grid`, `autofocus-hunt`, `brush-stroke-reveal`, `comic-halftone`, `dot-matrix`, `duotone`, `film-look`, `glass-pane-grid`, `glitch-image`, `grid-multiply`, `handscroll-reveal`, `ken-burns`, `knife-colour-relay`, `knife-paint-plate`, `light-sweep`, `negative-develop-reveal`, `perspective-flatten`, `photomontage-tower`, `pixel-dither`, `press-lift`, `proportion-sweep`, `riso-plate-reveal`, `spinning-headline`, `split-grid-countdown`, `sticker-cutout-burst`, `telestrator-freeze`, `tilt-shift-diorama`, `woodblock-print-reveal`, `woodcut-carve`, `xray-scan`, `map-mask-reveal`, `audio-spectrum`, `guilloche-note`, `add-to-cart-fly`, `colorway-swap`, `feature-callout-orbit`, `flash-deal-timer-card`, `frost-to-clear`, `size-color-picker`, `sunburst-hero`, `unbox-lid-lift`, `logo-reveal-liquid`, `scissor-cut`, `sonar-ping`, `blur-in-title`, `bouncing-ball-singalong`, `channel-intro-sting`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `diagonal-band-title`, `end-card-credits`, `flipbook-riffle-outro`, `glyph-orbit-logo`, `halftone-exhibit-numeral`, `hanazi-caption`, `letters-become-image`, `logo-assemble`, `logo-reveal-lines`, `mask-rise-title`, `number-counter`, `quote-slide`, `sponsor-slate`, `stamp-slam`, `story-caption-box`, `typewriter-code`, `browser-mockup`, `device-mockup`, `hotel-rating-card`, `property-listing-card`, `recipe-ingredients-steps`, `sms-thread`, `split-compare`, `story-progress-frames`, `tv-wall-switch-on`, `versus-roster` |
-| heavy (three.js / WebGL — prefer an exported video on mobile web) | `accum-render-3d`, `brick-collapse-physics`, `brick-fx-fire-smoke`, `brick-rebuild-morph`, `brick-snap-build`, `chart-to-installation`, `cloner-bed-ripple`, `colour-ignition-wave`, `exploded-stack`, `exploded-view-3d`, `glass-strip-sweep`, `globe-3d`, `iso-blocks-3d`, `iso-city-build`, `jelly-type-drop`, `last-object-drop`, `liminal-corridor-3d`, `ocean-surface-3d`, `particle-shape-morph`, `plan-tilt`, `pointcloud-orbit`, `product-turntable-3d`, `shockwave-flip-field`, `stack-plates-3d`, `terrain-build-3d`, `voxel-burst-swirl`, `voxel-diorama`, `wireframe-build`, `dash-flow-field` |
+| heavy (three.js / WebGL — prefer an exported video on mobile web) | `accum-render-3d`, `brick-collapse-physics`, `brick-fx-fire-smoke`, `brick-rebuild-morph`, `brick-snap-build`, `chart-to-installation`, `cloner-bed-ripple`, `colour-ignition-wave`, `exploded-stack`, `exploded-view-3d`, `floating-devices-stack`, `glass-strip-sweep`, `globe-3d`, `iso-blocks-3d`, `iso-city-build`, `isometric-room-build`, `jelly-type-drop`, `last-object-drop`, `liminal-corridor-3d`, `low-poly-terrain-flyover`, `ocean-surface-3d`, `particle-shape-morph`, `plan-tilt`, `pointcloud-orbit`, `product-turntable-3d`, `shockwave-flip-field`, `stack-plates-3d`, `terrain-build-3d`, `3d-text-extrude-spin`, `voxel-burst-swirl`, `voxel-diorama`, `wireframe-build`, `dash-flow-field` |
 
 ## recipes
 
@@ -399,6 +399,36 @@ A handwriting lesson on ruled paper: a dotted letter track, numbered stroke-orde
 | `startAt` | `0` | frame the lesson starts |
 | `speed` | `1` | playback speed multiplier |
 
+### `anniversary-years-badge` — Anniversary years badge (ribbons & laurel)
+
+![anniversary-years-badge](../gallery/anniversary-years-badge.jpg)
+
+A gold milestone seal pops in over a slow sunburst, ribbons drop behind it, laurel branches draw around it, the year count climbs to N and lands with a shine and sparkle burst, then a headline and thank-you line write on.
+
+**Use for:** Company and brand anniversaries, "5 years of ..." milestones, employee tenure, subscription / membership years, loyalty badges, awards and years-in-business trust marks. Set `years`, the headline and your colours.  
+**Rebuilt from:** original (round 3, events & celebrations)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** type, accent · **Mood:** nature  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `unit`, `headline`, `caption` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `years` | `5` | the number shown in the seal (counts up from 0) |
+| `eyebrow` | `"Celebrating"` | text curved along the top of the seal |
+| `unit` | `"years"` | label under the number (years, months, days...) |
+| `headline` | `"Thank you for 5 great years"` | big line beside / under the badge (wraps to three lines) |
+| `caption` | `"Here is to many more together"` | smaller line under the headline |
+| `laurel` | `true` | draw laurel branches around the seal |
+| `ribbons` | `true` | show the two hanging ribbons |
+| `countUp` | `true` | count up from 0 instead of showing the number straight away |
+| `background` | `"#14213D"` | frame colour (hex), or "transparent" to overlay content |
+| `ink` | `"#FFFFFF"` | text colour (hex) |
+| `accent` | `"#F2C14E"` | seal, laurel and highlight colour (hex) |
+| `accent2` | `"#C8372D"` | ribbon colour (hex) |
+| `seed` | `3` | seed for the sparkles and confetti |
+| `startAt` | `0` | frame the sequence begins |
+
 ### `atomic-orbit-title` — Atomic orbit title (retro toon)
 
 ![atomic-orbit-title](../gallery/atomic-orbit-title.jpg)
@@ -462,6 +492,8 @@ Keynote one-number slide: an eyebrow tag, a huge number counting up with accent 
 | `startAt` | `0` | frame the slide begins |
 
 ### `birthday-cake-candles` — Birthday cake, candles & blow-out
+
+![birthday-cake-candles](../gallery/birthday-cake-candles.jpg)
 
 A tiered cake drops in, candles are lit one by one with a warm glow and a wish line, then a puff of breath blows them out (leaning flames, smoke wisps) and confetti bursts as the name is revealed.
 
@@ -852,6 +884,34 @@ Comic onomatopoeia (BONK! POP!) in a jagged halftone starburst that springs in a
 | `tagCorner` | `false` | telop: after the hold the word shrinks into a small tag in the top-left corner and stays |
 | `skewDeg` | `0` | telop: horizontal skew of the word |
 
+### `countdown-new-year` — New-year countdown with fireworks finale
+
+![countdown-new-year](../gallery/countdown-new-year.jpg)
+
+A big 10 to 0 countdown inside a depleting tick ring (each number pops in and punches out); rockets climb for the last three counts, then a flash, a firework volley and falling confetti reveal the year and a greeting.
+
+**Use for:** New-year countdowns, product-launch and live-stream countdowns, sale starts, "going live in 10" intros, festival openers, midnight reveals. Set `year`, `message`, `from` (start number) and `tick` (frames per number).  
+**Rebuilt from:** original (round 3, events & celebrations)  
+**Default length:** 400 frames (13.3 s @ 30 fps)
+
+**Roles:** type, accent · **Mood:** 3d, playful, night  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `subtitle`, `caption` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `from` | `10` | number the countdown starts from |
+| `tick` | `22` | frames each number stays (30 = one second) |
+| `year` | `"2027"` | big text revealed at zero (a year, "GO!", "LIVE"…) |
+| `message` | `"Happy New Year"` | greeting under the year |
+| `subtitle` | `"Wishing you a bright start"` | small line under the greeting |
+| `caption` | `"Counting down to midnight"` | small line above the ring while counting |
+| `colors` | `["#FFC857","#FF4F9A","#5BD1FF","#9CFF8A"]` | firework / confetti colours (array of hex) |
+| `background` | `"#0A0E27"` | night-sky base colour (hex), or "transparent" to overlay content |
+| `ink` | `"#FFFFFF"` | text colour (hex) |
+| `accent` | `"#FFC857"` | ring, zero and year colour (hex) |
+| `seed` | `6` | seed for stars and firework patterns |
+| `startAt` | `0` | frame the sequence begins |
+
 ### `counting-objects` — Counting objects
 
 ![counting-objects](../gallery/counting-objects.jpg)
@@ -1063,6 +1123,37 @@ Outro screen: headline, two video-card slots (thumbnail or placeholder, label, r
 | `speed` | `1` | timing multiplier |
 | `fontFamily` | `""` | optional CSS font-family for all text |
 
+### `event-ticket-reveal` — Event ticket reveal & stub tear
+
+![event-ticket-reveal](../gallery/event-ticket-reveal.jpg)
+
+An admission ticket slides in and settles, its event name, venue and details write on, a QR-style code scans in, then the stub tears off along the perforation while a shine sweeps the ticket and an "admit one" stamp lands.
+
+**Use for:** Concert, festival, conference, cinema and match announcements, "tickets on sale" promos, event confirmations and booking flows, gift vouchers. Replace the event name, venue, date/time/seat details and colours; works as a vertical ticket in 9:16.  
+**Rebuilt from:** original (round 3, events & celebrations)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** hud  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `eyebrow` | `"Live in concert"` | small line above the title (e.g. "Live in concert") |
+| `eventName` | `"Summer Lights Festival"` | event title (wraps to two lines, three in 9:16) |
+| `venue` | `"Harbour Arena, Main Stage"` | venue / location line |
+| `details` | `[{"label":"Date","value":"SAT 21 JUN"},{"label":"Doors","…` | up to four {label, value} pairs shown in a grid (date, time, gate, seat…) |
+| `ticketId` | `"No. 004281"` | reference text under the code; also seeds the code pattern |
+| `admit` | `"Admit one"` | stub label and stamp text |
+| `scanLabel` | `"Scan at gate"` | small line under the code |
+| `tear` | `true` | tear the stub off at the end |
+| `background` | `"#17142B"` | frame colour (hex), or "transparent" to overlay content |
+| `ticket` | `"#FFF7EA"` | paper colour of the ticket (hex) |
+| `ink` | `"#241B3A"` | text colour (hex) |
+| `accent` | `"#E8553D"` | stub and top-band colour (hex) |
+| `accent2` | `"#2D9C8F"` | scan line and stamp colour (hex) |
+| `seed` | `5` | reserved for pattern variety |
+| `startAt` | `0` | frame the sequence begins |
+
 ### `fill-in-the-blank` — Fill in the blank
 
 ![fill-in-the-blank](../gallery/fill-in-the-blank.jpg)
@@ -1251,6 +1342,36 @@ Glyphs fly in and orbit a ring, then resolve into a typed mono logotype (scrambl
 | `paletteDashes` | `[]` | fly: colours of short dashes that line up under the logo as a palette signature (e.g. ['#FF5A4A','#FFC24A','#3FB6C8']) |
 | `dotColor` | `""` | colour of the focus / tittle dot ('' = accent) |
 
+### `graduation-cap-toss` — Graduation caps tossed in the air
+
+![graduation-cap-toss](../gallery/graduation-cap-toss.jpg)
+
+Mortarboard caps are thrown up from below the frame, tumble with swinging tassels and fall away while confetti pops from both corners; Congratulations, the graduate name, a class pill and a tagline pop onto the frame, with a second smaller toss as finale.
+
+**Use for:** Graduation and commencement videos, school or bootcamp class announcements, "congrats graduates" posts, certificate and course-completion celebrations, alumni and yearbook intros. Set the name (or "Graduates"), class line and colours.  
+**Rebuilt from:** original (round 3, events & celebrations)  
+**Default length:** 270 frames (9.0 s @ 30 fps)
+
+**Roles:** type, accent · **Mood:** playful  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `headline`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `headline` | `"Congratulations"` | big line (Congratulations / Well done / Graduates) |
+| `name` | `"Jordan Lee"` | graduate or group name, shown in script |
+| `classLabel` | `"Class of 2027"` | text in the gold pill (Class of 2027, Batch 12...) |
+| `subtitle` | `"The future is yours"` | tagline under the pill |
+| `caps` | `9` | caps in the first toss (1-16); the second toss uses about 60% |
+| `colors` | `["#E0A82E","#D9534F","#3B82C4","#4FB58A","#FFFFFF"]` | confetti colours (array of hex) |
+| `cap` | `"#1E2A4A"` | cap colour (hex) |
+| `tassel` | `"#E0A82E"` | tassel and button colour (hex) |
+| `background` | `"#F4EBDD"` | frame colour (hex), or "transparent" to overlay content |
+| `ink` | `"#1E2A4A"` | headline and tagline colour (hex) |
+| `accent` | `"#F2C14E"` | class pill colour (hex) |
+| `accent2` | `"#D9534F"` | name colour (hex) |
+| `seed` | `5` | seed for toss spread and confetti |
+| `startAt` | `0` | frame the sequence begins |
+
 ### `halftone-exhibit-numeral` — Halftone exhibit numeral
 
 ![halftone-exhibit-numeral](../gallery/halftone-exhibit-numeral.jpg)
@@ -1340,6 +1461,34 @@ Text written glyph by glyph with a pen: outline strokes on, ink fill follows; op
 | `halo` | `null` | written-caption mode: {color, width} paper-coloured blurred halo behind each glyph so it knocks back lines passing behind (null = off) |
 | `anchor` | `"center"` | 'center' (default) \| 'bottom' (caption position, 10 % from the bottom) |
 | `seed` | `4` | marker glyph jitter seed |
+
+### `holiday-greeting-card` — Greeting card opens (seasonal motif)
+
+![holiday-greeting-card](../gallery/holiday-greeting-card.jpg)
+
+A greeting card slides in closed, swings open on its spine to reveal a written greeting, message and signature, while a seasonal motif (snow, leaves, lights or hearts) drifts around and decorates the cover and left page.
+
+**Use for:** Holiday, Christmas, autumn, winter, Valentine, thank-you and season's-greetings e-cards, newsletters and social posts, company holiday wishes, customer thank-you videos. Choose the motif, replace the greeting text and colours.  
+**Rebuilt from:** original (round 3, events & celebrations)  
+**Default length:** 270 frames (9.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** nature  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `greeting` | `"Happy Holidays"` | big script greeting inside the card |
+| `message` | `"Wishing you warmth, joy and peace this season and a brig…` | message paragraph (wraps to five lines) |
+| `signature` | `"With love, The Team"` | sign-off written at the bottom |
+| `coverText` | `"Season's Greetings"` | small caps line on the cover |
+| `motif` | `"snow"` | "snow", "leaves", "lights" or "hearts" - drives the cover emblem, left page art and drifting particles |
+| `background` | `"#1F3B4D"` | frame colour (hex), or "transparent" to overlay content |
+| `card` | `"#FBF5EA"` | paper colour (hex) |
+| `ink` | `"#2B2A33"` | message text colour (hex) |
+| `accent` | `"#C8453B"` | cover, greeting and frame colour (hex) |
+| `accent2` | `"#2F7D5B"` | signature and ornament colour (hex) |
+| `seed` | `2` | seed for the drifting particles |
+| `startAt` | `0` | frame the sequence begins |
 
 ### `intertitle-card` — Intertitle card (silent-film)
 
@@ -2120,6 +2269,37 @@ Credits that roll up from a list of {role, names[]} sections under a title: role
 | `startAt` | `0` | frame the roll starts |
 | `fontFamily` | `""` | optional CSS font-family |
 
+### `rsvp-invite-card` — RSVP invite card with button press
+
+![rsvp-invite-card](../gallery/rsvp-invite-card.jpg)
+
+An invitation card rises into place, its title, host and icon rows (date, time, place, dress code) pop in, then a pointer glides to the RSVP button and presses it: ripple, a confirmed check state, confetti and a "see you there" line.
+
+**Use for:** Party, wedding, webinar, launch-event and meetup invitations, RSVP reminders, event sign-up promos, "reserve your spot" call-to-actions. Replace the title, host, details (icon: calendar, clock, pin, hanger, gift, star, heart, ticket, phone) and the colours.  
+**Rebuilt from:** original (round 3, events & celebrations)  
+**Default length:** 270 frames (9.0 s @ 30 fps)
+
+**Roles:** type, accent · **Mood:** playful  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `eyebrow` | `"You are invited"` | small line above the title |
+| `title` | `"Garden Party"` | event name (wraps to up to three lines) |
+| `host` | `"Hosted by Sam & Jo"` | host / organiser line under the title |
+| `details` | `[{"icon":"calendar","label":"Date","value":"Saturday, 12 …` | up to four {icon, label, value} rows (icons: calendar, clock, pin, hanger, gift, star, heart, ticket, phone) |
+| `button` | `"RSVP"` | button label before the press |
+| `confirmLabel` | `"I'm going!"` | button label after the press |
+| `thanks` | `"See you there!"` | line that replaces the reply-by note after the press |
+| `replyBy` | `"Please reply by 1 April"` | note shown under the button |
+| `background` | `"#E7DFF7"` | frame colour (hex), or "transparent" to overlay content |
+| `card` | `"#FFFFFF"` | card and button text colour (hex) |
+| `ink` | `"#2A2340"` | detail text colour (hex) |
+| `accent` | `"#7B5CE0"` | header panel, icon and button colour (hex) |
+| `success` | `"#2FA37A"` | confirmed-state colour (hex) |
+| `seed` | `4` | seed for the panel decorations |
+| `startAt` | `0` | frame the sequence begins |
+
 ### `rundown-board` — Rundown board (today in this video)
 
 ![rundown-board](../gallery/rundown-board.jpg)
@@ -2698,6 +2878,8 @@ Small lowercase credit typed into a corner two frames per character, no cursor; 
 | `decodeOut` | `8` | decode: frames the break-back-to-symbols exit takes at scrambleAt (0 = no decode exit) |
 
 ### `wedding-save-the-date` — Wedding save the date (floral line art)
+
+![wedding-save-the-date](../gallery/wedding-save-the-date.jpg)
 
 Elegant save-the-date card: a thin double frame draws on, line-art floral sprigs grow from the corners and bloom, then the two names, an ampersand, a flourish divider, the date and the venue fade up in turn while petals drift.
 
@@ -13807,6 +13989,35 @@ An endless low-poly ocean in orthographic view: every triangle glints on its own
 | `boatColor` | `"#D9644A"` | boat hull colour |
 | `sailColor` | `"#FBF3E6"` | boat sail colour |
 
+### `floating-devices-stack` — Floating devices stack (3D laptop, tablet, phone)
+
+A real-3D laptop, tablet and phone rise into a layered, slightly rotated stack and float with a gentle sway, lit by a soft studio. Each screen shows your image (cover-fitted) or a generated app UI in your colours; an optional headline sits beside or above.
+
+**Use for:** App / SaaS launches, "works on every device" beats, store previews and landing-page heroes. Pass `screens` (your screenshots), `devices` order, brand colours and a `title`.  
+**Rebuilt from:** 3D product-mockup stack (original build; three.js)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo, 3d, ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle` · weight: heavy  
+
+| prop | default | notes |
+|---|---|---|
+| `devices` | `["laptop","tablet","phone"]` | device per slot, in order of importance (slot 0 is the hero): 'laptop' \| 'tablet' \| 'phone' (up to 5) |
+| `screens` | `[]` | screen images (public/ path or URL), one per device, cycled; empty = generated app UI in your colours |
+| `title` | `"One product, every screen"` | headline (\n for a line break; empty with an empty subtitle = devices only, centred) |
+| `subtitle` | `"Designed once. Looks right everywhere."` | line under the headline |
+| `background` | `"#eef1f8"` | background colour ('transparent' to composite over other content) |
+| `ink` | `""` | headline colour (empty = auto contrast) |
+| `accent` | `"#4f6bff"` | brand colour (generated screens, headline bar, rim light) |
+| `accent2` | `"#ff7ab6"` | second brand colour (generated screens) |
+| `bodyColor` | `"#1d2029"` | device frame colour |
+| `darkScreens` | `false` | generated screens use a dark theme |
+| `startAt` | `4` | frame the first device starts rising |
+| `stagger` | `9` | frames between devices landing |
+| `floatAmount` | `1` | strength of the idle float / wobble (0 = still) |
+| `sway` | `7` | degrees the camera swings around the stack across the clip |
+| `size` | `1` | overall scale multiplier |
+
 ### `glass-strip-sweep` — Glass strip-light sweep
 
 ![glass-strip-sweep](../gallery/glass-strip-sweep.jpg)
@@ -14011,6 +14222,36 @@ A pastel isometric island builds itself in true orthographic 3D: floor tiles fal
 | `zoom` | `1` | camera zoom multiplier |
 | `seed` | `1` | building heights / colours seed |
 
+### `isometric-room-build` — Isometric room build (3D furniture drop-in)
+
+A cut-away isometric room builds itself: the plank floor grows, two walls rise with a window and framed art, then rug, sofa, table, shelf, desk, plant and lamp drop in one after another with a squash-and-settle while the camera drifts a few degrees.
+
+**Use for:** Interior design, real estate, home / furniture e-commerce, "build your space" and game-lobby beats. Choose the `furniture` list, palette colours and `wallArt` image; add a `title`.  
+**Rebuilt from:** isometric room diorama (original build; three.js)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, nature  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle` · weight: heavy  
+
+| prop | default | notes |
+|---|---|---|
+| `furniture` | `["rug","sofa","table","shelf","plant","lamp","desk","chair"]` | pieces in drop order: 'rug' \| 'sofa' \| 'table' \| 'shelf' \| 'desk' \| 'chair' \| 'plant' \| 'lamp' \| 'bed' \| 'tv' (each has a fixed spot in the room) |
+| `wallArt` | `""` | picture on the left wall (public/ path or URL); empty = generated abstract art |
+| `title` | `"Build your space"` | headline (\n for a line break; empty with an empty subtitle = room only, centred) |
+| `subtitle` | `"Piece by piece, room by room."` | line under the headline |
+| `background` | `"#f3ece4"` | background colour ('transparent' to composite over other content) |
+| `ink` | `""` | headline colour (empty = auto contrast) |
+| `floorColor` | `"#e0c39b"` | floor planks colour |
+| `wallColor` | `"#f7f3ee"` | wall colour |
+| `accent` | `"#3f7fd9"` | main furniture colour (sofa, screens, headline bar) |
+| `accent2` | `"#f0a05a"` | secondary colour (rug, pots, chair, cushions) |
+| `woodColor` | `"#b9855a"` | tables, shelf and desk wood |
+| `startAt` | `6` | frame the floor starts growing |
+| `stagger` | `12` | frames between furniture drops |
+| `dropHeight` | `7` | height furniture falls from (world units) |
+| `drift` | `14` | degrees the camera swings while it builds |
+| `size` | `1` | overall scale multiplier |
+
 ### `jelly-type-drop` — Jelly type drop
 
 ![jelly-type-drop](../gallery/jelly-type-drop.jpg)
@@ -14159,6 +14400,38 @@ A handheld camcorder walks an endless, empty office of mustard wallpaper partiti
 | `clock` | `"PM 11:58"` | OSD clock text |
 | `date` | `"SEP.27.1996"` | OSD date text |
 | `osdLabel` | `"REC"` | camcorder on-screen-display label next to the red dot (osd: true) |
+
+### `low-poly-terrain-flyover` — Low-poly terrain flyover
+
+A seeded, flat-shaded low-poly island (mountains with snow caps, grass, sand, pine forests, a faceted sea and drifting clouds) under a gradient sky and fog, with the camera flying low across it (or circling it).
+
+**Use for:** Travel and outdoors intros, game / world-building teasers, nature or sustainability titles, calm looping hero backdrops. Change `seed` for a new island, `palette` and `sky` for the mood (autumn, desert, arctic), `title` for the words.  
+**Rebuilt from:** procedural height-map terrain (original build; three.js)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d, nature  
+**Capabilities:** paints its own background · text: `title`, `subtitle` · weight: heavy  
+
+| prop | default | notes |
+|---|---|---|
+| `seed` | `7` | island seed (any integer): a different landscape each time |
+| `palette` | `["#2f9fd0","#f2dd9c","#7cc65a","#8c8f9a","#ffffff"]` | [water, sand, grass, rock, snow] colours |
+| `sky` | `["#4a8fe0","#ffe3c2"]` | [zenith, horizon] sky colours (the horizon colour also tints fog) |
+| `sunColor` | `"#ffd9a0"` | sun / key-light colour |
+| `sunHeight` | `38` | sun elevation in degrees |
+| `relief` | `28` | mountain height (world units) |
+| `seaLevel` | `0.02` | raises (positive) or lowers (negative) the sea relative to the land (-0.15..0.2) |
+| `trees` | `700` | number of pine trees |
+| `clouds` | `9` | number of low-poly clouds |
+| `path` | `"fly"` | 'fly' (low pass across the island) \| 'orbit' (circle around it) |
+| `speed` | `1` | how much of the path is covered (1 = the whole path over the clip) |
+| `altitude` | `30` | camera height above the ground (world units) |
+| `fog` | `0.0045` | fog density (0 = clear) |
+| `title` | `"Wide open horizons"` | headline ("" with an empty subtitle = scene only) |
+| `subtitle` | `"Explore what is out there"` | line under the headline |
+| `ink` | `""` | headline colour (empty = auto contrast) |
+| `titlePlace` | `"bottom"` | 'bottom' \| 'top' \| 'center' |
+| `size` | `1` | zoom multiplier (>1 = narrower lens) |
 
 ### `ocean-surface-3d` — Ocean surface 3D
 
@@ -14545,6 +14818,42 @@ A procedural mountain heightmap rebuilds itself in labelled stages — flat, noi
 | `contourStep` | `1.6` | contours: height between lines in world units (hero peak ~ 32) |
 | `trailColor` | `"#ff8a2a"` | trail colour |
 | `colors` | `{"rock":"#6e6a66","scree":"#9a948c","grass":"#4f6a3a","sn…` | rock / scree / grass / snow / clay / sun / zenith / horizon / cloudShadow / cloudLight |
+
+### `3d-text-extrude-spin` — 3D text extrude and spin (settles)
+
+Your words as real extruded, bevelled 3D letters: they scale in spinning on the vertical (or horizontal) axis, ease out of the spin with a damped wobble, then a light streak sweeps across the glossy faces. Spin the whole word or each letter in a stagger.
+
+**Use for:** Title cards, logo-style hero words, brand stings, countdown numbers and chapter openers: set `text`, `faceColor`, `sideColor`, `accent` and the background.  
+**Rebuilt from:** three.js TextGeometry (original build)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** 3d  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `text`, `subtitle` · weight: heavy  
+
+| prop | default | notes |
+|---|---|---|
+| `text` | `"LAUNCH"` | the word(s); use '\|' or \n for a new line (Latin letters, digits and basic punctuation; at most 60 characters) |
+| `subtitle` | `"Coming this spring"` | small caps line under the word ("" for none) |
+| `font` | `"sans"` | 'sans' (bold) \| 'light' (regular) \| 'humanist' (bold) \| 'serif' (bold) |
+| `mode` | `"word"` | 'word' (whole word spins) \| 'letter' (each letter spins on its own with a stagger) |
+| `axis` | `"y"` | 'y' (turntable spin) \| 'x' (forward flip) |
+| `spins` | `2` | full turns before it settles |
+| `spinFrames` | `56` | frames the spin takes to settle |
+| `startAt` | `6` | frame the spin starts |
+| `stagger` | `4` | frames between letters in 'letter' mode |
+| `depth` | `0.36` | extrusion depth (letter height = 1) |
+| `bevel` | `0.035` | bevel size (0 = sharp edges) |
+| `tracking` | `0.07` | extra letter spacing (letter height = 1) |
+| `background` | `"#101426"` | background colour ('transparent' to composite over other content) |
+| `faceColor` | `"#f4f6ff"` | front-face colour |
+| `sideColor` | `"#4f6bff"` | extruded side colour |
+| `accent` | `"#ff5ea8"` | rim-light and background glow colour |
+| `ink` | `""` | subtitle colour (empty = auto contrast) |
+| `metalness` | `0.25` | material metalness 0..1 |
+| `roughness` | `0.28` | material roughness 0..1 |
+| `idleSway` | `8` | degrees of slow sway after it settles |
+| `fontFamily` | `""` | subtitle font-family (empty = library sans) |
+| `size` | `1` | word scale multiplier |
 
 ### `voxel-burst-swirl` — Voxel burst swirl
 
@@ -15632,7 +15941,7 @@ A 2-1-3 podium whose blocks rise in turn (bronze, silver, gold); each winner dro
 |---|---|---|
 | `title` | `"Final results"` | heading (e.g. event name) |
 | `subtitle` | `"Men's 200m freestyle"` | small line above the heading (e.g. category) |
-| `winners` | `[{"name":"Kestrel Moon","detail":"1:46.20","colors":["#2F…` | up to 3 entries in order 1st, 2nd, 3rd: {name, detail (time / score), colors[] (flag-style colour chip: 1-4 stripes), src (optional photo, public/ path or URL)} |
+| `winners` | `[{"name":"Kestrel Moon","detail":"1:46.20","colors":["#7A…` | up to 3 entries in order 1st, 2nd, 3rd: {name, detail (time / score), colors[] (flag-style colour chip: 1-4 stripes), src (optional photo, public/ path or URL)} |
 | `medalLabels` | `["Gold","Silver","Bronze"]` | words on the blocks, e.g. ["Gold","Silver","Bronze"] or ["1st","2nd","3rd"] |
 | `gold` | `"#F5C542"` | first-place colour |
 | `silver` | `"#C3CAD6"` | second-place colour |

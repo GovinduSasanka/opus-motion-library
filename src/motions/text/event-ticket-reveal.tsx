@@ -54,13 +54,13 @@ const EventTicketReveal: React.FC<Props> = (p) => {
       {(L) => {
         const vert = L.kind === 'tall';
         const A = vert ? 780 : 880; // main length along the tear axis
-        const B = vert ? 700 : 520; // across
+        const B = vert ? 700 : 570; // across
         const SA = 280;
         const mainW = vert ? B : A;
         const mainH = vert ? A : B;
         const tw = vert ? B : A + SA;
         const th = vert ? A + SA : B;
-        const sc = vert ? 1.14 : L.kind === 'wide' ? 1.2 : 0.84;
+        const sc = vert ? 1.14 : L.kind === 'wide' ? 1.1 : 0.84;
         const n = 24;
         const rc = 28;
         const P = (a: number, b: number) => (vert ? `${b} ${a}` : `${a} ${b}`);
@@ -77,15 +77,15 @@ const EventTicketReveal: React.FC<Props> = (p) => {
         const offX = vert ? (1 - eIn) * 120 : (1 - eIn) * 900;
         const offY = vert ? (1 - eIn) * 1100 : (1 - eIn) * 260;
         const tx0 = (L.W - tw * sc) / 2;
-        const ty0 = (L.H - th * sc) / 2;
+        const tr = p.tear ? prog(f, 136, 176, ease.inOut) : 0;
+        const ty0 = (L.H - th * sc) / 2 - (vert ? tr * 80 : 0);
 
         // tear
-        const tr = p.tear ? prog(f, 136, 176, ease.inOut) : 0;
         const trBack = p.tear ? prog(f, 128, 140, ease.out) * (1 - prog(f, 140, 150, ease.out)) : 0;
-        const stubDx = vert ? tr * 20 : tr * 78;
-        const stubDy = vert ? tr * 96 : tr * 52;
-        const stubRot = tr * (vert ? 7 : 11) + trBack * -2;
-        const mainDx = vert ? 0 : -tr * 36;
+        const stubDx = vert ? tr * 20 : tr * 56;
+        const stubDy = vert ? tr * 56 : tr * 44;
+        const stubRot = tr * (vert ? 5 : 11) + trBack * -2;
+        const mainDx = vert ? 0 : -tr * 30;
         const mainDy = vert ? -tr * 44 : 0;
         const pivotX = vert ? 0 : A;
         const pivotY = vert ? A : B;
@@ -98,16 +98,16 @@ const EventTicketReveal: React.FC<Props> = (p) => {
         // content layout
         const pad = 48;
         const inW = mainW - pad * 2;
-        const tsize = fitFont(p.eventName, vert ? 88 : 80, 99999, 1);
+        const tsize = vert ? 86 : 72;
         const lines = wrapText(p.eventName, tsize, inW, 'display', vert ? 3 : 2);
         const lineSz = Math.min(tsize, Math.max(40, ...lines.map((ln) => fitFont(ln, tsize, inW, 0.66))));
-        const titleY0 = vert ? 200 : 168;
+        const titleY0 = vert ? 200 : 160;
         const lh = lineSz * 1.1;
         const afterTitle = titleY0 + (lines.length - 1) * lh;
         const venueY = afterTitle + (vert ? 64 : 58);
         const divY = venueY + 36;
         const gridY = divY + (vert ? 62 : 52);
-        const rowGap = vert ? 112 : 82;
+        const rowGap = vert ? 112 : 84;
         const colW = inW / 2;
         const reveal = (a: number) => ease.out(prog(f, a, a + 20, ease.linear));
 
@@ -222,9 +222,9 @@ const EventTicketReveal: React.FC<Props> = (p) => {
               })}
               {/* stamp */}
               {stampT > 0 && (
-                <g transform={`translate(${mainW - 190} ${vert ? 118 : 100}) rotate(-14) scale(${stampT})`} opacity={0.88 * (1 - 0.25 * (1 - stampT))}>
+                <g transform={`translate(${mainW - 112} ${vert ? 62 : 58}) rotate(-12) scale(${stampT * 0.56})`} opacity={0.88 * (1 - 0.25 * (1 - stampT))}>
                   <rect x={-98} y={-34} width={196} height={68} rx={10} fill="none" stroke={mixHex(p.accent2, p.ink, 0.1)} strokeWidth={5} />
-                  <text x={0} y={13} textAnchor="middle" fontFamily={fonts.display} fontSize={fitFont(p.admit.toUpperCase(), 40, 170, 0.7)} fill={mixHex(p.accent2, p.ink, 0.1)} letterSpacing={3}>
+                  <text x={0} y={13} textAnchor="middle" fontFamily={fonts.display} fontSize={fitFont(p.admit.toUpperCase(), 40, 150, 0.85)} fill={mixHex(p.accent2, p.ink, 0.1)} letterSpacing={2}>
                     {p.admit.toUpperCase()}
                   </text>
                 </g>

@@ -40,6 +40,12 @@ export const onColor = (hex: string, dark = '#0B1020', light = '#FFFFFF') => {
   return (r * 299 + g * 587 + b * 114) / 1000 > 150 ? dark : light;
 };
 
+/** true when a hex colour is dark (vignettes and glows only suit dark frames) */
+export const isDark = (hex: string) => {
+  const [r, g, b] = hexRgb(hex);
+  return (r * 299 + g * 587 + b * 114) / 1000 < 140;
+};
+
 /** font size (<= size) that keeps `text` inside maxW */
 export const fitFont = (text: string, size: number, maxW: number, font: 'sans' | 'display' = 'display', tracking = 0) => {
   const wd = estWidth(text || ' ', size, font, tracking);

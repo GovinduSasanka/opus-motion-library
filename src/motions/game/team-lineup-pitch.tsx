@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
-import {FieldArt, SAMPLE_NAMES, SPORTS, asSport, backOut, bgCss, bodyFont, clampN, easeIO, easeOut3, fieldLayout, fitFont, headFont, mixHex, num, onColor, sseg, withAlpha} from '../../core/r3-sports-kit';
+import {FieldArt, SAMPLE_NAMES, SPORTS, asSport, backOut, bgCss, bodyFont, clampN, easeIO, easeOut3, fieldLayout, fitFont, headFont, mixHex, num, onColor, sseg, withAlpha, isDark} from '../../core/r3-sports-kit';
 import {Svg, Vignette, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
 
@@ -76,7 +76,11 @@ const TeamLineupPitch: React.FC<Props> = (P) => {
   const panelW = wide ? Math.min(w * 0.3, 560 * u) : 0;
   const box = wide ? {x: pad + panelW + 24 * u, y: pad, w: w - pad * 2 - panelW - 24 * u, h: h - pad * 2} : {x: pad * 0.7, y: pad * 0.6 + headH, w: w - pad * 1.4, h: h - pad * 1.3 - headH};
   const vertical = !wide && portrait;
-  const L = fieldLayout(sport, box, vertical);
+  const L0 = fieldLayout(sport, box, vertical);
+  // wide frames: centre panel + field as one group
+  const groupW = panelW + 40 * u + L0.w;
+  const panelX = wide ? Math.max(pad, (w - groupW) / 2) : pad;
+  const L = wide ? fieldLayout(sport, {x: panelX + panelW + 40 * u, y: box.y, w: L0.w, h: box.h}, vertical) : L0;
   const drawP = easeIO(sseg(frame, 4, 40));
   const fieldOpacity = easeOut3(sseg(frame, 0, 16));
 
@@ -110,7 +114,7 @@ const TeamLineupPitch: React.FC<Props> = (P) => {
       {bgCss(P.background) && (
         <>
           <AbsoluteFill style={{background: `radial-gradient(ellipse 70% 60% at 50% 50%, ${withAlpha(P.teamColor, 0.16)}, transparent 75%)`}} />
-          <Vignette strength={0.45} />
+          {isDark(P.background) && <Vignette strength={0.45} />}
         </>
       )}
       <div style={{position: 'absolute', inset: 0, opacity: fieldOpacity}}>
@@ -128,7 +132,7 @@ const TeamLineupPitch: React.FC<Props> = (P) => {
       <div
         style={{
           position: 'absolute',
-          left: pad,
+          left: panelX,
           top: wide ? h / 2 - 270 * u : pad * 0.9,
           width: wide ? panelW : w - pad * 2,
           textAlign: wide ? 'left' : 'center',

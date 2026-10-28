@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
-import {FieldArt, SPORTS, asSport, backOut, bgCss, bodyFont, clampN, easeIO, easeOut3, fieldLayout, fitFont, headFont, mixHex, num, onColor, rampColor, sseg, withAlpha} from '../../core/r3-sports-kit';
+import {FieldArt, SPORTS, asSport, backOut, bgCss, bodyFont, clampN, easeIO, easeOut3, fieldLayout, fitFont, headFont, mixHex, num, onColor, rampColor, sseg, withAlpha, isDark} from '../../core/r3-sports-kit';
 import {rng} from '../../core/random';
 import {Svg, Vignette, useStage} from '../../core/stage';
 import {defineMotion} from '../../core/types';
@@ -80,8 +80,12 @@ const ShotMapHeat: React.FC<Props> = (P) => {
   const panelW = wide ? Math.min(w * 0.28, 520 * u) : 0;
   const box = wide ? {x: pad + panelW + 24 * u, y: pad, w: w - pad * 2 - panelW - 24 * u, h: h - pad * 2} : {x: pad * 0.7, y: pad * 0.5 + headH, w: w - pad * 1.4, h: h - pad * 1.2 - headH};
   const crop: [number, number] = P.half ? [0.5, 1] : [0, 1];
-  const vertical = !wide && portrait;
-  const L = fieldLayout(sport, box, vertical, crop);
+  const vertical = !wide && portrait && !P.half;
+  const L0 = fieldLayout(sport, box, vertical, crop);
+  // wide frames: centre panel + field as one group
+  const groupW = panelW + 40 * u + L0.w;
+  const panelX = wide ? Math.max(pad, (w - groupW) / 2) : pad;
+  const L = wide ? fieldLayout(sport, {x: panelX + panelW + 40 * u, y: box.y, w: L0.w, h: box.h}, vertical, crop) : L0;
   const drawP = easeIO(sseg(frame, 2, 34));
   const fieldO = easeOut3(sseg(frame, 0, 14));
 
@@ -137,7 +141,7 @@ const ShotMapHeat: React.FC<Props> = (P) => {
   const ramp = Array.isArray(P.heatColors) && P.heatColors.length >= 2 ? P.heatColors : ['#1B2B6B', '#1FB5C9', '#FFD23F', '#FF4A3D'];
   const heatOn = P.showHeat ? easeOut3(sseg(frame, 34, 60)) : 0;
 
-  const r0 = clampN(Math.min(L.w, L.h) * 0.028, 7 * u, 22 * u);
+  const r0 = clampN(Math.min(L.w, L.h) * 0.034, 8 * u, 26 * u);
   const goalPt = L.pt(1, 0.5);
   const counter = (n: number, lab: string, col: string, delay: number) => {
     const p = easeOut3(sseg(frame, delay, delay + 24));
@@ -157,7 +161,7 @@ const ShotMapHeat: React.FC<Props> = (P) => {
       {bgCss(P.background) && (
         <>
           <AbsoluteFill style={{background: `radial-gradient(ellipse 65% 60% at 60% 50%, ${withAlpha(P.accent2, 0.14)}, transparent 75%)`}} />
-          <Vignette strength={0.45} />
+          {isDark(P.background) && <Vignette strength={0.45} />}
         </>
       )}
       <div style={{position: 'absolute', inset: 0, opacity: fieldO}}>
@@ -233,7 +237,7 @@ const ShotMapHeat: React.FC<Props> = (P) => {
       <div
         style={{
           position: 'absolute',
-          left: pad,
+          left: panelX,
           top: wide ? h / 2 - 330 * u : pad * 0.8,
           width: wide ? panelW : w - pad * 2,
           textAlign: wide ? 'left' : 'center',
@@ -270,7 +274,7 @@ const ShotMapHeat: React.FC<Props> = (P) => {
           <span style={{color: '#fff', fontWeight: 800}}>×</span> Off target
         </span>
       </div>
-      <div style={{position: 'absolute', left: pad, bottom: pad * 0.8, display: wide ? 'flex' : 'none', gap: 22 * u, fontFamily: body, fontWeight: 600, fontSize: 21 * u, color: withAlpha(P.ink, 0.75), opacity: easeOut3(sseg(frame, 60, 80)), alignItems: 'center', flexWrap: 'wrap', width: panelW}}>
+      <div style={{position: 'absolute', left: panelX, bottom: pad * 0.8, display: wide ? 'flex' : 'none', gap: 22 * u, fontFamily: body, fontWeight: 600, fontSize: 21 * u, color: withAlpha(P.ink, 0.75), opacity: easeOut3(sseg(frame, 60, 80)), alignItems: 'center', flexWrap: 'wrap', width: panelW}}>
         <span style={{display: 'flex', alignItems: 'center', gap: 8 * u}}>
           <span style={{width: 16 * u, height: 16 * u, borderRadius: '50%', background: P.accent, border: '2px solid #fff', display: 'inline-block'}} />
           {P.goalLabel}

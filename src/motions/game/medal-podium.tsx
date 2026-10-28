@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
-import {Crest, backOut, bgCss, bodyFont, clampN, easeOut3, fitFont, headFont, mixHex, onColor, sseg, withAlpha} from '../../core/r3-sports-kit';
+import {Crest, backOut, bgCss, bodyFont, clampN, easeOut3, fitFont, headFont, mixHex, onColor, sseg, withAlpha, isDark} from '../../core/r3-sports-kit';
 import {Svg, Vignette, useStage} from '../../core/stage';
 import {rng} from '../../core/random';
 import {defineMotion} from '../../core/types';
@@ -27,8 +27,8 @@ type Props = {
 };
 
 const DEFAULT_WINNERS: Winner[] = [
-  {name: 'Kestrel Moon', detail: '1:46.20', colors: ['#2F6BFF', '#FFFFFF', '#E5484D']},
-  {name: 'Alder Reyes', detail: '1:46.85', colors: ['#18B37E', '#FFFFFF']},
+  {name: 'Kestrel Moon', detail: '1:46.20', colors: ['#7A4DFF', '#FFFFFF', '#18B37E']},
+  {name: 'Alder Reyes', detail: '1:46.85', colors: ['#19B6D6', '#F5A524']},
   {name: 'Marlow Chen', detail: '1:47.31', colors: ['#F5A524', '#1E2A44', '#F5A524']},
 ];
 
@@ -58,7 +58,7 @@ const MedalPodium: React.FC<Props> = (P) => {
   const bw = (PW - gap * 2) / 3;
   const x0 = (w - PW) / 2;
   const yb = portrait ? h * 0.84 : h - 96 * u;
-  const H1 = clampN(h * 0.3, 200 * u, 560 * u);
+  const H1 = clampN(h * (portrait ? 0.38 : 0.3), 200 * u, (portrait ? 760 : 560) * u);
   const heights = [H1, H1 * 0.74, H1 * 0.54];
   const slot = [1, 0, 2]; // column -> rank index
   const av = clampN(bw * 0.58, 90 * u, 200 * u);
@@ -98,7 +98,7 @@ const MedalPodium: React.FC<Props> = (P) => {
       {bgCss(P.background) && (
         <>
           <AbsoluteFill style={{background: `radial-gradient(ellipse 60% 55% at 50% 80%, ${withAlpha(P.gold, 0.12)}, transparent 70%)`}} />
-          <Vignette strength={0.55} />
+          {isDark(P.background) && <Vignette strength={0.55} />}
         </>
       )}
       {/* spotlight cone */}
