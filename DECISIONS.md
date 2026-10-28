@@ -1,5 +1,83 @@
 # Decisions
 
+## Summary (2026-10-29, end of round 3) — read this first
+
+**What was built.** The library grew from 429 to **616 motions** (148 styles, 97 transitions). Every new motion follows
+`docs/BUILD_BRIEF_R3.md`: text, data, colours, images and timing are all props, and it works at 16:9, 1:1 and 9:16.
+- New families: camera, texture, product, document, map, mascot, social, explainer, intros and outros, UI loops, charts (16), music, gaming,
+  sports, annotation overlays, slides, kinetic type, e-commerce, verticals, developer and AI, nature, travel and food, education, news, events, and 3D.
+- Portrait pass: 139 motions fixed.
+- Text and colour props added to 66 older motions; their default renders are unchanged.
+- **Use it anywhere**:
+  - `mgl serve` HTTP render API for video-creation websites and backends.
+  - JSON Schema for every motion's props (`props-schema.json`).
+  - Controlled-frame players and the `<opus-motion>` seek API for timeline editors.
+  - `examples/timeline-editor/`.
+  - A one-tag element at `https://govindusasanka.github.io/opus-motion-library/opus-motion.element.js`.
+- **Site and SEO**:
+  - "The world's largest open-source motion graphics library" positioning, with live counts and a star button.
+  - A prerendered page for every motion, category and recipe.
+  - sitemap.xml, llms.txt, JSON-LD, an OG card and a FAQ.
+  - The README was rewritten with a hero mosaic and GIF, a family table and a star call to action.
+- **Sample film** (release v1.2.0):
+  - 7:20, 1080p, 28 connected chapters: every family layered and joined by the library's own transitions.
+  - Local Qwen3-TTS narration, word-synced captions, and a finale wall with all 616 motions.
+  - It plays on the site's "The film" section and is linked from the README.
+  - Rebuild it: `python storyboards/build-sample-film.py && node cli/direct.mjs storyboards/sample-film.json --concurrency 4 --out out/sample-film.mp4`.
+
+**How to run.** `node cli/mgl.mjs suggest "<brief>"`, `node cli/mgl.mjs serve`, and `npm run dev` (studio). The site is in `site/` (`npm run build`).
+After adding motions: `node cli/gen-registry.mjs && npx tsc --noEmit && node cli/gen-docs.mjs && node cli/gen-schemas.mjs`.
+
+**Verified.**
+- `tsc` is clean; CI and Deploy site are green on main.
+- The live site, motion pages and element bundle return 200.
+- Film contact sheets were reviewed (no black frames, −16.5 LUFS).
+
+**Needs you**
+1. `npm publish` (`opus-motion-library@1.2.0`). The jsDelivr and unpkg one-tag URLs only work after this.
+2. Submit the sitemap in Google Search Console and Bing Webmaster Tools. Then run a Rich Results test on one `/motion/<id>/` page.
+3. Upload a social preview image in the GitHub repo settings. `site/public/media/social-preview.png` is ready; GitHub has no API for it.
+4. Optional: post the sample film (release v1.2.0) to YouTube or X and link it in the README. Posting on your behalf was not done.
+
+## Update (2026-10-29) — sample film "everything, all connected"
+
+**Summary.** `out/sample-film.mp4` (local only, `out/` is git-ignored): one continuous 16:9 1080p30 film, about 7 min 20 s. It has
+a cold open, 28 chapters (one for every motion family, each with 3–8 motions layered as backdrop + subject + type + accent and
+joined by the library's transitions), a style-engine demo, a "use it anywhere" chapter, and a finale wall with a tile for every one
+of the 616 catalog motions and a live counter, then an end card (repo URL + "Star on GitHub"). Narration is local Qwen3-TTS (Ryan),
+captions are word-synced premium captions, music is ducked under the voice, and the mix is loudness-normalised to about −16 LUFS.
+- Regenerate it: `python storyboards/build-sample-film.py && node cli/direct.mjs storyboards/sample-film.json --concurrency 4 --out out/sample-film.mp4`
+  (set `QWEN_PYTHON=C:/Users/govin/.qwen-venv/Scripts/python.exe` and `WHISPER_PYTHON=<python with openai-whisper>`). The narration counts, the
+  3D / sports picks and the finale wall come from `catalog.json`, so new motions are picked up when you re-run.
+- Contact sheets of the final mp4 (one frame every 5 s): `out/sample-film-contact-{0,1,2}.jpg`.
+
+Decisions:
+- **Sample brand "Fernwick"** (invented) with one palette (navy ink `#0E1118`, paper `#F4F0E8`, blue `#6C8CFF`, coral `#FF7A59`,
+  mint `#3DD6B0`, gold `#FFC857`). "Northwind", "Tidewell", "Lumen" and "Brightline" already appear as defaults in the library, so I didn't use them.
+  Every sample text prop is replaced. Numbers on screen are labelled as sample data.
+- **Chapter tags** reuse the `scene-tag` overlay ("CHAPTER 07 / 28 · name · the motion ids used"), so each chapter tells viewers
+  which ids to copy.
+- **Style demo**: the same layered shot shown in its own style, then as `blueprint`, `silkscreen-poster` and `pixel-8bit`. I tested
+  `risograph` too, but it was too noisy on this shot.
+- **Finale wall**: `public/sample-film/wall/<id>.jpg` is the middle frame of each `gallery/<id>.jpg`, or a fresh still when a gallery
+  strip is missing. The folder is generated and now git-ignored. The wall uses `thumbnail-mosaic` (grid) twice so it holds while
+  the narration runs.
+- **`cli/direct.mjs`, two small changes**: (1) a scene's `style` is passed through to the Compose spec (before, it was dropped);
+  (2) when scenes are inserted or removed, voice takes with identical text are reused instead of being voiced again, and a take is
+  thrown away whenever its line text changes.
+- Music: Pixabay beds from `public/music` (local only, never committed). They switch per section: cinematic-promo, inspiring,
+  epic-action, tension-documentary and epic-cinematic-intense.
+
+Known issues:
+- A few motions are caught mid-entrance at chapter starts (quiz, match stats, podium gold reveal). That's how they animate in,
+  not a fault.
+- The low-poly terrain fly-over holds for about 9 s under its narration line, and its camera move is slow.
+- Whisper mishears some words ("16x9", "tight" for "type"). Captions use the script text, so they are unaffected.
+- The renderer printed `THREE.WebGLRenderer: Context Lost` warnings, but the sampled 3D frames rendered correctly.
+
+**Published**: release v1.2.0 has the 1080p and 720p mp4s. The site plays the 720p mp4 from the release and falls back to the old highlight if it fails to load.
+Its music is Pixabay-licensed, which is fine in a video but must not go into the repo.
+
 ## Update (2026-10-29) — "use it anywhere": HTTP render server, props schemas, editor/timeline support
 
 **Summary.** Video-creation websites, backends and agents can now use the library without touching its source:

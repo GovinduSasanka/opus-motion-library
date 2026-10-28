@@ -65,11 +65,28 @@ const clean = (t) => t.replace(/\*/g, '');
 const lines = sb.scenes.map((s, i) => ({id: sid(i), text: s.say ? clean(s.say) : '', say: s.direction ?? ''})).filter((l) => l.text);
 const manifestPath = path.join(voiceDir, 'manifest.json');
 const old = fs.existsSync(manifestPath) ? JSON.parse(fs.readFileSync(manifestPath, 'utf8')) : {};
+// when scenes are inserted or removed the ids shift: reuse an existing take whose text is identical instead of re-voicing it
+const takeOf = {};
+for (const [id, text] of Object.entries(old)) if (!takeOf[text] && fs.existsSync(path.join(voiceDir, `${id}.wav`))) takeOf[text] = id;
+const stash = path.join(voiceDir, '.stash');
+const moves = lines.filter((l) => old[l.id] !== l.text && takeOf[l.text]);
+if (moves.length) {
+  fs.mkdirSync(stash, {recursive: true});
+  for (const l of moves) for (const ext of ['wav', 'words.json']) {
+    const f = path.join(voiceDir, `${takeOf[l.text]}.${ext}`);
+    if (fs.existsSync(f)) fs.copyFileSync(f, path.join(stash, `${l.id}.${ext}`));
+  }
+}
 for (const l of lines)
-  if (old[l.id] && old[l.id] !== l.text) {
+  if (old[l.id] !== l.text) {
     fs.rmSync(path.join(voiceDir, `${l.id}.wav`), {force: true});
     fs.rmSync(path.join(voiceDir, `${l.id}.words.json`), {force: true});
   }
+if (moves.length) {
+  for (const f of fs.readdirSync(stash)) fs.renameSync(path.join(stash, f), path.join(voiceDir, f));
+  fs.rmSync(stash, {recursive: true, force: true});
+  console.log(`voice: reused ${moves.length} take(s) after scene ids shifted`);
+}
 fs.writeFileSync(manifestPath, JSON.stringify(Object.fromEntries(lines.map((l) => [l.id, l.text])), null, 1));
 fs.writeFileSync(path.join(voiceDir, 'lines.json'), JSON.stringify(lines, null, 1));
 if (lines.length && !flag('no-voice')) {
@@ -234,7 +251,7 @@ sb.scenes.forEach((s, i) => {
   }
   for (const o of s.overlays ?? []) overlays.push({motion: o.motion, from: start + (o.at ?? 0), duration: o.duration ?? 60, props: o.props ?? {}, blend: o.blend, opacity: o.opacity});
   for (const x of s.sfx ?? []) sfx.push({file: x.file, at: start + (x.at ?? 0), volume: x.volume ?? 0.5});
-  scenes.push({motion: s.motion, layers: s.layers, duration: d, props: s.props ?? {}, offset: s.offset, transition: s.transition});
+  scenes.push({motion: s.motion, layers: s.layers, duration: d, props: s.props ?? {}, offset: s.offset, transition: s.transition, ...(s.style ? {style: s.style} : {})});
   meta.push(m);
   t += d - tr;
 });

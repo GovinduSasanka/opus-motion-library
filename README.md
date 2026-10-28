@@ -22,11 +22,22 @@ Titles, data viz, UI mockups, weather, characters, HUDs, image looks and real 3D
 [**What's inside**](#whats-inside) ·
 [**Use it anywhere**](#use-it-anywhere) ·
 [**AI agents / MCP**](#for-ai-agents-and-mcp) ·
-[**Showreel**](https://github.com/GovinduSasanka/opus-motion-library/releases/tag/v1.1.0)
+[**Sample film**](https://github.com/GovinduSasanka/opus-motion-library/releases/tag/v1.2.0)
 
 <img src="docs/media/hero.gif" alt="A grid of twelve live motions from the library: 3D, charts, news, maps, type and UI" width="100%"/>
 
 </div>
+
+---
+
+## The sample film: everything, all connected
+
+<a href="https://github.com/GovinduSasanka/opus-motion-library/releases/tag/v1.2.0"><img src="docs/media/sample-film-contact.jpg" alt="Contact sheet of the 7-minute sample film: titles, backdrops, charts, UI, products, maps, sports, 3D and the finale wall of all motions" width="100%"/></a>
+
+One 7-minute film made only from this library: 28 chapters, one per family. Each shot layers a backdrop, a subject, type and an accent, and the library's
+own transitions join every chapter. It has local TTS narration, word-synced captions and a finale wall with a tile for every motion.
+**[Watch it (1080p / 720p mp4)](https://github.com/GovinduSasanka/opus-motion-library/releases/tag/v1.2.0)** ·
+rebuild it yourself: `python storyboards/build-sample-film.py && node cli/direct.mjs storyboards/sample-film.json --out out/sample-film.mp4`
 
 ---
 

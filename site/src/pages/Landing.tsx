@@ -75,6 +75,9 @@ const jump = (id: string) => (e: React.MouseEvent) => {
   el.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block: 'start'});
 };
 
+// the 7-minute sample film (720p) is a release asset, so the site repo stays small
+const FILM = `${REPO}/releases/download/v1.2.0/opus-motion-sample-film-720p.mp4`;
+
 const Film: React.FC = () => {
   const v = useRef<HTMLVideoElement>(null);
   const [started, setStarted] = useState(false);
@@ -82,13 +85,18 @@ const Film: React.FC = () => {
     <div className={`film ${started ? 'is-playing' : ''}`}>
       <video
         ref={v}
-        src={asset('media/highlight.mp4')}
-        poster={asset('media/poster.jpg')}
+        src={FILM}
+        poster={asset('media/sample-film-poster.jpg')}
+        onError={(e) => {
+          // the release asset is the full film; fall back to the short highlight bundled with the site
+          const el = e.currentTarget;
+          if (!el.src.endsWith('highlight.mp4')) el.src = asset('media/highlight.mp4');
+        }}
         preload="none"
         playsInline
         controls={started}
         onPlay={() => setStarted(true)}
-        aria-label="Opus Motion Library highlight film, 74 seconds"
+        aria-label="Opus Motion Library sample film, 7 minutes 20 seconds"
       />
       {!started && (
         <button
@@ -97,7 +105,7 @@ const Film: React.FC = () => {
             setStarted(true);
             v.current?.play();
           }}
-          aria-label="Play the highlight film"
+          aria-label="Play the sample film"
         >
           <span className="film-play-dot">
             <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden>
@@ -188,12 +196,12 @@ export const Landing: React.FC = () => (
       <div className="section-head">
         <p className="eyebrow">The film</p>
         <h2 className="h2">
-          Eight minutes. Every motion. <em>Here are seventy-four seconds.</em>
+          Seven minutes. Every family. <em>All connected.</em>
         </h2>
         <p className="sub">
-          A premium showreel built entirely from the library — captions timed word by word, cuts on the beat. Watch the{' '}
+          One film made only from the library: 28 chapters, layered motions joined by its own transitions, narration and word-synced captions, and a finale wall of every motion. Download the{' '}
           <a href={`${REPO}/releases`} target="_blank" rel="noreferrer">
-            full 8-minute film
+            1080p film from the release
           </a>
           .
         </p>
