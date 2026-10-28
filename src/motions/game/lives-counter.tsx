@@ -25,6 +25,15 @@ type Props = {
   gainText: string;
   panel: string;
   seed: number;
+  background: string;
+  rayColor: string;
+  ink: string;
+  textColor: string;
+  tabColor: string;
+  iconColor: string;
+  lossColor: string;
+  lastColor: string;
+  gainColor: string;
 };
 
 const CIRCLE = (r: number) => `M${-r} 0 A${r} ${r} 0 1 0 ${r} 0 A${r} ${r} 0 1 0 ${-r} 0 Z`;
@@ -39,7 +48,7 @@ const CRACK: [number, number][] = [
 ];
 const GREY = '#8A86A0';
 
-const Head: React.FC<{kind: string; id: string; grey: number; dead: boolean; crack: number; hot: number}> = ({kind, id, grey, dead, crack, hot}) => {
+const Head: React.FC<{kind: string; id: string; grey: number; dead: boolean; crack: number; hot: number; tint?: string; ink?: string}> = ({kind, id, grey, dead, crack, hot, tint, ink = TOON.ink}) => {
   const t = (c: string) => mixC(c, GREY, grey);
   const nC = crack * (CRACK.length - 1);
   const fullC = Math.floor(nC);
@@ -49,7 +58,7 @@ const Head: React.FC<{kind: string; id: string; grey: number; dead: boolean; cra
   return (
     <g>
       {kind === 'heart' ? (
-        <ToonPart id={`${id}-b`} d="M0 44 C-64 -2 -44 -54 0 -26 C44 -54 64 -2 0 44 Z" fill={t(TOON.red)} shade={t('#B5163C')} sh={7} sw={5} />
+        <ToonPart id={`${id}-b`} d="M0 44 C-64 -2 -44 -54 0 -26 C44 -54 64 -2 0 44 Z" fill={t(tint || TOON.red)} shade={t(tint ? mixC(tint, '#000000', 0.3) : '#B5163C')} sh={7} sw={5} />
       ) : kind === 'star' ? (
         <ToonPart
           id={`${id}-b`}
@@ -58,18 +67,18 @@ const Head: React.FC<{kind: string; id: string; grey: number; dead: boolean; cra
             const r = i % 2 ? 24 : 54;
             return `${(Math.cos(a) * r).toFixed(1)} ${(Math.sin(a) * r + 4).toFixed(1)}`;
           }).join('L') + 'Z'}
-          fill={t(TOON.gold)}
-          shade={t('#D99A12')}
+          fill={t(tint || TOON.gold)}
+          shade={t(tint ? mixC(tint, '#000000', 0.3) : '#D99A12')}
           sh={7}
           sw={5}
         />
       ) : (
         <g>
-          <line x1={0} y1={-44} x2={0} y2={-60} stroke={TOON.ink} strokeWidth={5} strokeLinecap="round" />
+          <line x1={0} y1={-44} x2={0} y2={-60} stroke={ink} strokeWidth={5} strokeLinecap="round" />
           <circle cx={0} cy={-64} r={9} fill={t(TOON.magenta)} stroke={TOON.ink} strokeWidth={4.5} />
           <circle cx={-47} cy={6} r={10} fill={t(TOON.gold)} stroke={TOON.ink} strokeWidth={4.5} />
           <circle cx={47} cy={6} r={10} fill={t(TOON.gold)} stroke={TOON.ink} strokeWidth={4.5} />
-          <ToonPart id={`${id}-b`} d={CIRCLE(46)} fill={t(TOON.cream)} shade={t('#BDB2D6')} sh={7} sw={5} />
+          <ToonPart id={`${id}-b`} d={CIRCLE(46)} fill={t(tint || TOON.cream)} shade={t(tint ? mixC(tint, '#000000', 0.2) : '#BDB2D6')} sh={7} sw={5} />
           <ToonPart id={`${id}-v`} d="M-33 4 Q-33 -21 0 -21 Q33 -21 33 4 Q33 29 0 29 Q-33 29 -33 4 Z" fill={t('#2A4FA3')} shade={t('#1B2F6E')} sh={5} sw={4.5} />
           <path d="M-24 -6 Q-18 -15 -6 -16" fill="none" stroke="#fff" strokeWidth={4} strokeLinecap="round" opacity={0.85 - grey * 0.4} />
           {dead ? (
@@ -88,7 +97,7 @@ const Head: React.FC<{kind: string; id: string; grey: number; dead: boolean; cra
       {hot > 0 && <circle r={58} fill="none" stroke={TOON.gold} strokeWidth={5} opacity={hot} />}
       {crack > 0 && crackD && (
         <g fill="none" strokeLinecap="round" strokeLinejoin="round">
-          <path d={crackD} stroke={TOON.ink} strokeWidth={7} />
+          <path d={crackD} stroke={ink} strokeWidth={7} />
           <path d={crackD} stroke="#fff" strokeWidth={2.4} transform="translate(-2 -2)" opacity={0.85} />
         </g>
       )}
@@ -137,20 +146,20 @@ const LivesCounter: React.FC<Props> = (p) => {
   const ev = lastEv as {f: number; delta: number; lives: number} | null;
   const capAge = ev ? frame - ev.f : 999;
   const capText = ev ? (ev.delta > 0 ? p.gainText : ev.lives === 1 ? p.lastText : p.lossText) : '';
-  const capCol = ev && ev.delta > 0 ? TOON.green : ev && ev.lives === 1 ? TOON.orange : TOON.red;
+  const capCol = ev && ev.delta > 0 ? p.gainColor : ev && ev.lives === 1 ? p.lastColor : p.lossColor;
   const capK = capAge < 0 ? 0 : capAge < 3 ? lerp(1.7, 0.95, capAge / 3) : capAge < 8 ? lerp(0.95, 1, (capAge - 3) / 5) : 1;
   const capFade = capAge < 40 ? 1 : cl(1 - (capAge - 40) / 10);
   const rot = -5;
 
   return (
-    <AbsoluteFill style={{background: p.stage ? TOON.ground : 'transparent'}}>
+    <AbsoluteFill style={{background: p.stage ? p.background : 'transparent'}}>
       <svg width={w} height={h} style={{position: 'absolute', inset: 0}}>
-        {p.stage && <ToonStage w={w} h={h} frame={frame} id={id} />}
+        {p.stage && <ToonStage w={w} h={h} frame={frame} id={id} ground={p.background} ray={p.rayColor} />}
         {/* panel */}
         <g transform={`translate(${cx} ${cy}) scale(${Math.max(0.01, enter)}) translate(${-cx} ${-cy})`}>
           <ToonPart id={`${id}-panel`} d={rr(px, py, pw, ph, 28 * k)} fill={p.panel} shade="#0D0424" sh={8 * k} sw={7 * Math.max(0.8, u)} drop={11 * Math.max(0.8, u)} />
-          <ToonPart id={`${id}-tab`} d={rr(px + 22 * k, py - 28 * k, 150 * k, 44 * k, 14 * k)} fill={TOON.gold} sh={4 * k} sw={5.5 * Math.max(0.8, u)} />
-          <text x={px + 22 * k + 75 * k} y={py - 28 * k + 33 * k} textAnchor="middle" fontFamily={lf.lilita} fontSize={32 * k} fill={TOON.ink} letterSpacing={2 * k}>
+          <ToonPart id={`${id}-tab`} d={rr(px + 22 * k, py - 28 * k, 150 * k, 44 * k, 14 * k)} fill={p.tabColor} sh={4 * k} sw={5.5 * Math.max(0.8, u)} />
+          <text x={px + 22 * k + 75 * k} y={py - 28 * k + 33 * k} textAnchor="middle" fontFamily={lf.lilita} fontSize={32 * k} fill={p.ink} letterSpacing={2 * k}>
             {p.label}
           </text>
           {/* top spot */}
@@ -189,7 +198,7 @@ const LivesCounter: React.FC<Props> = (p) => {
             const shards = !isAlive && sn >= 3 && sn < 14 ? Array.from({length: 6}, (_, s) => ({a: h1(i, s, p.seed) * TAU, v: (30 + h1(s, i, 3) * 40) * k, s})) : [];
             return (
               <g key={i} transform={`translate(${ix + dx} ${iy + dy}) scale(${k * scale})`}>
-                <Head kind={p.icon} id={`${id}-h${i}`} grey={grey} dead={!isAlive && grey > 0.5} crack={crack} hot={isLast ? 0.2 + 0.8 * blinkK : 0} />
+                <Head kind={p.icon} id={`${id}-h${i}`} grey={grey} dead={!isAlive && grey > 0.5} crack={crack} hot={isLast ? 0.2 + 0.8 * blinkK : 0} tint={p.iconColor || undefined} ink={p.ink} />
                 {shards.map((s) => {
                   const q = (sn - 3) / 11;
                   return <path key={s.s} d={toonStar(7, 0.3)} transform={`translate(${(Math.cos(s.a) * s.v * q * 3.4) / k} ${(Math.sin(s.a) * s.v * q * 3.4) / k + 30 * q * q}) rotate(${q * 200})`} fill="#fff" opacity={1 - q} />;
@@ -200,7 +209,7 @@ const LivesCounter: React.FC<Props> = (p) => {
         </g>
         {/* slam caption */}
         {ev && capAge >= 0 && capFade > 0.01 && (
-          <ToonText x={cx} y={py + ph + 100 * k} size={Math.min(72 * k, (w * 0.84) / (capText.length * 0.5))} text={capText} font={lf.titan} fill="#fff" ink={TOON.ink} drop={capCol} dropOff={9 * Math.max(0.8, u)} sw={16 * Math.max(0.8, u)} rotate={rot} scale={capK} opacity={capFade} />
+          <ToonText x={cx} y={py + ph + 100 * k} size={Math.min(72 * k, (w * 0.84) / (capText.length * 0.5))} text={capText} font={lf.titan} fill={p.textColor} ink={p.ink} drop={capCol} dropOff={9 * Math.max(0.8, u)} sw={16 * Math.max(0.8, u)} rotate={rot} scale={capK} opacity={capFade} />
         )}
       </svg>
     </AbsoluteFill>
@@ -233,6 +242,15 @@ export const livesCounter = defineMotion<Props>({
     gainText: '+1 LIFE',
     panel: '#1B0B45',
     seed: 2,
+    background: TOON.ground,
+    rayColor: '#3A1A78',
+    ink: TOON.ink,
+    textColor: '#ffffff',
+    tabColor: TOON.gold,
+    iconColor: '',
+    lossColor: TOON.red,
+    lastColor: TOON.orange,
+    gainColor: TOON.green,
   },
   propDocs: {
     lives: 'lives at frame 0',
@@ -247,6 +265,15 @@ export const livesCounter = defineMotion<Props>({
     gainText: 'slam caption on a gain',
     panel: 'panel fill colour',
     seed: 'shard seed',
+    background: 'stage ground colour (stage=true)',
+    rayColor: 'stage sunburst ray colour',
+    ink: 'outline colour of the panel, icons, tab label',
+    textColor: 'slam caption fill colour',
+    tabColor: 'label tab colour',
+    iconColor: "icon body colour ('' = the icon's own colour: heart red, star gold, pilot cream)",
+    lossColor: 'caption hard-shadow colour on a loss',
+    lastColor: 'caption hard-shadow colour when one life remains',
+    gainColor: 'caption hard-shadow colour on a gain',
   },
   component: LivesCounter,
   tags: ['lives', 'life counter', 'hearts', 'game', 'hud', 'microgame', 'quiz', 'retries', 'chances', 'battery', 'crack', 'toon', 'hard shadow', 'blink', 'gamified', 'game show'],

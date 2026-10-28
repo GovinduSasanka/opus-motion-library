@@ -28,6 +28,12 @@ type Props = {
   cabinet: string;
   push: number;
   seed: number;
+  shelfColor?: string;
+  deskColor?: string;
+  deskShade?: string;
+  ledColor?: string;
+  plantColor?: string;
+  spineColors?: string[];
 };
 
 // ---------------------------------------------------------------------------------------------------------
@@ -197,7 +203,7 @@ const crtPath = (x0: number, y0: number, x1: number, y1: number, r: number, b: n
 };
 
 /** one retro TV (local 300×215) */
-const RetroTV: React.FC<{x: number; y: number; k: number; frame: number; on: number; kind: SceneKind; img: string; cutAt: number; cutKind: SceneKind | null; idx: number; cabinet: string; scan: number; lw: number}> = ({
+const RetroTV: React.FC<{x: number; y: number; k: number; frame: number; on: number; kind: SceneKind; img: string; cutAt: number; cutKind: SceneKind | null; idx: number; cabinet: string; led: string; scan: number; lw: number}> = ({
   x,
   y,
   k,
@@ -209,6 +215,7 @@ const RetroTV: React.FC<{x: number; y: number; k: number; frame: number; on: num
   cutKind,
   idx,
   cabinet,
+  led,
   scan,
   lw,
 }) => {
@@ -296,15 +303,21 @@ const RetroTV: React.FC<{x: number; y: number; k: number; frame: number; on: num
       {Array.from({length: 9}, (_, i) => (
         <line key={i} x1={233} y1={140 + i * 6.3} x2={277} y2={140 + i * 6.3} stroke="#3E3226" strokeWidth={2} />
       ))}
-      <circle cx={268} cy={24} r={3.2} fill={isOn ? '#E7553E' : '#5B4434'} />
+      <circle cx={268} cy={24} r={3.2} fill={isOn ? led : '#5B4434'} />
     </g>
   );
 };
 
+/** a slightly darker tone of a hex colour (default plant leaf: #7FA45E -> #6A9150) */
+const mixToward = (hex: string) => {
+  if (hex.toLowerCase() === '#7fa45e') return '#6A9150';
+  const n = [1, 3, 5].map((i) => Math.round(parseInt(hex.slice(i, i + 2), 16) * 0.85));
+  return '#' + n.map((v) => v.toString(16).padStart(2, '0')).join('');
+};
+
 /** a stack of cassettes seen spine-on */
-const SpineStack: React.FC<{x: number; y: number; n: number; w: number; seed: number; lw: number}> = ({x, y, n, w, seed, lw}) => {
+const SpineStack: React.FC<{x: number; y: number; n: number; w: number; seed: number; lw: number; cols?: string[]}> = ({x, y, n, w, seed, lw, cols = ['#7C6E8A', '#C9584A', '#4F7F9A', '#D29A3A', '#5F8A6A', '#3F5068']}) => {
   const r = rng(seed);
-  const cols = ['#7C6E8A', '#C9584A', '#4F7F9A', '#D29A3A', '#5F8A6A', '#3F5068'];
   const hgt = w * 0.19;
   return (
     <g>
@@ -323,7 +336,8 @@ const SpineStack: React.FC<{x: number; y: number; n: number; w: number; seed: nu
   );
 };
 
-const TvWallSwitchOn: React.FC<Props> = (p) => {
+const TvWallSwitchOn: React.FC<Props> = (props) => {
+  const p = {shelfColor: '#C08A55', deskColor: '#D9A46A', deskShade: '#B98451', ledColor: '#E7553E', plantColor: '#7FA45E', spineColors: ['#7C6E8A', '#C9584A', '#4F7F9A', '#D29A3A', '#5F8A6A', '#3F5068'], ...props};
   const frame = useCurrentFrame();
   const {w, h, u, portrait, durationInFrames: D} = useStage();
   const id = useX4Id('tvwall');
@@ -386,6 +400,11 @@ const TvWallSwitchOn: React.FC<Props> = (p) => {
   const tvs = L.tvs;
   const deskTop = Y(L.H + 26);
   const zoom = 1 + p.push * prog(frame, 0, D, ease.sine);
+  // lighter / darker ends of the wall gradient (exact defaults for the default wall colour)
+  const isDefaultWall = p.wall.toLowerCase() === '#fdebcb';
+  const shiftHex = (hex: string, t: number, to: number) => '#' + [1, 3, 5].map((i) => Math.round(parseInt(hex.slice(i, i + 2), 16) * (1 - t) + to * t).toString(16).padStart(2, '0')).join('');
+  const wallHi = isDefaultWall || p.wall[0] !== '#' || p.wall.length !== 7 ? '#FFF3DC' : shiftHex(p.wall, 0.45, 255);
+  const wallLo = isDefaultWall || p.wall[0] !== '#' || p.wall.length !== 7 ? '#EFD0A0' : shiftHex(p.wall, 0.15, 0);
   const plantSway = Math.sin(frame * 0.05) * 2;
   return (
     <AbsoluteFill style={{background: p.wall}}>
@@ -393,13 +412,13 @@ const TvWallSwitchOn: React.FC<Props> = (p) => {
         <Svg>
           <defs>
             <linearGradient id={`${id}wall`} x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stopColor="#FFF3DC" />
+              <stop offset="0" stopColor={wallHi} />
               <stop offset="0.6" stopColor={p.wall} />
-              <stop offset="1" stopColor="#EFD0A0" />
+              <stop offset="1" stopColor={wallLo} />
             </linearGradient>
             <linearGradient id={`${id}desk`} x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stopColor="#D9A46A" />
-              <stop offset="1" stopColor="#B98451" />
+              <stop offset="0" stopColor={p.deskColor} />
+              <stop offset="1" stopColor={p.deskShade} />
             </linearGradient>
             <linearGradient id={`${id}sky`} x1="0" y1="0" x2="0" y2="1">
               <stop offset="0" stopColor="#8DB4CF" />
@@ -429,23 +448,23 @@ const TvWallSwitchOn: React.FC<Props> = (p) => {
           ))}
           {L.shelves.map((by) => (
             <g key={by}>
-              <rect x={X(0)} y={Y(by)} width={L.W * S} height={30 * S} fill="#C08A55" stroke={SB.ink} strokeWidth={lw} />
+              <rect x={X(0)} y={Y(by)} width={L.W * S} height={30 * S} fill={p.shelfColor} stroke={SB.ink} strokeWidth={lw} />
               <line x1={X(6)} y1={Y(by + 6)} x2={X(L.W - 6)} y2={Y(by + 6)} stroke="#E2B17A" strokeWidth={3 * S} opacity={0.6} />
             </g>
           ))}
           {/* stacks and plants */}
           {L.top.map((st, i) => (
-            <SpineStack key={'t' + i} x={X(st.x)} y={Y(40)} n={st.n} w={180 * S} seed={p.seed + i} lw={lw * 0.8} />
+            <SpineStack key={'t' + i} x={X(st.x)} y={Y(40)} n={st.n} w={180 * S} seed={p.seed + i} lw={lw * 0.8} cols={p.spineColors} />
           ))}
           {L.low.map((st, i) => (
-            <SpineStack key={'l' + i} x={X(st.x)} y={Y(L.lowY)} n={st.n} w={190 * S} seed={p.seed + 2 + i} lw={lw * 0.8} />
+            <SpineStack key={'l' + i} x={X(st.x)} y={Y(L.lowY)} n={st.n} w={190 * S} seed={p.seed + 2 + i} lw={lw * 0.8} cols={p.spineColors} />
           ))}
           <g transform={`translate(${X(L.plant)} ${Y(40)})`} stroke={SB.ink} strokeWidth={lw * 0.8}>
             {Array.from({length: 8}, (_, i) => {
               const a = -160 + i * 20 + plantSway;
               const rad = (a * Math.PI) / 180;
               const L = (60 + (i % 3) * 18) * S;
-              return <ellipse key={i} cx={Math.cos(rad) * L * 0.7} cy={-70 * S + Math.sin(rad) * L * 0.7} rx={26 * S} ry={13 * S} fill={i % 2 ? '#7FA45E' : '#6A9150'} transform={`rotate(${a} ${Math.cos(rad) * L * 0.7} ${-70 * S + Math.sin(rad) * L * 0.7})`} />;
+              return <ellipse key={i} cx={Math.cos(rad) * L * 0.7} cy={-70 * S + Math.sin(rad) * L * 0.7} rx={26 * S} ry={13 * S} fill={i % 2 ? p.plantColor : mixToward(p.plantColor)} transform={`rotate(${a} ${Math.cos(rad) * L * 0.7} ${-70 * S + Math.sin(rad) * L * 0.7})`} />;
             })}
             <path d={`M${-44 * S},${-76 * S} L${44 * S},${-76 * S} L${34 * S},0 L${-34 * S},0 Z`} fill={SB.terracotta} />
           </g>
@@ -463,6 +482,7 @@ const TvWallSwitchOn: React.FC<Props> = (p) => {
               cutKind={i === p.cutScreen && !p.images[i] ? p.cutScene : null}
               idx={i}
               cabinet={p.cabinet}
+              led={p.ledColor}
               scan={p.scanlines}
               lw={lw}
             />
@@ -476,7 +496,7 @@ const TvWallSwitchOn: React.FC<Props> = (p) => {
           <Cassette x={w * 0.08} y={deskTop + 70 * S} w={240 * S} body="#4F7F9A" rot={-8} squash={0.55} lw={lw * 0.9} />
           <Cassette x={w * 0.17} y={deskTop + 110 * S} w={260 * S} body="#C9584A" rot={6} squash={0.55} lw={lw * 0.9} />
           <Cassette x={w * 0.88} y={deskTop + 80 * S} w={250 * S} body="#7C6E8A" rot={10} squash={0.55} lw={lw * 0.9} />
-          <SpineStack x={w * 0.9 - 110 * S} y={deskTop + 40 * S} n={tall ? 2 : 3} w={210 * S} seed={p.seed + 9} lw={lw * 0.8} />
+          <SpineStack x={w * 0.9 - 110 * S} y={deskTop + 40 * S} n={tall ? 2 : 3} w={210 * S} seed={p.seed + 9} lw={lw * 0.8} cols={p.spineColors} />
                     {tall && <Cassette x={w * 0.55} y={deskTop + 150 * S} w={260 * S} body="#D29A3A" rot={-12} squash={0.55} lw={lw * 0.9} />}
         </Svg>
       </AbsoluteFill>
@@ -507,6 +527,12 @@ export const tvWallSwitchOn = defineMotion<Props>({
     cabinet: '#C98D58',
     push: 0.03,
     seed: 6,
+    shelfColor: '#C08A55',
+    deskColor: '#D9A46A',
+    deskShade: '#B98451',
+    ledColor: '#E7553E',
+    plantColor: '#7FA45E',
+    spineColors: ['#7C6E8A', '#C9584A', '#4F7F9A', '#D29A3A', '#5F8A6A', '#3F5068'],
   },
   propDocs: {
     images: 'up to 5 screen images (public/ paths or URLs), order top-left → bottom-right; empty slots use procedural clips',
@@ -520,6 +546,12 @@ export const tvWallSwitchOn = defineMotion<Props>({
     cabinet: 'TV cabinet wood colour',
     push: 'slow camera push-in amount',
     seed: 'seed for cassette stacks',
+    shelfColor: 'shelf board colour',
+    deskColor: 'foreground table top colour',
+    deskShade: 'foreground table colour at the bottom',
+    ledColor: 'power LED colour on each TV',
+    plantColor: 'plant leaf colour',
+    spineColors: 'cassette spine colours (hex list, picked at random per cassette)',
   },
   component: TvWallSwitchOn,
   tags: ['tv', 'crt', 'retro', 'tv-wall', 'switch-on', 'warm-up', 'scanlines', 'showcase', 'testimonials', 'social-proof', 'gallery', 'video-wall', 'storybook', 'gouache', 'cosy', 'cassettes', 'x4'],

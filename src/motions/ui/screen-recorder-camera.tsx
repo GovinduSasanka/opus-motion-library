@@ -16,6 +16,24 @@ type Props = {
   keys: CamKey[];
   appName: string;
   query: string;
+  windowTitle: string;
+  sidebarItems: string[];
+  sidebarActive: number;
+  heading: string;
+  searchPlaceholder: string;
+  suggestions: string[];
+  kpis: {label: string; value: string; delta: string; color?: string}[];
+  chartTitle: string;
+  tooltipLabel: string;
+  tooltipValue: string;
+  tableRows: string[][];
+  inspectorTitle: string;
+  inspectorNote: string;
+  fields: string[][];
+  publishLabel: string;
+  publishingLabel: string;
+  publishedLabel: string;
+  toastText: string;
   accent: string;
   wallpaper: string[];
   cursor: boolean;
@@ -124,13 +142,7 @@ const ScreenCam: React.FC<Props> = (p) => {
   const A = p.accent;
   const card = {background: '#fff', borderRadius: 14, boxShadow: '0 1px 2px rgba(20,24,60,0.06), 0 0 0 1px rgba(20,24,60,0.05)'} as React.CSSProperties;
   const mono = lf.jbm;
-  const rows = [
-    ['Acme Retail', 'Paid', '$12,480'],
-    ['Globex Labs', 'Pending', '$8,215'],
-    ['Initech', 'Paid', '$6,930'],
-    ['Umbrella Co', 'Paid', '$5,112'],
-    ['Hooli', 'Overdue', '$3,870'],
-  ];
+  const rows = p.tableRows;
 
   return (
     <AbsoluteFill style={{background: '#0f1020'}}>
@@ -168,7 +180,7 @@ const ScreenCam: React.FC<Props> = (p) => {
               {['#FF5F57', '#FEBC2E', '#28C840'].map((c) => (
                 <div key={c} style={{width: 13, height: 13, borderRadius: '50%', background: c}} />
               ))}
-              <div style={{marginLeft: 16, fontSize: 14, color: '#6A7091', fontWeight: 500}}>{p.appName} - Reports</div>
+              <div style={{marginLeft: 16, fontSize: 14, color: '#6A7091', fontWeight: 500}}>{p.appName} - {p.windowTitle}</div>
             </div>
             <div style={{position: 'absolute', top: 44, left: 0, right: 0, bottom: 0, display: 'flex'}}>
               {/* sidebar */}
@@ -177,8 +189,8 @@ const ScreenCam: React.FC<Props> = (p) => {
                   <div style={{width: 30, height: 30, borderRadius: 9, background: A}} />
                   <div style={{fontWeight: 700, fontSize: 18}}>{p.appName}</div>
                 </div>
-                {['Overview', 'Reports', 'Customers', 'Invoices', 'Settings'].map((n, i) => (
-                  <div key={n} style={{padding: '11px 12px', borderRadius: 10, marginBottom: 4, fontSize: 15, fontWeight: i === 1 ? 600 : 500, background: i === 1 ? `${A}18` : 'transparent', color: i === 1 ? A : '#5B6082'}}>
+                {p.sidebarItems.map((n, i) => (
+                  <div key={`${n}${i}`} style={{padding: '11px 12px', borderRadius: 10, marginBottom: 4, fontSize: 15, fontWeight: i === p.sidebarActive ? 600 : 500, background: i === p.sidebarActive ? `${A}18` : 'transparent', color: i === p.sidebarActive ? A : '#5B6082'}}>
                     {n}
                   </div>
                 ))}
@@ -187,7 +199,7 @@ const ScreenCam: React.FC<Props> = (p) => {
               <div style={{width: 940, padding: '24px 24px 0', boxSizing: 'border-box'}}>
                 <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: 44}}>
                   <div>
-                    <div style={{fontSize: 28, fontWeight: 700, letterSpacing: -0.5}}>Q3 revenue</div>
+                    <div style={{fontSize: 28, fontWeight: 700, letterSpacing: -0.5}}>{p.heading}</div>
                   </div>
                   <div style={{width: 360, height: 44, borderRadius: 12, background: '#fff', boxShadow: focused ? `0 0 0 2.5px ${A}` : '0 0 0 1px rgba(20,24,60,0.12)', display: 'flex', alignItems: 'center', gap: 10, padding: '0 14px', boxSizing: 'border-box', position: 'relative'}}>
                     <svg width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="#7A80A3" strokeWidth={2.2} strokeLinecap="round">
@@ -195,13 +207,13 @@ const ScreenCam: React.FC<Props> = (p) => {
                       <path d="M20 20l-3.5-3.5" />
                     </svg>
                     <div style={{fontSize: 16, color: typed ? '#1B1E3B' : '#9AA0BC', fontWeight: 500}}>
-                      {typed ? p.query.slice(0, typed) : 'Search reports'}
+                      {typed ? p.query.slice(0, typed) : p.searchPlaceholder}
                       {focused && Math.floor(frame / 8) % 2 === 0 && <span style={{display: 'inline-block', width: 2, height: 18, background: A, marginLeft: 1, verticalAlign: -3}} />}
                     </div>
                     {typed >= 3 && (
                       <div style={{position: 'absolute', top: 52, left: 0, right: 0, ...card, padding: 8, zIndex: 3, opacity: sstep(0, 5, typed - 2)}}>
-                        {['Q3 revenue by region', 'Q3 revenue forecast'].map((s, i) => (
-                          <div key={s} style={{padding: '9px 10px', fontSize: 14, borderRadius: 8, background: i === 0 ? `${A}14` : 'transparent', color: '#39406A', fontWeight: 500}}>
+                        {p.suggestions.map((s, i) => (
+                          <div key={`${s}${i}`} style={{padding: '9px 10px', fontSize: 14, borderRadius: 8, background: i === 0 ? `${A}14` : 'transparent', color: '#39406A', fontWeight: 500}}>
                             {s}
                           </div>
                         ))}
@@ -210,12 +222,8 @@ const ScreenCam: React.FC<Props> = (p) => {
                   </div>
                 </div>
                 <div style={{display: 'flex', gap: 16, marginTop: 22}}>
-                  {[
-                    ['Revenue', '$48.2k', '+12.4%', '#1BA672'],
-                    ['Orders', '1,284', '+5.1%', '#1BA672'],
-                    ['Churn', '2.1%', '-0.4%', '#1BA672'],
-                  ].map(([k, v, d, c]) => (
-                    <div key={k} style={{...card, flex: 1, padding: '16px 18px'}}>
+                  {p.kpis.map(({label: k, value: v, delta: d, color: c = '#1BA672'}, i) => (
+                    <div key={`${k}${i}`} style={{...card, flex: 1, padding: '16px 18px'}}>
                       <div style={{fontSize: 13, color: '#7A80A3', fontWeight: 500}}>{k}</div>
                       <div style={{display: 'flex', alignItems: 'baseline', gap: 10, marginTop: 4}}>
                         <div style={{fontSize: 28, fontWeight: 700, letterSpacing: -0.5}}>{v}</div>
@@ -225,7 +233,7 @@ const ScreenCam: React.FC<Props> = (p) => {
                   ))}
                 </div>
                 <div style={{...card, marginTop: 16, padding: '18px 20px', height: 322, boxSizing: 'border-box', position: 'relative'}}>
-                  <div style={{fontSize: 15, fontWeight: 600}}>Revenue by week</div>
+                  <div style={{fontSize: 15, fontWeight: 600}}>{p.chartTitle}</div>
                   <svg width={CW} height={CH} style={{position: 'absolute', left: 24, top: 56, overflow: 'visible'}}>
                     <defs>
                       <linearGradient id={`${id}-ar`} x1="0" y1="0" x2="0" y2="1">
@@ -249,8 +257,8 @@ const ScreenCam: React.FC<Props> = (p) => {
                         <circle cx={kx} cy={ky} r={7} fill="#fff" stroke={A} strokeWidth={3.5} />
                         <g transform={`translate(${kx - 62} ${ky - 62 + (1 - tip) * 8})`}>
                           <rect width={124} height={46} rx={10} fill="#1B1E3B" />
-                          <text x={14} y={20} fontFamily={lf.inter} fontSize={12} fill="#A6ACCB">Week 9</text>
-                          <text x={14} y={38} fontFamily={mono} fontSize={16} fontWeight={600} fill="#fff">$48,210</text>
+                          <text x={14} y={20} fontFamily={lf.inter} fontSize={12} fill="#A6ACCB">{p.tooltipLabel}</text>
+                          <text x={14} y={38} fontFamily={mono} fontSize={16} fontWeight={600} fill="#fff">{p.tooltipValue}</text>
                         </g>
                       </g>
                     )}
@@ -258,7 +266,7 @@ const ScreenCam: React.FC<Props> = (p) => {
                 </div>
                 <div style={{...card, marginTop: 16, padding: '6px 18px'}}>
                   {rows.map((r, i) => (
-                    <div key={r[0]} style={{display: 'flex', alignItems: 'center', height: 40, borderBottom: i < rows.length - 1 ? '1px solid rgba(20,24,60,0.06)' : 'none', fontSize: 14, fontWeight: 500}}>
+                    <div key={`${r[0]}${i}`} style={{display: 'flex', alignItems: 'center', height: 40, borderBottom: i < rows.length - 1 ? '1px solid rgba(20,24,60,0.06)' : 'none', fontSize: 14, fontWeight: 500}}>
                       <div style={{flex: 1}}>{r[0]}</div>
                       <div style={{width: 120}}>
                         <span style={{padding: '3px 10px', borderRadius: 20, fontSize: 12, fontWeight: 600, background: r[1] === 'Paid' ? '#DDF5EA' : r[1] === 'Pending' ? '#FFF1D6' : '#FFE0E0', color: r[1] === 'Paid' ? '#12814F' : r[1] === 'Pending' ? '#A86A00' : '#B33A3A'}}>{r[1]}</span>
@@ -270,20 +278,20 @@ const ScreenCam: React.FC<Props> = (p) => {
               </div>
               {/* inspector */}
               <div style={{width: 330, borderLeft: '1px solid rgba(20,24,60,0.07)', background: '#fff', padding: '24px 22px', boxSizing: 'border-box', position: 'relative'}}>
-                <div style={{fontSize: 18, fontWeight: 700}}>Publish</div>
-                <div style={{fontSize: 13, color: '#7A80A3', marginTop: 4}}>Share this report with your team.</div>
-                {['Visibility', 'Schedule', 'Recipients'].map((f, i) => (
-                  <div key={f} style={{marginTop: 20}}>
-                    <div style={{fontSize: 12, fontWeight: 600, color: '#7A80A3', marginBottom: 6}}>{f.toUpperCase()}</div>
-                    <div style={{height: 40, borderRadius: 10, background: '#F4F5FA', display: 'flex', alignItems: 'center', padding: '0 12px', fontSize: 14, fontWeight: 500, color: '#39406A'}}>{['Team only', 'Every Monday, 9:00', '4 people'][i]}</div>
+                <div style={{fontSize: 18, fontWeight: 700}}>{p.inspectorTitle}</div>
+                <div style={{fontSize: 13, color: '#7A80A3', marginTop: 4}}>{p.inspectorNote}</div>
+                {p.fields.map((fl, i) => (
+                  <div key={`${fl[0]}${i}`} style={{marginTop: 20}}>
+                    <div style={{fontSize: 12, fontWeight: 600, color: '#7A80A3', marginBottom: 6}}>{fl[0].toUpperCase()}</div>
+                    <div style={{height: 40, borderRadius: 10, background: '#F4F5FA', display: 'flex', alignItems: 'center', padding: '0 12px', fontSize: 14, fontWeight: 500, color: '#39406A'}}>{fl[1]}</div>
                   </div>
                 ))}
                 <div style={{position: 'absolute', left: 22, right: 22, bottom: 24, height: 52, borderRadius: 13, background: published ? '#1BA672' : A, color: '#fff', fontSize: 17, fontWeight: 600, display: 'flex', alignItems: 'center', justifyContent: 'center', transform: `scale(${pressed ? 0.96 : 1})`, boxShadow: `0 8px 20px ${published ? '#1BA67255' : A + '55'}`}}>
-                  {published ? 'Published ✓' : pressed ? 'Publishing...' : 'Publish report'}
+                  {published ? p.publishedLabel : pressed ? p.publishingLabel : p.publishLabel}
                 </div>
                 <div style={{position: 'absolute', left: 22, right: 22, bottom: 92 - (1 - toast) * 14, opacity: toast, ...card, padding: '12px 14px', fontSize: 13.5, fontWeight: 500, display: 'flex', alignItems: 'center', gap: 10}}>
                   <div style={{width: 22, height: 22, borderRadius: '50%', background: '#DDF5EA', color: '#12814F', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13}}>✓</div>
-                  Report shared with 4 people
+                  {p.toastText}
                 </div>
               </div>
             </div>
@@ -323,6 +331,38 @@ export const screenRecorderCamera = defineMotion<Props>({
     ],
     appName: 'Northwind',
     query: 'q3 revenue',
+    windowTitle: 'Reports',
+    sidebarItems: ['Overview', 'Reports', 'Customers', 'Invoices', 'Settings'],
+    sidebarActive: 1,
+    heading: 'Q3 revenue',
+    searchPlaceholder: 'Search reports',
+    suggestions: ['Q3 revenue by region', 'Q3 revenue forecast'],
+    kpis: [
+      {label: 'Revenue', value: '$48.2k', delta: '+12.4%'},
+      {label: 'Orders', value: '1,284', delta: '+5.1%'},
+      {label: 'Churn', value: '2.1%', delta: '-0.4%'},
+    ],
+    chartTitle: 'Revenue by week',
+    tooltipLabel: 'Week 9',
+    tooltipValue: '$48,210',
+    tableRows: [
+      ['Acme Retail', 'Paid', '$12,480'],
+      ['Globex Labs', 'Pending', '$8,215'],
+      ['Initech', 'Paid', '$6,930'],
+      ['Umbrella Co', 'Paid', '$5,112'],
+      ['Hooli', 'Overdue', '$3,870'],
+    ],
+    inspectorTitle: 'Publish',
+    inspectorNote: 'Share this report with your team.',
+    fields: [
+      ['Visibility', 'Team only'],
+      ['Schedule', 'Every Monday, 9:00'],
+      ['Recipients', '4 people'],
+    ],
+    publishLabel: 'Publish report',
+    publishingLabel: 'Publishing...',
+    publishedLabel: 'Published ✓',
+    toastText: 'Report shared with 4 people',
     accent: '#5B5FEF',
     wallpaper: ['#3B5BDB', '#C2255C'],
     cursor: true,
@@ -334,6 +374,24 @@ export const screenRecorderCamera = defineMotion<Props>({
     keys: 'camera keyframes {t seconds the move starts, x, y focus on the window (0-1), zoom (>= 1), dur seconds, click: cursor clicks on arrival}; short dur = whip-pan with motion blur',
     appName: 'name shown in the mock app',
     query: 'text typed into the search field after the first click',
+    windowTitle: 'title-bar suffix after the app name ("<appName> - <windowTitle>")',
+    sidebarItems: 'sidebar menu labels',
+    sidebarActive: 'index of the highlighted sidebar item',
+    heading: 'page heading above the search field',
+    searchPlaceholder: 'placeholder in the search field before typing',
+    suggestions: 'dropdown suggestions that appear while the query types',
+    kpis: 'KPI cards {label, value, delta, color? (delta colour)}',
+    chartTitle: 'title of the chart card',
+    tooltipLabel: 'small label in the chart tooltip',
+    tooltipValue: 'value in the chart tooltip',
+    tableRows: 'table rows [name, status, amount]; status "Paid" = green, "Pending" = amber, anything else = red',
+    inspectorTitle: 'heading of the right-hand inspector',
+    inspectorNote: 'grey line under the inspector heading',
+    fields: 'inspector fields [label, value] (label is upper-cased)',
+    publishLabel: 'primary button label at rest',
+    publishingLabel: 'primary button label while pressed',
+    publishedLabel: 'primary button label after the click completes',
+    toastText: 'text of the toast that slides in after publishing',
     accent: 'app accent colour',
     wallpaper: 'two hex colours of the desktop wallpaper gradient',
     cursor: 'show the gliding cursor with click ripples',

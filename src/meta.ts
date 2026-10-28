@@ -452,11 +452,61 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "crash-zoom": {
+  "overlay": false,
+  "overlayProps": null,
+  "loopable": false,
+  "bestLength": 150,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "dolly-zoom": {
+  "overlay": false,
+  "overlayProps": null,
+  "loopable": false,
+  "bestLength": 120,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "orbit-parallax": {
+  "overlay": false,
+  "overlayProps": null,
+  "loopable": false,
+  "bestLength": 150,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "rack-focus": {
+  "overlay": false,
+  "overlayProps": null,
+  "loopable": false,
+  "bestLength": 150,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
  "time-remap-clock": {
   "overlay": false,
   "overlayProps": null,
   "loopable": false,
   "bestLength": 240,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "whip-pan": {
+  "overlay": false,
+  "overlayProps": null,
+  "loopable": false,
+  "bestLength": 150,
   "roles": [
    "subject"
   ],
@@ -1040,6 +1090,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "certificate-seal": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 210,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
  "doc-highlight-evidence": {
   "overlay": false,
   "overlayProps": null,
@@ -1070,6 +1132,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "form-fill-submit": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 300,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
  "lift-the-flap": {
   "overlay": false,
   "overlayProps": null,
@@ -1095,6 +1169,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "overlayProps": null,
   "loopable": false,
   "bestLength": 150,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "receipt-print": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 240,
   "roles": [
    "subject"
   ],
@@ -2852,7 +2938,55 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "medium"
  },
+ "choropleth-fill": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 180,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "city-zoom-label": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 180,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
  "coverage-route": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 240,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "elevation-profile": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 210,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "flight-arcs": {
   "overlay": true,
   "overlayProps": {
    "background": "transparent"
@@ -2897,6 +3031,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
  "painted-choropleth": {
   "overlay": false,
   "overlayProps": null,
+  "loopable": false,
+  "bestLength": 270,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "pin-drop-cluster": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
   "loopable": false,
   "bestLength": 270,
   "roles": [
@@ -2983,6 +3129,42 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "bestLength": 150,
   "roles": [
    "accent"
+  ],
+  "weight": "light"
+ },
+ "mascot-thinking": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 180,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "mascot-thumbs-up": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 150,
+  "roles": [
+   "accent"
+  ],
+  "weight": "light"
+ },
+ "mascot-wave-hello": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 150,
+  "roles": [
+   "subject"
   ],
   "weight": "light"
  },
@@ -3206,6 +3388,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "colorway-swap": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 210,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
  "exploded-view-snap": {
   "overlay": false,
   "overlayProps": null,
@@ -3213,6 +3407,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "bestLength": 180,
   "roles": [
    "subject"
+  ],
+  "weight": "light"
+ },
+ "feature-callout-orbit": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 180,
+  "roles": [
+   "accent"
   ],
   "weight": "light"
  },
@@ -3246,6 +3452,30 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "price-tag-drop": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 150,
+  "roles": [
+   "accent"
+  ],
+  "weight": "light"
+ },
+ "spec-compare-table": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 210,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
  "sunburst-hero": {
   "overlay": true,
   "overlayProps": {
@@ -3255,6 +3485,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "bestLength": 120,
   "roles": [
    "accent"
+  ],
+  "weight": "light"
+ },
+ "unbox-lid-lift": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 190,
+  "roles": [
+   "subject"
   ],
   "weight": "light"
  },
@@ -4188,6 +4430,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "bokeh-drift": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 180,
+  "roles": [
+   "backdrop",
+   "accent"
+  ],
+  "weight": "light"
+ },
  "hide-carve-patterns": {
   "overlay": false,
   "overlayProps": null,
@@ -4195,6 +4450,32 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "bestLength": 150,
   "roles": [
    "backdrop"
+  ],
+  "weight": "light"
+ },
+ "light-leak-wash": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 150,
+  "roles": [
+   "backdrop",
+   "accent"
+  ],
+  "weight": "light"
+ },
+ "pattern-scroll": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 150,
+  "roles": [
+   "backdrop",
+   "accent"
   ],
   "weight": "light"
  },

@@ -28,6 +28,12 @@ type Props = {
   labels: LabelCard[];
   flash: number;
   seed: number;
+  background: string;
+  flashColor: string;
+  cardColor: string;
+  cardInk: string;
+  teamAColor: string;
+  teamBColor: string;
 };
 
 const A_COL = '#f4f1e8';
@@ -48,7 +54,7 @@ const players = (seed: number): Pl[] => {
   return out;
 };
 
-const Pitch: React.FC<{tt: number; seed: number}> = ({tt, seed}) => {
+const Pitch: React.FC<{tt: number; seed: number; teamA: string; teamB: string}> = ({tt, seed, teamA, teamB}) => {
   const {w, h, u} = useStage();
   const hor = h * 0.22;
   const bands = 9;
@@ -73,7 +79,7 @@ const Pitch: React.FC<{tt: number; seed: number}> = ({tt, seed}) => {
       </g>
       {pl.map((p, i) => {
         const s = (0.12 + 0.2 * p.py / h) * h;
-        const col = p.team === 0 ? A_COL : B_COL;
+        const col = p.team === 0 ? teamA : teamB;
         const sw = Math.sin(tt * 0.5 + p.ph) * s * 0.07;
         return (
           <g key={i} transform={`translate(${fx(p.px)},${fx(p.py)})`}>
@@ -91,7 +97,7 @@ const Pitch: React.FC<{tt: number; seed: number}> = ({tt, seed}) => {
   );
 };
 
-const TelestratorFreeze: React.FC<Props> = ({src, videoSrc, freezeAt, holdFrames, focus, rings, arrows, areas, labels, flash, seed}) => {
+const TelestratorFreeze: React.FC<Props> = ({src, videoSrc, freezeAt, holdFrames, focus, rings, arrows, areas, labels, flash, seed, background, flashColor, cardColor, cardInk, teamAColor, teamBColor}) => {
   const frame = useCurrentFrame();
   const {w, h, u, portrait} = useStage();
   const uid = useUid('tele');
@@ -122,9 +128,9 @@ const TelestratorFreeze: React.FC<Props> = ({src, videoSrc, freezeAt, holdFrames
           <rect x={x} y={y} width={cwid * p} height={chh} />
         </clipPath>
         <g clipPath={`url(#${uid}lc${i})`}>
-          <rect x={x} y={y} width={cwid} height={chh} fill="rgba(8,12,14,0.9)" />
+          <rect x={x} y={y} width={cwid} height={chh} fill={cardColor} />
           <rect x={x} y={y} width={8 * u} height={chh} fill={c.color} />
-          <text x={x + 24 * u} y={y + ts * 0.95 + 8 * u} fontFamily={fArch} fontWeight={800} fontSize={ts} fill="#fff">
+          <text x={x + 24 * u} y={y + ts * 0.95 + 8 * u} fontFamily={fArch} fontWeight={800} fontSize={ts} fill={cardInk}>
             {c.title}
           </text>
           <text x={x + 24 * u} y={y + ts + ss + 14 * u} fontFamily={fBar} fontWeight={600} fontSize={ss} letterSpacing={2 * u} fill={c.color}>
@@ -210,11 +216,11 @@ const TelestratorFreeze: React.FC<Props> = ({src, videoSrc, freezeAt, holdFrames
     <Img src={resolveSrc(src)} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
   ) : (
     <Svg>
-      <Pitch tt={tt} seed={seed} />
+      <Pitch tt={tt} seed={seed} teamA={teamAColor} teamB={teamBColor} />
     </Svg>
   );
   return (
-    <AbsoluteFill style={{background: '#0b0d0f'}}>
+    <AbsoluteFill style={{background}}>
       <AbsoluteFill style={{transform: `scale(${fx(sc)})`, transformOrigin: `${fx(F.cx)}px ${fx(F.cy)}px`}}>
         <AbsoluteFill style={{filter: `saturate(${fx(1 - 0.42 * freezeK)}) contrast(${fx(1.04)}) brightness(${fx(0.97 - 0.03 * freezeK)})`}}>{picture}</AbsoluteFill>
         <Svg>
@@ -252,7 +258,7 @@ const TelestratorFreeze: React.FC<Props> = ({src, videoSrc, freezeAt, holdFrames
           )}
         </Svg>
       </AbsoluteFill>
-      <AbsoluteFill style={{background: '#fff', opacity: flashA, pointerEvents: 'none'}} />
+      <AbsoluteFill style={{background: flashColor, opacity: flashA, pointerEvents: 'none'}} />
     </AbsoluteFill>
   );
 };
@@ -278,6 +284,12 @@ export const telestratorFreeze = defineMotion<Props>({
     labels: [{x: 0.06, y: 0.09, title: 'OVERLAP RUN', sub: 'SPACE BEHIND THE LINE', color: '#FFD400', at: 36}],
     flash: 0.6,
     seed: 5,
+    background: '#0b0d0f',
+    flashColor: '#ffffff',
+    cardColor: 'rgba(8,12,14,0.9)',
+    cardInk: '#ffffff',
+    teamAColor: A_COL,
+    teamBColor: B_COL,
   },
   propDocs: {
     src: 'optional still image (public path) to freeze on; empty = demo pitch',
@@ -291,6 +303,12 @@ export const telestratorFreeze = defineMotion<Props>({
     labels: 'label cards: x, y (0..1 top-left), title, sub, color, at',
     flash: 'white flash strength 0..1',
     seed: 'demo pitch seed',
+    background: 'colour behind the picture (normally covered)',
+    flashColor: 'freeze flash colour',
+    cardColor: 'label card background (any CSS colour)',
+    cardInk: 'label card title colour',
+    teamAColor: 'demo pitch: team A shirt colour',
+    teamBColor: 'demo pitch: team B shirt colour',
   },
   component: TelestratorFreeze,
   tags: ['telestrator', 'sports', 'analysis', 'freeze frame', 'annotation', 'ring', 'marker arrow', 'spotlight', 'screen recording', 'ux teardown', 'coaching', 'highlight', 'video overlay', 'football'],

@@ -18,6 +18,8 @@ type Props = {
   rotate: number;
   points: number;
   showLabels: boolean;
+  ink: string;
+  shadow: string;
 };
 
 // ---- default icon set (200 x 200 box, centred) ----------------------------------------------------------------
@@ -112,7 +114,7 @@ const capsulePoly = (n: number): P2[] => {
 
 type Proc = {body: P2[]; slots: (P2[] | null)[]; c: P2};
 
-const ShapeMorphChain: React.FC<Props> = ({shapes, via, holdFrames, morphFrames, startAt, squash, rotate, points, showLabels}) => {
+const ShapeMorphChain: React.FC<Props> = ({shapes, via, holdFrames, morphFrames, startAt, squash, rotate, points, showLabels, ink, shadow}) => {
   const frame = useCurrentFrame();
   const {w, h, u, cx, cy, portrait} = useStage();
   const key = JSON.stringify([shapes, via, points]);
@@ -213,7 +215,7 @@ const ShapeMorphChain: React.FC<Props> = ({shapes, via, holdFrames, morphFrames,
   return (
     <AbsoluteFill style={{background: bg}}>
       <Svg>
-        <ellipse cx={cx} cy={cy + 118 * size} rx={64 * size * shadowK} ry={9 * size * shadowK} fill="#000" opacity={0.1 * shadowK} />
+        <ellipse cx={cx} cy={cy + 118 * size} rx={64 * size * shadowK} ry={9 * size * shadowK} fill={shadow} opacity={0.1 * shadowK} />
         <g transform={`translate(${cx} ${cy + lift * size * 0.5}) scale(${size * intro * (1 + idle - arrive)})`}>
           <g transform={`rotate(${rot})`}>
             <g transform={`rotate(${stretchAng}) scale(${1 + sq} ${1 - sq * 0.7}) rotate(${-stretchAng})`}>
@@ -232,7 +234,7 @@ const ShapeMorphChain: React.FC<Props> = ({shapes, via, holdFrames, morphFrames,
               fontWeight={700}
               fontSize={64 * u}
               letterSpacing={14 * u}
-              fill={mixHex(fill, '#1b1b2f', 0.55)}
+              fill={mixHex(fill, ink, 0.55)}
               opacity={labelIn}
             >
               {labelName.toUpperCase()}
@@ -240,7 +242,7 @@ const ShapeMorphChain: React.FC<Props> = ({shapes, via, holdFrames, morphFrames,
             {/* progress dots */}
             {shapes.map((_, i) => {
               const active = i === (morphing && q > 0.5 ? idx + 1 : idx);
-              return <circle key={i} cx={cx + (i - (n - 1) / 2) * 34 * u} cy={h - 90 * u} r={(active ? 9 : 6) * u} fill={mixHex(fill, '#1b1b2f', 0.5)} opacity={active ? 1 : 0.35} />;
+              return <circle key={i} cx={cx + (i - (n - 1) / 2) * 34 * u} cy={h - 90 * u} r={(active ? 9 : 6) * u} fill={mixHex(fill, ink, 0.5)} opacity={active ? 1 : 0.35} />;
             })}
           </>
         )}
@@ -268,6 +270,8 @@ export const shapeMorphChain = defineMotion<Props>({
     rotate: 22,
     points: 160,
     showLabels: true,
+    ink: '#1b1b2f',
+    shadow: '#000000',
   },
   propDocs: {
     shapes: 'shapes[{name, fill, partFill, bg, body: svg path d, hole?: path d, parts?: path d[] (max 8)}] in a ±100 box',
@@ -279,6 +283,8 @@ export const shapeMorphChain = defineMotion<Props>({
     rotate: 'degrees of twist at mid-morph (18-26)',
     points: 'outline resolution of the body (more = smoother)',
     showLabels: 'show the icon name and progress dots',
+    ink: 'label and progress-dot colour (blended 50 % with the icon colour)',
+    shadow: 'ground shadow colour',
   },
   component: ShapeMorphChain,
   tags: ['morph', 'shape morph', 'icons', 'flat vector', 'transform', 'storytelling', 'path interpolation', 'logo reveal', 'explainer', 'sequence'],

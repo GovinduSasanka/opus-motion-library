@@ -20,6 +20,16 @@ type Props = {
   moon: boolean;
   hills: string[];
   seed: string;
+  wallColor?: string;
+  wallShade?: string;
+  roofColor?: string;
+  roofColor2?: string;
+  doorColor?: string;
+  windowColor?: string;
+  chimneyColor?: string;
+  lightColor?: string;
+  lightGlow?: string;
+  nightColor?: string;
   /** internal: hold the time-of-day at this 0..1 value (used by the season modes) */
   fixedT?: number;
   season?: 'off' | 'cycle' | 'spring' | 'summer' | 'autumn' | 'winter';
@@ -27,7 +37,7 @@ type Props = {
   seasonFade?: number;
 };
 
-const TimeOfDayGrade: React.FC<Props> = ({stops, holdStart, holdEnd, lights, lightsAt, nightGrade, sun, moon, hills, seed, fixedT}) => {
+const TimeOfDayGrade: React.FC<Props> = ({stops, holdStart, holdEnd, lights, lightsAt, nightGrade, sun, moon, hills, seed, fixedT, wallColor = '#e8dcc8', wallShade = '#d4c6ae', roofColor = '#b5533c', roofColor2 = '#8b5a4a', doorColor = '#7a5a44', windowColor = '#5a6470', chimneyColor = '#6d4a3a', lightColor = '#ffd27a', lightGlow = '#ffb84a', nightColor = '#0C1A2E'}) => {
   const frame = useCurrentFrame();
   const {w, h, u, durationInFrames: D, portrait} = useStage();
   const id = `time-of-day-grade-${seed}`;
@@ -59,9 +69,9 @@ const TimeOfDayGrade: React.FC<Props> = ({stops, holdStart, holdEnd, lights, lig
     const n = portrait ? 5 : 7;
     return Array.from({length: n}, (_, i) => {
       const x = w * (0.18 + (i / (n - 1)) * 0.64) + range(r, -20, 20) * u;
-      return {x, bw: range(r, 60, 95) * u * (portrait ? 1.5 : 1.35), bh: range(r, 50, 80) * u * (portrait ? 1.5 : 1.35), roof: r() < 0.5 ? '#b5533c' : '#8b5a4a', win: 1 + Math.floor(r() * 2), delay: r(), chimney: r() < 0.5};
+      return {x, bw: range(r, 60, 95) * u * (portrait ? 1.5 : 1.35), bh: range(r, 50, 80) * u * (portrait ? 1.5 : 1.35), roof: r() < 0.5 ? roofColor : roofColor2, win: 1 + Math.floor(r() * 2), delay: r(), chimney: r() < 0.5};
     });
-  }, [seed, w, u, portrait]);
+  }, [seed, w, u, portrait, roofColor, roofColor2]);
   const trees = useMemo(() => {
     const r = rng(`${seed}-trees`);
     return Array.from({length: 9}, () => ({x: r() * w, s: range(r, 0.7, 1.3)}));
@@ -118,21 +128,21 @@ const TimeOfDayGrade: React.FC<Props> = ({stops, holdStart, holdEnd, lights, lig
           const by = houseY(v.x);
           return (
             <g key={i}>
-              {v.chimney && <rect x={v.x + v.bw * 0.2} y={by - v.bh - v.bw * 0.45} width={10 * u} height={v.bw * 0.3} fill="#6d4a3a" />}
-              <rect x={v.x - v.bw / 2} y={by - v.bh} width={v.bw} height={v.bh + 20 * u} fill="#e8dcc8" />
-              <rect x={v.x + v.bw * 0.12} y={by - v.bh} width={v.bw * 0.38} height={v.bh + 20 * u} fill="#d4c6ae" />
+              {v.chimney && <rect x={v.x + v.bw * 0.2} y={by - v.bh - v.bw * 0.45} width={10 * u} height={v.bw * 0.3} fill={chimneyColor} />}
+              <rect x={v.x - v.bw / 2} y={by - v.bh} width={v.bw} height={v.bh + 20 * u} fill={wallColor} />
+              <rect x={v.x + v.bw * 0.12} y={by - v.bh} width={v.bw * 0.38} height={v.bh + 20 * u} fill={wallShade} />
               <polygon points={`${v.x - v.bw * 0.6},${by - v.bh} ${v.x},${by - v.bh - v.bw * 0.45} ${v.x + v.bw * 0.6},${by - v.bh}`} fill={v.roof} />
               {Array.from({length: v.win}, (_, k) => (
-                <rect key={k} x={v.x - v.bw * 0.32 + k * v.bw * 0.36} y={by - v.bh * 0.68} width={v.bw * 0.2} height={v.bh * 0.3} fill="#5a6470" />
+                <rect key={k} x={v.x - v.bw * 0.32 + k * v.bw * 0.36} y={by - v.bh * 0.68} width={v.bw * 0.2} height={v.bh * 0.3} fill={windowColor} />
               ))}
-              <rect x={v.x + v.bw * 0.1} y={by - v.bh * 0.42} width={v.bw * 0.18} height={v.bh * 0.42 + 20 * u} fill="#7a5a44" />
+              <rect x={v.x + v.bw * 0.1} y={by - v.bh * 0.42} width={v.bw * 0.18} height={v.bh * 0.42 + 20 * u} fill={doorColor} />
             </g>
           );
         })}
       </Svg>
       {/* colour grade: keyframed multiply wash + night multiply (video13 time-of-day-grade, video16 grade-to-night, video20 scene-grade-shift) */}
       <AbsoluteFill style={{background: grade, mixBlendMode: 'multiply', pointerEvents: 'none'}} />
-      <AbsoluteFill style={{background: '#0C1A2E', mixBlendMode: 'multiply', opacity: nightGrade * dark * 0.8, pointerEvents: 'none'}} />
+      <AbsoluteFill style={{background: nightColor, mixBlendMode: 'multiply', opacity: nightGrade * dark * 0.8, pointerEvents: 'none'}} />
       <AbsoluteFill style={{background: '#2A4060', mixBlendMode: 'screen', opacity: 0.1 * dark, pointerEvents: 'none'}} />
       {/* emissive layer: stars, moon, lit windows (not affected by the grade) */}
       <Svg>
@@ -154,8 +164,8 @@ const TimeOfDayGrade: React.FC<Props> = ({stops, holdStart, holdEnd, lights, lig
                 const y = by - v.bh * 0.68;
                 return (
                   <g key={k}>
-                    <rect x={x - 6 * u} y={y - 6 * u} width={v.bw * 0.2 + 12 * u} height={v.bh * 0.3 + 12 * u} fill="#ffb84a" filter={`url(#${id}-glow)`} opacity={0.8} />
-                    <rect x={x} y={y} width={v.bw * 0.2} height={v.bh * 0.3} fill="#ffd27a" />
+                    <rect x={x - 6 * u} y={y - 6 * u} width={v.bw * 0.2 + 12 * u} height={v.bh * 0.3 + 12 * u} fill={lightGlow} filter={`url(#${id}-glow)`} opacity={0.8} />
+                    <rect x={x} y={y} width={v.bw * 0.2} height={v.bh * 0.3} fill={lightColor} />
                   </g>
                 );
               })}
@@ -219,6 +229,16 @@ export const timeOfDayGrade = defineMotion<Props>({
     moon: true,
     hills: ['#9db4c4', '#7fa37a', '#5f8f4f'],
     seed: 'village',
+    wallColor: '#e8dcc8',
+    wallShade: '#d4c6ae',
+    roofColor: '#b5533c',
+    roofColor2: '#8b5a4a',
+    doorColor: '#7a5a44',
+    windowColor: '#5a6470',
+    chimneyColor: '#6d4a3a',
+    lightColor: '#ffd27a',
+    lightGlow: '#ffb84a',
+    nightColor: '#0C1A2E',
     season: 'off',
     seasonFrames: 0,
     seasonFade: 18,
@@ -234,6 +254,16 @@ export const timeOfDayGrade = defineMotion<Props>({
     moon: 'moon rising at night',
     hills: 'hill colours far, mid, near (before grading)',
     seed: 'random seed',
+    wallColor: 'house wall colour',
+    wallShade: 'house side-wall (shaded) colour',
+    roofColor: 'roof colour A (houses alternate randomly with B)',
+    roofColor2: 'roof colour B',
+    doorColor: 'door colour',
+    windowColor: 'window glass colour by day',
+    chimneyColor: 'chimney colour',
+    lightColor: 'lit window colour at night',
+    lightGlow: 'lit window glow colour',
+    nightColor: 'night multiply layer colour',
     season: "off (day to night) | cycle (spring -> summer -> autumn -> winter with petals, leaves, snow) | spring | summer | autumn | winter (one fixed season)",
     seasonFrames: 'cycle: frames per season (0 = split the duration in four; 2-4 s each is typical)',
     seasonFade: 'cycle: crossfade frames between seasons (≈30 in the source)',

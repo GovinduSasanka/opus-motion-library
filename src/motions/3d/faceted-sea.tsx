@@ -46,6 +46,19 @@ type Props = {
   boat: boolean;
   speed: number;
   seed: number;
+  skyColor: string;
+  horizonColor: string;
+  waterColor: string;
+  shallowColor: string;
+  grassColor: string;
+  sandColor: string;
+  sandSideColor: string;
+  grassSideColor: string;
+  treeColor: string;
+  tree2Color: string;
+  treeTipColor: string;
+  boatColor: string;
+  sailColor: string;
 };
 
 const FacetedSea: React.FC<Props> = (p) => {
@@ -53,7 +66,15 @@ const FacetedSea: React.FC<Props> = (p) => {
   const {w, h, u, durationInFrames} = useStage();
   const k = cl(frame / Math.max(1, durationInFrames - 1));
   const t = (frame / 30) * p.speed;
-  const tod = todMix(p.timeStart, p.timeEnd, k * k * (3 - 2 * k));
+  const tod0 = todMix(p.timeStart, p.timeEnd, k * k * (3 - 2 * k));
+  // optional brand overrides of the time-of-day palette ('' = keep the time-of-day colour)
+  const tod = {
+    ...tod0,
+    zenith: p.skyColor || tod0.zenith,
+    horizon: p.horizonColor || tod0.horizon,
+    deep: p.waterColor || tod0.deep,
+    shallow: p.shallowColor || tod0.shallow,
+  };
   const az = lerp(p.azimuthStart, p.azimuthEnd, k);
   const el = p.elevation;
   const fh = lpFrustum(p.zoom * (h > w ? 0.45 : 1), w / h);
@@ -89,13 +110,13 @@ const FacetedSea: React.FC<Props> = (p) => {
           cells.map((c, i) => {
             const topH = c.d === 0 ? 0.62 : 0.34;
             const top = lerp(-1.4, topH, rise[i].k) + rise[i].over;
-            const topColor = c.d === 0 ? '#93C96C' : '#F3DFAB';
-            const side = c.d === 0 ? '#C99C6E' : '#E2C68E';
+            const topColor = c.d === 0 ? p.grassColor : p.sandColor;
+            const side = c.d === 0 ? p.grassSideColor : p.sandSideColor;
             return rise[i].k > 0 ? <HexTile key={i} x={c.xz[0]} z={c.xz[1]} top={top} topColor={topColor} sideColor={side} /> : null;
           })}
-        {p.islet && <Pine x={0} y={0.62} z={0} s={1.25} pop={popCurve(t - 1.7)} />}
-        {p.islet && <Pine x={hexXZ(1, 0)[0] * 0.55} y={0.34} z={hexXZ(1, 0)[1] * 0.55 + 0.2} s={0.8} pop={popCurve(t - 2.0)} c1="#4F9C63" c2="#7FC36A" />}
-        {p.boat && boatK > 0.01 && <Boat x={bx} z={bz} t={t} amp={amp} heading={heading} s={boatK * 1.5} />}
+        {p.islet && <Pine x={0} y={0.62} z={0} s={1.25} pop={popCurve(t - 1.7)} c1={p.treeColor} c2={p.tree2Color} />}
+        {p.islet && <Pine x={hexXZ(1, 0)[0] * 0.55} y={0.34} z={hexXZ(1, 0)[1] * 0.55 + 0.2} s={0.8} pop={popCurve(t - 2.0)} c1={p.tree2Color} c2={p.treeTipColor} />}
+        {p.boat && boatK > 0.01 && <Boat x={bx} z={bz} t={t} amp={amp} heading={heading} s={boatK * 1.5} hull={p.boatColor} sail={p.sailColor} />}
       </LpStage>
     </AbsoluteFill>
   );
@@ -110,7 +131,7 @@ export const facetedSea = defineMotion<Props>({
   source: ['lemo-opuscar styles/lowpoly-island demo/sea.js + post.js (MIT, LemoLab) — wave function, shallow rim, depth haze, time-of-day keys'],
   useFor: 'Calm 3D backdrop for island / travel / logistics / calm-brand heroes and diorama scenes; a looping website hero; put title words in HTML over it.',
   durationInFrames: 240,
-  defaultProps: {timeStart: 'day', timeEnd: 'dusk', azimuthStart: 38, azimuthEnd: 58, elevation: 32, zoom: 13, amplitude: 1, sparkle: 1, glint: 0.5, foam: 1, islet: true, boat: true, speed: 1, seed: 3},
+  defaultProps: {timeStart: 'day', timeEnd: 'dusk', azimuthStart: 38, azimuthEnd: 58, elevation: 32, zoom: 13, amplitude: 1, sparkle: 1, glint: 0.5, foam: 1, islet: true, boat: true, speed: 1, seed: 3, skyColor: '', horizonColor: '', waterColor: '', shallowColor: '', grassColor: '#93C96C', sandColor: '#F3DFAB', sandSideColor: '#E2C68E', grassSideColor: '#C99C6E', treeColor: '#3F8A5A', tree2Color: '#4F9C63', treeTipColor: '#7FC36A', boatColor: '#D9644A', sailColor: '#FBF3E6'},
   propDocs: {
     timeStart: 'time of day at the start: dawn | day | dusk | night',
     timeEnd: 'time of day at the end (the light eases from start to end)',
@@ -126,6 +147,19 @@ export const facetedSea = defineMotion<Props>({
     boat: 'a small boat circling the islet',
     speed: 'wave speed multiplier',
     seed: 'facet jitter / star seed',
+    skyColor: "sky zenith colour, '' = from the time of day (overrides the whole clip)",
+    horizonColor: "sky / haze colour at the horizon, '' = from the time of day",
+    waterColor: "deep water colour, '' = from the time of day",
+    shallowColor: "shallow rim water colour, '' = from the time of day",
+    grassColor: 'islet centre tile top colour',
+    sandColor: 'islet ring tile top colour',
+    sandSideColor: 'islet ring tile side colour',
+    grassSideColor: 'islet centre tile side colour',
+    treeColor: 'big pine lower foliage colour',
+    tree2Color: 'big pine upper cone / small pine lower foliage colour',
+    treeTipColor: 'small pine upper cone colour',
+    boatColor: 'boat hull colour',
+    sailColor: 'boat sail colour',
   },
   component: FacetedSea,
   tags: ['low-poly', 'lowpoly', 'sea', 'ocean', 'water', 'waves', 'faceted', 'flat-shaded', 'isometric', 'orthographic', 'island', 'backdrop', 'pastel', 'three.js', '3d', 'diorama', 'time of day', 'travel', 'calm', 'loop', 'background', 'lowpoly-island'],

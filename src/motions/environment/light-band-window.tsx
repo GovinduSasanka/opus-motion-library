@@ -25,6 +25,12 @@ type Props = {
   wall: string;
   lead: string;
   seed: number;
+  background: string;
+  floor: string;
+  recess: string;
+  titleColor: string;
+  captionColor: string;
+  dustColor: string;
 };
 
 const DEFAULT_PANES: Pane[] = [
@@ -44,7 +50,7 @@ const sunAt = (frame: number, sched: Key[]) => {
   return {u: lerp(a.sunU, b.sunU, e), color: mixHex(a.color, b.color, e), k: lerp(a.intensity, b.intensity, e)};
 };
 
-const LightBandWindow: React.FC<Props> = ({panes, schedule, bandWidth, soft, rose, shafts, dust, freezeUnlit, title, wall, lead, seed}) => {
+const LightBandWindow: React.FC<Props> = ({panes, schedule, bandWidth, soft, rose, shafts, dust, freezeUnlit, title, wall, lead, seed, background, floor, recess, titleColor, captionColor, dustColor}) => {
   const frame = useCurrentFrame();
   const {w, h, u, cx, portrait} = useStage();
   const uid = useUid('lbw');
@@ -133,7 +139,7 @@ const LightBandWindow: React.FC<Props> = ({panes, schedule, bandWidth, soft, ros
         </g>
         <path d={lancetPath(x, ly0, lw, lh, rise)} fill="none" stroke={lead} strokeWidth={7 * u} />
         <path d={lancetPath(x + 9 * u, ly0 + 9 * u, lw - 18 * u, lh - 9 * u, rise)} fill="none" stroke={mixHex('#d9d2c0', sun.color, L * 0.6)} strokeOpacity={0.55} strokeWidth={4 * u} strokeDasharray="0.1 12" strokeLinecap="round" />
-        <text x={c} y={wy1 + h * 0.03 + 6 * u} textAnchor="middle" fontFamily={fOut} fontWeight={600} fontSize={Math.max(13, lw * 0.085)} letterSpacing={lw * 0.02} fill={mixHex('#4a4752', sun.color, L * 0.8)}>
+        <text x={c} y={wy1 + h * 0.03 + 6 * u} textAnchor="middle" fontFamily={fOut} fontWeight={600} fontSize={Math.max(13, lw * 0.085)} letterSpacing={lw * 0.02} fill={mixHex(captionColor, sun.color, L * 0.8)}>
           {p.caption}
         </text>
       </g>
@@ -177,7 +183,7 @@ const LightBandWindow: React.FC<Props> = ({panes, schedule, bandWidth, soft, ros
       const tt = (h1(k, seed + i) + frame * (0.0025 + 0.002 * h1(k + 7, seed))) % 1;
       const xx = lerp(x0, x1, h1(k + 3, seed + i)) + dx * tt + Math.sin(frame * 0.04 + k) * 6 * u;
       const yy = lerp(wy1, h, tt);
-      return <circle key={k} cx={xx} cy={yy} r={(1.2 + 1.8 * h1(k + 5, seed)) * u} fill="#fff" opacity={L * 0.55 * Math.sin(Math.PI * tt)} />;
+      return <circle key={k} cx={xx} cy={yy} r={(1.2 + 1.8 * h1(k + 5, seed)) * u} fill={dustColor} opacity={L * 0.55 * Math.sin(Math.PI * tt)} />;
     });
     return (
       <g key={i}>
@@ -189,7 +195,7 @@ const LightBandWindow: React.FC<Props> = ({panes, schedule, bandWidth, soft, ros
   });
   const titleIn = seg(frame, 6, 26);
   return (
-    <AbsoluteFill style={{background: '#08070b'}}>
+    <AbsoluteFill style={{background}}>
       <Svg>
         <defs>
           <radialGradient id={`${uid}glow`}>
@@ -210,13 +216,13 @@ const LightBandWindow: React.FC<Props> = ({panes, schedule, bandWidth, soft, ros
         <g transform={`translate(${fx(0)},${fx(0)})`}>
           <AshlarWall w={w} h={floorY} course={Math.max(46, h * 0.06)} base={wall} seed={seed} lit={sun.k} />
           {/* sill + floor */}
-          <rect x={0} y={floorY} width={w} height={h - floorY} fill="#15131a" />
+          <rect x={0} y={floorY} width={w} height={h - floorY} fill={floor} />
           <rect x={0} y={floorY} width={w} height={4 * u} fill="#2d2a35" />
           {Array.from({length: 9}, (_, k) => (
             <line key={k} x1={0} y1={floorY + (h - floorY) * (k / 9) ** 1.5} x2={w} y2={floorY + (h - floorY) * (k / 9) ** 1.5} stroke="#0a090d" strokeWidth={2 * u} />
           ))}
           {/* window recess */}
-          <rect x={wx - 14 * u} y={wy0 - 14 * u} width={ww + 28 * u} height={wy1 - wy0 + 28 * u} fill="#07060a" stroke="#34313c" strokeWidth={5 * u} rx={6 * u} />
+          <rect x={wx - 14 * u} y={wy0 - 14 * u} width={ww + 28 * u} height={wy1 - wy0 + 28 * u} fill={recess} stroke="#34313c" strokeWidth={5 * u} rx={6 * u} />
           {roseEl}
           {paneEls}
           {beam}
@@ -225,7 +231,7 @@ const LightBandWindow: React.FC<Props> = ({panes, schedule, bandWidth, soft, ros
               <text x={cx} y={h * (portrait ? 0.068 : 0.055) + 2 * u} textAnchor="middle" fontFamily={fSerif} fontWeight={600} fontSize={Math.max(18, h * 0.034)} letterSpacing={h * 0.012} fill="#000" opacity={0.7}>
                 {title}
               </text>
-              <text x={cx} y={h * (portrait ? 0.068 : 0.055)} textAnchor="middle" fontFamily={fSerif} fontWeight={600} fontSize={Math.max(18, h * 0.034)} letterSpacing={h * 0.012} fill={mixHex('#55525e', sun.color, 0.35)}>
+              <text x={cx} y={h * (portrait ? 0.068 : 0.055)} textAnchor="middle" fontFamily={fSerif} fontWeight={600} fontSize={Math.max(18, h * 0.034)} letterSpacing={h * 0.012} fill={mixHex(titleColor, sun.color, 0.35)}>
                 {title}
               </text>
             </g>
@@ -266,6 +272,12 @@ export const lightBandWindow = defineMotion<Props>({
     wall: '#3a3942',
     lead: '#14131a',
     seed: 4,
+    background: '#08070b',
+    floor: '#15131a',
+    recess: '#07060a',
+    titleColor: '#55525e',
+    captionColor: '#4a4752',
+    dustColor: '#ffffff',
   },
   propDocs: {
     panes: 'one object per lancet: caption, sky, sky2, sun, hill, accent colours (2-5 lancets)',
@@ -280,6 +292,12 @@ export const lightBandWindow = defineMotion<Props>({
     wall: 'stone colour',
     lead: 'lead came colour',
     seed: 'wall and dust seed',
+    background: 'page colour behind the wall (normally covered)',
+    floor: 'floor colour under the window',
+    recess: 'dark window recess colour (behind the glass)',
+    titleColor: 'carved title colour (tinted by the sun colour)',
+    captionColor: 'pane caption colour when unlit (tinted by the sun colour)',
+    dustColor: 'dust mote colour in the shafts',
   },
   component: LightBandWindow,
   tags: ['stained glass', 'window', 'sunlight', 'light shaft', 'time of day', 'gothic', 'lancet', 'rose window', 'chapters', 'seasons', 'heritage', 'dawn', 'dusk', 'god rays'],

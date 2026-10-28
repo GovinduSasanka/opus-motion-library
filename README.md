@@ -2,7 +2,7 @@
 
 # Opus Motion Library
 
-**429 motion graphics you can drop into videos, websites and apps — by name, with your own words, colours and images.**
+**453 motion graphics you can drop into videos, websites and apps — by name, with your own words, colours and images.**
 
 Titles · transitions · weather · characters · data · HUDs · image looks · real 3D — for Remotion, React, plain HTML and native apps.<br/>
 Built so an AI agent can pick, mix and ship them for you.
@@ -30,7 +30,7 @@ Good motion design is slow to make and hard to reuse. Every motion here is a **p
 props**: give it your text, palette and pictures and it renders the same way every time, at **16:9, 1:1 or 9:16**, in a
 **video**, on a **web page**, or as an **exported clip** for an app.
 
-- **429 motions, 97 transitions, 148 styles, 33 recipes**: from a sonar ping, an origami crane and a deep-sea dive to iso bar charts,
+- **453 motions, 97 transitions, 148 styles, 33 recipes**: from a sonar ping, an origami crane and a deep-sea dive to iso bar charts,
   chat bubbles, glitch looks and a terrain that builds itself in real 3D.
 - **Mix anything**: stack a backdrop, a subject, type and an accent in one shot (`layers`), with blend modes.
 - **Use it anywhere**: Remotion video · `<MotionPlayer>` / `<MotionBackground>` in React or Next.js ·
@@ -51,7 +51,7 @@ git clone https://github.com/GovinduSasanka/opus-motion-library.git
 cd opus-motion-library && npm install
 node cli/gen-registry.mjs
 
-node cli/mgl.mjs list                                          # all 429 motions
+node cli/mgl.mjs list                                          # all 453 motions
 node cli/mgl.mjs suggest "dark hero for a launch with stats"   # what should I use?
 node cli/mgl.mjs render stamp-slam --props '{"lines":["HELLO","2026"],"keyword":"LAUNCH"}' --format portrait
 npm run studio                                                 # browse everything in Remotion Studio

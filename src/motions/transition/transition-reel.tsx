@@ -18,6 +18,15 @@ type Props = {
   /** 0 = each type's recommended length */
   transitionFrames: number;
   title: string;
+  /** opening-panel note; `{n}` = the number of transitions */
+  subtitle?: string;
+  /** word before the variant name on a panel */
+  variantLabel?: string;
+  /** [background, ink, accent] per panel, cycled; [] = the default palette */
+  panels?: string[][];
+  /** per-entry note text overrides, e.g. {"wipe": "my note"} (key = "type" or "type:variant") */
+  notes?: Record<string, string>;
+  background?: string;
 };
 
 const SOURCES: Record<string, string> = {
@@ -148,12 +157,12 @@ const resolveTypes = (types: string[], include: Props['include']): string[] =>
 export const reelDuration = (types: string[], hold: number, tf: number) =>
   (types.length + 1) * hold + types.map(parse).reduce((a, s) => a + framesOf(s, tf), 0);
 
-const Panel: React.FC<{index: number; total: number; name: string; variant?: string; note: string}> = ({index, total, name, variant, note}) => {
+const Panel: React.FC<{index: number; total: number; name: string; variant?: string; note: string; variantLabel: string; panels: string[][]}> = ({index, total, name, variant, note, variantLabel, panels}) => {
   const frame = useCurrentFrame();
   const {width: w, height: h} = useVideoConfig();
   const u = Math.min(w, h) / 1080;
   const portrait = h > w;
-  const [bg, ink, accent] = PANELS[index % PANELS.length];
+  const [bg, ink, accent] = panels[index % panels.length];
   const enter = prog(frame, 4, 22, ease.out);
   const label = name.toUpperCase();
   const size = Math.min(190 * u, (w * 0.86) / Math.max(4, label.length * 0.78));
@@ -199,14 +208,15 @@ const Panel: React.FC<{index: number; total: number; name: string; variant?: str
           {String(index).padStart(2, '0')} / {String(total).padStart(2, '0')}
         </div>
         <div style={{fontFamily: fonts.display, fontSize: size, lineHeight: 1.0, marginTop: 14 * u, whiteSpace: 'nowrap'}}>{label}</div>
-        {variant && <div style={{fontFamily: fonts.grotesk, fontWeight: 700, fontSize: 52 * u, marginTop: 8 * u, color: accent}}>variant · {variant}</div>}
+        {variant && <div style={{fontFamily: fonts.grotesk, fontWeight: 700, fontSize: 52 * u, marginTop: 8 * u, color: accent}}>{variantLabel} {variant}</div>}
         <div style={{fontFamily: fonts.mono, fontSize: 26 * u, marginTop: 22 * u, opacity: 0.8}}>{note}</div>
       </div>
     </AbsoluteFill>
   );
 };
 
-const TransitionReel: React.FC<Props> = ({types: typesIn, include = 'default', holdFrames, transitionFrames: tf, title}) => {
+const TransitionReel: React.FC<Props> = ({types: typesIn, include = 'default', holdFrames, transitionFrames: tf, title, subtitle = '{n} scene transitions · src/transitions.tsx', variantLabel = 'variant ·', panels: panelsIn, notes = {}, background = '#000'}) => {
+  const panels = panelsIn && panelsIn.length ? panelsIn : PANELS;
   const {width, height} = useVideoConfig();
   const types = resolveTypes(typesIn, include);
   const specs = types.map(parse);
@@ -219,9 +229,9 @@ const TransitionReel: React.FC<Props> = ({types: typesIn, include = 'default', h
     items.push(
       <TransitionSeries.Sequence key={`s${i}`} durationInFrames={Math.max(1, d)}>
         {i === 0 ? (
-          <Panel index={0} total={n} name={title} note={`${n} scene transitions · src/transitions.tsx`} />
+          <Panel index={0} total={n} name={title} note={subtitle.replace('{n}', String(n))} variantLabel={variantLabel} panels={panels} />
         ) : (
-          <Panel index={i} total={n} name={specs[i - 1].type} variant={specs[i - 1].variant} note={SOURCES[key] ?? SOURCES[specs[i - 1].type] ?? `${key} · ${framesOf(specs[i - 1], tf)} frames`} />
+          <Panel index={i} total={n} name={specs[i - 1].type} variant={specs[i - 1].variant} variantLabel={variantLabel} panels={panels} note={notes[key] ?? notes[specs[i - 1].type] ?? SOURCES[key] ?? SOURCES[specs[i - 1].type] ?? `${key} · ${framesOf(specs[i - 1], tf)} frames`} />
         )}
       </TransitionSeries.Sequence>,
     );
@@ -230,7 +240,7 @@ const TransitionReel: React.FC<Props> = ({types: typesIn, include = 'default', h
     }
   }
   return (
-    <AbsoluteFill style={{background: '#000'}}>
+    <AbsoluteFill style={{background}}>
       <TransitionSeries>{items}</TransitionSeries>
     </AbsoluteFill>
   );
@@ -257,13 +267,18 @@ export const transitionReel = defineMotion<Props>({
   source: ['video1', 'video4', 'video6', 'video8', 'video9', 'video10', 'video11', 'video14', 'video16', 'video17', 'video18', 'video19', 'video20', 'video21'],
   useFor: 'Previewing and choosing transitions; each panel names the transition (and variant) that revealed it.',
   durationInFrames: reelDuration(DEFAULT_TYPES, DEFAULT_HOLD, 0),
-  defaultProps: {types: DEFAULT_TYPES, include: 'default', holdFrames: DEFAULT_HOLD, transitionFrames: 0, title: 'Transitions'},
+  defaultProps: {types: DEFAULT_TYPES, include: 'default', holdFrames: DEFAULT_HOLD, transitionFrames: 0, title: 'Transitions', subtitle: '{n} scene transitions · src/transitions.tsx', variantLabel: 'variant ·', panels: PANELS, notes: {}, background: '#000000'},
   propDocs: {
     types: 'transition entries to show in order, "type" or "type:variant" (e.g. "page-turn:roll")',
     include: '"default" = just `types`; "all" = `types` plus every other transition and variant in transitions.json (each labelled); "extra" = only the ones `types` lacks. The default render length covers only the default list: for "all"/"extra" pass a longer duration (render --frames N, N = reelDuration)',
     holdFrames: 'frames each panel holds between transitions',
     transitionFrames: 'length of every transition in frames; 0 = each type\'s recommended length',
     title: 'label on the opening panel',
+    subtitle: 'note under the opening label; {n} = number of transitions',
+    variantLabel: 'word before the variant name on a panel',
+    panels: '[[background, ink, accent], ...] colours of the labelled panels, cycled',
+    notes: 'overrides for the small note on each panel, keyed "type" or "type:variant"',
+    background: 'colour behind the series (normally covered)',
   },
   component: TransitionReel,
   tags: ['transition', 'demo', 'reel', 'wipe'],

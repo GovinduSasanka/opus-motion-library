@@ -26,9 +26,15 @@ type Props = {
   push: number;
   grass: string;
   seed: number;
+  background: string;
+  ringColor: string;
+  arrowColor: string;
+  titleColor: string;
+  bracketColor: string;
+  statusLabel: string;
 };
 
-const ArmyFormation: React.FC<Props> = ({factions, unitsPerArmy, spawnAt, march, volleys, select, selectLabel, title, subtitle, titleAt, push, grass, seed}) => {
+const ArmyFormation: React.FC<Props> = ({factions, unitsPerArmy, spawnAt, march, volleys, select, selectLabel, title, subtitle, titleAt, push, grass, seed, background, ringColor, arrowColor, titleColor, bracketColor, statusLabel}) => {
   const frame = useCurrentFrame();
   const {w, h, u, fps, portrait} = useStage();
   const t = frame / fps;
@@ -115,7 +121,7 @@ const ArmyFormation: React.FC<Props> = ({factions, unitsPerArmy, spawnAt, march,
         const ang = (Math.atan2(y2 - y, x2 - x) * 180) / Math.PI;
         arrows.push(
           <g key={`a${v}-${i}`} transform={`translate(${x} ${y}) rotate(${ang})`} opacity={0.9}>
-            <path d={`M${-7 * u} ${-4 * u} L0 0 L${-7 * u} ${4 * u} M${-12 * u} ${-4 * u} L${-5 * u} 0 L${-12 * u} ${4 * u}`} stroke="#fff" strokeWidth={1.6 * u} fill="none" />
+            <path d={`M${-7 * u} ${-4 * u} L0 0 L${-7 * u} ${4 * u} M${-12 * u} ${-4 * u} L${-5 * u} 0 L${-12 * u} ${4 * u}`} stroke={arrowColor} strokeWidth={1.6 * u} fill="none" />
           </g>,
         );
       }
@@ -129,7 +135,7 @@ const ArmyFormation: React.FC<Props> = ({factions, unitsPerArmy, spawnAt, march,
   const titleOut = title ? 1 - lin(frame, titleAt + 60, titleAt + 70) : 0;
   const tfs = (portrait ? 64 : 58) * u;
   return (
-    <AbsoluteFill style={{background: '#1C2928', overflow: 'hidden'}}>
+    <AbsoluteFill style={{background, overflow: 'hidden'}}>
       <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} style={{position: 'absolute', inset: 0}}>
         <g transform={`translate(${w / 2} ${h / 2}) scale(${push1}) translate(${-w / 2} ${-h / 2})`}>
           <PaintedField id={`af-${seed}`} w={w} h={h} u={u} seed={seed} frame={frame} grass={grass} />
@@ -140,10 +146,10 @@ const ArmyFormation: React.FC<Props> = ({factions, unitsPerArmy, spawnAt, march,
                 const R = k * 3.6 * (0.8 + 0.2 * ringK);
                 return (
                   <g opacity={ringK * 0.8}>
-                    <ellipse cx={rx} cy={ry} rx={R} ry={R * 0.5} fill="none" stroke="#BFE6F0" strokeWidth={1.5 * u} />
+                    <ellipse cx={rx} cy={ry} rx={R} ry={R * 0.5} fill="none" stroke={ringColor} strokeWidth={1.5 * u} />
                     {Array.from({length: 24}, (_, i) => {
                       const a = (i / 24) * Math.PI * 2 + t * 0.4;
-                      return <line key={i} x1={rx + Math.cos(a) * R} y1={ry + Math.sin(a) * R * 0.5} x2={rx + Math.cos(a) * R * 1.05} y2={ry + Math.sin(a) * R * 0.525} stroke="#BFE6F0" strokeWidth={1.2 * u} />;
+                      return <line key={i} x1={rx + Math.cos(a) * R} y1={ry + Math.sin(a) * R * 0.5} x2={rx + Math.cos(a) * R * 1.05} y2={ry + Math.sin(a) * R * 0.525} stroke={ringColor} strokeWidth={1.2 * u} />;
                     })}
                   </g>
                 );
@@ -166,8 +172,8 @@ const ArmyFormation: React.FC<Props> = ({factions, unitsPerArmy, spawnAt, march,
                     <text x={lx} y={ly - 20 * u * lq} fontFamily={x58Fonts.mono} fontSize={12 * u * lq} fill="#fff" letterSpacing={1 * u}>
                       {selectLabel}
                     </text>
-                    <text x={lx + lw * 0.78} y={ly - 20 * u * lq} fontFamily={x58Fonts.mono} fontSize={10 * u * lq} fill="#BFE6F0">
-                      IDLE
+                    <text x={lx + lw * 0.78} y={ly - 20 * u * lq} fontFamily={x58Fonts.mono} fontSize={10 * u * lq} fill={ringColor}>
+                      {statusLabel}
                     </text>
                   </g>
                 );
@@ -183,15 +189,15 @@ const ArmyFormation: React.FC<Props> = ({factions, unitsPerArmy, spawnAt, march,
               const m = easeOutCubic(titleK);
               return (
                 <g opacity={titleOut}>
-                  <Brackets x={bx} y={by} w={bw} h={bh} len={18 * u} color={KLEIN.red} sw={2 * u} />
+                  <Brackets x={bx} y={by} w={bw} h={bh} len={18 * u} color={bracketColor} sw={2 * u} />
                   <clipPath id={`af-clip-${seed}`}>
                     <rect x={w / 2 - (bw / 2) * m} y={by} width={bw * m} height={bh} />
                   </clipPath>
                   <g clipPath={`url(#af-clip-${seed})`}>
-                    <text x={w / 2} y={by + tfs * 1.15} textAnchor="middle" fontFamily={x58Fonts.rajdhani} fontWeight={500} fontSize={tfs} fill="#fff" style={{textShadow: '0 0 12px rgba(0,0,0,0.5)'}}>
+                    <text x={w / 2} y={by + tfs * 1.15} textAnchor="middle" fontFamily={x58Fonts.rajdhani} fontWeight={500} fontSize={tfs} fill={titleColor} style={{textShadow: '0 0 12px rgba(0,0,0,0.5)'}}>
                       {title}
                     </text>
-                    <text x={w / 2} y={by + tfs * 2.05} textAnchor="middle" fontFamily={x58Fonts.rajdhani} fontWeight={500} fontSize={tfs * 0.5} fill="#fff" letterSpacing={tfs * 0.04}>
+                    <text x={w / 2} y={by + tfs * 2.05} textAnchor="middle" fontFamily={x58Fonts.rajdhani} fontWeight={500} fontSize={tfs * 0.5} fill={titleColor} letterSpacing={tfs * 0.04}>
                       {subtitle}
                     </text>
                   </g>
@@ -228,6 +234,12 @@ export const armyFormation = defineMotion<Props>({
     push: 2,
     grass: '#7FA35A',
     seed: 6,
+    background: '#1C2928',
+    ringColor: '#BFE6F0',
+    arrowColor: '#ffffff',
+    titleColor: '#ffffff',
+    bracketColor: '#E0503C',
+    statusLabel: 'IDLE',
   },
   propDocs: {
     factions: 'up to 4 armies {name, color, unit, chip, glyph}: unit = sprite colour, color = banner tint, glyph = star | ring | diamond | bolt',
@@ -243,6 +255,12 @@ export const armyFormation = defineMotion<Props>({
     push: 'camera push-in in %/s',
     grass: 'plateau grass colour',
     seed: 'layout seed',
+    background: 'colour behind the field (normally covered)',
+    ringColor: 'selection ring and status text colour',
+    arrowColor: 'volley chevron colour',
+    titleColor: 'title and subtitle text colour',
+    bracketColor: 'title corner bracket colour',
+    statusLabel: 'small status text next to the selection label',
   },
   component: ArmyFormation,
   tags: ['army', 'battle', 'strategy', 'isometric', 'rts', 'game', 'factions', 'units', 'spawn', 'march', 'arrows', 'volley', 'ai agents', 'competition', 'map', 'painterly', 'simulation'],

@@ -24,6 +24,13 @@ type Props = {
   rope: string;
   spark: string;
   seed: number;
+  background: string;
+  rayColor: string;
+  ink: string;
+  textColor: string;
+  accent: string;
+  accent2: string;
+  alert: string;
 };
 
 const FuseBeatTimer: React.FC<Props> = (p) => {
@@ -117,7 +124,7 @@ const FuseBeatTimer: React.FC<Props> = (p) => {
         const x = sp0[0] + Math.cos(a) * v * j * 0.55;
         const y = sp0[1] + Math.sin(a) * v * j * 0.55 - j * 1.5 * u + j * j * 0.22 * u;
         const life = 1 - j / 14;
-        const col = [TOON.gold, TOON.orange, '#FFFFFF', TOON.cream][Math.floor(h1(fs, i, 4) * 4)];
+        const col = [p.spark, TOON.orange, '#FFFFFF', TOON.cream][Math.floor(h1(fs, i, 4) * 4)];
         particles.push(<path key={`${j}-${i}`} d={toonStar((6 + h1(fs, i, 5) * 11) * u * life, 0.25)} transform={`translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${(h1(fs, i, 6) * 90).toFixed(0)})`} fill={col} opacity={life} />);
       }
     }
@@ -135,24 +142,24 @@ const FuseBeatTimer: React.FC<Props> = (p) => {
   const knots = Array.from({length: p.beats}, (_, i) => (i + 1) / p.beats);
 
   return (
-    <AbsoluteFill style={{background: p.stage ? TOON.ground : 'transparent'}}>
+    <AbsoluteFill style={{background: p.stage ? p.background : 'transparent'}}>
       <svg width={w} height={h} style={{position: 'absolute', inset: 0}}>
-        {p.stage && <ToonStage w={w} h={h} frame={frame} id={id} />}
+        {p.stage && <ToonStage w={w} h={h} frame={frame} id={id} ground={p.background} ray={p.rayColor} />}
 
         {/* central numeral */}
         {p.showCount && (
           <g>
-            {frame < p.startFrame && readyK > 0.02 && <ToonText x={w / 2} y={bigY + bigS * 0.08} size={bigS * 0.3} text={p.readyText} font={lf.titan} fill="#fff" ink={TOON.ink} drop={TOON.magenta} dropOff={10 * u} sw={16 * u} rotate={-4} scale={Math.max(0.01, readyK)} />}
-            {counting && <ToonText x={w / 2} y={bigY + bigS * 0.34 * numK} size={bigS * numK} text={String(left)} font={lf.titan} fill={left <= 2 ? TOON.gold : '#fff'} ink={TOON.ink} drop={left <= 2 ? TOON.red : TOON.magenta} dropOff={14 * u} sw={22 * u} rotate={-4} />}
-            {done && doneK > 0.02 && <ToonText x={w / 2} y={bigY + bigS * 0.08} size={bigS * 0.5} text={p.doneText} font={lf.titan} fill={TOON.gold} ink={TOON.ink} drop={TOON.red} dropOff={12 * u} sw={20 * u} rotate={-4} scale={Math.max(0.01, doneK)} />}
+            {frame < p.startFrame && readyK > 0.02 && <ToonText x={w / 2} y={bigY + bigS * 0.08} size={bigS * 0.3} text={p.readyText} font={lf.titan} fill={p.textColor} ink={p.ink} drop={p.accent2} dropOff={10 * u} sw={16 * u} rotate={-4} scale={Math.max(0.01, readyK)} />}
+            {counting && <ToonText x={w / 2} y={bigY + bigS * 0.34 * numK} size={bigS * numK} text={String(left)} font={lf.titan} fill={left <= 2 ? p.accent : p.textColor} ink={p.ink} drop={left <= 2 ? p.alert : p.accent2} dropOff={14 * u} sw={22 * u} rotate={-4} />}
+            {done && doneK > 0.02 && <ToonText x={w / 2} y={bigY + bigS * 0.08} size={bigS * 0.5} text={p.doneText} font={lf.titan} fill={p.accent} ink={p.ink} drop={p.alert} dropOff={12 * u} sw={20 * u} rotate={-4} scale={Math.max(0.01, doneK)} />}
           </g>
         )}
 
         {/* fuse: shadow, ink outline, unburnt rope, charred part */}
         {draw > 0.001 && (
           <g>
-            <path d={sub(0, draw)} transform={`translate(${6 * u} ${8 * u})`} fill="none" stroke={TOON.ink} strokeOpacity={0.4} strokeWidth={36 * u} strokeLinecap="round" strokeLinejoin="round" />
-            <path d={sub(0, draw)} fill="none" stroke={TOON.ink} strokeWidth={36 * u} strokeLinecap="round" strokeLinejoin="round" />
+            <path d={sub(0, draw)} transform={`translate(${6 * u} ${8 * u})`} fill="none" stroke={p.ink} strokeOpacity={0.4} strokeWidth={36 * u} strokeLinecap="round" strokeLinejoin="round" />
+            <path d={sub(0, draw)} fill="none" stroke={p.ink} strokeWidth={36 * u} strokeLinecap="round" strokeLinejoin="round" />
             {draw > pr + 0.002 && <path d={sub(pr, draw)} fill="none" stroke={p.rope} strokeWidth={21 * u} strokeLinecap="round" />}
             {draw > pr + 0.002 && <path d={sub(pr, draw)} transform={`translate(${-2 * u} ${-3 * u})`} fill="none" stroke={mixHex(p.rope, '#FFF3D0', 0.55)} strokeWidth={5 * u} strokeLinecap="round" strokeDasharray={`${14 * u} ${12 * u}`} />}
             {pr > 0.002 && <path d={sub(0, pr)} fill="none" stroke="#3A2B38" strokeWidth={16 * u} strokeLinecap="round" />}
@@ -165,7 +172,7 @@ const FuseBeatTimer: React.FC<Props> = (p) => {
               const r = (18 + 9 * flash) * u;
               return (
                 <g key={i} transform={`translate(${kx} ${ky})`}>
-                  <ellipse rx={r * 1.05} ry={r} fill={passed ? '#3A2B38' : p.rope} stroke={TOON.ink} strokeWidth={5 * u} />
+                  <ellipse rx={r * 1.05} ry={r} fill={passed ? '#3A2B38' : p.rope} stroke={p.ink} strokeWidth={5 * u} />
                   {!passed && <ellipse rx={r * 0.5} ry={r * 0.4} cx={-r * 0.25} cy={-r * 0.3} fill={mixHex(p.rope, '#FFF3D0', 0.6)} />}
                   {flash > 0.02 && <path d={toonStar(36 * u * flash + 14 * u, 0.2)} fill={TOON.gold} opacity={flash} />}
                 </g>
@@ -211,11 +218,11 @@ const FuseBeatTimer: React.FC<Props> = (p) => {
           <g>
             {particles}
             <circle cx={sp[0]} cy={sp[1]} r={(50 + 6 * Math.sin(frame * 1.3)) * u} fill={TOON.orange} opacity={0.35} />
-            <path d={toonStar(34 * u, 0.28)} transform={`translate(${sp[0]} ${sp[1]}) rotate(${frame * 14})`} fill={TOON.gold} stroke={TOON.ink} strokeWidth={3 * u} strokeLinejoin="round" />
+            <path d={toonStar(34 * u, 0.28)} transform={`translate(${sp[0]} ${sp[1]}) rotate(${frame * 14})`} fill={p.spark} stroke={p.ink} strokeWidth={3 * u} strokeLinejoin="round" />
             <path d={toonStar(15 * u, 0.3)} transform={`translate(${sp[0]} ${sp[1]}) rotate(${-frame * 9})`} fill="#fff" />
           </g>
         )}
-        {pulseY > 0.01 && <rect x={0} y={h - 8 * u} width={w} height={8 * u} fill={TOON.gold} opacity={pulseY * 0.8} />}
+        {pulseY > 0.01 && <rect x={0} y={h - 8 * u} width={w} height={8 * u} fill={p.accent} opacity={pulseY * 0.8} />}
       </svg>
     </AbsoluteFill>
   );
@@ -236,7 +243,7 @@ export const fuseBeatTimer = defineMotion<Props>({
   source: ['lemo-opuscar styles/microgame demo/hud.js (MIT, LemoLab) — fuse timer, hard-shadow toon parts'],
   useFor: 'Countdowns for quizzes, challenges and limited-time offers; on-beat timers; game-show / microgame formats; set stage=false to overlay the fuse on any scene.',
   durationInFrames: 180,
-  defaultProps: {beats: 8, bpm: 120, startFrame: 24, endIcon: 'rocket', freezeBeat: -1, stage: true, showCount: true, readyText: 'READY?', doneText: 'GO!', rope: TOON.rope, spark: TOON.gold, seed: 4},
+  defaultProps: {beats: 8, bpm: 120, startFrame: 24, endIcon: 'rocket', freezeBeat: -1, stage: true, showCount: true, readyText: 'READY?', doneText: 'GO!', rope: TOON.rope, spark: TOON.gold, seed: 4, background: TOON.ground, rayColor: '#3A1A78', ink: TOON.ink, textColor: '#ffffff', accent: TOON.gold, accent2: TOON.magenta, alert: TOON.red},
   propDocs: {
     beats: 'number of beats = number of knots (4-8 typical)',
     bpm: 'tempo; the spark travels one knot per beat',
@@ -248,8 +255,15 @@ export const fuseBeatTimer = defineMotion<Props>({
     readyText: 'word shown before the spark is lit',
     doneText: 'word shown when the fuse reaches the icon',
     rope: 'rope colour',
-    spark: 'spark colour (reserved)',
+    spark: 'spark star colour',
     seed: 'particle seed',
+    background: 'stage ground colour (stage=true)',
+    rayColor: 'stage sunburst ray colour',
+    ink: 'outline colour of the fuse and numerals',
+    textColor: 'READY? / beat numeral fill colour',
+    accent: 'numeral colour for the last 2 beats, GO! fill and beat pulse bar',
+    accent2: 'hard-shadow colour of READY? and the numeral',
+    alert: 'hard-shadow colour of GO! and the last-2-beats numeral',
   },
   component: FuseBeatTimer,
   tags: ['fuse', 'timer', 'countdown', 'beat', 'bpm', 'spark', 'bomb', 'rocket', 'microgame', 'game show', 'quiz', 'challenge', 'toon', 'hud', 'limited time', 'on-beat', 'hard shadow', 'stars', 'knots'],

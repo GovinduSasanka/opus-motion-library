@@ -23,9 +23,19 @@ type Props = {
   diagonalDeg: number;
   grain: boolean;
   seed: number;
+  background: string;
+  nameColor: string;
+  dividerColor: string;
+  badgeColor: string;
+  badgeRim: string;
+  crescentColor: string;
+  badgeGradient: string[];
+  topColor: string;
+  slamGradient: string[];
+  outline: string;
 };
 
-const VsSplash: React.FC<Props> = ({left, right, badgeText, topText, slamText, slamAt, diagonalDeg, grain, seed}) => {
+const VsSplash: React.FC<Props> = ({left, right, badgeText, topText, slamText, slamAt, diagonalDeg, grain, seed, background, nameColor, dividerColor, badgeColor, badgeRim, crescentColor, badgeGradient, topColor, slamGradient, outline}) => {
   const frame = useCurrentFrame();
   const {w, h, u, cx, cy, portrait} = useStage();
   const S = Math.min(w, h);
@@ -88,7 +98,7 @@ const VsSplash: React.FC<Props> = ({left, right, badgeText, topText, slamText, s
   };
   const namePlateY = portrait ? 0 : h * 0.88;
   return (
-    <AbsoluteFill style={{background: ARCADE.ink, overflow: 'hidden'}}>
+    <AbsoluteFill style={{background, overflow: 'hidden'}}>
       <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} style={{position: 'absolute', inset: 0}}>
         <g transform={`translate(${cx} ${cy}) scale(${push}) translate(${-cx} ${-cy})`} opacity={1}>
           {panel('l')}
@@ -97,13 +107,13 @@ const VsSplash: React.FC<Props> = ({left, right, badgeText, topText, slamText, s
             <rect width={w} height={h} fill={ARCADE.ink} opacity={slam ? 0.4 : 0} />
           </g>
           {/* divider */}
-          <line x1={topX} y1={0} x2={botX} y2={h} stroke="#fff" strokeWidth={0.004 * w} opacity={Math.min(inL, inR)} />
+          <line x1={topX} y1={0} x2={botX} y2={h} stroke={dividerColor} strokeWidth={0.004 * w} opacity={Math.min(inL, inR)} />
           {/* names */}
           {inL > 0.9 ? (
-            <ExtrudeText x={portrait ? cx : w * 0.22} y={portrait ? h * 0.345 : namePlateY} size={nameFs} text={left.name.toUpperCase()} font={x58Fonts.lilita} fill="#F0EBD3" ink="#131031" depth={nameFs * 0.08} />
+            <ExtrudeText x={portrait ? cx : w * 0.22} y={portrait ? h * 0.345 : namePlateY} size={nameFs} text={left.name.toUpperCase()} font={x58Fonts.lilita} fill={nameColor} ink="#131031" depth={nameFs * 0.08} />
           ) : null}
           {inR > 0.9 ? (
-            <ExtrudeText x={portrait ? cx : w * 0.79} y={portrait ? h * 0.875 : namePlateY} size={nameFs} text={right.name.toUpperCase()} font={x58Fonts.lilita} fill="#F0EBD3" ink="#2E0B1E" depth={nameFs * 0.08} />
+            <ExtrudeText x={portrait ? cx : w * 0.79} y={portrait ? h * 0.875 : namePlateY} size={nameFs} text={right.name.toUpperCase()} font={x58Fonts.lilita} fill={nameColor} ink="#2E0B1E" depth={nameFs * 0.08} />
           ) : null}
           {/* VS badge */}
           {badgeK > 0 ? (
@@ -111,16 +121,16 @@ const VsSplash: React.FC<Props> = ({left, right, badgeText, topText, slamText, s
               <defs>
                 <HalftoneDef id={`${id}-bht`} size={8 * u} color="#2A2A50" r={0.3} />
               </defs>
-              <circle r={S * 0.135} fill="#03011B" stroke="#F3D88A" strokeWidth={2 * u} />
+              <circle r={S * 0.135} fill={badgeColor} stroke={badgeRim} strokeWidth={2 * u} />
               <circle r={S * 0.135} fill={`url(#${id}-bht)`} opacity={0.5} />
-              <path d={`M${S * 0.02} ${-S * 0.125} A${S * 0.125} ${S * 0.125} 0 1 0 ${S * 0.02} ${S * 0.125} A${S * 0.1} ${S * 0.125} 0 1 1 ${S * 0.02} ${-S * 0.125}Z`} fill="#F3CE6E" opacity={0.95} />
-              <ExtrudeText x={0} y={S * 0.055} size={S * 0.15} text={badgeText} font={x58Fonts.lilita} gradient={['#F9EBA0', '#F8CF6B', '#F1A64F']} id={`${id}-vsg`} ink="#1A1430" depth={S * 0.012} skew={-10} />
+              <path d={`M${S * 0.02} ${-S * 0.125} A${S * 0.125} ${S * 0.125} 0 1 0 ${S * 0.02} ${S * 0.125} A${S * 0.1} ${S * 0.125} 0 1 1 ${S * 0.02} ${-S * 0.125}Z`} fill={crescentColor} opacity={0.95} />
+              <ExtrudeText x={0} y={S * 0.055} size={S * 0.15} text={badgeText} font={x58Fonts.lilita} gradient={badgeGradient as [string, string, string]} id={`${id}-vsg`} ink={outline} depth={S * 0.012} skew={-10} />
             </g>
           ) : null}
           {/* top word */}
           {topText && topK > 0 ? (
             <g transform={`translate(${cx + S * 0.01} ${portrait ? h * 0.08 : h * 0.17}) scale(${topK})`}>
-              <ExtrudeText x={0} y={0} size={S * 0.1} text={topText} font={x58Fonts.bangers} fill="#FCFAE3" ink="#070224" depth={S * 0.009} skew={-4} letterSpacing={2 * u} />
+              <ExtrudeText x={0} y={0} size={S * 0.1} text={topText} font={x58Fonts.bangers} fill={topColor} ink="#070224" depth={S * 0.009} skew={-4} letterSpacing={2 * u} />
             </g>
           ) : null}
           {/* judges: tiny star + sun below the badge */}
@@ -149,7 +159,7 @@ const VsSplash: React.FC<Props> = ({left, right, badgeText, topText, slamText, s
                 })}
               </g>
               <g transform={`translate(${cx} ${cy + S * 0.03}) scale(${1.4 - 0.4 * easeOutCubic(slamK)}) rotate(-6)`}>
-                <ExtrudeText x={0} y={0} size={S * 0.24} text={slamText} font={x58Fonts.bangers} gradient={['#FCFAE3', '#F8CF6B', '#F1A64F']} id={`${id}-fg`} ink="#070224" depth={S * 0.018} skew={0} letterSpacing={3 * u} />
+                <ExtrudeText x={0} y={0} size={S * 0.24} text={slamText} font={x58Fonts.bangers} gradient={slamGradient as [string, string, string]} id={`${id}-fg`} ink="#070224" depth={S * 0.018} skew={0} letterSpacing={3 * u} />
               </g>
             </g>
           ) : null}
@@ -179,6 +189,16 @@ export const vsSplash = defineMotion<Props>({
     diagonalDeg: 70,
     grain: true,
     seed: 7,
+    background: ARCADE.ink,
+    nameColor: '#F0EBD3',
+    dividerColor: '#ffffff',
+    badgeColor: '#03011B',
+    badgeRim: '#F3D88A',
+    crescentColor: '#F3CE6E',
+    badgeGradient: ['#F9EBA0', '#F8CF6B', '#F1A64F'],
+    topColor: '#FCFAE3',
+    slamGradient: ['#FCFAE3', '#F8CF6B', '#F1A64F'],
+    outline: '#1A1430',
   },
   propDocs: {
     left: 'left fighter {name, color, color2 (stripe tones), src? (portrait image; default an original critter)}',
@@ -190,6 +210,16 @@ export const vsSplash = defineMotion<Props>({
     diagonalDeg: 'split angle from horizontal',
     grain: 'spray-grain speckle over everything',
     seed: 'speckle seed',
+    background: 'colour behind the card (normally covered)',
+    nameColor: 'fighter name fill colour',
+    dividerColor: 'white divider line colour',
+    badgeColor: 'VS badge fill colour',
+    badgeRim: 'VS badge rim colour',
+    crescentColor: 'gold crescent inside the badge',
+    badgeGradient: 'VS text gradient, 3 hex colours top to bottom',
+    topColor: 'word above the badge, fill colour',
+    slamGradient: 'slam word gradient, 3 hex colours top to bottom',
+    outline: 'VS text outline colour',
   },
   component: VsSplash,
   tags: ['versus', 'vs', 'fight', 'splash', 'arcade', 'fighting game', 'comparison', 'stripes', 'badge', 'slam', 'speed lines', 'game', 'halftone', 'comic'],

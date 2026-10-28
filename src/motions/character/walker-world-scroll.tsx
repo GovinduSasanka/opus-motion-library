@@ -26,10 +26,20 @@ type Props = {
   badge: boolean;
   confettiCount: number;
   grain: boolean;
+  background: string;
+  badgeColor: string;
+  badgeInk: string;
+  confettiColors: string[];
+  vaseText: string;
+  arcadeScore: string;
+  arcadeLives: string;
+  vaporTitle: string;
+  vaporStamp: string;
 };
 
-type Ctx = {x0: number; W: number; w: number; h: number; by: number; u: number; frame: number; i: number; pl: number; pr: number};
+type Ctx = {x0: number; W: number; w: number; h: number; by: number; u: number; frame: number; i: number; pl: number; pr: number; tx: Texts};
 type Pt = [number, number];
+type Texts = {vase: string; score: string; lives: string; title: string; stamp: string};
 
 const PALETTE: Record<EraStyle, string[]> = {
   cave: ['#C8402A', '#895839', '#DABB97', '#F0B860', '#342013'],
@@ -138,7 +148,7 @@ const handPath = (s: number) => {
   return [f(-11 * s, 30 * s, -10), f(-3.5 * s, 37 * s, -3), f(4 * s, 35 * s, 4), f(11 * s, 27 * s, 12), `M ${-16 * s} ${0} L ${-34 * s} ${-14 * s}`].join(' ');
 };
 
-const CavePanel: React.FC<Ctx> = ({x0, W, h, by, u, frame, i, pl, pr}) => {
+const CavePanel: React.FC<Ctx> = ({x0, W, h, by, u, frame, i, pl, pr, tx}) => {
   const r = rng(100 + i);
   const animals = [
     {x: 0.18, y: 0.36, s: 1.05, c: '#6E4128', k: 'bison'},
@@ -262,7 +272,7 @@ const Goose: React.FC<{x: number; y: number; s: number; flip?: number}> = ({x, y
   </g>
 );
 
-const EgyptPanel: React.FC<Ctx> = ({x0, W, h, by, u, frame, i, pl, pr}) => {
+const EgyptPanel: React.FC<Ctx> = ({x0, W, h, by, u, frame, i, pl, pr, tx}) => {
   const ink = '#463C55';
   const cols = PALETTE.egypt.slice(0, 4);
   const tileW = 16 * u;
@@ -375,7 +385,7 @@ const Warrior: React.FC<{x: number; y: number; s: number; flip: number; inc: str
   );
 };
 
-const GreekPanel: React.FC<Ctx> = ({x0, W, h, by, u, frame, i, pl, pr}) => {
+const GreekPanel: React.FC<Ctx> = ({x0, W, h, by, u, frame, i, pl, pr, tx}) => {
   const b = '#1B100A';
   const inc = '#E8834E';
   const band = 44 * u;
@@ -407,7 +417,7 @@ const GreekPanel: React.FC<Ctx> = ({x0, W, h, by, u, frame, i, pl, pr}) => {
         </g>
       ))}
       <text x={x0 + W * 0.39} y={by * 0.32} fontFamily={fonts.serif} fontWeight={700} fontSize={42 * u} fill={b} letterSpacing={8 * u} textAnchor="middle">
-        ΝΙΚΑ
+        {tx.vase}
       </text>
       <rect x={x0 - pl} y={by} width={W + pl + pr} height={14 * u} fill={b} />
       <rect x={x0 - pl} y={by + 14 * u + (h - by) * 0.35} width={W + pl + pr} height={70 * u} fill={`url(#wws-rays${i})`} />
@@ -416,7 +426,7 @@ const GreekPanel: React.FC<Ctx> = ({x0, W, h, by, u, frame, i, pl, pr}) => {
   );
 };
 
-const InkPanel: React.FC<Ctx> = ({x0, W, h, by, u, frame, i, pl, pr}) => {
+const InkPanel: React.FC<Ctx> = ({x0, W, h, by, u, frame, i, pl, pr, tx}) => {
   const ridge = (seed: string, base: number, height: number, peaks: number) => {
     const pts: Pt[] = [];
     const N = 60;
@@ -492,7 +502,7 @@ const InkPanel: React.FC<Ctx> = ({x0, W, h, by, u, frame, i, pl, pr}) => {
   );
 };
 
-const PixelPanel: React.FC<Ctx> = ({x0, W, h, by, u, frame, i, pl, pr}) => {
+const PixelPanel: React.FC<Ctx> = ({x0, W, h, by, u, frame, i, pl, pr, tx}) => {
   const g = 6 * u;
   const snap = (v: number) => Math.round(v / g) * g;
   const r = rng(300 + i);
@@ -556,10 +566,10 @@ const PixelPanel: React.FC<Ctx> = ({x0, W, h, by, u, frame, i, pl, pr}) => {
         <rect x={-g * 1.5} y={-g * 2.5} width={g * 3} height={g * 5} fill="#FFD86A" stroke="#8A5A00" strokeWidth={g * 0.4} />
       </g>
       <text x={snap(x0 + W * 0.06)} y={snap(by * 0.08)} fontFamily={fonts.mono} fontWeight={700} fontSize={30 * u} fill="#FFFFFF" letterSpacing={3 * u}>
-        SCORE 002000
+        {tx.score}
       </text>
       <text x={snap(x0 + W * 0.36)} y={snap(by * 0.08)} fontFamily={fonts.mono} fontWeight={700} fontSize={30 * u} fill="#FFD86A" letterSpacing={3 * u}>
-        ● x07
+        {tx.lives}
       </text>
       {/* ground */}
       <rect x={x0 - pl} y={by} width={W + pl + pr} height={h - by} fill="#3A486A" />
@@ -576,7 +586,7 @@ const PixelPanel: React.FC<Ctx> = ({x0, W, h, by, u, frame, i, pl, pr}) => {
   );
 };
 
-const VaporPanel: React.FC<Ctx> = ({x0, W, h, by, u, frame, i, pl, pr}) => {
+const VaporPanel: React.FC<Ctx> = ({x0, W, h, by, u, frame, i, pl, pr, tx}) => {
   const hz = by - Math.min(170 * u, (h - by) * 0.6 + 60 * u);
   const vx = x0 + W * 0.5;
   const sunR = Math.min(W * 0.2, 220 * u);
@@ -616,10 +626,10 @@ const VaporPanel: React.FC<Ctx> = ({x0, W, h, by, u, frame, i, pl, pr}) => {
         })}
       </g>
       <text x={vx} y={by * 0.2} textAnchor="middle" fontFamily={fonts.display} fontSize={Math.min(96 * u, W * 0.09)} letterSpacing={Math.min(26 * u, W * 0.02)} fill={`url(#wws-chrome${i})`} stroke="#FF71CE" strokeWidth={1.5 * u}>
-        AESTHETIC
+        {tx.title}
       </text>
       <text x={x0 + W * 0.06} y={by * 0.08} fontFamily={fonts.mono} fontSize={24 * u} fill="#FFFFFF" opacity={0.85}>
-        PLAY ▶ OCT. 04 2011
+        {tx.stamp}
       </text>
       <rect x={x0 - pl} y={hz} width={W + pl + pr} height={h - hz} fill="#140022" />
       <g filter="url(#wws-glow)" opacity={0.95}>
@@ -720,12 +730,13 @@ const gagPose = (kind: GagKind, l: number, H: number): {pose: ChibiPose; lift: n
 };
 
 // ------------------------------------------------------------------ main
-const WalkerWorldScroll: React.FC<Props> = ({eras, speed, stopFrames, eraWidth, stopAt, heroX, gags, badge, confettiCount, grain}) => {
+const WalkerWorldScroll: React.FC<Props> = ({eras, speed, stopFrames, eraWidth, stopAt, heroX, gags, badge, confettiCount, grain, background, badgeColor, badgeInk, confettiColors, vaseText, arcadeScore, arcadeLives, vaporTitle, vaporStamp}) => {
   const frame = useCurrentFrame();
   const {durationInFrames} = useVideoConfig();
   const {w, h, u, portrait} = useStage();
   const list = eras.length ? eras : [{style: 'cave' as EraStyle, label: 'Cave painting', year: '15000 BC'}];
   const N = list.length;
+  const tx: Texts = {vase: vaseText, score: arcadeScore, lives: arcadeLives, title: vaporTitle, stamp: vaporStamp};
   const unitW = portrait ? w * 1.35 : w;
   const W = eraWidth * unitW;
   const by = h * (portrait ? 0.66 : 0.7);
@@ -793,7 +804,7 @@ const WalkerWorldScroll: React.FC<Props> = ({eras, speed, stopFrames, eraWidth, 
   bursts.forEach((bf, k) => {
     const t = (frame - bf) / 30;
     if (t < 0 || t > 0.85) return;
-    const pal = PALETTE[list[k + 1].style];
+    const pal = confettiColors.length ? confettiColors : PALETTE[list[k + 1].style];
     const r = rng(k * 97 + 5);
     const ox = tl.pos[Math.min(bf, tl.pos.length - 1)];
     const oy = by - heroH * 0.5;
@@ -824,7 +835,7 @@ const WalkerWorldScroll: React.FC<Props> = ({eras, speed, stopFrames, eraWidth, 
   const bw = eraNow > 0 ? interpolate(cf, [0, 1], [cardW(prev), cardW(cur)], {easing: ease.inOut}) : cardW(cur);
 
   return (
-    <AbsoluteFill style={{background: '#1A1410'}}>
+    <AbsoluteFill style={{background}}>
       <Svg>
         <defs>
           <filter id="wws-glow" x="-50%" y="-50%" width="200%" height="200%">
@@ -851,7 +862,7 @@ const WalkerWorldScroll: React.FC<Props> = ({eras, speed, stopFrames, eraWidth, 
           const Panel = PANELS[e.style] ?? CavePanel;
           return (
             <g key={k} clipPath={`url(#wws-clip${k})`}>
-              <Panel x0={k * W - offset} W={W} w={w} h={h} by={by} u={u} frame={frame} i={k} pl={k === 0 ? w * 2 : 60 * u} pr={k === N - 1 ? w * 2 : 60 * u} />
+              <Panel x0={k * W - offset} W={W} w={w} h={h} by={by} u={u} frame={frame} i={k} pl={k === 0 ? w * 2 : 60 * u} pr={k === N - 1 ? w * 2 : 60 * u} tx={tx} />
             </g>
           );
         })}
@@ -869,17 +880,17 @@ const WalkerWorldScroll: React.FC<Props> = ({eras, speed, stopFrames, eraWidth, 
         {confetti}
         {badge && (
           <g transform={`translate(${w - 30 * u - bw},${50 * u * bs})`}>
-            <rect x={0} y={0} width={bw} height={112 * u * bs} rx={14 * u} fill="#F8F3EA" opacity={0.86} />
+            <rect x={0} y={0} width={bw} height={112 * u * bs} rx={14 * u} fill={badgeColor} opacity={0.86} />
             {[
               {e: prev, o: eraNow > 0 ? 1 - cf : 0},
               {e: cur, o: eraNow > 0 ? cf : 1},
             ].map(({e, o}, j) =>
               o > 0.001 ? (
                 <g key={j} opacity={o}>
-                  <text x={bw - 25 * u * bs} y={56 * u * bs} textAnchor="end" fontFamily={fonts.sans} fontWeight={800} fontSize={yearSize} fill="#1F2018">
+                  <text x={bw - 25 * u * bs} y={56 * u * bs} textAnchor="end" fontFamily={fonts.sans} fontWeight={800} fontSize={yearSize} fill={badgeInk}>
                     {e.year}
                   </text>
-                  <text x={bw - 25 * u * bs} y={90 * u * bs} textAnchor="end" fontFamily={fonts.sans} fontWeight={600} fontSize={subSize} fill="#1F2018" opacity={0.75}>
+                  <text x={bw - 25 * u * bs} y={90 * u * bs} textAnchor="end" fontFamily={fonts.sans} fontWeight={600} fontSize={subSize} fill={badgeInk} opacity={0.75}>
                     {e.label}
                   </text>
                 </g>
@@ -922,6 +933,15 @@ export const walkerWorldScroll = defineMotion<Props>({
     badge: true,
     confettiCount: 36,
     grain: true,
+    background: '#1A1410',
+    badgeColor: '#F8F3EA',
+    badgeInk: '#1F2018',
+    confettiColors: [],
+    vaseText: 'ΝΙΚΑ',
+    arcadeScore: 'SCORE 002000',
+    arcadeLives: '● x07',
+    vaporTitle: 'AESTHETIC',
+    vaporStamp: 'PLAY ▶ OCT. 04 2011',
   },
   propDocs: {
     eras: "list of {style: 'cave'|'egypt'|'greek'|'ink'|'pixel'|'vaporwave', label, year}",
@@ -934,6 +954,15 @@ export const walkerWorldScroll = defineMotion<Props>({
     badge: 'show the year / title badge top-right',
     confettiCount: 'confetti capsules per seam crossing',
     grain: 'global speckle grain overlay',
+    background: 'colour behind the era panels (only visible at the extreme edges)',
+    badgeColor: 'year / title badge fill colour',
+    badgeInk: 'year / title badge text colour',
+    confettiColors: "confetti colours (hex list); [] = the palette of the era being entered",
+    vaseText: "Greek-vase panel banner text (default 'ΝΙΚΑ')",
+    arcadeScore: "8-bit panel HUD score text",
+    arcadeLives: "8-bit panel HUD coin/lives text",
+    vaporTitle: "vaporwave panel big title",
+    vaporStamp: "vaporwave panel small VHS-style stamp text",
   },
   component: WalkerWorldScroll,
   tags: ['walk', 'side-scroller', 'timeline', 'history', 'wipe', 'character'],

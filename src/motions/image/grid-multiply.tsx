@@ -24,6 +24,7 @@ type Props = {
   push: number;
   grade: boolean;
   seed: number;
+  background: string;
 };
 
 const ORDER9 = [4, 0, 8, 2, 6, 1, 7, 3, 5];
@@ -55,7 +56,7 @@ const GridMultiply: React.FC<Props> = (p) => {
     const z = 1 + (rep % 3) * 0.25 + p.push * t;
     const pos = `${30 + ((key * 37) % 41)}% ${35 + ((key * 23) % 31)}%`;
     return (
-      <div key={`${stageIdx}-${k}`} style={{position: 'absolute', left: x, top: y, width: cw, height: ch, overflow: 'hidden', background: '#000'}}>
+      <div key={`${stageIdx}-${k}`} style={{position: 'absolute', left: x, top: y, width: cw, height: ch, overflow: 'hidden', background: p.background}}>
         <Pic id={`${id}c${stageIdx}-${k}-${sh}`} src={src} seed={key} position={pos} time={frame} imgStyle={{transform: `scale(${z})`, transformOrigin: pos}} />
       </div>
     );
@@ -96,7 +97,7 @@ const GridMultiply: React.FC<Props> = (p) => {
     );
   }
   return (
-    <AbsoluteFill style={{background: '#000'}}>
+    <AbsoluteFill style={{background: p.background}}>
       <AbsoluteFill style={{filter: p.grade ? 'contrast(1.08) saturate(0.86) brightness(0.98)' : undefined}}>{content}</AbsoluteFill>
       <CsFinish w={w} h={h} frame={frame} id={id + 'f'} grain={p.grade ? 0.1 : 0} vignette={p.grade ? 0.35 : 0} matte={p.grade} />
     </AbsoluteFill>
@@ -129,6 +130,7 @@ export const gridMultiply = defineMotion<Props>({
     push: 0.05,
     grade: true,
     seed: 1,
+    background: '#000000',
   },
   propDocs: {
     images: 'public/ image paths cycled through the cells (empty = procedural scenes)',
@@ -141,6 +143,7 @@ export const gridMultiply = defineMotion<Props>({
     push: 'slow zoom per second inside each cell',
     grade: 'release-print finish: contrast, desaturation, grain, vignette and 1.85 matte',
     seed: 'crop / procedural seed',
+    background: 'gutter colour between cells (default black)',
   },
   component: GridMultiply,
   tags: ['grid', 'split screen', 'montage', 'multiply', 'beat', 'music sync', 'wall', 'mosaic', 'climax', 'everything at once', 'ugc', 'city symphony', 'cuts', 'time-lapse'],

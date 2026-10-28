@@ -25,6 +25,17 @@ type Props = {
   hud: boolean;
   ruler: boolean;
   seed: string;
+  background: string;
+  waterTop: string[];
+  waterBottom: string[];
+  hudInk: string;
+  hudDim: string;
+  hudAccent: string;
+  rulerColor: string;
+  rulerActive: string;
+  titleColor: string;
+  noteColor: string;
+  ruleColor: string;
 };
 
 // water colour by depth (video23 depth-descent-scroll table), [top, bottom]
@@ -125,7 +136,7 @@ const Bathysphere: React.FC<{R: number; u: number; frame: number; lamp: number; 
   );
 };
 
-const DepthDescent: React.FC<Props> = ({landmarks, maxDepth, surfaceTitle, surfaceNote, descentStart, holdFrames, scrollSpeed, unit, labels, ticks, heroSrc, hud, ruler, seed}) => {
+const DepthDescent: React.FC<Props> = ({landmarks, maxDepth, surfaceTitle, surfaceNote, descentStart, holdFrames, scrollSpeed, unit, labels, ticks, heroSrc, hud, ruler, seed, background, waterTop: waterTopP, waterBottom: waterBotP, hudInk, hudDim, hudAccent, rulerColor, rulerActive, titleColor, noteColor, ruleColor}) => {
   const frame = useCurrentFrame();
   const {w, h, u, cy, durationInFrames: D, portrait} = useStage();
   const id = `depth-descent-${seed}`;
@@ -250,12 +261,12 @@ const DepthDescent: React.FC<Props> = ({landmarks, maxDepth, surfaceTitle, surfa
   const fadeIn = prog(frame, 0, 24, ease.out);
   const hudIn = prog(frame, 20, 30, ease.out);
 
-  const waterTop = ramp(depth, WATER_D, WATER_TOP);
-  const waterBot = ramp(depth, WATER_D, WATER_BOT);
+  const waterTop = ramp(depth, WATER_D, waterTopP.length === WATER_D.length ? waterTopP : WATER_TOP);
+  const waterBot = ramp(depth, WATER_D, waterBotP.length === WATER_D.length ? waterBotP : WATER_BOT);
   const surfY = h * 0.1 - scroll; // water surface line in screen space
 
   return (
-    <AbsoluteFill style={{background: '#000'}}>
+    <AbsoluteFill style={{background}}>
       <AbsoluteFill style={{background: `linear-gradient(180deg, ${waterTop} 0%, ${waterBot} 100%)`, opacity: fadeIn}}>
         <Svg>
           <defs>
@@ -376,11 +387,11 @@ const DepthDescent: React.FC<Props> = ({landmarks, maxDepth, surfaceTitle, surfa
 
       {/* ---- HUD: depth counter top-left */}
       {hud && (
-        <div style={{position: 'absolute', left: 72 * u, top: 60 * u, opacity: hudIn, fontFamily: fonts.mono, color: '#97CEE8'}}>
-          <div style={{fontSize: 14 * u, letterSpacing: '0.35em', color: '#51758B'}}>{labels[0] ?? 'DEPTH'}</div>
+        <div style={{position: 'absolute', left: 72 * u, top: 60 * u, opacity: hudIn, fontFamily: fonts.mono, color: hudInk}}>
+          <div style={{fontSize: 14 * u, letterSpacing: '0.35em', color: hudDim}}>{labels[0] ?? 'DEPTH'}</div>
           <div style={{fontSize: 104 * u, lineHeight: 1.05, fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em', fontWeight: 400}}>
             {fmt(depth)}
-            <span style={{fontSize: 32 * u, marginLeft: 10 * u, color: '#77B9D8'}}>{unit}</span>
+            <span style={{fontSize: 32 * u, marginLeft: 10 * u, color: hudAccent}}>{unit}</span>
           </div>
           <div style={{display: 'flex', gap: 38 * u, marginTop: 10 * u}}>
             {[
@@ -389,8 +400,8 @@ const DepthDescent: React.FC<Props> = ({landmarks, maxDepth, surfaceTitle, surfa
               [labels[3] ?? 'TEMP.', `${tempAt(depth).toFixed(1)} °C`],
             ].map(([k, v]) => (
               <div key={k}>
-                <div style={{fontSize: 11 * u, letterSpacing: '0.3em', color: '#51758B'}}>{k}</div>
-                <div style={{fontSize: 20 * u, color: '#77B9D8', fontVariantNumeric: 'tabular-nums'}}>{v}</div>
+                <div style={{fontSize: 11 * u, letterSpacing: '0.3em', color: hudDim}}>{k}</div>
+                <div style={{fontSize: 20 * u, color: hudAccent, fontVariantNumeric: 'tabular-nums'}}>{v}</div>
               </div>
             ))}
           </div>
@@ -401,7 +412,7 @@ const DepthDescent: React.FC<Props> = ({landmarks, maxDepth, surfaceTitle, surfa
       {ruler && (
         <AbsoluteFill style={{opacity: hudIn}}>
           <Svg>
-            <line x1={rx} y1={0} x2={rx} y2={h} stroke="#2A7191" strokeWidth={1.2 * u} />
+            <line x1={rx} y1={0} x2={rx} y2={h} stroke={rulerColor} strokeWidth={1.2 * u} />
             {tickList.map((tk, i) => {
               const y = yOf(tk.depth);
               if (y < -20 * u || y > h + 20 * u) return null;
@@ -409,8 +420,8 @@ const DepthDescent: React.FC<Props> = ({landmarks, maxDepth, surfaceTitle, surfa
               const active = tk === nearest;
               return (
                 <g key={i} opacity={edge * (active ? 1 : 0.5)}>
-                  <line x1={rx - (tk.name ? 18 : 12) * u} y1={y} x2={rx} y2={y} stroke={active ? '#61ACCC' : '#2A7191'} strokeWidth={1.2 * u} />
-                  <text x={rx - 30 * u} y={y + 6 * u} textAnchor="end" fontFamily={fonts.mono} fontSize={17 * u} fill={active ? '#61ACCC' : '#2A7191'}>
+                  <line x1={rx - (tk.name ? 18 : 12) * u} y1={y} x2={rx} y2={y} stroke={active ? rulerActive : rulerColor} strokeWidth={1.2 * u} />
+                  <text x={rx - 30 * u} y={y + 6 * u} textAnchor="end" fontFamily={fonts.mono} fontSize={17 * u} fill={active ? rulerActive : rulerColor}>
                     {fmt(tk.depth)} {unit}
                     {tk.name && (
                       <tspan fontFamily={fonts.serif} fontStyle="italic" fontSize={19 * u} dx={8 * u}>
@@ -421,8 +432,8 @@ const DepthDescent: React.FC<Props> = ({landmarks, maxDepth, surfaceTitle, surfa
                 </g>
               );
             })}
-            <line x1={rx - 45 * u} y1={cy} x2={rx} y2={cy} stroke="#97CEE8" strokeWidth={1.2 * u} />
-            <circle cx={rx} cy={cy} r={4 * u} fill="#97CEE8" />
+            <line x1={rx - 45 * u} y1={cy} x2={rx} y2={cy} stroke={hudInk} strokeWidth={1.2 * u} />
+            <circle cx={rx} cy={cy} r={4 * u} fill={hudInk} />
           </Svg>
         </AbsoluteFill>
       )}
@@ -436,7 +447,7 @@ const DepthDescent: React.FC<Props> = ({landmarks, maxDepth, surfaceTitle, surfa
           const rule = out ? 1 - outP : prog(frame, inStart + z.title.length * 1.35, inStart + z.title.length * 1.35 + 12, ease.out);
           if (out && outP >= 1) return null;
           return (
-            <div key={`${z.title}-${k}`} style={{position: 'absolute', left: 74 * u, bottom: (portrait ? 150 : 96) * u, color: '#DDEBF1'}}>
+            <div key={`${z.title}-${k}`} style={{position: 'absolute', left: 74 * u, bottom: (portrait ? 150 : 96) * u, color: titleColor}}>
               <div style={{fontFamily: fonts.serif, fontWeight: 500, fontSize: Math.min(70 * u, (w - 160 * u) / (z.title.length * 0.92)), letterSpacing: '0.25em', lineHeight: 1, whiteSpace: 'nowrap', textTransform: 'uppercase'}}>
                 {z.title.split('').map((ch, i) => {
                   const p = out ? 1 - outP : clamp((frame - inStart - i * 1.35) / 10.5);
@@ -448,8 +459,8 @@ const DepthDescent: React.FC<Props> = ({landmarks, maxDepth, surfaceTitle, surfa
                   );
                 })}
               </div>
-              <div style={{fontFamily: fonts.mono, fontSize: 18 * u, color: '#9DC3D8', marginTop: 16 * u, opacity: subA, letterSpacing: '0.04em'}}>{z.note}</div>
-              <div style={{marginTop: 12 * u, height: 1.2 * u, width: 400 * u * rule, background: 'linear-gradient(90deg, #6FA5BC, rgba(111,165,188,0))'}} />
+              <div style={{fontFamily: fonts.mono, fontSize: 18 * u, color: noteColor, marginTop: 16 * u, opacity: subA, letterSpacing: '0.04em'}}>{z.note}</div>
+              <div style={{marginTop: 12 * u, height: 1.2 * u, width: 400 * u * rule, background: `linear-gradient(90deg, ${ruleColor}, transparent)`}} />
             </div>
           );
         })}
@@ -489,6 +500,17 @@ export const depthDescent = defineMotion<Props>({
     hud: true,
     ruler: true,
     seed: 'abyss',
+    background: '#000',
+    waterTop: [],
+    waterBottom: [],
+    hudInk: '#97CEE8',
+    hudDim: '#51758B',
+    hudAccent: '#77B9D8',
+    rulerColor: '#2A7191',
+    rulerActive: '#61ACCC',
+    titleColor: '#DDEBF1',
+    noteColor: '#9DC3D8',
+    ruleColor: '#6FA5BC',
   },
   propDocs: {
     landmarks: 'ruler ticks + zone titles: [{depth, label, note}] (depth in metres)',
@@ -505,6 +527,17 @@ export const depthDescent = defineMotion<Props>({
     hud: 'show the counter and zone titles',
     ruler: 'show the log depth ruler',
     seed: 'random seed',
+    background: 'colour behind the water (normally fully covered)',
+    waterTop: "water colour at the top of the frame per depth, 8 hex colours for depths 0/100/300/800/1500/3000/4500/6000 m; [] = default ocean ramp",
+    waterBottom: 'water colour at the bottom of the frame per depth (8 hex colours), [] = default ocean ramp',
+    hudInk: 'counter digits / ruler pointer colour',
+    hudDim: 'HUD label colour',
+    hudAccent: 'HUD unit and value colour',
+    rulerColor: 'depth ruler line / tick colour',
+    rulerActive: 'depth ruler highlighted tick colour',
+    titleColor: 'zone title text colour',
+    noteColor: 'zone subtitle text colour',
+    ruleColor: 'underline rule colour under the zone title',
   },
   component: DepthDescent,
   tags: ['ocean', 'underwater', 'depth', 'infographic', 'hud', 'scale', 'descent'],

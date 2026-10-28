@@ -134,7 +134,7 @@ export const Landing: React.FC = () => (
         <br />
         <em>by name.</em>
       </h1>
-      <p className="lede">429 motion graphics you can drop into videos, websites and apps — by name, with your own words and colours.</p>
+      <p className="lede">453 motion graphics you can drop into videos, websites and apps — by name, with your own words and colours.</p>
       <div className="cta-row">
         <a className="btn btn-gold" href={REPO} target="_blank" rel="noreferrer">
           <GitHubIcon size={16} /> Star on GitHub

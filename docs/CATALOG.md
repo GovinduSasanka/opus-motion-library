@@ -1,6 +1,6 @@
 # Motion catalog
 
-429 motions. Generated from `catalog.json` by `cli/gen-docs.mjs` — do not edit by hand.
+453 motions. Generated from `catalog.json` by `cli/gen-docs.mjs` — do not edit by hand.
 
 Render any of them: `node cli/mgl.mjs render <id> [--props '{...}'] [--format landscape|square|portrait]`. Previews live in `gallery/`.
 
@@ -15,25 +15,25 @@ Choosing: `node cli/mgl.mjs suggest "<what you need>"` and [CHOOSING.md](CHOOSIN
 - [data](#data) (40)
 - [ui](#ui) (36)
 - [hud](#hud) (21)
-- [camera](#camera) (4)
-- [texture](#texture) (1)
+- [camera](#camera) (9)
+- [texture](#texture) (4)
 - [3d](#3d) (41)
-- [document](#document) (9)
+- [document](#document) (12)
 - [game](#game) (14)
 - [image](#image) (34)
-- [map](#map) (6)
-- [mascot](#mascot) (8)
+- [map](#map) (11)
+- [mascot](#mascot) (11)
 - [music](#music) (16)
-- [product](#product) (5)
+- [product](#product) (10)
 - [recipes](#recipes) (ready-made mixes)
 
 ## Capability index
 
 | capability | motions |
 |---|---|
-| overlay (transparent background — put it on top of other motions or your page) | `globe-3d`, `holo-solid-ignite`, `light-beam-ribbon`, `popup-spread`, `creator-hand`, `paper-critter-rig`, `pictogram-figure`, `aurora`, `bubbles`, `caustics-godrays`, `curl-flow`, `embers`, `falling-petals`, `fireworks`, `flow-lines`, `fog-clouds`, `insect-flight`, `lightning-flash`, `mesh-gradient-bg`, `rain`, `snowfall`, `starfield-night`, `window-glow-sequence`, `backlit-cutout`, `circuit-traces`, `confetti-burst`, `electric-arcs`, `emote-pop`, `eyes-blink`, `fire-flames`, `giant-eye-reveal`, `grease-pencil-mark`, `impact-frame`, `ink-blot-stop`, `long-exposure-trails`, `magnifier-loupe`, `marker-ring-arrow`, `scribble-ball`, `smear-frame`, `smoke-puffs`, `sparkle-burst`, `star-glint`, `sticker-cutout`, `swirl-portal`, `vhs-crt-pass`, `candy-set-backdrop`, `agent-roster`, `cam-chip-sync-badge`, `day-ring-dial`, `event-feed`, `fight-hud`, `game-hud`, `hud-chrome`, `mission-clock`, `news-bug-source-tag`, `prompt-wall`, `spec-chip-rail`, `target-lock-box`, `target-lock`, `film-look`, `sticker-slap`, `coverage-route`, `beat-dance`, `chomp-lid`, `emotion-idle-beat`, `emotion-sheet`, `emotion-timeline`, `mascot-nib`, `smear-trail`, `beat-camera`, `beat-grid`, `engraving-hatch`, `guilloche-note`, `lyric-on-path`, `lyric-timing`, `lyric-video`, `shutter-blur`, `stage-curtain`, `time-stutter`, `token-sampler-prompt`, `token-tree`, `width-pressure-type`, `sunburst-hero`, `comet-pulse-guide`, `ink-brush-stroke`, `motif-grid-pattern`, `nib-follow-camera`, `papercut-rosette`, `toon-cel-shape`, `blur-in-title`, `chapter-header`, `comic-burst`, `end-card-credits`, `glyph-orbit-logo`, `kinetic-captions`, `mask-rise-title`, `news-strap`, `number-counter`, `paper-strip-title`, `rundown-board`, `scene-tag`, `stamp-slam`, `sting-bug`, `story-caption-box`, `typewriter-code`, `typewriter-signature`, `agent-log-panel`, `cursor-driver`, `glass-lesson-card`, `keystroke-hud`, `liquid-glass-lens`, `notification-stack`, `planned-vs-heard-checklist`, `player-toolbar` |
+| overlay (transparent background — put it on top of other motions or your page) | `globe-3d`, `holo-solid-ignite`, `light-beam-ribbon`, `popup-spread`, `creator-hand`, `paper-critter-rig`, `pictogram-figure`, `certificate-seal`, `form-fill-submit`, `receipt-print`, `aurora`, `bubbles`, `caustics-godrays`, `curl-flow`, `embers`, `falling-petals`, `fireworks`, `flow-lines`, `fog-clouds`, `insect-flight`, `lightning-flash`, `mesh-gradient-bg`, `rain`, `snowfall`, `starfield-night`, `window-glow-sequence`, `backlit-cutout`, `circuit-traces`, `confetti-burst`, `electric-arcs`, `emote-pop`, `eyes-blink`, `fire-flames`, `giant-eye-reveal`, `grease-pencil-mark`, `impact-frame`, `ink-blot-stop`, `long-exposure-trails`, `magnifier-loupe`, `marker-ring-arrow`, `scribble-ball`, `smear-frame`, `smoke-puffs`, `sparkle-burst`, `star-glint`, `sticker-cutout`, `swirl-portal`, `vhs-crt-pass`, `candy-set-backdrop`, `agent-roster`, `cam-chip-sync-badge`, `day-ring-dial`, `event-feed`, `fight-hud`, `game-hud`, `hud-chrome`, `mission-clock`, `news-bug-source-tag`, `prompt-wall`, `spec-chip-rail`, `target-lock-box`, `target-lock`, `film-look`, `sticker-slap`, `choropleth-fill`, `city-zoom-label`, `coverage-route`, `elevation-profile`, `flight-arcs`, `pin-drop-cluster`, `beat-dance`, `chomp-lid`, `emotion-idle-beat`, `emotion-sheet`, `emotion-timeline`, `mascot-nib`, `mascot-thinking`, `mascot-thumbs-up`, `mascot-wave-hello`, `smear-trail`, `beat-camera`, `beat-grid`, `engraving-hatch`, `guilloche-note`, `lyric-on-path`, `lyric-timing`, `lyric-video`, `shutter-blur`, `stage-curtain`, `time-stutter`, `token-sampler-prompt`, `token-tree`, `width-pressure-type`, `colorway-swap`, `feature-callout-orbit`, `price-tag-drop`, `spec-compare-table`, `sunburst-hero`, `unbox-lid-lift`, `comet-pulse-guide`, `ink-brush-stroke`, `motif-grid-pattern`, `nib-follow-camera`, `papercut-rosette`, `toon-cel-shape`, `blur-in-title`, `chapter-header`, `comic-burst`, `end-card-credits`, `glyph-orbit-logo`, `kinetic-captions`, `mask-rise-title`, `news-strap`, `number-counter`, `paper-strip-title`, `rundown-board`, `scene-tag`, `stamp-slam`, `sting-bug`, `story-caption-box`, `typewriter-code`, `typewriter-signature`, `bokeh-drift`, `light-leak-wash`, `pattern-scroll`, `agent-log-panel`, `cursor-driver`, `glass-lesson-card`, `keystroke-hud`, `liquid-glass-lens`, `notification-stack`, `planned-vs-heard-checklist`, `player-toolbar` |
 | seamless loop | `iso-bar-chart`, `embers`, `sonar-ping` |
-| takes your image (`src` / `images` / `heroSrc`) | `pointcloud-orbit`, `beat-montage`, `crowd-tracks`, `ground-plane-ruler`, `map-route`, `microscope-dive`, `science-reticle`, `thumbnail-mosaic`, `mugshot-height-chart`, `depth-descent`, `lamp-screen`, `paper-diorama`, `studio-sweep`, `topdown-terrain`, `window-glow-sequence`, `beat-punch-zoom`, `crayon-wax-shader`, `focus-desaturate`, `frame-blend-timelapse`, `frame-breakout`, `freeze-frame-brackets`, `giant-eye-reveal`, `glass-crack-mend`, `long-exposure-trails`, `loupe-magnify`, `magnifier-loupe`, `swirl-portal`, `theatre-gate`, `vhs-crt-pass`, `loot-reveal`, `rocket-to-moon`, `callout-labels`, `cam-chip-sync-badge`, `target-lock-box`, `target-lock`, `ascii-image-grid`, `autofocus-hunt`, `brush-stroke-reveal`, `comic-halftone`, `dot-matrix`, `duotone`, `film-look`, `glass-pane-grid`, `glitch-image`, `grid-multiply`, `handscroll-reveal`, `ken-burns`, `knife-colour-relay`, `knife-paint-plate`, `light-sweep`, `negative-develop-reveal`, `perspective-flatten`, `photomontage-tower`, `pixel-dither`, `press-lift`, `proportion-sweep`, `riso-plate-reveal`, `spinning-headline`, `split-grid-countdown`, `sticker-cutout-burst`, `telestrator-freeze`, `tilt-shift-diorama`, `woodblock-print-reveal`, `woodcut-carve`, `xray-scan`, `map-mask-reveal`, `audio-spectrum`, `guilloche-note`, `frost-to-clear`, `sunburst-hero`, `scissor-cut`, `sonar-ping`, `blur-in-title`, `bouncing-ball-singalong`, `chapter-header`, `comic-burst`, `diagonal-band-title`, `end-card-credits`, `flipbook-riffle-outro`, `glyph-orbit-logo`, `halftone-exhibit-numeral`, `hanazi-caption`, `letters-become-image`, `logo-assemble`, `mask-rise-title`, `number-counter`, `stamp-slam`, `story-caption-box`, `typewriter-code`, `browser-mockup`, `device-mockup`, `sms-thread`, `split-compare`, `tv-wall-switch-on`, `versus-roster` |
+| takes your image (`src` / `images` / `heroSrc`) | `pointcloud-orbit`, `crash-zoom`, `dolly-zoom`, `orbit-parallax`, `whip-pan`, `beat-montage`, `crowd-tracks`, `ground-plane-ruler`, `map-route`, `microscope-dive`, `science-reticle`, `thumbnail-mosaic`, `mugshot-height-chart`, `depth-descent`, `lamp-screen`, `paper-diorama`, `studio-sweep`, `topdown-terrain`, `window-glow-sequence`, `beat-punch-zoom`, `crayon-wax-shader`, `focus-desaturate`, `frame-blend-timelapse`, `frame-breakout`, `freeze-frame-brackets`, `giant-eye-reveal`, `glass-crack-mend`, `long-exposure-trails`, `loupe-magnify`, `magnifier-loupe`, `swirl-portal`, `theatre-gate`, `vhs-crt-pass`, `loot-reveal`, `rocket-to-moon`, `callout-labels`, `cam-chip-sync-badge`, `target-lock-box`, `target-lock`, `ascii-image-grid`, `autofocus-hunt`, `brush-stroke-reveal`, `comic-halftone`, `dot-matrix`, `duotone`, `film-look`, `glass-pane-grid`, `glitch-image`, `grid-multiply`, `handscroll-reveal`, `ken-burns`, `knife-colour-relay`, `knife-paint-plate`, `light-sweep`, `negative-develop-reveal`, `perspective-flatten`, `photomontage-tower`, `pixel-dither`, `press-lift`, `proportion-sweep`, `riso-plate-reveal`, `spinning-headline`, `split-grid-countdown`, `sticker-cutout-burst`, `telestrator-freeze`, `tilt-shift-diorama`, `woodblock-print-reveal`, `woodcut-carve`, `xray-scan`, `map-mask-reveal`, `audio-spectrum`, `guilloche-note`, `colorway-swap`, `feature-callout-orbit`, `frost-to-clear`, `sunburst-hero`, `unbox-lid-lift`, `scissor-cut`, `sonar-ping`, `blur-in-title`, `bouncing-ball-singalong`, `chapter-header`, `comic-burst`, `diagonal-band-title`, `end-card-credits`, `flipbook-riffle-outro`, `glyph-orbit-logo`, `halftone-exhibit-numeral`, `hanazi-caption`, `letters-become-image`, `logo-assemble`, `mask-rise-title`, `number-counter`, `stamp-slam`, `story-caption-box`, `typewriter-code`, `browser-mockup`, `device-mockup`, `sms-thread`, `split-compare`, `tv-wall-switch-on`, `versus-roster` |
 | heavy (three.js / WebGL — prefer an exported video on mobile web) | `accum-render-3d`, `brick-collapse-physics`, `brick-fx-fire-smoke`, `brick-rebuild-morph`, `brick-snap-build`, `chart-to-installation`, `cloner-bed-ripple`, `colour-ignition-wave`, `exploded-stack`, `exploded-view-3d`, `glass-strip-sweep`, `globe-3d`, `iso-blocks-3d`, `iso-city-build`, `jelly-type-drop`, `last-object-drop`, `liminal-corridor-3d`, `ocean-surface-3d`, `particle-shape-morph`, `plan-tilt`, `pointcloud-orbit`, `product-turntable-3d`, `shockwave-flip-field`, `stack-plates-3d`, `terrain-build-3d`, `voxel-burst-swirl`, `voxel-diorama`, `wireframe-build`, `dash-flow-field` |
 
 ## recipes
@@ -1844,7 +1844,7 @@ Every scene transition in the library, one after another, between contrasting la
 **Default length:** 4266 frames (142.2 s @ 30 fps)
 
 **Roles:** transition · **Mood:** —  
-**Capabilities:** paints its own background · text: `title` · weight: light  
+**Capabilities:** paints its own background · text: `title`, `subtitle`, `panels` · weight: light  
 
 | prop | default | notes |
 |---|---|---|
@@ -1853,6 +1853,11 @@ Every scene transition in the library, one after another, between contrasting la
 | `holdFrames` | `36` | frames each panel holds between transitions |
 | `transitionFrames` | `0` | length of every transition in frames; 0 = each type's recommended length |
 | `title` | `"Transitions"` | label on the opening panel |
+| `subtitle` | `"{n} scene transitions · src/transitions.tsx"` | note under the opening label; {n} = number of transitions |
+| `variantLabel` | `"variant ·"` | word before the variant name on a panel |
+| `panels` | `[["#1F2A44","#F4EFE6","#F2C84B"],["#F2C84B","#1A1A1A","#E…` | [[background, ink, accent], ...] colours of the labelled panels, cycled |
+| `notes` | `{}` | overrides for the small note on each panel, keyed "type" or "type:variant" |
+| `background` | `"#000000"` | colour behind the series (normally covered) |
 
 ## shape
 
@@ -2936,6 +2941,8 @@ A solid flat icon (mug, sun, paper plane, pin, heart, star) morphs into the next
 | `rotate` | `22` | degrees of twist at mid-morph (18-26) |
 | `points` | `160` | outline resolution of the body (more = smoother) |
 | `showLabels` | `true` | show the icon name and progress dots |
+| `ink` | `"#1b1b2f"` | label and progress-dot colour (blended 50 % with the icon colour) |
+| `shadow` | `"#000000"` | ground shadow colour |
 
 ### `sketch-shade-in` — Sketch shade-in
 
@@ -4812,6 +4819,17 @@ Underwater descent infographic: a bobbing brass bathysphere hangs on its cable w
 | `hud` | `true` | show the counter and zone titles |
 | `ruler` | `true` | show the log depth ruler |
 | `seed` | `"abyss"` | random seed |
+| `background` | `"#000"` | colour behind the water (normally fully covered) |
+| `waterTop` | `[]` | water colour at the top of the frame per depth, 8 hex colours for depths 0/100/300/800/1500/3000/4500/6000 m; [] = default ocean ramp |
+| `waterBottom` | `[]` | water colour at the bottom of the frame per depth (8 hex colours), [] = default ocean ramp |
+| `hudInk` | `"#97CEE8"` | counter digits / ruler pointer colour |
+| `hudDim` | `"#51758B"` | HUD label colour |
+| `hudAccent` | `"#77B9D8"` | HUD unit and value colour |
+| `rulerColor` | `"#2A7191"` | depth ruler line / tick colour |
+| `rulerActive` | `"#61ACCC"` | depth ruler highlighted tick colour |
+| `titleColor` | `"#DDEBF1"` | zone title text colour |
+| `noteColor` | `"#9DC3D8"` | zone subtitle text colour |
+| `ruleColor` | `"#6FA5BC"` | underline rule colour under the zone title |
 
 ### `embers` — Embers & gold flecks
 
@@ -5150,6 +5168,12 @@ A tall leaded window with four lancets and a rose in a dark ashlar wall: a soft 
 | `wall` | `"#3a3942"` | stone colour |
 | `lead` | `"#14131a"` | lead came colour |
 | `seed` | `4` | wall and dust seed |
+| `background` | `"#08070b"` | page colour behind the wall (normally covered) |
+| `floor` | `"#15131a"` | floor colour under the window |
+| `recess` | `"#07060a"` | dark window recess colour (behind the glass) |
+| `titleColor` | `"#55525e"` | carved title colour (tinted by the sun colour) |
+| `captionColor` | `"#4a4752"` | pane caption colour when unlit (tinted by the sun colour) |
+| `dustColor` | `"#ffffff"` | dust mote colour in the shafts |
 
 ### `lightbox-stack` — Paper-cut lightbox (纸雕灯)
 
@@ -5694,6 +5718,16 @@ A simple procedural hillside village whose sky gradient and colour grade keyfram
 | `moon` | `true` | moon rising at night |
 | `hills` | `["#9db4c4","#7fa37a","#5f8f4f"]` | hill colours far, mid, near (before grading) |
 | `seed` | `"village"` | random seed |
+| `wallColor` | `"#e8dcc8"` | house wall colour |
+| `wallShade` | `"#d4c6ae"` | house side-wall (shaded) colour |
+| `roofColor` | `"#b5533c"` | roof colour A (houses alternate randomly with B) |
+| `roofColor2` | `"#8b5a4a"` | roof colour B |
+| `doorColor` | `"#7a5a44"` | door colour |
+| `windowColor` | `"#5a6470"` | window glass colour by day |
+| `chimneyColor` | `"#6d4a3a"` | chimney colour |
+| `lightColor` | `"#ffd27a"` | lit window colour at night |
+| `lightGlow` | `"#ffb84a"` | lit window glow colour |
+| `nightColor` | `"#0C1A2E"` | night multiply layer colour |
 | `season` | `"off"` | off (day to night) \| cycle (spring -> summer -> autumn -> winter with petals, leaves, snow) \| spring \| summer \| autumn \| winter (one fixed season) |
 | `seasonFrames` | `0` | cycle: frames per season (0 = split the duration in four; 2-4 s each is typical) |
 | `seasonFade` | `18` | cycle: crossfade frames between seasons (≈30 in the source) |
@@ -6302,6 +6336,15 @@ A chibi explorer in a bucket hat walks in place at 37.5 % W while procedural era
 | `badge` | `true` | show the year / title badge top-right |
 | `confettiCount` | `36` | confetti capsules per seam crossing |
 | `grain` | `true` | global speckle grain overlay |
+| `background` | `"#1A1410"` | colour behind the era panels (only visible at the extreme edges) |
+| `badgeColor` | `"#F8F3EA"` | year / title badge fill colour |
+| `badgeInk` | `"#1F2018"` | year / title badge text colour |
+| `confettiColors` | `[]` | confetti colours (hex list); [] = the palette of the era being entered |
+| `vaseText` | `"ΝΙΚΑ"` | Greek-vase panel banner text (default 'ΝΙΚΑ') |
+| `arcadeScore` | `"SCORE 002000"` | 8-bit panel HUD score text |
+| `arcadeLives` | `"● x07"` | 8-bit panel HUD coin/lives text |
+| `vaporTitle` | `"AESTHETIC"` | vaporwave panel big title |
+| `vaporStamp` | `"PLAY ▶ OCT. 04 2011"` | vaporwave panel small VHS-style stamp text |
 
 ## data
 
@@ -7599,6 +7642,8 @@ Rounded, shadowed browser window on a blue-grey backdrop showing a landing page 
 | `ctas` | `["Get started","Book a demo"]` | button labels; the first is the filled primary the cursor clicks |
 | `logos` | `["Vertex","Northwind","Orbit","Halcyon","Kitebase","Stack…` | logo strip names |
 | `features` | `["Living heroes","Pixel-perfect UI","Ships anywhere"]` | feature card titles shown after the scroll |
+| `featuresTitle` | `"Everything moves together"` | section heading above the feature cards (scroll > 0) |
+| `featureBody` | `"Ship faster with a workflow that keeps every frame, file…` | body text repeated on every feature card (scroll > 0) |
 | `heroSrc` | `""` | public/ image for the hero (empty = procedural etched lighthouse scene) |
 | `heroTint` | `true` | gradient-map the hero image to ink/paper so it matches the page |
 | `glint` | `[0.27,0.12]` | [x, y] fraction of the hero where the star glint sits (image hero only) |
@@ -8308,6 +8353,24 @@ Screen-Studio-style camera inside a mock app recording: eased auto-zoom pushes i
 | `keys` | `[{"t":0.9,"x":0.644,"y":0.1,"zoom":2.3,"dur":0.9,"click":…` | camera keyframes {t seconds the move starts, x, y focus on the window (0-1), zoom (>= 1), dur seconds, click: cursor clicks on arrival}; short dur = whip-pan with motion blur |
 | `appName` | `"Northwind"` | name shown in the mock app |
 | `query` | `"q3 revenue"` | text typed into the search field after the first click |
+| `windowTitle` | `"Reports"` | title-bar suffix after the app name ("<appName> - <windowTitle>") |
+| `sidebarItems` | `["Overview","Reports","Customers","Invoices","Settings"]` | sidebar menu labels |
+| `sidebarActive` | `1` | index of the highlighted sidebar item |
+| `heading` | `"Q3 revenue"` | page heading above the search field |
+| `searchPlaceholder` | `"Search reports"` | placeholder in the search field before typing |
+| `suggestions` | `["Q3 revenue by region","Q3 revenue forecast"]` | dropdown suggestions that appear while the query types |
+| `kpis` | `[{"label":"Revenue","value":"$48.2k","delta":"+12.4%"},{"…` | KPI cards {label, value, delta, color? (delta colour)} |
+| `chartTitle` | `"Revenue by week"` | title of the chart card |
+| `tooltipLabel` | `"Week 9"` | small label in the chart tooltip |
+| `tooltipValue` | `"$48,210"` | value in the chart tooltip |
+| `tableRows` | `[["Acme Retail","Paid","$12,480"],["Globex Labs","Pending…` | table rows [name, status, amount]; status "Paid" = green, "Pending" = amber, anything else = red |
+| `inspectorTitle` | `"Publish"` | heading of the right-hand inspector |
+| `inspectorNote` | `"Share this report with your team."` | grey line under the inspector heading |
+| `fields` | `[["Visibility","Team only"],["Schedule","Every Monday, 9:…` | inspector fields [label, value] (label is upper-cased) |
+| `publishLabel` | `"Publish report"` | primary button label at rest |
+| `publishingLabel` | `"Publishing..."` | primary button label while pressed |
+| `publishedLabel` | `"Published ✓"` | primary button label after the click completes |
+| `toastText` | `"Report shared with 4 people"` | text of the toast that slides in after publishing |
 | `accent` | `"#5B5FEF"` | app accent colour |
 | `wallpaper` | `["#3B5BDB","#C2255C"]` | two hex colours of the desktop wallpaper gradient |
 | `cursor` | `true` | show the gliding cursor with click ripples |
@@ -8474,6 +8537,12 @@ A cosy wooden shelf wall of five retro CRT TVs (3 over 2) switches on one by one
 | `cabinet` | `"#C98D58"` | TV cabinet wood colour |
 | `push` | `0.03` | slow camera push-in amount |
 | `seed` | `6` | seed for cassette stacks |
+| `shelfColor` | `"#C08A55"` | shelf board colour |
+| `deskColor` | `"#D9A46A"` | foreground table top colour |
+| `deskShade` | `"#B98451"` | foreground table colour at the bottom |
+| `ledColor` | `"#E7553E"` | power LED colour on each TV |
+| `plantColor` | `"#7FA45E"` | plant leaf colour |
+| `spineColors` | `["#7C6E8A","#C9584A","#4F7F9A","#D29A3A","#5F8A6A","#3F50…` | cassette spine colours (hex list, picked at random per cassette) |
 
 ### `ui-accumulation-storm` — UI accumulation storm
 
@@ -9215,6 +9284,121 @@ One tall layout holding every section; a virtual camera flies between stations w
 | `cta` | `"Start free today"` | button text at the bottom |
 | `blur` | `true` | speed-proportional camera blur while flying |
 
+### `crash-zoom` — Crash zoom
+
+![crash-zoom](../gallery/crash-zoom.jpg)
+
+Snap punch-in on a point of interest: expo-out zoom, ghosted zoom blur, decaying shake, radial speed lines and a flash.
+
+**Use for:** Comedic or dramatic emphasis on a face, product, number or object in any image; reaction beats; "wait, what?" moments.  
+**Rebuilt from:** camera-vocabulary: crash zoom / snap zoom  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** paints its own background · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `src` | `""` | public/ path or URL (empty = procedural scene) |
+| `hits` | `[[36,2.1,0.5,0.4],[96,3.4,0.5,0.36]]` | [[frame, zoom, x, y], ...] each punch-in; x,y = target point 0..1 |
+| `snapFrames` | `5` | frames each snap takes (3-6 = brutal) |
+| `shake` | `14` | initial camera shake in u (0 = none) |
+| `shakeDecay` | `7` | frames for the shake to decay |
+| `speedLines` | `true` | radial manga speed lines on each hit |
+| `lineColor` | `"#ffffff"` | speed line colour |
+| `flash` | `0.35` | white flash strength on a hit (0 = off) |
+| `creep` | `0.05` | slow push-in applied before the first hit (e.g. 0.05) |
+| `release` | `24` | frames to ease back out after the last hit (0 = stay punched in) |
+| `releaseAfter` | `30` | frames to wait after the last hit before releasing |
+| `palette` | `["#ff7a59","#6a4cff","#14b8a6","#ffd166"]` | procedural scene colours |
+| `accent` | `"#ffd166"` | procedural subject accent |
+| `background` | `"#000000"` | base colour |
+
+### `dolly-zoom` — Dolly zoom (vertigo)
+
+![dolly-zoom](../gallery/dolly-zoom.jpg)
+
+Vertigo effect: the subject holds its size while the background stretches behind it, with a tightening vignette.
+
+**Use for:** A moment of dread, realisation or "oh no" on a portrait, product or place photo; thriller and true-crime beats; dramatic reveal punctuation.  
+**Rebuilt from:** camera-vocabulary: dolly zoom / Hitchcock zoom  
+**Default length:** 120 frames (4.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** paints its own background · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `src` | `""` | public/ path or URL of the scene/background (empty = procedural scene) |
+| `subjectSrc` | `""` | optional transparent cut-out PNG kept at constant size (empty = feathered centre of src) |
+| `direction` | `"in"` | in = background swells, out = background relaxes back |
+| `amount` | `1.7` | final background scale (1.3 gentle, 2.2 extreme) |
+| `startAt` | `0` | frame the move begins |
+| `hold` | `14` | frames held still before the dolly |
+| `dollyFrames` | `78` | length of the dolly |
+| `pingpong` | `false` | dolly there and back |
+| `subjectSize` | `0.34` | size of the kept centre region when only src is given (0..1) |
+| `feather` | `0.45` | softness of that cut-out edge (0..1) |
+| `tension` | `0.6` | vignette tightening as the dolly runs (0 = none) |
+| `palette` | `["#ff7a59","#6a4cff","#14b8a6","#ffd166"]` | colours for the procedural scene |
+| `background` | `"#000000"` | base colour behind the layers |
+| `accent` | `"#ffd166"` | procedural subject accent |
+
+### `orbit-parallax` — Orbit parallax
+
+![orbit-parallax](../gallery/orbit-parallax.jpg)
+
+2.5D camera orbit around a cut-out subject: depth layers slide against each other while the subject turns slightly.
+
+**Use for:** Bringing a still product, person or character photo to life; hero images and portfolio shots; photo-to-3D-feel loops.  
+**Rebuilt from:** camera-vocabulary: orbit / 2.5D parallax  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo  
+**Capabilities:** paints its own background · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `src` | `""` | background picture (empty = procedural layered scene) |
+| `subjectSrc` | `""` | transparent PNG cut-out subject (empty = procedural figure) |
+| `orbitDeg` | `14` | subject turn at the extremes of the orbit, degrees |
+| `cycles` | `1` | full left-right-left orbits over the clip (loops seamlessly) |
+| `phase` | `0` | starting phase in radians |
+| `depth` | `1` | parallax strength multiplier |
+| `tilt` | `1` | vertical bob multiplier |
+| `subjectScale` | `1` | subject size multiplier |
+| `foreground` | `true` | procedural foreground layer (when no src) |
+| `shadow` | `true` | contact shadow under the subject |
+| `palette` | `["#ff7a59","#6a4cff","#14b8a6","#ffd166"]` | procedural scene colours |
+| `accent` | `"#ffd166"` | procedural subject accent |
+| `background` | `"#000000"` | base colour |
+
+### `rack-focus` — Rack focus
+
+![rack-focus](../gallery/rack-focus.jpg)
+
+Focus pulls between a foreground, a subject and a background layer: blur follows depth, bokeh blooms, lens breathes.
+
+**Use for:** Shifting attention from one thing to another in a still-image scene; cinematic reveals; product-then-environment shots; drama beats.  
+**Rebuilt from:** camera-vocabulary: rack focus / focus pull  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** cinematic  
+**Capabilities:** paints its own background · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `backSrc` | `""` | background picture (empty = procedural) |
+| `subjectSrc` | `""` | transparent PNG subject (empty = procedural figure) |
+| `frontSrc` | `""` | transparent PNG foreground (empty = procedural blades) |
+| `focusKeys` | `[[0,0.5],[30,0.5],[60,0],[90,0],[122,1]]` | [frame, focus] keys: 0 = foreground, 0.5 = subject, 1 = background |
+| `maxBlur` | `46` | blur at the furthest depth in u |
+| `breathing` | `1` | lens breathing amount (0 = none) |
+| `bokeh` | `true` | bokeh discs bloom on the blurred background |
+| `palette` | `["#ff7a59","#6a4cff","#14b8a6","#ffd166"]` | colours for procedural layers / bokeh |
+| `accent` | `"#ffd166"` | procedural subject accent |
+| `background` | `"#000000"` | base colour |
+
 ### `time-remap-clock` — Time remap clock
 
 ![time-remap-clock](../gallery/time-remap-clock.jpg)
@@ -9239,7 +9423,66 @@ Explains and demonstrates the punctuation-hold clock: two balls on a track, one 
 | `remapColor` | `"#FFB44D"` | remapped clock colour |
 | `title` | `"Time remap"` | heading |
 
+### `whip-pan` — Whip pan
+
+![whip-pan](../gallery/whip-pan.jpg)
+
+The camera whips sideways to the next picture: expo-fast slide, directional motion blur, speed streaks, a settle.
+
+**Use for:** Energetic cuts between product shots, locations, slides or portfolio images; a swish-pan transition inside one clip; travel and event recaps.  
+**Rebuilt from:** camera-vocabulary: whip pan / swish pan  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo  
+**Capabilities:** paints its own background · text: `labels` · image: `images` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `images` | `[]` | public/ paths or URLs, shown in order and looping (empty = procedural scenes) |
+| `scenes` | `3` | how many procedural scenes when images is empty |
+| `labels` | `[]` | optional caption per picture |
+| `direction` | `"left"` | pan direction: left \| right \| up \| down |
+| `hold` | `34` | frames each picture holds still |
+| `whipFrames` | `12` | frames the whip takes (lower = snappier) |
+| `startAt` | `0` | frame the first hold begins |
+| `maxBlur` | `70` | peak directional blur in u |
+| `streaks` | `true` | speed streak lines during the whip |
+| `flash` | `0.12` | accent flash strength at the peak (0 = off) |
+| `punch` | `0.04` | extra scale at the peak of the whip |
+| `palette` | `["#ff7a59","#6a4cff","#14b8a6","#ffd166"]` | colours for procedural scenes |
+| `ink` | `"#ffffff"` | caption colour |
+| `accent` | `"#ffffff"` | flash / subject accent colour |
+| `fontFamily` | `"stub"` | caption font |
+
 ## texture
+
+### `bokeh-drift` — Bokeh drift
+
+![bokeh-drift](../gallery/bokeh-drift.jpg)
+
+Soft depth-of-field light discs in three depth bands drifting through the frame with a gentle twinkle; circle or hexagon bokeh.
+
+**Use for:** Dreamy or festive backgrounds behind titles, night-city and party moods, wedding / event / luxury intros; overlay on footage with a transparent background.  
+**Rebuilt from:** texture-vocabulary: bokeh light backgrounds  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** backdrop, accent · **Mood:** 3d, playful, night  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `colors` | `["#ffd9a0","#ff9ec7","#9ad7ff","#ffffff"]` | light colours picked per disc |
+| `count` | `46` | number of discs (max 160) |
+| `direction` | `70` | drift direction in degrees (0 = right, 90 = up, 180 = left) |
+| `speed` | `0.6` | drift distance over the clip (loops by wrap-around) |
+| `size` | `1` | disc size multiplier |
+| `softness` | `3.5` | blur of the discs in u (higher = more defocused) |
+| `ring` | `0.6` | bright rim on each disc (0 = flat disc, 1 = strong lens ring) |
+| `twinkle` | `0.5` | brightness flicker amount (0..1) |
+| `shape` | `"circle"` | circle \| hex (aperture blades) |
+| `blend` | `"screen"` | screen \| normal \| plus-lighter |
+| `seed` | `3` | layout seed |
+| `background` | `"#0b0a1c"` | CSS background; "transparent" = overlay on footage |
 
 ### `hide-carve-patterns` — Hide-carve patterns (openwork library)
 
@@ -9264,6 +9507,60 @@ The openwork vocabulary of shadow theatre on lit cloth: crescent fish-scale hole
 | `startAt` | `8` | frame the first piece presses on |
 | `stagger` | `7` | frames between pieces |
 | `seed` | `5` | variation seed |
+
+### `light-leak-wash` — Light-leak wash
+
+![light-leak-wash](../gallery/light-leak-wash.jpg)
+
+Analogue film light leaks: hot colour blobs bleed in from the frame edges, swell, drift and fall away, screen-blended.
+
+**Use for:** Warm nostalgic transitions and accents over footage or photos, wedding / travel / memory edits, title cards that need an analogue glow; use transparent background as an overlay.  
+**Rebuilt from:** texture-vocabulary: film light leaks  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** backdrop, accent · **Mood:** cinematic  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `colors` | `["#ff6a1a","#ff2d55","#ffb347","#ff8a3d"]` | leak colours (cycled per leak; first of each pair is the body, the next the hot core) |
+| `leaks` | `3` | how many leaks (1-8) |
+| `leakAt` | `[]` | start frames of each leak (empty = spaced evenly) |
+| `leakFrames` | `70` | life of each leak in frames |
+| `intensity` | `0.85` | brightness 0..1 |
+| `softness` | `40` | blur of the blobs in u |
+| `streak` | `true` | thin light streak that rides each leak |
+| `grain` | `0.25` | film grain overlay opacity (0 = none) |
+| `seed` | `4` | layout seed |
+| `background` | `"#120c0f"` | CSS background; "transparent" = overlay on footage |
+
+### `pattern-scroll` — Pattern scroll
+
+![pattern-scroll](../gallery/pattern-scroll.jpg)
+
+Seamless tiling geometric background (dots, lines, checks, waves, diamonds, plus) scrolling in any direction, loop-perfect.
+
+**Use for:** Brandable looping backgrounds behind titles, lower thirds, slides and web sections; retro / Memphis / editorial wallpaper; set background transparent for a pattern overlay.  
+**Rebuilt from:** texture-vocabulary: scrolling pattern backgrounds  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** backdrop, accent · **Mood:** paper  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `pattern` | `"dots"` | dots \| lines \| checks \| waves \| diamonds \| plus |
+| `cell` | `90` | tile size in u (min 26) |
+| `angle` | `-20` | rotation of the whole pattern, degrees (also sets scroll direction) |
+| `speed` | `0.6` | cells per second along the pattern x axis; whole number of cells per clip loops seamlessly |
+| `alternate` | `false` | every second row scrolls the opposite way |
+| `thickness` | `0.34` | mark size / stroke weight (fraction of a cell) |
+| `accentEvery` | `7` | every Nth tile uses the accent colour (0 = none) |
+| `pulse` | `0` | size breathing wave across the pattern (0 = none) |
+| `fade` | `0` | fade the pattern out towards the edges (0..1) |
+| `background` | `"#101826"` | CSS background; "transparent" = overlay |
+| `ink` | `"#24344f"` | pattern colour |
+| `accent` | `"#ff7a59"` | accent tile colour |
 
 ## 3d
 
@@ -9321,6 +9618,13 @@ A closed cloth hardback on a felt desk mat swings its cover open round the spine
 | `figureCaption` | `"Fig. 1  Eight things, each with a store of its own."` | italic caption under the right-page figure |
 | `figureSrc` | `""` | optional image for the right-page figure; procedural ink rack drawing (drawn on) if empty |
 | `contents` | `["Energy stores","Moving energy","Heat and light","Spring…` | chapter titles on the contents leaf |
+| `editionLabel` | `"First edition"` | small caps line at the foot of the title page |
+| `contentsTitle` | `"Contents"` | heading of the contents leaf |
+| `prefaceEyebrow` | `"How to use this book"` | small caps eyebrow on the preface leaf |
+| `prefaceTitle` | `"Look, guess, then check"` | italic heading on the preface leaf |
+| `hintLabel` | `"Why?"` | small caps label of the taped hint card on the left page |
+| `hintTitle` | `"Lift the flap after you guess"` | bold line on the hint card |
+| `hintNote` | `"lift here ↘"` | handwritten note at the foot of the hint card |
 | `turns` | `2` | leaves that turn after the cover (0-2) |
 | `openAt` | `12` | frame the cover starts to open (source 0.40 s) |
 | `speed` | `1` | timing multiplier for everything after openAt (1 = source) |
@@ -9613,6 +9917,19 @@ An endless low-poly ocean in orthographic view: every triangle glints on its own
 | `boat` | `true` | a small boat circling the islet |
 | `speed` | `1` | wave speed multiplier |
 | `seed` | `3` | facet jitter / star seed |
+| `skyColor` | `""` | sky zenith colour, '' = from the time of day (overrides the whole clip) |
+| `horizonColor` | `""` | sky / haze colour at the horizon, '' = from the time of day |
+| `waterColor` | `""` | deep water colour, '' = from the time of day |
+| `shallowColor` | `""` | shallow rim water colour, '' = from the time of day |
+| `grassColor` | `"#93C96C"` | islet centre tile top colour |
+| `sandColor` | `"#F3DFAB"` | islet ring tile top colour |
+| `sandSideColor` | `"#E2C68E"` | islet ring tile side colour |
+| `grassSideColor` | `"#C99C6E"` | islet centre tile side colour |
+| `treeColor` | `"#3F8A5A"` | big pine lower foliage colour |
+| `tree2Color` | `"#4F9C63"` | big pine upper cone / small pine lower foliage colour |
+| `treeTipColor` | `"#7FC36A"` | small pine upper cone colour |
+| `boatColor` | `"#D9644A"` | boat hull colour |
+| `sailColor` | `"#FBF3E6"` | boat sail colour |
 
 ### `glass-strip-sweep` — Glass strip-light sweep
 
@@ -10521,6 +10838,36 @@ A glowing amber wireframe galleon lifts out of a parchment blueprint part by par
 
 ## document
 
+### `certificate-seal` — Certificate with gold seal
+
+![certificate-seal](../gallery/certificate-seal.jpg)
+
+A certificate: double border draws on, title / recipient name / description settle in, the name and a signature write on left-to-right, then a gold wax-style seal with ribbons stamps down with a shake and a shockwave ring.
+
+**Use for:** Course / award / completion certificates, achievements, "officially certified" beats, diploma and credential reveals.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** nature  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"CERTIFICATE"` | big heading |
+| `subtitle` | `"OF ACHIEVEMENT"` | small caps line under the heading |
+| `preamble` | `"This is proudly presented to"` | line above the name |
+| `name` | `"Alex Morgan"` | recipient name (handwritten style) |
+| `description` | `"for outstanding dedication and craft"` | line below the name |
+| `date` | `"12 March 2026"` | date line at the bottom |
+| `signer` | `"Jordan Lee"` | signature text (handwritten style) |
+| `signerTitle` | `"Program Director"` | caption under the signature line |
+| `sealText` | `"OFFICIAL"` | text on the seal (empty hides it) |
+| `paper` | `"#FAF5E6"` | paper colour |
+| `ink` | `"#2B2A33"` | text colour |
+| `accent` | `"#C9A24B"` | gold: border, seal, subtitle |
+| `background` | `"#1B1D2A"` | backdrop colour or 'transparent' |
+| `startAt` | `4` | frame the certificate starts appearing |
+
 ### `doc-highlight-evidence` — Document highlight evidence
 
 ![doc-highlight-evidence](../gallery/doc-highlight-evidence.jpg)
@@ -10608,6 +10955,34 @@ Five evidence tiles cut in one by one with a flash — a document strip with a h
 | `ground` | `"#14171B"` | board background |
 | `text` | `"#ECEAE4"` | main text / line colour |
 | `seed` | `3` | waveform + document seed |
+
+### `form-fill-submit` — Form fill and submit
+
+![form-fill-submit](../gallery/form-fill-submit.jpg)
+
+A form card fills itself: fields take focus and type their values with a blinking caret, a checkbox ticks, a cursor glides to the button and clicks, the button spins and the card becomes a success state.
+
+**Use for:** Sign-up / contact / booking flow demos, "it only takes seconds" beats, SaaS onboarding and landing-page explainers.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 300 frames (10.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** ui  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Get in touch"` | form heading |
+| `fields` | `[{"label":"FULL NAME","value":"Alex Morgan"},{"label":"EM…` | array of {label, value}; each value is typed in (up to 6 fields) |
+| `checkboxLabel` | `"I agree to the terms"` | checkbox text (empty removes the checkbox) |
+| `buttonLabel` | `"SUBMIT"` | button text |
+| `successTitle` | `"Thank you!"` | heading of the success state |
+| `successText` | `"We will be in touch shortly."` | line under the success heading |
+| `background` | `"#EAE6DD"` | backdrop colour or 'transparent' |
+| `card` | `"#FFFFFF"` | form card colour |
+| `ink` | `"#1D1C25"` | text colour |
+| `accent` | `"#3B5BFF"` | focus ring, checkbox, button and success colour |
+| `speed` | `1` | typing speed multiplier (long text speeds up automatically to stay in about 4 s) |
+| `startAt` | `6` | frame the first field starts |
 
 ### `lift-the-flap` — Lift the flap
 
@@ -10707,6 +11082,37 @@ A round kawaii suspect rises in front of a height chart with cm labels at both e
 | `haloColor` | `"#2E55D6"` | halftone halo ink |
 | `src` | `""` | optional public/ photo shown in a rounded cut-out instead of the drawn suspect |
 | `background` | `"#F4ECDD"` | paper colour |
+
+### `receipt-print` — Receipt print
+
+![receipt-print](../gallery/receipt-print.jpg)
+
+A thermal receipt printer feeds paper up out of its slot one line-feed at a time: store header, itemised lines, computed subtotal / tax / total (highlighted), footer and a barcode.
+
+**Use for:** Order confirmations, expense / cost breakdowns, "the bill came to" beats, pricing explainers, shopping and fintech promos.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** paper  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `items` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `storeName` | `"CORNER CAFE"` | header line (shop / company) |
+| `address` | `"12 Main Street"` | line under the header |
+| `items` | `[{"name":"Flat white","price":4.5,"qty":2},{"name":"Almon…` | array of {name, price, qty?}; subtotal, tax and total are computed |
+| `currency` | `"$"` | currency symbol / prefix |
+| `taxRate` | `0.08` | tax fraction (0.08 = 8%, 0 for none) |
+| `taxLabel` | `"TAX 8%"` | label of the tax line |
+| `totalLabel` | `"TOTAL"` | label of the total line |
+| `footer` | `"THANK YOU!"` | line under the total |
+| `background` | `"#E7E2D8"` | backdrop colour or 'transparent' |
+| `paper` | `"#FBFAF4"` | paper colour |
+| `ink` | `"#24232B"` | print colour |
+| `accent` | `"#E8412A"` | total amount / underline / status light colour |
+| `printer` | `"#3A3D4A"` | printer body colour |
+| `lineFrames` | `8` | frames per printed line (lower = faster) |
+| `startAt` | `18` | frame printing starts |
 
 ### `redaction-bars` — Redaction bars
 
@@ -10828,6 +11234,12 @@ A painterly isometric battlefield with four faction armies of tiny unit sprites 
 | `push` | `2` | camera push-in in %/s |
 | `grass` | `"#7FA35A"` | plateau grass colour |
 | `seed` | `6` | layout seed |
+| `background` | `"#1C2928"` | colour behind the field (normally covered) |
+| `ringColor` | `"#BFE6F0"` | selection ring and status text colour |
+| `arrowColor` | `"#ffffff"` | volley chevron colour |
+| `titleColor` | `"#ffffff"` | title and subtitle text colour |
+| `bracketColor` | `"#E0503C"` | title corner bracket colour |
+| `statusLabel` | `"IDLE"` | small status text next to the selection label |
 
 ### `candy-set-backdrop` — Candy set backdrop
 
@@ -10882,8 +11294,15 @@ A rope fuse along the bottom with one knot per beat; a sparkling spark spawning 
 | `readyText` | `"READY?"` | word shown before the spark is lit |
 | `doneText` | `"GO!"` | word shown when the fuse reaches the icon |
 | `rope` | `"#D9A85A"` | rope colour |
-| `spark` | `"#FFC928"` | spark colour (reserved) |
+| `spark` | `"#FFC928"` | spark star colour |
 | `seed` | `4` | particle seed |
+| `background` | `"#2A0F5C"` | stage ground colour (stage=true) |
+| `rayColor` | `"#3A1A78"` | stage sunburst ray colour |
+| `ink` | `"#1A1030"` | outline colour of the fuse and numerals |
+| `textColor` | `"#ffffff"` | READY? / beat numeral fill colour |
+| `accent` | `"#FFC928"` | numeral colour for the last 2 beats, GO! fill and beat pulse bar |
+| `accent2` | `"#FF2E88"` | hard-shadow colour of READY? and the numeral |
+| `alert` | `"#FF3B3B"` | hard-shadow colour of GO! and the last-2-beats numeral |
 
 ### `lit-pixel-sprite` — Lit pixel sprites
 
@@ -10937,6 +11356,15 @@ A dark rounded toon panel (ink outline, hard shadow) with hero-head icons: on a 
 | `gainText` | `"+1 LIFE"` | slam caption on a gain |
 | `panel` | `"#1B0B45"` | panel fill colour |
 | `seed` | `2` | shard seed |
+| `background` | `"#2A0F5C"` | stage ground colour (stage=true) |
+| `rayColor` | `"#3A1A78"` | stage sunburst ray colour |
+| `ink` | `"#1A1030"` | outline colour of the panel, icons, tab label |
+| `textColor` | `"#ffffff"` | slam caption fill colour |
+| `tabColor` | `"#FFC928"` | label tab colour |
+| `iconColor` | `""` | icon body colour ('' = the icon's own colour: heart red, star gold, pilot cream) |
+| `lossColor` | `"#FF3B3B"` | caption hard-shadow colour on a loss |
+| `lastColor` | `"#FF7A1A"` | caption hard-shadow colour when one life remains |
+| `gainColor` | `"#3BDC5A"` | caption hard-shadow colour on a gain |
 
 ### `loot-reveal` — Loot reveal
 
@@ -11159,6 +11587,16 @@ A fighting-game versus card: blue and red striped panels slam shut along a steep
 | `diagonalDeg` | `70` | split angle from horizontal |
 | `grain` | `true` | spray-grain speckle over everything |
 | `seed` | `7` | speckle seed |
+| `background` | `"#03011B"` | colour behind the card (normally covered) |
+| `nameColor` | `"#F0EBD3"` | fighter name fill colour |
+| `dividerColor` | `"#ffffff"` | white divider line colour |
+| `badgeColor` | `"#03011B"` | VS badge fill colour |
+| `badgeRim` | `"#F3D88A"` | VS badge rim colour |
+| `crescentColor` | `"#F3CE6E"` | gold crescent inside the badge |
+| `badgeGradient` | `["#F9EBA0","#F8CF6B","#F1A64F"]` | VS text gradient, 3 hex colours top to bottom |
+| `topColor` | `"#FCFAE3"` | word above the badge, fill colour |
+| `slamGradient` | `["#FCFAE3","#F8CF6B","#F1A64F"]` | slam word gradient, 3 hex colours top to bottom |
+| `outline` | `"#1A1430"` | VS text outline colour |
 
 ## image
 
@@ -11576,6 +12014,7 @@ The frame splits 1×2 → 2×2 → 3×3 → 4×4 on the beat; each stage lights 
 | `push` | `0.05` | slow zoom per second inside each cell |
 | `grade` | `true` | release-print finish: contrast, desaturation, grain, vignette and 1.85 matte |
 | `seed` | `1` | crop / procedural seed |
+| `background` | `"#000000"` | gutter colour between cells (default black) |
 
 ### `handscroll-reveal` — Handscroll reveal
 
@@ -12100,6 +12539,12 @@ Footage, a still or the built-in demo pitch freezes with a white flash and a sma
 | `labels` | `[{"x":0.06,"y":0.09,"title":"OVERLAP RUN","sub":"SPACE BE…` | label cards: x, y (0..1 top-left), title, sub, color, at |
 | `flash` | `0.6` | white flash strength 0..1 |
 | `seed` | `5` | demo pitch seed |
+| `background` | `"#0b0d0f"` | colour behind the picture (normally covered) |
+| `flashColor` | `"#ffffff"` | freeze flash colour |
+| `cardColor` | `"rgba(8,12,14,0.9)"` | label card background (any CSS colour) |
+| `cardInk` | `"#ffffff"` | label card title colour |
+| `teamAColor` | `"#f4f1e8"` | demo pitch: team A shirt colour |
+| `teamBColor` | `"#27407f"` | demo pitch: team B shirt colour |
 
 ### `tilt-shift-diorama` — Tilt-shift diorama
 
@@ -12293,6 +12738,72 @@ A glowing vertical scan beam (or an inky organic blob / hatched hole) sweeps acr
 
 ## map
 
+### `choropleth-fill` — Choropleth fill (tile map + legend)
+
+An abstract hex/square tile territory fills region by region with a colour ramp driven by values, with labels, count-ups, a gradient legend and a highest-region callout. Regions are generic tiles, not real borders.
+
+**Use for:** Regional comparisons (sales by state, scores by team, adoption by country) when you just need the pattern, not exact geography. Name tiles with `labels`; for real borders use painted-choropleth or a map image.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `labels`, `title`, `subtitle`, `prefix` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `values` | `[12,34,58,41,27,66,83,49,72,91,38,54,19,63,77,45,29,88,52…` | one number per region (also sets how many tiles there are) |
+| `labels` | `["AL","BE","CA","DO","EL","FY","GO","HA","IR","JU","KE","…` | one short label per region (same order as values) |
+| `title` | `"By region"` | headline |
+| `subtitle` | `"Warmer means higher"` | line under the headline |
+| `legendTitle` | `"Score"` | legend caption |
+| `prefix` | `""` | text before legend/callout numbers, e.g. "$" |
+| `suffix` | `""` | text after legend/callout numbers, e.g. "%" |
+| `decimals` | `0` | digits after the decimal point |
+| `shape` | `"hex"` | "hex" or "square" tiles |
+| `colors` | `["#1E2A4A","#2F6DB5","#4CC9F0","#FFB454"]` | colour ramp low -> high (2+ hex colours) |
+| `order` | `"wave"` | fill order: "wave" (left to right), "value" (low to high), "index" |
+| `showValues` | `true` | print the value on every tile |
+| `highlight` | `true` | outline + legend marker for the highest region at the end |
+| `seed` | `4` | changes the territory outline |
+| `speed` | `1` | timeline speed multiplier |
+| `startAt` | `0` | frame to start at |
+| `background` | `"#0B1220"` | background colour or "transparent" |
+| `empty` | `"#16213A"` | unfilled tile colour |
+| `ink` | `"#E8EEF9"` | text colour |
+| `accent` | `"#FFFFFF"` | highlight outline colour |
+| `fontFamily` | `"stub"` | CSS font-family |
+
+### `city-zoom-label` — City zoom + label card
+
+A world map zooms (expo ease, graticule re-scaling) down to a lat/lon, a pin pings, and a label card with name, subtitle and coordinates slides in.
+
+**Use for:** "We are here" / location reveals, store or event locators, travel and news establishing shots, any beat that goes from the world to one place. Set `lat`, `lon`, `label`.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `label`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `lat` | `45` | target latitude (degrees, N positive) |
+| `lon` | `9` | target longitude (degrees, E positive) |
+| `label` | `"Your City"` | place name on the card |
+| `subtitle` | `"Add a one-line description here"` | line under the name |
+| `tag` | `"Location"` | small caps line above the name |
+| `zoom` | `110` | final zoom in px per degree at 1080 scale (world view is ~5; 110 = a region; the baked coastline is simplified, so above ~250 it looks faceted) |
+| `showCoords` | `true` | print the lat/lon on the card |
+| `speed` | `1` | timeline speed multiplier |
+| `startAt` | `0` | frame to start at |
+| `background` | `"#0B1220"` | ocean colour or "transparent" |
+| `land` | `"#17243C"` | land fill |
+| `landStroke` | `"#2F4468"` | coastline, grid and card border colour |
+| `ink` | `"#E8EEF9"` | text colour |
+| `accent` | `"#FF7A59"` | pin / leader colour |
+| `onAccent` | `"#0B1220"` | dot colour inside the pin |
+| `fontFamily` | `"stub"` | CSS font-family |
+| `monoFamily` | `"stub"` | CSS font-family for the coordinates line |
+
 ### `coverage-route` — Coverage route (floor plan)
 
 ![coverage-route](../gallery/coverage-route.jpg)
@@ -12330,6 +12841,69 @@ Top-down mid-century floor plan: a robot route draws itself region by region —
 | `caption` | `"One pass. Every corner."` | caption card after the return ("" to hide) |
 | `showLabels` | `true` | zone labels |
 | `background` | `"#E6D8BC"` | colour outside the room, or "transparent" |
+
+### `elevation-profile` — Elevation profile
+
+A route elevation line draws left to right, coloured by steepness, with a moving marker and live distance / total gain / grade readouts and a peak flag.
+
+**Use for:** Hike, ride, run and race route explainers, stage profiles, any height-versus-distance story. Pass `data` (heights, evenly spaced along the route) and `distance`.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** nature, hud  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle`, `unit` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `data` | `[214,258,275,278,286,314,356,393,403,383,347,324,333,376,…` | elevation samples along the route (any unit, evenly spaced, 2+ numbers) |
+| `distance` | `42` | total route length, shown on the x axis and distance readout |
+| `title` | `"Route profile"` | headline |
+| `subtitle` | `"Distance against elevation"` | line under the headline |
+| `unit` | `"m"` | height unit label (m, ft) |
+| `distUnit` | `"km"` | distance unit label (km, mi) |
+| `colorByGrade` | `true` | colour the line by steepness (accent = steep up, accent2 = flat/down) |
+| `showPeak` | `true` | flag the highest point |
+| `speed` | `1` | timeline speed multiplier |
+| `startAt` | `0` | frame to start at |
+| `background` | `"#0B1220"` | background colour or "transparent" |
+| `ink` | `"#E8EEF9"` | text / axis colour |
+| `accent` | `"#FF7A59"` | steep climbs, area glow, gain readout |
+| `accent2` | `"#4CC9F0"` | flat and downhill colour |
+| `fontFamily` | `"stub"` | CSS font-family |
+| `monoFamily` | `"stub"` | CSS font-family for axis numbers |
+
+### `flight-arcs` — Flight arcs (great-circle routes)
+
+Great-circle arcs fly between lat/lon cities on a flat map: planes (or dots) travel with a glowing trail, cities ping on arrival, a distance counter adds up.
+
+**Use for:** Global reach, shipping and travel routes, network/hub-and-spoke stories, "from here to there" beats; swap `routes` for any lat/lon pairs.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle`, `unit` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `routes` | `[{"from":{"label":"HUB A","lat":40.5,"lon":-74},"to":{"la…` | array of {from:{lat,lon,label?}, to:{lat,lon,label?}}; the camera fits them all |
+| `title` | `"Routes"` | headline, top left |
+| `subtitle` | `"Hub to hub, around the map"` | line under the headline |
+| `unit` | `"km flown"` | label under the distance counter |
+| `marker` | `"plane"` | "plane" or "dot" travelling marker |
+| `lift` | `0.16` | arc height as a fraction of the route length on screen (0 = flat) |
+| `trail` | `0.35` | glowing trail length as a fraction of the route |
+| `stagger` | `18` | frames between route departures |
+| `travel` | `72` | frames each flight takes |
+| `speed` | `1` | timeline speed multiplier |
+| `startAt` | `0` | frame to start at |
+| `showLabels` | `true` | show city labels |
+| `background` | `"#0B1220"` | ocean colour or "transparent" |
+| `land` | `"#17243C"` | land fill |
+| `landStroke` | `"#2F4468"` | coastline + graticule colour |
+| `ink` | `"#E8EEF9"` | text / plane colour |
+| `accent` | `"#FFB454"` | trail + city colour |
+| `accent2` | `"#4CC9F0"` | arc colour |
+| `fontFamily` | `"stub"` | CSS font-family |
 
 ### `hairline-feature-trace` — Hairline feature trace
 
@@ -12441,6 +13015,37 @@ A painted island map: the coastline is brushed in, then regions fill with quanti
 | `background` | `"#F3EDE0"` | paper colour |
 | `ink` | `"#3A3226"` | ink colour |
 | `seed` | `11` | island + wash seed |
+
+### `pin-drop-cluster` — Pin drop + clustering map
+
+Map pins drop onto a map region, merge into numbered cluster bubbles, split into single pins as the camera zooms in, then merge again.
+
+**Use for:** Store/user/event locators, "customers worldwide", coverage and density stories, any list of lat/lon points that needs to read as a map with counts.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 270 frames (9.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle`, `unit` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `points` | `[{"lat":45.96,"lon":-1.14},{"lat":48.21,"lon":0.89},{"lat…` | array of {lat, lon, label?}; the camera auto-fits them (labels show when a pin is single and zoomed in) |
+| `title` | `"Locations"` | headline, top left |
+| `subtitle` | `"Every point, grouped by density"` | line under the headline |
+| `unit` | `"locations"` | noun for the big counter (locations, stores, users) |
+| `clusterSize` | `120` | cluster radius in px (1080 scale): bigger merges more |
+| `zoom` | `2.2` | camera zoom-in factor for the split beat |
+| `pinSize` | `58` | pin height in px (1080 scale) |
+| `speed` | `1` | timeline speed multiplier |
+| `startAt` | `0` | frame to start at |
+| `background` | `"#0B1220"` | map ocean colour, or "transparent" |
+| `land` | `"#17243C"` | land fill |
+| `landStroke` | `"#2F4468"` | coastline + graticule colour |
+| `ink` | `"#E8EEF9"` | text colour |
+| `accent` | `"#FF7A59"` | pin colour |
+| `accent2` | `"#4CC9F0"` | cluster bubble colour |
+| `onAccent` | `"#0B1220"` | text/dot colour drawn on accent shapes |
+| `fontFamily` | `"stub"` | CSS font-family |
 
 ### `time-rings` — Time rings (dated scan passes)
 
@@ -12656,6 +13261,98 @@ Nib, the library’s hand-inked ink-drop mascot with a springy curl, round eyes,
 | `takeScale` | `1` | multiplies every reaction take (0 = no squash/stretch takes) |
 | `seed` | `1` | per-character seed (blink clock, dance mix order) |
 | `background` | `"paper"` | 'paper', 'transparent' (overlay on your scene) or any colour |
+
+### `mascot-thinking` — Mascot Pip thinking to idea
+
+Pip ponders with a hand by its head while a thought bubble of pulsing dots grows, then the dots flip to a glowing light bulb, the antenna lights and Pip hops.
+
+**Use for:** Loading / "thinking" states, problem-then-solution beats, "what if..." questions, AI-assistant processing screens, aha moments. Set `idea` to the punchline word.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** playful  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `idea` | `"Idea!"` | label shown with the bulb ("" to hide) |
+| `dots` | `3` | number of thinking dots |
+| `thinkFrames` | `96` | frame the idea lights up (length of the thinking phase) |
+| `size` | `1` | mascot scale multiplier |
+| `speed` | `1` | timeline speed multiplier |
+| `startAt` | `0` | frame to start at |
+| `background` | `"#F4EFE6"` | background colour or "transparent" |
+| `bodyColor` | `"#5B7CFA"` | body colour |
+| `plateColor` | `"#1D2340"` | face plate colour |
+| `eyeColor` | `"#8FF0FF"` | eyes + mouth colour |
+| `accent` | `"#FFB454"` | chest light, halo, idea label |
+| `bulbColor` | `"#FFD84D"` | bulb colour |
+| `cheekColor` | `"#FF8FA8"` | blush colour |
+| `bubbleColor` | `"#FFFFFF"` | thought cloud fill |
+| `ink` | `"#1D2340"` | dots / bulb outline colour |
+| `fontFamily` | `"stub"` | CSS font-family |
+
+### `mascot-thumbs-up` — Mascot Pip thumbs up + confetti
+
+Pip crouches, jumps and lands with a thumbs-up while confetti cannons fire and a "nice work" bubble pops.
+
+**Use for:** Success / completion / goal-reached states, milestone and launch celebrations, quiz-correct feedback, end cards. Change `text` and `confettiColors` to the brand.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** accent · **Mood:** playful  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `text` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `text` | `"Nice work!"` | celebration line in the bubble |
+| `confettiColors` | `["#FFB454","#FF6B8A","#4CC9F0","#7BE0A1","#FFFFFF"]` | confetti palette (any number of colours) |
+| `confettiCount` | `70` | pieces in the main burst (side cannons use half) |
+| `size` | `1` | mascot scale multiplier |
+| `speed` | `1` | timeline speed multiplier |
+| `startAt` | `0` | frame to start at |
+| `seed` | `11` | confetti pattern seed |
+| `background` | `"#F4EFE6"` | background colour or "transparent" |
+| `bodyColor` | `"#5B7CFA"` | body colour |
+| `plateColor` | `"#1D2340"` | face plate colour |
+| `eyeColor` | `"#8FF0FF"` | eyes + mouth colour |
+| `accent` | `"#FFB454"` | chest light, halo, sparkles |
+| `bulbColor` | `"#FFD84D"` | antenna bulb glow colour |
+| `cheekColor` | `"#FF8FA8"` | blush colour |
+| `bubbleColor` | `"#FFFFFF"` | speech bubble fill |
+| `ink` | `"#1D2340"` | speech text colour |
+| `fontFamily` | `"stub"` | CSS font-family |
+
+### `mascot-wave-hello` — Mascot Pip waves hello
+
+An original capsule-robot mascot (Pip) pops in, waves, blinks and says a typed line in a speech bubble.
+
+**Use for:** Welcome / onboarding / intro beats, chat-widget greetings, "hi, I am your guide" cold opens, sign-off waves. Change `text` and the colour props to match a brand.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** playful  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `text` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `text` | `"Hello there! Welcome aboard."` | the speech bubble line |
+| `name` | `"PIP"` | name tag under the feet ("" to hide) |
+| `hand` | `"right"` | which arm waves: "right" or "left" |
+| `size` | `1` | mascot scale multiplier |
+| `waveSpeed` | `1` | wave tempo multiplier |
+| `speed` | `1` | timeline speed multiplier |
+| `startAt` | `0` | frame to start at |
+| `background` | `"#F4EFE6"` | background colour or "transparent" |
+| `bodyColor` | `"#5B7CFA"` | body colour |
+| `plateColor` | `"#1D2340"` | face plate colour |
+| `eyeColor` | `"#8FF0FF"` | eyes + mouth colour |
+| `accent` | `"#FFB454"` | chest light, name tag, soft halo |
+| `bulbColor` | `"#FFD84D"` | antenna bulb glow colour |
+| `cheekColor` | `"#FF8FA8"` | blush colour |
+| `bubbleColor` | `"#FFFFFF"` | speech bubble fill |
+| `ink` | `"#1D2340"` | speech text colour |
+| `fontFamily` | `"stub"` | CSS font-family |
 
 ### `pixel-mascot-on-ui` — Pixel mascot on UI
 
@@ -13177,6 +13874,31 @@ A hook phrase plays one giant word per beat: each word slams in full-frame in he
 
 ## product
 
+### `colorway-swap` — Colourway swap
+
+![colorway-swap](../gallery/colorway-swap.jpg)
+
+A product cycles through a list of colourways: the image is recoloured (luminance tint, or the procedural speaker repaints), the backdrop disc and name follow, and a row of swatch chips highlights the active one.
+
+**Use for:** Colour options for any product — phones, shoes, bottles, cars, apparel; pass your product image and a `colorways` list.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Pick your colour"` | heading at the top (empty hides it) |
+| `colorways` | `[{"name":"Midnight","color":"#2B2E3B"},{"name":"Coral","c…` | array of {name, color} (up to 8) |
+| `src` | `""` | product image (public/ path or URL), tinted per colourway; empty draws a neutral speaker |
+| `background` | `"#F3EFE7"` | backdrop colour or 'transparent' |
+| `ink` | `"#1B1B22"` | text colour |
+| `accent` | `"#1B1B22"` | active-swatch ring colour |
+| `hold` | `34` | frames each colourway is held |
+| `swap` | `14` | frames the colour blend takes |
+| `startAt` | `16` | frame the cycle starts |
+
 ### `exploded-view-snap` — Exploded view snap
 
 ![exploded-view-snap](../gallery/exploded-view-snap.jpg)
@@ -13203,6 +13925,32 @@ A product's parts float apart along one diagonal axis (tilting, spinning, hoveri
 | `labels` | `true` | show leader-line labels while open |
 | `accent` | `"#FF5A36"` | leader / click-burst colour |
 | `background` | `"#E6EAF2"` | studio colour |
+
+### `feature-callout-orbit` — Feature callouts around a product
+
+![feature-callout-orbit](../gallery/feature-callout-orbit.jpg)
+
+A product image floats in the centre with a dashed orbit ring; feature labels pop out of it one by one on elbowed leader lines (dot, line draw-on, label chip). Columns in landscape, rows in portrait.
+
+**Use for:** Product launches, app feature tours, spec call-outs, "what is inside" reveals — pass your product image and your feature list.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 180 frames (6.0 s @ 30 fps)
+
+**Roles:** accent · **Mood:** photo, nature  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `features` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Meet Aura One"` | headline at the top (empty hides it) |
+| `features` | `["Active noise cancelling","40-hour battery","Spatial aud…` | feature labels (up to 8) |
+| `src` | `""` | product image (public/ path or URL); empty draws a neutral speaker |
+| `background` | `"#F2EEE6"` | backdrop colour or 'transparent' |
+| `ink` | `"#1C1B22"` | text / ring colour |
+| `accent` | `"#FF5A36"` | leader line, dots, orbit dot, glow |
+| `productColor` | `"#2B2E3B"` | body colour of the procedural product |
+| `startAt` | `8` | frame the first callout begins |
+| `stagger` | `18` | frames between callouts |
+| `speed` | `1` | overall tempo multiplier |
 
 ### `frost-to-clear` — Frost to clear
 
@@ -13283,6 +14031,62 @@ Four ingredients pour into a tall glass one after another as a stream with a spl
 | `fill` | `0.96` | how full the glass ends up 0-1 |
 | `seed` | `3` | ice / bubble seed |
 
+### `price-tag-drop` — Price tag drop
+
+![price-tag-drop](../gallery/price-tag-drop.jpg)
+
+A price tag hangs on a string, drops in and swings to rest; the old price is struck through, the new price pops in and a discount badge stamps on (auto percentage unless set).
+
+**Use for:** Sales, launch pricing, "now only" beats, subscription price reveals — set currency, old and new price.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 150 frames (5.0 s @ 30 fps)
+
+**Roles:** accent · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `label`, `badge`, `tagline` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `label` | `"SPECIAL OFFER"` | small heading on the tag |
+| `oldPrice` | `"129.00"` | original price text (struck through) |
+| `newPrice` | `"79.00"` | new price text |
+| `currency` | `"$"` | currency symbol / prefix (e.g. $, €, £, Rs.) |
+| `badge` | `""` | badge text; empty = automatic -NN% from the two prices (hidden if not computable) |
+| `tagline` | `"Today only"` | small line under the new price |
+| `background` | `"#F4EFE6"` | backdrop colour or 'transparent' |
+| `card` | `"#FFFDF8"` | tag colour |
+| `ink` | `"#1D1B24"` | text and string colour |
+| `accent` | `"#E8412A"` | label, strike, badge colour |
+| `swing` | `16` | initial swing angle in degrees |
+| `startAt` | `6` | frame the tag starts dropping |
+
+### `spec-compare-table` — Spec comparison table
+
+![spec-compare-table](../gallery/spec-compare-table.jpg)
+
+A comparison card: product names across the top, spec rows ticking in one after another with a check on each row winner, then the winning column is lit with an accent band and a badge.
+
+**Use for:** Versus / comparison videos, plan and pricing tiers, "why ours" slides, product roundups — pass your products and rows.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Which one is for you?"` | heading above the table |
+| `products` | `["Lite","Pro","Max"]` | column headings (2-4) |
+| `rows` | `[{"label":"Battery","values":["20 h","36 h","48 h"],"win"…` | array of {label, values[] (one per product), win? (column index that gets the check)} |
+| `winner` | `1` | index of the highlighted column (-1 for none) |
+| `winnerLabel` | `"BEST VALUE"` | badge text above the winning column |
+| `background` | `"#EFEBE3"` | backdrop colour or 'transparent' |
+| `ink` | `"#1A1A22"` | text colour |
+| `accent` | `"#F0502C"` | check, winner band and badge colour |
+| `card` | `"#FFFFFF"` | table card colour |
+| `fontFamily` | `""` | optional CSS font-family for names and values (empty = grotesk) |
+| `startAt` | `10` | frame the first row starts |
+| `stagger` | `18` | frames between rows |
+
 ### `sunburst-hero` — Sunburst hero (mid-century reveal)
 
 ![sunburst-hero](../gallery/sunburst-hero.jpg)
@@ -13316,4 +14120,31 @@ Retro product reveal: translucent wedge rays spin out to the frame edge, a cream
 | `startFrame` | `0` | delay before the reveal |
 | `spin` | `0.06` | ray rotation speed (rad/s) |
 | `background` | `"ground"` | "ground" or "transparent" (overlay: rays + disc + sparkles + subject + titles) |
+
+### `unbox-lid-lift` — Unbox lid lift
+
+![unbox-lid-lift](../gallery/unbox-lid-lift.jpg)
+
+A packaging box gives a little shake, the lid lifts, tilts and slides away, light rays and a glow pour out and the product image rises out of the box, then a title and subtitle settle in below.
+
+**Use for:** Unboxing reveals, "what is in the box", product drop / launch teasers, gift and surprise reveals — pass your product image.  
+**Rebuilt from:** original (round 3)  
+**Default length:** 190 frames (6.3 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Open it up"` | headline under the box |
+| `subtitle` | `"Everything you need, right in the box"` | line under the headline |
+| `boxLabel` | `"AURA"` | word printed on the box front (empty hides it) |
+| `src` | `""` | product image (public/ path or URL); empty draws a neutral speaker |
+| `background` | `"#16182A"` | backdrop colour or 'transparent' |
+| `ink` | `"#FFFFFF"` | text colour |
+| `box` | `"#E9E2D2"` | cardboard colour |
+| `accent` | `"#FF6A3D"` | light, ribbon and label colour |
+| `productColor` | `"#4A5170"` | body colour of the procedural product |
+| `startAt` | `10` | frame the shake / lift starts |
+| `speed` | `1` | overall tempo multiplier |
 

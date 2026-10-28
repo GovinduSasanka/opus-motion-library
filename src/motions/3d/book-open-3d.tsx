@@ -28,6 +28,13 @@ type Props = {
   figureCaption: string;
   figureSrc: string;
   contents: string[];
+  editionLabel?: string;
+  contentsTitle?: string;
+  prefaceEyebrow?: string;
+  prefaceTitle?: string;
+  hintLabel?: string;
+  hintTitle?: string;
+  hintNote?: string;
   turns: number;
   openAt: number;
   speed: number;
@@ -116,13 +123,13 @@ const Page: React.FC<{kind: PageKind; c: PageCtx; side: 'L' | 'R'}> = ({kind, c,
           <div style={{position: 'absolute', left: '18%', bottom: '14%', width: '26%', height: '52%', border: `${1.2 * u}px solid ${ink}`, borderTop: 'none', background: `linear-gradient(0deg, ${HATCH3.purple} 0 60%, transparent 60%)`}} />
           <div style={{position: 'absolute', right: '16%', bottom: '14%', width: '28%', height: '24%', background: HATCH3.orange, border: `${1.2 * u}px solid ${ink}`}} />
         </div>
-        <div style={{marginTop: 'auto', fontSize: fsB * 0.8, letterSpacing: '0.18em', textTransform: 'uppercase', color: HATCH3.eyebrow}}>First edition</div>
+        <div style={{marginTop: 'auto', fontSize: fsB * 0.8, letterSpacing: '0.18em', textTransform: 'uppercase', color: HATCH3.eyebrow}}>{c.editionLabel}</div>
       </div>
     );
   if (kind === 'contents')
     return (
       <div style={base}>
-        <div style={{fontSize: BW * 0.06, fontWeight: 600, marginBottom: BW * 0.05}}>Contents</div>
+        <div style={{fontSize: BW * 0.06, fontWeight: 600, marginBottom: BW * 0.05}}>{c.contentsTitle}</div>
         {c.contents.map((t, i) => (
           <div key={i} style={{display: 'flex', alignItems: 'center', fontSize: fsB * 1.05, marginBottom: fsB * 1.05}}>
             <div style={{width: fsB * 0.9, height: fsB * 0.9, background: STORE_COLORS[i % STORE_COLORS.length], marginRight: fsB * 0.8, border: `${u}px solid ${ink}`}} />
@@ -137,8 +144,8 @@ const Page: React.FC<{kind: PageKind; c: PageCtx; side: 'L' | 'R'}> = ({kind, c,
   if (kind === 'preface')
     return (
       <div style={base}>
-        <div style={{fontSize: fsB * 0.8, letterSpacing: '0.16em', textTransform: 'uppercase', color: HATCH3.eyebrow, marginBottom: fsB}}>How to use this book</div>
-        <div style={{fontSize: BW * 0.05, fontStyle: 'italic', fontWeight: 600, marginBottom: fsB * 1.2}}>Look, guess, then check</div>
+        <div style={{fontSize: fsB * 0.8, letterSpacing: '0.16em', textTransform: 'uppercase', color: HATCH3.eyebrow, marginBottom: fsB}}>{c.prefaceEyebrow}</div>
+        <div style={{fontSize: BW * 0.05, fontStyle: 'italic', fontWeight: 600, marginBottom: fsB * 1.2}}>{c.prefaceTitle}</div>
         {lines(14)}
       </div>
     );
@@ -151,9 +158,9 @@ const Page: React.FC<{kind: PageKind; c: PageCtx; side: 'L' | 'R'}> = ({kind, c,
         <div style={{fontSize: fsB * 1.6, fontStyle: 'italic', padding: `${fsB * 0.5}px ${fsB}px`, border: `${u}px solid ${mixHex(ink, paper, 0.7)}`, display: 'inline-block', marginBottom: fsB}}>{c.equation}</div>
         {lines(5, 0.85, 0.22)}
         <div style={{marginTop: fsB * 0.6, padding: fsB * 0.8, background: '#efe6d2', border: `${u}px solid ${mixHex(ink, paper, 0.6)}`, transform: 'rotate(-1deg)'}}>
-          <div style={{fontSize: fsB * 0.7, letterSpacing: '0.14em', color: HATCH3.eyebrow, textTransform: 'uppercase'}}>Why?</div>
-          <div style={{fontSize: fsB * 1.15, fontWeight: 600}}>Lift the flap after you guess</div>
-          <div style={{fontFamily: fonts.hand, fontSize: fsB * 1.1, textAlign: 'right', opacity: 0.8}}>lift here ↘</div>
+          <div style={{fontSize: fsB * 0.7, letterSpacing: '0.14em', color: HATCH3.eyebrow, textTransform: 'uppercase'}}>{c.hintLabel}</div>
+          <div style={{fontSize: fsB * 1.15, fontWeight: 600}}>{c.hintTitle}</div>
+          <div style={{fontFamily: fonts.hand, fontSize: fsB * 1.1, textAlign: 'right', opacity: 0.8}}>{c.hintNote}</div>
         </div>
       </div>
     );
@@ -435,6 +442,13 @@ export const bookOpen3d = defineMotion<Props>({
     figureCaption: 'Fig. 1  Eight things, each with a store of its own.',
     figureSrc: '',
     contents: ['Energy stores', 'Moving energy', 'Heat and light', 'Springs', 'Batteries', 'Forces'],
+    editionLabel: 'First edition',
+    contentsTitle: 'Contents',
+    prefaceEyebrow: 'How to use this book',
+    prefaceTitle: 'Look, guess, then check',
+    hintLabel: 'Why?',
+    hintTitle: 'Lift the flap after you guess',
+    hintNote: 'lift here ↘',
     turns: 2,
     openAt: 12,
     speed: 1,
@@ -456,6 +470,13 @@ export const bookOpen3d = defineMotion<Props>({
     figureCaption: 'italic caption under the right-page figure',
     figureSrc: 'optional image for the right-page figure; procedural ink rack drawing (drawn on) if empty',
     contents: 'chapter titles on the contents leaf',
+    editionLabel: 'small caps line at the foot of the title page',
+    contentsTitle: 'heading of the contents leaf',
+    prefaceEyebrow: 'small caps eyebrow on the preface leaf',
+    prefaceTitle: 'italic heading on the preface leaf',
+    hintLabel: 'small caps label of the taped hint card on the left page',
+    hintTitle: 'bold line on the hint card',
+    hintNote: 'handwritten note at the foot of the hint card',
     turns: 'leaves that turn after the cover (0-2)',
     openAt: 'frame the cover starts to open (source 0.40 s)',
     speed: 'timing multiplier for everything after openAt (1 = source)',

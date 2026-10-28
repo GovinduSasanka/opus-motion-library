@@ -27,6 +27,8 @@ type Props = {
   ctas: string[];
   logos: string[];
   features: string[];
+  featuresTitle?: string;
+  featureBody?: string;
   heroSrc: string;
   heroTint: boolean;
   glint: number[];
@@ -520,13 +522,13 @@ const BrowserMockup: React.FC<Props> = (p) => {
       {/* below the fold: features */}
       {p.scroll > 0 && (
         <div style={{position: 'absolute', left: pad, right: pad, top: H + (portrait ? 40 : 30) * u}}>
-          <div style={{fontSize: (portrait ? 44 : 36) * u, fontWeight: 600, letterSpacing: '-0.01em', ...textGrad, display: 'inline-block'}}>Everything moves together</div>
+          <div style={{fontSize: (portrait ? 44 : 36) * u, fontWeight: 600, letterSpacing: '-0.01em', ...textGrad, display: 'inline-block'}}>{p.featuresTitle}</div>
           <div style={{display: 'flex', flexDirection: portrait ? 'column' : 'row', gap: 22 * u, marginTop: 28 * u}}>
             {p.features.map((f, i) => (
               <div key={i} style={{flex: 1, borderRadius: 16 * u, background: '#ffffff', boxShadow: `0 ${6 * u}px ${24 * u}px rgba(20,35,91,0.10)`, padding: 24 * u, border: `1px solid rgba(20,35,91,0.08)`}}>
                 <div style={{width: 40 * u, height: 40 * u, borderRadius: 10 * u, background: grad, marginBottom: 16 * u, opacity: 0.9}} />
                 <div style={{fontSize: (portrait ? 28 : 20) * u, fontWeight: 600, marginBottom: 8 * u}}>{f}</div>
-                <div style={{fontSize: (portrait ? 20 : 14.5) * u, lineHeight: 1.5, opacity: 0.7}}>Ship faster with a workflow that keeps every frame, file and teammate in sync.</div>
+                <div style={{fontSize: (portrait ? 20 : 14.5) * u, lineHeight: 1.5, opacity: 0.7}}>{p.featureBody}</div>
               </div>
             ))}
           </div>
@@ -642,6 +644,8 @@ export const browserMockup = defineMotion<Props>({
     ctas: ['Get started', 'Book a demo'],
     logos: ['Vertex', 'Northwind', 'Orbit', 'Halcyon', 'Kitebase', 'Stackly'],
     features: ['Living heroes', 'Pixel-perfect UI', 'Ships anywhere'],
+    featuresTitle: 'Everything moves together',
+    featureBody: 'Ship faster with a workflow that keeps every frame, file and teammate in sync.',
     heroSrc: '',
     heroTint: true,
     glint: [0.27, 0.12],
@@ -668,6 +672,8 @@ export const browserMockup = defineMotion<Props>({
     ctas: 'button labels; the first is the filled primary the cursor clicks',
     logos: 'logo strip names',
     features: 'feature card titles shown after the scroll',
+    featuresTitle: 'section heading above the feature cards (scroll > 0)',
+    featureBody: 'body text repeated on every feature card (scroll > 0)',
     heroSrc: 'public/ image for the hero (empty = procedural etched lighthouse scene)',
     heroTint: 'gradient-map the hero image to ink/paper so it matches the page',
     glint: '[x, y] fraction of the hero where the star glint sits (image hero only)',

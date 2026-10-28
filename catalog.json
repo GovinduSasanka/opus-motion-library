@@ -220,6 +220,34 @@
     ],
     "doc": "chapter titles on the contents leaf"
    },
+   "editionLabel": {
+    "default": "First edition",
+    "doc": "small caps line at the foot of the title page"
+   },
+   "contentsTitle": {
+    "default": "Contents",
+    "doc": "heading of the contents leaf"
+   },
+   "prefaceEyebrow": {
+    "default": "How to use this book",
+    "doc": "small caps eyebrow on the preface leaf"
+   },
+   "prefaceTitle": {
+    "default": "Look, guess, then check",
+    "doc": "italic heading on the preface leaf"
+   },
+   "hintLabel": {
+    "default": "Why?",
+    "doc": "small caps label of the taped hint card on the left page"
+   },
+   "hintTitle": {
+    "default": "Lift the flap after you guess",
+    "doc": "bold line on the hint card"
+   },
+   "hintNote": {
+    "default": "lift here ↘",
+    "doc": "handwritten note at the foot of the hint card"
+   },
    "turns": {
     "default": 2,
     "doc": "leaves that turn after the cover (0-2)"
@@ -1597,7 +1625,17 @@
   "imageProps": [],
   "takesText": false,
   "textProps": [],
-  "colorProps": [],
+  "colorProps": [
+   "grassColor",
+   "sandColor",
+   "sandSideColor",
+   "grassSideColor",
+   "treeColor",
+   "tree2Color",
+   "treeTipColor",
+   "boatColor",
+   "sailColor"
+  ],
   "loopable": false,
   "bestLength": 240,
   "mood": [
@@ -1670,6 +1708,58 @@
    "seed": {
     "default": 3,
     "doc": "facet jitter / star seed"
+   },
+   "skyColor": {
+    "default": "",
+    "doc": "sky zenith colour, '' = from the time of day (overrides the whole clip)"
+   },
+   "horizonColor": {
+    "default": "",
+    "doc": "sky / haze colour at the horizon, '' = from the time of day"
+   },
+   "waterColor": {
+    "default": "",
+    "doc": "deep water colour, '' = from the time of day"
+   },
+   "shallowColor": {
+    "default": "",
+    "doc": "shallow rim water colour, '' = from the time of day"
+   },
+   "grassColor": {
+    "default": "#93C96C",
+    "doc": "islet centre tile top colour"
+   },
+   "sandColor": {
+    "default": "#F3DFAB",
+    "doc": "islet ring tile top colour"
+   },
+   "sandSideColor": {
+    "default": "#E2C68E",
+    "doc": "islet ring tile side colour"
+   },
+   "grassSideColor": {
+    "default": "#C99C6E",
+    "doc": "islet centre tile side colour"
+   },
+   "treeColor": {
+    "default": "#3F8A5A",
+    "doc": "big pine lower foliage colour"
+   },
+   "tree2Color": {
+    "default": "#4F9C63",
+    "doc": "big pine upper cone / small pine lower foliage colour"
+   },
+   "treeTipColor": {
+    "default": "#7FC36A",
+    "doc": "small pine upper cone colour"
+   },
+   "boatColor": {
+    "default": "#D9644A",
+    "doc": "boat hull colour"
+   },
+   "sailColor": {
+    "default": "#FBF3E6",
+    "doc": "boat sail colour"
    }
   }
  },
@@ -6687,6 +6777,467 @@
   }
  },
  {
+  "id": "crash-zoom",
+  "title": "Crash zoom",
+  "category": "camera",
+  "description": "Snap punch-in on a point of interest: expo-out zoom, ghosted zoom blur, decaying shake, radial speed lines and a flash.",
+  "useFor": "Comedic or dramatic emphasis on a face, product, number or object in any image; reaction beats; \"wait, what?\" moments.",
+  "source": [
+   "camera-vocabulary: crash zoom / snap zoom"
+  ],
+  "durationInFrames": 150,
+  "tags": [
+   "crash zoom",
+   "snap zoom",
+   "punch in",
+   "shake",
+   "speed lines",
+   "camera",
+   "emphasis",
+   "comedy"
+  ],
+  "file": "src/motions/camera/crash-zoom.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "lineColor",
+   "palette",
+   "accent",
+   "background"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "src": {
+    "default": "",
+    "doc": "public/ path or URL (empty = procedural scene)"
+   },
+   "hits": {
+    "default": [
+     [
+      36,
+      2.1,
+      0.5,
+      0.4
+     ],
+     [
+      96,
+      3.4,
+      0.5,
+      0.36
+     ]
+    ],
+    "doc": "[[frame, zoom, x, y], ...] each punch-in; x,y = target point 0..1"
+   },
+   "snapFrames": {
+    "default": 5,
+    "doc": "frames each snap takes (3-6 = brutal)"
+   },
+   "shake": {
+    "default": 14,
+    "doc": "initial camera shake in u (0 = none)"
+   },
+   "shakeDecay": {
+    "default": 7,
+    "doc": "frames for the shake to decay"
+   },
+   "speedLines": {
+    "default": true,
+    "doc": "radial manga speed lines on each hit"
+   },
+   "lineColor": {
+    "default": "#ffffff",
+    "doc": "speed line colour"
+   },
+   "flash": {
+    "default": 0.35,
+    "doc": "white flash strength on a hit (0 = off)"
+   },
+   "creep": {
+    "default": 0.05,
+    "doc": "slow push-in applied before the first hit (e.g. 0.05)"
+   },
+   "release": {
+    "default": 24,
+    "doc": "frames to ease back out after the last hit (0 = stay punched in)"
+   },
+   "releaseAfter": {
+    "default": 30,
+    "doc": "frames to wait after the last hit before releasing"
+   },
+   "palette": {
+    "default": [
+     "#ff7a59",
+     "#6a4cff",
+     "#14b8a6",
+     "#ffd166"
+    ],
+    "doc": "procedural scene colours"
+   },
+   "accent": {
+    "default": "#ffd166",
+    "doc": "procedural subject accent"
+   },
+   "background": {
+    "default": "#000000",
+    "doc": "base colour"
+   }
+  }
+ },
+ {
+  "id": "dolly-zoom",
+  "title": "Dolly zoom (vertigo)",
+  "category": "camera",
+  "description": "Vertigo effect: the subject holds its size while the background stretches behind it, with a tightening vignette.",
+  "useFor": "A moment of dread, realisation or \"oh no\" on a portrait, product or place photo; thriller and true-crime beats; dramatic reveal punctuation.",
+  "source": [
+   "camera-vocabulary: dolly zoom / Hitchcock zoom"
+  ],
+  "durationInFrames": 120,
+  "tags": [
+   "dolly",
+   "zoom",
+   "vertigo",
+   "hitchcock",
+   "camera",
+   "perspective",
+   "dread",
+   "reveal"
+  ],
+  "file": "src/motions/camera/dolly-zoom.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "palette",
+   "background",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 120,
+  "mood": [],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "src": {
+    "default": "",
+    "doc": "public/ path or URL of the scene/background (empty = procedural scene)"
+   },
+   "subjectSrc": {
+    "default": "",
+    "doc": "optional transparent cut-out PNG kept at constant size (empty = feathered centre of src)"
+   },
+   "direction": {
+    "default": "in",
+    "doc": "in = background swells, out = background relaxes back"
+   },
+   "amount": {
+    "default": 1.7,
+    "doc": "final background scale (1.3 gentle, 2.2 extreme)"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the move begins"
+   },
+   "hold": {
+    "default": 14,
+    "doc": "frames held still before the dolly"
+   },
+   "dollyFrames": {
+    "default": 78,
+    "doc": "length of the dolly"
+   },
+   "pingpong": {
+    "default": false,
+    "doc": "dolly there and back"
+   },
+   "subjectSize": {
+    "default": 0.34,
+    "doc": "size of the kept centre region when only src is given (0..1)"
+   },
+   "feather": {
+    "default": 0.45,
+    "doc": "softness of that cut-out edge (0..1)"
+   },
+   "tension": {
+    "default": 0.6,
+    "doc": "vignette tightening as the dolly runs (0 = none)"
+   },
+   "palette": {
+    "default": [
+     "#ff7a59",
+     "#6a4cff",
+     "#14b8a6",
+     "#ffd166"
+    ],
+    "doc": "colours for the procedural scene"
+   },
+   "background": {
+    "default": "#000000",
+    "doc": "base colour behind the layers"
+   },
+   "accent": {
+    "default": "#ffd166",
+    "doc": "procedural subject accent"
+   }
+  }
+ },
+ {
+  "id": "orbit-parallax",
+  "title": "Orbit parallax",
+  "category": "camera",
+  "description": "2.5D camera orbit around a cut-out subject: depth layers slide against each other while the subject turns slightly.",
+  "useFor": "Bringing a still product, person or character photo to life; hero images and portfolio shots; photo-to-3D-feel loops.",
+  "source": [
+   "camera-vocabulary: orbit / 2.5D parallax"
+  ],
+  "durationInFrames": 150,
+  "tags": [
+   "orbit",
+   "parallax",
+   "2.5d",
+   "depth",
+   "camera",
+   "cutout",
+   "hero",
+   "photo"
+  ],
+  "file": "src/motions/camera/orbit-parallax.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "palette",
+   "accent",
+   "background"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "photo"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "src": {
+    "default": "",
+    "doc": "background picture (empty = procedural layered scene)"
+   },
+   "subjectSrc": {
+    "default": "",
+    "doc": "transparent PNG cut-out subject (empty = procedural figure)"
+   },
+   "orbitDeg": {
+    "default": 14,
+    "doc": "subject turn at the extremes of the orbit, degrees"
+   },
+   "cycles": {
+    "default": 1,
+    "doc": "full left-right-left orbits over the clip (loops seamlessly)"
+   },
+   "phase": {
+    "default": 0,
+    "doc": "starting phase in radians"
+   },
+   "depth": {
+    "default": 1,
+    "doc": "parallax strength multiplier"
+   },
+   "tilt": {
+    "default": 1,
+    "doc": "vertical bob multiplier"
+   },
+   "subjectScale": {
+    "default": 1,
+    "doc": "subject size multiplier"
+   },
+   "foreground": {
+    "default": true,
+    "doc": "procedural foreground layer (when no src)"
+   },
+   "shadow": {
+    "default": true,
+    "doc": "contact shadow under the subject"
+   },
+   "palette": {
+    "default": [
+     "#ff7a59",
+     "#6a4cff",
+     "#14b8a6",
+     "#ffd166"
+    ],
+    "doc": "procedural scene colours"
+   },
+   "accent": {
+    "default": "#ffd166",
+    "doc": "procedural subject accent"
+   },
+   "background": {
+    "default": "#000000",
+    "doc": "base colour"
+   }
+  }
+ },
+ {
+  "id": "rack-focus",
+  "title": "Rack focus",
+  "category": "camera",
+  "description": "Focus pulls between a foreground, a subject and a background layer: blur follows depth, bokeh blooms, lens breathes.",
+  "useFor": "Shifting attention from one thing to another in a still-image scene; cinematic reveals; product-then-environment shots; drama beats.",
+  "source": [
+   "camera-vocabulary: rack focus / focus pull"
+  ],
+  "durationInFrames": 150,
+  "tags": [
+   "rack focus",
+   "focus pull",
+   "depth of field",
+   "blur",
+   "camera",
+   "cinematic",
+   "bokeh",
+   "reveal"
+  ],
+  "file": "src/motions/camera/rack-focus.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "palette",
+   "accent",
+   "background"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "cinematic"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "backSrc": {
+    "default": "",
+    "doc": "background picture (empty = procedural)"
+   },
+   "subjectSrc": {
+    "default": "",
+    "doc": "transparent PNG subject (empty = procedural figure)"
+   },
+   "frontSrc": {
+    "default": "",
+    "doc": "transparent PNG foreground (empty = procedural blades)"
+   },
+   "focusKeys": {
+    "default": [
+     [
+      0,
+      0.5
+     ],
+     [
+      30,
+      0.5
+     ],
+     [
+      60,
+      0
+     ],
+     [
+      90,
+      0
+     ],
+     [
+      122,
+      1
+     ]
+    ],
+    "doc": "[frame, focus] keys: 0 = foreground, 0.5 = subject, 1 = background"
+   },
+   "maxBlur": {
+    "default": 46,
+    "doc": "blur at the furthest depth in u"
+   },
+   "breathing": {
+    "default": 1,
+    "doc": "lens breathing amount (0 = none)"
+   },
+   "bokeh": {
+    "default": true,
+    "doc": "bokeh discs bloom on the blurred background"
+   },
+   "palette": {
+    "default": [
+     "#ff7a59",
+     "#6a4cff",
+     "#14b8a6",
+     "#ffd166"
+    ],
+    "doc": "colours for procedural layers / bokeh"
+   },
+   "accent": {
+    "default": "#ffd166",
+    "doc": "procedural subject accent"
+   },
+   "background": {
+    "default": "#000000",
+    "doc": "base colour"
+   }
+  }
+ },
+ {
   "id": "time-remap-clock",
   "title": "Time remap clock",
   "category": "camera",
@@ -6780,6 +7331,125 @@
    "title": {
     "default": "Time remap",
     "doc": "heading"
+   }
+  }
+ },
+ {
+  "id": "whip-pan",
+  "title": "Whip pan",
+  "category": "camera",
+  "description": "The camera whips sideways to the next picture: expo-fast slide, directional motion blur, speed streaks, a settle.",
+  "useFor": "Energetic cuts between product shots, locations, slides or portfolio images; a swish-pan transition inside one clip; travel and event recaps.",
+  "source": [
+   "camera-vocabulary: whip pan / swish pan"
+  ],
+  "durationInFrames": 150,
+  "tags": [
+   "whip",
+   "pan",
+   "swish",
+   "camera",
+   "transition",
+   "motion blur",
+   "slideshow",
+   "cut"
+  ],
+  "file": "src/motions/camera/whip-pan.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": true,
+  "imageProps": [
+   "images"
+  ],
+  "takesText": true,
+  "textProps": [
+   "labels"
+  ],
+  "colorProps": [
+   "palette",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "photo"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "images": {
+    "default": [],
+    "doc": "public/ paths or URLs, shown in order and looping (empty = procedural scenes)"
+   },
+   "scenes": {
+    "default": 3,
+    "doc": "how many procedural scenes when images is empty"
+   },
+   "labels": {
+    "default": [],
+    "doc": "optional caption per picture"
+   },
+   "direction": {
+    "default": "left",
+    "doc": "pan direction: left | right | up | down"
+   },
+   "hold": {
+    "default": 34,
+    "doc": "frames each picture holds still"
+   },
+   "whipFrames": {
+    "default": 12,
+    "doc": "frames the whip takes (lower = snappier)"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the first hold begins"
+   },
+   "maxBlur": {
+    "default": 70,
+    "doc": "peak directional blur in u"
+   },
+   "streaks": {
+    "default": true,
+    "doc": "speed streak lines during the whip"
+   },
+   "flash": {
+    "default": 0.12,
+    "doc": "accent flash strength at the peak (0 = off)"
+   },
+   "punch": {
+    "default": 0.04,
+    "doc": "extra scale at the peak of the whip"
+   },
+   "palette": {
+    "default": [
+     "#ff7a59",
+     "#6a4cff",
+     "#14b8a6",
+     "#ffd166"
+    ],
+    "doc": "colours for procedural scenes"
+   },
+   "ink": {
+    "default": "#ffffff",
+    "doc": "caption colour"
+   },
+   "accent": {
+    "default": "#ffffff",
+    "doc": "flash / subject accent colour"
+   },
+   "fontFamily": {
+    "default": "stub",
+    "doc": "caption font"
    }
   }
  },
@@ -8910,7 +9580,11 @@
   "textProps": [
    "eras"
   ],
-  "colorProps": [],
+  "colorProps": [
+   "background",
+   "badgeColor",
+   "badgeInk"
+  ],
   "loopable": false,
   "bestLength": 570,
   "mood": [
@@ -9003,6 +9677,42 @@
    "grain": {
     "default": true,
     "doc": "global speckle grain overlay"
+   },
+   "background": {
+    "default": "#1A1410",
+    "doc": "colour behind the era panels (only visible at the extreme edges)"
+   },
+   "badgeColor": {
+    "default": "#F8F3EA",
+    "doc": "year / title badge fill colour"
+   },
+   "badgeInk": {
+    "default": "#1F2018",
+    "doc": "year / title badge text colour"
+   },
+   "confettiColors": {
+    "default": [],
+    "doc": "confetti colours (hex list); [] = the palette of the era being entered"
+   },
+   "vaseText": {
+    "default": "ΝΙΚΑ",
+    "doc": "Greek-vase panel banner text (default 'ΝΙΚΑ')"
+   },
+   "arcadeScore": {
+    "default": "SCORE 002000",
+    "doc": "8-bit panel HUD score text"
+   },
+   "arcadeLives": {
+    "default": "● x07",
+    "doc": "8-bit panel HUD coin/lives text"
+   },
+   "vaporTitle": {
+    "default": "AESTHETIC",
+    "doc": "vaporwave panel big title"
+   },
+   "vaporStamp": {
+    "default": "PLAY ▶ OCT. 04 2011",
+    "doc": "vaporwave panel small VHS-style stamp text"
    }
   }
  },
@@ -14794,6 +15504,121 @@
   }
  },
  {
+  "id": "certificate-seal",
+  "title": "Certificate with gold seal",
+  "category": "document",
+  "description": "A certificate: double border draws on, title / recipient name / description settle in, the name and a signature write on left-to-right, then a gold wax-style seal with ribbons stamps down with a shake and a shockwave ring.",
+  "useFor": "Course / award / completion certificates, achievements, \"officially certified\" beats, diploma and credential reveals.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "certificate",
+   "award",
+   "diploma",
+   "seal",
+   "stamp",
+   "achievement",
+   "signature",
+   "course",
+   "completion",
+   "document",
+   "gold"
+  ],
+  "file": "src/motions/document/certificate-seal.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "paper",
+   "ink",
+   "accent",
+   "background"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "nature"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "CERTIFICATE",
+    "doc": "big heading"
+   },
+   "subtitle": {
+    "default": "OF ACHIEVEMENT",
+    "doc": "small caps line under the heading"
+   },
+   "preamble": {
+    "default": "This is proudly presented to",
+    "doc": "line above the name"
+   },
+   "name": {
+    "default": "Alex Morgan",
+    "doc": "recipient name (handwritten style)"
+   },
+   "description": {
+    "default": "for outstanding dedication and craft",
+    "doc": "line below the name"
+   },
+   "date": {
+    "default": "12 March 2026",
+    "doc": "date line at the bottom"
+   },
+   "signer": {
+    "default": "Jordan Lee",
+    "doc": "signature text (handwritten style)"
+   },
+   "signerTitle": {
+    "default": "Program Director",
+    "doc": "caption under the signature line"
+   },
+   "sealText": {
+    "default": "OFFICIAL",
+    "doc": "text on the seal (empty hides it)"
+   },
+   "paper": {
+    "default": "#FAF5E6",
+    "doc": "paper colour"
+   },
+   "ink": {
+    "default": "#2B2A33",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#C9A24B",
+    "doc": "gold: border, seal, subtitle"
+   },
+   "background": {
+    "default": "#1B1D2A",
+    "doc": "backdrop colour or 'transparent'"
+   },
+   "startAt": {
+    "default": 4,
+    "doc": "frame the certificate starts appearing"
+   }
+  }
+ },
+ {
   "id": "doc-highlight-evidence",
   "title": "Document highlight evidence",
   "category": "document",
@@ -15198,6 +16023,126 @@
    "seed": {
     "default": 3,
     "doc": "waveform + document seed"
+   }
+  }
+ },
+ {
+  "id": "form-fill-submit",
+  "title": "Form fill and submit",
+  "category": "document",
+  "description": "A form card fills itself: fields take focus and type their values with a blinking caret, a checkbox ticks, a cursor glides to the button and clicks, the button spins and the card becomes a success state.",
+  "useFor": "Sign-up / contact / booking flow demos, \"it only takes seconds\" beats, SaaS onboarding and landing-page explainers.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 300,
+  "tags": [
+   "form",
+   "signup",
+   "submit",
+   "typing",
+   "input",
+   "checkbox",
+   "cursor",
+   "success",
+   "onboarding",
+   "ui",
+   "booking",
+   "contact"
+  ],
+  "file": "src/motions/document/form-fill-submit.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title"
+  ],
+  "colorProps": [
+   "background",
+   "card",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 300,
+  "mood": [
+   "ui"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Get in touch",
+    "doc": "form heading"
+   },
+   "fields": {
+    "default": [
+     {
+      "label": "FULL NAME",
+      "value": "Alex Morgan"
+     },
+     {
+      "label": "EMAIL",
+      "value": "alex@example.com"
+     },
+     {
+      "label": "MESSAGE",
+      "value": "I would love a quick demo."
+     }
+    ],
+    "doc": "array of {label, value}; each value is typed in (up to 6 fields)"
+   },
+   "checkboxLabel": {
+    "default": "I agree to the terms",
+    "doc": "checkbox text (empty removes the checkbox)"
+   },
+   "buttonLabel": {
+    "default": "SUBMIT",
+    "doc": "button text"
+   },
+   "successTitle": {
+    "default": "Thank you!",
+    "doc": "heading of the success state"
+   },
+   "successText": {
+    "default": "We will be in touch shortly.",
+    "doc": "line under the success heading"
+   },
+   "background": {
+    "default": "#EAE6DD",
+    "doc": "backdrop colour or 'transparent'"
+   },
+   "card": {
+    "default": "#FFFFFF",
+    "doc": "form card colour"
+   },
+   "ink": {
+    "default": "#1D1C25",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#3B5BFF",
+    "doc": "focus ring, checkbox, button and success colour"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "typing speed multiplier (long text speeds up automatically to stay in about 4 s)"
+   },
+   "startAt": {
+    "default": 6,
+    "doc": "frame the first field starts"
    }
   }
  },
@@ -15622,6 +16567,143 @@
    "background": {
     "default": "#F4ECDD",
     "doc": "paper colour"
+   }
+  }
+ },
+ {
+  "id": "receipt-print",
+  "title": "Receipt print",
+  "category": "document",
+  "description": "A thermal receipt printer feeds paper up out of its slot one line-feed at a time: store header, itemised lines, computed subtotal / tax / total (highlighted), footer and a barcode.",
+  "useFor": "Order confirmations, expense / cost breakdowns, \"the bill came to\" beats, pricing explainers, shopping and fintech promos.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "receipt",
+   "invoice",
+   "bill",
+   "order",
+   "printer",
+   "ecommerce",
+   "checkout",
+   "expenses",
+   "total",
+   "document",
+   "thermal"
+  ],
+  "file": "src/motions/document/receipt-print.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "items"
+  ],
+  "colorProps": [
+   "background",
+   "paper",
+   "ink",
+   "accent",
+   "printer"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "paper"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "storeName": {
+    "default": "CORNER CAFE",
+    "doc": "header line (shop / company)"
+   },
+   "address": {
+    "default": "12 Main Street",
+    "doc": "line under the header"
+   },
+   "items": {
+    "default": [
+     {
+      "name": "Flat white",
+      "price": 4.5,
+      "qty": 2
+     },
+     {
+      "name": "Almond croissant",
+      "price": 3.8
+     },
+     {
+      "name": "Cold brew",
+      "price": 4.2
+     },
+     {
+      "name": "Avocado toast",
+      "price": 9.5
+     }
+    ],
+    "doc": "array of {name, price, qty?}; subtotal, tax and total are computed"
+   },
+   "currency": {
+    "default": "$",
+    "doc": "currency symbol / prefix"
+   },
+   "taxRate": {
+    "default": 0.08,
+    "doc": "tax fraction (0.08 = 8%, 0 for none)"
+   },
+   "taxLabel": {
+    "default": "TAX 8%",
+    "doc": "label of the tax line"
+   },
+   "totalLabel": {
+    "default": "TOTAL",
+    "doc": "label of the total line"
+   },
+   "footer": {
+    "default": "THANK YOU!",
+    "doc": "line under the total"
+   },
+   "background": {
+    "default": "#E7E2D8",
+    "doc": "backdrop colour or 'transparent'"
+   },
+   "paper": {
+    "default": "#FBFAF4",
+    "doc": "paper colour"
+   },
+   "ink": {
+    "default": "#24232B",
+    "doc": "print colour"
+   },
+   "accent": {
+    "default": "#E8412A",
+    "doc": "total amount / underline / status light colour"
+   },
+   "printer": {
+    "default": "#3A3D4A",
+    "doc": "printer body colour"
+   },
+   "lineFrames": {
+    "default": 8,
+    "doc": "frames per printed line (lower = faster)"
+   },
+   "startAt": {
+    "default": 18,
+    "doc": "frame printing starts"
    }
   }
  },
@@ -16751,7 +17833,17 @@
    "unit",
    "labels"
   ],
-  "colorProps": [],
+  "colorProps": [
+   "background",
+   "hudInk",
+   "hudDim",
+   "hudAccent",
+   "rulerColor",
+   "rulerActive",
+   "titleColor",
+   "noteColor",
+   "ruleColor"
+  ],
   "loopable": false,
   "bestLength": 480,
   "mood": [
@@ -16880,6 +17972,50 @@
    "seed": {
     "default": "abyss",
     "doc": "random seed"
+   },
+   "background": {
+    "default": "#000",
+    "doc": "colour behind the water (normally fully covered)"
+   },
+   "waterTop": {
+    "default": [],
+    "doc": "water colour at the top of the frame per depth, 8 hex colours for depths 0/100/300/800/1500/3000/4500/6000 m; [] = default ocean ramp"
+   },
+   "waterBottom": {
+    "default": [],
+    "doc": "water colour at the bottom of the frame per depth (8 hex colours), [] = default ocean ramp"
+   },
+   "hudInk": {
+    "default": "#97CEE8",
+    "doc": "counter digits / ruler pointer colour"
+   },
+   "hudDim": {
+    "default": "#51758B",
+    "doc": "HUD label colour"
+   },
+   "hudAccent": {
+    "default": "#77B9D8",
+    "doc": "HUD unit and value colour"
+   },
+   "rulerColor": {
+    "default": "#2A7191",
+    "doc": "depth ruler line / tick colour"
+   },
+   "rulerActive": {
+    "default": "#61ACCC",
+    "doc": "depth ruler highlighted tick colour"
+   },
+   "titleColor": {
+    "default": "#DDEBF1",
+    "doc": "zone title text colour"
+   },
+   "noteColor": {
+    "default": "#9DC3D8",
+    "doc": "zone subtitle text colour"
+   },
+   "ruleColor": {
+    "default": "#6FA5BC",
+    "doc": "underline rule colour under the zone title"
    }
   }
  },
@@ -18122,7 +19258,13 @@
   ],
   "colorProps": [
    "wall",
-   "lead"
+   "lead",
+   "background",
+   "floor",
+   "recess",
+   "titleColor",
+   "captionColor",
+   "dustColor"
   ],
   "loopable": false,
   "bestLength": 240,
@@ -18259,6 +19401,30 @@
    "seed": {
     "default": 4,
     "doc": "wall and dust seed"
+   },
+   "background": {
+    "default": "#08070b",
+    "doc": "page colour behind the wall (normally covered)"
+   },
+   "floor": {
+    "default": "#15131a",
+    "doc": "floor colour under the window"
+   },
+   "recess": {
+    "default": "#07060a",
+    "doc": "dark window recess colour (behind the glass)"
+   },
+   "titleColor": {
+    "default": "#55525e",
+    "doc": "carved title colour (tinted by the sun colour)"
+   },
+   "captionColor": {
+    "default": "#4a4752",
+    "doc": "pane caption colour when unlit (tinted by the sun colour)"
+   },
+   "dustColor": {
+    "default": "#ffffff",
+    "doc": "dust mote colour in the shafts"
    }
   }
  },
@@ -20484,7 +21650,17 @@
   "takesText": false,
   "textProps": [],
   "colorProps": [
-   "hills"
+   "hills",
+   "wallColor",
+   "wallShade",
+   "roofColor",
+   "roofColor2",
+   "doorColor",
+   "windowColor",
+   "chimneyColor",
+   "lightColor",
+   "lightGlow",
+   "nightColor"
   ],
   "loopable": false,
   "bestLength": 240,
@@ -20594,6 +21770,46 @@
    "seed": {
     "default": "village",
     "doc": "random seed"
+   },
+   "wallColor": {
+    "default": "#e8dcc8",
+    "doc": "house wall colour"
+   },
+   "wallShade": {
+    "default": "#d4c6ae",
+    "doc": "house side-wall (shaded) colour"
+   },
+   "roofColor": {
+    "default": "#b5533c",
+    "doc": "roof colour A (houses alternate randomly with B)"
+   },
+   "roofColor2": {
+    "default": "#8b5a4a",
+    "doc": "roof colour B"
+   },
+   "doorColor": {
+    "default": "#7a5a44",
+    "doc": "door colour"
+   },
+   "windowColor": {
+    "default": "#5a6470",
+    "doc": "window glass colour by day"
+   },
+   "chimneyColor": {
+    "default": "#6d4a3a",
+    "doc": "chimney colour"
+   },
+   "lightColor": {
+    "default": "#ffd27a",
+    "doc": "lit window colour at night"
+   },
+   "lightGlow": {
+    "default": "#ffb84a",
+    "doc": "lit window glow colour"
+   },
+   "nightColor": {
+    "default": "#0C1A2E",
+    "doc": "night multiply layer colour"
    },
    "season": {
     "default": "off",
@@ -27205,7 +28421,12 @@
    "subtitle"
   ],
   "colorProps": [
-   "grass"
+   "grass",
+   "background",
+   "ringColor",
+   "arrowColor",
+   "titleColor",
+   "bracketColor"
   ],
   "loopable": false,
   "bestLength": 180,
@@ -27304,6 +28525,30 @@
    "seed": {
     "default": 6,
     "doc": "layout seed"
+   },
+   "background": {
+    "default": "#1C2928",
+    "doc": "colour behind the field (normally covered)"
+   },
+   "ringColor": {
+    "default": "#BFE6F0",
+    "doc": "selection ring and status text colour"
+   },
+   "arrowColor": {
+    "default": "#ffffff",
+    "doc": "volley chevron colour"
+   },
+   "titleColor": {
+    "default": "#ffffff",
+    "doc": "title and subtitle text colour"
+   },
+   "bracketColor": {
+    "default": "#E0503C",
+    "doc": "title corner bracket colour"
+   },
+   "statusLabel": {
+    "default": "IDLE",
+    "doc": "small status text next to the selection label"
    }
   }
  },
@@ -27461,7 +28706,14 @@
   "textProps": [],
   "colorProps": [
    "rope",
-   "spark"
+   "spark",
+   "background",
+   "rayColor",
+   "ink",
+   "textColor",
+   "accent",
+   "accent2",
+   "alert"
   ],
   "loopable": false,
   "bestLength": 180,
@@ -27525,11 +28777,39 @@
    },
    "spark": {
     "default": "#FFC928",
-    "doc": "spark colour (reserved)"
+    "doc": "spark star colour"
    },
    "seed": {
     "default": 4,
     "doc": "particle seed"
+   },
+   "background": {
+    "default": "#2A0F5C",
+    "doc": "stage ground colour (stage=true)"
+   },
+   "rayColor": {
+    "default": "#3A1A78",
+    "doc": "stage sunburst ray colour"
+   },
+   "ink": {
+    "default": "#1A1030",
+    "doc": "outline colour of the fuse and numerals"
+   },
+   "textColor": {
+    "default": "#ffffff",
+    "doc": "READY? / beat numeral fill colour"
+   },
+   "accent": {
+    "default": "#FFC928",
+    "doc": "numeral colour for the last 2 beats, GO! fill and beat pulse bar"
+   },
+   "accent2": {
+    "default": "#FF2E88",
+    "doc": "hard-shadow colour of READY? and the numeral"
+   },
+   "alert": {
+    "default": "#FF3B3B",
+    "doc": "hard-shadow colour of GO! and the last-2-beats numeral"
    }
   }
  },
@@ -27667,7 +28947,15 @@
    "label"
   ],
   "colorProps": [
-   "panel"
+   "panel",
+   "background",
+   "rayColor",
+   "ink",
+   "textColor",
+   "tabColor",
+   "lossColor",
+   "lastColor",
+   "gainColor"
   ],
   "loopable": false,
   "bestLength": 240,
@@ -27748,6 +29036,42 @@
    "seed": {
     "default": 2,
     "doc": "shard seed"
+   },
+   "background": {
+    "default": "#2A0F5C",
+    "doc": "stage ground colour (stage=true)"
+   },
+   "rayColor": {
+    "default": "#3A1A78",
+    "doc": "stage sunburst ray colour"
+   },
+   "ink": {
+    "default": "#1A1030",
+    "doc": "outline colour of the panel, icons, tab label"
+   },
+   "textColor": {
+    "default": "#ffffff",
+    "doc": "slam caption fill colour"
+   },
+   "tabColor": {
+    "default": "#FFC928",
+    "doc": "label tab colour"
+   },
+   "iconColor": {
+    "default": "",
+    "doc": "icon body colour ('' = the icon's own colour: heart red, star gold, pilot cream)"
+   },
+   "lossColor": {
+    "default": "#FF3B3B",
+    "doc": "caption hard-shadow colour on a loss"
+   },
+   "lastColor": {
+    "default": "#FF7A1A",
+    "doc": "caption hard-shadow colour when one life remains"
+   },
+   "gainColor": {
+    "default": "#3BDC5A",
+    "doc": "caption hard-shadow colour on a gain"
    }
   }
  },
@@ -28691,7 +30015,18 @@
    "left",
    "right"
   ],
-  "colorProps": [],
+  "colorProps": [
+   "background",
+   "nameColor",
+   "dividerColor",
+   "badgeColor",
+   "badgeRim",
+   "crescentColor",
+   "badgeGradient",
+   "topColor",
+   "slamGradient",
+   "outline"
+  ],
   "loopable": false,
   "bestLength": 90,
   "mood": [
@@ -28753,6 +30088,54 @@
    "seed": {
     "default": 7,
     "doc": "speckle seed"
+   },
+   "background": {
+    "default": "#03011B",
+    "doc": "colour behind the card (normally covered)"
+   },
+   "nameColor": {
+    "default": "#F0EBD3",
+    "doc": "fighter name fill colour"
+   },
+   "dividerColor": {
+    "default": "#ffffff",
+    "doc": "white divider line colour"
+   },
+   "badgeColor": {
+    "default": "#03011B",
+    "doc": "VS badge fill colour"
+   },
+   "badgeRim": {
+    "default": "#F3D88A",
+    "doc": "VS badge rim colour"
+   },
+   "crescentColor": {
+    "default": "#F3CE6E",
+    "doc": "gold crescent inside the badge"
+   },
+   "badgeGradient": {
+    "default": [
+     "#F9EBA0",
+     "#F8CF6B",
+     "#F1A64F"
+    ],
+    "doc": "VS text gradient, 3 hex colours top to bottom"
+   },
+   "topColor": {
+    "default": "#FCFAE3",
+    "doc": "word above the badge, fill colour"
+   },
+   "slamGradient": {
+    "default": [
+     "#FCFAE3",
+     "#F8CF6B",
+     "#F1A64F"
+    ],
+    "doc": "slam word gradient, 3 hex colours top to bottom"
+   },
+   "outline": {
+    "default": "#1A1430",
+    "doc": "VS text outline colour"
    }
   }
  },
@@ -33196,7 +34579,9 @@
   "textProps": [
    "stages"
   ],
-  "colorProps": [],
+  "colorProps": [
+   "background"
+  ],
   "loopable": false,
   "bestLength": 180,
   "mood": [
@@ -33287,6 +34672,10 @@
    "seed": {
     "default": 1,
     "doc": "crop / procedural seed"
+   },
+   "background": {
+    "default": "#000000",
+    "doc": "gutter colour between cells (default black)"
    }
   }
  },
@@ -35521,7 +36910,13 @@
   "textProps": [
    "labels"
   ],
-  "colorProps": [],
+  "colorProps": [
+   "background",
+   "flashColor",
+   "cardInk",
+   "teamAColor",
+   "teamBColor"
+  ],
   "loopable": false,
   "bestLength": 150,
   "mood": [
@@ -35649,6 +37044,30 @@
    "seed": {
     "default": 5,
     "doc": "demo pitch seed"
+   },
+   "background": {
+    "default": "#0b0d0f",
+    "doc": "colour behind the picture (normally covered)"
+   },
+   "flashColor": {
+    "default": "#ffffff",
+    "doc": "freeze flash colour"
+   },
+   "cardColor": {
+    "default": "rgba(8,12,14,0.9)",
+    "doc": "label card background (any CSS colour)"
+   },
+   "cardInk": {
+    "default": "#ffffff",
+    "doc": "label card title colour"
+   },
+   "teamAColor": {
+    "default": "#f4f1e8",
+    "doc": "demo pitch: team A shirt colour"
+   },
+   "teamBColor": {
+    "default": "#27407f",
+    "doc": "demo pitch: team B shirt colour"
    }
   }
  },
@@ -36529,6 +37948,333 @@
   }
  },
  {
+  "id": "choropleth-fill",
+  "title": "Choropleth fill (tile map + legend)",
+  "category": "map",
+  "description": "An abstract hex/square tile territory fills region by region with a colour ramp driven by values, with labels, count-ups, a gradient legend and a highest-region callout. Regions are generic tiles, not real borders.",
+  "useFor": "Regional comparisons (sales by state, scores by team, adoption by country) when you just need the pattern, not exact geography. Name tiles with `labels`; for real borders use painted-choropleth or a map image.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "map",
+   "choropleth",
+   "regions",
+   "heatmap",
+   "hex",
+   "tile map",
+   "legend",
+   "data",
+   "statistics",
+   "countries",
+   "states"
+  ],
+  "file": "src/motions/map/choropleth-fill.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "labels",
+   "title",
+   "subtitle",
+   "prefix"
+  ],
+  "colorProps": [
+   "colors",
+   "background",
+   "empty",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "hud"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "values": {
+    "default": [
+     12,
+     34,
+     58,
+     41,
+     27,
+     66,
+     83,
+     49,
+     72,
+     91,
+     38,
+     54,
+     19,
+     63,
+     77,
+     45,
+     29,
+     88,
+     52,
+     31,
+     69,
+     24,
+     57,
+     40
+    ],
+    "doc": "one number per region (also sets how many tiles there are)"
+   },
+   "labels": {
+    "default": [
+     "AL",
+     "BE",
+     "CA",
+     "DO",
+     "EL",
+     "FY",
+     "GO",
+     "HA",
+     "IR",
+     "JU",
+     "KE",
+     "LU",
+     "MO",
+     "NE",
+     "OR",
+     "PA",
+     "QU",
+     "RE",
+     "SA",
+     "TA",
+     "UL",
+     "VA",
+     "WE",
+     "XA"
+    ],
+    "doc": "one short label per region (same order as values)"
+   },
+   "title": {
+    "default": "By region",
+    "doc": "headline"
+   },
+   "subtitle": {
+    "default": "Warmer means higher",
+    "doc": "line under the headline"
+   },
+   "legendTitle": {
+    "default": "Score",
+    "doc": "legend caption"
+   },
+   "prefix": {
+    "default": "",
+    "doc": "text before legend/callout numbers, e.g. \"$\""
+   },
+   "suffix": {
+    "default": "",
+    "doc": "text after legend/callout numbers, e.g. \"%\""
+   },
+   "decimals": {
+    "default": 0,
+    "doc": "digits after the decimal point"
+   },
+   "shape": {
+    "default": "hex",
+    "doc": "\"hex\" or \"square\" tiles"
+   },
+   "colors": {
+    "default": [
+     "#1E2A4A",
+     "#2F6DB5",
+     "#4CC9F0",
+     "#FFB454"
+    ],
+    "doc": "colour ramp low -> high (2+ hex colours)"
+   },
+   "order": {
+    "default": "wave",
+    "doc": "fill order: \"wave\" (left to right), \"value\" (low to high), \"index\""
+   },
+   "showValues": {
+    "default": true,
+    "doc": "print the value on every tile"
+   },
+   "highlight": {
+    "default": true,
+    "doc": "outline + legend marker for the highest region at the end"
+   },
+   "seed": {
+    "default": 4,
+    "doc": "changes the territory outline"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "timeline speed multiplier"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame to start at"
+   },
+   "background": {
+    "default": "#0B1220",
+    "doc": "background colour or \"transparent\""
+   },
+   "empty": {
+    "default": "#16213A",
+    "doc": "unfilled tile colour"
+   },
+   "ink": {
+    "default": "#E8EEF9",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#FFFFFF",
+    "doc": "highlight outline colour"
+   },
+   "fontFamily": {
+    "default": "stub",
+    "doc": "CSS font-family"
+   }
+  }
+ },
+ {
+  "id": "city-zoom-label",
+  "title": "City zoom + label card",
+  "category": "map",
+  "description": "A world map zooms (expo ease, graticule re-scaling) down to a lat/lon, a pin pings, and a label card with name, subtitle and coordinates slides in.",
+  "useFor": "\"We are here\" / location reveals, store or event locators, travel and news establishing shots, any beat that goes from the world to one place. Set `lat`, `lon`, `label`.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "map",
+   "zoom",
+   "location",
+   "pin",
+   "label",
+   "coordinates",
+   "lat-lon",
+   "establishing",
+   "world",
+   "city"
+  ],
+  "file": "src/motions/map/city-zoom-label.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "label",
+   "subtitle"
+  ],
+  "colorProps": [
+   "background",
+   "land",
+   "landStroke",
+   "ink",
+   "accent",
+   "onAccent"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "lat": {
+    "default": 45,
+    "doc": "target latitude (degrees, N positive)"
+   },
+   "lon": {
+    "default": 9,
+    "doc": "target longitude (degrees, E positive)"
+   },
+   "label": {
+    "default": "Your City",
+    "doc": "place name on the card"
+   },
+   "subtitle": {
+    "default": "Add a one-line description here",
+    "doc": "line under the name"
+   },
+   "tag": {
+    "default": "Location",
+    "doc": "small caps line above the name"
+   },
+   "zoom": {
+    "default": 110,
+    "doc": "final zoom in px per degree at 1080 scale (world view is ~5; 110 = a region; the baked coastline is simplified, so above ~250 it looks faceted)"
+   },
+   "showCoords": {
+    "default": true,
+    "doc": "print the lat/lon on the card"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "timeline speed multiplier"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame to start at"
+   },
+   "background": {
+    "default": "#0B1220",
+    "doc": "ocean colour or \"transparent\""
+   },
+   "land": {
+    "default": "#17243C",
+    "doc": "land fill"
+   },
+   "landStroke": {
+    "default": "#2F4468",
+    "doc": "coastline, grid and card border colour"
+   },
+   "ink": {
+    "default": "#E8EEF9",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#FF7A59",
+    "doc": "pin / leader colour"
+   },
+   "onAccent": {
+    "default": "#0B1220",
+    "doc": "dot colour inside the pin"
+   },
+   "fontFamily": {
+    "default": "stub",
+    "doc": "CSS font-family"
+   },
+   "monoFamily": {
+    "default": "stub",
+    "doc": "CSS font-family for the coordinates line"
+   }
+  }
+ },
+ {
   "id": "coverage-route",
   "title": "Coverage route (floor plan)",
   "category": "map",
@@ -36742,6 +38488,388 @@
    "background": {
     "default": "#E6D8BC",
     "doc": "colour outside the room, or \"transparent\""
+   }
+  }
+ },
+ {
+  "id": "elevation-profile",
+  "title": "Elevation profile",
+  "category": "map",
+  "description": "A route elevation line draws left to right, coloured by steepness, with a moving marker and live distance / total gain / grade readouts and a peak flag.",
+  "useFor": "Hike, ride, run and race route explainers, stage profiles, any height-versus-distance story. Pass `data` (heights, evenly spaced along the route) and `distance`.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "map",
+   "elevation",
+   "profile",
+   "route",
+   "hiking",
+   "cycling",
+   "running",
+   "chart",
+   "altitude",
+   "gradient",
+   "terrain"
+  ],
+  "file": "src/motions/map/elevation-profile.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle",
+   "unit"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "accent2"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "nature",
+   "hud"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "data": {
+    "default": [
+     214,
+     258,
+     275,
+     278,
+     286,
+     314,
+     356,
+     393,
+     403,
+     383,
+     347,
+     324,
+     333,
+     376,
+     433,
+     480,
+     504,
+     513,
+     524,
+     556,
+     609,
+     665,
+     697,
+     691,
+     652,
+     604,
+     571,
+     566,
+     577,
+     584,
+     572,
+     541,
+     511,
+     504,
+     529,
+     575,
+     616,
+     628,
+     605,
+     560,
+     519,
+     496,
+     489,
+     478,
+     445,
+     385,
+     314,
+     259
+    ],
+    "doc": "elevation samples along the route (any unit, evenly spaced, 2+ numbers)"
+   },
+   "distance": {
+    "default": 42,
+    "doc": "total route length, shown on the x axis and distance readout"
+   },
+   "title": {
+    "default": "Route profile",
+    "doc": "headline"
+   },
+   "subtitle": {
+    "default": "Distance against elevation",
+    "doc": "line under the headline"
+   },
+   "unit": {
+    "default": "m",
+    "doc": "height unit label (m, ft)"
+   },
+   "distUnit": {
+    "default": "km",
+    "doc": "distance unit label (km, mi)"
+   },
+   "colorByGrade": {
+    "default": true,
+    "doc": "colour the line by steepness (accent = steep up, accent2 = flat/down)"
+   },
+   "showPeak": {
+    "default": true,
+    "doc": "flag the highest point"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "timeline speed multiplier"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame to start at"
+   },
+   "background": {
+    "default": "#0B1220",
+    "doc": "background colour or \"transparent\""
+   },
+   "ink": {
+    "default": "#E8EEF9",
+    "doc": "text / axis colour"
+   },
+   "accent": {
+    "default": "#FF7A59",
+    "doc": "steep climbs, area glow, gain readout"
+   },
+   "accent2": {
+    "default": "#4CC9F0",
+    "doc": "flat and downhill colour"
+   },
+   "fontFamily": {
+    "default": "stub",
+    "doc": "CSS font-family"
+   },
+   "monoFamily": {
+    "default": "stub",
+    "doc": "CSS font-family for axis numbers"
+   }
+  }
+ },
+ {
+  "id": "flight-arcs",
+  "title": "Flight arcs (great-circle routes)",
+  "category": "map",
+  "description": "Great-circle arcs fly between lat/lon cities on a flat map: planes (or dots) travel with a glowing trail, cities ping on arrival, a distance counter adds up.",
+  "useFor": "Global reach, shipping and travel routes, network/hub-and-spoke stories, \"from here to there\" beats; swap `routes` for any lat/lon pairs.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "map",
+   "flight",
+   "routes",
+   "arcs",
+   "great circle",
+   "travel",
+   "logistics",
+   "network",
+   "airline",
+   "shipping"
+  ],
+  "file": "src/motions/map/flight-arcs.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle",
+   "unit"
+  ],
+  "colorProps": [
+   "background",
+   "land",
+   "landStroke",
+   "ink",
+   "accent",
+   "accent2"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "routes": {
+    "default": [
+     {
+      "from": {
+       "label": "HUB A",
+       "lat": 40.5,
+       "lon": -74
+      },
+      "to": {
+       "label": "HUB B",
+       "lat": 51,
+       "lon": 0
+      }
+     },
+     {
+      "from": {
+       "label": "HUB B",
+       "lat": 51,
+       "lon": 0
+      },
+      "to": {
+       "label": "HUB C",
+       "lat": 25,
+       "lon": 55
+      }
+     },
+     {
+      "from": {
+       "label": "HUB C",
+       "lat": 25,
+       "lon": 55
+      },
+      "to": {
+       "label": "HUB D",
+       "lat": 1.3,
+       "lon": 104
+      }
+     },
+     {
+      "from": {
+       "label": "HUB D",
+       "lat": 1.3,
+       "lon": 104
+      },
+      "to": {
+       "label": "HUB E",
+       "lat": 35.5,
+       "lon": 139.5
+      }
+     },
+     {
+      "from": {
+       "label": "HUB B",
+       "lat": 51,
+       "lon": 0
+      },
+      "to": {
+       "label": "HUB F",
+       "lat": -26,
+       "lon": 28
+      }
+     },
+     {
+      "from": {
+       "label": "HUB A",
+       "lat": 40.5,
+       "lon": -74
+      },
+      "to": {
+       "label": "HUB G",
+       "lat": -23.5,
+       "lon": -46.5
+      }
+     }
+    ],
+    "doc": "array of {from:{lat,lon,label?}, to:{lat,lon,label?}}; the camera fits them all"
+   },
+   "title": {
+    "default": "Routes",
+    "doc": "headline, top left"
+   },
+   "subtitle": {
+    "default": "Hub to hub, around the map",
+    "doc": "line under the headline"
+   },
+   "unit": {
+    "default": "km flown",
+    "doc": "label under the distance counter"
+   },
+   "marker": {
+    "default": "plane",
+    "doc": "\"plane\" or \"dot\" travelling marker"
+   },
+   "lift": {
+    "default": 0.16,
+    "doc": "arc height as a fraction of the route length on screen (0 = flat)"
+   },
+   "trail": {
+    "default": 0.35,
+    "doc": "glowing trail length as a fraction of the route"
+   },
+   "stagger": {
+    "default": 18,
+    "doc": "frames between route departures"
+   },
+   "travel": {
+    "default": 72,
+    "doc": "frames each flight takes"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "timeline speed multiplier"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame to start at"
+   },
+   "showLabels": {
+    "default": true,
+    "doc": "show city labels"
+   },
+   "background": {
+    "default": "#0B1220",
+    "doc": "ocean colour or \"transparent\""
+   },
+   "land": {
+    "default": "#17243C",
+    "doc": "land fill"
+   },
+   "landStroke": {
+    "default": "#2F4468",
+    "doc": "coastline + graticule colour"
+   },
+   "ink": {
+    "default": "#E8EEF9",
+    "doc": "text / plane colour"
+   },
+   "accent": {
+    "default": "#FFB454",
+    "doc": "trail + city colour"
+   },
+   "accent2": {
+    "default": "#4CC9F0",
+    "doc": "arc colour"
+   },
+   "fontFamily": {
+    "default": "stub",
+    "doc": "CSS font-family"
    }
   }
  },
@@ -37253,6 +39381,263 @@
    "seed": {
     "default": 11,
     "doc": "island + wash seed"
+   }
+  }
+ },
+ {
+  "id": "pin-drop-cluster",
+  "title": "Pin drop + clustering map",
+  "category": "map",
+  "description": "Map pins drop onto a map region, merge into numbered cluster bubbles, split into single pins as the camera zooms in, then merge again.",
+  "useFor": "Store/user/event locators, \"customers worldwide\", coverage and density stories, any list of lat/lon points that needs to read as a map with counts.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 270,
+  "tags": [
+   "map",
+   "pins",
+   "cluster",
+   "locations",
+   "geo",
+   "lat-lon",
+   "markers",
+   "store locator",
+   "density",
+   "zoom"
+  ],
+  "file": "src/motions/map/pin-drop-cluster.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle",
+   "unit"
+  ],
+  "colorProps": [
+   "background",
+   "land",
+   "landStroke",
+   "ink",
+   "accent",
+   "accent2",
+   "onAccent"
+  ],
+  "loopable": false,
+  "bestLength": 270,
+  "mood": [],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "points": {
+    "default": [
+     {
+      "lat": 45.96,
+      "lon": -1.14
+     },
+     {
+      "lat": 48.21,
+      "lon": 0.89
+     },
+     {
+      "lat": 46.76,
+      "lon": -1.21
+     },
+     {
+      "lat": 49.07,
+      "lon": -1.29
+     },
+     {
+      "lat": 49.72,
+      "lon": 3.67
+     },
+     {
+      "lat": 47.58,
+      "lon": 2.46
+     },
+     {
+      "lat": 46.39,
+      "lon": 1.25
+     },
+     {
+      "lat": 46.92,
+      "lon": -0.49
+     },
+     {
+      "lat": 49.28,
+      "lon": 0.09
+     },
+     {
+      "lat": 47.46,
+      "lon": 9.38
+     },
+     {
+      "lat": 44.54,
+      "lon": 11.79
+     },
+     {
+      "lat": 49.68,
+      "lon": 13.31
+     },
+     {
+      "lat": 47,
+      "lon": 10.25
+     },
+     {
+      "lat": 45.09,
+      "lon": 10.51
+     },
+     {
+      "lat": 45.54,
+      "lon": 8.38
+     },
+     {
+      "lat": 45.58,
+      "lon": 9.67
+     },
+     {
+      "lat": 44.28,
+      "lon": 11.61
+     },
+     {
+      "lat": 55.45,
+      "lon": 22.32
+     },
+     {
+      "lat": 52.29,
+      "lon": 16.6
+     },
+     {
+      "lat": 52.07,
+      "lon": 20
+     },
+     {
+      "lat": 50.45,
+      "lon": 23.11
+     },
+     {
+      "lat": 52.17,
+      "lon": 19.6
+     },
+     {
+      "lat": 50.19,
+      "lon": 19.47
+     },
+     {
+      "lat": 52.33,
+      "lon": 15.71
+     },
+     {
+      "lat": 37.01,
+      "lon": -3.75
+     },
+     {
+      "lat": 42.37,
+      "lon": 0.46
+     },
+     {
+      "lat": 41.81,
+      "lon": 0.06
+     },
+     {
+      "lat": 41.44,
+      "lon": -3.11
+     },
+     {
+      "lat": 37.26,
+      "lon": 29.02
+     },
+     {
+      "lat": 42.72,
+      "lon": 26.78
+     },
+     {
+      "lat": 41.9,
+      "lon": 30.33
+     },
+     {
+      "lat": 41.38,
+      "lon": 23.54
+     }
+    ],
+    "doc": "array of {lat, lon, label?}; the camera auto-fits them (labels show when a pin is single and zoomed in)"
+   },
+   "title": {
+    "default": "Locations",
+    "doc": "headline, top left"
+   },
+   "subtitle": {
+    "default": "Every point, grouped by density",
+    "doc": "line under the headline"
+   },
+   "unit": {
+    "default": "locations",
+    "doc": "noun for the big counter (locations, stores, users)"
+   },
+   "clusterSize": {
+    "default": 120,
+    "doc": "cluster radius in px (1080 scale): bigger merges more"
+   },
+   "zoom": {
+    "default": 2.2,
+    "doc": "camera zoom-in factor for the split beat"
+   },
+   "pinSize": {
+    "default": 58,
+    "doc": "pin height in px (1080 scale)"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "timeline speed multiplier"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame to start at"
+   },
+   "background": {
+    "default": "#0B1220",
+    "doc": "map ocean colour, or \"transparent\""
+   },
+   "land": {
+    "default": "#17243C",
+    "doc": "land fill"
+   },
+   "landStroke": {
+    "default": "#2F4468",
+    "doc": "coastline + graticule colour"
+   },
+   "ink": {
+    "default": "#E8EEF9",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#FF7A59",
+    "doc": "pin colour"
+   },
+   "accent2": {
+    "default": "#4CC9F0",
+    "doc": "cluster bubble colour"
+   },
+   "onAccent": {
+    "default": "#0B1220",
+    "doc": "text/dot colour drawn on accent shapes"
+   },
+   "fontFamily": {
+    "default": "stub",
+    "doc": "CSS font-family"
    }
   }
  },
@@ -38162,6 +40547,397 @@
    "background": {
     "default": "paper",
     "doc": "'paper', 'transparent' (overlay on your scene) or any colour"
+   }
+  }
+ },
+ {
+  "id": "mascot-thinking",
+  "title": "Mascot Pip thinking to idea",
+  "category": "mascot",
+  "description": "Pip ponders with a hand by its head while a thought bubble of pulsing dots grows, then the dots flip to a glowing light bulb, the antenna lights and Pip hops.",
+  "useFor": "Loading / \"thinking\" states, problem-then-solution beats, \"what if...\" questions, AI-assistant processing screens, aha moments. Set `idea` to the punchline word.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "mascot",
+   "character",
+   "thinking",
+   "idea",
+   "light bulb",
+   "thought bubble",
+   "robot",
+   "loading",
+   "aha",
+   "question"
+  ],
+  "file": "src/motions/mascot/mascot-thinking.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "bodyColor",
+   "plateColor",
+   "eyeColor",
+   "accent",
+   "bulbColor",
+   "cheekColor",
+   "bubbleColor",
+   "ink"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "playful"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "idea": {
+    "default": "Idea!",
+    "doc": "label shown with the bulb (\"\" to hide)"
+   },
+   "dots": {
+    "default": 3,
+    "doc": "number of thinking dots"
+   },
+   "thinkFrames": {
+    "default": 96,
+    "doc": "frame the idea lights up (length of the thinking phase)"
+   },
+   "size": {
+    "default": 1,
+    "doc": "mascot scale multiplier"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "timeline speed multiplier"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame to start at"
+   },
+   "background": {
+    "default": "#F4EFE6",
+    "doc": "background colour or \"transparent\""
+   },
+   "bodyColor": {
+    "default": "#5B7CFA",
+    "doc": "body colour"
+   },
+   "plateColor": {
+    "default": "#1D2340",
+    "doc": "face plate colour"
+   },
+   "eyeColor": {
+    "default": "#8FF0FF",
+    "doc": "eyes + mouth colour"
+   },
+   "accent": {
+    "default": "#FFB454",
+    "doc": "chest light, halo, idea label"
+   },
+   "bulbColor": {
+    "default": "#FFD84D",
+    "doc": "bulb colour"
+   },
+   "cheekColor": {
+    "default": "#FF8FA8",
+    "doc": "blush colour"
+   },
+   "bubbleColor": {
+    "default": "#FFFFFF",
+    "doc": "thought cloud fill"
+   },
+   "ink": {
+    "default": "#1D2340",
+    "doc": "dots / bulb outline colour"
+   },
+   "fontFamily": {
+    "default": "stub",
+    "doc": "CSS font-family"
+   }
+  }
+ },
+ {
+  "id": "mascot-thumbs-up",
+  "title": "Mascot Pip thumbs up + confetti",
+  "category": "mascot",
+  "description": "Pip crouches, jumps and lands with a thumbs-up while confetti cannons fire and a \"nice work\" bubble pops.",
+  "useFor": "Success / completion / goal-reached states, milestone and launch celebrations, quiz-correct feedback, end cards. Change `text` and `confettiColors` to the brand.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 150,
+  "tags": [
+   "mascot",
+   "character",
+   "thumbs up",
+   "celebrate",
+   "confetti",
+   "success",
+   "robot",
+   "win",
+   "complete",
+   "jump"
+  ],
+  "file": "src/motions/mascot/mascot-thumbs-up.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "text"
+  ],
+  "colorProps": [
+   "confettiColors",
+   "background",
+   "bodyColor",
+   "plateColor",
+   "eyeColor",
+   "accent",
+   "bulbColor",
+   "cheekColor",
+   "bubbleColor",
+   "ink"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "playful"
+  ],
+  "roles": [
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "text": {
+    "default": "Nice work!",
+    "doc": "celebration line in the bubble"
+   },
+   "confettiColors": {
+    "default": [
+     "#FFB454",
+     "#FF6B8A",
+     "#4CC9F0",
+     "#7BE0A1",
+     "#FFFFFF"
+    ],
+    "doc": "confetti palette (any number of colours)"
+   },
+   "confettiCount": {
+    "default": 70,
+    "doc": "pieces in the main burst (side cannons use half)"
+   },
+   "size": {
+    "default": 1,
+    "doc": "mascot scale multiplier"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "timeline speed multiplier"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame to start at"
+   },
+   "seed": {
+    "default": 11,
+    "doc": "confetti pattern seed"
+   },
+   "background": {
+    "default": "#F4EFE6",
+    "doc": "background colour or \"transparent\""
+   },
+   "bodyColor": {
+    "default": "#5B7CFA",
+    "doc": "body colour"
+   },
+   "plateColor": {
+    "default": "#1D2340",
+    "doc": "face plate colour"
+   },
+   "eyeColor": {
+    "default": "#8FF0FF",
+    "doc": "eyes + mouth colour"
+   },
+   "accent": {
+    "default": "#FFB454",
+    "doc": "chest light, halo, sparkles"
+   },
+   "bulbColor": {
+    "default": "#FFD84D",
+    "doc": "antenna bulb glow colour"
+   },
+   "cheekColor": {
+    "default": "#FF8FA8",
+    "doc": "blush colour"
+   },
+   "bubbleColor": {
+    "default": "#FFFFFF",
+    "doc": "speech bubble fill"
+   },
+   "ink": {
+    "default": "#1D2340",
+    "doc": "speech text colour"
+   },
+   "fontFamily": {
+    "default": "stub",
+    "doc": "CSS font-family"
+   }
+  }
+ },
+ {
+  "id": "mascot-wave-hello",
+  "title": "Mascot Pip waves hello",
+  "category": "mascot",
+  "description": "An original capsule-robot mascot (Pip) pops in, waves, blinks and says a typed line in a speech bubble.",
+  "useFor": "Welcome / onboarding / intro beats, chat-widget greetings, \"hi, I am your guide\" cold opens, sign-off waves. Change `text` and the colour props to match a brand.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 150,
+  "tags": [
+   "mascot",
+   "character",
+   "wave",
+   "hello",
+   "greeting",
+   "welcome",
+   "robot",
+   "onboarding",
+   "speech bubble",
+   "intro"
+  ],
+  "file": "src/motions/mascot/mascot-wave-hello.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "text"
+  ],
+  "colorProps": [
+   "background",
+   "bodyColor",
+   "plateColor",
+   "eyeColor",
+   "accent",
+   "bulbColor",
+   "cheekColor",
+   "bubbleColor",
+   "ink"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "playful"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "text": {
+    "default": "Hello there! Welcome aboard.",
+    "doc": "the speech bubble line"
+   },
+   "name": {
+    "default": "PIP",
+    "doc": "name tag under the feet (\"\" to hide)"
+   },
+   "hand": {
+    "default": "right",
+    "doc": "which arm waves: \"right\" or \"left\""
+   },
+   "size": {
+    "default": 1,
+    "doc": "mascot scale multiplier"
+   },
+   "waveSpeed": {
+    "default": 1,
+    "doc": "wave tempo multiplier"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "timeline speed multiplier"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame to start at"
+   },
+   "background": {
+    "default": "#F4EFE6",
+    "doc": "background colour or \"transparent\""
+   },
+   "bodyColor": {
+    "default": "#5B7CFA",
+    "doc": "body colour"
+   },
+   "plateColor": {
+    "default": "#1D2340",
+    "doc": "face plate colour"
+   },
+   "eyeColor": {
+    "default": "#8FF0FF",
+    "doc": "eyes + mouth colour"
+   },
+   "accent": {
+    "default": "#FFB454",
+    "doc": "chest light, name tag, soft halo"
+   },
+   "bulbColor": {
+    "default": "#FFD84D",
+    "doc": "antenna bulb glow colour"
+   },
+   "cheekColor": {
+    "default": "#FF8FA8",
+    "doc": "blush colour"
+   },
+   "bubbleColor": {
+    "default": "#FFFFFF",
+    "doc": "speech bubble fill"
+   },
+   "ink": {
+    "default": "#1D2340",
+    "doc": "speech text colour"
+   },
+   "fontFamily": {
+    "default": "stub",
+    "doc": "CSS font-family"
    }
   }
  },
@@ -40541,6 +43317,117 @@
   }
  },
  {
+  "id": "colorway-swap",
+  "title": "Colourway swap",
+  "category": "product",
+  "description": "A product cycles through a list of colourways: the image is recoloured (luminance tint, or the procedural speaker repaints), the backdrop disc and name follow, and a row of swatch chips highlights the active one.",
+  "useFor": "Colour options for any product — phones, shoes, bottles, cars, apparel; pass your product image and a `colorways` list.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "colorway",
+   "colour",
+   "color",
+   "variants",
+   "swatch",
+   "product",
+   "options",
+   "recolor",
+   "ecommerce",
+   "configurator"
+  ],
+  "file": "src/motions/product/colorway-swap.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": true,
+  "textProps": [
+   "title"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [
+   "photo"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Pick your colour",
+    "doc": "heading at the top (empty hides it)"
+   },
+   "colorways": {
+    "default": [
+     {
+      "name": "Midnight",
+      "color": "#2B2E3B"
+     },
+     {
+      "name": "Coral",
+      "color": "#FF6A55"
+     },
+     {
+      "name": "Lagoon",
+      "color": "#2FA7A0"
+     },
+     {
+      "name": "Sand",
+      "color": "#D9C7A3"
+     }
+    ],
+    "doc": "array of {name, color} (up to 8)"
+   },
+   "src": {
+    "default": "",
+    "doc": "product image (public/ path or URL), tinted per colourway; empty draws a neutral speaker"
+   },
+   "background": {
+    "default": "#F3EFE7",
+    "doc": "backdrop colour or 'transparent'"
+   },
+   "ink": {
+    "default": "#1B1B22",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#1B1B22",
+    "doc": "active-swatch ring colour"
+   },
+   "hold": {
+    "default": 34,
+    "doc": "frames each colourway is held"
+   },
+   "swap": {
+    "default": 14,
+    "doc": "frames the colour blend takes"
+   },
+   "startAt": {
+    "default": 16,
+    "doc": "frame the cycle starts"
+   }
+  }
+ },
+ {
   "id": "exploded-view-snap",
   "title": "Exploded view snap",
   "category": "product",
@@ -40665,6 +43552,112 @@
    "background": {
     "default": "#E6EAF2",
     "doc": "studio colour"
+   }
+  }
+ },
+ {
+  "id": "feature-callout-orbit",
+  "title": "Feature callouts around a product",
+  "category": "product",
+  "description": "A product image floats in the centre with a dashed orbit ring; feature labels pop out of it one by one on elbowed leader lines (dot, line draw-on, label chip). Columns in landscape, rows in portrait.",
+  "useFor": "Product launches, app feature tours, spec call-outs, \"what is inside\" reveals — pass your product image and your feature list.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "product",
+   "callout",
+   "feature",
+   "leader line",
+   "labels",
+   "annotation",
+   "spec",
+   "launch",
+   "overlay",
+   "tour"
+  ],
+  "file": "src/motions/product/feature-callout-orbit.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "features"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "productColor"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "photo",
+   "nature"
+  ],
+  "roles": [
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Meet Aura One",
+    "doc": "headline at the top (empty hides it)"
+   },
+   "features": {
+    "default": [
+     "Active noise cancelling",
+     "40-hour battery",
+     "Spatial audio",
+     "USB-C fast charge"
+    ],
+    "doc": "feature labels (up to 8)"
+   },
+   "src": {
+    "default": "",
+    "doc": "product image (public/ path or URL); empty draws a neutral speaker"
+   },
+   "background": {
+    "default": "#F2EEE6",
+    "doc": "backdrop colour or 'transparent'"
+   },
+   "ink": {
+    "default": "#1C1B22",
+    "doc": "text / ring colour"
+   },
+   "accent": {
+    "default": "#FF5A36",
+    "doc": "leader line, dots, orbit dot, glow"
+   },
+   "productColor": {
+    "default": "#2B2E3B",
+    "doc": "body colour of the procedural product"
+   },
+   "startAt": {
+    "default": 8,
+    "doc": "frame the first callout begins"
+   },
+   "stagger": {
+    "default": 18,
+    "doc": "frames between callouts"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "overall tempo multiplier"
    }
   }
  },
@@ -41008,6 +44001,265 @@
   }
  },
  {
+  "id": "price-tag-drop",
+  "title": "Price tag drop",
+  "category": "product",
+  "description": "A price tag hangs on a string, drops in and swings to rest; the old price is struck through, the new price pops in and a discount badge stamps on (auto percentage unless set).",
+  "useFor": "Sales, launch pricing, \"now only\" beats, subscription price reveals — set currency, old and new price.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 150,
+  "tags": [
+   "price",
+   "sale",
+   "discount",
+   "offer",
+   "tag",
+   "product",
+   "pricing",
+   "strikethrough",
+   "ecommerce",
+   "overlay"
+  ],
+  "file": "src/motions/product/price-tag-drop.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "label",
+   "badge",
+   "tagline"
+  ],
+  "colorProps": [
+   "background",
+   "card",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [],
+  "roles": [
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "label": {
+    "default": "SPECIAL OFFER",
+    "doc": "small heading on the tag"
+   },
+   "oldPrice": {
+    "default": "129.00",
+    "doc": "original price text (struck through)"
+   },
+   "newPrice": {
+    "default": "79.00",
+    "doc": "new price text"
+   },
+   "currency": {
+    "default": "$",
+    "doc": "currency symbol / prefix (e.g. $, €, £, Rs.)"
+   },
+   "badge": {
+    "default": "",
+    "doc": "badge text; empty = automatic -NN% from the two prices (hidden if not computable)"
+   },
+   "tagline": {
+    "default": "Today only",
+    "doc": "small line under the new price"
+   },
+   "background": {
+    "default": "#F4EFE6",
+    "doc": "backdrop colour or 'transparent'"
+   },
+   "card": {
+    "default": "#FFFDF8",
+    "doc": "tag colour"
+   },
+   "ink": {
+    "default": "#1D1B24",
+    "doc": "text and string colour"
+   },
+   "accent": {
+    "default": "#E8412A",
+    "doc": "label, strike, badge colour"
+   },
+   "swing": {
+    "default": 16,
+    "doc": "initial swing angle in degrees"
+   },
+   "startAt": {
+    "default": 6,
+    "doc": "frame the tag starts dropping"
+   }
+  }
+ },
+ {
+  "id": "spec-compare-table",
+  "title": "Spec comparison table",
+  "category": "product",
+  "description": "A comparison card: product names across the top, spec rows ticking in one after another with a check on each row winner, then the winning column is lit with an accent band and a badge.",
+  "useFor": "Versus / comparison videos, plan and pricing tiers, \"why ours\" slides, product roundups — pass your products and rows.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "compare",
+   "comparison",
+   "table",
+   "specs",
+   "versus",
+   "pricing",
+   "plans",
+   "product",
+   "features",
+   "winner",
+   "checklist"
+  ],
+  "file": "src/motions/product/spec-compare-table.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "card"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Which one is for you?",
+    "doc": "heading above the table"
+   },
+   "products": {
+    "default": [
+     "Lite",
+     "Pro",
+     "Max"
+    ],
+    "doc": "column headings (2-4)"
+   },
+   "rows": {
+    "default": [
+     {
+      "label": "Battery",
+      "values": [
+       "20 h",
+       "36 h",
+       "48 h"
+      ],
+      "win": 2
+     },
+     {
+      "label": "Weight",
+      "values": [
+       "240 g",
+       "255 g",
+       "310 g"
+      ],
+      "win": 0
+     },
+     {
+      "label": "Noise cancelling",
+      "values": [
+       "Basic",
+       "Adaptive",
+       "Adaptive"
+      ],
+      "win": 1
+     },
+     {
+      "label": "Water rating",
+      "values": [
+       "None",
+       "IPX4",
+       "IPX5"
+      ],
+      "win": 2
+     },
+     {
+      "label": "Price",
+      "values": [
+       "$129",
+       "$199",
+       "$299"
+      ],
+      "win": 0
+     }
+    ],
+    "doc": "array of {label, values[] (one per product), win? (column index that gets the check)}"
+   },
+   "winner": {
+    "default": 1,
+    "doc": "index of the highlighted column (-1 for none)"
+   },
+   "winnerLabel": {
+    "default": "BEST VALUE",
+    "doc": "badge text above the winning column"
+   },
+   "background": {
+    "default": "#EFEBE3",
+    "doc": "backdrop colour or 'transparent'"
+   },
+   "ink": {
+    "default": "#1A1A22",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#F0502C",
+    "doc": "check, winner band and badge colour"
+   },
+   "card": {
+    "default": "#FFFFFF",
+    "doc": "table card colour"
+   },
+   "fontFamily": {
+    "default": "",
+    "doc": "optional CSS font-family for names and values (empty = grotesk)"
+   },
+   "startAt": {
+    "default": 10,
+    "doc": "frame the first row starts"
+   },
+   "stagger": {
+    "default": 18,
+    "doc": "frames between rows"
+   }
+  }
+ },
+ {
   "id": "sunburst-hero",
   "title": "Sunburst hero (mid-century reveal)",
   "category": "product",
@@ -41150,6 +44402,111 @@
    "background": {
     "default": "ground",
     "doc": "\"ground\" or \"transparent\" (overlay: rays + disc + sparkles + subject + titles)"
+   }
+  }
+ },
+ {
+  "id": "unbox-lid-lift",
+  "title": "Unbox lid lift",
+  "category": "product",
+  "description": "A packaging box gives a little shake, the lid lifts, tilts and slides away, light rays and a glow pour out and the product image rises out of the box, then a title and subtitle settle in below.",
+  "useFor": "Unboxing reveals, \"what is in the box\", product drop / launch teasers, gift and surprise reveals — pass your product image.",
+  "source": [
+   "original (round 3)"
+  ],
+  "durationInFrames": 190,
+  "tags": [
+   "unboxing",
+   "box",
+   "reveal",
+   "product",
+   "launch",
+   "gift",
+   "lid",
+   "packaging",
+   "whats in the box",
+   "drop"
+  ],
+  "file": "src/motions/product/unbox-lid-lift.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "box",
+   "accent",
+   "productColor"
+  ],
+  "loopable": false,
+  "bestLength": 190,
+  "mood": [
+   "photo"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Open it up",
+    "doc": "headline under the box"
+   },
+   "subtitle": {
+    "default": "Everything you need, right in the box",
+    "doc": "line under the headline"
+   },
+   "boxLabel": {
+    "default": "AURA",
+    "doc": "word printed on the box front (empty hides it)"
+   },
+   "src": {
+    "default": "",
+    "doc": "product image (public/ path or URL); empty draws a neutral speaker"
+   },
+   "background": {
+    "default": "#16182A",
+    "doc": "backdrop colour or 'transparent'"
+   },
+   "ink": {
+    "default": "#FFFFFF",
+    "doc": "text colour"
+   },
+   "box": {
+    "default": "#E9E2D2",
+    "doc": "cardboard colour"
+   },
+   "accent": {
+    "default": "#FF6A3D",
+    "doc": "light, ribbon and label colour"
+   },
+   "productColor": {
+    "default": "#4A5170",
+    "doc": "body colour of the procedural product"
+   },
+   "startAt": {
+    "default": 10,
+    "doc": "frame the shake / lift starts"
+   },
+   "speed": {
+    "default": 1,
+    "doc": "overall tempo multiplier"
    }
   }
  },
@@ -46031,7 +49388,10 @@
   "imageProps": [],
   "takesText": false,
   "textProps": [],
-  "colorProps": [],
+  "colorProps": [
+   "ink",
+   "shadow"
+  ],
   "loopable": false,
   "bestLength": 300,
   "mood": [
@@ -46151,6 +49511,14 @@
    "showLabels": {
     "default": true,
     "doc": "show the icon name and progress dots"
+   },
+   "ink": {
+    "default": "#1b1b2f",
+    "doc": "label and progress-dot colour (blended 50 % with the icon colour)"
+   },
+   "shadow": {
+    "default": "#000000",
+    "doc": "ground shadow colour"
    }
   }
  },
@@ -53246,6 +56614,116 @@
   }
  },
  {
+  "id": "bokeh-drift",
+  "title": "Bokeh drift",
+  "category": "texture",
+  "description": "Soft depth-of-field light discs in three depth bands drifting through the frame with a gentle twinkle; circle or hexagon bokeh.",
+  "useFor": "Dreamy or festive backgrounds behind titles, night-city and party moods, wedding / event / luxury intros; overlay on footage with a transparent background.",
+  "source": [
+   "texture-vocabulary: bokeh light backgrounds"
+  ],
+  "durationInFrames": 180,
+  "tags": [
+   "bokeh",
+   "lights",
+   "depth of field",
+   "dreamy",
+   "background",
+   "texture",
+   "overlay",
+   "particles",
+   "night",
+   "party",
+   "loop"
+  ],
+  "file": "src/motions/texture/bokeh-drift.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "colors",
+   "background"
+  ],
+  "loopable": false,
+  "bestLength": 180,
+  "mood": [
+   "3d",
+   "playful",
+   "night"
+  ],
+  "roles": [
+   "backdrop",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "colors": {
+    "default": [
+     "#ffd9a0",
+     "#ff9ec7",
+     "#9ad7ff",
+     "#ffffff"
+    ],
+    "doc": "light colours picked per disc"
+   },
+   "count": {
+    "default": 46,
+    "doc": "number of discs (max 160)"
+   },
+   "direction": {
+    "default": 70,
+    "doc": "drift direction in degrees (0 = right, 90 = up, 180 = left)"
+   },
+   "speed": {
+    "default": 0.6,
+    "doc": "drift distance over the clip (loops by wrap-around)"
+   },
+   "size": {
+    "default": 1,
+    "doc": "disc size multiplier"
+   },
+   "softness": {
+    "default": 3.5,
+    "doc": "blur of the discs in u (higher = more defocused)"
+   },
+   "ring": {
+    "default": 0.6,
+    "doc": "bright rim on each disc (0 = flat disc, 1 = strong lens ring)"
+   },
+   "twinkle": {
+    "default": 0.5,
+    "doc": "brightness flicker amount (0..1)"
+   },
+   "shape": {
+    "default": "circle",
+    "doc": "circle | hex (aperture blades)"
+   },
+   "blend": {
+    "default": "screen",
+    "doc": "screen | normal | plus-lighter"
+   },
+   "seed": {
+    "default": 3,
+    "doc": "layout seed"
+   },
+   "background": {
+    "default": "#0b0a1c",
+    "doc": "CSS background; \"transparent\" = overlay on footage"
+   }
+  }
+ },
+ {
   "id": "hide-carve-patterns",
   "title": "Hide-carve patterns (openwork library)",
   "category": "texture",
@@ -53342,6 +56820,211 @@
    "seed": {
     "default": 5,
     "doc": "variation seed"
+   }
+  }
+ },
+ {
+  "id": "light-leak-wash",
+  "title": "Light-leak wash",
+  "category": "texture",
+  "description": "Analogue film light leaks: hot colour blobs bleed in from the frame edges, swell, drift and fall away, screen-blended.",
+  "useFor": "Warm nostalgic transitions and accents over footage or photos, wedding / travel / memory edits, title cards that need an analogue glow; use transparent background as an overlay.",
+  "source": [
+   "texture-vocabulary: film light leaks"
+  ],
+  "durationInFrames": 150,
+  "tags": [
+   "light leak",
+   "film",
+   "analog",
+   "warm",
+   "glow",
+   "overlay",
+   "texture",
+   "transition",
+   "nostalgia",
+   "vintage"
+  ],
+  "file": "src/motions/texture/light-leak-wash.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "colors",
+   "background"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "cinematic"
+  ],
+  "roles": [
+   "backdrop",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "colors": {
+    "default": [
+     "#ff6a1a",
+     "#ff2d55",
+     "#ffb347",
+     "#ff8a3d"
+    ],
+    "doc": "leak colours (cycled per leak; first of each pair is the body, the next the hot core)"
+   },
+   "leaks": {
+    "default": 3,
+    "doc": "how many leaks (1-8)"
+   },
+   "leakAt": {
+    "default": [],
+    "doc": "start frames of each leak (empty = spaced evenly)"
+   },
+   "leakFrames": {
+    "default": 70,
+    "doc": "life of each leak in frames"
+   },
+   "intensity": {
+    "default": 0.85,
+    "doc": "brightness 0..1"
+   },
+   "softness": {
+    "default": 40,
+    "doc": "blur of the blobs in u"
+   },
+   "streak": {
+    "default": true,
+    "doc": "thin light streak that rides each leak"
+   },
+   "grain": {
+    "default": 0.25,
+    "doc": "film grain overlay opacity (0 = none)"
+   },
+   "seed": {
+    "default": 4,
+    "doc": "layout seed"
+   },
+   "background": {
+    "default": "#120c0f",
+    "doc": "CSS background; \"transparent\" = overlay on footage"
+   }
+  }
+ },
+ {
+  "id": "pattern-scroll",
+  "title": "Pattern scroll",
+  "category": "texture",
+  "description": "Seamless tiling geometric background (dots, lines, checks, waves, diamonds, plus) scrolling in any direction, loop-perfect.",
+  "useFor": "Brandable looping backgrounds behind titles, lower thirds, slides and web sections; retro / Memphis / editorial wallpaper; set background transparent for a pattern overlay.",
+  "source": [
+   "texture-vocabulary: scrolling pattern backgrounds"
+  ],
+  "durationInFrames": 150,
+  "tags": [
+   "pattern",
+   "scroll",
+   "tile",
+   "seamless",
+   "loop",
+   "dots",
+   "stripes",
+   "checks",
+   "waves",
+   "background",
+   "texture",
+   "overlay",
+   "wallpaper"
+  ],
+  "file": "src/motions/texture/pattern-scroll.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 150,
+  "mood": [
+   "paper"
+  ],
+  "roles": [
+   "backdrop",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "pattern": {
+    "default": "dots",
+    "doc": "dots | lines | checks | waves | diamonds | plus"
+   },
+   "cell": {
+    "default": 90,
+    "doc": "tile size in u (min 26)"
+   },
+   "angle": {
+    "default": -20,
+    "doc": "rotation of the whole pattern, degrees (also sets scroll direction)"
+   },
+   "speed": {
+    "default": 0.6,
+    "doc": "cells per second along the pattern x axis; whole number of cells per clip loops seamlessly"
+   },
+   "alternate": {
+    "default": false,
+    "doc": "every second row scrolls the opposite way"
+   },
+   "thickness": {
+    "default": 0.34,
+    "doc": "mark size / stroke weight (fraction of a cell)"
+   },
+   "accentEvery": {
+    "default": 7,
+    "doc": "every Nth tile uses the accent colour (0 = none)"
+   },
+   "pulse": {
+    "default": 0,
+    "doc": "size breathing wave across the pattern (0 = none)"
+   },
+   "fade": {
+    "default": 0,
+    "doc": "fade the pattern out towards the edges (0..1)"
+   },
+   "background": {
+    "default": "#101826",
+    "doc": "CSS background; \"transparent\" = overlay"
+   },
+   "ink": {
+    "default": "#24344f",
+    "doc": "pattern colour"
+   },
+   "accent": {
+    "default": "#ff7a59",
+    "doc": "accent tile colour"
    }
   }
  },
@@ -53504,9 +57187,13 @@
   "imageProps": [],
   "takesText": true,
   "textProps": [
-   "title"
+   "title",
+   "subtitle",
+   "panels"
   ],
-  "colorProps": [],
+  "colorProps": [
+   "background"
+  ],
   "loopable": false,
   "bestLength": 4266,
   "mood": [],
@@ -53615,6 +57302,67 @@
    "title": {
     "default": "Transitions",
     "doc": "label on the opening panel"
+   },
+   "subtitle": {
+    "default": "{n} scene transitions · src/transitions.tsx",
+    "doc": "note under the opening label; {n} = number of transitions"
+   },
+   "variantLabel": {
+    "default": "variant ·",
+    "doc": "word before the variant name on a panel"
+   },
+   "panels": {
+    "default": [
+     [
+      "#1F2A44",
+      "#F4EFE6",
+      "#F2C84B"
+     ],
+     [
+      "#F2C84B",
+      "#1A1A1A",
+      "#E4572E"
+     ],
+     [
+      "#0E0E10",
+      "#F4EFE6",
+      "#17A398"
+     ],
+     [
+      "#F4EFE6",
+      "#1F2A44",
+      "#E4572E"
+     ],
+     [
+      "#E4572E",
+      "#FFF4E6",
+      "#1F2A44"
+     ],
+     [
+      "#C9D6EA",
+      "#1F2A44",
+      "#3383CB"
+     ],
+     [
+      "#2B2D42",
+      "#F2C84B",
+      "#E4572E"
+     ],
+     [
+      "#17A398",
+      "#0E1B1A",
+      "#F3E9D2"
+     ]
+    ],
+    "doc": "[[background, ink, accent], ...] colours of the labelled panels, cycled"
+   },
+   "notes": {
+    "default": {},
+    "doc": "overrides for the small note on each panel, keyed \"type\" or \"type:variant\""
+   },
+   "background": {
+    "default": "#000000",
+    "doc": "colour behind the series (normally covered)"
    }
   }
  },
@@ -54023,6 +57771,14 @@
      "Ships anywhere"
     ],
     "doc": "feature card titles shown after the scroll"
+   },
+   "featuresTitle": {
+    "default": "Everything moves together",
+    "doc": "section heading above the feature cards (scroll > 0)"
+   },
+   "featureBody": {
+    "default": "Ship faster with a workflow that keeps every frame, file and teammate in sync.",
+    "doc": "body text repeated on every feature card (scroll > 0)"
    },
    "heroSrc": {
     "default": "",
@@ -57629,6 +61385,142 @@
     "default": "q3 revenue",
     "doc": "text typed into the search field after the first click"
    },
+   "windowTitle": {
+    "default": "Reports",
+    "doc": "title-bar suffix after the app name (\"<appName> - <windowTitle>\")"
+   },
+   "sidebarItems": {
+    "default": [
+     "Overview",
+     "Reports",
+     "Customers",
+     "Invoices",
+     "Settings"
+    ],
+    "doc": "sidebar menu labels"
+   },
+   "sidebarActive": {
+    "default": 1,
+    "doc": "index of the highlighted sidebar item"
+   },
+   "heading": {
+    "default": "Q3 revenue",
+    "doc": "page heading above the search field"
+   },
+   "searchPlaceholder": {
+    "default": "Search reports",
+    "doc": "placeholder in the search field before typing"
+   },
+   "suggestions": {
+    "default": [
+     "Q3 revenue by region",
+     "Q3 revenue forecast"
+    ],
+    "doc": "dropdown suggestions that appear while the query types"
+   },
+   "kpis": {
+    "default": [
+     {
+      "label": "Revenue",
+      "value": "$48.2k",
+      "delta": "+12.4%"
+     },
+     {
+      "label": "Orders",
+      "value": "1,284",
+      "delta": "+5.1%"
+     },
+     {
+      "label": "Churn",
+      "value": "2.1%",
+      "delta": "-0.4%"
+     }
+    ],
+    "doc": "KPI cards {label, value, delta, color? (delta colour)}"
+   },
+   "chartTitle": {
+    "default": "Revenue by week",
+    "doc": "title of the chart card"
+   },
+   "tooltipLabel": {
+    "default": "Week 9",
+    "doc": "small label in the chart tooltip"
+   },
+   "tooltipValue": {
+    "default": "$48,210",
+    "doc": "value in the chart tooltip"
+   },
+   "tableRows": {
+    "default": [
+     [
+      "Acme Retail",
+      "Paid",
+      "$12,480"
+     ],
+     [
+      "Globex Labs",
+      "Pending",
+      "$8,215"
+     ],
+     [
+      "Initech",
+      "Paid",
+      "$6,930"
+     ],
+     [
+      "Umbrella Co",
+      "Paid",
+      "$5,112"
+     ],
+     [
+      "Hooli",
+      "Overdue",
+      "$3,870"
+     ]
+    ],
+    "doc": "table rows [name, status, amount]; status \"Paid\" = green, \"Pending\" = amber, anything else = red"
+   },
+   "inspectorTitle": {
+    "default": "Publish",
+    "doc": "heading of the right-hand inspector"
+   },
+   "inspectorNote": {
+    "default": "Share this report with your team.",
+    "doc": "grey line under the inspector heading"
+   },
+   "fields": {
+    "default": [
+     [
+      "Visibility",
+      "Team only"
+     ],
+     [
+      "Schedule",
+      "Every Monday, 9:00"
+     ],
+     [
+      "Recipients",
+      "4 people"
+     ]
+    ],
+    "doc": "inspector fields [label, value] (label is upper-cased)"
+   },
+   "publishLabel": {
+    "default": "Publish report",
+    "doc": "primary button label at rest"
+   },
+   "publishingLabel": {
+    "default": "Publishing...",
+    "doc": "primary button label while pressed"
+   },
+   "publishedLabel": {
+    "default": "Published ✓",
+    "doc": "primary button label after the click completes"
+   },
+   "toastText": {
+    "default": "Report shared with 4 people",
+    "doc": "text of the toast that slides in after publishing"
+   },
    "accent": {
     "default": "#5B5FEF",
     "doc": "app accent colour"
@@ -58282,7 +62174,13 @@
   "textProps": [],
   "colorProps": [
    "wall",
-   "cabinet"
+   "cabinet",
+   "shelfColor",
+   "deskColor",
+   "deskShade",
+   "ledColor",
+   "plantColor",
+   "spineColors"
   ],
   "loopable": false,
   "bestLength": 150,
@@ -58357,6 +62255,37 @@
    "seed": {
     "default": 6,
     "doc": "seed for cassette stacks"
+   },
+   "shelfColor": {
+    "default": "#C08A55",
+    "doc": "shelf board colour"
+   },
+   "deskColor": {
+    "default": "#D9A46A",
+    "doc": "foreground table top colour"
+   },
+   "deskShade": {
+    "default": "#B98451",
+    "doc": "foreground table colour at the bottom"
+   },
+   "ledColor": {
+    "default": "#E7553E",
+    "doc": "power LED colour on each TV"
+   },
+   "plantColor": {
+    "default": "#7FA45E",
+    "doc": "plant leaf colour"
+   },
+   "spineColors": {
+    "default": [
+     "#7C6E8A",
+     "#C9584A",
+     "#4F7F9A",
+     "#D29A3A",
+     "#5F8A6A",
+     "#3F5068"
+    ],
+    "doc": "cassette spine colours (hex list, picked at random per cassette)"
    }
   }
  },

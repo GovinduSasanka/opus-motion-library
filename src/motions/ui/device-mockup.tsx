@@ -30,6 +30,32 @@ type Props = {
   textColor: string;
   size: number;
   brand: string;
+  statusTime: string;
+  greeting: string;
+  appSuffix: string;
+  goal: number;
+  goalLabel: string;
+  goalTitle: string;
+  goalNote: string;
+  stats: string[][];
+  activityTitle: string;
+  activityRows: string[][];
+  rowDays: string[];
+  weekLabel: string;
+  weekValue: string;
+  weekDelta: string;
+  weekBars: number[];
+  weekDays: string[];
+  highlightsTitle: string;
+  highlights: string[];
+  dashMenu: string[];
+  dashTitles: string[];
+  dashStats: string[][];
+  dashChartTitle: string;
+  dashBars: number[];
+  watchLabel: string;
+  watchValue: string;
+  watchUnit: string;
 };
 
 type Spec = {bw: number; bh: number; r: number; bez: number; sr: number; refW: number; total: number};
@@ -52,49 +78,38 @@ const Ring: React.FC<{p: number; size: number; color: string; track: string; sw:
   );
 };
 
-const ROWS = [
-  ['Morning run', '5.2 km', '#ff8a5b'],
-  ['Focus block', '2 h 10 m', '#6c8cff'],
-  ['Water', '1.8 l', '#35c4c0'],
-  ['Reading', '24 pages', '#b07cff'],
-  ['Sleep', '7 h 40 m', '#ffb84d'],
-  ['Stretching', '12 min', '#ff6b8b'],
-  ['Walk', '8 400 steps', '#5bd68a'],
-  ['Journal', '1 entry', '#6c8cff'],
-];
-
-const AppUI: React.FC<{variant: number; w: number; h: number; accent: string; frame: number; scrollPct: number; brand: string}> = ({variant, w, h, accent, frame, scrollPct, brand}) => {
+const AppUI: React.FC<{P: Props; variant: number; w: number; h: number; accent: string; frame: number; scrollPct: number; brand: string}> = ({P, variant, w, h, accent, frame, scrollPct, brand}) => {
   const ink = '#14182a';
   const content = variant === 0 ? (
     <div style={{padding: '0 22px 90px'}}>
-      <div style={{fontSize: 14, color: '#8a90a6', marginTop: 6}}>Good morning</div>
-      <div style={{fontSize: 30, fontWeight: 800, color: ink, letterSpacing: -0.5}}>{brand} Today</div>
+      <div style={{fontSize: 14, color: '#8a90a6', marginTop: 6}}>{P.greeting}</div>
+      <div style={{fontSize: 30, fontWeight: 800, color: ink, letterSpacing: -0.5}}>{brand} {P.appSuffix}</div>
       <div style={{marginTop: 18, borderRadius: 26, padding: 22, color: '#fff', background: `linear-gradient(135deg, ${accent}, ${shade(accent, -0.35)})`, display: 'flex', alignItems: 'center', gap: 18}}>
         <div style={{position: 'relative', width: 104, height: 104}}>
-          <Ring p={0.78 * ease.out(clamp(frame / 40))} size={104} color="#fff" track="rgba(255,255,255,0.25)" sw={9} />
-          <div style={{position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 26, fontWeight: 800}}>78%</div>
+          <Ring p={(P.goal / 100) * ease.out(clamp(frame / 40))} size={104} color="#fff" track="rgba(255,255,255,0.25)" sw={9} />
+          <div style={{position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 26, fontWeight: 800}}>{P.goal}%</div>
         </div>
         <div>
-          <div style={{fontSize: 13, opacity: 0.8}}>Daily goal</div>
-          <div style={{fontSize: 24, fontWeight: 800, lineHeight: 1.15}}>On track</div>
-          <div style={{fontSize: 13, opacity: 0.8, marginTop: 4}}>3 of 4 habits done</div>
+          <div style={{fontSize: 13, opacity: 0.8}}>{P.goalLabel}</div>
+          <div style={{fontSize: 24, fontWeight: 800, lineHeight: 1.15}}>{P.goalTitle}</div>
+          <div style={{fontSize: 13, opacity: 0.8, marginTop: 4}}>{P.goalNote}</div>
         </div>
       </div>
       <div style={{display: 'flex', gap: 10, marginTop: 14}}>
-        {[['Streak', '12 d'], ['Score', '864'], ['Rank', '#3']].map(([a, b]) => (
-          <div key={a} style={{flex: 1, background: '#f1f3fa', borderRadius: 16, padding: '12px 12px'}}>
+        {P.stats.map(([a, b], i) => (
+          <div key={`${a}${i}`} style={{flex: 1, background: '#f1f3fa', borderRadius: 16, padding: '12px 12px'}}>
             <div style={{fontSize: 11, color: '#8a90a6'}}>{a}</div>
             <div style={{fontSize: 20, fontWeight: 800, color: ink}}>{b}</div>
           </div>
         ))}
       </div>
-      <div style={{fontSize: 17, fontWeight: 800, color: ink, margin: '20px 0 8px'}}>Activity</div>
-      {ROWS.map(([a, b, c], i) => (
-        <div key={a} style={{display: 'flex', alignItems: 'center', gap: 14, padding: '11px 0', borderBottom: '1px solid #eceef6'}}>
+      <div style={{fontSize: 17, fontWeight: 800, color: ink, margin: '20px 0 8px'}}>{P.activityTitle}</div>
+      {P.activityRows.map(([a, b, c = '#6c8cff'], i) => (
+        <div key={`${a}${i}`} style={{display: 'flex', alignItems: 'center', gap: 14, padding: '11px 0', borderBottom: '1px solid #eceef6'}}>
           <div style={{width: 40, height: 40, borderRadius: 14, background: c, opacity: 0.9}} />
           <div style={{flex: 1}}>
             <div style={{fontSize: 15, fontWeight: 700, color: ink}}>{a}</div>
-            <div style={{fontSize: 12, color: '#8a90a6'}}>{i % 2 ? 'Yesterday' : 'Today'}</div>
+            <div style={{fontSize: 12, color: '#8a90a6'}}>{P.rowDays[i % 2]}</div>
           </div>
           <div style={{fontSize: 14, fontWeight: 700, color: ink}}>{b}</div>
         </div>
@@ -102,25 +117,25 @@ const AppUI: React.FC<{variant: number; w: number; h: number; accent: string; fr
     </div>
   ) : (
     <div style={{padding: '0 22px 90px'}}>
-      <div style={{fontSize: 14, color: '#8a90a6', marginTop: 6}}>This week</div>
-      <div style={{fontSize: 46, fontWeight: 800, color: ink, letterSpacing: -1}}>41.2 h</div>
-      <div style={{fontSize: 13, color: '#2faa6a', fontWeight: 700}}>+12% vs last week</div>
+      <div style={{fontSize: 14, color: '#8a90a6', marginTop: 6}}>{P.weekLabel}</div>
+      <div style={{fontSize: 46, fontWeight: 800, color: ink, letterSpacing: -1}}>{P.weekValue}</div>
+      <div style={{fontSize: 13, color: '#2faa6a', fontWeight: 700}}>{P.weekDelta}</div>
       <div style={{display: 'flex', alignItems: 'flex-end', gap: 9, height: 170, marginTop: 20}}>
-        {[0.45, 0.7, 0.55, 0.9, 0.62, 0.38, 0.8].map((v, i) => (
+        {P.weekBars.map((v, i) => (
           <div key={i} style={{flex: 1, height: `${v * 100 * ease.out(clamp((frame - 4 - i * 3) / 22))}%`, borderRadius: 10, background: i === 3 ? accent : '#dfe3f3'}} />
         ))}
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between', fontSize: 11, color: '#8a90a6', marginTop: 6}}>
-        {['M', 'T', 'W', 'T', 'F', 'S', 'S'].map((d, i) => (
+        {P.weekDays.map((d, i) => (
           <span key={i} style={{flex: 1, textAlign: 'center'}}>{d}</span>
         ))}
       </div>
-      <div style={{fontSize: 17, fontWeight: 800, color: ink, margin: '22px 0 8px'}}>Highlights</div>
-      {['Best focus day: Thursday', 'Longest streak: 12 days', 'New personal record'].map((t) => (
-        <div key={t} style={{padding: '14px 16px', marginBottom: 10, borderRadius: 16, background: '#f1f3fa', fontSize: 14, fontWeight: 600, color: ink}}>{t}</div>
+      <div style={{fontSize: 17, fontWeight: 800, color: ink, margin: '22px 0 8px'}}>{P.highlightsTitle}</div>
+      {P.highlights.map((t, i) => (
+        <div key={`${t}${i}`} style={{padding: '14px 16px', marginBottom: 10, borderRadius: 16, background: '#f1f3fa', fontSize: 14, fontWeight: 600, color: ink}}>{t}</div>
       ))}
-      {ROWS.slice(0, 4).map(([a, b]) => (
-        <div key={a} style={{display: 'flex', justifyContent: 'space-between', padding: '12px 0', borderBottom: '1px solid #eceef6', fontSize: 14, color: ink}}>
+      {P.activityRows.slice(0, 4).map(([a, b], i) => (
+        <div key={`${a}${i}`} style={{display: 'flex', justifyContent: 'space-between', padding: '12px 0', borderBottom: '1px solid #eceef6', fontSize: 14, color: ink}}>
           <span style={{fontWeight: 700}}>{a}</span>
           <span>{b}</span>
         </div>
@@ -131,7 +146,7 @@ const AppUI: React.FC<{variant: number; w: number; h: number; accent: string; fr
   return (
     <div style={{width: w, height: h, background: '#fff', position: 'relative', overflow: 'hidden', fontFamily: fonts.sans}}>
       <div style={{display: 'flex', justifyContent: 'space-between', padding: '30px 30px 12px', fontSize: 14, fontWeight: 700, color: ink, background: '#fff', position: 'relative', zIndex: 2}}>
-        <span>9:41</span>
+        <span>{P.statusTime}</span>
         <span>●●● ▮</span>
       </div>
       <div style={{transform: `translateY(${-scrollPct * Math.max(0, overflow)}px)`}}>{content}</div>
@@ -144,32 +159,32 @@ const AppUI: React.FC<{variant: number; w: number; h: number; accent: string; fr
   );
 };
 
-const DashUI: React.FC<{variant: number; w: number; h: number; accent: string; frame: number; scrollPct: number; brand: string}> = ({variant, w, h, accent, frame, scrollPct, brand}) => {
+const DashUI: React.FC<{P: Props; variant: number; w: number; h: number; accent: string; frame: number; scrollPct: number; brand: string}> = ({P, variant, w, h, accent, frame, scrollPct, brand}) => {
   const ink = '#161a2c';
-  const bars = [0.4, 0.62, 0.5, 0.8, 0.66, 0.9, 0.74, 0.95, 0.7, 0.55, 0.78, 0.86];
+  const bars = P.dashBars;
   return (
     <div style={{width: w, height: h, background: '#f4f6fb', display: 'flex', overflow: 'hidden', fontFamily: fonts.sans}}>
       <div style={{width: 190, background: '#fff', padding: 22, borderRight: '1px solid #e7eaf4'}}>
         <div style={{fontSize: 22, fontWeight: 800, color: ink, marginBottom: 26}}>
           <span style={{color: accent}}>●</span> {brand}
         </div>
-        {['Overview', 'Reports', 'Customers', 'Billing', 'Settings'].map((t, i) => (
-          <div key={t} style={{padding: '11px 12px', borderRadius: 10, marginBottom: 4, fontSize: 15, fontWeight: 600, color: i === variant ? accent : '#6c7390', background: i === variant ? rgba(accent, 0.1) : 'transparent'}}>{t}</div>
+        {P.dashMenu.map((t, i) => (
+          <div key={`${t}${i}`} style={{padding: '11px 12px', borderRadius: 10, marginBottom: 4, fontSize: 15, fontWeight: 600, color: i === variant ? accent : '#6c7390', background: i === variant ? rgba(accent, 0.1) : 'transparent'}}>{t}</div>
         ))}
       </div>
       <div style={{flex: 1, padding: '24px 28px', overflow: 'hidden'}}>
         <div style={{transform: `translateY(${-scrollPct * 120}px)`}}>
-          <div style={{fontSize: 26, fontWeight: 800, color: ink}}>{variant === 0 ? 'Overview' : 'Reports'}</div>
+          <div style={{fontSize: 26, fontWeight: 800, color: ink}}>{variant === 0 ? P.dashTitles[0] : P.dashTitles[1]}</div>
           <div style={{display: 'flex', gap: 14, margin: '16px 0'}}>
-            {[['Revenue', '$84.2k'], ['Users', '12,480'], ['Growth', '+18%']].map(([a, b], i) => (
-              <div key={a} style={{flex: 1, background: '#fff', borderRadius: 16, padding: 16, boxShadow: '0 2px 8px rgba(20,30,70,0.06)'}}>
+            {P.dashStats.map(([a, b], i) => (
+              <div key={`${a}${i}`} style={{flex: 1, background: '#fff', borderRadius: 16, padding: 16, boxShadow: '0 2px 8px rgba(20,30,70,0.06)'}}>
                 <div style={{fontSize: 12, color: '#7b829c'}}>{a}</div>
                 <div style={{fontSize: 26, fontWeight: 800, color: i === 2 ? '#2faa6a' : ink}}>{b}</div>
               </div>
             ))}
           </div>
           <div style={{background: '#fff', borderRadius: 18, padding: 20, boxShadow: '0 2px 8px rgba(20,30,70,0.06)'}}>
-            <div style={{fontSize: 14, fontWeight: 700, color: ink, marginBottom: 14}}>Monthly activity</div>
+            <div style={{fontSize: 14, fontWeight: 700, color: ink, marginBottom: 14}}>{P.dashChartTitle}</div>
             <div style={{display: 'flex', alignItems: 'flex-end', gap: 10, height: 190}}>
               {bars.map((v, i) => (
                 <div key={i} style={{flex: 1, height: `${(variant ? 1 - v * 0.4 : v) * 100 * ease.out(clamp((frame - 3 - i * 2) / 22))}%`, borderRadius: 8, background: i === 7 ? accent : '#dde2f2'}} />
@@ -187,7 +202,7 @@ const DashUI: React.FC<{variant: number; w: number; h: number; accent: string; f
   );
 };
 
-const WatchUI: React.FC<{variant: number; w: number; h: number; accent: string; frame: number}> = ({variant, w, h, accent, frame}) => (
+const WatchUI: React.FC<{P: Props; variant: number; w: number; h: number; accent: string; frame: number}> = ({P, variant, w, h, accent, frame}) => (
   <div style={{width: w, height: h, background: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', fontFamily: fonts.sans, color: '#fff'}}>
     {variant === 0 ? (
       <>
@@ -197,13 +212,13 @@ const WatchUI: React.FC<{variant: number; w: number; h: number; accent: string; 
         <div style={{position: 'absolute'}}>
           <Ring p={0.55 * ease.out(clamp(frame / 40))} size={136} color="#35c4c0" track="#1c1c1c" sw={14} />
         </div>
-        <div style={{fontSize: 34, fontWeight: 800}}>9:41</div>
+        <div style={{fontSize: 34, fontWeight: 800}}>{P.statusTime}</div>
       </>
     ) : (
       <div style={{textAlign: 'center'}}>
-        <div style={{fontSize: 14, color: '#8a90a6'}}>Heart rate</div>
-        <div style={{fontSize: 56, fontWeight: 800, color: accent}}>72</div>
-        <div style={{fontSize: 14, color: '#8a90a6'}}>bpm</div>
+        <div style={{fontSize: 14, color: '#8a90a6'}}>{P.watchLabel}</div>
+        <div style={{fontSize: 56, fontWeight: 800, color: accent}}>{P.watchValue}</div>
+        <div style={{fontSize: 14, color: '#8a90a6'}}>{P.watchUnit}</div>
       </div>
     )}
   </div>
@@ -225,11 +240,11 @@ const Screen: React.FC<{P: Props; spec: Spec; k: number; variant: number; frame:
   ) : (
     <div style={{width: spec.refW, height: sh / s, transform: `scale(${s})`, transformOrigin: '0 0'}}>
       {P.device === 'watch' ? (
-        <WatchUI variant={variant} w={spec.refW} h={sh / s} accent={P.accent} frame={frame} />
+        <WatchUI P={P} variant={variant} w={spec.refW} h={sh / s} accent={P.accent} frame={frame} />
       ) : P.device === 'laptop' ? (
-        <DashUI variant={variant} w={spec.refW} h={sh / s} accent={P.accent} frame={frame} scrollPct={scrollPct} brand={P.brand} />
+        <DashUI P={P} variant={variant} w={spec.refW} h={sh / s} accent={P.accent} frame={frame} scrollPct={scrollPct} brand={P.brand} />
       ) : (
-        <AppUI variant={variant} w={spec.refW} h={sh / s} accent={P.accent} frame={frame} scrollPct={scrollPct} brand={P.brand} />
+        <AppUI P={P} variant={variant} w={spec.refW} h={sh / s} accent={P.accent} frame={frame} scrollPct={scrollPct} brand={P.brand} />
       )}
     </div>
   );
@@ -350,6 +365,41 @@ export const deviceMockup = defineMotion<Props>({
     textColor: '#16203f',
     size: 1,
     brand: 'Lumen',
+    statusTime: '9:41',
+    greeting: 'Good morning',
+    appSuffix: 'Today',
+    goal: 78,
+    goalLabel: 'Daily goal',
+    goalTitle: 'On track',
+    goalNote: '3 of 4 habits done',
+    stats: [['Streak', '12 d'], ['Score', '864'], ['Rank', '#3']],
+    activityTitle: 'Activity',
+    activityRows: [
+      ['Morning run', '5.2 km', '#ff8a5b'],
+      ['Focus block', '2 h 10 m', '#6c8cff'],
+      ['Water', '1.8 l', '#35c4c0'],
+      ['Reading', '24 pages', '#b07cff'],
+      ['Sleep', '7 h 40 m', '#ffb84d'],
+      ['Stretching', '12 min', '#ff6b8b'],
+      ['Walk', '8 400 steps', '#5bd68a'],
+      ['Journal', '1 entry', '#6c8cff'],
+    ],
+    rowDays: ['Today', 'Yesterday'],
+    weekLabel: 'This week',
+    weekValue: '41.2 h',
+    weekDelta: '+12% vs last week',
+    weekBars: [0.45, 0.7, 0.55, 0.9, 0.62, 0.38, 0.8],
+    weekDays: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+    highlightsTitle: 'Highlights',
+    highlights: ['Best focus day: Thursday', 'Longest streak: 12 days', 'New personal record'],
+    dashMenu: ['Overview', 'Reports', 'Customers', 'Billing', 'Settings'],
+    dashTitles: ['Overview', 'Reports'],
+    dashStats: [['Revenue', '$84.2k'], ['Users', '12,480'], ['Growth', '+18%']],
+    dashChartTitle: 'Monthly activity',
+    dashBars: [0.4, 0.62, 0.5, 0.8, 0.66, 0.9, 0.74, 0.95, 0.7, 0.55, 0.78, 0.86],
+    watchLabel: 'Heart rate',
+    watchValue: '72',
+    watchUnit: 'bpm',
   },
   propDocs: {
     device: "'iphone' | 'android' | 'tablet' | 'laptop' | 'watch'",
@@ -369,6 +419,32 @@ export const deviceMockup = defineMotion<Props>({
     textColor: 'headline colour',
     size: 'device size multiplier',
     brand: 'name shown in the built-in UI',
+    statusTime: 'clock text in the phone status bar and on the watch face',
+    greeting: 'small greeting above the app title (phone / tablet / android UI)',
+    appSuffix: 'word after the brand in the app title ("<brand> <appSuffix>")',
+    goal: 'goal ring percentage 0-100 (ring fill and the number inside)',
+    goalLabel: 'small label in the goal card',
+    goalTitle: 'big word in the goal card',
+    goalNote: 'note under the goal title',
+    stats: 'three small stat tiles [label, value]',
+    activityTitle: 'heading of the activity list',
+    activityRows: 'activity list rows [name, value, icon colour (optional)]',
+    rowDays: '[even-row tag, odd-row tag] shown under each activity name',
+    weekLabel: 'small label above the big number on the second phone panel',
+    weekValue: 'big number on the second phone panel',
+    weekDelta: 'green delta line on the second phone panel',
+    weekBars: 'bar heights 0..1 on the second phone panel',
+    weekDays: 'one label under each bar',
+    highlightsTitle: 'heading above the highlight chips',
+    highlights: 'highlight chip texts on the second phone panel',
+    dashMenu: 'laptop dashboard sidebar items',
+    dashTitles: '[front, back] page heading of the laptop dashboard',
+    dashStats: 'laptop dashboard stat cards [label, value]',
+    dashChartTitle: 'title of the laptop dashboard bar chart',
+    dashBars: 'laptop dashboard bar heights 0..1',
+    watchLabel: 'label on the second watch panel',
+    watchValue: 'big number on the second watch panel',
+    watchUnit: 'unit under the watch number',
   },
   component: DeviceMockup,
   tags: ['device', 'mockup', 'phone', 'iphone', 'android', 'tablet', 'laptop', 'watch', 'app', 'screenshot', 'scroll', 'flip', 'product', 'launch', 'app store', 'css 3d', 'tilt', 'ui', 'testimonial'],

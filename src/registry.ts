@@ -44,7 +44,12 @@ import {wireframeBuild} from './motions/3d/wireframe-build';
 import {autoFrameCamera} from './motions/camera/auto-frame-camera';
 import {boardCamera} from './motions/camera/board-camera';
 import {canvasFlythrough} from './motions/camera/canvas-flythrough';
+import {crashZoom} from './motions/camera/crash-zoom';
+import {dollyZoom} from './motions/camera/dolly-zoom';
+import {orbitParallax} from './motions/camera/orbit-parallax';
+import {rackFocus} from './motions/camera/rack-focus';
 import {timeRemapClock} from './motions/camera/time-remap-clock';
+import {whipPan} from './motions/camera/whip-pan';
 import {blobMascot} from './motions/character/blob-mascot';
 import {bodyVesselGlow} from './motions/character/body-vessel-glow';
 import {boxBot} from './motions/character/box-bot';
@@ -102,12 +107,15 @@ import {thumbnailMosaic} from './motions/data/thumbnail-mosaic';
 import {timelineRuler} from './motions/data/timeline-ruler';
 import {tokenPipeline} from './motions/data/token-pipeline';
 import {transferArc} from './motions/data/transfer-arc';
+import {certificateSeal} from './motions/document/certificate-seal';
 import {docHighlightEvidence} from './motions/document/doc-highlight-evidence';
 import {documentMarkerHighlight} from './motions/document/document-marker-highlight';
 import {evidenceBoard} from './motions/document/evidence-board';
+import {formFillSubmit} from './motions/document/form-fill-submit';
 import {liftTheFlap} from './motions/document/lift-the-flap';
 import {lineLightUp} from './motions/document/line-light-up';
 import {mugshotHeightChart} from './motions/document/mugshot-height-chart';
+import {receiptPrint} from './motions/document/receipt-print';
 import {redactionBars} from './motions/document/redaction-bars';
 import {screenprintPoster} from './motions/document/screenprint-poster';
 import {textbookEnergyLab} from './motions/document/textbook-energy-lab';
@@ -267,11 +275,16 @@ import {washArrival} from './motions/image/wash-arrival';
 import {woodblockPrintReveal} from './motions/image/woodblock-print-reveal';
 import {woodcutCarve} from './motions/image/woodcut-carve';
 import {xrayScan} from './motions/image/xray-scan';
+import {choroplethFill} from './motions/map/choropleth-fill';
+import {cityZoomLabel} from './motions/map/city-zoom-label';
 import {coverageRoute} from './motions/map/coverage-route';
+import {elevationProfile} from './motions/map/elevation-profile';
+import {flightArcs} from './motions/map/flight-arcs';
 import {hairlineFeatureTrace} from './motions/map/hairline-feature-trace';
 import {isoDioramaBoard} from './motions/map/iso-diorama-board';
 import {mapMaskReveal} from './motions/map/map-mask-reveal';
 import {paintedChoropleth} from './motions/map/painted-choropleth';
+import {pinDropCluster} from './motions/map/pin-drop-cluster';
 import {timeRings} from './motions/map/time-rings';
 import {beatDance} from './motions/mascot/beat-dance';
 import {chompLid} from './motions/mascot/chomp-lid';
@@ -279,6 +292,9 @@ import {emotionIdleBeat} from './motions/mascot/emotion-idle-beat';
 import {emotionSheet} from './motions/mascot/emotion-sheet';
 import {emotionTimeline} from './motions/mascot/emotion-timeline';
 import {mascotNib} from './motions/mascot/mascot-nib';
+import {mascotThinking} from './motions/mascot/mascot-thinking';
+import {mascotThumbsUp} from './motions/mascot/mascot-thumbs-up';
+import {mascotWaveHello} from './motions/mascot/mascot-wave-hello';
 import {pixelMascotOnUi} from './motions/mascot/pixel-mascot-on-ui';
 import {smearTrail} from './motions/mascot/smear-trail';
 import {mix} from './motions/mix/mix';
@@ -298,11 +314,16 @@ import {tokenSamplerPrompt} from './motions/music/token-sampler-prompt';
 import {tokenTree} from './motions/music/token-tree';
 import {widthPressureType} from './motions/music/width-pressure-type';
 import {wordSlamHook} from './motions/music/word-slam-hook';
+import {colorwaySwap} from './motions/product/colorway-swap';
 import {explodedViewSnap} from './motions/product/exploded-view-snap';
+import {featureCalloutOrbit} from './motions/product/feature-callout-orbit';
 import {frostToClear} from './motions/product/frost-to-clear';
 import {isoCutaway} from './motions/product/iso-cutaway';
 import {liquidPourFill} from './motions/product/liquid-pour-fill';
+import {priceTagDrop} from './motions/product/price-tag-drop';
+import {specCompareTable} from './motions/product/spec-compare-table';
 import {sunburstHero} from './motions/product/sunburst-hero';
+import {unboxLidLift} from './motions/product/unbox-lid-lift';
 import {atomModel} from './motions/shape/atom-model';
 import {bouncingBall} from './motions/shape/bouncing-ball';
 import {branchGrow} from './motions/shape/branch-grow';
@@ -390,7 +411,10 @@ import {typeArchitecture} from './motions/text/type-architecture';
 import {typeMarqueeField} from './motions/text/type-marquee-field';
 import {typewriterCode} from './motions/text/typewriter-code';
 import {typewriterSignature} from './motions/text/typewriter-signature';
+import {bokehDrift} from './motions/texture/bokeh-drift';
 import {hideCarvePatterns} from './motions/texture/hide-carve-patterns';
+import {lightLeakWash} from './motions/texture/light-leak-wash';
+import {patternScroll} from './motions/texture/pattern-scroll';
 import {matchCut} from './motions/transition/match-cut';
 import {transitionReel} from './motions/transition/transition-reel';
 import {agentLogPanel} from './motions/ui/agent-log-panel';
@@ -475,7 +499,12 @@ export const motions: MotionDef<any>[] = [
   autoFrameCamera,
   boardCamera,
   canvasFlythrough,
+  crashZoom,
+  dollyZoom,
+  orbitParallax,
+  rackFocus,
   timeRemapClock,
+  whipPan,
   blobMascot,
   bodyVesselGlow,
   boxBot,
@@ -533,12 +562,15 @@ export const motions: MotionDef<any>[] = [
   timelineRuler,
   tokenPipeline,
   transferArc,
+  certificateSeal,
   docHighlightEvidence,
   documentMarkerHighlight,
   evidenceBoard,
+  formFillSubmit,
   liftTheFlap,
   lineLightUp,
   mugshotHeightChart,
+  receiptPrint,
   redactionBars,
   screenprintPoster,
   textbookEnergyLab,
@@ -698,11 +730,16 @@ export const motions: MotionDef<any>[] = [
   woodblockPrintReveal,
   woodcutCarve,
   xrayScan,
+  choroplethFill,
+  cityZoomLabel,
   coverageRoute,
+  elevationProfile,
+  flightArcs,
   hairlineFeatureTrace,
   isoDioramaBoard,
   mapMaskReveal,
   paintedChoropleth,
+  pinDropCluster,
   timeRings,
   beatDance,
   chompLid,
@@ -710,6 +747,9 @@ export const motions: MotionDef<any>[] = [
   emotionSheet,
   emotionTimeline,
   mascotNib,
+  mascotThinking,
+  mascotThumbsUp,
+  mascotWaveHello,
   pixelMascotOnUi,
   smearTrail,
   mix,
@@ -729,11 +769,16 @@ export const motions: MotionDef<any>[] = [
   tokenTree,
   widthPressureType,
   wordSlamHook,
+  colorwaySwap,
   explodedViewSnap,
+  featureCalloutOrbit,
   frostToClear,
   isoCutaway,
   liquidPourFill,
+  priceTagDrop,
+  specCompareTable,
   sunburstHero,
+  unboxLidLift,
   atomModel,
   bouncingBall,
   branchGrow,
@@ -821,7 +866,10 @@ export const motions: MotionDef<any>[] = [
   typeMarqueeField,
   typewriterCode,
   typewriterSignature,
+  bokehDrift,
   hideCarvePatterns,
+  lightLeakWash,
+  patternScroll,
   matchCut,
   transitionReel,
   agentLogPanel,

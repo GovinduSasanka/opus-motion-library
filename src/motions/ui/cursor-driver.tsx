@@ -22,12 +22,22 @@ type Props = {
   rippleColor: string;
   demo: boolean;
   demoText: string;
+  cardTitle?: string;
+  cardSubtitle?: string;
+  fieldPlaceholder?: string;
+  sliderLabel?: string;
+  sliderUnit?: string;
+  sliderMin?: number;
+  sliderMax?: number;
+  toggleLabel?: string;
+  buttonLabel?: string;
+  savedLabel?: string;
   accent: string;
   background: string;
   dark: boolean;
 };
 
-const CursorDriver: React.FC<Props> = ({keys, style, color, size, rippleColor, demo, demoText, accent, background, dark}) => {
+const CursorDriver: React.FC<Props> = ({keys, style, color, size, rippleColor, demo, demoText, cardTitle, cardSubtitle, fieldPlaceholder, sliderLabel, sliderUnit, sliderMin = 1, sliderMax = 30, toggleLabel, buttonLabel, savedLabel, accent, background, dark}) => {
   const frame = useCurrentFrame();
   const {w, h, u, portrait} = useStage();
 
@@ -111,8 +121,8 @@ const CursorDriver: React.FC<Props> = ({keys, style, color, size, rippleColor, d
               opacity: prog(frame, 0, 12),
             }}
           >
-            <div style={{position: 'absolute', left: pad, top: 56 * u, fontSize: 38 * u, fontWeight: 800, letterSpacing: '-0.02em'}}>Notification settings</div>
-            <div style={{position: 'absolute', left: pad, top: 112 * u, fontSize: 21 * u, opacity: 0.5}}>Where should we send your weekly summary?</div>
+            <div style={{position: 'absolute', left: pad, top: 56 * u, fontSize: 38 * u, fontWeight: 800, letterSpacing: '-0.02em'}}>{cardTitle}</div>
+            <div style={{position: 'absolute', left: pad, top: 112 * u, fontSize: 21 * u, opacity: 0.5}}>{cardSubtitle}</div>
             {/* field */}
             <div
               style={{
@@ -138,7 +148,7 @@ const CursorDriver: React.FC<Props> = ({keys, style, color, size, rippleColor, d
                 </span>
               ) : (
                 <span style={{opacity: 0.35}}>
-                  you@company.com
+                  {fieldPlaceholder}
                   {fieldFocus > 0.5 ? <span style={{opacity: Math.floor(frame / 8) % 2 ? 0 : 1, color: accent}}>|</span> : null}
                 </span>
               )}
@@ -160,9 +170,9 @@ const CursorDriver: React.FC<Props> = ({keys, style, color, size, rippleColor, d
                 transform: `scale(${st.drag ? 1.18 : 1})`,
               }}
             />
-            <div style={{position: 'absolute', left: pad, top: sliderY - top - 56 * u, fontSize: 21 * u, opacity: 0.55}}>Frequency · {Math.round(lerp(1, 30, sliderV))} days</div>
+            <div style={{position: 'absolute', left: pad, top: sliderY - top - 56 * u, fontSize: 21 * u, opacity: 0.55}}>{sliderLabel} · {Math.round(lerp(sliderMin, sliderMax, sliderV))} {sliderUnit}</div>
             {/* toggle */}
-            <div style={{position: 'absolute', left: pad, top: toggleY - top - 16 * u, fontSize: 27 * u}}>Product updates</div>
+            <div style={{position: 'absolute', left: pad, top: toggleY - top - 16 * u, fontSize: 27 * u}}>{toggleLabel}</div>
             <div style={{position: 'absolute', left: toggleX - left - 40 * u, top: toggleY - top - 22 * u, width: 80 * u, height: 44 * u, borderRadius: 22 * u, background: tog > 0.5 ? accent : line, transition: 'none', opacity: 1}} />
             <div style={{position: 'absolute', left: toggleX - left - 40 * u + lerp(4, 40, tog) * u, top: toggleY - top - 18 * u, width: 36 * u, height: 36 * u, borderRadius: 18 * u, background: '#fff', boxShadow: '0 2px 6px rgba(0,0,0,0.25)'}} />
             {/* button */}
@@ -184,7 +194,7 @@ const CursorDriver: React.FC<Props> = ({keys, style, color, size, rippleColor, d
                 transform: `scale(${btnPress})`,
               }}
             >
-              {btnDone > 0.5 ? 'Saved ✓' : 'Save changes'}
+              {btnDone > 0.5 ? savedLabel : buttonLabel}
             </div>
           </div>
         </>
@@ -221,6 +231,16 @@ export const cursorDriver = defineMotion<Props>({
     rippleColor: '#4F5BD5',
     demo: true,
     demoText: 'hello@northwind.co',
+    cardTitle: 'Notification settings',
+    cardSubtitle: 'Where should we send your weekly summary?',
+    fieldPlaceholder: 'you@company.com',
+    sliderLabel: 'Frequency',
+    sliderUnit: 'days',
+    sliderMin: 1,
+    sliderMax: 30,
+    toggleLabel: 'Product updates',
+    buttonLabel: 'Save changes',
+    savedLabel: 'Saved ✓',
     accent: '#4F5BD5',
     background: '#EDEBE7',
     dark: false,
@@ -233,6 +253,16 @@ export const cursorDriver = defineMotion<Props>({
     rippleColor: 'click ripple colour',
     demo: 'draw the reactive demo settings card under the cursor',
     demoText: 'text typed into the demo field',
+    cardTitle: 'demo card heading',
+    cardSubtitle: 'demo card sub line',
+    fieldPlaceholder: 'grey placeholder in the demo field before typing',
+    sliderLabel: 'label of the demo slider ("<label> · N <unit>")',
+    sliderUnit: 'unit word after the slider value',
+    sliderMin: 'slider value at the left end',
+    sliderMax: 'slider value at the right end',
+    toggleLabel: 'label of the demo toggle',
+    buttonLabel: 'demo button label before the click',
+    savedLabel: 'demo button label after the click',
     accent: 'demo UI accent',
     background: "canvas colour; 'transparent' for overlay use",
     dark: 'dark demo card',
