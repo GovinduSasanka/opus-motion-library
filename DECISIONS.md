@@ -1,5 +1,22 @@
 # Decisions
 
+## Update (2026-10-29) — round 3: reusable building blocks (429 → 605+ motions)
+
+The ask: "the world's largest library; everything reusable for any purpose". Rules for every new motion are in
+`docs/BUILD_BRIEF_R3.md` (all words / numbers / images / brand colours / timing are props with neutral defaults,
+16:9 + 1:1 + 9:16, transparent background where it can overlay, stills checked with custom props).
+- **Reusability pass on old motions**: colour props on 15 motions, visible text → props on 51 motions (defaults
+  identical; landscape regression ≤ 0.04/255). Remaining hard-coded strings are glyphs/units (`out/qa/hardcoded-text.md`).
+- **New families** (8 each, Sonnet builders, ~4 at a time): camera moves, textures, product, document, maps, original
+  mascot "Pip", social/marketing, explainers, intros/outros, website UI loops, charts ×2 (donut … sankey, gantt, org
+  chart, network), music/audio, gaming/esports, tutorial annotation overlays, presentation slides, kinetic type,
+  e-commerce, business verticals (fitness, budget, property, booking, weather), developer/AI, nature loops,
+  travel/food, education/kids, news/documentary; sports and events in progress.
+- **Known limits** (from the builders): text widths are estimated (very long strings shrink/ellipsise); most were
+  checked with stills only, not full playback; the 8 annotation overlays' gallery jpgs were rendered with
+  `demoBackground: true` (a plain `mgl gallery --force` would make them black — re-render with that prop);
+  map coastline is coarse (0.45°); emission-spectrum wavelengths are rounded.
+
 ## Update (2026-10-28, night) — portrait (9:16) pass over the whole library
 
 - All 429 motions rendered at 9:16 and reviewed (`out/qa/portrait-all.md`): 268 ok, 161 issues. 139 motions fixed for

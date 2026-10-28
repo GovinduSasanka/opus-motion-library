@@ -1,12 +1,12 @@
 # Motion catalog
 
-595 motions. Generated from `catalog.json` by `cli/gen-docs.mjs` — do not edit by hand.
+605 motions. Generated from `catalog.json` by `cli/gen-docs.mjs` — do not edit by hand.
 
 Render any of them: `node cli/mgl.mjs render <id> [--props '{...}'] [--format landscape|square|portrait]`. Previews live in `gallery/`.
 
 Choosing: `node cli/mgl.mjs suggest "<what you need>"` and [CHOOSING.md](CHOOSING.md). Using them in a website / app / other project: [INTEGRATION.md](INTEGRATION.md).
 
-- [text](#text) (76)
+- [text](#text) (78)
 - [transition](#transition) (2)
 - [shape](#shape) (42)
 - [fx](#fx) (49)
@@ -19,7 +19,7 @@ Choosing: `node cli/mgl.mjs suggest "<what you need>"` and [CHOOSING.md](CHOOSIN
 - [texture](#texture) (4)
 - [3d](#3d) (41)
 - [document](#document) (16)
-- [game](#game) (21)
+- [game](#game) (29)
 - [image](#image) (34)
 - [map](#map) (11)
 - [mascot](#mascot) (11)
@@ -31,9 +31,9 @@ Choosing: `node cli/mgl.mjs suggest "<what you need>"` and [CHOOSING.md](CHOOSIN
 
 | capability | motions |
 |---|---|
-| overlay (transparent background — put it on top of other motions or your page) | `globe-3d`, `holo-solid-ignite`, `light-beam-ribbon`, `popup-spread`, `creator-hand`, `paper-critter-rig`, `pictogram-figure`, `api-request-flow`, `bar-race`, `bubble-scatter-grow`, `budget-envelope-split`, `cause-effect-chain`, `clock-time-teach`, `comparison-dumbbell`, `deploy-pipeline-stages`, `donut-breakdown`, `fitness-activity-rings`, `floorplan-draw`, `funnel-conversion`, `gantt-timeline`, `gauge-kpi-dial`, `git-branch-graph`, `heart-rate-monitor`, `heatmap-calendar`, `json-tree-expand`, `math-equation-solve`, `network-graph`, `org-chart-tree`, `progress-rings-stats`, `pros-cons-columns`, `radar-compare`, `sankey-flow`, `savings-goal-jar`, `server-rack-status`, `stacked-area-flow`, `star-chart-reward`, `step-process-numbered`, `treemap-split`, `venn-diagram-overlap`, `waterfall-bridge`, `weather-forecast-strip`, `archive-photo-ken-burns-caption`, `certificate-seal`, `form-fill-submit`, `nutrition-facts-label`, `passport-stamps`, `receipt-print`, `aurora`, `bubbles`, `caustics-godrays`, `curl-flow`, `embers`, `falling-petals`, `fireworks`, `flow-lines`, `fog-clouds`, `insect-flight`, `lightning-flash`, `mesh-gradient-bg`, `rain`, `snowfall`, `starfield-night`, `starfield-warp`, `window-glow-sequence`, `backlit-cutout`, `circuit-traces`, `confetti-burst`, `electric-arcs`, `emote-pop`, `eyes-blink`, `fire-flames`, `giant-eye-reveal`, `grease-pencil-mark`, `impact-frame`, `ink-blot-stop`, `long-exposure-trails`, `magnifier-loupe`, `marker-ring-arrow`, `scribble-ball`, `smear-frame`, `smoke-puffs`, `sparkle-burst`, `star-glint`, `sticker-cutout`, `swirl-portal`, `vhs-crt-pass`, `achievement-unlock`, `bracket-advance`, `candy-set-backdrop`, `kill-streak-banner`, `level-up-burst`, `match-scoreboard`, `player-stat-card`, `stream-starting-soon`, `agent-roster`, `blur-redact-region`, `breaking-news-takeover`, `cam-chip-sync-badge`, `click-ripple-markers`, `day-ring-dial`, `event-feed`, `fact-check-meter`, `fight-hud`, `game-hud`, `hand-drawn-arrow-callout`, `hud-chrome`, `interview-name-super`, `location-time-stamp`, `mission-clock`, `news-bug-source-tag`, `numbered-step-badges`, `poll-numbers-split`, `prompt-wall`, `scribble-circle-highlight`, `social-post-embed`, `spec-chip-rail`, `spotlight-dim-focus`, `target-lock-box`, `target-lock`, `tooltip-pointer`, `zoom-inset-box`, `film-look`, `sticker-slap`, `choropleth-fill`, `city-zoom-label`, `coverage-route`, `elevation-profile`, `flight-arcs`, `pin-drop-cluster`, `beat-dance`, `chomp-lid`, `emotion-idle-beat`, `emotion-sheet`, `emotion-timeline`, `mascot-nib`, `mascot-thinking`, `mascot-thumbs-up`, `mascot-wave-hello`, `smear-trail`, `beat-camera`, `beat-grid`, `beat-pulse-rings`, `engraving-hatch`, `equalizer-bars-loop`, `guilloche-note`, `lyric-on-path`, `lyric-timing`, `lyric-video`, `mixer-faders`, `now-playing-card`, `podcast-audiogram`, `shutter-blur`, `stage-curtain`, `time-stutter`, `token-sampler-prompt`, `token-tree`, `tracklist-reveal`, `vinyl-spin-label`, `width-pressure-type`, `add-to-cart-fly`, `coffee-pour-cup`, `colorway-swap`, `coupon-scratch-reveal`, `delivery-tracker`, `feature-callout-orbit`, `flash-deal-timer-card`, `order-confirmation`, `price-tag-drop`, `product-grid-filter`, `size-color-picker`, `spec-compare-table`, `sunburst-hero`, `unbox-lid-lift`, `comet-pulse-guide`, `ink-brush-stroke`, `logo-reveal-liquid`, `motif-grid-pattern`, `nib-follow-camera`, `papercut-rosette`, `toon-cel-shape`, `agenda-list-slide`, `alphabet-letter-trace`, `big-stat-slide`, `blur-in-title`, `channel-intro-sting`, `chapter-countdown`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `counting-objects`, `definition-card`, `end-card-credits`, `end-screen-cards`, `fill-in-the-blank`, `flashcard-flip-deck`, `follower-milestone`, `glyph-orbit-logo`, `key-takeaway-highlight`, `kinetic-captions`, `logo-reveal-lines`, `mask-rise-title`, `myth-vs-fact`, `news-strap`, `number-counter`, `outline-to-fill-text`, `paper-strip-title`, `per-letter-wave`, `qa-slide`, `quiz-question-reveal`, `quote-slide`, `rolling-credits`, `rundown-board`, `sale-countdown-banner`, `scene-tag`, `split-flap-board`, `sponsor-slate`, `stacked-repeat-echo`, `stamp-slam`, `sting-bug`, `story-caption-box`, `text-on-circle-spin`, `text-scramble-decode`, `typewriter-code`, `typewriter-delete-retype`, `typewriter-signature`, `word-carousel-rotator`, `word-translation-pair`, `bokeh-drift`, `light-leak-wash`, `pattern-scroll`, `agent-log-panel`, `ai-chat-streaming`, `appointment-booking-calendar`, `boarding-pass-print`, `checkout-steps`, `code-diff-highlight`, `comment-bubble-stream`, `cursor-driver`, `empty-state-illustration`, `glass-lesson-card`, `hero-gradient-orbs`, `hotel-rating-card`, `itinerary-route-stops`, `keystroke-hud`, `liquid-glass-lens`, `loader-spinner-set`, `logo-wall-grid`, `menu-board-items`, `notification-stack`, `planned-vs-heard-checklist`, `player-toolbar`, `poll-results-bars`, `property-listing-card`, `recipe-ingredients-steps`, `review-stars-rating`, `roadmap-swimlanes`, `skeleton-shimmer`, `story-progress-frames`, `subscribe-like-bell`, `success-check-burst`, `team-grid-photos`, `terminal-install-progress`, `testimonial-card-carousel`, `three-column-features`, `toast-stack-loop`, `typing-indicator-chat`, `upload-progress` |
+| overlay (transparent background — put it on top of other motions or your page) | `globe-3d`, `holo-solid-ignite`, `light-beam-ribbon`, `popup-spread`, `creator-hand`, `paper-critter-rig`, `pictogram-figure`, `api-request-flow`, `bar-race`, `bubble-scatter-grow`, `budget-envelope-split`, `cause-effect-chain`, `clock-time-teach`, `comparison-dumbbell`, `deploy-pipeline-stages`, `donut-breakdown`, `fitness-activity-rings`, `floorplan-draw`, `funnel-conversion`, `gantt-timeline`, `gauge-kpi-dial`, `git-branch-graph`, `heart-rate-monitor`, `heatmap-calendar`, `json-tree-expand`, `math-equation-solve`, `network-graph`, `org-chart-tree`, `progress-rings-stats`, `pros-cons-columns`, `radar-compare`, `sankey-flow`, `savings-goal-jar`, `server-rack-status`, `stacked-area-flow`, `star-chart-reward`, `step-process-numbered`, `treemap-split`, `venn-diagram-overlap`, `waterfall-bridge`, `weather-forecast-strip`, `archive-photo-ken-burns-caption`, `certificate-seal`, `form-fill-submit`, `nutrition-facts-label`, `passport-stamps`, `receipt-print`, `aurora`, `bubbles`, `caustics-godrays`, `curl-flow`, `embers`, `falling-petals`, `fireworks`, `flow-lines`, `fog-clouds`, `insect-flight`, `lightning-flash`, `mesh-gradient-bg`, `rain`, `snowfall`, `starfield-night`, `starfield-warp`, `window-glow-sequence`, `backlit-cutout`, `circuit-traces`, `confetti-burst`, `electric-arcs`, `emote-pop`, `eyes-blink`, `fire-flames`, `giant-eye-reveal`, `grease-pencil-mark`, `impact-frame`, `ink-blot-stop`, `long-exposure-trails`, `magnifier-loupe`, `marker-ring-arrow`, `scribble-ball`, `smear-frame`, `smoke-puffs`, `sparkle-burst`, `star-glint`, `sticker-cutout`, `swirl-portal`, `vhs-crt-pass`, `achievement-unlock`, `bracket-advance`, `candy-set-backdrop`, `countdown-to-kickoff`, `kill-streak-banner`, `level-up-burst`, `match-scoreboard`, `match-stats-compare`, `medal-podium`, `player-stat-card`, `race-leaderboard-live`, `shot-map-heat`, `stopwatch-split-times`, `stream-starting-soon`, `team-lineup-pitch`, `transfer-announcement`, `agent-roster`, `blur-redact-region`, `breaking-news-takeover`, `cam-chip-sync-badge`, `click-ripple-markers`, `day-ring-dial`, `event-feed`, `fact-check-meter`, `fight-hud`, `game-hud`, `hand-drawn-arrow-callout`, `hud-chrome`, `interview-name-super`, `location-time-stamp`, `mission-clock`, `news-bug-source-tag`, `numbered-step-badges`, `poll-numbers-split`, `prompt-wall`, `scribble-circle-highlight`, `social-post-embed`, `spec-chip-rail`, `spotlight-dim-focus`, `target-lock-box`, `target-lock`, `tooltip-pointer`, `zoom-inset-box`, `film-look`, `sticker-slap`, `choropleth-fill`, `city-zoom-label`, `coverage-route`, `elevation-profile`, `flight-arcs`, `pin-drop-cluster`, `beat-dance`, `chomp-lid`, `emotion-idle-beat`, `emotion-sheet`, `emotion-timeline`, `mascot-nib`, `mascot-thinking`, `mascot-thumbs-up`, `mascot-wave-hello`, `smear-trail`, `beat-camera`, `beat-grid`, `beat-pulse-rings`, `engraving-hatch`, `equalizer-bars-loop`, `guilloche-note`, `lyric-on-path`, `lyric-timing`, `lyric-video`, `mixer-faders`, `now-playing-card`, `podcast-audiogram`, `shutter-blur`, `stage-curtain`, `time-stutter`, `token-sampler-prompt`, `token-tree`, `tracklist-reveal`, `vinyl-spin-label`, `width-pressure-type`, `add-to-cart-fly`, `coffee-pour-cup`, `colorway-swap`, `coupon-scratch-reveal`, `delivery-tracker`, `feature-callout-orbit`, `flash-deal-timer-card`, `order-confirmation`, `price-tag-drop`, `product-grid-filter`, `size-color-picker`, `spec-compare-table`, `sunburst-hero`, `unbox-lid-lift`, `comet-pulse-guide`, `ink-brush-stroke`, `logo-reveal-liquid`, `motif-grid-pattern`, `nib-follow-camera`, `papercut-rosette`, `toon-cel-shape`, `agenda-list-slide`, `alphabet-letter-trace`, `big-stat-slide`, `birthday-cake-candles`, `blur-in-title`, `channel-intro-sting`, `chapter-countdown`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `counting-objects`, `definition-card`, `end-card-credits`, `end-screen-cards`, `fill-in-the-blank`, `flashcard-flip-deck`, `follower-milestone`, `glyph-orbit-logo`, `key-takeaway-highlight`, `kinetic-captions`, `logo-reveal-lines`, `mask-rise-title`, `myth-vs-fact`, `news-strap`, `number-counter`, `outline-to-fill-text`, `paper-strip-title`, `per-letter-wave`, `qa-slide`, `quiz-question-reveal`, `quote-slide`, `rolling-credits`, `rundown-board`, `sale-countdown-banner`, `scene-tag`, `split-flap-board`, `sponsor-slate`, `stacked-repeat-echo`, `stamp-slam`, `sting-bug`, `story-caption-box`, `text-on-circle-spin`, `text-scramble-decode`, `typewriter-code`, `typewriter-delete-retype`, `typewriter-signature`, `wedding-save-the-date`, `word-carousel-rotator`, `word-translation-pair`, `bokeh-drift`, `light-leak-wash`, `pattern-scroll`, `agent-log-panel`, `ai-chat-streaming`, `appointment-booking-calendar`, `boarding-pass-print`, `checkout-steps`, `code-diff-highlight`, `comment-bubble-stream`, `cursor-driver`, `empty-state-illustration`, `glass-lesson-card`, `hero-gradient-orbs`, `hotel-rating-card`, `itinerary-route-stops`, `keystroke-hud`, `liquid-glass-lens`, `loader-spinner-set`, `logo-wall-grid`, `menu-board-items`, `notification-stack`, `planned-vs-heard-checklist`, `player-toolbar`, `poll-results-bars`, `property-listing-card`, `recipe-ingredients-steps`, `review-stars-rating`, `roadmap-swimlanes`, `skeleton-shimmer`, `story-progress-frames`, `subscribe-like-bell`, `success-check-burst`, `team-grid-photos`, `terminal-install-progress`, `testimonial-card-carousel`, `three-column-features`, `toast-stack-loop`, `typing-indicator-chat`, `upload-progress` |
 | seamless loop | `iso-bar-chart`, `city-rooftops-rain-window`, `desert-dunes-heat`, `embers`, `firefly-meadow-night`, `forest-parallax-mist`, `lava-lamp-blobs`, `ocean-waves-layers`, `snow-mountain-dawn`, `starfield-warp`, `sonar-ping`, `empty-state-illustration`, `hero-gradient-orbs`, `loader-spinner-set`, `skeleton-shimmer`, `success-check-burst`, `toast-stack-loop`, `typing-indicator-chat`, `upload-progress` |
-| takes your image (`src` / `images` / `heroSrc`) | `pointcloud-orbit`, `crash-zoom`, `dolly-zoom`, `orbit-parallax`, `whip-pan`, `beat-montage`, `crowd-tracks`, `ground-plane-ruler`, `map-route`, `microscope-dive`, `science-reticle`, `thumbnail-mosaic`, `archive-photo-ken-burns-caption`, `mugshot-height-chart`, `depth-descent`, `lamp-screen`, `paper-diorama`, `studio-sweep`, `topdown-terrain`, `window-glow-sequence`, `beat-punch-zoom`, `crayon-wax-shader`, `focus-desaturate`, `frame-blend-timelapse`, `frame-breakout`, `freeze-frame-brackets`, `giant-eye-reveal`, `glass-crack-mend`, `long-exposure-trails`, `loupe-magnify`, `magnifier-loupe`, `swirl-portal`, `theatre-gate`, `vhs-crt-pass`, `loot-reveal`, `player-stat-card`, `rocket-to-moon`, `callout-labels`, `cam-chip-sync-badge`, `target-lock-box`, `target-lock`, `zoom-inset-box`, `ascii-image-grid`, `autofocus-hunt`, `brush-stroke-reveal`, `comic-halftone`, `dot-matrix`, `duotone`, `film-look`, `glass-pane-grid`, `glitch-image`, `grid-multiply`, `handscroll-reveal`, `ken-burns`, `knife-colour-relay`, `knife-paint-plate`, `light-sweep`, `negative-develop-reveal`, `perspective-flatten`, `photomontage-tower`, `pixel-dither`, `press-lift`, `proportion-sweep`, `riso-plate-reveal`, `spinning-headline`, `split-grid-countdown`, `sticker-cutout-burst`, `telestrator-freeze`, `tilt-shift-diorama`, `woodblock-print-reveal`, `woodcut-carve`, `xray-scan`, `map-mask-reveal`, `audio-spectrum`, `guilloche-note`, `add-to-cart-fly`, `colorway-swap`, `feature-callout-orbit`, `flash-deal-timer-card`, `frost-to-clear`, `size-color-picker`, `sunburst-hero`, `unbox-lid-lift`, `logo-reveal-liquid`, `scissor-cut`, `sonar-ping`, `blur-in-title`, `bouncing-ball-singalong`, `channel-intro-sting`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `diagonal-band-title`, `end-card-credits`, `flipbook-riffle-outro`, `glyph-orbit-logo`, `halftone-exhibit-numeral`, `hanazi-caption`, `letters-become-image`, `logo-assemble`, `logo-reveal-lines`, `mask-rise-title`, `number-counter`, `quote-slide`, `sponsor-slate`, `stamp-slam`, `story-caption-box`, `typewriter-code`, `browser-mockup`, `device-mockup`, `hotel-rating-card`, `property-listing-card`, `recipe-ingredients-steps`, `sms-thread`, `split-compare`, `story-progress-frames`, `tv-wall-switch-on`, `versus-roster` |
+| takes your image (`src` / `images` / `heroSrc`) | `pointcloud-orbit`, `crash-zoom`, `dolly-zoom`, `orbit-parallax`, `whip-pan`, `beat-montage`, `crowd-tracks`, `ground-plane-ruler`, `map-route`, `microscope-dive`, `science-reticle`, `thumbnail-mosaic`, `archive-photo-ken-burns-caption`, `mugshot-height-chart`, `depth-descent`, `lamp-screen`, `paper-diorama`, `studio-sweep`, `topdown-terrain`, `window-glow-sequence`, `beat-punch-zoom`, `crayon-wax-shader`, `focus-desaturate`, `frame-blend-timelapse`, `frame-breakout`, `freeze-frame-brackets`, `giant-eye-reveal`, `glass-crack-mend`, `long-exposure-trails`, `loupe-magnify`, `magnifier-loupe`, `swirl-portal`, `theatre-gate`, `vhs-crt-pass`, `loot-reveal`, `player-stat-card`, `rocket-to-moon`, `transfer-announcement`, `callout-labels`, `cam-chip-sync-badge`, `target-lock-box`, `target-lock`, `zoom-inset-box`, `ascii-image-grid`, `autofocus-hunt`, `brush-stroke-reveal`, `comic-halftone`, `dot-matrix`, `duotone`, `film-look`, `glass-pane-grid`, `glitch-image`, `grid-multiply`, `handscroll-reveal`, `ken-burns`, `knife-colour-relay`, `knife-paint-plate`, `light-sweep`, `negative-develop-reveal`, `perspective-flatten`, `photomontage-tower`, `pixel-dither`, `press-lift`, `proportion-sweep`, `riso-plate-reveal`, `spinning-headline`, `split-grid-countdown`, `sticker-cutout-burst`, `telestrator-freeze`, `tilt-shift-diorama`, `woodblock-print-reveal`, `woodcut-carve`, `xray-scan`, `map-mask-reveal`, `audio-spectrum`, `guilloche-note`, `add-to-cart-fly`, `colorway-swap`, `feature-callout-orbit`, `flash-deal-timer-card`, `frost-to-clear`, `size-color-picker`, `sunburst-hero`, `unbox-lid-lift`, `logo-reveal-liquid`, `scissor-cut`, `sonar-ping`, `blur-in-title`, `bouncing-ball-singalong`, `channel-intro-sting`, `chapter-header`, `cinematic-title-card`, `comic-burst`, `diagonal-band-title`, `end-card-credits`, `flipbook-riffle-outro`, `glyph-orbit-logo`, `halftone-exhibit-numeral`, `hanazi-caption`, `letters-become-image`, `logo-assemble`, `logo-reveal-lines`, `mask-rise-title`, `number-counter`, `quote-slide`, `sponsor-slate`, `stamp-slam`, `story-caption-box`, `typewriter-code`, `browser-mockup`, `device-mockup`, `hotel-rating-card`, `property-listing-card`, `recipe-ingredients-steps`, `sms-thread`, `split-compare`, `story-progress-frames`, `tv-wall-switch-on`, `versus-roster` |
 | heavy (three.js / WebGL — prefer an exported video on mobile web) | `accum-render-3d`, `brick-collapse-physics`, `brick-fx-fire-smoke`, `brick-rebuild-morph`, `brick-snap-build`, `chart-to-installation`, `cloner-bed-ripple`, `colour-ignition-wave`, `exploded-stack`, `exploded-view-3d`, `glass-strip-sweep`, `globe-3d`, `iso-blocks-3d`, `iso-city-build`, `jelly-type-drop`, `last-object-drop`, `liminal-corridor-3d`, `ocean-surface-3d`, `particle-shape-morph`, `plan-tilt`, `pointcloud-orbit`, `product-turntable-3d`, `shockwave-flip-field`, `stack-plates-3d`, `terrain-build-3d`, `voxel-burst-swirl`, `voxel-diorama`, `wireframe-build`, `dash-flow-field` |
 
 ## recipes
@@ -460,6 +460,34 @@ Keynote one-number slide: an eyebrow tag, a huge number counting up with accent 
 | `ring` | `true` | faint decorative rings behind the number |
 | `countFrames` | `70` | frames the count-up takes |
 | `startAt` | `0` | frame the slide begins |
+
+### `birthday-cake-candles` — Birthday cake, candles & blow-out
+
+A tiered cake drops in, candles are lit one by one with a warm glow and a wish line, then a puff of breath blows them out (leaning flames, smoke wisps) and confetti bursts as the name is revealed.
+
+**Use for:** Birthday greetings and reels, party invites, "happy birthday" posts, team-member birthdays, kids party intros, any "make a wish" reveal. Replace the name, title and colours; set the candle count to the age (up to 12).  
+**Rebuilt from:** original (round 3, events & celebrations)  
+**Default length:** 300 frames (10.0 s @ 30 fps)
+
+**Roles:** type, accent · **Mood:** playful  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Happy Birthday"` | greeting line shown in script above the name |
+| `name` | `"Alex"` | big name revealed after the candles go out |
+| `wish` | `"Make a wish…"` | line shown while the candles burn |
+| `message` | `"Wishing you a day full of joy"` | small line under the name |
+| `candles` | `5` | number of candles (1-12) |
+| `hold` | `42` | frames the lit candles glow before the blow-out |
+| `background` | `"#2A1738"` | frame colour (hex), or "transparent" to overlay content |
+| `ink` | `"#FFF4E6"` | text colour (hex) |
+| `accent` | `"#FF7AA8"` | frosting and underline colour (hex) |
+| `accent2` | `"#7A8BFF"` | candle and sprinkle colour (hex) |
+| `cake` | `"#F2C48D"` | sponge colour (hex) |
+| `flame` | `"#FFB52E"` | flame and glow colour (hex) |
+| `seed` | `4` | seed for drips, sprinkles and confetti |
+| `startAt` | `0` | frame the sequence begins |
 
 ### `blob-to-wordmark` — Blob to wordmark
 
@@ -2668,6 +2696,34 @@ Small lowercase credit typed into a corner two frames per character, no cursor; 
 | `pool` | `""` | decode: glyph pool (empty = brackets, symbols, letters) |
 | `direction` | `"ltr"` | decode: ltr \| center-out \| random resolve order |
 | `decodeOut` | `8` | decode: frames the break-back-to-symbols exit takes at scrambleAt (0 = no decode exit) |
+
+### `wedding-save-the-date` — Wedding save the date (floral line art)
+
+Elegant save-the-date card: a thin double frame draws on, line-art floral sprigs grow from the corners and bloom, then the two names, an ampersand, a flourish divider, the date and the venue fade up in turn while petals drift.
+
+**Use for:** Wedding and engagement announcements, save-the-date and invitation reels, anniversary parties, baby showers, any formal "you are invited" reveal. Replace names, date, venue, and set colours (sage + gold by default).  
+**Rebuilt from:** original (round 3, events & celebrations)  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** type · **Mood:** blueprint, nature  
+**Capabilities:** overlay (`{"background":"transparent"}`) · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `eyebrow` | `"Save the date"` | small line above the names |
+| `nameA` | `"Emma"` | first name |
+| `nameB` | `"James"` | second name |
+| `connector` | `"&"` | joiner between the names (& / and / +) |
+| `date` | `"June 14, 2027"` | event date, shown in letter-spaced capitals |
+| `venue` | `"Willow Garden Estate"` | venue name |
+| `place` | `"Napa Valley, California"` | city / region line |
+| `florals` | `true` | draw the corner floral line art |
+| `background` | `"#F7F1E8"` | card colour (hex), or "transparent" to overlay content |
+| `ink` | `"#3A3631"` | text colour (hex) |
+| `accent` | `"#B08D57"` | frame, flowers and ampersand colour (hex) |
+| `accent2` | `"#7F987C"` | leaf / sprig colour (hex) |
+| `seed` | `3` | seed for leaf sizes and drifting petals |
+| `startAt` | `0` | frame the sequence begins |
 
 ### `word-carousel-rotator` — Word carousel rotator
 
@@ -12053,6 +12109,8 @@ Tutorial / privacy overlay: boxes over regions of the footage frost what is unde
 
 ### `breaking-news-takeover` — Breaking news takeover
 
+![breaking-news-takeover](../gallery/breaking-news-takeover.jpg)
+
 A full-screen "BREAKING NEWS" slam: white flash, an accent panel wipes across and the label crashes in with a shake, then contracts to a top band while the headline wipes in line by line, a sub-line fades up and a ticker scrolls along the bottom. Generic channel name; set background to "transparent" to lay it over footage.
 
 **Use for:** Urgent news beats, alert announcements, "just in" updates, product-incident or outage notices, news-style explainers and parody bulletins.  
@@ -12245,6 +12303,8 @@ A kill-feed style stack of one-line event chips in a corner: each actor name sit
 
 ### `fact-check-meter` — Fact-check meter
 
+![fact-check-meter](../gallery/fact-check-meter.jpg)
+
 A fact-check graphic: the claim appears in a quote card, a segmented true-to-false gauge draws in, the needle sweeps and wobbles to the score while the matching zone label lights up, then a tilted verdict stamp and a one-line explanation land.
 
 **Use for:** Rating a claim in news, explainers, debunk and myth-busting videos; any "how true is it" or 0-to-1 rating with a verdict.  
@@ -12411,6 +12471,8 @@ Overlay HUD: corner crop marks, header with red counter, live timecode, typed co
 
 ### `interview-name-super` — Interview name super
 
+![interview-name-super](../gallery/interview-name-super.jpg)
+
 A two-line interview super - name and title - in four layouts: "bar" (accent bar + dark panel), "tag" (solid name block over an offset title strip), "rule" (a thin accent line draws over bare type on a soft scrim) and "center" (centred serif name with a diamond divider). Left, right or centre; set backdrop to "transparent" to lay it over footage.
 
 **Use for:** Naming and titling anyone on screen: interviewees, speakers, experts, hosts, witnesses - in news, documentary, podcast, webinar and corporate video.  
@@ -12436,6 +12498,8 @@ A two-line interview super - name and title - in four layouts: "bar" (accent bar
 | `backdrop` | `"footage"` | "footage" = procedural plate, "transparent" = overlay, or any CSS colour |
 
 ### `location-time-stamp` — Location + time chyron
+
+![location-time-stamp](../gallery/location-time-stamp.jpg)
 
 A lower-left location chyron: an accent bar grows, the place strip opens and the place name types on with a block cursor, then a dark strip types region | date | time with an optional running clock and a LIVE / FILE tag chip above. Set backdrop to "transparent" to lay it over footage.
 
@@ -12579,6 +12643,8 @@ Tutorial overlay on a transparent background: numbered badges (1, 2, 3 ...) pop 
 | `demoTone` | `"light"` | light \| dark mock screen |
 
 ### `poll-numbers-split` — Poll numbers split
+
+![poll-numbers-split](../gallery/poll-numbers-split.jpg)
 
 Head-to-head poll result: two colour panels count their percentages up, a proportional bar below shows the split with an undecided remainder, a hatched band marks the margin of error, and a verdict chip reads "X leads by N" - or "within the margin of error" when the gap is inside it.
 
@@ -12730,6 +12796,8 @@ Tutorial annotation overlay on a transparent background: a marker pen draws a lo
 | `demoTone` | `"light"` | light \| dark mock screen |
 
 ### `social-post-embed` — Social post embed
+
+![social-post-embed](../gallery/social-post-embed.jpg)
 
 A generic social-post card - avatar (initials or image), name, verified tick, handle, text with *highlighted* words, optional picture, time and reply / repost / like counts. It pops in, reveals its words one by one, counts the numbers up and "likes" itself with a heart pop. No real platform branding.
 
@@ -14650,6 +14718,8 @@ A glowing amber wireframe galleon lifts out of a parchment blueprint part by par
 
 ### `archive-photo-ken-burns-caption` — Archive photo + caption
 
+![archive-photo-ken-burns-caption](../gallery/archive-photo-ken-burns-caption.jpg)
+
 An archive photograph with a slow Ken Burns move (push, pull, pan or tilt) and a dated caption - full-bleed with a lower-left caption block (kicker, date, serif caption, credit), or as a white-bordered print with a handwritten caption in the margin. Sepia / black-and-white / colour treatment, grain, dust specks and a developing-print fade-in.
 
 **Use for:** Documentary and history videos, news background pieces, "this is what it looked like" photo beats, dated archive stills with a credit line.  
@@ -14770,6 +14840,8 @@ A tilted typed document slams onto an ink ground; a red highlighter bar sweeps a
 | `ground` | `"ink"` | 'ink' (dark ground) or 'paper' |
 
 ### `document-zoom-highlight` — Document zoom + highlight
+
+![document-zoom-highlight](../gallery/document-zoom-highlight.jpg)
 
 A document page sits on a dark desk (procedural page, or your own page image); the camera zooms in on one paragraph while the rest of the page dims, a highlighter sweeps over the key phrase, and a SOURCE label slides in lower-left.
 
@@ -15260,6 +15332,44 @@ Full-bleed game-show set: one saturated candy hue with a same-hue lighter patter
 | `patternLift` | `0.12` | how much lighter the pattern is than the hue (0..1) |
 | `background` | `"#000"` | behind the set (visible only if the set were transparent) |
 
+### `countdown-to-kickoff` — Countdown to kick-off
+
+Two team crests flank four rolling countdown tiles (days, hours, minutes, seconds) that tick down with a roll and a pulse on the seconds tile, under stadium light beams in the team colours, with competition, date and venue lines; at zero the headline switches to a final message.
+
+**Use for:** Match-day teasers, "kick-off in" promos, tip-off, race-start, tournament and event countdowns. Set the starting days / hours / minutes / seconds, the two teams (names, colours, optional logos), the date and venue.  
+**Rebuilt from:** original  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `labels` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Kick-off in"` | headline above the tiles |
+| `finalText` | `"Kick-off!"` | headline once the clock hits zero inside the clip |
+| `competition` | `"Friendly cup · Round 2"` | small line at the top (competition, round) |
+| `teamA` | `"Northgate"` | left / first team name |
+| `teamB` | `"Harbor City"` | right / second team name |
+| `tagA` | `"NGT"` | short tag for team A (logo fallback) |
+| `tagB` | `"HBC"` | short tag for team B |
+| `logoA` | `""` | team A logo image (public/ path or URL); empty = coloured tag badge |
+| `logoB` | `""` | team B logo image; empty = coloured tag badge |
+| `colorA` | `"#2F6BFF"` | team A colour (crest, glow, light beam) |
+| `colorB` | `"#FF4D5E"` | team B colour |
+| `days` | `2` | days left at the start of the clip |
+| `hours` | `4` | hours left at the start |
+| `minutes` | `36` | minutes left at the start |
+| `seconds` | `4` | seconds left at the start |
+| `rate` | `1` | clock speed: 1 = real time, 60 = a minute per second, 3600 = an hour per second |
+| `labels` | `["Days","Hours","Min","Sec"]` | four labels under the tiles (Days, Hours, Min, Sec) |
+| `venue` | `"Riverside Stadium"` | venue line; empty hides it |
+| `date` | `"Saturday · 15:00"` | date / time line; empty hides it |
+| `background` | `"#070B18"` | frame colour, or "transparent" to overlay footage |
+| `surface` | `"#18213A"` | tile colour |
+| `ink` | `"#FFFFFF"` | text colour |
+| `accent` | `"#FFC933"` | seconds, competition and rule colour |
+| `fontFamily` | `"auto"` | CSS font family, or "auto" |
+
 ### `fuse-beat-timer` — Fuse beat timer
 
 ![fuse-beat-timer](../gallery/fuse-beat-timer.jpg)
@@ -15474,6 +15584,65 @@ Slanted two-team scoreboard with crests, score boxes that roll up point by point
 | `accent` | `"#FFC933"` | clock / stage highlight colour |
 | `fontFamily` | `"auto"` | CSS font family, or "auto" |
 
+### `match-stats-compare` — Match stats comparison
+
+Two team crests and names over a stack of comparison rows: each stat has a centred label, two values that count up and a bar that opens from the middle to the split (share or mirrored); the leading side lights up in its colour, the other dims; optional score in the middle.
+
+**Use for:** Post-match and half-time stats (possession, shots, corners), head-to-head previews, player-vs-player or product-vs-product comparisons. Give the two team names, colours (and logos) and the stats as {label, a, b}.  
+**Rebuilt from:** original  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Match stats"` | label under the crests |
+| `subtitle` | `"Full time"` | small line at the top (e.g. Full time, Half time) |
+| `teamA` | `"Northgate"` | left team name |
+| `teamB` | `"Harbor City"` | right team name |
+| `tagA` | `"NGT"` | left short tag (logo fallback) |
+| `tagB` | `"HBC"` | right short tag |
+| `logoA` | `""` | left logo image (public/ path or URL); empty = coloured tag badge |
+| `logoB` | `""` | right logo image; empty = coloured tag badge |
+| `colorA` | `"#2F6BFF"` | left team colour |
+| `colorB` | `"#FF4D5E"` | right team colour |
+| `scoreA` | `2` | left score; set either score to "" to show VS instead |
+| `scoreB` | `1` | right score |
+| `stats` | `[{"label":"Possession","a":58,"b":42,"suffix":"%"},{"labe…` | array of {label, a, b, suffix?, decimals?, lowerBetter?} (8 max); lowerBetter lights the side with the smaller value (e.g. fouls) |
+| `barMode` | `"split"` | split = one bar split by share of the pair \| mirror = both bars measured against the larger value |
+| `background` | `"#0A0F1E"` | frame colour, or "transparent" to overlay footage |
+| `surface` | `"#161E33"` | row panel colour |
+| `ink` | `"#FFFFFF"` | text colour |
+| `accent` | `"#FFC933"` | subtitle colour |
+| `fontFamily` | `"auto"` | CSS font family, or "auto" |
+
+### `medal-podium` — Medal podium
+
+A 2-1-3 podium whose blocks rise in turn (bronze, silver, gold); each winner drops on top with a photo or initials badge, name, a flag-style colour chip and a result line, then a spotlight, a sheen on the gold block and a confetti burst.
+
+**Use for:** Results and winners reveals: Olympic-style medal ceremonies, tournament top three, race and contest podiums, quiz or sales leaderboards, "top 3 of the year" slides. Give the winners as {name, detail, colors[], src}, in order 1st, 2nd, 3rd.  
+**Rebuilt from:** original  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** accent · **Mood:** photo, playful  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Final results"` | heading (e.g. event name) |
+| `subtitle` | `"Men's 200m freestyle"` | small line above the heading (e.g. category) |
+| `winners` | `[{"name":"Kestrel Moon","detail":"1:46.20","colors":["#2F…` | up to 3 entries in order 1st, 2nd, 3rd: {name, detail (time / score), colors[] (flag-style colour chip: 1-4 stripes), src (optional photo, public/ path or URL)} |
+| `medalLabels` | `["Gold","Silver","Bronze"]` | words on the blocks, e.g. ["Gold","Silver","Bronze"] or ["1st","2nd","3rd"] |
+| `gold` | `"#F5C542"` | first-place colour |
+| `silver` | `"#C3CAD6"` | second-place colour |
+| `bronze` | `"#CF8A4A"` | third-place colour |
+| `confetti` | `true` | confetti burst when the winner lands |
+| `background` | `"#0A1022"` | frame colour, or "transparent" to overlay footage |
+| `ink` | `"#FFFFFF"` | text colour |
+| `accent` | `"#FFC933"` | subtitle colour |
+| `fontFamily` | `"auto"` | CSS font family, or "auto" |
+
 ### `palette-lut-grade` — Palette LUT grade
 
 ![palette-lut-grade](../gallery/palette-lut-grade.jpg)
@@ -15602,6 +15771,33 @@ Profile card with an avatar panel, name, handle, role and team chips, an overall
 | `accent2` | `"#2F7BFF"` | second colour (bar start, glow) |
 | `fontFamily` | `"auto"` | CSS font family, or "auto" |
 
+### `race-leaderboard-live` — Race leaderboard (live)
+
+A slanted timing tower: the field is re-ranked at every lap / split, rows glide into place, overtakers flash with a green arrow and places gained, the leader shows the race time and the rest the gap behind, with an optional last-lap column and a lap counter.
+
+**Use for:** Race and heat coverage (motor racing, cycling, swimming, athletics, rowing, esports races), "who is ahead" timing towers, live-results recaps and standings changes. Give each competitor a name, a colour and their lap/split times in seconds.  
+**Rebuilt from:** original  
+**Default length:** 270 frames (9.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"Grand Prix"` | heading (e.g. event name) |
+| `subtitle` | `"Live timing"` | small line above the heading |
+| `checkpointLabel` | `"Lap"` | word beside the counter (Lap, Split, Heat, Stage) |
+| `entries` | `[{"name":"Vega","laps":[91.2,89.9,89.4,88.9,88.6,88.7],"c…` | array of {name, color, tag?, laps: number[]}: laps = time for each lap / split in seconds (cumulative times are worked out; the field is ranked after each checkpoint; 12 entries max, shortest laps array sets the checkpoint count) |
+| `showLapTimes` | `true` | show each competitor's last lap time (hidden automatically on narrow frames) |
+| `decimals` | `3` | decimals in gaps and times (1 to 3) |
+| `background` | `"#0A0F1C"` | frame colour, or "transparent" to overlay footage |
+| `surface` | `"#161E33"` | row colour |
+| `ink` | `"#FFFFFF"` | text colour |
+| `accent` | `"#FFC933"` | leader / heading highlight colour |
+| `up` | `"#2DD4A0"` | colour of the "places gained" arrow |
+| `down` | `"#FF5D6C"` | colour of the "places lost" arrow |
+| `fontFamily` | `"auto"` | CSS font family, or "auto" |
+
 ### `rocket-to-moon` — Rocket to moon
 
 ![rocket-to-moon](../gallery/rocket-to-moon.jpg)
@@ -15647,6 +15843,64 @@ Game systems as narration at native 320x180: FIGHT/ITEM/MAGIC/RUN with a bobbing
 | `accent` | `"#FFD23F"` | selection highlight colour |
 | `showCues` | `false` | show tiny SFX cue tags (cursor, select, HP tick, fanfare, item get) for sound design |
 | `background` | `"#05060F"` | letterbox colour |
+
+### `shot-map-heat` — Shot map with heat
+
+A half pitch or half court draws on and shots land one by one (goals as bold discs, saves as hollow dots, misses as crosses) while a smooth heat map of shot locations builds underneath; counters for shots, goals and conversion run in a side panel or header.
+
+**Use for:** Match and player shot maps, xG explainers, basketball shot charts, scouting reports and "where do they score from" stories. Give the shots as {x, y, result, value} (x 0 = far edge .. 1 = goal line, y 0..1 across, result goal | saved | miss).  
+**Rebuilt from:** original  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** hud  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `sport` | `"football"` | football \| basketball \| plain |
+| `title` | `"Shot map"` | heading |
+| `subtitle` | `"Season to date"` | small line above the heading |
+| `shots` | `[{"x":0.918,"y":0.593,"result":"miss","value":0.47},{"x":…` | array of {x, y, result, value}: x 0..1 across the drawn area (1 = goal / basket line), y 0..1 across the width, result goal\|made \| saved\|hit \| miss, value 0..1 shot quality (sizes the dot and the heat). Empty = built-in sample |
+| `half` | `true` | true = attacking half only (bigger), false = whole pitch / court (x then runs along the whole length) |
+| `showHeat` | `true` | show the heat map underneath |
+| `showTrails` | `true` | draw a short dashed line from each shot towards goal |
+| `goalLabel` | `"Goals"` | name for scored shots (Goals, Baskets, Made) |
+| `shotLabel` | `"Shots"` | name for all attempts (Shots, Attempts) |
+| `rateLabel` | `"Conversion"` | name of the percentage (Conversion, FG%) |
+| `heatColors` | `["#1B2B6B","#1FB5C9","#FFD23F","#FF4A3D"]` | heat ramp from cold to hot, 2-5 hex colours |
+| `field` | `"auto"` | surface colour, or "auto" for the sport default (darkened) |
+| `background` | `"#0A1020"` | frame colour, or "transparent" to overlay footage |
+| `ink` | `"#FFFFFF"` | text colour |
+| `accent` | `"#FFC933"` | goal dot and heading highlight colour |
+| `accent2` | `"#2FD4C0"` | percentage colour |
+| `fontFamily` | `"auto"` | CSS font family, or "auto" |
+
+### `stopwatch-split-times` — Stopwatch with split times
+
+A large stopwatch (sweep hand, lap-progress ring, digital readout) counts up while each lap freezes the readout and drops a row into a splits list with a bar, the time and the +/- against the previous lap; at the finish the best lap turns green, the slowest red and a total bar locks in.
+
+**Use for:** Lap and split reveals for running, swimming, cycling and motorsport, speed-run segments, workout intervals, cooking or study timers and any "how the time was made up" story. Pass the lap durations in seconds; real time is compressed to fit the clip.  
+**Rebuilt from:** original  
+**Default length:** 300 frames (10.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `title` | `"400 m heat"` | heading |
+| `subtitle` | `"Lane 4 · splits"` | small line above the heading |
+| `laps` | `[27.4,26.9,27.8,26.5,27.1,25.9]` | lap / split durations in seconds, in order (up to 12); the total and the cumulative clock are worked out |
+| `lapLabel` | `"Lap"` | word before the lap number (Lap, Split, Round, Set) |
+| `totalLabel` | `"Total"` | label of the final total |
+| `showDial` | `true` | show the stopwatch dial (false = list only, bigger) |
+| `background` | `"#0A0F1C"` | frame colour, or "transparent" to overlay footage |
+| `surface` | `"#18213A"` | dial and row colour |
+| `ink` | `"#FFFFFF"` | text colour |
+| `accent` | `"#FFC933"` | sweep hand, lap ring and total bar colour |
+| `good` | `"#2DD4A0"` | colour of faster laps / best lap |
+| `bad` | `"#FF5D6C"` | colour of slower laps / slowest lap |
+| `fontFamily` | `"auto"` | CSS font family, or "auto" |
 
 ### `stream-starting-soon` — Stream starting soon
 
@@ -15700,6 +15954,71 @@ A "HUD OFF" symbolic battle view: coloured glyph clusters (circles, triangles, h
 | `glitchAt` | `[0,70,140]` | frames with a horizontal glitch-band burst |
 | `commandBox` | `"CMD GRD: HOLD LINE"` | text of the floating command box ("" = none) |
 | `seed` | `6` | layout seed (match army-formation for an exact HUD-ON/OFF pair) |
+
+### `team-lineup-pitch` — Team line-up on pitch
+
+A pitch or court draws on, then each player drops onto his position as a numbered disc with a name tag; dashed links join each line of the formation and one player can be spotlighted. Title and formation label sit beside (wide) or above (square / tall).
+
+**Use for:** Starting-XI graphics, team sheets, tactics explainers, five-a-side or basketball starting fives, fantasy picks and match-day previews. Give the players as {name, number, x, y} (x = 0 own goal to 1 opposing goal, y = 0 to 1 across), your team colour and a title.  
+**Rebuilt from:** original  
+**Default length:** 210 frames (7.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** —  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `title`, `subtitle` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `sport` | `"football"` | football \| basketball \| plain (generic rectangular field) |
+| `title` | `"Starting XI"` | team or heading (e.g. "Northgate FC") |
+| `formation` | `"4-3-3"` | big formation label (e.g. "4-3-3", "2-1-2"); empty hides it |
+| `subtitle` | `"Match day"` | small line above the title |
+| `players` | `[]` | array of {name, number, x, y}: x 0..1 from own goal to the opposing goal, y 0..1 across the pitch (up to 15). Empty = built-in sample line-up for the sport |
+| `highlight` | `""` | player number or name to spotlight (pulsing ring); empty = none |
+| `showNames` | `true` | show the name tag under each disc |
+| `links` | `true` | dashed lines joining the players of each line of the formation |
+| `teamColor` | `"#2F6BFF"` | player disc colour |
+| `numberColor` | `"#FFFFFF"` | shirt-number colour |
+| `field` | `"auto"` | surface colour, or "auto" for the sport default (green pitch / wood court) |
+| `background` | `"#0B1220"` | frame colour, or "transparent" to overlay footage |
+| `ink` | `"#FFFFFF"` | title colour |
+| `accent` | `"#FFC933"` | subtitle, rule and spotlight colour |
+| `fontFamily` | `"auto"` | CSS font family, or "auto" |
+
+### `transfer-announcement` — Transfer announcement
+
+Club-colour panels wipe in, the player photo slides onto a slanted panel, the name reveals line by line, then FROM club to TO club crest chips with a travelling arrow, a fee and date chip, a contract note and an OFFICIAL stamp that slams on.
+
+**Use for:** Signing, transfer and trade announcements, new-hire or new-member reveals, "joins" and "moves to" news cards. Pass the player name, photo (src), the two clubs with colours and tags (or logos), the fee, the date and a note.  
+**Rebuilt from:** original  
+**Default length:** 240 frames (8.0 s @ 30 fps)
+
+**Roles:** subject · **Mood:** photo  
+**Capabilities:** overlay (`{"background":"transparent"}`) · text: `label` · image: `src` · weight: light  
+
+| prop | default | notes |
+|---|---|---|
+| `label` | `"Transfer news"` | chip above the name (Transfer news, Here we go, Signed) |
+| `playerName` | `"Alder Kestrel"` | full name; the last word is shown large, the rest on a smaller line above |
+| `position` | `"Striker"` | role line under the name |
+| `src` | `""` | player photo (public/ path or URL); empty = neutral silhouette |
+| `fromClub` | `"Harbor City"` | club left |
+| `toClub` | `"Northgate"` | club joined |
+| `fromTag` | `"HBC"` | short tag on the from crest (3 letters) |
+| `toTag` | `"NGT"` | short tag on the to crest |
+| `fromLogo` | `""` | from-club logo image; empty = coloured tag badge |
+| `toLogo` | `""` | to-club logo image; empty = coloured tag badge |
+| `fromColor` | `"#E5484D"` | from-club colour |
+| `toColor` | `"#2F6BFF"` | to-club colour (also the photo panel) |
+| `fee` | `"€45M"` | fee text (any format); empty hides the chip |
+| `feeLabel` | `"Fee"` | small label above the fee |
+| `date` | `"1 Sep"` | date text; empty hides the chip |
+| `dateLabel` | `"Signed"` | small label above the date |
+| `note` | `"Five-year contract"` | extra line under the chips (contract length, shirt number); empty hides it |
+| `stampText` | `"Official"` | text of the final stamp; empty hides it |
+| `background` | `"#080C18"` | frame colour, or "transparent" to overlay footage |
+| `ink` | `"#FFFFFF"` | text colour |
+| `accent` | `"#FFC933"` | chip, arrow and stamp colour |
+| `fontFamily` | `"auto"` | CSS font family, or "auto" |
 
 ### `vs-splash` — VS splash
 

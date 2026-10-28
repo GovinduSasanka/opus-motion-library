@@ -36704,6 +36704,171 @@
   }
  },
  {
+  "id": "countdown-to-kickoff",
+  "title": "Countdown to kick-off",
+  "category": "game",
+  "description": "Two team crests flank four rolling countdown tiles (days, hours, minutes, seconds) that tick down with a roll and a pulse on the seconds tile, under stadium light beams in the team colours, with competition, date and venue lines; at zero the headline switches to a final message.",
+  "useFor": "Match-day teasers, \"kick-off in\" promos, tip-off, race-start, tournament and event countdowns. Set the starting days / hours / minutes / seconds, the two teams (names, colours, optional logos), the date and venue.",
+  "source": [
+   "original"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "countdown",
+   "kickoff",
+   "kick-off",
+   "match day",
+   "timer",
+   "days hours minutes",
+   "tip-off",
+   "fixture",
+   "versus",
+   "football",
+   "soccer",
+   "basketball",
+   "sports",
+   "event",
+   "teaser",
+   "preview"
+  ],
+  "file": "src/motions/game/countdown-to-kickoff.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "labels"
+  ],
+  "colorProps": [
+   "colorA",
+   "colorB",
+   "background",
+   "surface",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Kick-off in",
+    "doc": "headline above the tiles"
+   },
+   "finalText": {
+    "default": "Kick-off!",
+    "doc": "headline once the clock hits zero inside the clip"
+   },
+   "competition": {
+    "default": "Friendly cup · Round 2",
+    "doc": "small line at the top (competition, round)"
+   },
+   "teamA": {
+    "default": "Northgate",
+    "doc": "left / first team name"
+   },
+   "teamB": {
+    "default": "Harbor City",
+    "doc": "right / second team name"
+   },
+   "tagA": {
+    "default": "NGT",
+    "doc": "short tag for team A (logo fallback)"
+   },
+   "tagB": {
+    "default": "HBC",
+    "doc": "short tag for team B"
+   },
+   "logoA": {
+    "default": "",
+    "doc": "team A logo image (public/ path or URL); empty = coloured tag badge"
+   },
+   "logoB": {
+    "default": "",
+    "doc": "team B logo image; empty = coloured tag badge"
+   },
+   "colorA": {
+    "default": "#2F6BFF",
+    "doc": "team A colour (crest, glow, light beam)"
+   },
+   "colorB": {
+    "default": "#FF4D5E",
+    "doc": "team B colour"
+   },
+   "days": {
+    "default": 2,
+    "doc": "days left at the start of the clip"
+   },
+   "hours": {
+    "default": 4,
+    "doc": "hours left at the start"
+   },
+   "minutes": {
+    "default": 36,
+    "doc": "minutes left at the start"
+   },
+   "seconds": {
+    "default": 4,
+    "doc": "seconds left at the start"
+   },
+   "rate": {
+    "default": 1,
+    "doc": "clock speed: 1 = real time, 60 = a minute per second, 3600 = an hour per second"
+   },
+   "labels": {
+    "default": [
+     "Days",
+     "Hours",
+     "Min",
+     "Sec"
+    ],
+    "doc": "four labels under the tiles (Days, Hours, Min, Sec)"
+   },
+   "venue": {
+    "default": "Riverside Stadium",
+    "doc": "venue line; empty hides it"
+   },
+   "date": {
+    "default": "Saturday · 15:00",
+    "doc": "date / time line; empty hides it"
+   },
+   "background": {
+    "default": "#070B18",
+    "doc": "frame colour, or \"transparent\" to overlay footage"
+   },
+   "surface": {
+    "default": "#18213A",
+    "doc": "tile colour"
+   },
+   "ink": {
+    "default": "#FFFFFF",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#FFC933",
+    "doc": "seconds, competition and rule colour"
+   },
+   "fontFamily": {
+    "default": "auto",
+    "doc": "CSS font family, or \"auto\""
+   }
+  }
+ },
+ {
   "id": "fuse-beat-timer",
   "title": "Fuse beat timer",
   "category": "game",
@@ -37585,6 +37750,325 @@
   }
  },
  {
+  "id": "match-stats-compare",
+  "title": "Match stats comparison",
+  "category": "game",
+  "description": "Two team crests and names over a stack of comparison rows: each stat has a centred label, two values that count up and a bar that opens from the middle to the split (share or mirrored); the leading side lights up in its colour, the other dims; optional score in the middle.",
+  "useFor": "Post-match and half-time stats (possession, shots, corners), head-to-head previews, player-vs-player or product-vs-product comparisons. Give the two team names, colours (and logos) and the stats as {label, a, b}.",
+  "source": [
+   "original"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "stats",
+   "comparison",
+   "versus",
+   "head to head",
+   "possession",
+   "shots",
+   "match",
+   "teams",
+   "football",
+   "soccer",
+   "basketball",
+   "sports",
+   "bars",
+   "compare",
+   "half time",
+   "full time"
+  ],
+  "file": "src/motions/game/match-stats-compare.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "colorA",
+   "colorB",
+   "background",
+   "surface",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Match stats",
+    "doc": "label under the crests"
+   },
+   "subtitle": {
+    "default": "Full time",
+    "doc": "small line at the top (e.g. Full time, Half time)"
+   },
+   "teamA": {
+    "default": "Northgate",
+    "doc": "left team name"
+   },
+   "teamB": {
+    "default": "Harbor City",
+    "doc": "right team name"
+   },
+   "tagA": {
+    "default": "NGT",
+    "doc": "left short tag (logo fallback)"
+   },
+   "tagB": {
+    "default": "HBC",
+    "doc": "right short tag"
+   },
+   "logoA": {
+    "default": "",
+    "doc": "left logo image (public/ path or URL); empty = coloured tag badge"
+   },
+   "logoB": {
+    "default": "",
+    "doc": "right logo image; empty = coloured tag badge"
+   },
+   "colorA": {
+    "default": "#2F6BFF",
+    "doc": "left team colour"
+   },
+   "colorB": {
+    "default": "#FF4D5E",
+    "doc": "right team colour"
+   },
+   "scoreA": {
+    "default": 2,
+    "doc": "left score; set either score to \"\" to show VS instead"
+   },
+   "scoreB": {
+    "default": 1,
+    "doc": "right score"
+   },
+   "stats": {
+    "default": [
+     {
+      "label": "Possession",
+      "a": 58,
+      "b": 42,
+      "suffix": "%"
+     },
+     {
+      "label": "Shots",
+      "a": 14,
+      "b": 9
+     },
+     {
+      "label": "Shots on target",
+      "a": 6,
+      "b": 4
+     },
+     {
+      "label": "Corners",
+      "a": 7,
+      "b": 3
+     },
+     {
+      "label": "Passes",
+      "a": 512,
+      "b": 388
+     },
+     {
+      "label": "Fouls",
+      "a": 9,
+      "b": 12,
+      "lowerBetter": true
+     }
+    ],
+    "doc": "array of {label, a, b, suffix?, decimals?, lowerBetter?} (8 max); lowerBetter lights the side with the smaller value (e.g. fouls)"
+   },
+   "barMode": {
+    "default": "split",
+    "doc": "split = one bar split by share of the pair | mirror = both bars measured against the larger value"
+   },
+   "background": {
+    "default": "#0A0F1E",
+    "doc": "frame colour, or \"transparent\" to overlay footage"
+   },
+   "surface": {
+    "default": "#161E33",
+    "doc": "row panel colour"
+   },
+   "ink": {
+    "default": "#FFFFFF",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#FFC933",
+    "doc": "subtitle colour"
+   },
+   "fontFamily": {
+    "default": "auto",
+    "doc": "CSS font family, or \"auto\""
+   }
+  }
+ },
+ {
+  "id": "medal-podium",
+  "title": "Medal podium",
+  "category": "game",
+  "description": "A 2-1-3 podium whose blocks rise in turn (bronze, silver, gold); each winner drops on top with a photo or initials badge, name, a flag-style colour chip and a result line, then a spotlight, a sheen on the gold block and a confetti burst.",
+  "useFor": "Results and winners reveals: Olympic-style medal ceremonies, tournament top three, race and contest podiums, quiz or sales leaderboards, \"top 3 of the year\" slides. Give the winners as {name, detail, colors[], src}, in order 1st, 2nd, 3rd.",
+  "source": [
+   "original"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "podium",
+   "medal",
+   "winners",
+   "top 3",
+   "ceremony",
+   "olympics",
+   "results",
+   "gold",
+   "silver",
+   "bronze",
+   "ranking",
+   "leaderboard",
+   "tournament",
+   "sports",
+   "awards",
+   "confetti"
+  ],
+  "file": "src/motions/game/medal-podium.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "gold",
+   "silver",
+   "bronze",
+   "background",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "photo",
+   "playful"
+  ],
+  "roles": [
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Final results",
+    "doc": "heading (e.g. event name)"
+   },
+   "subtitle": {
+    "default": "Men's 200m freestyle",
+    "doc": "small line above the heading (e.g. category)"
+   },
+   "winners": {
+    "default": [
+     {
+      "name": "Kestrel Moon",
+      "detail": "1:46.20",
+      "colors": [
+       "#2F6BFF",
+       "#FFFFFF",
+       "#E5484D"
+      ]
+     },
+     {
+      "name": "Alder Reyes",
+      "detail": "1:46.85",
+      "colors": [
+       "#18B37E",
+       "#FFFFFF"
+      ]
+     },
+     {
+      "name": "Marlow Chen",
+      "detail": "1:47.31",
+      "colors": [
+       "#F5A524",
+       "#1E2A44",
+       "#F5A524"
+      ]
+     }
+    ],
+    "doc": "up to 3 entries in order 1st, 2nd, 3rd: {name, detail (time / score), colors[] (flag-style colour chip: 1-4 stripes), src (optional photo, public/ path or URL)}"
+   },
+   "medalLabels": {
+    "default": [
+     "Gold",
+     "Silver",
+     "Bronze"
+    ],
+    "doc": "words on the blocks, e.g. [\"Gold\",\"Silver\",\"Bronze\"] or [\"1st\",\"2nd\",\"3rd\"]"
+   },
+   "gold": {
+    "default": "#F5C542",
+    "doc": "first-place colour"
+   },
+   "silver": {
+    "default": "#C3CAD6",
+    "doc": "second-place colour"
+   },
+   "bronze": {
+    "default": "#CF8A4A",
+    "doc": "third-place colour"
+   },
+   "confetti": {
+    "default": true,
+    "doc": "confetti burst when the winner lands"
+   },
+   "background": {
+    "default": "#0A1022",
+    "doc": "frame colour, or \"transparent\" to overlay footage"
+   },
+   "ink": {
+    "default": "#FFFFFF",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#FFC933",
+    "doc": "subtitle colour"
+   },
+   "fontFamily": {
+    "default": "auto",
+    "doc": "CSS font family, or \"auto\""
+   }
+  }
+ },
+ {
   "id": "palette-lut-grade",
   "title": "Palette LUT grade",
   "category": "game",
@@ -38175,6 +38659,220 @@
   }
  },
  {
+  "id": "race-leaderboard-live",
+  "title": "Race leaderboard (live)",
+  "category": "game",
+  "description": "A slanted timing tower: the field is re-ranked at every lap / split, rows glide into place, overtakers flash with a green arrow and places gained, the leader shows the race time and the rest the gap behind, with an optional last-lap column and a lap counter.",
+  "useFor": "Race and heat coverage (motor racing, cycling, swimming, athletics, rowing, esports races), \"who is ahead\" timing towers, live-results recaps and standings changes. Give each competitor a name, a colour and their lap/split times in seconds.",
+  "source": [
+   "original"
+  ],
+  "durationInFrames": 270,
+  "tags": [
+   "race",
+   "leaderboard",
+   "timing tower",
+   "standings",
+   "ranking",
+   "laps",
+   "positions",
+   "overtake",
+   "motorsport",
+   "racing",
+   "cycling",
+   "swimming",
+   "athletics",
+   "sports",
+   "results",
+   "live",
+   "gap"
+  ],
+  "file": "src/motions/game/race-leaderboard-live.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "background",
+   "surface",
+   "ink",
+   "accent",
+   "up",
+   "down"
+  ],
+  "loopable": false,
+  "bestLength": 270,
+  "mood": [],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Grand Prix",
+    "doc": "heading (e.g. event name)"
+   },
+   "subtitle": {
+    "default": "Live timing",
+    "doc": "small line above the heading"
+   },
+   "checkpointLabel": {
+    "default": "Lap",
+    "doc": "word beside the counter (Lap, Split, Heat, Stage)"
+   },
+   "entries": {
+    "default": [
+     {
+      "name": "Vega",
+      "laps": [
+       91.2,
+       89.9,
+       89.4,
+       88.9,
+       88.6,
+       88.7
+      ],
+      "color": "#E5484D"
+     },
+     {
+      "name": "Rowe",
+      "laps": [
+       90.1,
+       90.8,
+       90.2,
+       90.4,
+       90.9,
+       91
+      ],
+      "color": "#2F6BFF"
+     },
+     {
+      "name": "Imai",
+      "laps": [
+       92,
+       89.4,
+       89.3,
+       89.5,
+       89.1,
+       89.2
+      ],
+      "color": "#18B37E"
+     },
+     {
+      "name": "Costa",
+      "laps": [
+       90.6,
+       91,
+       90.3,
+       89.4,
+       89.9,
+       89.1
+      ],
+      "color": "#F5A524"
+     },
+     {
+      "name": "Dunn",
+      "laps": [
+       91.5,
+       90.2,
+       89.8,
+       90.7,
+       90.4,
+       89.7
+      ],
+      "color": "#8E5CF0"
+     },
+     {
+      "name": "Okoro",
+      "laps": [
+       93,
+       90.6,
+       90.1,
+       89.9,
+       90.8,
+       90
+      ],
+      "color": "#19B6D6"
+     },
+     {
+      "name": "Lund",
+      "laps": [
+       90.9,
+       91.4,
+       90.9,
+       90.5,
+       89.5,
+       90.6
+      ],
+      "color": "#EA5BA3"
+     },
+     {
+      "name": "Pryce",
+      "laps": [
+       92.4,
+       91.1,
+       90.7,
+       90.9,
+       91,
+       90.4
+      ],
+      "color": "#9AA5B8"
+     }
+    ],
+    "doc": "array of {name, color, tag?, laps: number[]}: laps = time for each lap / split in seconds (cumulative times are worked out; the field is ranked after each checkpoint; 12 entries max, shortest laps array sets the checkpoint count)"
+   },
+   "showLapTimes": {
+    "default": true,
+    "doc": "show each competitor's last lap time (hidden automatically on narrow frames)"
+   },
+   "decimals": {
+    "default": 3,
+    "doc": "decimals in gaps and times (1 to 3)"
+   },
+   "background": {
+    "default": "#0A0F1C",
+    "doc": "frame colour, or \"transparent\" to overlay footage"
+   },
+   "surface": {
+    "default": "#161E33",
+    "doc": "row colour"
+   },
+   "ink": {
+    "default": "#FFFFFF",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#FFC933",
+    "doc": "leader / heading highlight colour"
+   },
+   "up": {
+    "default": "#2DD4A0",
+    "doc": "colour of the \"places gained\" arrow"
+   },
+   "down": {
+    "default": "#FF5D6C",
+    "doc": "colour of the \"places lost\" arrow"
+   },
+   "fontFamily": {
+    "default": "auto",
+    "doc": "CSS font family, or \"auto\""
+   }
+  }
+ },
+ {
   "id": "rocket-to-moon",
   "title": "Rocket to moon",
   "category": "game",
@@ -38386,6 +39084,471 @@
    "background": {
     "default": "#05060F",
     "doc": "letterbox colour"
+   }
+  }
+ },
+ {
+  "id": "shot-map-heat",
+  "title": "Shot map with heat",
+  "category": "game",
+  "description": "A half pitch or half court draws on and shots land one by one (goals as bold discs, saves as hollow dots, misses as crosses) while a smooth heat map of shot locations builds underneath; counters for shots, goals and conversion run in a side panel or header.",
+  "useFor": "Match and player shot maps, xG explainers, basketball shot charts, scouting reports and \"where do they score from\" stories. Give the shots as {x, y, result, value} (x 0 = far edge .. 1 = goal line, y 0..1 across, result goal | saved | miss).",
+  "source": [
+   "original"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "shot map",
+   "heatmap",
+   "heat map",
+   "shot chart",
+   "xg",
+   "football",
+   "soccer",
+   "basketball",
+   "pitch",
+   "court",
+   "goals",
+   "scouting",
+   "analytics",
+   "sports",
+   "stats",
+   "data"
+  ],
+  "file": "src/motions/game/shot-map-heat.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "heatColors",
+   "background",
+   "ink",
+   "accent",
+   "accent2"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "hud"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "sport": {
+    "default": "football",
+    "doc": "football | basketball | plain"
+   },
+   "title": {
+    "default": "Shot map",
+    "doc": "heading"
+   },
+   "subtitle": {
+    "default": "Season to date",
+    "doc": "small line above the heading"
+   },
+   "shots": {
+    "default": [
+     {
+      "x": 0.918,
+      "y": 0.593,
+      "result": "miss",
+      "value": 0.47
+     },
+     {
+      "x": 0.466,
+      "y": 0.721,
+      "result": "miss",
+      "value": 0.04
+     },
+     {
+      "x": 0.874,
+      "y": 0.545,
+      "result": "saved",
+      "value": 0.45
+     },
+     {
+      "x": 0.893,
+      "y": 0.528,
+      "result": "saved",
+      "value": 0.48
+     },
+     {
+      "x": 0.581,
+      "y": 0.305,
+      "result": "saved",
+      "value": 0.1
+     },
+     {
+      "x": 0.604,
+      "y": 0.268,
+      "result": "saved",
+      "value": 0.11
+     },
+     {
+      "x": 0.908,
+      "y": 0.574,
+      "result": "saved",
+      "value": 0.48
+     },
+     {
+      "x": 0.854,
+      "y": 0.868,
+      "result": "miss",
+      "value": 0.2
+     },
+     {
+      "x": 0.881,
+      "y": 0.162,
+      "result": "miss",
+      "value": 0.24
+     },
+     {
+      "x": 0.589,
+      "y": 0.391,
+      "result": "saved",
+      "value": 0.14
+     },
+     {
+      "x": 0.91,
+      "y": 0.489,
+      "result": "miss",
+      "value": 0.5
+     },
+     {
+      "x": 0.7,
+      "y": 0.531,
+      "result": "miss",
+      "value": 0.27
+     },
+     {
+      "x": 0.779,
+      "y": 0.15,
+      "result": "miss",
+      "value": 0.18
+     },
+     {
+      "x": 0.922,
+      "y": 0.45,
+      "result": "goal",
+      "value": 0.5
+     },
+     {
+      "x": 0.842,
+      "y": 0.776,
+      "result": "miss",
+      "value": 0.28
+     },
+     {
+      "x": 0.505,
+      "y": 0.568,
+      "result": "saved",
+      "value": 0.05
+     },
+     {
+      "x": 0.899,
+      "y": 0.518,
+      "result": "saved",
+      "value": 0.49
+     },
+     {
+      "x": 0.9,
+      "y": 0.254,
+      "result": "miss",
+      "value": 0.33
+     },
+     {
+      "x": 0.663,
+      "y": 0.486,
+      "result": "saved",
+      "value": 0.23
+     },
+     {
+      "x": 0.924,
+      "y": 0.719,
+      "result": "goal",
+      "value": 0.37
+     },
+     {
+      "x": 0.511,
+      "y": 0.194,
+      "result": "goal",
+      "value": 0.04
+     },
+     {
+      "x": 0.857,
+      "y": 0.097,
+      "result": "saved",
+      "value": 0.17
+     },
+     {
+      "x": 0.671,
+      "y": 0.627,
+      "result": "saved",
+      "value": 0.22
+     },
+     {
+      "x": 0.92,
+      "y": 0.515,
+      "result": "saved",
+      "value": 0.51
+     },
+     {
+      "x": 0.663,
+      "y": 0.782,
+      "result": "miss",
+      "value": 0.14
+     },
+     {
+      "x": 0.821,
+      "y": 0.22,
+      "result": "miss",
+      "value": 0.26
+     },
+     {
+      "x": 0.874,
+      "y": 0.402,
+      "result": "miss",
+      "value": 0.43
+     },
+     {
+      "x": 0.901,
+      "y": 0.518,
+      "result": "goal",
+      "value": 0.49
+     },
+     {
+      "x": 0.642,
+      "y": 0.18,
+      "result": "miss",
+      "value": 0.09
+     },
+     {
+      "x": 0.807,
+      "y": 0.739,
+      "result": "saved",
+      "value": 0.28
+     },
+     {
+      "x": 0.658,
+      "y": 0.399,
+      "result": "saved",
+      "value": 0.21
+     },
+     {
+      "x": 0.667,
+      "y": 0.562,
+      "result": "goal",
+      "value": 0.23
+     },
+     {
+      "x": 0.897,
+      "y": 0.449,
+      "result": "miss",
+      "value": 0.48
+     },
+     {
+      "x": 0.508,
+      "y": 0.293,
+      "result": "saved",
+      "value": 0.04
+     }
+    ],
+    "doc": "array of {x, y, result, value}: x 0..1 across the drawn area (1 = goal / basket line), y 0..1 across the width, result goal|made | saved|hit | miss, value 0..1 shot quality (sizes the dot and the heat). Empty = built-in sample"
+   },
+   "half": {
+    "default": true,
+    "doc": "true = attacking half only (bigger), false = whole pitch / court (x then runs along the whole length)"
+   },
+   "showHeat": {
+    "default": true,
+    "doc": "show the heat map underneath"
+   },
+   "showTrails": {
+    "default": true,
+    "doc": "draw a short dashed line from each shot towards goal"
+   },
+   "goalLabel": {
+    "default": "Goals",
+    "doc": "name for scored shots (Goals, Baskets, Made)"
+   },
+   "shotLabel": {
+    "default": "Shots",
+    "doc": "name for all attempts (Shots, Attempts)"
+   },
+   "rateLabel": {
+    "default": "Conversion",
+    "doc": "name of the percentage (Conversion, FG%)"
+   },
+   "heatColors": {
+    "default": [
+     "#1B2B6B",
+     "#1FB5C9",
+     "#FFD23F",
+     "#FF4A3D"
+    ],
+    "doc": "heat ramp from cold to hot, 2-5 hex colours"
+   },
+   "field": {
+    "default": "auto",
+    "doc": "surface colour, or \"auto\" for the sport default (darkened)"
+   },
+   "background": {
+    "default": "#0A1020",
+    "doc": "frame colour, or \"transparent\" to overlay footage"
+   },
+   "ink": {
+    "default": "#FFFFFF",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#FFC933",
+    "doc": "goal dot and heading highlight colour"
+   },
+   "accent2": {
+    "default": "#2FD4C0",
+    "doc": "percentage colour"
+   },
+   "fontFamily": {
+    "default": "auto",
+    "doc": "CSS font family, or \"auto\""
+   }
+  }
+ },
+ {
+  "id": "stopwatch-split-times",
+  "title": "Stopwatch with split times",
+  "category": "game",
+  "description": "A large stopwatch (sweep hand, lap-progress ring, digital readout) counts up while each lap freezes the readout and drops a row into a splits list with a bar, the time and the +/- against the previous lap; at the finish the best lap turns green, the slowest red and a total bar locks in.",
+  "useFor": "Lap and split reveals for running, swimming, cycling and motorsport, speed-run segments, workout intervals, cooking or study timers and any \"how the time was made up\" story. Pass the lap durations in seconds; real time is compressed to fit the clip.",
+  "source": [
+   "original"
+  ],
+  "durationInFrames": 300,
+  "tags": [
+   "stopwatch",
+   "timer",
+   "splits",
+   "lap times",
+   "laps",
+   "running",
+   "swimming",
+   "athletics",
+   "track",
+   "speedrun",
+   "interval",
+   "clock",
+   "sports",
+   "timing",
+   "race"
+  ],
+  "file": "src/motions/game/stopwatch-split-times.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "background",
+   "surface",
+   "ink",
+   "accent",
+   "good",
+   "bad"
+  ],
+  "loopable": false,
+  "bestLength": 300,
+  "mood": [],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "400 m heat",
+    "doc": "heading"
+   },
+   "subtitle": {
+    "default": "Lane 4 · splits",
+    "doc": "small line above the heading"
+   },
+   "laps": {
+    "default": [
+     27.4,
+     26.9,
+     27.8,
+     26.5,
+     27.1,
+     25.9
+    ],
+    "doc": "lap / split durations in seconds, in order (up to 12); the total and the cumulative clock are worked out"
+   },
+   "lapLabel": {
+    "default": "Lap",
+    "doc": "word before the lap number (Lap, Split, Round, Set)"
+   },
+   "totalLabel": {
+    "default": "Total",
+    "doc": "label of the final total"
+   },
+   "showDial": {
+    "default": true,
+    "doc": "show the stopwatch dial (false = list only, bigger)"
+   },
+   "background": {
+    "default": "#0A0F1C",
+    "doc": "frame colour, or \"transparent\" to overlay footage"
+   },
+   "surface": {
+    "default": "#18213A",
+    "doc": "dial and row colour"
+   },
+   "ink": {
+    "default": "#FFFFFF",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#FFC933",
+    "doc": "sweep hand, lap ring and total bar colour"
+   },
+   "good": {
+    "default": "#2DD4A0",
+    "doc": "colour of faster laps / best lap"
+   },
+   "bad": {
+    "default": "#FF5D6C",
+    "doc": "colour of slower laps / slowest lap"
+   },
+   "fontFamily": {
+    "default": "auto",
+    "doc": "CSS font family, or \"auto\""
    }
   }
  },
@@ -38633,6 +39796,283 @@
    "seed": {
     "default": 6,
     "doc": "layout seed (match army-formation for an exact HUD-ON/OFF pair)"
+   }
+  }
+ },
+ {
+  "id": "team-lineup-pitch",
+  "title": "Team line-up on pitch",
+  "category": "game",
+  "description": "A pitch or court draws on, then each player drops onto his position as a numbered disc with a name tag; dashed links join each line of the formation and one player can be spotlighted. Title and formation label sit beside (wide) or above (square / tall).",
+  "useFor": "Starting-XI graphics, team sheets, tactics explainers, five-a-side or basketball starting fives, fantasy picks and match-day previews. Give the players as {name, number, x, y} (x = 0 own goal to 1 opposing goal, y = 0 to 1 across), your team colour and a title.",
+  "source": [
+   "original"
+  ],
+  "durationInFrames": 210,
+  "tags": [
+   "football",
+   "soccer",
+   "basketball",
+   "lineup",
+   "line-up",
+   "formation",
+   "starting xi",
+   "team sheet",
+   "pitch",
+   "court",
+   "tactics",
+   "sports",
+   "players",
+   "squad",
+   "match day",
+   "fantasy"
+  ],
+  "file": "src/motions/game/team-lineup-pitch.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title",
+   "subtitle"
+  ],
+  "colorProps": [
+   "teamColor",
+   "numberColor",
+   "background",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 210,
+  "mood": [],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "sport": {
+    "default": "football",
+    "doc": "football | basketball | plain (generic rectangular field)"
+   },
+   "title": {
+    "default": "Starting XI",
+    "doc": "team or heading (e.g. \"Northgate FC\")"
+   },
+   "formation": {
+    "default": "4-3-3",
+    "doc": "big formation label (e.g. \"4-3-3\", \"2-1-2\"); empty hides it"
+   },
+   "subtitle": {
+    "default": "Match day",
+    "doc": "small line above the title"
+   },
+   "players": {
+    "default": [],
+    "doc": "array of {name, number, x, y}: x 0..1 from own goal to the opposing goal, y 0..1 across the pitch (up to 15). Empty = built-in sample line-up for the sport"
+   },
+   "highlight": {
+    "default": "",
+    "doc": "player number or name to spotlight (pulsing ring); empty = none"
+   },
+   "showNames": {
+    "default": true,
+    "doc": "show the name tag under each disc"
+   },
+   "links": {
+    "default": true,
+    "doc": "dashed lines joining the players of each line of the formation"
+   },
+   "teamColor": {
+    "default": "#2F6BFF",
+    "doc": "player disc colour"
+   },
+   "numberColor": {
+    "default": "#FFFFFF",
+    "doc": "shirt-number colour"
+   },
+   "field": {
+    "default": "auto",
+    "doc": "surface colour, or \"auto\" for the sport default (green pitch / wood court)"
+   },
+   "background": {
+    "default": "#0B1220",
+    "doc": "frame colour, or \"transparent\" to overlay footage"
+   },
+   "ink": {
+    "default": "#FFFFFF",
+    "doc": "title colour"
+   },
+   "accent": {
+    "default": "#FFC933",
+    "doc": "subtitle, rule and spotlight colour"
+   },
+   "fontFamily": {
+    "default": "auto",
+    "doc": "CSS font family, or \"auto\""
+   }
+  }
+ },
+ {
+  "id": "transfer-announcement",
+  "title": "Transfer announcement",
+  "category": "game",
+  "description": "Club-colour panels wipe in, the player photo slides onto a slanted panel, the name reveals line by line, then FROM club to TO club crest chips with a travelling arrow, a fee and date chip, a contract note and an OFFICIAL stamp that slams on.",
+  "useFor": "Signing, transfer and trade announcements, new-hire or new-member reveals, \"joins\" and \"moves to\" news cards. Pass the player name, photo (src), the two clubs with colours and tags (or logos), the fee, the date and a note.",
+  "source": [
+   "original"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "transfer",
+   "signing",
+   "announcement",
+   "football",
+   "soccer",
+   "basketball",
+   "trade",
+   "joins",
+   "new signing",
+   "official",
+   "sports",
+   "news",
+   "player",
+   "from to",
+   "fee",
+   "contract"
+  ],
+  "file": "src/motions/game/transfer-announcement.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": true,
+  "imageProps": [
+   "src"
+  ],
+  "takesText": true,
+  "textProps": [
+   "label"
+  ],
+  "colorProps": [
+   "fromColor",
+   "toColor",
+   "background",
+   "ink",
+   "accent"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "photo"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "label": {
+    "default": "Transfer news",
+    "doc": "chip above the name (Transfer news, Here we go, Signed)"
+   },
+   "playerName": {
+    "default": "Alder Kestrel",
+    "doc": "full name; the last word is shown large, the rest on a smaller line above"
+   },
+   "position": {
+    "default": "Striker",
+    "doc": "role line under the name"
+   },
+   "src": {
+    "default": "",
+    "doc": "player photo (public/ path or URL); empty = neutral silhouette"
+   },
+   "fromClub": {
+    "default": "Harbor City",
+    "doc": "club left"
+   },
+   "toClub": {
+    "default": "Northgate",
+    "doc": "club joined"
+   },
+   "fromTag": {
+    "default": "HBC",
+    "doc": "short tag on the from crest (3 letters)"
+   },
+   "toTag": {
+    "default": "NGT",
+    "doc": "short tag on the to crest"
+   },
+   "fromLogo": {
+    "default": "",
+    "doc": "from-club logo image; empty = coloured tag badge"
+   },
+   "toLogo": {
+    "default": "",
+    "doc": "to-club logo image; empty = coloured tag badge"
+   },
+   "fromColor": {
+    "default": "#E5484D",
+    "doc": "from-club colour"
+   },
+   "toColor": {
+    "default": "#2F6BFF",
+    "doc": "to-club colour (also the photo panel)"
+   },
+   "fee": {
+    "default": "€45M",
+    "doc": "fee text (any format); empty hides the chip"
+   },
+   "feeLabel": {
+    "default": "Fee",
+    "doc": "small label above the fee"
+   },
+   "date": {
+    "default": "1 Sep",
+    "doc": "date text; empty hides the chip"
+   },
+   "dateLabel": {
+    "default": "Signed",
+    "doc": "small label above the date"
+   },
+   "note": {
+    "default": "Five-year contract",
+    "doc": "extra line under the chips (contract length, shirt number); empty hides it"
+   },
+   "stampText": {
+    "default": "Official",
+    "doc": "text of the final stamp; empty hides it"
+   },
+   "background": {
+    "default": "#080C18",
+    "doc": "frame colour, or \"transparent\" to overlay footage"
+   },
+   "ink": {
+    "default": "#FFFFFF",
+    "doc": "text colour"
+   },
+   "accent": {
+    "default": "#FFC933",
+    "doc": "chip, arrow and stamp colour"
+   },
+   "fontFamily": {
+    "default": "auto",
+    "doc": "CSS font family, or \"auto\""
    }
   }
  },
@@ -64047,6 +65487,123 @@
   }
  },
  {
+  "id": "birthday-cake-candles",
+  "title": "Birthday cake, candles & blow-out",
+  "category": "text",
+  "description": "A tiered cake drops in, candles are lit one by one with a warm glow and a wish line, then a puff of breath blows them out (leaning flames, smoke wisps) and confetti bursts as the name is revealed.",
+  "useFor": "Birthday greetings and reels, party invites, \"happy birthday\" posts, team-member birthdays, kids party intros, any \"make a wish\" reveal. Replace the name, title and colours; set the candle count to the age (up to 12).",
+  "source": [
+   "original (round 3, events & celebrations)"
+  ],
+  "durationInFrames": 300,
+  "tags": [
+   "birthday",
+   "cake",
+   "candles",
+   "celebration",
+   "party",
+   "greeting",
+   "wish",
+   "confetti",
+   "name",
+   "event",
+   "happy-birthday"
+  ],
+  "file": "src/motions/text/birthday-cake-candles.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": true,
+  "textProps": [
+   "title"
+  ],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "accent2",
+   "cake",
+   "flame"
+  ],
+  "loopable": false,
+  "bestLength": 300,
+  "mood": [
+   "playful"
+  ],
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "title": {
+    "default": "Happy Birthday",
+    "doc": "greeting line shown in script above the name"
+   },
+   "name": {
+    "default": "Alex",
+    "doc": "big name revealed after the candles go out"
+   },
+   "wish": {
+    "default": "Make a wish…",
+    "doc": "line shown while the candles burn"
+   },
+   "message": {
+    "default": "Wishing you a day full of joy",
+    "doc": "small line under the name"
+   },
+   "candles": {
+    "default": 5,
+    "doc": "number of candles (1-12)"
+   },
+   "hold": {
+    "default": 42,
+    "doc": "frames the lit candles glow before the blow-out"
+   },
+   "background": {
+    "default": "#2A1738",
+    "doc": "frame colour (hex), or \"transparent\" to overlay content"
+   },
+   "ink": {
+    "default": "#FFF4E6",
+    "doc": "text colour (hex)"
+   },
+   "accent": {
+    "default": "#FF7AA8",
+    "doc": "frosting and underline colour (hex)"
+   },
+   "accent2": {
+    "default": "#7A8BFF",
+    "doc": "candle and sprinkle colour (hex)"
+   },
+   "cake": {
+    "default": "#F2C48D",
+    "doc": "sponge colour (hex)"
+   },
+   "flame": {
+    "default": "#FFB52E",
+    "doc": "flame and glow colour (hex)"
+   },
+   "seed": {
+    "default": 4,
+    "doc": "seed for drips, sprinkles and confetti"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the sequence begins"
+   }
+  }
+ },
+ {
   "id": "blob-to-wordmark",
   "title": "Blob to wordmark",
   "category": "text",
@@ -73297,6 +74854,120 @@
    "decodeOut": {
     "default": 8,
     "doc": "decode: frames the break-back-to-symbols exit takes at scrambleAt (0 = no decode exit)"
+   }
+  }
+ },
+ {
+  "id": "wedding-save-the-date",
+  "title": "Wedding save the date (floral line art)",
+  "category": "text",
+  "description": "Elegant save-the-date card: a thin double frame draws on, line-art floral sprigs grow from the corners and bloom, then the two names, an ampersand, a flourish divider, the date and the venue fade up in turn while petals drift.",
+  "useFor": "Wedding and engagement announcements, save-the-date and invitation reels, anniversary parties, baby showers, any formal \"you are invited\" reveal. Replace names, date, venue, and set colours (sage + gold by default).",
+  "source": [
+   "original (round 3, events & celebrations)"
+  ],
+  "durationInFrames": 240,
+  "tags": [
+   "wedding",
+   "save-the-date",
+   "invitation",
+   "engagement",
+   "floral",
+   "elegant",
+   "names",
+   "date",
+   "venue",
+   "line-art",
+   "romantic",
+   "event"
+  ],
+  "file": "src/motions/text/wedding-save-the-date.tsx",
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "background",
+   "ink",
+   "accent",
+   "accent2"
+  ],
+  "loopable": false,
+  "bestLength": 240,
+  "mood": [
+   "blueprint",
+   "nature"
+  ],
+  "roles": [
+   "type"
+  ],
+  "weight": "light",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "eyebrow": {
+    "default": "Save the date",
+    "doc": "small line above the names"
+   },
+   "nameA": {
+    "default": "Emma",
+    "doc": "first name"
+   },
+   "nameB": {
+    "default": "James",
+    "doc": "second name"
+   },
+   "connector": {
+    "default": "&",
+    "doc": "joiner between the names (& / and / +)"
+   },
+   "date": {
+    "default": "June 14, 2027",
+    "doc": "event date, shown in letter-spaced capitals"
+   },
+   "venue": {
+    "default": "Willow Garden Estate",
+    "doc": "venue name"
+   },
+   "place": {
+    "default": "Napa Valley, California",
+    "doc": "city / region line"
+   },
+   "florals": {
+    "default": true,
+    "doc": "draw the corner floral line art"
+   },
+   "background": {
+    "default": "#F7F1E8",
+    "doc": "card colour (hex), or \"transparent\" to overlay content"
+   },
+   "ink": {
+    "default": "#3A3631",
+    "doc": "text colour (hex)"
+   },
+   "accent": {
+    "default": "#B08D57",
+    "doc": "frame, flowers and ampersand colour (hex)"
+   },
+   "accent2": {
+    "default": "#7F987C",
+    "doc": "leaf / sprig colour (hex)"
+   },
+   "seed": {
+    "default": 3,
+    "doc": "seed for leaf sizes and drifting petals"
+   },
+   "startAt": {
+    "default": 0,
+    "doc": "frame the sequence begins"
    }
   }
  },

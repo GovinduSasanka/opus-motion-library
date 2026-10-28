@@ -2803,6 +2803,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "countdown-to-kickoff": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 240,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
  "fuse-beat-timer": {
   "overlay": false,
   "overlayProps": null,
@@ -2879,6 +2891,30 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "match-stats-compare": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 240,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "medal-podium": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 240,
+  "roles": [
+   "accent"
+  ],
+  "weight": "light"
+ },
  "palette-lut-grade": {
   "overlay": false,
   "overlayProps": null,
@@ -2931,6 +2967,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "race-leaderboard-live": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 270,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
  "rocket-to-moon": {
   "overlay": false,
   "overlayProps": null,
@@ -2944,6 +2992,30 @@ export const motionMeta: Record<string, MotionMetaLite> = {
  "rpg-menu-ui": {
   "overlay": false,
   "overlayProps": null,
+  "loopable": false,
+  "bestLength": 300,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "shot-map-heat": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 240,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "stopwatch-split-times": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
   "loopable": false,
   "bestLength": 300,
   "roles": [
@@ -2968,6 +3040,30 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   "overlayProps": null,
   "loopable": false,
   "bestLength": 150,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "team-lineup-pitch": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 210,
+  "roles": [
+   "subject"
+  ],
+  "weight": "light"
+ },
+ "transfer-announcement": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 240,
   "roles": [
    "subject"
   ],
@@ -4989,6 +5085,19 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "light"
  },
+ "birthday-cake-candles": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 300,
+  "roles": [
+   "type",
+   "accent"
+  ],
+  "weight": "light"
+ },
  "blob-to-wordmark": {
   "overlay": false,
   "overlayProps": null,
@@ -5790,6 +5899,18 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   },
   "loopable": false,
   "bestLength": 90,
+  "roles": [
+   "type"
+  ],
+  "weight": "light"
+ },
+ "wedding-save-the-date": {
+  "overlay": true,
+  "overlayProps": {
+   "background": "transparent"
+  },
+  "loopable": false,
+  "bestLength": 240,
   "roles": [
    "type"
   ],

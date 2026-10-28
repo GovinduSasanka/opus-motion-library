@@ -53,7 +53,7 @@ const FactCheck: React.FC<Props> = (p) => {
   const claimW = portrait ? w - pad * 2 : w * 0.43;
   const gcx = portrait ? w / 2 : w * 0.735;
   const R = portrait ? w * 0.4 : Math.min(w * 0.2, h * 0.33);
-  const gcy = portrait ? h * 0.6 : h * 0.6;
+  const gcy = portrait ? h * 0.55 : h * 0.5;
   const r0 = R * 0.76;
 
   // claim text sizing
@@ -65,6 +65,8 @@ const FactCheck: React.FC<Props> = (p) => {
     cl = wrapText(`“${p.claim}”`, cfs, claimW - 70 * u, 'sans', 8);
   }
   const clLH = cfs * 1.22;
+  const cardH = 58 * u + (on(p.claimLabel) ? 40 * u : 0) + cl.length * clLH + (on(p.claimSource) ? 18 * u + 36 * u : 0);
+  const cardTop = portrait ? topY : Math.max(topY, (h - cardH) / 2 + 24 * u);
 
   // ---- timeline
   const tagK = eo3(seg(f, 0, 14));
@@ -86,7 +88,7 @@ const FactCheck: React.FC<Props> = (p) => {
   const vfit = fitSize(verdict, vfs, R * 2.1, 'sans', 0.04);
   const vW = estWidth(verdict, vfit, 'sans', 0.04) + vfit * 1.6;
   const vH = vfit * 1.75;
-  const vY = gcy + R * 0.42 + (portrait ? 40 * u : 56 * u);
+  const vY = gcy + 120 * u;
 
   const exLines = wrapText(p.explanation, (portrait ? 34 : 30) * u, R * 2.05, 'sans', 3);
 
@@ -98,7 +100,7 @@ const FactCheck: React.FC<Props> = (p) => {
 
       {/* tag */}
       {on(p.tag) && (
-        <div style={{position: 'absolute', left: pad, top: topY - 64 * u, opacity: tagK, transform: `translateX(${(1 - tagK) * -30 * u}px)`}}>
+        <div style={{position: 'absolute', left: pad, top: cardTop - 64 * u, opacity: tagK, transform: `translateX(${(1 - tagK) * -30 * u}px)`}}>
           <div style={{display: 'inline-flex', alignItems: 'center', gap: 12 * u, background: p.accent, color: '#12100A', fontFamily: lf.sans, fontWeight: 800, fontSize: 28 * u, letterSpacing: 4 * u, padding: `${9 * u}px ${20 * u}px`}}>
             <svg width={30 * u} height={30 * u} viewBox="0 0 24 24">
               <circle cx={10.5} cy={10.5} r={6.5} fill="none" stroke="#12100A" strokeWidth={2.6} />
@@ -110,7 +112,7 @@ const FactCheck: React.FC<Props> = (p) => {
       )}
 
       {/* claim card */}
-      <div style={{position: 'absolute', left: pad, top: topY, width: claimW, opacity: claimK, transform: `translateY(${(1 - claimK) * 30 * u}px)`}}>
+      <div style={{position: 'absolute', left: pad, top: cardTop, width: claimW, opacity: claimK, transform: `translateY(${(1 - claimK) * 30 * u}px)`}}>
         <div style={{background: 'rgba(255,255,255,0.06)', borderLeft: `${10 * u}px solid ${p.accent}`, padding: `${28 * u}px ${34 * u}px ${30 * u}px`}}>
           {on(p.claimLabel) && <div style={{fontFamily: lf.sans, fontWeight: 800, fontSize: 24 * u, letterSpacing: 5 * u, color: p.accent, marginBottom: 16 * u}}>{p.claimLabel.toUpperCase()}</div>}
           {cl.map((l, i) => {

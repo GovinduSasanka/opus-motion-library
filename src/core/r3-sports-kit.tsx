@@ -90,7 +90,9 @@ export type FieldLayout = {
   crop: [number, number];
   /** normalised (0..1 along the crop window, 0..1 across the width) -> pixels. Attack is right (landscape) or up (portrait). */
   pt: (nx: number, ny: number) => {x: number; y: number};
-  /** pixels per normalised unit along / across */
+  /** pixels -> normalised coordinates (inverse of pt) */
+  inv: (px: number, py: number) => {nx: number; ny: number};
+  /** SVG matrix that maps field metres to pixels */
   matrix: string;
 };
 
@@ -116,8 +118,13 @@ export const fieldLayout = (sport: Sport, box: {x: number; y: number; w: number;
     const ly = ny * W;
     return vertical ? {x: ox + (ly + margin) * s, y: oy + (xb - lx) * s} : {x: ox + (lx - xa) * s, y: oy + (ly + margin) * s};
   };
+  const inv = (px: number, py: number) => {
+    const lx = vertical ? xb - (py - oy) / s : xa + (px - ox) / s;
+    const ly = vertical ? (px - ox) / s - margin : (py - oy) / s - margin;
+    return {nx: (lx / L - a) / (b - a), ny: ly / W};
+  };
   const matrix = vertical ? `matrix(0,${-s},${s},0,${ox + s * margin},${oy + s * xb})` : `matrix(${s},0,0,${s},${ox - s * xa},${oy + s * margin})`;
-  return {sport, vertical, s, x: ox, y: oy, w: pw, h: ph, L, W, margin, xa, xb, crop: [a, b], pt, matrix};
+  return {sport, vertical, s, x: ox, y: oy, w: pw, h: ph, L, W, margin, xa, xb, crop: [a, b], pt, inv, matrix};
 };
 
 const rectD = (x: number, y: number, w: number, h: number) => `M${x} ${y}H${x + w}V${y + h}H${x}Z`;
@@ -174,7 +181,6 @@ export const FieldArt: React.FC<{layout: FieldLayout; surface: string; line: str
   const bands = sport === 'football' ? 14 : 0;
   const clipId = `${id}-clip`;
   const full = draw >= 0.999;
-  const [ca, cb] = layout.crop;
   return (
     <g>
       <defs>
@@ -200,8 +206,6 @@ export const FieldArt: React.FC<{layout: FieldLayout; surface: string; line: str
           ))}
         </g>
       </g>
-      {/* keep the crop-edge explicit so a half pitch does not bleed into the frame */}
-      {ca > 0 || cb < 1 ? null : null}
     </g>
   );
 };

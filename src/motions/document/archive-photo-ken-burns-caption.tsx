@@ -154,7 +154,7 @@ const ArchivePhoto: React.FC<Props> = (p) => {
 
   // =========================================================== full-bleed layout
   const pad = w * (portrait ? 0.07 : 0.055);
-  const capW = w * (portrait ? 0.86 : 0.6);
+  const capW = w * (portrait ? 0.86 : 0.68);
   const capFs0 = (portrait ? 54 : 50) * u;
   let capFs2 = capFs0;
   let lines = wrapText(p.caption, capFs2, capW, 'serif', 4);

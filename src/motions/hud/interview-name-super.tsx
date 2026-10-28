@@ -83,7 +83,8 @@ const Super: React.FC<Props> = (p) => {
     const nh = nameFs * 1.15 + 28 * u;
     const th = titleFs * 1.2 + 20 * u;
     const nw = nameW + 56 * u;
-    const tw = titleW + 48 * u;
+    const kickW = on(p.kicker) ? estWidth(p.kicker.toUpperCase(), kickFs, 'sans', 0.16) + 16 * u : 0;
+    const tw = titleW + kickW + 52 * u;
     const off = 30 * u;
     const bw = Math.max(nw, tw + off);
     const x = anchor(bw);

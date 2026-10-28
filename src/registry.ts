@@ -256,6 +256,7 @@ import {achievementUnlock} from './motions/game/achievement-unlock';
 import {armyFormation} from './motions/game/army-formation';
 import {bracketAdvance} from './motions/game/bracket-advance';
 import {candySetBackdrop} from './motions/game/candy-set-backdrop';
+import {countdownToKickoff} from './motions/game/countdown-to-kickoff';
 import {fuseBeatTimer} from './motions/game/fuse-beat-timer';
 import {killStreakBanner} from './motions/game/kill-streak-banner';
 import {levelUpBurst} from './motions/game/level-up-burst';
@@ -263,15 +264,22 @@ import {litPixelSprite} from './motions/game/lit-pixel-sprite';
 import {livesCounter} from './motions/game/lives-counter';
 import {lootReveal} from './motions/game/loot-reveal';
 import {matchScoreboard} from './motions/game/match-scoreboard';
+import {matchStatsCompare} from './motions/game/match-stats-compare';
+import {medalPodium} from './motions/game/medal-podium';
 import {paletteLutGrade} from './motions/game/palette-lut-grade';
 import {pixelPlatformerScene} from './motions/game/pixel-platformer-scene';
 import {pixelRewardBurst} from './motions/game/pixel-reward-burst';
 import {pixelSpriteScene} from './motions/game/pixel-sprite-scene';
 import {playerStatCard} from './motions/game/player-stat-card';
+import {raceLeaderboardLive} from './motions/game/race-leaderboard-live';
 import {rocketToMoon} from './motions/game/rocket-to-moon';
 import {rpgMenuUi} from './motions/game/rpg-menu-ui';
+import {shotMapHeat} from './motions/game/shot-map-heat';
+import {stopwatchSplitTimes} from './motions/game/stopwatch-split-times';
 import {streamStartingSoon} from './motions/game/stream-starting-soon';
 import {tacticalMap} from './motions/game/tactical-map';
+import {teamLineupPitch} from './motions/game/team-lineup-pitch';
+import {transferAnnouncement} from './motions/game/transfer-announcement';
 import {vsSplash} from './motions/game/vs-splash';
 import {agentRoster} from './motions/hud/agent-roster';
 import {alertReinkWave} from './motions/hud/alert-reink-wave';
@@ -452,6 +460,7 @@ import {agendaListSlide} from './motions/text/agenda-list-slide';
 import {alphabetLetterTrace} from './motions/text/alphabet-letter-trace';
 import {atomicOrbitTitle} from './motions/text/atomic-orbit-title';
 import {bigStatSlide} from './motions/text/big-stat-slide';
+import {birthdayCakeCandles} from './motions/text/birthday-cake-candles';
 import {blobToWordmark} from './motions/text/blob-to-wordmark';
 import {blurInTitle} from './motions/text/blur-in-title';
 import {bouncingBallSingalong} from './motions/text/bouncing-ball-singalong';
@@ -522,6 +531,7 @@ import {typeMarqueeField} from './motions/text/type-marquee-field';
 import {typewriterCode} from './motions/text/typewriter-code';
 import {typewriterDeleteRetype} from './motions/text/typewriter-delete-retype';
 import {typewriterSignature} from './motions/text/typewriter-signature';
+import {weddingSaveTheDate} from './motions/text/wedding-save-the-date';
 import {wordCarouselRotator} from './motions/text/word-carousel-rotator';
 import {wordTranslationPair} from './motions/text/word-translation-pair';
 import {bokehDrift} from './motions/texture/bokeh-drift';
@@ -853,6 +863,7 @@ export const motions: MotionDef<any>[] = [
   armyFormation,
   bracketAdvance,
   candySetBackdrop,
+  countdownToKickoff,
   fuseBeatTimer,
   killStreakBanner,
   levelUpBurst,
@@ -860,15 +871,22 @@ export const motions: MotionDef<any>[] = [
   livesCounter,
   lootReveal,
   matchScoreboard,
+  matchStatsCompare,
+  medalPodium,
   paletteLutGrade,
   pixelPlatformerScene,
   pixelRewardBurst,
   pixelSpriteScene,
   playerStatCard,
+  raceLeaderboardLive,
   rocketToMoon,
   rpgMenuUi,
+  shotMapHeat,
+  stopwatchSplitTimes,
   streamStartingSoon,
   tacticalMap,
+  teamLineupPitch,
+  transferAnnouncement,
   vsSplash,
   agentRoster,
   alertReinkWave,
@@ -1049,6 +1067,7 @@ export const motions: MotionDef<any>[] = [
   alphabetLetterTrace,
   atomicOrbitTitle,
   bigStatSlide,
+  birthdayCakeCandles,
   blobToWordmark,
   blurInTitle,
   bouncingBallSingalong,
@@ -1119,6 +1138,7 @@ export const motions: MotionDef<any>[] = [
   typewriterCode,
   typewriterDeleteRetype,
   typewriterSignature,
+  weddingSaveTheDate,
   wordCarouselRotator,
   wordTranslationPair,
   bokehDrift,
