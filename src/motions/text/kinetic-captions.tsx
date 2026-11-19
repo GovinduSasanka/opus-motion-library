@@ -32,7 +32,9 @@ type Style = {
   /** reveal words one at a time across the cue (video10) */
   wordByWord?: boolean;
   /** 'kinetic' = word pop with highlight boxes (video10); 'premium' = calm line, words brighten as spoken */
-  variant?: 'kinetic' | 'premium' | 'slam' | 'toast' | 'frosted-bar' | 'terminal' | 'print' | 'karaoke' | 'rise';
+  variant?: 'kinetic' | 'premium' | 'slam' | 'toast' | 'frosted-bar' | 'terminal' | 'print' | 'karaoke' | 'rise' | 'word';
+  /** word variant: vertical position of the word as a fraction of the height (default 0.45) */
+  y?: number;
   /** premium: accent colour for *starred* words */
   accent?: string;
 } & Omit<CapStyle, 'position' | 'color' | 'highlightColor' | 'highlightText' | 'size' | 'font' | 'accent'>;
@@ -167,8 +169,31 @@ const CaptionLine: React.FC<{cue: CaptionCue} & Style> = ({cue, position: basePo
   );
 };
 
+/**
+ * Word caption (3D build Shorts, Hasta Que Funcione 2026-11-20): only the word being spoken, big bold white with a
+ * dark drop shadow, popping in over the action. Words come from speech alignment; the last word holds until the cue ends.
+ */
+const WordLine: React.FC<{cue: CaptionCue} & Style> = ({cue, size = 64, font = 'sans', color = '#ffffff', y = 0.45}) => {
+  const frame = useCurrentFrame();
+  const {w, h, u} = useStage();
+  const words = cue.words?.length ? cue.words : [{text: cue.text, from: cue.from, to: cue.to}];
+  let cur = words[0];
+  for (const wd of words) if (frame >= wd.from - 1) cur = wd;
+  const k = springAt(frame, 30, cur.from - 1, 'pop');
+  const text = cur.text.replace(/[*.,!?;:]+$/g, '').replace(/^\*|\*$/g, '');
+  return (
+    <div style={{position: 'absolute', left: 0, right: 0, top: h * y, display: 'flex', justifyContent: 'center', transform: `translateY(-50%) scale(${0.82 + 0.18 * k})`}}>
+      <span style={{fontFamily: fonts[font], fontWeight: 800, fontSize: size * u, color, letterSpacing: '-0.01em', textShadow: `0 ${4 * u}px ${10 * u}px rgba(0,0,0,0.75), 0 0 ${3 * u}px rgba(0,0,0,0.9)`, WebkitTextStroke: `${2 * u}px rgba(0,0,0,0.35)`}}>{text}</span>
+    </div>
+  );
+};
+
 export const CaptionTrack: React.FC<{cues: CaptionCue[]} & Style> = ({cues, ...style}) => {
   const frame = useCurrentFrame();
+  if (style.variant === 'word') {
+    const c = cues.find((x) => frame >= x.from && frame < x.to);
+    return <AbsoluteFill style={{pointerEvents: 'none'}}>{c && <WordLine cue={c} {...style} />}</AbsoluteFill>;
+  }
   const cue = cues.find((c) => frame >= c.from && frame < c.to);
   const Line: React.FC<any> = style.variant === 'premium' ? PremiumLine : style.variant && E2_CAPTION_LINES[style.variant] ? E2_CAPTION_LINES[style.variant] : CaptionLine;
   return <AbsoluteFill style={{pointerEvents: 'none'}}>{cue && <Line cue={cue} {...style} />}</AbsoluteFill>;

@@ -93,7 +93,7 @@ if (lines.length && !flag('no-voice')) {
   console.log(`voice: ${lines.length} lines (Qwen3-TTS, local)`);
   const r = spawnSync(PY, [path.join(root, 'cli', 'voice.py'), path.join(voiceDir, 'lines.json'), voiceDir, sb.voice?.model ?? 'Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice', sb.voice?.speaker ?? 'Ryan', String(sb.voice?.seed ?? 7)], {
     stdio: 'inherit',
-    env: {...process.env, VOICE_STYLE: sb.voice?.style ?? ''},
+    env: {...process.env, VOICE_STYLE: sb.voice?.style ?? '', VOICE_LANG: sb.voice?.language ?? 'English', WHISPER_LANG: sb.voice?.lang ?? 'en'},
   });
   if (r.status !== 0) throw new Error('voice generation failed');
 }
@@ -106,7 +106,7 @@ const needWords = lines.filter((l) => {
 });
 if (needWords.length && !flag('no-voice')) {
   console.log(`align: ${needWords.length} lines (Whisper, local)`);
-  const r = spawnSync(WPY, [path.join(root, 'cli', 'voice-check.py'), voiceDir, 'small'], {stdio: ['ignore', 'pipe', 'inherit'], encoding: 'utf8'});
+  const r = spawnSync(WPY, [path.join(root, 'cli', 'voice-check.py'), voiceDir, 'small'], {stdio: ['ignore', 'pipe', 'inherit'], encoding: 'utf8', env: {...process.env, WHISPER_LANG: sb.voice?.lang ?? 'en'}});
   const bad = (r.stdout ?? '').split('\n').filter((x) => x.startsWith('BAD'));
   if (bad.length) console.log(`speech check flagged:\n${bad.join('\n')}`);
 }
@@ -251,7 +251,12 @@ sb.scenes.forEach((s, i) => {
   }
   for (const o of s.overlays ?? []) overlays.push({motion: o.motion, from: start + (o.at ?? 0), duration: o.duration ?? 60, props: o.props ?? {}, blend: o.blend, opacity: o.opacity});
   for (const x of s.sfx ?? []) sfx.push({file: x.file, at: start + (x.at ?? 0), volume: x.volume ?? 0.5});
-  scenes.push({motion: s.motion, layers: s.layers, duration: d, props: s.props ?? {}, offset: s.offset, transition: s.transition, ...(s.style ? {style: s.style} : {})});
+  // props.t0 / props.len = "auto": the scene's absolute start and length, so a motion can keep one continuous clock
+  // (camera drift, clouds, sway) across scene cuts and spread its own moves over the whole scene
+  const props = {...(s.props ?? {})};
+  if (props.t0 === 'auto') props.t0 = start;
+  if (props.len === 'auto') props.len = d;
+  scenes.push({motion: s.motion, layers: s.layers, duration: d, props, offset: s.offset, transition: s.transition, ...(s.style ? {style: s.style} : {})});
   meta.push(m);
   t += d - tr;
 });

@@ -35,6 +35,7 @@ import {plinthProgressRing} from './motions/3d/plinth-progress-ring';
 import {pointcloudOrbit} from './motions/3d/pointcloud-orbit';
 import {popupSpread} from './motions/3d/popup-spread';
 import {productTurntable3d} from './motions/3d/product-turntable-3d';
+import {sectionBuild3d} from './motions/3d/section-build-3d';
 import {shockwaveFlipField} from './motions/3d/shockwave-flip-field';
 import {stackPlates3d} from './motions/3d/stack-plates-3d';
 import {studioPlinthStage} from './motions/3d/studio-plinth-stage';
@@ -653,6 +654,7 @@ export const motions: MotionDef<any>[] = [
   pointcloudOrbit,
   popupSpread,
   productTurntable3d,
+  sectionBuild3d,
   shockwaveFlipField,
   stackPlates3d,
   studioPlinthStage,

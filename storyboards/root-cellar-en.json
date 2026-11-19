@@ -1,0 +1,3142 @@
+{
+ "name": "root-cellar-en",
+ "width": 1080,
+ "height": 1920,
+ "fps": 30,
+ "voice": {
+  "speaker": "Ryan",
+  "seed": 7,
+  "style": "Calm, curious documentary narrator telling a quick survival build story. Clear, natural, slightly intrigued, never robotic."
+ },
+ "captions": true,
+ "captionStyle": {
+  "variant": "word",
+  "size": 96,
+  "y": 0.43
+ },
+ "scenes": [
+  {
+   "motion": "section-build-3d",
+   "props": {
+    "steps": [
+     {
+      "ops": [
+       {
+        "type": "dig",
+        "x": 0,
+        "w": 3.2,
+        "depth": 2.6
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -1,
+       "dist": 16.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": -1.52,
+        "y": -1.3,
+        "w": 0.16,
+        "h": 2.6,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "rise",
+        "color": "#cfc6b4"
+       },
+       {
+        "type": "box",
+        "x": 1.52,
+        "y": -1.3,
+        "w": 0.16,
+        "h": 2.6,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "rise",
+        "color": "#cfc6b4",
+        "delay": 10
+       },
+       {
+        "type": "box",
+        "x": 0,
+        "y": -1.3,
+        "w": 2.9,
+        "h": 2.6,
+        "d": 0.1,
+        "z": -3.1,
+        "anim": "rise",
+        "color": "#ddd4c2",
+        "delay": 20
+       }
+      ],
+      "cam": {
+       "x": 0.3,
+       "y": -1.5,
+       "dist": 13
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": 0,
+        "y": -2.55,
+        "w": 2.88,
+        "h": 0.1,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "grow",
+        "color": "#bdb4a3"
+       }
+      ],
+      "cam": {
+       "x": -0.2,
+       "y": -2,
+       "dist": 11
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": 0,
+        "y": 0.07,
+        "w": 3.7,
+        "h": 0.14,
+        "anim": "drop",
+        "color": "#b07a45"
+       },
+       {
+        "type": "box",
+        "x": 0,
+        "y": 0.34,
+        "w": 4.1,
+        "h": 0.4,
+        "anim": "drop",
+        "color": "#7a5030",
+        "delay": 22
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -0.7,
+       "dist": 15.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "ladder",
+        "x": -1.05,
+        "y0": -2.5,
+        "y1": 0.75
+       },
+       {
+        "type": "box",
+        "x": -1.05,
+        "y": 0.6,
+        "w": 0.9,
+        "h": 0.08,
+        "d": 0.9,
+        "anim": "fade",
+        "color": "#6b4a2f",
+        "delay": 24
+       }
+      ],
+      "cam": {
+       "x": -0.5,
+       "y": -1.3,
+       "dist": 12.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "person",
+        "x": -3.2,
+        "y": 0.55,
+        "toX": -0.5,
+        "toY": -2.5
+       }
+      ],
+      "cam": {
+       "x": -0.7,
+       "y": -1.9,
+       "dist": 10.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "pipe",
+        "x": 1.15,
+        "y0": -2.2,
+        "y1": 1.5,
+        "color": "#8d969c"
+       },
+       {
+        "type": "pipe",
+        "x": 0.25,
+        "y0": -0.15,
+        "y1": 1.9,
+        "color": "#8d969c",
+        "delay": 18
+       }
+      ],
+      "cam": {
+       "x": 0.5,
+       "y": -0.6,
+       "dist": 14.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "arrows",
+        "x0": 0.25,
+        "y0": -0.4,
+        "x1": 0.25,
+        "y1": 2.1,
+        "color": "#ff7a45"
+       },
+       {
+        "type": "arrows",
+        "x0": 1.15,
+        "y0": 1.6,
+        "x1": 1.15,
+        "y1": -2.1,
+        "color": "#4fb3ff",
+        "delay": 10
+       }
+      ],
+      "cam": {
+       "x": 0.6,
+       "y": -0.4,
+       "dist": 12.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "sun",
+        "on": true
+       },
+       {
+        "type": "clock"
+       },
+       {
+        "type": "label",
+        "text": "10 °C",
+        "x": 0.5,
+        "y": 0.58
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -1.1,
+       "dist": 16
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "sun",
+        "on": false
+       },
+       {
+        "type": "shelf",
+        "x": 0.6,
+        "y": -2.5,
+        "w": 1.3,
+        "h": 1.7,
+        "rows": 3
+       }
+      ],
+      "cam": {
+       "x": 0.4,
+       "y": -1.9,
+       "dist": 10.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "label",
+        "text": "No power",
+        "x": 0.5,
+        "y": 0.3
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -0.6,
+       "dist": 18.5
+      }
+     }
+    ],
+    "stage": 0,
+    "dur": 110,
+    "delay": 2,
+    "t0": "auto",
+    "len": "auto"
+   },
+   "say": "You dig a hole in your backyard, about two meters deep.",
+   "lead": 4,
+   "pad": 10,
+   "min": 100,
+   "captionPosition": "bottom",
+   "sfx": [
+    {
+     "file": "sfx/foley/scrape1.mp3",
+     "at": 6,
+     "volume": 0.9
+    },
+    {
+     "file": "sfx/foley/gravel.mp3",
+     "at": 34,
+     "volume": 0.8
+    },
+    {
+     "file": "sfx/foley/scrape3.mp3",
+     "at": 60,
+     "volume": 0.7
+    }
+   ]
+  },
+  {
+   "motion": "section-build-3d",
+   "props": {
+    "steps": [
+     {
+      "ops": [
+       {
+        "type": "dig",
+        "x": 0,
+        "w": 3.2,
+        "depth": 2.6
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -1,
+       "dist": 16.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": -1.52,
+        "y": -1.3,
+        "w": 0.16,
+        "h": 2.6,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "rise",
+        "color": "#cfc6b4"
+       },
+       {
+        "type": "box",
+        "x": 1.52,
+        "y": -1.3,
+        "w": 0.16,
+        "h": 2.6,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "rise",
+        "color": "#cfc6b4",
+        "delay": 10
+       },
+       {
+        "type": "box",
+        "x": 0,
+        "y": -1.3,
+        "w": 2.9,
+        "h": 2.6,
+        "d": 0.1,
+        "z": -3.1,
+        "anim": "rise",
+        "color": "#ddd4c2",
+        "delay": 20
+       }
+      ],
+      "cam": {
+       "x": 0.3,
+       "y": -1.5,
+       "dist": 13
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": 0,
+        "y": -2.55,
+        "w": 2.88,
+        "h": 0.1,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "grow",
+        "color": "#bdb4a3"
+       }
+      ],
+      "cam": {
+       "x": -0.2,
+       "y": -2,
+       "dist": 11
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": 0,
+        "y": 0.07,
+        "w": 3.7,
+        "h": 0.14,
+        "anim": "drop",
+        "color": "#b07a45"
+       },
+       {
+        "type": "box",
+        "x": 0,
+        "y": 0.34,
+        "w": 4.1,
+        "h": 0.4,
+        "anim": "drop",
+        "color": "#7a5030",
+        "delay": 22
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -0.7,
+       "dist": 15.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "ladder",
+        "x": -1.05,
+        "y0": -2.5,
+        "y1": 0.75
+       },
+       {
+        "type": "box",
+        "x": -1.05,
+        "y": 0.6,
+        "w": 0.9,
+        "h": 0.08,
+        "d": 0.9,
+        "anim": "fade",
+        "color": "#6b4a2f",
+        "delay": 24
+       }
+      ],
+      "cam": {
+       "x": -0.5,
+       "y": -1.3,
+       "dist": 12.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "person",
+        "x": -3.2,
+        "y": 0.55,
+        "toX": -0.5,
+        "toY": -2.5
+       }
+      ],
+      "cam": {
+       "x": -0.7,
+       "y": -1.9,
+       "dist": 10.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "pipe",
+        "x": 1.15,
+        "y0": -2.2,
+        "y1": 1.5,
+        "color": "#8d969c"
+       },
+       {
+        "type": "pipe",
+        "x": 0.25,
+        "y0": -0.15,
+        "y1": 1.9,
+        "color": "#8d969c",
+        "delay": 18
+       }
+      ],
+      "cam": {
+       "x": 0.5,
+       "y": -0.6,
+       "dist": 14.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "arrows",
+        "x0": 0.25,
+        "y0": -0.4,
+        "x1": 0.25,
+        "y1": 2.1,
+        "color": "#ff7a45"
+       },
+       {
+        "type": "arrows",
+        "x0": 1.15,
+        "y0": 1.6,
+        "x1": 1.15,
+        "y1": -2.1,
+        "color": "#4fb3ff",
+        "delay": 10
+       }
+      ],
+      "cam": {
+       "x": 0.6,
+       "y": -0.4,
+       "dist": 12.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "sun",
+        "on": true
+       },
+       {
+        "type": "clock"
+       },
+       {
+        "type": "label",
+        "text": "10 °C",
+        "x": 0.5,
+        "y": 0.58
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -1.1,
+       "dist": 16
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "sun",
+        "on": false
+       },
+       {
+        "type": "shelf",
+        "x": 0.6,
+        "y": -2.5,
+        "w": 1.3,
+        "h": 1.7,
+        "rows": 3
+       }
+      ],
+      "cam": {
+       "x": 0.4,
+       "y": -1.9,
+       "dist": 10.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "label",
+        "text": "No power",
+        "x": 0.5,
+        "y": 0.3
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -0.6,
+       "dist": 18.5
+      }
+     }
+    ],
+    "stage": 1,
+    "dur": 110,
+    "delay": 2,
+    "t0": "auto",
+    "len": "auto"
+   },
+   "say": "But the walls keep crumbling, so you line them with stone.",
+   "lead": 4,
+   "pad": 10,
+   "min": 100,
+   "captionPosition": "bottom",
+   "sfx": [
+    {
+     "file": "sfx/foley/wood-on-concrete.mp3",
+     "at": 10,
+     "volume": 0.7
+    },
+    {
+     "file": "sfx/foley/thuds.mp3",
+     "at": 24,
+     "volume": 0.6
+    }
+   ]
+  },
+  {
+   "motion": "section-build-3d",
+   "props": {
+    "steps": [
+     {
+      "ops": [
+       {
+        "type": "dig",
+        "x": 0,
+        "w": 3.2,
+        "depth": 2.6
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -1,
+       "dist": 16.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": -1.52,
+        "y": -1.3,
+        "w": 0.16,
+        "h": 2.6,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "rise",
+        "color": "#cfc6b4"
+       },
+       {
+        "type": "box",
+        "x": 1.52,
+        "y": -1.3,
+        "w": 0.16,
+        "h": 2.6,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "rise",
+        "color": "#cfc6b4",
+        "delay": 10
+       },
+       {
+        "type": "box",
+        "x": 0,
+        "y": -1.3,
+        "w": 2.9,
+        "h": 2.6,
+        "d": 0.1,
+        "z": -3.1,
+        "anim": "rise",
+        "color": "#ddd4c2",
+        "delay": 20
+       }
+      ],
+      "cam": {
+       "x": 0.3,
+       "y": -1.5,
+       "dist": 13
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": 0,
+        "y": -2.55,
+        "w": 2.88,
+        "h": 0.1,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "grow",
+        "color": "#bdb4a3"
+       }
+      ],
+      "cam": {
+       "x": -0.2,
+       "y": -2,
+       "dist": 11
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": 0,
+        "y": 0.07,
+        "w": 3.7,
+        "h": 0.14,
+        "anim": "drop",
+        "color": "#b07a45"
+       },
+       {
+        "type": "box",
+        "x": 0,
+        "y": 0.34,
+        "w": 4.1,
+        "h": 0.4,
+        "anim": "drop",
+        "color": "#7a5030",
+        "delay": 22
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -0.7,
+       "dist": 15.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "ladder",
+        "x": -1.05,
+        "y0": -2.5,
+        "y1": 0.75
+       },
+       {
+        "type": "box",
+        "x": -1.05,
+        "y": 0.6,
+        "w": 0.9,
+        "h": 0.08,
+        "d": 0.9,
+        "anim": "fade",
+        "color": "#6b4a2f",
+        "delay": 24
+       }
+      ],
+      "cam": {
+       "x": -0.5,
+       "y": -1.3,
+       "dist": 12.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "person",
+        "x": -3.2,
+        "y": 0.55,
+        "toX": -0.5,
+        "toY": -2.5
+       }
+      ],
+      "cam": {
+       "x": -0.7,
+       "y": -1.9,
+       "dist": 10.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "pipe",
+        "x": 1.15,
+        "y0": -2.2,
+        "y1": 1.5,
+        "color": "#8d969c"
+       },
+       {
+        "type": "pipe",
+        "x": 0.25,
+        "y0": -0.15,
+        "y1": 1.9,
+        "color": "#8d969c",
+        "delay": 18
+       }
+      ],
+      "cam": {
+       "x": 0.5,
+       "y": -0.6,
+       "dist": 14.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "arrows",
+        "x0": 0.25,
+        "y0": -0.4,
+        "x1": 0.25,
+        "y1": 2.1,
+        "color": "#ff7a45"
+       },
+       {
+        "type": "arrows",
+        "x0": 1.15,
+        "y0": 1.6,
+        "x1": 1.15,
+        "y1": -2.1,
+        "color": "#4fb3ff",
+        "delay": 10
+       }
+      ],
+      "cam": {
+       "x": 0.6,
+       "y": -0.4,
+       "dist": 12.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "sun",
+        "on": true
+       },
+       {
+        "type": "clock"
+       },
+       {
+        "type": "label",
+        "text": "10 °C",
+        "x": 0.5,
+        "y": 0.58
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -1.1,
+       "dist": 16
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "sun",
+        "on": false
+       },
+       {
+        "type": "shelf",
+        "x": 0.6,
+        "y": -2.5,
+        "w": 1.3,
+        "h": 1.7,
+        "rows": 3
+       }
+      ],
+      "cam": {
+       "x": 0.4,
+       "y": -1.9,
+       "dist": 10.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "label",
+        "text": "No power",
+        "x": 0.5,
+        "y": 0.3
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -0.6,
+       "dist": 18.5
+      }
+     }
+    ],
+    "stage": 2,
+    "dur": 110,
+    "delay": 2,
+    "t0": "auto",
+    "len": "auto"
+   },
+   "say": "You lay a gravel floor, so water drains away.",
+   "lead": 4,
+   "pad": 10,
+   "min": 100,
+   "captionPosition": "bottom",
+   "sfx": [
+    {
+     "file": "sfx/foley/gravel.mp3",
+     "at": 8,
+     "volume": 0.9
+    }
+   ]
+  },
+  {
+   "motion": "section-build-3d",
+   "props": {
+    "steps": [
+     {
+      "ops": [
+       {
+        "type": "dig",
+        "x": 0,
+        "w": 3.2,
+        "depth": 2.6
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -1,
+       "dist": 16.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": -1.52,
+        "y": -1.3,
+        "w": 0.16,
+        "h": 2.6,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "rise",
+        "color": "#cfc6b4"
+       },
+       {
+        "type": "box",
+        "x": 1.52,
+        "y": -1.3,
+        "w": 0.16,
+        "h": 2.6,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "rise",
+        "color": "#cfc6b4",
+        "delay": 10
+       },
+       {
+        "type": "box",
+        "x": 0,
+        "y": -1.3,
+        "w": 2.9,
+        "h": 2.6,
+        "d": 0.1,
+        "z": -3.1,
+        "anim": "rise",
+        "color": "#ddd4c2",
+        "delay": 20
+       }
+      ],
+      "cam": {
+       "x": 0.3,
+       "y": -1.5,
+       "dist": 13
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": 0,
+        "y": -2.55,
+        "w": 2.88,
+        "h": 0.1,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "grow",
+        "color": "#bdb4a3"
+       }
+      ],
+      "cam": {
+       "x": -0.2,
+       "y": -2,
+       "dist": 11
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": 0,
+        "y": 0.07,
+        "w": 3.7,
+        "h": 0.14,
+        "anim": "drop",
+        "color": "#b07a45"
+       },
+       {
+        "type": "box",
+        "x": 0,
+        "y": 0.34,
+        "w": 4.1,
+        "h": 0.4,
+        "anim": "drop",
+        "color": "#7a5030",
+        "delay": 22
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -0.7,
+       "dist": 15.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "ladder",
+        "x": -1.05,
+        "y0": -2.5,
+        "y1": 0.75
+       },
+       {
+        "type": "box",
+        "x": -1.05,
+        "y": 0.6,
+        "w": 0.9,
+        "h": 0.08,
+        "d": 0.9,
+        "anim": "fade",
+        "color": "#6b4a2f",
+        "delay": 24
+       }
+      ],
+      "cam": {
+       "x": -0.5,
+       "y": -1.3,
+       "dist": 12.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "person",
+        "x": -3.2,
+        "y": 0.55,
+        "toX": -0.5,
+        "toY": -2.5
+       }
+      ],
+      "cam": {
+       "x": -0.7,
+       "y": -1.9,
+       "dist": 10.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "pipe",
+        "x": 1.15,
+        "y0": -2.2,
+        "y1": 1.5,
+        "color": "#8d969c"
+       },
+       {
+        "type": "pipe",
+        "x": 0.25,
+        "y0": -0.15,
+        "y1": 1.9,
+        "color": "#8d969c",
+        "delay": 18
+       }
+      ],
+      "cam": {
+       "x": 0.5,
+       "y": -0.6,
+       "dist": 14.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "arrows",
+        "x0": 0.25,
+        "y0": -0.4,
+        "x1": 0.25,
+        "y1": 2.1,
+        "color": "#ff7a45"
+       },
+       {
+        "type": "arrows",
+        "x0": 1.15,
+        "y0": 1.6,
+        "x1": 1.15,
+        "y1": -2.1,
+        "color": "#4fb3ff",
+        "delay": 10
+       }
+      ],
+      "cam": {
+       "x": 0.6,
+       "y": -0.4,
+       "dist": 12.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "sun",
+        "on": true
+       },
+       {
+        "type": "clock"
+       },
+       {
+        "type": "label",
+        "text": "10 °C",
+        "x": 0.5,
+        "y": 0.58
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -1.1,
+       "dist": 16
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "sun",
+        "on": false
+       },
+       {
+        "type": "shelf",
+        "x": 0.6,
+        "y": -2.5,
+        "w": 1.3,
+        "h": 1.7,
+        "rows": 3
+       }
+      ],
+      "cam": {
+       "x": 0.4,
+       "y": -1.9,
+       "dist": 10.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "label",
+        "text": "No power",
+        "x": 0.5,
+        "y": 0.3
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -0.6,
+       "dist": 18.5
+      }
+     }
+    ],
+    "stage": 3,
+    "dur": 110,
+    "delay": 2,
+    "t0": "auto",
+    "len": "auto"
+   },
+   "say": "Then wooden beams, and a thick roof of dirt on top.",
+   "lead": 4,
+   "pad": 10,
+   "min": 100,
+   "captionPosition": "bottom",
+   "sfx": [
+    {
+     "file": "sfx/foley/wood-on-wood-thuds.mp3",
+     "at": 12,
+     "volume": 0.8
+    },
+    {
+     "file": "sfx/foley/mud02.mp3",
+     "at": 32,
+     "volume": 0.9
+    }
+   ]
+  },
+  {
+   "motion": "section-build-3d",
+   "props": {
+    "steps": [
+     {
+      "ops": [
+       {
+        "type": "dig",
+        "x": 0,
+        "w": 3.2,
+        "depth": 2.6
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -1,
+       "dist": 16.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": -1.52,
+        "y": -1.3,
+        "w": 0.16,
+        "h": 2.6,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "rise",
+        "color": "#cfc6b4"
+       },
+       {
+        "type": "box",
+        "x": 1.52,
+        "y": -1.3,
+        "w": 0.16,
+        "h": 2.6,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "rise",
+        "color": "#cfc6b4",
+        "delay": 10
+       },
+       {
+        "type": "box",
+        "x": 0,
+        "y": -1.3,
+        "w": 2.9,
+        "h": 2.6,
+        "d": 0.1,
+        "z": -3.1,
+        "anim": "rise",
+        "color": "#ddd4c2",
+        "delay": 20
+       }
+      ],
+      "cam": {
+       "x": 0.3,
+       "y": -1.5,
+       "dist": 13
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": 0,
+        "y": -2.55,
+        "w": 2.88,
+        "h": 0.1,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "grow",
+        "color": "#bdb4a3"
+       }
+      ],
+      "cam": {
+       "x": -0.2,
+       "y": -2,
+       "dist": 11
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": 0,
+        "y": 0.07,
+        "w": 3.7,
+        "h": 0.14,
+        "anim": "drop",
+        "color": "#b07a45"
+       },
+       {
+        "type": "box",
+        "x": 0,
+        "y": 0.34,
+        "w": 4.1,
+        "h": 0.4,
+        "anim": "drop",
+        "color": "#7a5030",
+        "delay": 22
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -0.7,
+       "dist": 15.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "ladder",
+        "x": -1.05,
+        "y0": -2.5,
+        "y1": 0.75
+       },
+       {
+        "type": "box",
+        "x": -1.05,
+        "y": 0.6,
+        "w": 0.9,
+        "h": 0.08,
+        "d": 0.9,
+        "anim": "fade",
+        "color": "#6b4a2f",
+        "delay": 24
+       }
+      ],
+      "cam": {
+       "x": -0.5,
+       "y": -1.3,
+       "dist": 12.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "person",
+        "x": -3.2,
+        "y": 0.55,
+        "toX": -0.5,
+        "toY": -2.5
+       }
+      ],
+      "cam": {
+       "x": -0.7,
+       "y": -1.9,
+       "dist": 10.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "pipe",
+        "x": 1.15,
+        "y0": -2.2,
+        "y1": 1.5,
+        "color": "#8d969c"
+       },
+       {
+        "type": "pipe",
+        "x": 0.25,
+        "y0": -0.15,
+        "y1": 1.9,
+        "color": "#8d969c",
+        "delay": 18
+       }
+      ],
+      "cam": {
+       "x": 0.5,
+       "y": -0.6,
+       "dist": 14.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "arrows",
+        "x0": 0.25,
+        "y0": -0.4,
+        "x1": 0.25,
+        "y1": 2.1,
+        "color": "#ff7a45"
+       },
+       {
+        "type": "arrows",
+        "x0": 1.15,
+        "y0": 1.6,
+        "x1": 1.15,
+        "y1": -2.1,
+        "color": "#4fb3ff",
+        "delay": 10
+       }
+      ],
+      "cam": {
+       "x": 0.6,
+       "y": -0.4,
+       "dist": 12.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "sun",
+        "on": true
+       },
+       {
+        "type": "clock"
+       },
+       {
+        "type": "label",
+        "text": "10 °C",
+        "x": 0.5,
+        "y": 0.58
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -1.1,
+       "dist": 16
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "sun",
+        "on": false
+       },
+       {
+        "type": "shelf",
+        "x": 0.6,
+        "y": -2.5,
+        "w": 1.3,
+        "h": 1.7,
+        "rows": 3
+       }
+      ],
+      "cam": {
+       "x": 0.4,
+       "y": -1.9,
+       "dist": 10.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "label",
+        "text": "No power",
+        "x": 0.5,
+        "y": 0.3
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -0.6,
+       "dist": 18.5
+      }
+     }
+    ],
+    "stage": 4,
+    "dur": 110,
+    "delay": 2,
+    "t0": "auto",
+    "len": "auto"
+   },
+   "say": "A ladder and a hatch, so you can get in.",
+   "lead": 4,
+   "pad": 10,
+   "min": 100,
+   "captionPosition": "bottom",
+   "sfx": [
+    {
+     "file": "sfx/foley/wood01.mp3",
+     "at": 8,
+     "volume": 0.8
+    },
+    {
+     "file": "sfx/foley/creak1.mp3",
+     "at": 30,
+     "volume": 0.7
+    },
+    {
+     "file": "sfx/foley/doorclose_1.mp3",
+     "at": 50,
+     "volume": 0.6
+    }
+   ]
+  },
+  {
+   "motion": "section-build-3d",
+   "props": {
+    "steps": [
+     {
+      "ops": [
+       {
+        "type": "dig",
+        "x": 0,
+        "w": 3.2,
+        "depth": 2.6
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -1,
+       "dist": 16.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": -1.52,
+        "y": -1.3,
+        "w": 0.16,
+        "h": 2.6,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "rise",
+        "color": "#cfc6b4"
+       },
+       {
+        "type": "box",
+        "x": 1.52,
+        "y": -1.3,
+        "w": 0.16,
+        "h": 2.6,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "rise",
+        "color": "#cfc6b4",
+        "delay": 10
+       },
+       {
+        "type": "box",
+        "x": 0,
+        "y": -1.3,
+        "w": 2.9,
+        "h": 2.6,
+        "d": 0.1,
+        "z": -3.1,
+        "anim": "rise",
+        "color": "#ddd4c2",
+        "delay": 20
+       }
+      ],
+      "cam": {
+       "x": 0.3,
+       "y": -1.5,
+       "dist": 13
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": 0,
+        "y": -2.55,
+        "w": 2.88,
+        "h": 0.1,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "grow",
+        "color": "#bdb4a3"
+       }
+      ],
+      "cam": {
+       "x": -0.2,
+       "y": -2,
+       "dist": 11
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": 0,
+        "y": 0.07,
+        "w": 3.7,
+        "h": 0.14,
+        "anim": "drop",
+        "color": "#b07a45"
+       },
+       {
+        "type": "box",
+        "x": 0,
+        "y": 0.34,
+        "w": 4.1,
+        "h": 0.4,
+        "anim": "drop",
+        "color": "#7a5030",
+        "delay": 22
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -0.7,
+       "dist": 15.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "ladder",
+        "x": -1.05,
+        "y0": -2.5,
+        "y1": 0.75
+       },
+       {
+        "type": "box",
+        "x": -1.05,
+        "y": 0.6,
+        "w": 0.9,
+        "h": 0.08,
+        "d": 0.9,
+        "anim": "fade",
+        "color": "#6b4a2f",
+        "delay": 24
+       }
+      ],
+      "cam": {
+       "x": -0.5,
+       "y": -1.3,
+       "dist": 12.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "person",
+        "x": -3.2,
+        "y": 0.55,
+        "toX": -0.5,
+        "toY": -2.5
+       }
+      ],
+      "cam": {
+       "x": -0.7,
+       "y": -1.9,
+       "dist": 10.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "pipe",
+        "x": 1.15,
+        "y0": -2.2,
+        "y1": 1.5,
+        "color": "#8d969c"
+       },
+       {
+        "type": "pipe",
+        "x": 0.25,
+        "y0": -0.15,
+        "y1": 1.9,
+        "color": "#8d969c",
+        "delay": 18
+       }
+      ],
+      "cam": {
+       "x": 0.5,
+       "y": -0.6,
+       "dist": 14.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "arrows",
+        "x0": 0.25,
+        "y0": -0.4,
+        "x1": 0.25,
+        "y1": 2.1,
+        "color": "#ff7a45"
+       },
+       {
+        "type": "arrows",
+        "x0": 1.15,
+        "y0": 1.6,
+        "x1": 1.15,
+        "y1": -2.1,
+        "color": "#4fb3ff",
+        "delay": 10
+       }
+      ],
+      "cam": {
+       "x": 0.6,
+       "y": -0.4,
+       "dist": 12.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "sun",
+        "on": true
+       },
+       {
+        "type": "clock"
+       },
+       {
+        "type": "label",
+        "text": "10 °C",
+        "x": 0.5,
+        "y": 0.58
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -1.1,
+       "dist": 16
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "sun",
+        "on": false
+       },
+       {
+        "type": "shelf",
+        "x": 0.6,
+        "y": -2.5,
+        "w": 1.3,
+        "h": 1.7,
+        "rows": 3
+       }
+      ],
+      "cam": {
+       "x": 0.4,
+       "y": -1.9,
+       "dist": 10.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "label",
+        "text": "No power",
+        "x": 0.5,
+        "y": 0.3
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -0.6,
+       "dist": 18.5
+      }
+     }
+    ],
+    "stage": 5,
+    "dur": 110,
+    "delay": 2,
+    "t0": "auto",
+    "len": "auto"
+   },
+   "say": "But down there, the air gets damp and stuffy.",
+   "lead": 4,
+   "pad": 10,
+   "min": 100,
+   "captionPosition": "bottom",
+   "sfx": [
+    {
+     "file": "sfx/foley/footstep02.mp3",
+     "at": 8,
+     "volume": 0.7
+    },
+    {
+     "file": "sfx/foley/footstep02.mp3",
+     "at": 22,
+     "volume": 0.6
+    },
+    {
+     "file": "sfx/foley/wood01.mp3",
+     "at": 44,
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "motion": "section-build-3d",
+   "props": {
+    "steps": [
+     {
+      "ops": [
+       {
+        "type": "dig",
+        "x": 0,
+        "w": 3.2,
+        "depth": 2.6
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -1,
+       "dist": 16.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": -1.52,
+        "y": -1.3,
+        "w": 0.16,
+        "h": 2.6,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "rise",
+        "color": "#cfc6b4"
+       },
+       {
+        "type": "box",
+        "x": 1.52,
+        "y": -1.3,
+        "w": 0.16,
+        "h": 2.6,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "rise",
+        "color": "#cfc6b4",
+        "delay": 10
+       },
+       {
+        "type": "box",
+        "x": 0,
+        "y": -1.3,
+        "w": 2.9,
+        "h": 2.6,
+        "d": 0.1,
+        "z": -3.1,
+        "anim": "rise",
+        "color": "#ddd4c2",
+        "delay": 20
+       }
+      ],
+      "cam": {
+       "x": 0.3,
+       "y": -1.5,
+       "dist": 13
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": 0,
+        "y": -2.55,
+        "w": 2.88,
+        "h": 0.1,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "grow",
+        "color": "#bdb4a3"
+       }
+      ],
+      "cam": {
+       "x": -0.2,
+       "y": -2,
+       "dist": 11
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": 0,
+        "y": 0.07,
+        "w": 3.7,
+        "h": 0.14,
+        "anim": "drop",
+        "color": "#b07a45"
+       },
+       {
+        "type": "box",
+        "x": 0,
+        "y": 0.34,
+        "w": 4.1,
+        "h": 0.4,
+        "anim": "drop",
+        "color": "#7a5030",
+        "delay": 22
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -0.7,
+       "dist": 15.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "ladder",
+        "x": -1.05,
+        "y0": -2.5,
+        "y1": 0.75
+       },
+       {
+        "type": "box",
+        "x": -1.05,
+        "y": 0.6,
+        "w": 0.9,
+        "h": 0.08,
+        "d": 0.9,
+        "anim": "fade",
+        "color": "#6b4a2f",
+        "delay": 24
+       }
+      ],
+      "cam": {
+       "x": -0.5,
+       "y": -1.3,
+       "dist": 12.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "person",
+        "x": -3.2,
+        "y": 0.55,
+        "toX": -0.5,
+        "toY": -2.5
+       }
+      ],
+      "cam": {
+       "x": -0.7,
+       "y": -1.9,
+       "dist": 10.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "pipe",
+        "x": 1.15,
+        "y0": -2.2,
+        "y1": 1.5,
+        "color": "#8d969c"
+       },
+       {
+        "type": "pipe",
+        "x": 0.25,
+        "y0": -0.15,
+        "y1": 1.9,
+        "color": "#8d969c",
+        "delay": 18
+       }
+      ],
+      "cam": {
+       "x": 0.5,
+       "y": -0.6,
+       "dist": 14.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "arrows",
+        "x0": 0.25,
+        "y0": -0.4,
+        "x1": 0.25,
+        "y1": 2.1,
+        "color": "#ff7a45"
+       },
+       {
+        "type": "arrows",
+        "x0": 1.15,
+        "y0": 1.6,
+        "x1": 1.15,
+        "y1": -2.1,
+        "color": "#4fb3ff",
+        "delay": 10
+       }
+      ],
+      "cam": {
+       "x": 0.6,
+       "y": -0.4,
+       "dist": 12.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "sun",
+        "on": true
+       },
+       {
+        "type": "clock"
+       },
+       {
+        "type": "label",
+        "text": "10 °C",
+        "x": 0.5,
+        "y": 0.58
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -1.1,
+       "dist": 16
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "sun",
+        "on": false
+       },
+       {
+        "type": "shelf",
+        "x": 0.6,
+        "y": -2.5,
+        "w": 1.3,
+        "h": 1.7,
+        "rows": 3
+       }
+      ],
+      "cam": {
+       "x": 0.4,
+       "y": -1.9,
+       "dist": 10.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "label",
+        "text": "No power",
+        "x": 0.5,
+        "y": 0.3
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -0.6,
+       "dist": 18.5
+      }
+     }
+    ],
+    "stage": 6,
+    "dur": 110,
+    "delay": 2,
+    "t0": "auto",
+    "len": "auto"
+   },
+   "say": "So you run one pipe down low, and one up high.",
+   "lead": 4,
+   "pad": 10,
+   "min": 100,
+   "captionPosition": "bottom",
+   "sfx": [
+    {
+     "file": "sfx/foley/metal-clatter.mp3",
+     "at": 8,
+     "volume": 0.6
+    },
+    {
+     "file": "sfx/foley/metal-drop.mp3",
+     "at": 30,
+     "volume": 0.5
+    }
+   ]
+  },
+  {
+   "motion": "section-build-3d",
+   "props": {
+    "steps": [
+     {
+      "ops": [
+       {
+        "type": "dig",
+        "x": 0,
+        "w": 3.2,
+        "depth": 2.6
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -1,
+       "dist": 16.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": -1.52,
+        "y": -1.3,
+        "w": 0.16,
+        "h": 2.6,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "rise",
+        "color": "#cfc6b4"
+       },
+       {
+        "type": "box",
+        "x": 1.52,
+        "y": -1.3,
+        "w": 0.16,
+        "h": 2.6,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "rise",
+        "color": "#cfc6b4",
+        "delay": 10
+       },
+       {
+        "type": "box",
+        "x": 0,
+        "y": -1.3,
+        "w": 2.9,
+        "h": 2.6,
+        "d": 0.1,
+        "z": -3.1,
+        "anim": "rise",
+        "color": "#ddd4c2",
+        "delay": 20
+       }
+      ],
+      "cam": {
+       "x": 0.3,
+       "y": -1.5,
+       "dist": 13
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": 0,
+        "y": -2.55,
+        "w": 2.88,
+        "h": 0.1,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "grow",
+        "color": "#bdb4a3"
+       }
+      ],
+      "cam": {
+       "x": -0.2,
+       "y": -2,
+       "dist": 11
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": 0,
+        "y": 0.07,
+        "w": 3.7,
+        "h": 0.14,
+        "anim": "drop",
+        "color": "#b07a45"
+       },
+       {
+        "type": "box",
+        "x": 0,
+        "y": 0.34,
+        "w": 4.1,
+        "h": 0.4,
+        "anim": "drop",
+        "color": "#7a5030",
+        "delay": 22
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -0.7,
+       "dist": 15.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "ladder",
+        "x": -1.05,
+        "y0": -2.5,
+        "y1": 0.75
+       },
+       {
+        "type": "box",
+        "x": -1.05,
+        "y": 0.6,
+        "w": 0.9,
+        "h": 0.08,
+        "d": 0.9,
+        "anim": "fade",
+        "color": "#6b4a2f",
+        "delay": 24
+       }
+      ],
+      "cam": {
+       "x": -0.5,
+       "y": -1.3,
+       "dist": 12.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "person",
+        "x": -3.2,
+        "y": 0.55,
+        "toX": -0.5,
+        "toY": -2.5
+       }
+      ],
+      "cam": {
+       "x": -0.7,
+       "y": -1.9,
+       "dist": 10.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "pipe",
+        "x": 1.15,
+        "y0": -2.2,
+        "y1": 1.5,
+        "color": "#8d969c"
+       },
+       {
+        "type": "pipe",
+        "x": 0.25,
+        "y0": -0.15,
+        "y1": 1.9,
+        "color": "#8d969c",
+        "delay": 18
+       }
+      ],
+      "cam": {
+       "x": 0.5,
+       "y": -0.6,
+       "dist": 14.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "arrows",
+        "x0": 0.25,
+        "y0": -0.4,
+        "x1": 0.25,
+        "y1": 2.1,
+        "color": "#ff7a45"
+       },
+       {
+        "type": "arrows",
+        "x0": 1.15,
+        "y0": 1.6,
+        "x1": 1.15,
+        "y1": -2.1,
+        "color": "#4fb3ff",
+        "delay": 10
+       }
+      ],
+      "cam": {
+       "x": 0.6,
+       "y": -0.4,
+       "dist": 12.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "sun",
+        "on": true
+       },
+       {
+        "type": "clock"
+       },
+       {
+        "type": "label",
+        "text": "10 °C",
+        "x": 0.5,
+        "y": 0.58
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -1.1,
+       "dist": 16
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "sun",
+        "on": false
+       },
+       {
+        "type": "shelf",
+        "x": 0.6,
+        "y": -2.5,
+        "w": 1.3,
+        "h": 1.7,
+        "rows": 3
+       }
+      ],
+      "cam": {
+       "x": 0.4,
+       "y": -1.9,
+       "dist": 10.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "label",
+        "text": "No power",
+        "x": 0.5,
+        "y": 0.3
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -0.6,
+       "dist": 18.5
+      }
+     }
+    ],
+    "stage": 7,
+    "dur": 110,
+    "delay": 2,
+    "t0": "auto",
+    "len": "auto"
+   },
+   "say": "Warm air rises out the top. Cool air sinks in.",
+   "lead": 4,
+   "pad": 10,
+   "min": 100,
+   "captionPosition": "bottom",
+   "sfx": []
+  },
+  {
+   "motion": "section-build-3d",
+   "props": {
+    "steps": [
+     {
+      "ops": [
+       {
+        "type": "dig",
+        "x": 0,
+        "w": 3.2,
+        "depth": 2.6
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -1,
+       "dist": 16.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": -1.52,
+        "y": -1.3,
+        "w": 0.16,
+        "h": 2.6,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "rise",
+        "color": "#cfc6b4"
+       },
+       {
+        "type": "box",
+        "x": 1.52,
+        "y": -1.3,
+        "w": 0.16,
+        "h": 2.6,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "rise",
+        "color": "#cfc6b4",
+        "delay": 10
+       },
+       {
+        "type": "box",
+        "x": 0,
+        "y": -1.3,
+        "w": 2.9,
+        "h": 2.6,
+        "d": 0.1,
+        "z": -3.1,
+        "anim": "rise",
+        "color": "#ddd4c2",
+        "delay": 20
+       }
+      ],
+      "cam": {
+       "x": 0.3,
+       "y": -1.5,
+       "dist": 13
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": 0,
+        "y": -2.55,
+        "w": 2.88,
+        "h": 0.1,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "grow",
+        "color": "#bdb4a3"
+       }
+      ],
+      "cam": {
+       "x": -0.2,
+       "y": -2,
+       "dist": 11
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": 0,
+        "y": 0.07,
+        "w": 3.7,
+        "h": 0.14,
+        "anim": "drop",
+        "color": "#b07a45"
+       },
+       {
+        "type": "box",
+        "x": 0,
+        "y": 0.34,
+        "w": 4.1,
+        "h": 0.4,
+        "anim": "drop",
+        "color": "#7a5030",
+        "delay": 22
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -0.7,
+       "dist": 15.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "ladder",
+        "x": -1.05,
+        "y0": -2.5,
+        "y1": 0.75
+       },
+       {
+        "type": "box",
+        "x": -1.05,
+        "y": 0.6,
+        "w": 0.9,
+        "h": 0.08,
+        "d": 0.9,
+        "anim": "fade",
+        "color": "#6b4a2f",
+        "delay": 24
+       }
+      ],
+      "cam": {
+       "x": -0.5,
+       "y": -1.3,
+       "dist": 12.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "person",
+        "x": -3.2,
+        "y": 0.55,
+        "toX": -0.5,
+        "toY": -2.5
+       }
+      ],
+      "cam": {
+       "x": -0.7,
+       "y": -1.9,
+       "dist": 10.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "pipe",
+        "x": 1.15,
+        "y0": -2.2,
+        "y1": 1.5,
+        "color": "#8d969c"
+       },
+       {
+        "type": "pipe",
+        "x": 0.25,
+        "y0": -0.15,
+        "y1": 1.9,
+        "color": "#8d969c",
+        "delay": 18
+       }
+      ],
+      "cam": {
+       "x": 0.5,
+       "y": -0.6,
+       "dist": 14.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "arrows",
+        "x0": 0.25,
+        "y0": -0.4,
+        "x1": 0.25,
+        "y1": 2.1,
+        "color": "#ff7a45"
+       },
+       {
+        "type": "arrows",
+        "x0": 1.15,
+        "y0": 1.6,
+        "x1": 1.15,
+        "y1": -2.1,
+        "color": "#4fb3ff",
+        "delay": 10
+       }
+      ],
+      "cam": {
+       "x": 0.6,
+       "y": -0.4,
+       "dist": 12.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "sun",
+        "on": true
+       },
+       {
+        "type": "clock"
+       },
+       {
+        "type": "label",
+        "text": "10 °C",
+        "x": 0.5,
+        "y": 0.58
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -1.1,
+       "dist": 16
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "sun",
+        "on": false
+       },
+       {
+        "type": "shelf",
+        "x": 0.6,
+        "y": -2.5,
+        "w": 1.3,
+        "h": 1.7,
+        "rows": 3
+       }
+      ],
+      "cam": {
+       "x": 0.4,
+       "y": -1.9,
+       "dist": 10.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "label",
+        "text": "No power",
+        "x": 0.5,
+        "y": 0.3
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -0.6,
+       "dist": 18.5
+      }
+     }
+    ],
+    "stage": 8,
+    "dur": 110,
+    "delay": 2,
+    "t0": "auto",
+    "len": "auto"
+   },
+   "say": "Now it stays cool all year, even in the summer.",
+   "lead": 4,
+   "pad": 10,
+   "min": 100,
+   "captionPosition": "bottom",
+   "sfx": []
+  },
+  {
+   "motion": "section-build-3d",
+   "props": {
+    "steps": [
+     {
+      "ops": [
+       {
+        "type": "dig",
+        "x": 0,
+        "w": 3.2,
+        "depth": 2.6
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -1,
+       "dist": 16.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": -1.52,
+        "y": -1.3,
+        "w": 0.16,
+        "h": 2.6,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "rise",
+        "color": "#cfc6b4"
+       },
+       {
+        "type": "box",
+        "x": 1.52,
+        "y": -1.3,
+        "w": 0.16,
+        "h": 2.6,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "rise",
+        "color": "#cfc6b4",
+        "delay": 10
+       },
+       {
+        "type": "box",
+        "x": 0,
+        "y": -1.3,
+        "w": 2.9,
+        "h": 2.6,
+        "d": 0.1,
+        "z": -3.1,
+        "anim": "rise",
+        "color": "#ddd4c2",
+        "delay": 20
+       }
+      ],
+      "cam": {
+       "x": 0.3,
+       "y": -1.5,
+       "dist": 13
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": 0,
+        "y": -2.55,
+        "w": 2.88,
+        "h": 0.1,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "grow",
+        "color": "#bdb4a3"
+       }
+      ],
+      "cam": {
+       "x": -0.2,
+       "y": -2,
+       "dist": 11
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": 0,
+        "y": 0.07,
+        "w": 3.7,
+        "h": 0.14,
+        "anim": "drop",
+        "color": "#b07a45"
+       },
+       {
+        "type": "box",
+        "x": 0,
+        "y": 0.34,
+        "w": 4.1,
+        "h": 0.4,
+        "anim": "drop",
+        "color": "#7a5030",
+        "delay": 22
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -0.7,
+       "dist": 15.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "ladder",
+        "x": -1.05,
+        "y0": -2.5,
+        "y1": 0.75
+       },
+       {
+        "type": "box",
+        "x": -1.05,
+        "y": 0.6,
+        "w": 0.9,
+        "h": 0.08,
+        "d": 0.9,
+        "anim": "fade",
+        "color": "#6b4a2f",
+        "delay": 24
+       }
+      ],
+      "cam": {
+       "x": -0.5,
+       "y": -1.3,
+       "dist": 12.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "person",
+        "x": -3.2,
+        "y": 0.55,
+        "toX": -0.5,
+        "toY": -2.5
+       }
+      ],
+      "cam": {
+       "x": -0.7,
+       "y": -1.9,
+       "dist": 10.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "pipe",
+        "x": 1.15,
+        "y0": -2.2,
+        "y1": 1.5,
+        "color": "#8d969c"
+       },
+       {
+        "type": "pipe",
+        "x": 0.25,
+        "y0": -0.15,
+        "y1": 1.9,
+        "color": "#8d969c",
+        "delay": 18
+       }
+      ],
+      "cam": {
+       "x": 0.5,
+       "y": -0.6,
+       "dist": 14.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "arrows",
+        "x0": 0.25,
+        "y0": -0.4,
+        "x1": 0.25,
+        "y1": 2.1,
+        "color": "#ff7a45"
+       },
+       {
+        "type": "arrows",
+        "x0": 1.15,
+        "y0": 1.6,
+        "x1": 1.15,
+        "y1": -2.1,
+        "color": "#4fb3ff",
+        "delay": 10
+       }
+      ],
+      "cam": {
+       "x": 0.6,
+       "y": -0.4,
+       "dist": 12.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "sun",
+        "on": true
+       },
+       {
+        "type": "clock"
+       },
+       {
+        "type": "label",
+        "text": "10 °C",
+        "x": 0.5,
+        "y": 0.58
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -1.1,
+       "dist": 16
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "sun",
+        "on": false
+       },
+       {
+        "type": "shelf",
+        "x": 0.6,
+        "y": -2.5,
+        "w": 1.3,
+        "h": 1.7,
+        "rows": 3
+       }
+      ],
+      "cam": {
+       "x": 0.4,
+       "y": -1.9,
+       "dist": 10.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "label",
+        "text": "No power",
+        "x": 0.5,
+        "y": 0.3
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -0.6,
+       "dist": 18.5
+      }
+     }
+    ],
+    "stage": 9,
+    "dur": 110,
+    "delay": 2,
+    "t0": "auto",
+    "len": "auto"
+   },
+   "say": "You fill the shelves with potatoes, carrots and apples.",
+   "lead": 4,
+   "pad": 10,
+   "min": 100,
+   "captionPosition": "bottom",
+   "sfx": [
+    {
+     "file": "sfx/foley/wood-clap.mp3",
+     "at": 10,
+     "volume": 0.6
+    },
+    {
+     "file": "sfx/foley/wood-hammering.mp3",
+     "at": 20,
+     "volume": 0.25
+    }
+   ]
+  },
+  {
+   "motion": "section-build-3d",
+   "props": {
+    "steps": [
+     {
+      "ops": [
+       {
+        "type": "dig",
+        "x": 0,
+        "w": 3.2,
+        "depth": 2.6
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -1,
+       "dist": 16.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": -1.52,
+        "y": -1.3,
+        "w": 0.16,
+        "h": 2.6,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "rise",
+        "color": "#cfc6b4"
+       },
+       {
+        "type": "box",
+        "x": 1.52,
+        "y": -1.3,
+        "w": 0.16,
+        "h": 2.6,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "rise",
+        "color": "#cfc6b4",
+        "delay": 10
+       },
+       {
+        "type": "box",
+        "x": 0,
+        "y": -1.3,
+        "w": 2.9,
+        "h": 2.6,
+        "d": 0.1,
+        "z": -3.1,
+        "anim": "rise",
+        "color": "#ddd4c2",
+        "delay": 20
+       }
+      ],
+      "cam": {
+       "x": 0.3,
+       "y": -1.5,
+       "dist": 13
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": 0,
+        "y": -2.55,
+        "w": 2.88,
+        "h": 0.1,
+        "d": 3.1,
+        "z": -1.6,
+        "anim": "grow",
+        "color": "#bdb4a3"
+       }
+      ],
+      "cam": {
+       "x": -0.2,
+       "y": -2,
+       "dist": 11
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": 0,
+        "y": 0.07,
+        "w": 3.7,
+        "h": 0.14,
+        "anim": "drop",
+        "color": "#b07a45"
+       },
+       {
+        "type": "box",
+        "x": 0,
+        "y": 0.34,
+        "w": 4.1,
+        "h": 0.4,
+        "anim": "drop",
+        "color": "#7a5030",
+        "delay": 22
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -0.7,
+       "dist": 15.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "ladder",
+        "x": -1.05,
+        "y0": -2.5,
+        "y1": 0.75
+       },
+       {
+        "type": "box",
+        "x": -1.05,
+        "y": 0.6,
+        "w": 0.9,
+        "h": 0.08,
+        "d": 0.9,
+        "anim": "fade",
+        "color": "#6b4a2f",
+        "delay": 24
+       }
+      ],
+      "cam": {
+       "x": -0.5,
+       "y": -1.3,
+       "dist": 12.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "person",
+        "x": -3.2,
+        "y": 0.55,
+        "toX": -0.5,
+        "toY": -2.5
+       }
+      ],
+      "cam": {
+       "x": -0.7,
+       "y": -1.9,
+       "dist": 10.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "pipe",
+        "x": 1.15,
+        "y0": -2.2,
+        "y1": 1.5,
+        "color": "#8d969c"
+       },
+       {
+        "type": "pipe",
+        "x": 0.25,
+        "y0": -0.15,
+        "y1": 1.9,
+        "color": "#8d969c",
+        "delay": 18
+       }
+      ],
+      "cam": {
+       "x": 0.5,
+       "y": -0.6,
+       "dist": 14.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "arrows",
+        "x0": 0.25,
+        "y0": -0.4,
+        "x1": 0.25,
+        "y1": 2.1,
+        "color": "#ff7a45"
+       },
+       {
+        "type": "arrows",
+        "x0": 1.15,
+        "y0": 1.6,
+        "x1": 1.15,
+        "y1": -2.1,
+        "color": "#4fb3ff",
+        "delay": 10
+       }
+      ],
+      "cam": {
+       "x": 0.6,
+       "y": -0.4,
+       "dist": 12.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "sun",
+        "on": true
+       },
+       {
+        "type": "clock"
+       },
+       {
+        "type": "label",
+        "text": "10 °C",
+        "x": 0.5,
+        "y": 0.58
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -1.1,
+       "dist": 16
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "sun",
+        "on": false
+       },
+       {
+        "type": "shelf",
+        "x": 0.6,
+        "y": -2.5,
+        "w": 1.3,
+        "h": 1.7,
+        "rows": 3
+       }
+      ],
+      "cam": {
+       "x": 0.4,
+       "y": -1.9,
+       "dist": 10.5
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "label",
+        "text": "No power",
+        "x": 0.5,
+        "y": 0.3
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -0.6,
+       "dist": 18.5
+      }
+     }
+    ],
+    "stage": 10,
+    "dur": 110,
+    "delay": 2,
+    "t0": "auto",
+    "len": "auto"
+   },
+   "say": "And they last for months. No fridge. No power.",
+   "lead": 4,
+   "pad": 10,
+   "min": 100,
+   "captionPosition": "bottom",
+   "sfx": []
+  }
+ ]
+}

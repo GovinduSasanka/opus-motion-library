@@ -30,6 +30,10 @@ model = Qwen3TTSModel.from_pretrained(model_name, device_map="cuda:0" if torch.c
 for item in todo:
     torch.manual_seed(seed)
     direction = " ".join(x for x in [style, item.get("say", "")] if x).strip()
-    wavs, sr = model.generate_custom_voice(text=item["text"], language="English", speaker=speaker, instruct=direction or None)
+    lang = os.environ.get("VOICE_LANG", "English")
+    if "VoiceDesign" in model_name:  # non-English: a described native narrator sounds far more natural than a preset speaker
+        wavs, sr = model.generate_voice_design(text=item["text"], instruct=direction, language=lang)
+    else:
+        wavs, sr = model.generate_custom_voice(text=item["text"], language=lang, speaker=speaker, instruct=direction or None)
     sf.write(str(out / f"{item['id']}.wav"), wavs[0], sr)
     print(f"voice {item['id']}: {len(wavs[0]) / sr:.2f}s", flush=True)

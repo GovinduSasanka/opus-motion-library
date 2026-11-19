@@ -368,6 +368,16 @@ export const motionMeta: Record<string, MotionMetaLite> = {
   ],
   "weight": "heavy"
  },
+ "section-build-3d": {
+  "overlay": false,
+  "overlayProps": null,
+  "loopable": false,
+  "bestLength": 120,
+  "roles": [
+   "subject"
+  ],
+  "weight": "heavy"
+ },
  "shockwave-flip-field": {
   "overlay": false,
   "overlayProps": null,

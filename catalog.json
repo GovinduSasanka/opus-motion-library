@@ -5158,6 +5158,168 @@
   }
  },
  {
+  "id": "section-build-3d",
+  "title": "Section build (3D cross-section diorama)",
+  "category": "3d",
+  "description": "A side cut-away of the ground under a backyard (house, trees, fence behind) where a build happens step by step in one continuous shot: a hole is dug with a dirt pile, walls rise, beams drop, ladders and pipes grow, air arrows flow, shelves fill with produce, a little person walks and climbs, a clock spins for time passing. One storyboard scene per step with the same steps and an increasing stage.",
+  "useFor": "Survival, DIY and \"how a hole becomes a bunker / cellar / shelter\" explainers; any step-by-step build told under the ground.",
+  "source": [
+   "survival / build Shorts (Hasta Que Funcione 31M, 2026-11-20 reverse-engineering; original build, three.js)"
+  ],
+  "durationInFrames": 120,
+  "tags": [
+   "3d",
+   "three.js",
+   "cross-section",
+   "cutaway",
+   "diorama",
+   "build",
+   "bunker",
+   "cellar",
+   "survival",
+   "dig",
+   "underground",
+   "explainer",
+   "shorts"
+  ],
+  "file": "src/motions/3d/section-build-3d.tsx",
+  "overlay": false,
+  "overlayProps": null,
+  "takesImage": false,
+  "imageProps": [],
+  "takesText": false,
+  "textProps": [],
+  "colorProps": [
+   "sky",
+   "sky2",
+   "soil",
+   "soil2",
+   "grass",
+   "houseColor",
+   "roofColor"
+  ],
+  "loopable": false,
+  "bestLength": 120,
+  "mood": [
+   "3d"
+  ],
+  "roles": [
+   "subject"
+  ],
+  "weight": "heavy",
+  "formats": [
+   "landscape",
+   "square",
+   "portrait"
+  ],
+  "pairsWith": [],
+  "props": {
+   "steps": {
+    "default": [
+     {
+      "ops": [
+       {
+        "type": "dig",
+        "x": 0,
+        "w": 3.2,
+        "depth": 2.6
+       }
+      ],
+      "cam": {
+       "x": 0,
+       "y": -1.6,
+       "dist": 15
+      }
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": -1.55,
+        "y": -1.3,
+        "w": 0.18,
+        "h": 2.6,
+        "anim": "rise",
+        "color": "#9a958c"
+       },
+       {
+        "type": "box",
+        "x": 1.55,
+        "y": -1.3,
+        "w": 0.18,
+        "h": 2.6,
+        "anim": "rise",
+        "color": "#9a958c",
+        "delay": 8
+       }
+      ]
+     },
+     {
+      "ops": [
+       {
+        "type": "box",
+        "x": 0,
+        "y": 0.08,
+        "w": 3.6,
+        "h": 0.16,
+        "anim": "drop",
+        "color": "#b07a45"
+       },
+       {
+        "type": "ladder",
+        "x": -1.1,
+        "y0": -2.6,
+        "y1": 0.4,
+        "delay": 10
+       }
+      ]
+     }
+    ],
+    "doc": "build steps: [{ops: [...], cam?: {x, y, dist}}]; op types: dig, box (anim drop|rise|slide|grow|fade), pipe, ladder, person, arrows, shelf, sun, clock, label"
+   },
+   "stage": {
+    "default": 2,
+    "doc": "index of the step that animates in this scene (earlier steps are already built)"
+   },
+   "dur": {
+    "default": 50,
+    "doc": "frames the current step takes to animate"
+   },
+   "delay": {
+    "default": 6,
+    "doc": "frames before the current step starts"
+   },
+   "sky": {
+    "default": "#8fc3ef",
+    "doc": "sky colour (top)"
+   },
+   "sky2": {
+    "default": "#dcefff",
+    "doc": "sky colour (horizon)"
+   },
+   "soil": {
+    "default": "#8a5a33",
+    "doc": "soil colour (light)"
+   },
+   "soil2": {
+    "default": "#5e3a1f",
+    "doc": "soil colour (dark)"
+   },
+   "grass": {
+    "default": "#5fae45",
+    "doc": "grass colour"
+   },
+   "houseColor": {
+    "default": "#e9e2d4",
+    "doc": "house wall colour"
+   },
+   "roofColor": {
+    "default": "#8c4a3a",
+    "doc": "roof colour"
+   }
+  }
+ },
+ {
   "id": "shockwave-flip-field",
   "title": "Shockwave flip field",
   "category": "3d",

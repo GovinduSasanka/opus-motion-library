@@ -6,6 +6,7 @@ Usage: voice-check.py <voice_dir> [model]   (needs lines.json written by cli/dir
 """
 import difflib
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -14,13 +15,13 @@ import whisper
 
 d = Path(sys.argv[1])
 model = whisper.load_model(sys.argv[2] if len(sys.argv) > 2 else "small")
-norm = lambda s: re.sub(r"[^a-z0-9 ]", "", s.lower().replace("-", " "))
+norm = lambda s: re.sub(r"[^\w ]", "", s.lower().replace("-", " "))  # \w keeps ä ö ü ß and other letters
 bad = []
 for item in json.loads((d / "lines.json").read_text(encoding="utf-8")):
     wav = d / f"{item['id']}.wav"
     if not wav.exists():
         continue
-    res = model.transcribe(str(wav), language="en", fp16=False, word_timestamps=True)
+    res = model.transcribe(str(wav), language=os.environ.get("WHISPER_LANG", "en"), fp16=False, word_timestamps=True)
     heard = res["text"].strip()
     words = [{"word": w["word"].strip(), "start": round(w["start"], 3), "end": round(w["end"], 3)} for seg in res["segments"] for w in seg.get("words", [])]
     (d / f"{item['id']}.words.json").write_text(json.dumps({"text": item["text"], "words": words}), encoding="utf-8")
